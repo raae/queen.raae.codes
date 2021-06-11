@@ -17,7 +17,7 @@ const IndexPage = () => {
       <Badge>Coming soon (maybe&hellip;)</Badge>
       <Box my="5">
         <h1>
-          Queen @Raae's Summer of Functions <br />
+          Queen @Raae's Summer Functions <br />
         </h1>
         <h2>
           — learn functions by adding some fun features to your own personal
@@ -32,7 +32,7 @@ const IndexPage = () => {
           hopefully a bunch of other pirates this summer and level up your web
           dev knowledge with{" "}
           <a href="https://www.gatsbyjs.com/products/cloud/functions/">
-            Gatsby Function
+            Gatsby Functions
           </a>
           .{" "}
         </Message>
