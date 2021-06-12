@@ -10,6 +10,7 @@ module.exports = {
         preset: "@theme-ui/preset-swiss",
       },
     },
+    "gatsby-theme-style-guide",
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",

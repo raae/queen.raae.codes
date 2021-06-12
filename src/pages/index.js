@@ -1,14 +1,7 @@
 import React from "react";
 import { PageLayout } from "../components/PageLayout";
-import { Box, Badge, Message, Progress } from "@theme-ui/components";
-import ConvertKitForm from "convertkit-react";
-
-const CK_CONFIG = {
-  formId: 2356081,
-  emailPlaceholder: "Your best email address",
-  submitText: "Sign up",
-  newTab: true,
-};
+import { Box, Badge, Message, Progress } from "theme-ui";
+import { NewsletterForm } from "../components/NewsletterForm";
 
 // markup
 const IndexPage = () => {
@@ -48,7 +41,7 @@ const IndexPage = () => {
             👇
           </span>{" "}
         </p>
-        <ConvertKitForm {...CK_CONFIG} />
+        <NewsletterForm />
       </Box>
       <Progress max={1} value={1 / 10}>
         10%
