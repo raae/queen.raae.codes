@@ -8,6 +8,8 @@ const makeAlertMessage = (status) => {
       return "Ojsann, something went wrong...";
     case "success":
       return "Check your inbox and make sure to hit that confirm button...";
+    case "pending":
+      return "Awaiting the matrix...";
 
     default:
       return "";
