@@ -24,5 +24,12 @@ module.exports = {
       __key: "images",
     },
     "gatsby-plugin-netlify",
+    {
+      resolve: `@raae/gatsby-plugin-fathom`,
+      options: {
+        site: "DIFBAEOT",
+        includedDomains: "queen.raae.codes",
+      },
+    },
   ],
 };
