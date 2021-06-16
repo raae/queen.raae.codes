@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 
 export const PageLayout = ({ children }) => {
   return (
-    <Container as="main" p={4} sx={{ maxWidth: 800 }}>
+    <Container as="main" p={4}>
       <Helmet>
         <link
           rel="icon"
