@@ -186,8 +186,8 @@ const IndexPage = () => {
       <PricingTable sx={{ maxWidth: 960 }} />
       <Paragraph my="5" sx={{ textAlign: "center" }}>
         <strong>Other Questions?</strong>
-        <br /> Direct message <a href="https://twitter.com/raae">@raae</a> or
-        send an email to <a href="mailto:queen@raae.codes">queen@raae.codes</a>.
+        <br />
+        Send an email to <a href="mailto:queen@raae.codes">queen@raae.codes</a>.
       </Paragraph>
 
       <NewsletterForm mt="6" sx={{ textAlign: "center", maxWidth: 600 }}>
