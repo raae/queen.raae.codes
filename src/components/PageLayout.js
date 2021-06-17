@@ -1,10 +1,10 @@
 import React from "react";
-import { Container } from "@theme-ui/components";
+import { Box, BaseStyles } from "theme-ui";
 import { Helmet } from "react-helmet";
 
 export const PageLayout = ({ children }) => {
   return (
-    <Container as="main" p={4}>
+    <Box as="main" p={4} pb={7}>
       <Helmet>
         <link
           rel="icon"
@@ -12,8 +12,7 @@ export const PageLayout = ({ children }) => {
         ></link>
         <title>Queen @raae's Code School</title>
       </Helmet>
-
-      {children}
-    </Container>
+      <BaseStyles>{children}</BaseStyles>
+    </Box>
   );
 };

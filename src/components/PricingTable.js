@@ -1,15 +1,21 @@
 import React from "react";
-import { Grid, Box, Button, Heading, Paragraph, Container } from "theme-ui";
+import { Link as GatsbyLink } from "gatsby";
+import {
+  Grid,
+  Box,
+  Button,
+  Heading,
+  Paragraph,
+  Container,
+  Link,
+} from "theme-ui";
 
 export const PricingTable = (props) => {
   return (
     <Container as="section" {...props}>
       <Grid columns={3}>
         <Box>
-          <Heading
-            as="h2"
-            sx={{ fontWeight: "900 !important", marginBottom: 3 }}
-          >
+          <Heading as="h2" mb="3" sx={{ fontWeight: "900 !important" }}>
             Basic
           </Heading>
 
@@ -22,7 +28,7 @@ export const PricingTable = (props) => {
               <span role="img" aria-label="Includes">
                 ✅
               </span>
-              &nbsp; 5 Challenges and Possible Solutions
+              &nbsp; 5 Challenges and Solutions
             </li>
             <li>
               <span role="img" aria-label="Includes">
@@ -34,7 +40,7 @@ export const PricingTable = (props) => {
               <span role="img" aria-label="Does not includes">
                 ❌
               </span>
-              &nbsp; 5 Group Coaching
+              &nbsp; 5 Group Coaching Sessions
             </li>
             <li>
               <span role="img" aria-label="Does not includes">
@@ -52,10 +58,7 @@ export const PricingTable = (props) => {
           </Button>
         </Box>
         <Box>
-          <Heading
-            as="h2"
-            sx={{ fontWeight: "900 !important", marginBottom: 3 }}
-          >
+          <Heading as="h2" mb="3" sx={{ fontWeight: "900 !important" }}>
             Standard
           </Heading>
           <Box
@@ -67,7 +70,7 @@ export const PricingTable = (props) => {
               <span role="img" aria-label="Includes">
                 ✅
               </span>
-              &nbsp; 5 Challenges and Possible Solutions
+              &nbsp; 5 Challenges and Solutions
             </li>
             <li>
               <span role="img" aria-label="Includes">
@@ -79,7 +82,7 @@ export const PricingTable = (props) => {
               <span role="img" aria-label="Does not includes">
                 ✅
               </span>
-              &nbsp; 5 Group Coaching
+              &nbsp; 5 Group Coaching Sessions
             </li>
             <li>
               <span role="img" aria-label="Does not includes">
@@ -97,10 +100,7 @@ export const PricingTable = (props) => {
           </Button>
         </Box>
         <Box>
-          <Heading
-            as="h2"
-            sx={{ fontWeight: "900 !important", marginBottom: 3 }}
-          >
+          <Heading as="h2" mb="3" sx={{ fontWeight: "900 !important" }}>
             Royal
           </Heading>
           <Box
@@ -112,7 +112,7 @@ export const PricingTable = (props) => {
               <span role="img" aria-label="Includes">
                 ✅
               </span>
-              &nbsp; 5 Challenges and Possible Solutions
+              &nbsp; 5 Challenges and Solutions
             </li>
             <li>
               <span role="img" aria-label="Includes">
@@ -124,7 +124,7 @@ export const PricingTable = (props) => {
               <span role="img" aria-label="Does not includes">
                 ✅
               </span>
-              &nbsp; 5 Group Coaching
+              &nbsp; 5 Group Coaching Sessions
             </li>
             <li>
               <span role="img" aria-label="Does not includes">
@@ -144,8 +144,26 @@ export const PricingTable = (props) => {
       </Grid>
       <Box mt={4}>
         <Paragraph sx={{ textAlign: "center" }}>
-          <strong>Free:</strong> Sign up for emails to receive the challenges
-          and possible copy/pastable solutions only.
+          <strong>Free:</strong>{" "}
+          <Link as={GatsbyLink} to="/summer/free">
+            Sign up
+          </Link>{" "}
+          to receive the challenges and possible copy/pastable solutions.
+        </Paragraph>
+      </Box>
+      <Box mt={4}>
+        <Paragraph
+          sx={{
+            textAlign: "center",
+            maxWidth: "600px",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          <strong>Need a discount?</strong> If for some reason these prices are
+          outrageous for you (between jobs, transitioning into tech etc. etc.)
+          use the code DISCOUNT to get 60% off at checkout. (
+          <em>Note: Crazy idea?</em>)
         </Paragraph>
       </Box>
     </Container>

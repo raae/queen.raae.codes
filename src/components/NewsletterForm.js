@@ -40,7 +40,7 @@ const ResponseAlert = ({ status, onClose }) => {
   );
 };
 
-export const NewsletterForm = () => {
+export const NewsletterForm = ({ cta }) => {
   const [status, setStatus] = useState("idle");
 
   const handleSubmit = async (event) => {
@@ -84,7 +84,7 @@ export const NewsletterForm = () => {
           },
         }}
       >
-        Get notified
+        {cta || "Sign up"}
       </Button>
       <ResponseAlert status={status} onClose={handleClose} />
     </Flex>
