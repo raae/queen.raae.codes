@@ -1,11 +1,9 @@
 import React from "react";
-import { Box, Badge, Progress, Heading, Paragraph, Container } from "theme-ui";
+import { Box, Badge, Heading, Paragraph, Container } from "theme-ui";
 
 import { PageLayout } from "../components/PageLayout";
 import { NewsletterForm } from "../components/NewsletterForm";
 import { PricingTable } from "../components/PricingTable";
-import { GatsbyDeepDives } from "../components/GatsbyDeepDives";
-import { Crew } from "../components/Crew";
 
 // markup
 const IndexPage = () => {
@@ -38,54 +36,31 @@ const IndexPage = () => {
             <code
               style={{ fontSize: "inherit" }}
             >{`res.send({hello: "world"})`}</code>{" "}
-            and get comfortable writing serverless functions this summer by
-            adding at least three serverless features to your existing Gatsby
+            and have fun learning Gatsby Functions this summer by adding at
+            least three serverless features to your existing Gatsby
             site&nbsp;&nbsp;
             <span role="img" aria-label="Party popper emojis">
               🎉🎉🎉
             </span>{" "}
           </Paragraph>
         </Box>
-        <Box my={4}>
-          <h3>Stay in the loop</h3>
-
-          <p>
-            We are building this offer in public, meaning we are showing you the
-            current not-finished draft of the program below... To get notified
-            when we officially launch, sign up for Queen Raae's Gatsby
-            Newsletter.{" "}
-            <span role="img" aria-label="Pointing finger">
-              👇
-            </span>{" "}
-          </p>
-          <NewsletterForm cta="Get Notified" />
-        </Box>
-        <Progress max={1} value={1 / 10} mb="6">
-          10%
-        </Progress>
       </Container>
       <Container sx={{ maxWidth: 640 }}>
-        <Badge>Draft&hellip;</Badge>
-
         <Box as="article" my="5">
+          <h2>Tried and failed with serverless before?</h2>
           <p>
-            <em>
-              (Note: Need some kind of hook here, in question form? Rough draft
-              below...)
-            </em>
+            Newly released Gatsby Functions radically simplifies how to write
+            and deploy serverless functions. By adding features to your existing
+            Gatsby site you'll even have home turf advantage.
           </p>
+          <h2>
+            Not sure where to start, what to make or afraid of getting stuck?
+          </h2>
           <p>
-            Have you tried getting into serverless? Not sure where to start,
-            what to make or afraid of getting stuck?
-          </p>
-          <p>
-            <a href="https://www.gatsbyjs.com/products/cloud/functions/">
-              Gatsby Functions
-            </a>{" "}
-            har radically simplified how to write serverless functions, our 5
-            challenges will get you started and we are here to make your get you
-            all the way to deploy with live webinars and group coaching
-            sessions.
+            Our challenges will get you started! Ranging from the very practical
+            to the super whimsical. And we are here to make sure you get all the
+            way to deploy with live webinars, group coaching and pair
+            programming.
           </p>
         </Box>
 
@@ -101,12 +76,11 @@ const IndexPage = () => {
               fontWeight: 600,
             }}
           >
-            But we think you should be happy if you get at least three done this
-            summer. You'll have access to the material forever, so take a week
-            off if something better comes up; like a trip on a real pirate ship{" "}
+            You'll have access to the material forever. So take a week off if
+            something better comes up; like a trip on a pirate ship{" "}
             <span role="img" aria-label="Lightbulb emoji">
               🏴‍☠️
-            </span>
+            </span>{" "}
           </Paragraph>
 
           <h2>The Challenges</h2>
@@ -155,7 +129,7 @@ const IndexPage = () => {
             }}
           >
             Join the <strong>live webinar</strong> (or watch the replay) where
-            Queen Raae codes and talks you through a possible solutions to the
+            Queen Raae codes and talks you through a possible solution to the
             challenge.
           </Paragraph>
 
@@ -189,7 +163,7 @@ const IndexPage = () => {
               fontSize: 3,
             }}
           >
-            Refresh your inbox until the challenge wrap up comes through
+            Refresh your inbox until the challenge "wrap up" comes through,
             including a possible solution to the challenge you may copy/paste.
           </Paragraph>
           <p>
@@ -210,17 +184,25 @@ const IndexPage = () => {
         </Box>
       </Container>
       <PricingTable sx={{ maxWidth: 960 }} />
-      <Crew sx={{ textAlign: "center", maxWidth: 1024 }} />
-      <GatsbyDeepDives my="6" sx={{ textAlign: "center", maxWidth: 1024 }} />
       <Paragraph my="5" sx={{ textAlign: "center" }}>
-        <strong>Questions?</strong>
+        <strong>Other Questions?</strong>
         <br /> Direct message <a href="https://twitter.com/raae">@raae</a> or
         send an email to <a href="mailto:queen@raae.codes">queen@raae.codes</a>.
       </Paragraph>
-      <Paragraph mt="6" sx={{ textAlign: "center" }}>
+
+      <NewsletterForm mt="6" sx={{ textAlign: "center", maxWidth: 600 }}>
+        <Paragraph mb="3" sx={{ fontSize: "3" }}>
+          To get notified when we officially launch,
+          <br /> sign up for Queen Raae's Gatsby Newsletter.
+        </Paragraph>
+      </NewsletterForm>
+      {/* <Crew sx={{ textAlign: "center", maxWidth: 1024 }} />
+      <GatsbyDeepDives my="6" sx={{ textAlign: "center", maxWidth: 1024 }} /> */}
+
+      {/* <Paragraph mt="6" sx={{ textAlign: "center" }}>
         — Queen <a href="https://twitter.com/raae">@raae</a> and the Nattermob
         Pirates
-      </Paragraph>
+      </Paragraph> */}
     </PageLayout>
   );
 };

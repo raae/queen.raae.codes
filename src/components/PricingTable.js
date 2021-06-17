@@ -1,14 +1,5 @@
 import React from "react";
-import { Link as GatsbyLink } from "gatsby";
-import {
-  Grid,
-  Box,
-  Button,
-  Heading,
-  Paragraph,
-  Container,
-  Link,
-} from "theme-ui";
+import { Grid, Box, Button, Heading, Paragraph, Container } from "theme-ui";
 
 export const PricingTable = (props) => {
   return (
@@ -134,6 +125,7 @@ export const PricingTable = (props) => {
             </li>
           </Box>
           <Button
+            disabled
             as="a"
             href="https://buy.stripe.com/8wM5omayw3qm3cc4gi"
             sx={{ width: "100%", fontWeight: 600, color: "#fff !important" }}
@@ -142,15 +134,7 @@ export const PricingTable = (props) => {
           </Button>
         </Box>
       </Grid>
-      <Box mt={4}>
-        <Paragraph sx={{ textAlign: "center" }}>
-          <strong>Free:</strong>{" "}
-          <Link as={GatsbyLink} to="/summer/free">
-            Sign up
-          </Link>{" "}
-          to receive the challenges and possible copy/pastable solutions.
-        </Paragraph>
-      </Box>
+
       <Box mt={4}>
         <Paragraph
           sx={{
@@ -162,8 +146,8 @@ export const PricingTable = (props) => {
         >
           <strong>Need a discount?</strong> If for some reason these prices are
           outrageous for you (between jobs, transitioning into tech etc. etc.)
-          use the code DISCOUNT to get 60% off at checkout. (
-          <em>Note: Crazy idea?</em>)
+          email{" "}
+          <a href="mailto:queen+mercy@raae.codes">queen+mercy@raae.codes</a>.
         </Paragraph>
       </Box>
     </Container>

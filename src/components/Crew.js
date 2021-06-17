@@ -5,7 +5,10 @@ export const Crew = (props) => {
   return (
     <Container {...props}>
       <Box my="6">
-        <Heading as="h1" mb="3">
+        <Heading as="h1" mb="5">
+          Who are we?
+        </Heading>
+        <Heading as="h2" mb="3">
           Queen Raae
         </Heading>
         <Paragraph
@@ -16,27 +19,27 @@ export const Crew = (props) => {
           in 2018, created gatsby-remark-oembed in 2019 and spoke at Gatsby Days
           2020. Loves to hack together services to build out side projects.{" "}
         </Paragraph>
-        <a href="https://twitter.com/raae">
-          <Avatar
-            sx={{ width: "200px", maxWidth: "90%" }}
-            src="/raae.jpg"
-          ></Avatar>
-          <Paragraph>@raae</Paragraph>
-        </a>
+        {/* <a href="https://twitter.com/raae"> */}
+        <Avatar
+          sx={{ width: "200px", maxWidth: "90%" }}
+          src="/raae.jpg"
+        ></Avatar>
+        {/* <Paragraph>@raae</Paragraph> */}
+        {/* </a> */}
       </Box>
       <Heading as="h2" mb="5">
         The Nattermob Pirates
       </Heading>
       <Grid columns={3} gap={4}>
         <Box>
-          <a href="https://twitter.com/PaulieScanlon">
-            <Avatar
-              mb="2"
-              sx={{ width: "200px", height: "200px", maxWidth: "90%" }}
-              src="/paul.jpg"
-            />
-            <Paragraph>@PaulieScanlon</Paragraph>
-          </a>
+          {/* <a href="https://twitter.com/PaulieScanlon"> */}
+          <Avatar
+            mb="2"
+            sx={{ width: "200px", height: "200px", maxWidth: "90%" }}
+            src="/paul.jpg"
+          />
+          <Paragraph>Pirate Paul</Paragraph>
+          {/* </a> */}
           <Paragraph
             mb="4"
             mt="2"
@@ -52,14 +55,14 @@ export const Crew = (props) => {
           </Paragraph>
         </Box>
         <Box>
-          <a href="https://twitter.com/OlaHolstVea">
-            <Avatar
-              mb="2"
-              sx={{ width: "200px", height: "200px", maxWidth: "90%" }}
-              src="/ola.jpg"
-            />
-            <Paragraph>@OlaHolstVea</Paragraph>
-          </a>
+          {/* <a href="https://twitter.com/OlaHolstVea"> */}
+          <Avatar
+            mb="2"
+            sx={{ width: "200px", height: "200px", maxWidth: "90%" }}
+            src="/ola.jpg"
+          />
+          <Paragraph>Pirate Ola</Paragraph>
+          {/* </a> */}
           <Paragraph
             mb="4"
             mt="2"
@@ -74,7 +77,7 @@ export const Crew = (props) => {
             the Queen to explain things using stories...
           </Paragraph>
         </Box>
-        <Box>
+        {/* <Box>
           <a href="https://unsplash.com/photos/8NGWDex9qUw">
             <Avatar
               mb="2"
@@ -96,7 +99,7 @@ export const Crew = (props) => {
             going with Gatsby Serverless Functions, but need inspiration for
             what to make and some accountability to get it done.
           </Paragraph>
-        </Box>
+        </Box> */}
       </Grid>
     </Container>
   );

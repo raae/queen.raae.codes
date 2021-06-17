@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Flex, Close, Alert, Button, Input } from "theme-ui";
+import { Container, Flex, Close, Alert, Button, Input } from "theme-ui";
 
 const makeAlertMessage = (status) => {
   switch (status) {
@@ -40,7 +40,7 @@ const ResponseAlert = ({ status, onClose }) => {
   );
 };
 
-export const NewsletterForm = ({ cta }) => {
+export const NewsletterForm = ({ cta, children, ...props }) => {
   const [status, setStatus] = useState("idle");
 
   const handleSubmit = async (event) => {
@@ -64,29 +64,32 @@ export const NewsletterForm = ({ cta }) => {
   const isDisabled = ["pending"].includes(status);
 
   return (
-    <Flex as="form" onSubmit={handleSubmit} sx={{ position: "relative" }}>
-      <Input
-        type="email"
-        name="email"
-        id="email"
-        placeholder="Your best email..."
-        marginRight="2"
-        required
-      />
+    <Container {...props}>
+      {children}
+      <Flex as="form" onSubmit={handleSubmit} sx={{ position: "relative" }}>
+        <Input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Your best email..."
+          marginRight="2"
+          required
+        />
 
-      <Button
-        disabled={isDisabled}
-        sx={{
-          flexShrink: 0,
-          ...(isDisabled && { color: "muted" }),
-          "&:hover": {
-            opacity: 0.9,
-          },
-        }}
-      >
-        {cta || "Sign up"}
-      </Button>
-      <ResponseAlert status={status} onClose={handleClose} />
-    </Flex>
+        <Button
+          disabled={isDisabled}
+          sx={{
+            flexShrink: 0,
+            ...(isDisabled && { color: "muted" }),
+            "&:hover": {
+              opacity: 0.9,
+            },
+          }}
+        >
+          {cta || "Sign up"}
+        </Button>
+        <ResponseAlert status={status} onClose={handleClose} />
+      </Flex>
+    </Container>
   );
 };
