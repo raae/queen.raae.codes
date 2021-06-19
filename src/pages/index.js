@@ -1,8 +1,8 @@
-import React from "react";
-import { Box, Badge, Heading, Paragraph, Container } from "theme-ui";
+import React from "react"
+import { Box, Badge, Heading, Paragraph, Container } from "theme-ui"
 
-import { PageLayout } from "../components/PageLayout";
-import { NewsletterForm } from "../components/NewsletterForm";
+import { PageLayout } from "../components/page-layout"
+import { NewsletterForm } from "../components/newsletter-form"
 
 // markup
 const IndexPage = () => {
@@ -218,7 +218,7 @@ const IndexPage = () => {
         Pirates
       </Paragraph> */}
     </PageLayout>
-  );
-};
+  )
+}
 
-export default IndexPage;
+export default IndexPage

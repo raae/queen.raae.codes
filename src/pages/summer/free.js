@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "gatsby";
-import { Badge, Box, Heading, Paragraph, Container } from "theme-ui";
+import React from "react"
+import { Link } from "gatsby"
+import { Badge, Box, Heading, Paragraph, Container } from "theme-ui"
 
-import { NewsletterForm } from "../../components/NewsletterForm";
-import { PageLayout } from "../../components/PageLayout";
+import { NewsletterForm } from "../../components/newsletter-form"
+import { PageLayout } from "../../components/page-layout"
 
 const SummerFunctionFree = () => {
   return (
@@ -78,7 +78,7 @@ const SummerFunctionFree = () => {
         </Box>
       </Container>
     </PageLayout>
-  );
-};
+  )
+}
 
-export default SummerFunctionFree;
+export default SummerFunctionFree

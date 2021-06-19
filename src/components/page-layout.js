@@ -1,6 +1,6 @@
-import React from "react";
-import { Box, BaseStyles } from "theme-ui";
-import { Helmet } from "react-helmet";
+import React from "react"
+import { Box, BaseStyles } from "theme-ui"
+import { Helmet } from "react-helmet"
 
 export const PageLayout = ({ children }) => {
   return (
@@ -14,5 +14,5 @@ export const PageLayout = ({ children }) => {
       </Helmet>
       <BaseStyles>{children}</BaseStyles>
     </Box>
-  );
-};
+  )
+}

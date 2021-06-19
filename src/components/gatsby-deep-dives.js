@@ -1,5 +1,5 @@
-import React from "react";
-import { Grid, Embed, Heading, Paragraph, Container, Link } from "theme-ui";
+import React from "react"
+import { Grid, Embed, Heading, Paragraph, Container, Link } from "theme-ui"
 
 export const GatsbyDeepDives = (props) => {
   return (
@@ -37,5 +37,5 @@ export const GatsbyDeepDives = (props) => {
         </Link>
       </Paragraph>
     </Container>
-  );
-};
+  )
+}

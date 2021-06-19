@@ -1,5 +1,5 @@
-import React from "react";
-import { Avatar, Grid, Box, Paragraph, Heading, Container } from "theme-ui";
+import React from "react"
+import { Avatar, Grid, Box, Paragraph, Heading, Container } from "theme-ui"
 
 export const Crew = (props) => {
   return (
@@ -102,5 +102,5 @@ export const Crew = (props) => {
         </Box> */}
       </Grid>
     </Container>
-  );
-};
+  )
+}
