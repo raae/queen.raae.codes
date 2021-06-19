@@ -1,5 +1,5 @@
-import React from "react";
-import { Grid, Box, Button, Heading, Paragraph, Container } from "theme-ui";
+import React from "react"
+import { Grid, Box, Button, Heading, Paragraph, Container } from "theme-ui"
 
 export const PricingTable = (props) => {
   return (
@@ -151,5 +151,5 @@ export const PricingTable = (props) => {
         </Paragraph>
       </Box>
     </Container>
-  );
-};
+  )
+}

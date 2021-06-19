@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "prettier": "prettier --config ./.prettierrc.js --ignore-path ./.prettierignore --write \"**/*.{json,js,ts,tsx,mdx}\""
   },
   "dependencies": {
     "@mdx-js/mdx": "1.6.22",
@@ -34,5 +35,11 @@
     "react-dom": "^17.0.1",
     "react-helmet": "6.1.0",
     "theme-ui": "0.9.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "husky": "^6.0.0",
+    "prettier": "^2.3.1"
   }
 }

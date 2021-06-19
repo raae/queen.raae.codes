@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { Container, Flex, Close, Alert, Button, Input } from "theme-ui";
+import React, { useState } from "react"
+import axios from "axios"
+import { Container, Flex, Close, Alert, Button, Input } from "theme-ui"
 
 const makeAlertMessage = (status) => {
   switch (status) {
     case "error":
-      return "Ojsann, something went wrong...";
+      return "Ojsann, something went wrong..."
     case "success":
-      return "Check your inbox and make sure to hit that confirm button...";
+      return "Check your inbox and make sure to hit that confirm button..."
     case "pending":
-      return "Awaiting the matrix...";
+      return "Awaiting the matrix..."
 
     default:
-      return "";
+      return ""
   }
-};
+}
 
 const ResponseAlert = ({ status, onClose }) => {
-  const message = makeAlertMessage(status);
-  const isError = status === "error";
+  const message = makeAlertMessage(status)
+  const isError = status === "error"
 
   if (!message) {
-    return null;
+    return null
   }
 
   return (
@@ -37,31 +37,31 @@ const ResponseAlert = ({ status, onClose }) => {
       {message}
       {isError && <Close ml="auto" mr={-2} type="reset" onClick={onClose} />}
     </Alert>
-  );
-};
+  )
+}
 
 export const NewsletterForm = ({ cta, children, ...props }) => {
-  const [status, setStatus] = useState("idle");
+  const [status, setStatus] = useState("idle")
 
   const handleSubmit = async (event) => {
-    setStatus("pending");
-    event.preventDefault();
+    setStatus("pending")
+    event.preventDefault()
 
     try {
       await axios.post("/api/newsletter", {
         email: event.target.elements.email.value,
-      });
-      setStatus("success");
+      })
+      setStatus("success")
     } catch (error) {
-      setStatus("error");
+      setStatus("error")
     }
-  };
+  }
 
   const handleClose = () => {
-    setStatus("idle");
-  };
+    setStatus("idle")
+  }
 
-  const isDisabled = ["pending"].includes(status);
+  const isDisabled = ["pending"].includes(status)
 
   return (
     <Container {...props}>
@@ -91,5 +91,5 @@ export const NewsletterForm = ({ cta, children, ...props }) => {
         <ResponseAlert status={status} onClose={handleClose} />
       </Flex>
     </Container>
-  );
-};
+  )
+}

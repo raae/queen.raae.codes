@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "gatsby";
-import { PageLayout } from "../components/PageLayout";
+import React from "react"
+import { Link } from "gatsby"
+import { PageLayout } from "../components/page-layout"
 
 // markup
 const NotFoundPage = () => {
@@ -26,7 +26,7 @@ const NotFoundPage = () => {
         <Link to="/">Go home</Link>.
       </p>
     </PageLayout>
-  );
-};
+  )
+}
 
-export default NotFoundPage;
+export default NotFoundPage
