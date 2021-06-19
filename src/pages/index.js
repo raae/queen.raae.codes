@@ -3,7 +3,6 @@ import { Box, Badge, Heading, Paragraph, Container } from "theme-ui";
 
 import { PageLayout } from "../components/PageLayout";
 import { NewsletterForm } from "../components/NewsletterForm";
-import { PricingTable } from "../components/PricingTable";
 
 // markup
 const IndexPage = () => {
@@ -25,43 +24,57 @@ const IndexPage = () => {
             — with <strong>Queen Raae</strong> and the Nattermob Pirates{" "}
           </Heading>
           <Paragraph
+            mt="5"
             sx={{
-              marginTop: 5,
-              marginBottom: 5,
               fontSize: 3,
               fontWeight: 600,
             }}
           >
-            Get past{" "}
-            <code
-              style={{ fontSize: "inherit" }}
-            >{`res.send({hello: "world"})`}</code>{" "}
-            and have fun learning Gatsby Functions this summer by adding at
+            Join the fun this summer and learn Gatsby Functions by adding at
             least three serverless features to your existing Gatsby
             site&nbsp;&nbsp;
             <span role="img" aria-label="Party popper emojis">
               🎉🎉🎉
-            </span>{" "}
+            </span>
           </Paragraph>
         </Box>
       </Container>
+      <NewsletterForm cta="Add me on the list!" my="6" sx={{ maxWidth: 640 }}>
+        <Paragraph mb="4" sx={{ fontSize: "3" }}>
+          To get notified about <strong>pricing</strong> and availability,
+          <br /> sign up for Queen Raae's Gatsby Newsletter.
+        </Paragraph>
+      </NewsletterForm>
       <Container sx={{ maxWidth: 640 }}>
-        <Box as="article" my="5">
-          <h2>Tried and failed with serverless before?</h2>
-          <p>
+        <Box as="article" my="6">
+          <Heading as="h2">
+            Tried and failed with serverless/lambda/aws before?
+          </Heading>
+          <Paragraph mt="4" mb="5">
             Newly released Gatsby Functions radically simplifies how to write
-            and deploy serverless functions. By adding features to your existing
-            Gatsby site you'll even have home turf advantage.
-          </p>
-          <h2>
-            Not sure where to start, what to make or afraid of getting stuck?
-          </h2>
-          <p>
-            Our challenges will get you started! Ranging from the very practical
-            to the super whimsical. And we are here to make sure you get all the
-            way to deploy with live webinars, group coaching and pair
-            programming.
-          </p>
+            and deploy serverless functions. By adding features to your own
+            existing Gatsby site you'll have home turf advantage, and we're here
+            to make sure you get all the way to deploy this time{" "}
+            <span role="img" aria-label="Muscle emojis">
+              💪
+            </span>
+          </Paragraph>
+          <Heading as="h2">
+            Done the{" "}
+            <code
+              style={{ fontSize: "inherit" }}
+            >{`res.send({hello: "world"})`}</code>{" "}
+            example, now what?
+          </Heading>
+          <Paragraph mt="4" mb="5">
+            Not sure what to use Gatsby Functions for? Or how to make them
+            production ready? Get practical real world experience by completing
+            our weekly challenges. We'll also throw in some whimsy, because why
+            not have some fun while you are at it{" "}
+            <span role="img" aria-label="Muscle emojis">
+              🤪
+            </span>
+          </Paragraph>
         </Box>
 
         <Box as="article" my="5">
@@ -111,8 +124,8 @@ const IndexPage = () => {
             &nbsp;&nbsp;Saturday
           </h3>
           <Paragraph sx={{ marginBottom: 4, fontSize: 3 }}>
-            Eagerly await the challenge arriving in your inbox and start hacking
-            away right away, or wait until Monday.
+            Eagerly await the challenge. Start hacking right away, or wait until
+            Monday.
           </Paragraph>
 
           <h3>
@@ -128,9 +141,9 @@ const IndexPage = () => {
               strong: { color: "primary" },
             }}
           >
-            Join the <strong>live webinar</strong> (or watch the replay) where
-            Queen Raae codes and talks you through a possible solution to the
-            challenge.
+            Join the <strong>live webinar</strong> where we'll code through a
+            possible solution to the challenge, and you'll be able to ask us
+            questions.
           </Paragraph>
 
           <h3>
@@ -146,14 +159,14 @@ const IndexPage = () => {
               strong: { color: "primary" },
             }}
           >
-            <em>Stuck?</em> Bring your code or questions to{" "}
-            <strong>group coaching</strong> and we'll do our best to help you
-            through it.
+            <em>Stuck?</em> Bring your code and/or questions to the{" "}
+            <strong>the workshop</strong>, and we'll help you through it in a
+            small group setting.
           </Paragraph>
 
           <h3>
-            <span role="img" aria-label="Repeat emoji">
-              📨
+            <span role="img" aria-label="Pirate flag emoji">
+              🔴
             </span>
             &nbsp;&nbsp;Friday
           </h3>
@@ -163,8 +176,8 @@ const IndexPage = () => {
               fontSize: 3,
             }}
           >
-            Refresh your inbox until the challenge "wrap up" comes through,
-            including a possible solution to the challenge you may copy/paste.
+            We'll wrap up the challenge Nattermob style with a piratical live
+            stream on YouTube 🏴‍☠️
           </Paragraph>
           <p>
             <span role="img" aria-label="Recycle emoji">
@@ -183,19 +196,20 @@ const IndexPage = () => {
           </p>
         </Box>
       </Container>
-      <PricingTable sx={{ maxWidth: 960 }} />
-      <Paragraph my="5" sx={{ textAlign: "center" }}>
-        <strong>Other Questions?</strong>
+      {/* <PricingTable sx={{ maxWidth: 960 }} /> */}
+      <NewsletterForm cta="Tell me more" my="6" sx={{ maxWidth: 640 }}>
+        <Paragraph mb="3" sx={{ fontSize: "3" }}>
+          To get notified about <strong>pricing</strong> and availability,
+          <br /> sign up for Queen Raae's Gatsby Newsletter.
+        </Paragraph>
+      </NewsletterForm>
+
+      <Paragraph mt="5" sx={{ textAlign: "center" }}>
+        <strong>Questions?</strong>
         <br />
         Send an email to <a href="mailto:queen@raae.codes">queen@raae.codes</a>.
       </Paragraph>
 
-      <NewsletterForm mt="6" sx={{ textAlign: "center", maxWidth: 600 }}>
-        <Paragraph mb="3" sx={{ fontSize: "3" }}>
-          To get notified when we officially launch,
-          <br /> sign up for Queen Raae's Gatsby Newsletter.
-        </Paragraph>
-      </NewsletterForm>
       {/* <Crew sx={{ textAlign: "center", maxWidth: 1024 }} />
       <GatsbyDeepDives my="6" sx={{ textAlign: "center", maxWidth: 1024 }} /> */}
 
