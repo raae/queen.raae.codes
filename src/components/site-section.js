@@ -6,6 +6,7 @@ import SvgDotBackground from "../components/svg-dot-background"
 const SiteSection = ({
   children,
   backgroundColor = "background",
+  icon,
   heading,
   subHeading,
   body,
@@ -17,7 +18,8 @@ const SiteSection = ({
       as="section"
       sx={{
         position: "relative",
-        py: [5, 6],
+        pt: icon ? 5 : [5, 6],
+        pb: [5, 6],
         backgroundColor: backgroundColor,
       }}
     >
@@ -28,6 +30,7 @@ const SiteSection = ({
             mb: 4,
           }}
         >
+          {icon ? <Box>{icon}</Box> : null}
           <Heading
             as="h2"
             variant="heading.h2"

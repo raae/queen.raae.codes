@@ -6,6 +6,10 @@ import SiteSection from "../components/site-section"
 import NewsletterForm from "../components/newsletter-form"
 import DescriptionList from "../components/description-list"
 
+import SvgLollipop from "../components/svg-lollipop"
+import SvgFlowers from "../components/svg-flowers"
+import SvgBeach from "../components/svg-beach"
+
 import HourGlass from "../../static/images/hourglass_bottom_black_24dp.inline.svg"
 import Live from "../../static/images/live_tv_black_24dp.inline.svg"
 import Group from "../../static/images/groups_black_24dp.inline.svg"
@@ -23,6 +27,7 @@ const IndexPage = () => {
     <Fragment>
       <SvgSummerFunctionsHero />
       <SiteSection
+        icon={<SvgFlowers />}
         heading="Stay in the loop"
         body={
           <Fragment>
@@ -63,6 +68,7 @@ const IndexPage = () => {
       <SiteSection
         backgroundColor="shades.section"
         showDots={true}
+        icon={<SvgLollipop />}
         heading="Five weeks, Five Challenges"
         subHeading="You'll have access to the material forever. "
         body="Take a week off if something better comes up, like a trip on a pirate ship"
@@ -174,6 +180,7 @@ const IndexPage = () => {
       </SiteSection>
 
       <SiteSection
+        icon={<SvgBeach />}
         heading="Join the fun"
         subHeading=" We are super exited to see what you come up with!"
         body={
