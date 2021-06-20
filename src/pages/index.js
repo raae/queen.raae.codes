@@ -9,6 +9,7 @@ import DescriptionList from "../components/description-list"
 import SvgLollipop from "../components/svg-lollipop"
 import SvgFlowers from "../components/svg-flowers"
 import SvgBeach from "../components/svg-beach"
+import SvgFlag from "../components/svg-flag"
 
 import HourGlass from "../../static/images/hourglass_bottom_black_24dp.inline.svg"
 import Live from "../../static/images/live_tv_black_24dp.inline.svg"
@@ -202,6 +203,7 @@ const IndexPage = () => {
       <SiteSection
         backgroundColor="shades.section"
         showDots={true}
+        icon={<SvgFlag />}
         heading="Questions"
         subHeading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies a nunc ac vulputate"
         body={
