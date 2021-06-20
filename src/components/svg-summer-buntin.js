@@ -5,7 +5,7 @@ const SvgSummerBuntin = () => {
   return (
     <Box
       sx={{
-        my: "-12px",
+        my: "-16px",
       }}
     >
       <svg
