@@ -1,7 +1,7 @@
 import React from "react"
 import { Box } from "theme-ui"
 
-const With = () => {
+const SvgWith = () => {
   return (
     <Box
       sx={{
@@ -19,11 +19,11 @@ const With = () => {
         x="0px"
         y="0px"
         width="100%"
-        height="auto"
+        height="100%"
         viewBox="0 0 80 25"
         role="img"
       >
-        <title>With</title>
+        <title>SvgWith</title>
         <path
           d="M24.5,9.6c0.1-0.1,0.6-0.7,0.7-0.8c0.1-0.2,0.1-0.3,0.1-0.4C25.4,8.2,25,8,24.3,7.9c-0.5-0.1-1.1-0.1-1.1,0.1l-0.1,0.4
 		c-0.1,0.1-0.4,0.7-0.6,0.7c-0.2,0.1,0.1,0.3,0.7,0.4C23.7,9.7,24.3,9.7,24.5,9.6z"
@@ -51,4 +51,4 @@ const With = () => {
   )
 }
 
-export default With
+export default SvgWith

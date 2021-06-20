@@ -51,7 +51,7 @@ const SummerFunctionFree = () => {
     //         &nbsp;&nbsp;Mid week
     //       </h3>
     //       <Paragraph sx={{ marginBottom: 4, fontSize: 3 }}>
-    //         Keep in touch with the Nattermob Crew using #GatsbySummerFunctions
+    //         Keep in touch SvgWith the Nattermob Crew using #GatsbySvgSummerFunctions
     //         on Twitter. We would love to see how you get on!
     //       </Paragraph>
 

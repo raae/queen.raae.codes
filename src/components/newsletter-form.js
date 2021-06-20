@@ -1,15 +1,6 @@
-import React, { Fragment, useState } from "react"
+import React, { useState } from "react"
 import axios from "axios"
-import {
-  Container,
-  Flex,
-  Box,
-  Grid,
-  Close,
-  Alert,
-  Button,
-  Input,
-} from "theme-ui"
+import { Box, Grid, Close, Alert, Button, Input } from "theme-ui"
 
 const makeAlertMessage = (status) => {
   switch (status) {

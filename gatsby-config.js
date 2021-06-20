@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     url: `https://queen.raae.codes`,
     title: `Queen Raae`,
-    image: ``,
+    image: `queen-raae-og-image.jpg`,
     description: `Queen Raae's Code School`,
     language: `en-gb`,
     keywords: [`gatsby`],
@@ -15,12 +15,12 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-plugin-react-svg",
       options: {
-        name: `images`,
-        path: `./src/images/`,
+        rule: {
+          include: /\.inline\.svg$/,
+        },
       },
-      __key: `images`,
     },
     {
       resolve: `@raae/gatsby-plugin-fathom`,

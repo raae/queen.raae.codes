@@ -6,7 +6,7 @@ const SvgDotBackground = ({ dotOpacity }) => {
     <Box
       className="svg-dot-background"
       sx={{
-        backgroundImage: "url(./polka-dots.svg)",
+        backgroundImage: "url(./images/polka-dots.svg)",
         position: "absolute",
         top: 0,
         left: 0,

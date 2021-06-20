@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Box } from "theme-ui"
 
-const Lockup = () => {
+const SvgLockup = () => {
   return (
     <Box
       sx={{
@@ -14,7 +14,7 @@ const Lockup = () => {
         x="0px"
         y="0px"
         width="100%"
-        height="auto"
+        height="100%"
         viewBox="0 0 250 58"
         role="img"
       >
@@ -463,4 +463,4 @@ const Lockup = () => {
   )
 }
 
-export default Lockup
+export default SvgLockup

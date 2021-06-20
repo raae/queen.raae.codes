@@ -2,6 +2,7 @@ const theme = {
   colors: {
     text: "#3d3c31",
     textDark: "#000c22",
+    textLight: "#6e6c5d",
     background: "#ffffff",
     primary: "#42b598",
     primaryDark: "#007b7d",
@@ -17,8 +18,9 @@ const theme = {
   },
 
   fonts: {
-    body: "FuturaPTBook, system-ui, Arial, sans-serif",
-    heading: "FuturaPTBold, system-ui, Arial, sans-serif",
+    body: "FuturaPTBook",
+    heading: "FuturaPTBold",
+    highlight: "ShrikhandRegular",
     monospace: "monospace",
   },
 
@@ -28,18 +30,27 @@ const theme = {
     bold: 700,
   },
 
-  fontSizes: [".75rem", ".875rem", "1rem", "1.25rem", "2rem", "3rem"],
+  fontSizes: [
+    ".75rem",
+    ".875rem",
+    "1.03rem",
+    "1.2rem",
+    "1.6rem",
+    "2.2rem",
+    "2.8rem",
+    "3.6rem",
+  ],
 
   lineHeights: {
     body: 1.5,
     heading: 1.25,
+    list: 2,
   },
 
   radii: [0, 20],
 
   sizes: {
     container: 800,
-    hero: 600,
   },
 
   styles: {
@@ -52,12 +63,15 @@ const theme = {
       borderRadius: 1,
       px: 2,
       color: "secondary",
-      fontSize: "95%",
+      fontSize: "90%",
       backgroundColor: "shades.code",
     },
     hr: {
       color: "shades.section",
-      my: 4,
+      my: 3,
+    },
+    a: {
+      color: "primary",
     },
   },
 
@@ -66,8 +80,50 @@ const theme = {
       fontFamily: "body",
       lineHeight: "body",
       fontWeight: "body",
+      fontSize: 2,
+    },
+    heading: {
+      h1: {
+        fontSize: [7],
+      },
+      h2: {
+        fontSize: [4, 6],
+      },
+      h3: {
+        variant: "text.default",
+        lineHeight: "heading",
+        fontSize: [3, 4],
+      },
+      h4: {
+        fontSize: [3, 4],
+      },
+      h5: {
+        fontSize: [2, 3],
+      },
+      h6: {
+        variant: "text.default",
+        lineHeight: "heading",
+        fontSize: [2],
+      },
+    },
+    dt: {
+      alignItems: "center",
+      display: "flex",
+      fontFamily: "heading",
+      lineHeight: "list",
+      fontWeight: "heading",
+      fontSize: [2, 3],
+      svg: {
+        fill: "tertiary",
+        mr: 2,
+      },
+    },
+    dd: {
+      variant: "text.default",
+      mb: 4,
     },
   },
+
   buttons: {
     default: {
       cursor: "pointer",
@@ -87,6 +143,10 @@ const theme = {
     container: {
       px: [3, 4],
     },
+  },
+
+  links: {
+    variant: "styles.a",
   },
 }
 

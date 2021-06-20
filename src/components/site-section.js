@@ -3,8 +3,6 @@ import { Box, Container, Grid, Heading, Text } from "theme-ui"
 
 import SvgDotBackground from "../components/svg-dot-background"
 
-import { isFunction } from "../utils"
-
 const SiteSection = ({
   children,
   backgroundColor = "background",
@@ -19,7 +17,7 @@ const SiteSection = ({
       as="section"
       sx={{
         position: "relative",
-        py: 6,
+        py: [5, 6],
         backgroundColor: backgroundColor,
       }}
     >
@@ -31,20 +29,23 @@ const SiteSection = ({
           }}
         >
           <Heading
+            as="h2"
+            variant="heading.h2"
             sx={{
               textAlign: "center",
             }}
           >
-            {isFunction(heading) ? heading() : heading}
+            {heading}
           </Heading>
           {subHeading ? (
             <Heading
               as="h3"
+              variant="heading.h3"
               sx={{
                 textAlign: "center",
               }}
             >
-              {isFunction(subHeading) ? subHeading() : subHeading}
+              {subHeading}
             </Heading>
           ) : null}
 
@@ -54,7 +55,7 @@ const SiteSection = ({
               textAlign: "center",
             }}
           >
-            {isFunction(body) ? body() : body}
+            {body}
           </Text>
         </Grid>
         {children}

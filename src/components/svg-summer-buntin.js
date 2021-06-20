@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import { jsx, Box } from "theme-ui"
 
-const SummerBuntin = () => {
+const SvgSummerBuntin = () => {
   return (
     <Box
       sx={{
-        mx: "auto",
-        my: "-10px",
+        my: "-12px",
       }}
     >
       <svg
@@ -14,7 +13,7 @@ const SummerBuntin = () => {
         x="0px"
         y="0px"
         width="100%"
-        height="auto"
+        height="100%"
         viewBox="0 0 1811.4 411.4"
         role="img"
         aria-hidden="true"
@@ -419,4 +418,4 @@ const SummerBuntin = () => {
   )
 }
 
-export default SummerBuntin
+export default SvgSummerBuntin

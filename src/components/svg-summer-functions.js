@@ -1,7 +1,7 @@
 import React from "react"
 import { Box } from "theme-ui"
 
-const SummerFunctions = () => {
+const SvgSummerFunctions = () => {
   return (
     <Box
       sx={{
@@ -19,7 +19,7 @@ const SummerFunctions = () => {
         x="0px"
         y="0px"
         width="100%"
-        height="auto"
+        height="100%"
         viewBox="0 0 600 105"
         role="img"
       >
@@ -248,4 +248,4 @@ const SummerFunctions = () => {
   )
 }
 
-export default SummerFunctions
+export default SvgSummerFunctions
