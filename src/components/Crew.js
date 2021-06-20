@@ -15,9 +15,10 @@ export const Crew = (props) => {
           mb="4"
           sx={{ maxWidth: "46ch", marginLeft: "auto", marginRight: "auto" }}
         >
-          Wrote her first JavaScript back in 1998, started playing with Gatsby
-          in 2018, created gatsby-remark-oembed in 2019 and spoke at Gatsby Days
-          2020. Loves to hack together services to build out side projects.{" "}
+          Wrote her first JavaScript back in 1998, started playing SvgWith
+          Gatsby in 2018, created gatsby-remark-oembed in 2019 and spoke at
+          Gatsby Days 2020. Loves to hack together services to build out side
+          projects.{" "}
         </Paragraph>
         {/* <a href="https://twitter.com/raae"> */}
         <Avatar
@@ -95,8 +96,8 @@ export const Crew = (props) => {
               marginRight: "auto",
             }}
           >
-            Dabbled enough with Gatsby to get a site going. Would like to get
-            going with Gatsby Serverless Functions, but need inspiration for
+            Dabbled enough SvgWith Gatsby to get a site going. Would like to get
+            going SvgWith Gatsby Serverless Functions, but need inspiration for
             what to make and some accountability to get it done.
           </Paragraph>
         </Box> */}

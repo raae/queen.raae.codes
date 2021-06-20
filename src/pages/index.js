@@ -1,223 +1,230 @@
-import React from "react"
-import { Box, Badge, Heading, Paragraph, Container } from "theme-ui"
+import React, { Fragment } from "react"
+import { Heading, Box, Grid, Text, Link, Divider } from "theme-ui"
 
-import { PageLayout } from "../components/page-layout"
-import { NewsletterForm } from "../components/newsletter-form"
+import SvgSummerFunctionsHero from "../components/summer-functions-hero"
+import SiteSection from "../components/site-section"
+import NewsletterForm from "../components/newsletter-form"
+import DescriptionList from "../components/description-list"
 
-// markup
+import SvgLollipop from "../components/svg-lollipop"
+import SvgFlowers from "../components/svg-flowers"
+import SvgBeach from "../components/svg-beach"
+import SvgFlag from "../components/svg-flag"
+
+import HourGlass from "../../static/images/hourglass_bottom_black_24dp.inline.svg"
+import Live from "../../static/images/live_tv_black_24dp.inline.svg"
+import Group from "../../static/images/groups_black_24dp.inline.svg"
+import Inbox from "../../static/images/move_to_inbox_black_24dp.inline.svg"
+import Repeat from "../../static/images/replay_5_black_24dp.inline.svg"
+
+import One from "../../static/images/looks_1_black_24dp.inline.svg"
+import Two from "../../static/images/looks_2_black_24dp.inline.svg"
+import Three from "../../static/images/looks_3_black_24dp.inline.svg"
+import Four from "../../static/images/looks_4_black_24dp.inline.svg"
+import Five from "../../static/images/looks_5_black_24dp.inline.svg"
+
 const IndexPage = () => {
   return (
-    <PageLayout>
-      <Container sx={{ maxWidth: 760 }}>
-        <Badge>Coming soon</Badge>
-        <Box my="5">
-          <Heading as="h1">
-            Gatsby Summer Functions
-            <br />
-          </Heading>
-          <Heading
-            as="h2"
-            sx={{
-              strong: { color: "secondary", fontWeight: 800 },
-            }}
-          >
-            — with <strong>Queen Raae</strong> and the Nattermob Pirates{" "}
-          </Heading>
-          <Paragraph
-            mt="5"
-            sx={{
-              fontSize: 3,
-              fontWeight: 600,
-            }}
-          >
-            Join the fun this summer and learn Gatsby Functions by adding at
-            least three serverless features to your existing Gatsby
-            site&nbsp;&nbsp;
-            <span role="img" aria-label="Party popper emojis">
-              🎉🎉🎉
-            </span>
-          </Paragraph>
-        </Box>
-      </Container>
-      <NewsletterForm cta="Add me on the list!" my="6" sx={{ maxWidth: 640 }}>
-        <Paragraph mb="4" sx={{ fontSize: "3" }}>
-          To get notified about <strong>pricing</strong> and availability,
-          <br /> sign up for Queen Raae's Gatsby Newsletter.
-        </Paragraph>
-      </NewsletterForm>
-      <Container sx={{ maxWidth: 640 }}>
-        <Box as="article" my="6">
-          <Heading as="h2">
-            Tried and failed with serverless/lambda/aws before?
-          </Heading>
-          <Paragraph mt="4" mb="5">
-            Newly released Gatsby Functions radically simplifies how to write
-            and deploy serverless functions. By adding features to your own
-            existing Gatsby site you'll have home turf advantage, and we're here
-            to make sure you get all the way to deploy this time{" "}
-            <span role="img" aria-label="Muscle emojis">
-              💪
-            </span>
-          </Paragraph>
-          <Heading as="h2">
+    <Fragment>
+      <SvgSummerFunctionsHero />
+      <SiteSection
+        icon={<SvgFlowers />}
+        heading="Stay in the loop"
+        body={
+          <Fragment>
+            To get notified about{" "}
+            <Text sx={{ fontWeight: "bold" }}>pricing</Text> and availability,
+            sign up for Queen Raae's Gatsby Newsletter.
+          </Fragment>
+        }
+      >
+        <NewsletterForm cta="Add me on the list!" />
+      </SiteSection>
+
+      <SiteSection
+        backgroundColor="shades.section"
+        showDots={true}
+        heading="Clear as mud"
+        subHeading="Tried and failed with serverless/lambda/aws before?"
+        body="Newly released Gatsby Functions radically simplifies how to write and deploy serverless functions. By adding features to your own existing Gatsby site you'll have home turf advantage, and we're here to make sure you get all the way to deploy this time"
+      />
+      <SiteSection
+        heading="Beyond the basics"
+        subHeading={
+          <Fragment>
             Done the{" "}
-            <code
-              style={{ fontSize: "inherit" }}
-            >{`res.send({hello: "world"})`}</code>{" "}
+            <Box
+              as="code"
+              variant="styles.code"
+            >{`res.send({hello: "world"})`}</Box>
             example, now what?
-          </Heading>
-          <Paragraph mt="4" mb="5">
-            Not sure what to use Gatsby Functions for? Or how to make them
-            production ready? Get practical real world experience by completing
-            our weekly challenges. We'll also throw in some whimsy, because why
-            not have some fun while you are at it{" "}
-            <span role="img" aria-label="Muscle emojis">
-              🤪
-            </span>
-          </Paragraph>
+          </Fragment>
+        }
+        body="Not sure what to use Gatsby Functions for? Or how to make them
+        production ready? Get practical real world experience by completing
+        our weekly challenges. We'll also throw in some whimsy, because why
+        not have some fun while you are at it"
+      />
+
+      <SiteSection
+        backgroundColor="shades.section"
+        showDots={true}
+        textAlign="left"
+        heading={
+          <Grid
+            sx={{
+              alignItems: "center",
+              gap: 0,
+              gridTemplateColumns: "auto 1fr",
+            }}
+          >
+            <SvgLollipop />
+            Five weeks, Five Challenges
+          </Grid>
+        }
+        subHeading="You'll have access to the material forever. "
+        body="Take a week off if something better comes up, like a trip on a pirate ship"
+      >
+        <Divider />
+        <Heading as="h4" variant="heading.h4">
+          The Challenges
+        </Heading>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+          ultricies a nunc ac vulputate
+        </Text>
+        <Divider />
+        <Box as="dl">
+          <DescriptionList
+            icon={<One />}
+            title="Week 1"
+            description={<Fragment>TBC</Fragment>}
+          />
+          <DescriptionList
+            icon={<Two />}
+            title="Week 2"
+            description={<Fragment>TBC</Fragment>}
+          />
+          <DescriptionList
+            icon={<Three />}
+            title="Week 3"
+            description={<Fragment>TBC</Fragment>}
+          />
+          <DescriptionList
+            icon={<Four />}
+            title="Week 4"
+            description={<Fragment>TBC</Fragment>}
+          />
+          <DescriptionList
+            icon={<Five />}
+            title="Week 5"
+            description={<Fragment>TBC</Fragment>}
+          />
         </Box>
 
-        <Box as="article" my="5">
-          <Heading as="h1" mt="5" mb="4">
-            5 weeks &nbsp;➡&nbsp; 5 challenges
-          </Heading>
-          <Paragraph
-            sx={{
-              marginTop: 5,
-              marginBottom: 5,
-              fontSize: 3,
-              fontWeight: 600,
-            }}
-          >
-            You'll have access to the material forever. So take a week off if
-            something better comes up; like a trip on a pirate ship{" "}
-            <span role="img" aria-label="Lightbulb emoji">
-              🏴‍☠️
-            </span>{" "}
-          </Paragraph>
-
-          <h2>The Challenges</h2>
-
-          <h3>Week 1</h3>
-          <p>To be decided</p>
-
-          <h3>Week 2</h3>
-          <p>To be decided</p>
-
-          <h3>Week 3</h3>
-          <p>To be decided</p>
-
-          <h3>Week 4</h3>
-          <p>To be decided</p>
-
-          <h3>Week 5</h3>
-          <p>To be decided</p>
-
-          <Heading mt="5" mb="4">
-            The Weekly Schedule
-          </Heading>
-
-          <h3>
-            <span role="img" aria-label="Lightbulb emoji">
-              💡
-            </span>
-            &nbsp;&nbsp;Saturday
-          </h3>
-          <Paragraph sx={{ marginBottom: 4, fontSize: 3 }}>
-            Eagerly await the challenge. Start hacking right away, or wait until
-            Monday.
-          </Paragraph>
-
-          <h3>
-            <span role="img" aria-label="Teacher emoji">
-              👩‍🏫
-            </span>
-            &nbsp;&nbsp;Tuesday
-          </h3>
-          <Paragraph
-            sx={{
-              marginBottom: 4,
-              fontSize: 3,
-              strong: { color: "primary" },
-            }}
-          >
-            Join the <strong>live webinar</strong> where we'll code through a
-            possible solution to the challenge, and you'll be able to ask us
-            questions.
-          </Paragraph>
-
-          <h3>
-            <span role="img" aria-label="School emoji">
-              🏫
-            </span>
-            &nbsp;&nbsp;Wednesday
-          </h3>
-          <Paragraph
-            sx={{
-              marginBottom: 4,
-              fontSize: 3,
-              strong: { color: "primary" },
-            }}
-          >
-            <em>Stuck?</em> Bring your code and/or questions to the{" "}
-            <strong>the workshop</strong>, and we'll help you through it in a
-            small group setting.
-          </Paragraph>
-
-          <h3>
-            <span role="img" aria-label="Pirate flag emoji">
-              🔴
-            </span>
-            &nbsp;&nbsp;Friday
-          </h3>
-          <Paragraph
-            sx={{
-              marginBottom: 4,
-              fontSize: 3,
-            }}
-          >
-            We'll wrap up the challenge Nattermob style with a piratical live
-            stream on YouTube 🏴‍☠️
-          </Paragraph>
-          <p>
-            <span role="img" aria-label="Recycle emoji">
-              ♻️
-            </span>
-            &nbsp;Rinse and repeat for 5 weeks
-          </p>
+        <Divider />
+        <Heading as="h4" variant="heading.h4">
+          The Weekly Schedule
+        </Heading>
+        <Text>
+          Gatsby Summer Functions will run from{" "}
+          <Text sx={{ fontWeight: "bold" }}>Saturday July 10th</Text> to{" "}
+          <Text sx={{ fontWeight: "bold" }}>Friday August 13th</Text>
+        </Text>
+        <Divider />
+        <Box as="dl">
+          <DescriptionList
+            icon={<HourGlass />}
+            title="Saturday"
+            description={
+              <Fragment>
+                Eagerly await{" "}
+                <Text sx={{ color: "secondary" }}>the challenge</Text>. Start
+                hacking right away, or wait until Monday
+              </Fragment>
+            }
+          />
+          <DescriptionList
+            icon={<Live />}
+            title="Tuesday"
+            description={
+              <Fragment>
+                Join the <Text sx={{ color: "secondary" }}>live webinar</Text>{" "}
+                where we'll code through a possible solution to the challenge,
+                and you'll be able to ask us questions
+              </Fragment>
+            }
+          />
+          <DescriptionList
+            icon={<Group />}
+            title="Wednesday"
+            description={
+              <Fragment>
+                Stuck? Bring your code and/or questions to the the{" "}
+                <Text sx={{ color: "secondary" }}>workshop</Text>, and we'll
+                help you through it in a small group setting.
+              </Fragment>
+            }
+          />
+          <DescriptionList
+            icon={<Inbox />}
+            title="Friday"
+            description={
+              <Fragment>
+                Refresh your inbox until the{" "}
+                <Text sx={{ color: "secondary" }}>challenge wrap-up</Text> comes
+                through including a possible solution to the challenge you may
+                copy/paste
+              </Fragment>
+            }
+          />
+          <DescriptionList
+            icon={<Repeat />}
+            title="Repeat"
+            description={
+              <Fragment>
+                We’ll rinse and repeat this cycle for{" "}
+                <Text sx={{ color: "secondary" }}>5 weeks</Text>
+              </Fragment>
+            }
+          />
         </Box>
+      </SiteSection>
 
-        <Box my="5">
-          <h1>Join the fun</h1>
-          <p>
-            We are super exited to see what you come up!
-            <br /> Make sure to share your work on Twitter with
-            #GatsbySummerFunctions.
-          </p>
-        </Box>
-      </Container>
-      {/* <PricingTable sx={{ maxWidth: 960 }} /> */}
-      <NewsletterForm cta="Tell me more" my="6" sx={{ maxWidth: 640 }}>
-        <Paragraph mb="3" sx={{ fontSize: "3" }}>
-          To get notified about <strong>pricing</strong> and availability,
-          <br /> sign up for Queen Raae's Gatsby Newsletter.
-        </Paragraph>
-      </NewsletterForm>
+      <SiteSection
+        icon={<SvgBeach />}
+        heading="Join the fun"
+        subHeading=" We are super exited to see what you come up with!"
+        body={
+          <Fragment>
+            Make sure to share your work on Twitter{" "}
+            <Link
+              href="https://twitter.com/search?q=%23GatsbySvgSummerFunctions&src=typed_query"
+              target="_blank"
+              rel="noopener"
+            >
+              #GatsbySummerFunctions
+            </Link>
+          </Fragment>
+        }
+      >
+        <NewsletterForm cta="Tell me more" />
+      </SiteSection>
 
-      <Paragraph mt="5" sx={{ textAlign: "center" }}>
-        <strong>Questions?</strong>
-        <br />
-        Send an email to <a href="mailto:queen@raae.codes">queen@raae.codes</a>.
-      </Paragraph>
-
-      {/* <Crew sx={{ textAlign: "center", maxWidth: 1024 }} />
-      <GatsbyDeepDives my="6" sx={{ textAlign: "center", maxWidth: 1024 }} /> */}
-
-      {/* <Paragraph mt="6" sx={{ textAlign: "center" }}>
-        — Queen <a href="https://twitter.com/raae">@raae</a> and the Nattermob
-        Pirates
-      </Paragraph> */}
-    </PageLayout>
+      <SiteSection
+        backgroundColor="shades.section"
+        showDots={true}
+        icon={<SvgFlag />}
+        heading="Questions"
+        subHeading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies a nunc ac vulputate"
+        body={
+          <Fragment>
+            Send an email to{" "}
+            <Link href="mailto:queen@raae.codes">queen@raae.codes</Link>
+          </Fragment>
+        }
+      />
+    </Fragment>
   )
 }
 
