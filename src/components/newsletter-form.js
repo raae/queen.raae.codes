@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import axios from "axios"
-import { Box, Grid, Close, Alert, Button, Input } from "theme-ui"
+import { Box, Grid, Close, Message, Button, Input } from "theme-ui"
 
 const makeAlertMessage = (status) => {
   switch (status) {
     case "error":
-      return "Ojsann, something went wrong..."
+      return "Ooops, something went wrong..."
     case "success":
       return "Check your inbox and make sure to hit that confirm button..."
     case "pending":
@@ -14,30 +14,6 @@ const makeAlertMessage = (status) => {
     default:
       return ""
   }
-}
-
-const ResponseAlert = ({ status, onClose }) => {
-  const message = makeAlertMessage(status)
-  const isError = status === "error"
-
-  if (!message) {
-    return null
-  }
-
-  return (
-    <Alert
-      sx={{
-        position: "absolute",
-        left: -1,
-        right: -1,
-        top: -1,
-        bottom: -3,
-      }}
-    >
-      {message}
-      {isError && <Close ml="auto" mr={-2} type="reset" onClick={onClose} />}
-    </Alert>
-  )
 }
 
 const NewsletterForm = ({ cta }) => {
@@ -65,37 +41,34 @@ const NewsletterForm = ({ cta }) => {
 
   return (
     <Box sx={{ position: "relative" }}>
-      <Grid
-        as="form"
-        onSubmit={handleSubmit}
-        sx={{
-          gridTemplateColumns: ["1fr", "1fr", "1fr auto"],
-          gap: 2,
-        }}
-      >
-        <Input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Your best email..."
-          marginRight="2"
-          required
-        />
-
-        <Button
-          disabled={isDisabled}
+      {status === "idle" ? (
+        <Grid
+          as="form"
+          onSubmit={handleSubmit}
           sx={{
-            flexShrink: 0,
-            ...(isDisabled && { color: "muted" }),
-            "&:hover": {
-              opacity: 0.9,
-            },
+            gridTemplateColumns: ["1fr", "1fr", "1fr auto"],
+            gap: 2,
           }}
         >
-          {cta || "Sign up"}
-        </Button>
-      </Grid>
-      <ResponseAlert status={status} onClose={handleClose} />
+          <Input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Your best email..."
+            marginRight="2"
+            required
+          />
+
+          <Button disabled={isDisabled}>{cta || "Sign up"}</Button>
+        </Grid>
+      ) : (
+        <Message variant={status}>
+          {makeAlertMessage(status)}
+          {status === "error" ? (
+            <Close type="reset" onClick={handleClose} />
+          ) : null}
+        </Message>
+      )}
     </Box>
   )
 }

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { Heading, Box, Text, Link, Divider } from "theme-ui"
+import { Heading, Box, Grid, Text, Link, Divider } from "theme-ui"
 
 import SvgSummerFunctionsHero from "../components/summer-functions-hero"
 import SiteSection from "../components/site-section"
@@ -69,8 +69,19 @@ const IndexPage = () => {
       <SiteSection
         backgroundColor="shades.section"
         showDots={true}
-        icon={<SvgLollipop />}
-        heading="Five weeks, Five Challenges"
+        textAlign="left"
+        heading={
+          <Grid
+            sx={{
+              alignItems: "center",
+              gap: 0,
+              gridTemplateColumns: "auto 1fr",
+            }}
+          >
+            <SvgLollipop />
+            Five weeks, Five Challenges
+          </Grid>
+        }
         subHeading="You'll have access to the material forever. "
         body="Take a week off if something better comes up, like a trip on a pirate ship"
       >

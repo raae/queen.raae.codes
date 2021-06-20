@@ -6,6 +6,7 @@ import SvgDotBackground from "../components/svg-dot-background"
 const SiteSection = ({
   children,
   backgroundColor = "background",
+  textAlign = "center",
   icon,
   heading,
   subHeading,
@@ -35,7 +36,7 @@ const SiteSection = ({
             as="h2"
             variant="heading.h2"
             sx={{
-              textAlign: "center",
+              textAlign: textAlign,
             }}
           >
             {heading}
@@ -45,7 +46,7 @@ const SiteSection = ({
               as="h3"
               variant="heading.h3"
               sx={{
-                textAlign: "center",
+                textAlign: textAlign,
               }}
             >
               {subHeading}
@@ -55,7 +56,7 @@ const SiteSection = ({
           <Text
             as="p"
             sx={{
-              textAlign: "center",
+              textAlign: textAlign,
             }}
           >
             {body}

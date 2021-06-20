@@ -9,6 +9,7 @@ const theme = {
     secondary: "#ec4326",
     tertiary: "#f2a220",
     brown: "#55392f",
+    grey: "#999999",
     floralWhite: "#F9D6AC",
     shades: {
       section: "#fefaf4",
@@ -33,7 +34,7 @@ const theme = {
   fontSizes: [
     ".75rem",
     ".875rem",
-    "1.03rem",
+    "1.04rem",
     "1.2rem",
     "1.6rem",
     "2.2rem",
@@ -128,6 +129,9 @@ const theme = {
     default: {
       cursor: "pointer",
       transition: ".2s linear opacity",
+      ":hover": {
+        opacity: 0.9,
+      },
     },
     primary: {
       variant: "buttons.default",
@@ -136,6 +140,48 @@ const theme = {
     secondary: {
       variant: "buttons.default",
       backgroundColor: "primary",
+    },
+    close: {
+      cursor: "pointer",
+    },
+  },
+
+  forms: {
+    input: {
+      borderColor: "floralWhite",
+      color: "text",
+      fontSize: 1,
+      borderWidth: 2,
+      backgroundColor: "shades.section",
+      p: 3,
+      ":placeholder": {
+        color: "text",
+      },
+    },
+  },
+
+  messages: {
+    default: {
+      display: "flex",
+      alignItems: "center",
+      px: 3,
+      py: 3,
+      justifyContent: "space-between",
+      color: "text",
+      backgroundColor: "shades.section",
+    },
+    success: {
+      borderLeftColor: "primary",
+      variant: "messages.default",
+    },
+    pending: {
+      borderLeftColor: "tertiary",
+      variant: "messages.default",
+    },
+    error: {
+      variant: "messages.default",
+      py: 2,
+      borderLeftColor: "secondary",
     },
   },
 
