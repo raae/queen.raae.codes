@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx, Box } from "theme-ui"
 
-const SvgBeach = () => {
+const SvgBeach = (props) => {
   return (
     <Box
+      {...props}
       sx={{
-        mx: "auto",
         maxWidth: 100,
       }}
     >

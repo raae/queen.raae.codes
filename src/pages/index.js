@@ -1,10 +1,8 @@
 import React, { Fragment } from "react"
-import { Heading, Box, Grid, Text, Link, Divider } from "theme-ui"
 
 import SvgSummerFunctionsHero from "../components/summer-functions-hero"
 import SiteSection from "../components/site-section"
 import NewsletterForm from "../components/newsletter-form"
-import DescriptionList from "../components/description-list"
 
 import SvgLollipop from "../components/svg-lollipop"
 import SvgFlowers from "../components/svg-flowers"
@@ -14,8 +12,6 @@ import SvgFlag from "../components/svg-flag"
 import HourGlass from "../../static/images/hourglass_bottom_black_24dp.inline.svg"
 import Live from "../../static/images/live_tv_black_24dp.inline.svg"
 import Group from "../../static/images/groups_black_24dp.inline.svg"
-import Inbox from "../../static/images/move_to_inbox_black_24dp.inline.svg"
-import Repeat from "../../static/images/replay_5_black_24dp.inline.svg"
 
 import One from "../../static/images/looks_1_black_24dp.inline.svg"
 import Two from "../../static/images/looks_2_black_24dp.inline.svg"
@@ -27,203 +23,231 @@ const IndexPage = () => {
   return (
     <Fragment>
       <SvgSummerFunctionsHero />
-      <SiteSection
-        icon={<SvgFlowers />}
-        heading="Stay in the loop"
-        body={
-          <Fragment>
-            To get notified about{" "}
-            <Text sx={{ fontWeight: "bold" }}>pricing</Text> and availability,
-            sign up for Queen Raae's Gatsby Newsletter.
-          </Fragment>
-        }
-      >
-        <NewsletterForm cta="Add me on the list!" />
+      <SiteSection textAlign="center">
+        <p className="intro">
+          Join the <em>fun</em> this summer and learn Gatsby Functions by adding
+          at least three <em>serverless</em> features to your existing Gatsby
+          site&nbsp;&nbsp;
+          <span role="img" aria-label="Party popper emojis">
+            🎉🎉🎉
+          </span>
+        </p>
+        <SvgFlowers mt="5" mb="4" mx="auto" />
+        <h2>Stay in the loop</h2>
+        <NewsletterForm cta="Add me on the list!" mb="4">
+          <p>
+            To get notified about <strong>pricing</strong> and{" "}
+            <strong>availability</strong>, sign up for Queen Raae's Gatsby
+            Newsletter.
+          </p>
+        </NewsletterForm>
+      </SiteSection>
+
+      <SiteSection backgroundColor="shades.section" showDots={true}>
+        <h2>Tried and failed with serverless/lambda/aws before?</h2>
+        <p>
+          Newly released Gatsby Functions radically simplifies how to write and
+          deploy serverless functions. By adding features to your own existing
+          Gatsby site you'll have home turf advantage, and we're here to make
+          sure you get all the way to deploy this time{" "}
+          <span role="img" aria-label="Muscle emoji">
+            💪
+          </span>
+        </p>
+
+        <hr />
+
+        <h2>
+          Done the <code>{`res.send({hello: "world"})`}</code>
+          example, now what?
+        </h2>
+        <p>
+          Not sure what to use Gatsby Functions for? Or how to make them
+          production ready? Get practical real world experience by completing
+          our weekly challenges. We'll also throw in some whimsy, because why
+          not have some fun while you are at it{" "}
+          <span role="img" aria-label="Muscle emoji">
+            🤪
+          </span>
+        </p>
+      </SiteSection>
+
+      <SiteSection>
+        <h2>Five weeks, Five Challenges</h2>
+        <p className="intro">
+          Learn Gatsby Functions by completing at least three out of our five
+          challenges this summer. If you get stuck we are here to help with{" "}
+          <em>live webinars</em> on Tuesdays and <em>open office hours</em> on
+          Wednesdays.
+        </p>
+        <dl>
+          <dt>When?</dt>
+          <dd>
+            <strong>Saturday July 10th</strong> to{" "}
+            <strong>Friday August 20th</strong> with a a week's break near the
+            end to let you catch up before the final stretch.
+          </dd>
+        </dl>
+
+        <h3>The Weekly Schedule</h3>
+
+        <dl>
+          <dt>
+            <HourGlass /> Saturday
+          </dt>
+          <dd>
+            <p>
+              Eagerly await <strong>the challenge</strong>. Start hacking right
+              away, or wait until Monday.
+            </p>
+          </dd>
+
+          <dt>
+            <Live /> Tuesday
+          </dt>
+          <dd>
+            <p>
+              Join the <em>live webinar</em> where the Queen will code through a
+              possible solution to the challenge.
+            </p>
+          </dd>
+
+          <dt>
+            <Group /> Wednesday
+          </dt>
+          <dd>
+            <p>
+              <strong>Stuck?</strong> Bring your code and/or questions to{" "}
+              <em>open office hours</em>, and we'll help you through it in a
+              small group setting.
+            </p>
+          </dd>
+
+          <dt>
+            <Live /> Friday
+          </dt>
+          <dd>
+            <p>
+              We'll wrap up the challenge Nattermob style with a piratical{" "}
+              <strong>live stream</strong> on YouTube 🏴‍☠️
+            </p>
+          </dd>
+
+          <small>
+            <span role="img" aria-label="Recycle emoji">
+              ♻️
+            </span>{" "}
+            Rinse and repeat for 5 weeks
+          </small>
+        </dl>
+
+        <SvgLollipop mt="5" mb="4" />
+
+        <h3>The Challenges</h3>
+
+        <dl>
+          <dt>
+            <One />
+            Week 1
+          </dt>
+          <dd>
+            <p>
+              <strong>July 10th to July 16th</strong>
+            </p>
+            <p>Challenge to be decided</p>
+          </dd>
+
+          <dt>
+            <Two />
+            Week 2
+          </dt>
+          <dd>
+            <p>
+              <strong>July 17th to July 23rd</strong>
+            </p>
+            <p>Challenge to be decided</p>
+          </dd>
+
+          <dt>
+            <Three />
+            Week 3
+          </dt>
+          <dd>
+            <p>
+              <strong>July 24th to July 30th</strong>
+            </p>
+            <p>Challenge to be decided</p>
+          </dd>
+
+          <dt>
+            <Four />
+            Week 4
+          </dt>
+          <dd>
+            <p>
+              <strong>July 31st to August 6th</strong>
+            </p>
+            <p>Challenge to be decided</p>
+          </dd>
+
+          <dt>Break</dt>
+          <dd>
+            <p>
+              <strong>August 7th to August 13th</strong>
+            </p>
+            <p>
+              Spend this week catching up while the Queen spends the time on
+              horse back in the Norwegian mountains.
+            </p>
+          </dd>
+
+          <dt>
+            <Five />
+            Week 5: August 14th to August 20th
+          </dt>
+          <dd>
+            <p>
+              <strong>July 17th to July 23rd</strong>
+            </p>
+            <p>Challenge to be decided</p>
+          </dd>
+        </dl>
       </SiteSection>
 
       <SiteSection
         backgroundColor="shades.section"
         showDots={true}
-        heading="Clear as mud"
-        subHeading="Tried and failed with serverless/lambda/aws before?"
-        body="Newly released Gatsby Functions radically simplifies how to write and deploy serverless functions. By adding features to your own existing Gatsby site you'll have home turf advantage, and we're here to make sure you get all the way to deploy this time"
-      />
-      <SiteSection
-        heading="Beyond the basics"
-        subHeading={
-          <Fragment>
-            Done the{" "}
-            <Box
-              as="code"
-              variant="styles.code"
-            >{`res.send({hello: "world"})`}</Box>
-            example, now what?
-          </Fragment>
-        }
-        body="Not sure what to use Gatsby Functions for? Or how to make them
-        production ready? Get practical real world experience by completing
-        our weekly challenges. We'll also throw in some whimsy, because why
-        not have some fun while you are at it"
-      />
-
-      <SiteSection
-        backgroundColor="shades.section"
-        showDots={true}
-        textAlign="left"
-        heading={
-          <Grid
-            sx={{
-              alignItems: "center",
-              gap: 0,
-              gridTemplateColumns: "auto 1fr",
-            }}
+        textAlign="center"
+      >
+        <SvgBeach mx="auto" />
+        <h2>Join the fun</h2>
+        <p className="intro">
+          We are super exited to see how you solve the challenges!
+        </p>
+        <p>
+          Make sure to share your work on Twitter with{" "}
+          <a
+            href="https://twitter.com/search?q=%23GatsbySvgSummerFunctions&src=typed_query"
+            target="_blank"
+            rel="noreferrer"
           >
-            <SvgLollipop />
-            Five weeks, Five Challenges
-          </Grid>
-        }
-        subHeading="You'll have access to the material forever. "
-        body="Take a week off if something better comes up, like a trip on a pirate ship"
-      >
-        <Divider />
-        <Heading as="h4" variant="heading.h4">
-          The Challenges
-        </Heading>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-          ultricies a nunc ac vulputate
-        </Text>
-        <Divider />
-        <Box as="dl">
-          <DescriptionList
-            icon={<One />}
-            title="Week 1"
-            description={<Fragment>TBC</Fragment>}
-          />
-          <DescriptionList
-            icon={<Two />}
-            title="Week 2"
-            description={<Fragment>TBC</Fragment>}
-          />
-          <DescriptionList
-            icon={<Three />}
-            title="Week 3"
-            description={<Fragment>TBC</Fragment>}
-          />
-          <DescriptionList
-            icon={<Four />}
-            title="Week 4"
-            description={<Fragment>TBC</Fragment>}
-          />
-          <DescriptionList
-            icon={<Five />}
-            title="Week 5"
-            description={<Fragment>TBC</Fragment>}
-          />
-        </Box>
-
-        <Divider />
-        <Heading as="h4" variant="heading.h4">
-          The Weekly Schedule
-        </Heading>
-        <Text>
-          Gatsby Summer Functions will run from{" "}
-          <Text sx={{ fontWeight: "bold" }}>Saturday July 10th</Text> to{" "}
-          <Text sx={{ fontWeight: "bold" }}>Friday August 13th</Text>
-        </Text>
-        <Divider />
-        <Box as="dl">
-          <DescriptionList
-            icon={<HourGlass />}
-            title="Saturday"
-            description={
-              <Fragment>
-                Eagerly await{" "}
-                <Text sx={{ color: "secondary" }}>the challenge</Text>. Start
-                hacking right away, or wait until Monday
-              </Fragment>
-            }
-          />
-          <DescriptionList
-            icon={<Live />}
-            title="Tuesday"
-            description={
-              <Fragment>
-                Join the <Text sx={{ color: "secondary" }}>live webinar</Text>{" "}
-                where we'll code through a possible solution to the challenge,
-                and you'll be able to ask us questions
-              </Fragment>
-            }
-          />
-          <DescriptionList
-            icon={<Group />}
-            title="Wednesday"
-            description={
-              <Fragment>
-                Stuck? Bring your code and/or questions to the the{" "}
-                <Text sx={{ color: "secondary" }}>workshop</Text>, and we'll
-                help you through it in a small group setting.
-              </Fragment>
-            }
-          />
-          <DescriptionList
-            icon={<Inbox />}
-            title="Friday"
-            description={
-              <Fragment>
-                Refresh your inbox until the{" "}
-                <Text sx={{ color: "secondary" }}>challenge wrap-up</Text> comes
-                through including a possible solution to the challenge you may
-                copy/paste
-              </Fragment>
-            }
-          />
-          <DescriptionList
-            icon={<Repeat />}
-            title="Repeat"
-            description={
-              <Fragment>
-                We’ll rinse and repeat this cycle for{" "}
-                <Text sx={{ color: "secondary" }}>5 weeks</Text>
-              </Fragment>
-            }
-          />
-        </Box>
+            #GatsbySummerFunctions
+          </a>
+        </p>
+        <NewsletterForm cta="Tell me more" mt="5">
+          To get notified about pricing and availability, sign up for Queen
+          Raae's Gatsby Newsletter.
+        </NewsletterForm>
       </SiteSection>
 
-      <SiteSection
-        icon={<SvgBeach />}
-        heading="Join the fun"
-        subHeading=" We are super exited to see what you come up with!"
-        body={
-          <Fragment>
-            Make sure to share your work on Twitter{" "}
-            <Link
-              href="https://twitter.com/search?q=%23GatsbySvgSummerFunctions&src=typed_query"
-              target="_blank"
-              rel="noopener"
-            >
-              #GatsbySummerFunctions
-            </Link>
-          </Fragment>
-        }
-      >
-        <NewsletterForm cta="Tell me more" />
+      <SiteSection textAlign="center">
+        <SvgFlag mx="auto" />
+        <h2>Questions?</h2>
+        <p>
+          Send an email to{" "}
+          <a href="mailto:queen@raae.codes">queen@raae.codes</a>
+        </p>
       </SiteSection>
-
-      <SiteSection
-        backgroundColor="shades.section"
-        showDots={true}
-        icon={<SvgFlag />}
-        heading="Questions"
-        subHeading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies a nunc ac vulputate"
-        body={
-          <Fragment>
-            Send an email to{" "}
-            <Link href="mailto:queen@raae.codes">queen@raae.codes</Link>
-          </Fragment>
-        }
-      />
     </Fragment>
   )
 }

@@ -16,7 +16,7 @@ const makeAlertMessage = (status) => {
   }
 }
 
-const NewsletterForm = ({ cta }) => {
+const NewsletterForm = ({ cta, children, ...props }) => {
   const [status, setStatus] = useState("idle")
 
   const handleSubmit = async (event) => {
@@ -40,11 +40,13 @@ const NewsletterForm = ({ cta }) => {
   const isDisabled = ["pending"].includes(status)
 
   return (
-    <Box sx={{ position: "relative" }}>
+    <Box sx={{ position: "relative" }} {...props}>
+      {children}
       {status === "idle" ? (
         <Grid
           as="form"
           onSubmit={handleSubmit}
+          mt={children ? 3 : 0}
           sx={{
             gridTemplateColumns: ["1fr", "1fr", "1fr auto"],
             gap: 2,

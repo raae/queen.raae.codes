@@ -67,45 +67,65 @@ const theme = {
       fontSize: "90%",
       backgroundColor: "shades.code",
     },
-    hr: {
-      color: "shades.section",
-      my: 3,
-    },
     a: {
       color: "primary",
     },
-  },
-
-  text: {
-    default: {
-      fontFamily: "body",
-      lineHeight: "body",
-      fontWeight: "body",
-      fontSize: 2,
+    h1: {
+      fontSize: [7],
     },
-    heading: {
-      h1: {
-        fontSize: [7],
+    h2: {
+      fontFamily: "heading",
+      fontWeight: "heading",
+      fontSize: [4, 6],
+      marginTop: 3,
+      marginBottom: 3,
+    },
+    h3: {
+      fontFamily: "heading",
+      fontWeight: "heading",
+      lineHeight: "heading",
+      fontSize: [4, 5],
+    },
+    h4: {
+      fontFamily: "heading",
+      fontWeight: "heading",
+      lineHeight: "heading",
+      fontSize: [3, 4],
+    },
+    h5: {
+      fontFamily: "body",
+      fontWeight: "body",
+      lineHeight: "heading",
+      fontSize: [2, 3],
+    },
+    h6: {
+      fontFamily: "body",
+      fontWeight: "body",
+      lineHeight: "heading",
+      fontSize: [2],
+    },
+    p: {
+      fontSize: 3,
+      margin: "0.5em 0",
+      "&.intro": {
+        fontSize: 4,
       },
-      h2: {
-        fontSize: [4, 6],
+    },
+    em: {
+      color: "secondary",
+      fontSize: "85%",
+      fontFamily: "highlight",
+      ":nth-of-type(2n)": {
+        color: "primary",
       },
-      h3: {
-        variant: "text.default",
-        lineHeight: "heading",
-        fontSize: [3, 4],
-      },
-      h4: {
-        fontSize: [3, 4],
-      },
-      h5: {
-        fontSize: [2, 3],
-      },
-      h6: {
-        variant: "text.default",
-        lineHeight: "heading",
-        fontSize: [2],
-      },
+    },
+    strong: {
+      fontWeight: "bold",
+    },
+    hr: {
+      borderStyle: "none",
+      marginTop: 5,
+      marginBottom: 0,
     },
     dt: {
       alignItems: "center",
@@ -113,15 +133,20 @@ const theme = {
       fontFamily: "heading",
       lineHeight: "list",
       fontWeight: "heading",
-      fontSize: [2, 3],
+      fontSize: [3, 4],
       svg: {
         fill: "tertiary",
         mr: 2,
       },
     },
     dd: {
-      variant: "text.default",
+      margin: 0,
       mb: 4,
+      fontSize: 3,
+      p: {
+        margin: "0.25em 0",
+        maxWidth: ["100%", "70%"],
+      },
     },
   },
 

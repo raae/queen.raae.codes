@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Grid, Container, Heading, Text } from "theme-ui"
+import { Box, Grid, Container, Heading } from "theme-ui"
 
 import SvgDotBackground from "../components/svg-dot-background"
 
@@ -60,25 +60,6 @@ const SvgSummerFunctionsHero = () => {
               >
                 <SvgLockup />
               </Box>
-              <Text
-                as="p"
-                sx={{
-                  textAlign: "center",
-                  mx: "auto",
-                  maxWidth: ["100%", "70%"],
-                }}
-              >
-                Have{" "}
-                <Text sx={{ color: "primary", fontFamily: "highlight" }}>
-                  fun
-                </Text>{" "}
-                this summer learning <strong>Gatsby Functions</strong> by adding
-                at least three{" "}
-                <Text sx={{ color: "secondary", fontFamily: "highlight" }}>
-                  serverless
-                </Text>{" "}
-                functions to your Gastby site!
-              </Text>
             </Grid>
           </Box>
         </Grid>

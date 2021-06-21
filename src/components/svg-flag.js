@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx, Box } from "theme-ui"
 
-const SvgFlag = () => {
+const SvgFlag = (props) => {
   return (
     <Box
+      {...props}
       sx={{
-        mx: "auto",
         maxWidth: 100,
       }}
     >
