@@ -1,21 +1,40 @@
 const Stripe = require("stripe")
+const { uniq } = require("lodash")
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY)
 
 export default async function handler(request, response) {
-  const sig = request.headers["stripe-signature"]
+  if (request.body.type !== "checkout.session.completed") {
+    response.status(400).send("Not a session complete Stripe event")
+  } else {
+    const sessionId = request.body.data.object.id
 
-  console.log("body", request.rawBody)
+    const { line_items } = await stripe.checkout.sessions.retrieve(sessionId, {
+      expand: ["line_items"],
+    })
 
-  try {
-    const event = stripe.webhooks.constructEvent(
-      request.body,
-      sig,
-      process.env.STRIPE_WEBHOOK_SECRET
-    )
+    const priceId = line_items.data[0].price.id
 
-    console.log("event", event)
-  } catch (err) {
-    console.log(`Webhook Error: ${err.message}`)
-    response.status(400).send(`Webhook Error: ${err.message}`)
+    const { metadata } = await stripe.prices.retrieve(priceId)
+
+    let completedSessionsMetaData = []
+
+    if (metadata.completed_sessions) {
+      completedSessionsMetaData = uniq([
+        ...metadata.completed_sessions.split(","),
+        sessionId,
+      ])
+    }
+
+    metadata.available = metadata.total - completedSessionsMetaData.length
+    metadata.completed_sessions = completedSessionsMetaData.join(",")
+
+    await stripe.prices.update(priceId, {
+      active: !metadata.total,
+      metadata,
+    })
+
+    console.log(`Available ${metadata.available}`)
+
+    response.status(200).json({ message: `Available ${metadata.available}` })
   }
 }
