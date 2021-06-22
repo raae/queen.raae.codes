@@ -16,10 +16,15 @@ const SiteSection = ({
       as="section"
       sx={{
         position: "relative",
-        pt: icon ? 4 : [4, 5],
-        pb: [4, 5],
         backgroundColor: backgroundColor,
         textAlign,
+        py: 5,
+        "*:first-child": {
+          marginTop: 0,
+        },
+        "*:last-child": {
+          marginBottom: 0,
+        },
       }}
     >
       <Container sx={{ position: "relative", zIndex: 1 }}>

@@ -31,18 +31,32 @@ const theme = {
     bold: 700,
   },
 
+  space: [
+    "0rem",
+    "0.25rem",
+    "0.5rem",
+    "1rem",
+    "2rem",
+    "4rem",
+    "8rem",
+    "16rem",
+    "32rem",
+    "64rem",
+  ],
+
   fontSizes: [
-    ".75rem",
-    ".875rem",
-    "1.04rem",
-    "1.2rem",
-    "1.6rem",
-    "2.2rem",
-    "2.8rem",
-    "3.6rem",
+    "0.512rem",
+    "0.64rem",
+    "0.8rem",
+    "1rem",
+    "calc(100% + 0.5vw)",
+    "calc(110% + 0.75vw)",
+    "calc(120% + 1vw)",
+    "calc(130% + 1.5vw)",
   ],
 
   lineHeights: {
+    compact: 1.2,
     body: 1.5,
     heading: 1.25,
     list: 2,
@@ -51,14 +65,14 @@ const theme = {
   radii: [0, 20],
 
   sizes: {
-    container: 800,
+    container: "65ch",
   },
 
   styles: {
     root: {
       fontFamily: "body",
       fontWeight: "body",
-      fontSize: 2,
+      fontSize: "calc(112.5% + 0.25vw)",
     },
     code: {
       borderRadius: 1,
@@ -71,44 +85,56 @@ const theme = {
       color: "primary",
     },
     h1: {
-      fontSize: [7],
+      fontSize: 7,
     },
     h2: {
       fontFamily: "heading",
       fontWeight: "heading",
-      fontSize: [4, 6],
-      marginTop: 3,
-      marginBottom: 3,
+      lineHeight: "heading",
+      fontSize: 6,
+      marginTop: 5,
+      marginBottom: 2,
     },
     h3: {
       fontFamily: "heading",
       fontWeight: "heading",
       lineHeight: "heading",
-      fontSize: [4, 5],
+      fontSize: 5,
+      marginTop: 5,
+      marginBottom: 4,
     },
     h4: {
       fontFamily: "heading",
       fontWeight: "heading",
       lineHeight: "heading",
-      fontSize: [3, 4],
+      fontSize: 4,
+      marginTop: 4,
+      marginBottom: 2,
     },
     h5: {
       fontFamily: "body",
       fontWeight: "body",
       lineHeight: "heading",
-      fontSize: [2, 3],
+      fontSize: 3,
+      marginTop: 4,
+      marginBottom: 2,
     },
     h6: {
       fontFamily: "body",
       fontWeight: "body",
       lineHeight: "heading",
-      fontSize: [2],
+      fontSize: 2,
+      marginTop: 4,
+      marginBottom: 2,
     },
     p: {
       fontSize: 3,
       margin: "0.5em 0",
       "&.intro": {
-        fontSize: 4,
+        fontSize: "120%",
+      },
+      "& small": {
+        fontSize: "85%",
       },
     },
     em: {
@@ -131,9 +157,13 @@ const theme = {
       alignItems: "center",
       display: "flex",
       fontFamily: "heading",
-      lineHeight: "list",
+      lineHeight: "heading",
       fontWeight: "heading",
-      fontSize: [3, 4],
+      fontSize: 3,
+      mb: 2,
+      h4: {
+        minWidth: "100%",
+      },
       svg: {
         fill: "tertiary",
         mr: 2,
@@ -142,10 +172,16 @@ const theme = {
     dd: {
       margin: 0,
       mb: 4,
-      fontSize: 3,
-      p: {
-        margin: "0.25em 0",
-        maxWidth: ["100%", "70%"],
+      maxWidth: "40ch",
+      lineHeight: "compact",
+      h4: {
+        fontFamily: "body",
+        fontWeight: "heading",
+        fontSize: 3,
+        margin: 0,
+        "+ p": {
+          fontSize: 2,
+        },
       },
     },
   },
