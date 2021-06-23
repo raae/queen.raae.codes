@@ -4,7 +4,7 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY)
 
 export default async function handler(request, response) {
   if (request.body.type !== "checkout.session.completed") {
-    response.status(400).send("Not a session complete Stripe event")
+    response.status(400).send(`Not a "checkout.session.completed"  event"`)
   } else {
     const sessionId = request.body.data.object.id
 
