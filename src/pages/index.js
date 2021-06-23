@@ -2,7 +2,7 @@ import React, { Fragment } from "react"
 
 import SvgSummerFunctionsHero from "../components/summer-functions-hero"
 import SiteSection from "../components/site-section"
-import NewsletterForm from "../components/newsletter-form"
+// import NewsletterForm from "../components/newsletter-form"
 
 import SvgLollipop from "../components/svg-lollipop"
 import SvgFlowers from "../components/svg-flowers"
@@ -14,6 +14,7 @@ import Live from "../../static/images/live_tv_black_24dp.inline.svg"
 import Group from "../../static/images/groups_black_24dp.inline.svg"
 import Weeks from "../components/weeks"
 import PricingTable from "../components/pricing-table"
+import Crew from "../components/crew"
 
 const IndexPage = () => {
   return (
@@ -29,6 +30,8 @@ const IndexPage = () => {
           </span>
         </p>
         <SvgFlowers mt="5" mb="4" mx="auto" />
+
+        <h2>VIDEO</h2>
         {/* <h2>Stay in the loop</h2>
         <NewsletterForm cta="Add me on the list!" mb="4">
           <p>
@@ -73,7 +76,7 @@ const IndexPage = () => {
         <p className="intro">
           Learn Gatsby Functions by completing at least three out of our five
           challenges this summer. If you get stuck we are here to help with{" "}
-          <em>live webinars</em> on Tuesdays and <em>open office hours</em> on
+          <em>live webinars</em> on Tuesdays and <em>group coaching</em> on
           Wednesdays.
         </p>
         <dl>
@@ -94,8 +97,8 @@ const IndexPage = () => {
           </dt>
           <dd>
             <p>
-              Eagerly await <strong>the challenge</strong>. Start hacking right
-              away, or wait until Monday.
+              Eagerly await <strong>the challenge</strong> prompt. Start hacking
+              right away, or wait until Monday.
             </p>
           </dd>
 
@@ -115,8 +118,7 @@ const IndexPage = () => {
           <dd>
             <p>
               <strong>Stuck?</strong> Bring your code and/or questions to{" "}
-              <em>open office hours</em>, and we'll help you through it in a
-              small group setting.
+              <em class="primary">group coaching</em> and we'll get you unstuck.
             </p>
           </dd>
 
@@ -202,6 +204,33 @@ const IndexPage = () => {
 
       <SiteSection>
         <PricingTable />
+      </SiteSection>
+
+      <SiteSection
+        backgroundColor="shades.section"
+        showDots={true}
+        textAlign="center"
+      >
+        <Crew />
+      </SiteSection>
+
+      <SiteSection textAlign="center" variant="wide">
+        <h2>Get the support you need</h2>
+        <p>
+          <small>Early draft</small>
+        </p>
+        <h3>Access to code and discussions</h3>
+        <p>
+          Every plan includes access to a private GitHub repo where you can chat
+          other participants and the crew, and check out and run our proposed
+          solutions to the challenges.
+        </p>
+
+        <h2>Live Webinar</h2>
+        <p>Lorem ipsum</p>
+
+        <h2>Group Coaching</h2>
+        <p>Lorem ipsum</p>
       </SiteSection>
 
       <SiteSection textAlign="center" variant="wide">

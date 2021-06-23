@@ -144,6 +144,12 @@ const theme = {
       ":nth-of-type(2n)": {
         color: "primary",
       },
+      "&.primary": {
+        color: "primary",
+      },
+      "&.secondary": {
+        color: "secondary",
+      },
     },
     strong: {
       fontWeight: "bold",
