@@ -13,6 +13,7 @@ import HourGlass from "../../static/images/hourglass_bottom_black_24dp.inline.sv
 import Live from "../../static/images/live_tv_black_24dp.inline.svg"
 import Group from "../../static/images/groups_black_24dp.inline.svg"
 import Weeks from "../components/weeks"
+import PricingTable from "../components/pricing-table"
 
 const IndexPage = () => {
   return (
@@ -28,7 +29,7 @@ const IndexPage = () => {
           </span>
         </p>
         <SvgFlowers mt="5" mb="4" mx="auto" />
-        <h2>Stay in the loop</h2>
+        {/* <h2>Stay in the loop</h2>
         <NewsletterForm cta="Add me on the list!" mb="4">
           <p>
             <small>
@@ -37,7 +38,7 @@ const IndexPage = () => {
               Newsletter.
             </small>
           </p>
-        </NewsletterForm>
+        </NewsletterForm> */}
       </SiteSection>
 
       <SiteSection backgroundColor="shades.section" showDots={true}>
@@ -196,30 +197,14 @@ const IndexPage = () => {
       >
         <SvgBeach mx="auto" />
         <h2>Join the fun</h2>
-        <p className="intro">
-          We are super exited to see how you solve the challenges!
-        </p>
-        <p>
-          Make sure to share your work on Twitter with{" "}
-          <a
-            href="https://twitter.com/search?q=%23GatsbySvgSummerFunctions&src=typed_query"
-            target="_blank"
-            rel="noreferrer"
-          >
-            #GatsbySummerFunctions
-          </a>
-        </p>
-        <NewsletterForm cta="Tell me more" mt="5">
-          <p>
-            <small>
-              To get notified about pricing and availability, sign up for Queen
-              Raae's Gatsby Newsletter.
-            </small>
-          </p>
-        </NewsletterForm>
+        <p>Select between one of our four plans.</p>
       </SiteSection>
 
-      <SiteSection textAlign="center">
+      <SiteSection>
+        <PricingTable />
+      </SiteSection>
+
+      <SiteSection textAlign="center" variant="wide">
         <SvgFlag mx="auto" />
         <h2>Questions?</h2>
         <p>

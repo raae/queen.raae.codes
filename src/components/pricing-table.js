@@ -1,25 +1,35 @@
 import React from "react"
 import { Grid, Box, Button, Heading, Paragraph, Container } from "theme-ui"
 
-export const PricingTable = (props) => {
+const PricingTable = () => {
   return (
-    <Container as="section" {...props}>
-      <Grid columns={3}>
+    <>
+      <Grid columns={3} gap="4">
         <Box>
-          <Heading as="h2" mb="3" sx={{ fontWeight: "900 !important" }}>
-            Basic
+          <Heading as="h3" mb="3" sx={{ fontWeight: "900 !important" }}>
+            Ship Cat
           </Heading>
 
           <Box
             as="ul"
             mb={3}
-            sx={{ listStyle: "none", padding: 0, li: { marginBottom: 2 } }}
+            sx={{
+              listStyle: "none",
+              padding: 0,
+              li: { marginBottom: 2 },
+            }}
           >
             <li>
               <span role="img" aria-label="Includes">
                 ✅
               </span>
-              &nbsp; 5 Challenges and Solutions
+              &nbsp; 5 Challenges
+            </li>
+            <li>
+              <span role="img" aria-label="Includes">
+                ✅
+              </span>
+              &nbsp; GitHub repo with solutions and discussions
             </li>
             <li>
               <span role="img" aria-label="Includes">
@@ -49,19 +59,29 @@ export const PricingTable = (props) => {
           </Button>
         </Box>
         <Box>
-          <Heading as="h2" mb="3" sx={{ fontWeight: "900 !important" }}>
-            Standard
+          <Heading as="h3" mb="3" sx={{ fontWeight: "900 !important" }}>
+            Sailor
           </Heading>
           <Box
             as="ul"
             mb={3}
-            sx={{ listStyle: "none", padding: 0, li: { marginBottom: 2 } }}
+            sx={{
+              listStyle: "none",
+              padding: 0,
+              li: { marginBottom: 2 },
+            }}
           >
             <li>
               <span role="img" aria-label="Includes">
                 ✅
               </span>
-              &nbsp; 5 Challenges and Solutions
+              &nbsp; 5 Challenges
+            </li>
+            <li>
+              <span role="img" aria-label="Includes">
+                ✅
+              </span>
+              &nbsp; GitHub repo with solutions and discussions
             </li>
             <li>
               <span role="img" aria-label="Includes">
@@ -91,19 +111,29 @@ export const PricingTable = (props) => {
           </Button>
         </Box>
         <Box>
-          <Heading as="h2" mb="3" sx={{ fontWeight: "900 !important" }}>
-            Royal
+          <Heading as="h3" mb="3" sx={{ fontWeight: "900 !important" }}>
+            Sea Dog
           </Heading>
           <Box
             as="ul"
             mb={3}
-            sx={{ listStyle: "none", padding: 0, li: { marginBottom: 2 } }}
+            sx={{
+              listStyle: "none",
+              padding: 0,
+              li: { marginBottom: 2 },
+            }}
           >
             <li>
               <span role="img" aria-label="Includes">
                 ✅
               </span>
-              &nbsp; 5 Challenges and Solutions
+              &nbsp; 5 Challenges
+            </li>
+            <li>
+              <span role="img" aria-label="Includes">
+                ✅
+              </span>
+              &nbsp; GitHub repo with solutions and discussions
             </li>
             <li>
               <span role="img" aria-label="Includes">
@@ -135,21 +165,22 @@ export const PricingTable = (props) => {
         </Box>
       </Grid>
 
-      <Box mt={4}>
-        <Paragraph
-          sx={{
-            textAlign: "center",
-            maxWidth: "600px",
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}
-        >
-          <strong>Need a discount?</strong> If for some reason these prices are
-          outrageous for you (between jobs, transitioning into tech etc. etc.)
-          email{" "}
-          <a href="mailto:queen+mercy@raae.codes">queen+mercy@raae.codes</a>.
-        </Paragraph>
+      <Box mt={4} sx={{ textAlign: "center" }}>
+        <p>
+          <a hre="#">Something plan ($49):</a> Access to GitHub repo with
+          solutions and discussions only.
+        </p>
+        <p>
+          <small>
+            <strong>Need a discount?</strong> If for some reason these prices
+            are outrageous for you (between jobs, transitioning into tech etc.
+            etc.) email{" "}
+            <a href="mailto:queen+mercy@raae.codes">queen+mercy@raae.codes</a>.
+          </small>
+        </p>
       </Box>
-    </Container>
+    </>
   )
 }
+
+export default PricingTable
