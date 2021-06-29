@@ -199,7 +199,16 @@ const IndexPage = () => {
       >
         <SvgBeach mx="auto" />
         <h2>Join the fun</h2>
-        <p>Select between one of our four plans.</p>
+        <p>
+          Make sure to jump onboard as soon as you can, the paid plans all have
+          limited seats!
+        </p>
+        <p>
+          <small>
+            The YouTube streams (including bonuses) are open to everyone, no
+            purchase necessary.
+          </small>
+        </p>
       </SiteSection>
 
       <SiteSection>
@@ -209,31 +218,61 @@ const IndexPage = () => {
       <SiteSection
         backgroundColor="shades.section"
         showDots={true}
-        textAlign="center"
+        textAlign="left"
       >
-        <Crew />
+        <Crew
+          members={[
+            {
+              avatar: "/raae.jpg",
+              intro: "Wrote her first line of JavaScript in the year 2000",
+              skill: "Duck taping together services to create side projects",
+              description: `Queen Raae started playing with Gatsby back in 2018. She is the woman behind the
+                    Gatsby app POW! — the privacy-first menstrual cycle journal and the creator of the Gatsby plugin:
+                    gatsby-remark-oembed. She also spoke at Gatsby Days 2020.`,
+            },
+            {
+              avatar: "/paul.jpg",
+              intro: "Paul is an absolute Gatsby fan-boy",
+              skill: "Once built a design system in 11 minutes",
+              description: `Paul's Gatsby adventure also began in 2018. Shortly after he release the
+                    Gatsby plugin: mdx-embed, and in 2020 he won Gatsby's Silly Site Challenge
+                    by creating a site exclusively about bums`,
+            },
+            {
+              avatar: "/ola.jpg",
+              intro: "Ola thought himself to code",
+              skill: "Creates piratical stories to explain Gatsby concepts",
+              description: `Gatsby met Ola's need for "hands-on"-tinkering and practical,
+                    real-world usage when learning to code. He is the junior dev on POW! —
+                    the privacy-first menstrual cycle journal and is very much looking forward to teaching
+                    the Pirate Princess Lillian (6) to code.`,
+            },
+          ]}
+        />
       </SiteSection>
 
       <SiteSection textAlign="center" variant="wide">
-        <h2>Get the support you need</h2>
-        <p>
-          <small>Early draft</small>
-        </p>
-        <h3>Access to code and discussions</h3>
-        <p>
-          Every plan includes access to a private GitHub repo where you can chat
-          other participants and the crew, and check out and run our proposed
-          solutions to the challenges.
-        </p>
+        <h2>Code samples</h2>
+        <p>Lorem ipsum</p>
+
+        <h2>Forum / Chat</h2>
+        <p>Lorem ipsum</p>
 
         <h2>Live Webinar</h2>
         <p>Lorem ipsum</p>
 
-        <h2>Group Coaching</h2>
+        <h2>Code review</h2>
+        <p>Lorem ipsum</p>
+
+        <h2>Pair programming</h2>
         <p>Lorem ipsum</p>
       </SiteSection>
 
-      <SiteSection textAlign="center" variant="wide">
+      <SiteSection
+        backgroundColor="shades.section"
+        showDots={true}
+        textAlign="center"
+      >
         <SvgFlag mx="auto" />
         <h2>Questions?</h2>
         <p>
