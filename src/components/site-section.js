@@ -10,6 +10,7 @@ const SiteSection = ({
   icon,
   showDots = false,
   dotOpacity = 0.7,
+  width = "container",
 }) => {
   return (
     <Box
@@ -27,7 +28,7 @@ const SiteSection = ({
         },
       }}
     >
-      <Container sx={{ position: "relative", zIndex: 1 }}>
+      <Container variant={width} sx={{ position: "relative", zIndex: 1 }}>
         {icon ? <Box my="4">{icon}</Box> : null}
         <BaseStyles>{children}</BaseStyles>
       </Container>

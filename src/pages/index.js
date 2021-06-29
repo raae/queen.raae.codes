@@ -2,7 +2,7 @@ import React, { Fragment } from "react"
 
 import SvgSummerFunctionsHero from "../components/summer-functions-hero"
 import SiteSection from "../components/site-section"
-import NewsletterForm from "../components/newsletter-form"
+// import NewsletterForm from "../components/newsletter-form"
 
 import SvgLollipop from "../components/svg-lollipop"
 import SvgFlowers from "../components/svg-flowers"
@@ -13,6 +13,8 @@ import HourGlass from "../../static/images/hourglass_bottom_black_24dp.inline.sv
 import Live from "../../static/images/live_tv_black_24dp.inline.svg"
 import Group from "../../static/images/groups_black_24dp.inline.svg"
 import Weeks from "../components/weeks"
+import PricingTable from "../components/pricing-table"
+import Crew from "../components/crew"
 
 const IndexPage = () => {
   return (
@@ -28,7 +30,9 @@ const IndexPage = () => {
           </span>
         </p>
         <SvgFlowers mt="5" mb="4" mx="auto" />
-        <h2>Stay in the loop</h2>
+
+        <h2>VIDEO</h2>
+        {/* <h2>Stay in the loop</h2>
         <NewsletterForm cta="Add me on the list!" mb="4">
           <p>
             <small>
@@ -37,7 +41,7 @@ const IndexPage = () => {
               Newsletter.
             </small>
           </p>
-        </NewsletterForm>
+        </NewsletterForm> */}
       </SiteSection>
 
       <SiteSection backgroundColor="shades.section" showDots={true}>
@@ -72,7 +76,7 @@ const IndexPage = () => {
         <p className="intro">
           Learn Gatsby Functions by completing at least three out of our five
           challenges this summer. If you get stuck we are here to help with{" "}
-          <em>live webinars</em> on Tuesdays and <em>open office hours</em> on
+          <em>live webinars</em> on Tuesdays and <em>group coaching</em> on
           Wednesdays.
         </p>
         <dl>
@@ -93,8 +97,8 @@ const IndexPage = () => {
           </dt>
           <dd>
             <p>
-              Eagerly await <strong>the challenge</strong>. Start hacking right
-              away, or wait until Monday.
+              Eagerly await <strong>the challenge</strong> prompt. Start hacking
+              right away, or wait until Monday.
             </p>
           </dd>
 
@@ -114,8 +118,7 @@ const IndexPage = () => {
           <dd>
             <p>
               <strong>Stuck?</strong> Bring your code and/or questions to{" "}
-              <em>open office hours</em>, and we'll help you through it in a
-              small group setting.
+              <em class="primary">group coaching</em> and we'll get you unstuck.
             </p>
           </dd>
 
@@ -196,30 +199,119 @@ const IndexPage = () => {
       >
         <SvgBeach mx="auto" />
         <h2>Join the fun</h2>
-        <p className="intro">
-          We are super exited to see how you solve the challenges!
-        </p>
         <p>
-          Make sure to share your work on Twitter with{" "}
-          <a
-            href="https://twitter.com/search?q=%23GatsbySvgSummerFunctions&src=typed_query"
-            target="_blank"
-            rel="noreferrer"
-          >
-            #GatsbySummerFunctions
-          </a>
+          Make sure to jump onboard as soon as you can, <br />
+          the paid plans all have limited seats!
         </p>
-        <NewsletterForm cta="Tell me more" mt="5">
-          <p>
-            <small>
-              To get notified about pricing and availability, sign up for Queen
-              Raae's Gatsby Newsletter.
-            </small>
-          </p>
-        </NewsletterForm>
+        <p className="dense">
+          <small>
+            Friday wrap-ups, and all the bonus streams, is viewable by anyone on
+            YouTube. No purchase necessary.
+          </small>
+        </p>
       </SiteSection>
 
-      <SiteSection textAlign="center">
+      <SiteSection width="wide">
+        <PricingTable
+          plans={[
+            {
+              title: "Ship's cat",
+              price: 250,
+              stripeLinkId: process.env.GATSBY_STRIPE_LINK_LOW,
+            },
+            {
+              title: "Sailor",
+              price: 550,
+              stripeLinkId: process.env.GATSBY_STRIPE_LINK_MEDIUM,
+            },
+            {
+              title: "Sea Dog",
+              price: 1375,
+              stripeLinkId: process.env.GATSBY_STRIPE_LINK_HIGH,
+            },
+          ]}
+          perks={[
+            { item: "Access to the forum", plans: 0 },
+            { item: "5 Challenges", plans: 0 },
+            { item: "5 Code Samples", plans: 0 },
+            { item: "5 Live Webinars", plans: 0 },
+            { item: "5 Code Review Sessions", plans: 1 },
+            { item: "3 One-on-One pair programming sessions", plans: 2 },
+          ]}
+          outro={
+            <p className="dense">
+              <small>
+                <strong>Need a discount?</strong> If for some reason these
+                prices are outrageous for you (between jobs, transitioning into
+                tech etc. etc.) email{" "}
+                <a href="mailto:queen+mercy@raae.codes">
+                  queen+mercy@raae.codes
+                </a>
+                .
+              </small>
+            </p>
+          }
+        />
+      </SiteSection>
+
+      <SiteSection
+        backgroundColor="shades.section"
+        showDots={true}
+        textAlign="left"
+      >
+        <Crew
+          members={[
+            {
+              avatar: "/raae.jpg",
+              intro: "Wrote her first line of JavaScript in the year 2000",
+              skill: "Duck taping together services to create side projects",
+              description: `Queen Raae started playing with Gatsby back in 2018. She is the woman behind the
+                    Gatsby app POW! — the privacy-first menstrual cycle journal and the creator of the Gatsby plugin:
+                    gatsby-remark-oembed. She also spoke at Gatsby Days 2020.`,
+            },
+            {
+              avatar: "/paul.jpg",
+              intro: "Paul is an absolute Gatsby fan-boy",
+              skill: "Once built a design system in 11 minutes",
+              description: `Paul's Gatsby adventure also began in 2018. Shortly after he release the
+                    Gatsby plugin: mdx-embed, and in 2020 he won Gatsby's Silly Site Challenge
+                    by creating a site exclusively about bums`,
+            },
+            {
+              avatar: "/ola.jpg",
+              intro: "Ola thought himself to code",
+              skill: "Creates piratical stories to explain Gatsby concepts",
+              description: `Gatsby met Ola's need for "hands-on"-tinkering and practical,
+                    real-world usage when learning to code. He is the junior dev on POW! —
+                    the privacy-first menstrual cycle journal and is very much looking forward to teaching
+                    the Pirate Princess Lillian (6) to code.`,
+            },
+          ]}
+        />
+      </SiteSection>
+
+      <SiteSection textAlign="center" variant="wide">
+        <h2>Code samples</h2>
+        <p>Lorem ipsum</p>
+
+        <h2>Forum / Chat</h2>
+        <p>Lorem ipsum</p>
+
+        <h2>Live Webinar</h2>
+        <p>Lorem ipsum</p>
+
+        <h2>Code review</h2>
+        <p>Lorem ipsum</p>
+
+        <h2>Pair programming</h2>
+        <p>Lorem ipsum</p>
+      </SiteSection>
+
+      <SiteSection
+        backgroundColor="shades.section"
+        showDots={true}
+        textAlign="center"
+      >
         <SvgFlag mx="auto" />
         <h2>Questions?</h2>
         <p>
