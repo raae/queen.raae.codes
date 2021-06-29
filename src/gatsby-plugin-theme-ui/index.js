@@ -200,10 +200,12 @@ const theme = {
       color: "white !important",
       fontSize: 2,
       fontWeight: "bold",
-      cursor: "pointer",
-      transition: ".2s linear opacity",
-      ":hover": {
-        opacity: 0.9,
+      transition: ".2s linear background",
+      "&:hover": {
+        backgroundColor: "tertiary",
+      },
+      "&.disabled, &:disabled": {
+        opacity: 0.6,
       },
     },
     primary: {

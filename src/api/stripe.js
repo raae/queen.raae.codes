@@ -16,20 +16,20 @@ export default async function handler(request, response) {
 
     const { metadata } = await stripe.prices.retrieve(priceId)
 
-    let completedSessionsMetaData = []
+    let completedSessions = [sessionId]
 
     if (metadata.completed_sessions) {
-      completedSessionsMetaData = uniq([
+      completedSessions = uniq([
         ...metadata.completed_sessions.split(","),
         sessionId,
       ])
     }
 
-    metadata.available = metadata.total - completedSessionsMetaData.length
-    metadata.completed_sessions = completedSessionsMetaData.join(",")
+    metadata.available = metadata.total - completedSessions.length
+    metadata.completed_sessions = completedSessions.join(",")
 
     await stripe.prices.update(priceId, {
-      active: !metadata.total,
+      active: metadata.available > 0,
       metadata,
     })
 
