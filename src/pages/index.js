@@ -213,21 +213,25 @@ const IndexPage = () => {
 
       <SiteSection width="wide">
         <PricingTable
+          productId={process.env.GATSBY_STRIPE_PRODUCT}
           plans={[
             {
               title: "Ship's cat",
               price: 250,
               stripeLinkId: process.env.GATSBY_STRIPE_LINK_LOW,
+              stripePriceId: process.env.GATSBY_STRIPE_PRICE_LOW,
             },
             {
               title: "Sailor",
               price: 550,
               stripeLinkId: process.env.GATSBY_STRIPE_LINK_MEDIUM,
+              stripePriceId: process.env.GATSBY_STRIPE_PRICE_MEDIUM,
             },
             {
               title: "Sea Dog",
               price: 1375,
               stripeLinkId: process.env.GATSBY_STRIPE_LINK_HIGH,
+              stripePriceId: process.env.GATSBY_STRIPE_PRICE_HIGH,
             },
           ]}
           perks={[
