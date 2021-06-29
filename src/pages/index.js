@@ -200,19 +200,58 @@ const IndexPage = () => {
         <SvgBeach mx="auto" />
         <h2>Join the fun</h2>
         <p>
-          Make sure to jump onboard as soon as you can, the paid plans all have
-          limited seats!
+          Make sure to jump onboard as soon as you can, <br />
+          the paid plans all have limited seats!
         </p>
-        <p>
+        <p className="dense">
           <small>
-            The YouTube streams (including bonuses) are open to everyone, no
-            purchase necessary.
+            Friday wrap-ups, and all the bonus streams, is viewable by anyone on
+            YouTube. No purchase necessary.
           </small>
         </p>
       </SiteSection>
 
-      <SiteSection>
-        <PricingTable />
+      <SiteSection width="wide">
+        <PricingTable
+          plans={[
+            {
+              title: "Ship's cat",
+              price: 250,
+              stripeLinkId: process.env.GATSBY_STRIPE_LINK_LOW,
+            },
+            {
+              title: "Sailor",
+              price: 550,
+              stripeLinkId: process.env.GATSBY_STRIPE_LINK_MEDIUM,
+            },
+            {
+              title: "Sea Dog",
+              price: 1375,
+              stripeLinkId: process.env.GATSBY_STRIPE_LINK_HIGH,
+            },
+          ]}
+          perks={[
+            { item: "Access to the forum", plans: 0 },
+            { item: "5 Challenges", plans: 0 },
+            { item: "5 Code Samples", plans: 0 },
+            { item: "5 Live Webinars", plans: 0 },
+            { item: "5 Code Review Sessions", plans: 1 },
+            { item: "3 One-on-One pair programming sessions", plans: 2 },
+          ]}
+          outro={
+            <p className="dense">
+              <small>
+                <strong>Need a discount?</strong> If for some reason these
+                prices are outrageous for you (between jobs, transitioning into
+                tech etc. etc.) email{" "}
+                <a href="mailto:queen+mercy@raae.codes">
+                  queen+mercy@raae.codes
+                </a>
+                .
+              </small>
+            </p>
+          }
+        />
       </SiteSection>
 
       <SiteSection

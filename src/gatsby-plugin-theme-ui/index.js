@@ -133,6 +133,9 @@ const theme = {
       "&.intro": {
         fontSize: "120%",
       },
+      "&.dense": {
+        lineHeight: "compact",
+      },
       "& small": {
         fontSize: "85%",
       },
@@ -194,6 +197,9 @@ const theme = {
 
   buttons: {
     default: {
+      color: "white !important",
+      fontSize: 2,
+      fontWeight: "bold",
       cursor: "pointer",
       transition: ".2s linear opacity",
       ":hover": {
@@ -254,7 +260,11 @@ const theme = {
 
   layout: {
     container: {
-      px: [3, 4],
+      px: [3, 5],
+    },
+    wide: {
+      px: [3, 5],
+      maxWidth: "100ch",
     },
   },
 
