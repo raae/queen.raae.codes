@@ -1,5 +1,5 @@
 import React from "react"
-import { Grid, Box, Button, Paragraph } from "theme-ui"
+import { Grid, Box, Button } from "theme-ui"
 import axios from "axios"
 import { useQuery } from "react-query"
 

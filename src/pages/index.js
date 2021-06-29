@@ -76,8 +76,8 @@ const IndexPage = () => {
         <p className="intro">
           Learn Gatsby Functions by completing at least three out of our five
           challenges this summer. If you get stuck we are here to help with{" "}
-          <em>live webinars</em> on Tuesdays and <em>group coaching</em> on
-          Wednesdays.
+          <em>live webinars</em> on Tuesdays and <em>code review</em> in a small
+          group setting on Wednesdays.
         </p>
         <dl>
           <dt>When?</dt>
@@ -117,8 +117,8 @@ const IndexPage = () => {
           </dt>
           <dd>
             <p>
-              <strong>Stuck?</strong> Bring your code and/or questions to{" "}
-              <em class="primary">group coaching</em> and we'll get you unstuck.
+              Level up with <em className="primary">code review</em>. Get help
+              and feedback from Queen Raae and the other sailors (max 8).
             </p>
           </dd>
 
@@ -240,7 +240,7 @@ const IndexPage = () => {
             { item: "5 Code Samples", plans: 0 },
             { item: "5 Live Webinars", plans: 0 },
             { item: "5 Code Review Sessions", plans: 1 },
-            { item: "3 One-on-One pair programming sessions", plans: 2 },
+            { item: "3 One-on-One Pair Programming Sessions", plans: 2 },
           ]}
           outro={
             <p className="dense">
@@ -295,19 +295,22 @@ const IndexPage = () => {
       </SiteSection>
 
       <SiteSection textAlign="center" variant="wide">
-        <h2>Code samples</h2>
+        <h2>Access to the forum</h2>
         <p>Lorem ipsum</p>
 
-        <h2>Forum / Chat</h2>
+        <h2>5 Challenges</h2>
         <p>Lorem ipsum</p>
 
-        <h2>Live Webinar</h2>
+        <h2>5 Code Samples</h2>
         <p>Lorem ipsum</p>
 
-        <h2>Code review</h2>
+        <h2>5 Live Webinars</h2>
         <p>Lorem ipsum</p>
 
-        <h2>Pair programming</h2>
+        <h2>5 Code Review Sessions</h2>
+        <p>Lorem ipsum</p>
+
+        <h2>3 One-on-One Pair Programming Sessions</h2>
         <p>Lorem ipsum</p>
       </SiteSection>
 
