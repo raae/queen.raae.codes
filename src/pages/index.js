@@ -31,10 +31,11 @@ const IndexPage = () => {
           </span>
         </p>
         <SvgFlowers mt="5" mb="4" mx="auto" />
+        {/* VIDEO */}
       </SiteSection>
 
       <SiteSection backgroundColor="shades.section" showDots={true}>
-        <h2>Tried and failed with serverless/lambda/aws before?</h2>
+        <h3>Tried and failed with serverless/lambda/aws before?</h3>
         <p>
           Newly released Gatsby Functions radically simplifies how to write and
           deploy serverless functions. By adding features to your own existing
@@ -45,10 +46,10 @@ const IndexPage = () => {
           </span>
         </p>
 
-        <h2>
+        <h3>
           Done the <code>{`res.send({hello: "world"})`}</code>
           example, now what?
-        </h2>
+        </h3>
         <p>
           Not sure what to use Gatsby Functions for? Or how to make them
           production ready? Get practical real world experience by completing
@@ -63,14 +64,14 @@ const IndexPage = () => {
       <SiteSection>
         <h2>Five weeks, Five Challenges</h2>
         <p className="intro">
-          Learn Gatsby Functions by completing at least three out of our five
+          Learn Gatsby Functions by completing at least three of our five
           challenges this summer.
         </p>
         <p>
           If you get stuck we are here to help with <em>live webinars</em> on
           Tuesdays and group <em>code review</em> on Wednesdays.
         </p>
-        <h4>When?</h4>
+        <h3>Dates</h3>
         <p>
           Summer Functions runs from <strong>Saturday, July 17th</strong> to{" "}
           <strong>Friday, August 27th</strong>, with a week's break between the
@@ -79,6 +80,12 @@ const IndexPage = () => {
         </p>
 
         <h3>The Weekly Schedule</h3>
+
+        <p>
+          In addition to the regular schedule, we'll sprinkle in some bonus
+          YouTube streams on topics related to serverless with{" "}
+          <strong>guest instructors</strong>.
+        </p>
 
         <dl>
           <dt>
@@ -92,7 +99,7 @@ const IndexPage = () => {
           </dd>
 
           <dt>
-            <Live /> Tuesday @ <time>12:00 CEST</time>
+            <Live /> Tuesday @ <time>20:00 CEST</time>
           </dt>
           <dd>
             <p>
@@ -103,7 +110,7 @@ const IndexPage = () => {
           </dd>
 
           <dt>
-            <Group /> Wednesday @ <time>12:00 CEST</time>
+            <Group /> Wednesday @ <time>20:00 CEST</time>
           </dt>
           <dd>
             <p>
@@ -140,16 +147,6 @@ const IndexPage = () => {
             Rinse and repeat for 5 weeks
           </small>
         </dl>
-
-        <hr />
-
-        <p class="intro">
-          In addition to the weekly schedule, we'll sprinkle in some{" "}
-          <em>bonus YouTube streams</em> on topics related to Gatsby Functions
-          and serverless with <em>guest instructors</em>.
-        </p>
-
-        <hr />
 
         <h3>The Challenges</h3>
 
@@ -198,12 +195,132 @@ const IndexPage = () => {
         />
       </SiteSection>
 
+      <PricingSection Icon={SvgBeach} />
+
+      <SiteSection
+        backgroundColor="shades.section"
+        showDots={true}
+        textAlign="left"
+      >
+        <Crew
+          members={[
+            {
+              avatar: "/raae.jpg",
+              intro: "Wrote her first line of JavaScript in the year 2000",
+              skill: "Duck taping together services to create side projects",
+              description: `Queen Raae started playing with Gatsby back in 2018. She is the woman behind the
+                    Gatsby app POW! — the privacy-first menstrual cycle journal and the creator of the Gatsby plugin:
+                    gatsby-remark-oembed. She also spoke at Gatsby Days 2020.`,
+            },
+            {
+              avatar: "/paul.jpg",
+              intro: "Paul is an absolute Gatsby fan-boy",
+              skill: "Once built a design system in 11 minutes",
+              description: `Paul's Gatsby adventure also began in 2018. Shortly after he release the
+                    Gatsby plugin: mdx-embed, and in 2020 he won Gatsby's Silly Site Challenge
+                    by creating a site exclusively about bums`,
+            },
+            {
+              avatar: "/ola.jpg",
+              intro: "Ola thought himself to code",
+              skill: "Creates piratical stories to explain Gatsby concepts",
+              description: `Gatsby met Ola's need for "hands-on"-tinkering and practical,
+                    real-world usage when learning to code. He is the junior dev on POW! —
+                    the privacy-first menstrual cycle journal and is very much looking forward to teaching
+                    the Pirate Princess Lillian (6) to code.`,
+            },
+          ]}
+        />
+      </SiteSection>
+
+      <SiteSection textAlign="center" variant="wide">
+        <h2>What's included?</h2>
+        <p className="intro">
+          The Summer Functions <em>Command Central</em> is a private{" "}
+          <em>GitHub repo</em> you'll get access to and keep access to until the
+          end of the year.
+        </p>
+        <h3>Forum</h3>
+        <p>
+          The Discussions tab of the private GitHub repo will be our forum.
+          There you you can ask questions, discuss possible solutions and get to
+          know the other cats, sailors and sea dogs.
+        </p>
+
+        <h3>Challenges</h3>
+        <p>
+          Each Saturday you'll receive the challenge in your inbox. In addition
+          you will be able to find it as a thread in the forum.
+        </p>
+
+        <h3>Live Webinars</h3>
+        <p>
+          Each Tuesday Queen Raae we'll walk you through a possible solution to
+          the challenge as a live webinar where you can ask questions. The
+          webinar recordings will be available to view, at your convenience,
+          until the end of the year.
+        </p>
+
+        <h3>Code Samples</h3>
+        <p>
+          The live webinar code will be available as a Pull Request in the
+          private GitHub repo. Feel free to comment and ask questions directly
+          on the Pull Request.
+        </p>
+
+        <h3>Group Code Review</h3>
+        <p>
+          If you are a sailor or sea dog you are invited to join the group code
+          review every Wednesday. There you will get feedback on your code from
+          Queen Raae and others in the group of max 8 people.
+        </p>
+
+        <h3>One-on-One Pair Programming Sessions</h3>
+        <p>
+          Sea dogs get 3 pair programming sessions with Queen Raae at a
+          convenient time for both. Each session is 40 minutes.
+        </p>
+      </SiteSection>
+
+      <PricingSection Icon={SvgLollipop} />
+
       <SiteSection
         backgroundColor="shades.section"
         showDots={true}
         textAlign="center"
       >
-        <SvgBeach mx="auto" />
+        <SvgFlag mx="auto" />
+        <h2>Not ready to climb onboard?</h2>
+        <p>
+          To be notified about <em>free webinars</em> and the{" "}
+          <em>YouTube Streams</em> join Queen Raae's newsletter on all things
+          Gatsby.
+        </p>
+        <hr />
+        <NewsletterForm cta="Get notified" />
+      </SiteSection>
+      <SiteSection textAlign="center">
+        <h2>Questions?</h2>
+        <p>
+          Send an email to{" "}
+          <a href="mailto:queen@raae.codes">queen@raae.codes</a>
+        </p>
+      </SiteSection>
+    </Fragment>
+  )
+}
+
+export default IndexPage
+
+const PricingSection = ({ Icon }) => {
+  return (
+    <Fragment>
+      <SiteSection
+        backgroundColor="shades.section"
+        showDots={true}
+        textAlign="center"
+      >
+        <Icon mx="auto" />
         <h2>Join the fun</h2>
         <p>
           Make sure to jump onboard as soon as you can, <br />
@@ -263,113 +380,6 @@ const IndexPage = () => {
           }
         />
       </SiteSection>
-
-      <SiteSection
-        backgroundColor="shades.section"
-        showDots={true}
-        textAlign="left"
-      >
-        <Crew
-          members={[
-            {
-              avatar: "/raae.jpg",
-              intro: "Wrote her first line of JavaScript in the year 2000",
-              skill: "Duck taping together services to create side projects",
-              description: `Queen Raae started playing with Gatsby back in 2018. She is the woman behind the
-                    Gatsby app POW! — the privacy-first menstrual cycle journal and the creator of the Gatsby plugin:
-                    gatsby-remark-oembed. She also spoke at Gatsby Days 2020.`,
-            },
-            {
-              avatar: "/paul.jpg",
-              intro: "Paul is an absolute Gatsby fan-boy",
-              skill: "Once built a design system in 11 minutes",
-              description: `Paul's Gatsby adventure also began in 2018. Shortly after he release the
-                    Gatsby plugin: mdx-embed, and in 2020 he won Gatsby's Silly Site Challenge
-                    by creating a site exclusively about bums`,
-            },
-            {
-              avatar: "/ola.jpg",
-              intro: "Ola thought himself to code",
-              skill: "Creates piratical stories to explain Gatsby concepts",
-              description: `Gatsby met Ola's need for "hands-on"-tinkering and practical,
-                    real-world usage when learning to code. He is the junior dev on POW! —
-                    the privacy-first menstrual cycle journal and is very much looking forward to teaching
-                    the Pirate Princess Lillian (6) to code.`,
-            },
-          ]}
-        />
-      </SiteSection>
-
-      <SiteSection textAlign="center" variant="wide">
-        <p className="intro">
-          The Summer Functions <em>Command Central</em> is a private{" "}
-          <em>GitHub repo</em> you'll get access to and keep access to until the
-          end of the year.
-        </p>
-        <h3>Forum</h3>
-        <p>
-          The Discussions tab of the private GitHub repo will be our forum.
-          There you you can ask questions, discuss possible solutions and get to
-          know the other cats, sailors and sea dogs.
-        </p>
-
-        <h3>Challenges</h3>
-        <p>
-          Each Saturday you'll receive the challenge in your inbox. In addition
-          you will be able to find it as a thread in the forum.
-        </p>
-
-        <h3>Live Webinars</h3>
-        <p>
-          Each Tuesday Queen Raae we'll walk you through a possible solution to
-          the challenge as a live webinar where you can ask questions. The
-          webinar recordings will be available to view, at your convenience,
-          until the end of the year.
-        </p>
-
-        <h3>Code Samples</h3>
-        <p>
-          The live webinar code will be available as a Pull Request in the
-          private GitHub repo. Feel free to comment and ask questions directly
-          on the Pull Request.
-        </p>
-
-        <h3>Group Code Review</h3>
-        <p>
-          If you are a sailor or sea dog you are invited to join the group code
-          review every Wednesday. There you will get feedback on your code from
-          Queen Raae and others in the group of max 8 people.
-        </p>
-
-        <h3>One-on-One Pair Programming Sessions</h3>
-        <p>
-          Sea dogs get 3 pair programming sessions with Queen Raae at a
-          convenient time for both. Each session is 40 minutes.
-        </p>
-      </SiteSection>
-
-      <SiteSection
-        backgroundColor="shades.section"
-        showDots={true}
-        textAlign="center"
-      >
-        <SvgFlag mx="auto" />
-        <h2>Not ready to climb onboard?</h2>
-        <p>
-          To be notified about <em>free webinars</em> and the{" "}
-          <em>YouTube Streams</em> join Queen Raae's newsletter on all things
-          Gatsby.
-        </p>
-        <hr />
-        <NewsletterForm />
-        <h2>Questions?</h2>
-        <p>
-          Send an email to{" "}
-          <a href="mailto:queen@raae.codes">queen@raae.codes</a>
-        </p>
-      </SiteSection>
     </Fragment>
   )
 }
-
-export default IndexPage

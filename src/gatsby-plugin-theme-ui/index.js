@@ -93,7 +93,7 @@ const theme = {
       lineHeight: "heading",
       fontSize: 6,
       marginTop: 5,
-      marginBottom: 2,
+      marginBottom: 3,
     },
     h3: {
       fontFamily: "heading",
@@ -101,7 +101,7 @@ const theme = {
       lineHeight: "heading",
       fontSize: 5,
       marginTop: 5,
-      marginBottom: 4,
+      marginBottom: 3,
     },
     h4: {
       fontFamily: "heading",
@@ -116,7 +116,7 @@ const theme = {
       fontWeight: "body",
       lineHeight: "heading",
       fontSize: 3,
-      marginTop: 4,
+      marginTop: 5,
       marginBottom: 2,
     },
     h6: {
@@ -124,7 +124,7 @@ const theme = {
       fontWeight: "body",
       lineHeight: "heading",
       fontSize: 2,
-      marginTop: 4,
+      marginTop: 5,
       marginBottom: 2,
     },
     p: {
@@ -161,6 +161,9 @@ const theme = {
       borderStyle: "none",
       marginTop: 5,
       marginBottom: 0,
+    },
+    dl: {
+      marginTop: 4,
     },
     dt: {
       alignItems: "center",

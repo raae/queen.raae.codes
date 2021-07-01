@@ -26,6 +26,9 @@ const SiteSection = ({
         "*:last-child": {
           marginBottom: 0,
         },
+        "div + h2": {
+          marginTop: 3,
+        },
       }}
     >
       <Container variant={width} sx={{ position: "relative", zIndex: 1 }}>
