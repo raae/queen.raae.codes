@@ -7,10 +7,10 @@ const SiteSection = ({
   children,
   backgroundColor = "background",
   textAlign = "left",
-  icon,
   showDots = false,
   dotOpacity = 0.7,
   width = "container",
+  height = "default",
 }) => {
   return (
     <Box
@@ -19,11 +19,13 @@ const SiteSection = ({
         position: "relative",
         backgroundColor: backgroundColor,
         textAlign,
-        py: 5,
+        py: height === "dense" ? 0 : 5,
+        "div + h2": {
+          mt: 3,
+        },
       }}
     >
       <Container variant={width} sx={{ position: "relative", zIndex: 1 }}>
-        {icon ? <Box my="4">{icon}</Box> : null}
         <BaseStyles>{children}</BaseStyles>
       </Container>
       {showDots ? <SvgDotBackground dotOpacity={dotOpacity} /> : null}

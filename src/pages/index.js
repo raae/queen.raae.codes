@@ -35,7 +35,11 @@ const IndexPage = () => {
         <h2>VIDEO TO COME</h2>
       </SiteSection>
 
-      <SiteSection backgroundColor="shades.section" showDots={true}>
+      <SiteSection
+        backgroundColor="shades.section"
+        showDots={true}
+        width="narrow"
+      >
         <h3>Tried and failed with serverless/lambda/aws before?</h3>
         <p>
           Newly released Gatsby Functions radically simplifies how to write and
@@ -62,7 +66,7 @@ const IndexPage = () => {
         </p>
       </SiteSection>
 
-      <SiteSection>
+      <SiteSection width="narrow">
         <h2>Five weeks, Five Challenges</h2>
         <p className="intro">
           Learn Gatsby Functions by completing at least three of our five
@@ -142,16 +146,18 @@ const IndexPage = () => {
             Rinse and repeat for 5 weeks
           </small>
         </dl>
+      </SiteSection>
 
-        <hr />
-
+      <SiteSection height="dense" textAlign="center">
+        <SvgLollipop mx="auto" />
         <p className="intro">
           In addition to the weekly schedule, we'll sprinkle in some{" "}
           <em>bonus YouTube streams</em> on topics related to Gatsby Functions
           and serverless with <em>guest instructors</em>.
         </p>
-        <hr />
+      </SiteSection>
 
+      <SiteSection width="narrow">
         <h3>The Challenges</h3>
 
         <Weeks
@@ -201,70 +207,48 @@ const IndexPage = () => {
 
       <PricingSection Icon={SvgBeach} />
 
-      <SiteSection
-        backgroundColor="shades.section"
-        showDots={true}
-        textAlign="left"
-      >
+      <SiteSection backgroundColor="shades.section" showDots={true}>
+        <h2>The crew</h2>
         <Grid
           sx={{
+            mt: 5,
             gap: 5,
           }}
         >
-          <Grid
-            sx={{
-              gap: 4,
-              h2: {
-                m: 0,
-              },
-            }}
-          >
-            <h2>The Queen</h2>
+          <Crew
+            color="tertiary"
+            avatar="raae.jpg"
+            intro="Queen Raae wrote her fist with JavaScript in 2000"
+            skill="Duck taping together services to create side projects"
+            description="Raae started playing with Gatsby back in 2018. She is the woman behind the Gatsby app POW! — the privacy-first menstrual cycle journal and the creator of the Gatsby plugin: gatsby-remark-oembed. She also spoke at Gatsby Days 2020."
+          />
 
-            <Crew
-              avatar="raae.jpg"
-              intro="Wrote her first line of JavaScript in the year 2000"
-              skill="Duck taping together services to create side projects"
-              description="Queen Raae started playing with Gatsby back in 2018. She is the woman behind the Gatsby app POW! — the privacy-first menstrual cycle journal and the creator of the Gatsby plugin: gatsby-remark-oembed. She also spoke at Gatsby Days 2020."
-            />
-          </Grid>
-
-          <Grid
-            sx={{
-              gap: 4,
-              h2: {
-                m: 0,
-              },
-            }}
-          >
-            <h2>The Nattermob Pirates</h2>
-
-            <Crew
-              avatar="paul.jpg"
-              intro="Paul is an absolute Gatsby fan-boy"
-              skill="Once built a design system in 11 minutes"
-              description="Paul's Gatsby adventure also began in 2018. Shortly after he released the
+          <Crew
+            avatar="paul.jpg"
+            intro="Pirate Paul is an absolute Gatsby fan-boy"
+            skill="Once built a design system in 11 minutes"
+            description="Paul's Gatsby adventure also began in 2018. Shortly after he released the
             Gatsby plugin: mdx-embed, and in 2020 he won Gatsby's Silly Site Challenge
             by creating a site exclusively about bums!"
-            />
+          />
 
-            <Crew
-              avatar="ola.jpg"
-              intro="Ola taught himself to code"
-              skill="Creates piratical stories to explain Gatsby concepts"
-              description="Gatsby met Ola's need for 'hands-on'-tinkering and practical, real-world usage when learning to code. He is the junior dev on POW! — the privacy-first menstrual cycle journal and is very much looking forward to teaching the Pirate Princess Lillian (6) to code."
-            />
-          </Grid>
+          <Crew
+            avatar="ola.jpg"
+            intro="Pirate Ola taught himself to code"
+            skill="Creates piratical stories to explain Gatsby concepts"
+            description="Gatsby met Ola's need for 'hands-on'-tinkering and practical, real-world usage when learning to code. He is the junior dev on POW! — the privacy-first menstrual cycle journal and is very much looking forward to teaching the Pirate Princess Lillian (6) to code."
+          />
         </Grid>
       </SiteSection>
 
-      <SiteSection textAlign="center" variant="wide">
+      <SiteSection textAlign="center" width="narrow">
         <h2>What's included?</h2>
         <p className="intro">
           The Summer Functions <em>Command Central</em> is a private{" "}
           <em>GitHub repo</em> you'll get access to and keep access to until the
           end of the year.
         </p>
+
         <h3>Forum</h3>
         <p>
           The Discussions tab of the private GitHub repo will be our forum.
@@ -307,7 +291,7 @@ const IndexPage = () => {
         </p>
       </SiteSection>
 
-      <PricingSection Icon={SvgLollipop} />
+      <PricingSection />
 
       <SiteSection
         backgroundColor="shades.section"
@@ -337,15 +321,16 @@ const IndexPage = () => {
 
 export default IndexPage
 
-const PricingSection = ({ Icon }) => {
+const PricingSection = () => {
   return (
     <Fragment>
       <SiteSection
         backgroundColor="shades.section"
         showDots={true}
         textAlign="center"
+        width="narrow"
       >
-        <Icon mx="auto" />
+        <SvgBeach mx="auto" />
         <h2>Join the fun</h2>
         <p>
           Make sure to jump onboard as soon as you can, <br />
@@ -354,7 +339,8 @@ const PricingSection = ({ Icon }) => {
         <p className="dense">
           <small>
             Friday wrap-ups, and all the bonus streams, is viewable by anyone on
-            YouTube. No purchase necessary.
+            YouTube. <br />
+            No purchase necessary.
           </small>
         </p>
       </SiteSection>

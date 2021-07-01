@@ -32,6 +32,7 @@ const PricingTable = ({ plans, perks, outro, productId }) => {
               sx={{
                 h3: {
                   mb: 3,
+                  mt: 0,
                 },
                 ul: {
                   listStyle: "none",
@@ -88,10 +89,7 @@ const PricingTable = ({ plans, perks, outro, productId }) => {
         })}
       </Grid>
 
-      <Box
-        mt={4}
-        sx={{ textAlign: "center", maxWidth: "container", mx: "auto" }}
-      >
+      <Box mt={4} sx={{ textAlign: "center", maxWidth: "narrow", mx: "auto" }}>
         {outro}
       </Box>
     </>

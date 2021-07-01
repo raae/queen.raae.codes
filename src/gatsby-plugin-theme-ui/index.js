@@ -46,6 +46,12 @@ const theme = {
     "64rem",
   ],
 
+  sizes: {
+    narrow: "65ch",
+    container: "78ch",
+    wide: "100ch",
+  },
+
   fontSizes: [
     "0.512rem",
     "0.64rem",
@@ -65,10 +71,6 @@ const theme = {
   },
 
   radii: [0, 20],
-
-  sizes: {
-    container: "65ch",
-  },
 
   styles: {
     root: {
@@ -267,12 +269,17 @@ const theme = {
   },
 
   layout: {
+    narrow: {
+      maxWidth: "narrow",
+      px: [3, 5],
+    },
     container: {
+      maxWidth: "container",
       px: [3, 5],
     },
     wide: {
       px: [3, 5],
-      maxWidth: "100ch",
+      maxWidth: "wide",
     },
   },
 

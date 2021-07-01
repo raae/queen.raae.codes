@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
     url: `https://queen.raae.codes`,
-    title: `Queen Raae`,
+    title: `Gatsby Summer Function with Queen Raae and the Nattermob Pirates`,
     image: `queen-raae-og-image.jpg`,
-    description: `Queen Raae's Code School`,
+    description: `Join the fun this summer and learn Gatsby Functions by adding at least three serverless features to your existing Gatsby site  🎉🎉🎉`,
     language: `en-gb`,
-    keywords: [`gatsby`],
+    keywords: [`gatsby`, `raae`, `OlaHolstVea`, `PaulieScanlon`, `Nattermob`],
   },
   plugins: [
     `gatsby-plugin-theme-ui`,
