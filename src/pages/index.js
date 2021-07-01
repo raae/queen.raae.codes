@@ -31,8 +31,8 @@ const IndexPage = () => {
             🎉🎉🎉
           </span>
         </p>
-        <SvgFlowers mt="5" mb="4" mx="auto" />
-        <h2>VIDEO TO COME</h2>
+        <SvgFlowers mt="5" mx="auto" />
+        {/* <h2>VIDEO TO COME</h2> */}
       </SiteSection>
 
       <SiteSection
