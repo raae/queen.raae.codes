@@ -1,4 +1,5 @@
 import React, { Fragment } from "react"
+import { Grid } from "theme-ui"
 
 import SvgSummerFunctionsHero from "../components/summer-functions-hero"
 import SiteSection from "../components/site-section"
@@ -205,35 +206,56 @@ const IndexPage = () => {
         showDots={true}
         textAlign="left"
       >
-        <Crew
-          members={[
-            {
-              avatar: "/raae.jpg",
-              intro: "Wrote her first line of JavaScript in the year 2000",
-              skill: "Duck taping together services to create side projects",
-              description: `Queen Raae started playing with Gatsby back in 2018. She is the woman behind the
-                    Gatsby app POW! — the privacy-first menstrual cycle journal and the creator of the Gatsby plugin:
-                    gatsby-remark-oembed. She also spoke at Gatsby Days 2020.`,
-            },
-            {
-              avatar: "/paul.jpg",
-              intro: "Paul is an absolute Gatsby fan-boy",
-              skill: "Once built a design system in 11 minutes",
-              description: `Paul's Gatsby adventure also began in 2018. Shortly after he released the
-                    Gatsby plugin: mdx-embed, and in 2020 he won Gatsby's Silly Site Challenge
-                    by creating a site exclusively about bums!`,
-            },
-            {
-              avatar: "/ola.jpg",
-              intro: "Ola thought himself to code",
-              skill: "Creates piratical stories to explain Gatsby concepts",
-              description: `Gatsby met Ola's need for "hands-on"-tinkering and practical,
-                    real-world usage when learning to code. He is the junior dev on POW! —
-                    the privacy-first menstrual cycle journal and is very much looking forward to teaching
-                    the Pirate Princess Lillian (6) to code.`,
-            },
-          ]}
-        />
+        <Grid
+          sx={{
+            gap: 5,
+          }}
+        >
+          <Grid
+            sx={{
+              gap: 4,
+              h2: {
+                m: 0,
+              },
+            }}
+          >
+            <h2>The Queen</h2>
+
+            <Crew
+              avatar="raae.jpg"
+              intro="Wrote her first line of JavaScript in the year 2000"
+              skill="Duck taping together services to create side projects"
+              description="Queen Raae started playing with Gatsby back in 2018. She is the woman behind the Gatsby app POW! — the privacy-first menstrual cycle journal and the creator of the Gatsby plugin: gatsby-remark-oembed. She also spoke at Gatsby Days 2020."
+            />
+          </Grid>
+
+          <Grid
+            sx={{
+              gap: 4,
+              h2: {
+                m: 0,
+              },
+            }}
+          >
+            <h2>The Nattermob Pirates</h2>
+
+            <Crew
+              avatar="paul.jpg"
+              intro="Paul is an absolute Gatsby fan-boy"
+              skill="Once built a design system in 11 minutes"
+              description="Paul's Gatsby adventure also began in 2018. Shortly after he released the
+            Gatsby plugin: mdx-embed, and in 2020 he won Gatsby's Silly Site Challenge
+            by creating a site exclusively about bums!"
+            />
+
+            <Crew
+              avatar="ola.jpg"
+              intro="Ola taught himself to code"
+              skill="Creates piratical stories to explain Gatsby concepts"
+              description="Gatsby met Ola's need for 'hands-on'-tinkering and practical, real-world usage when learning to code. He is the junior dev on POW! — the privacy-first menstrual cycle journal and is very much looking forward to teaching the Pirate Princess Lillian (6) to code."
+            />
+          </Grid>
+        </Grid>
       </SiteSection>
 
       <SiteSection textAlign="center" variant="wide">
