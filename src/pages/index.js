@@ -31,16 +31,16 @@ const IndexPage = () => {
           </span>
         </p>
         <SvgFlowers mt="5" mb="4" mx="auto" />
-        {/* VIDEO */}
+        <h2>VIDEO TO COME</h2>
       </SiteSection>
 
       <SiteSection backgroundColor="shades.section" showDots={true}>
         <h3>Tried and failed with serverless/lambda/aws before?</h3>
         <p>
           Newly released Gatsby Functions radically simplifies how to write and
-          deploy serverless functions. By adding features to your own existing
-          Gatsby site you'll have home turf advantage, and we're here to make
-          sure you get all the way to deploy this time{" "}
+          deploy serverless functions. Adding features to your own existing
+          Gatsby site gives you home turf advantage, and we're here to make sure
+          you get all the way to deploy this time{" "}
           <span role="img" aria-label="Muscle emoji">
             💪
           </span>
@@ -80,12 +80,6 @@ const IndexPage = () => {
         </p>
 
         <h3>The Weekly Schedule</h3>
-
-        <p>
-          In addition to the regular schedule, we'll sprinkle in some bonus
-          YouTube streams on topics related to serverless with{" "}
-          <strong>guest instructors</strong>.
-        </p>
 
         <dl>
           <dt>
@@ -147,6 +141,15 @@ const IndexPage = () => {
             Rinse and repeat for 5 weeks
           </small>
         </dl>
+
+        <hr />
+
+        <p className="intro">
+          In addition to the weekly schedule, we'll sprinkle in some{" "}
+          <em>bonus YouTube streams</em> on topics related to Gatsby Functions
+          and serverless with <em>guest instructors</em>.
+        </p>
+        <hr />
 
         <h3>The Challenges</h3>
 

@@ -163,7 +163,7 @@ const theme = {
       marginBottom: 0,
     },
     dl: {
-      marginTop: 4,
+      marginTop: 5,
     },
     dt: {
       alignItems: "center",
