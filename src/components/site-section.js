@@ -20,15 +20,6 @@ const SiteSection = ({
         backgroundColor: backgroundColor,
         textAlign,
         py: 5,
-        "*:first-child": {
-          marginTop: 0,
-        },
-        "*:last-child": {
-          marginBottom: 0,
-        },
-        "div + h2": {
-          marginTop: 3,
-        },
       }}
     >
       <Container variant={width} sx={{ position: "relative", zIndex: 1 }}>
