@@ -200,6 +200,7 @@ const theme = {
       color: "white !important",
       fontSize: 2,
       fontWeight: "bold",
+      fontFamily: "heading",
       transition: ".2s linear background",
       "&:hover": {
         backgroundColor: "tertiary",
@@ -225,10 +226,10 @@ const theme = {
     input: {
       borderColor: "floralWhite",
       color: "text",
-      fontSize: 1,
+      fontSize: 2,
       borderWidth: 2,
       backgroundColor: "shades.section",
-      p: 3,
+      p: 2,
       ":placeholder": {
         color: "text",
       },

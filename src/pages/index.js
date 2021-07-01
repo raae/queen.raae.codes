@@ -2,7 +2,7 @@ import React, { Fragment } from "react"
 
 import SvgSummerFunctionsHero from "../components/summer-functions-hero"
 import SiteSection from "../components/site-section"
-// import NewsletterForm from "../components/newsletter-form"
+import NewsletterForm from "../components/newsletter-form"
 
 import SvgLollipop from "../components/svg-lollipop"
 import SvgFlowers from "../components/svg-flowers"
@@ -31,18 +31,6 @@ const IndexPage = () => {
           </span>
         </p>
         <SvgFlowers mt="5" mb="4" mx="auto" />
-
-        <h2>VIDEO</h2>
-        {/* <h2>Stay in the loop</h2>
-        <NewsletterForm cta="Add me on the list!" mb="4">
-          <p>
-            <small>
-              To get notified about <strong>pricing</strong> and{" "}
-              <strong>availability</strong>, sign up for Queen Raae's Gatsby
-              Newsletter.
-            </small>
-          </p>
-        </NewsletterForm> */}
       </SiteSection>
 
       <SiteSection backgroundColor="shades.section" showDots={true}>
@@ -366,6 +354,14 @@ const IndexPage = () => {
         textAlign="center"
       >
         <SvgFlag mx="auto" />
+        <h2>Not ready to climb onboard?</h2>
+        <p>
+          To be notified about <em>free webinars</em> and the{" "}
+          <em>YouTube Streams</em> join Queen Raae's newsletter on all things
+          Gatsby.
+        </p>
+        <hr />
+        <NewsletterForm />
         <h2>Questions?</h2>
         <p>
           Send an email to{" "}
