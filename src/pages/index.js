@@ -219,9 +219,9 @@ const IndexPage = () => {
               avatar: "/paul.jpg",
               intro: "Paul is an absolute Gatsby fan-boy",
               skill: "Once built a design system in 11 minutes",
-              description: `Paul's Gatsby adventure also began in 2018. Shortly after he release the
+              description: `Paul's Gatsby adventure also began in 2018. Shortly after he released the
                     Gatsby plugin: mdx-embed, and in 2020 he won Gatsby's Silly Site Challenge
-                    by creating a site exclusively about bums`,
+                    by creating a site exclusively about bums!`,
             },
             {
               avatar: "/ola.jpg",

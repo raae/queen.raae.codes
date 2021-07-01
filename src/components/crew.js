@@ -1,15 +1,31 @@
 import React from "react"
-import { Flex, Box, Avatar } from "theme-ui"
+import { Grid, Box, Avatar } from "theme-ui"
 
 const Crew = ({ members }) => {
   return members.map(({ avatar, intro, description, skill }, key) => (
     <Box key={key} my="5">
       {key === 1 ? <h2>The Nattermob Pirates</h2> : null}
-      <Flex>
+      <Grid
+        sx={{
+          gridTemplateColumns: ["1fr", "auto 1fr"],
+          gap: [0, 2],
+        }}
+      >
         <Box>
-          <Avatar src={avatar} />
+          <Avatar
+            sx={{
+              mt: 2,
+            }}
+            src={`/images/${avatar}`}
+          />
         </Box>
-        <Box>
+        <Box
+          sx={{
+            h2: {
+              mt: 0,
+            },
+          }}
+        >
           {key === 0 ? <h2>The Queen</h2> : null}
           <p className="intro">{intro}</p>
           <p>{description}</p>
@@ -17,7 +33,7 @@ const Crew = ({ members }) => {
             <em>Special skill:</em> {skill}
           </p>
         </Box>
-      </Flex>
+      </Grid>
     </Box>
   ))
 }

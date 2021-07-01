@@ -22,13 +22,13 @@ const PricingTable = ({ plans, perks, outro, productId }) => {
 
   return (
     <>
-      <Grid columns={[1, 3]} gap="4" ml={[0, 5]}>
+      <Grid columns={[1, 1, 1, 3]} gap="4">
         {plans.map(({ title, price, stripeLinkId, stripePriceId }, key) => {
           const metadata = data?.[stripePriceId]
           const disabled = (!metadata || metadata.available < 1) && !error
           return (
             <Box
-              key={stripePriceId}
+              key={key}
               sx={{
                 h3: {
                   mb: 3,
