@@ -313,23 +313,51 @@ const IndexPage = () => {
       </SiteSection>
 
       <SiteSection textAlign="center" variant="wide">
-        <h2>Access to the forum</h2>
-        <p>Lorem ipsum</p>
+        <p className="intro">
+          The Summer Functions <em>Command Central</em> is a private{" "}
+          <em>GitHub repo</em> you'll get access to and keep access to until the
+          end of the year.
+        </p>
+        <h3>Forum</h3>
+        <p>
+          The Discussions tab of the private GitHub repo will be our forum.
+          There you you can ask questions, discuss possible solutions and get to
+          know the other cats, sailors and sea dogs.
+        </p>
 
-        <h2>5 Challenges</h2>
-        <p>Lorem ipsum</p>
+        <h3>Challenges</h3>
+        <p>
+          Each Saturday you'll receive the challenge in your inbox. In addition
+          you will be able to find it as a thread in the forum.
+        </p>
 
-        <h2>5 Code Samples</h2>
-        <p>Lorem ipsum</p>
+        <h3>Live Webinars</h3>
+        <p>
+          Each Tuesday Queen Raae we'll walk you through a possible solution to
+          the challenge as a live webinar where you can ask questions. The
+          webinar recordings will be available to view, at your convenience,
+          until the end of the year.
+        </p>
 
-        <h2>5 Live Webinars</h2>
-        <p>Lorem ipsum</p>
+        <h3>Code Samples</h3>
+        <p>
+          The live webinar code will be available as a Pull Request in the
+          private GitHub repo. Feel free to comment and ask questions directly
+          on the Pull Request.
+        </p>
 
-        <h2>5 Code Review Sessions</h2>
-        <p>Lorem ipsum</p>
+        <h3>Group Code Review</h3>
+        <p>
+          If you are a sailor or sea dog you are invited to join the group code
+          review every Wednesday. There you will get feedback on your code from
+          Queen Raae and others in the group of max 8 people.
+        </p>
 
-        <h2>3 One-on-One Pair Programming Sessions</h2>
-        <p>Lorem ipsum</p>
+        <h3>One-on-One Pair Programming Sessions</h3>
+        <p>
+          Sea dogs get 3 pair programming sessions with Queen Raae at a
+          convenient time for both. Each session is 40 minutes.
+        </p>
       </SiteSection>
 
       <SiteSection
