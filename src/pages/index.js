@@ -12,6 +12,7 @@ import SvgFlag from "../components/svg-flag"
 import HourGlass from "../../static/images/hourglass_bottom_black_24dp.inline.svg"
 import Live from "../../static/images/live_tv_black_24dp.inline.svg"
 import Group from "../../static/images/groups_black_24dp.inline.svg"
+import Chat from "../../static/images/question_answer_black_24dp.inline.svg"
 import Weeks from "../components/weeks"
 import PricingTable from "../components/pricing-table"
 import Crew from "../components/crew"
@@ -131,6 +132,16 @@ const IndexPage = () => {
             <p>
               We'll wrap up the challenge Nattermob style with a piratical{" "}
               <strong>live stream</strong> on YouTube 🏴‍☠️
+            </p>
+          </dd>
+
+          <dt>
+            <Chat /> All week
+          </dt>
+          <dd>
+            <p>
+              The <em>forum</em> is open and we're there to help along with the
+              other cats, sailors and sea dogs.
             </p>
           </dd>
 
