@@ -98,9 +98,12 @@ const IndexPage = () => {
           </dd>
 
           <dt>
-            <Live /> Tuesday @ <time>20:00 CEST</time>
+            <Live /> Tuesday @ <time>17:00 CEST</time>
           </dt>
           <dd>
+            <p className="dense">
+              <small>15:00 UTC / 8 AM PST</small>
+            </p>
             <p>
               Join the <em>live webinar</em> (or watch the replay at your
               convenience) where Queen Raae codes through a possible solution to
@@ -109,9 +112,12 @@ const IndexPage = () => {
           </dd>
 
           <dt>
-            <Group /> Wednesday @ <time>20:00 CEST</time>
+            <Group /> Wednesday @ <time>17:00 CEST</time>
           </dt>
           <dd>
+            <p className="dense">
+              <small>15:00 UTC / 8 AM PST</small>
+            </p>
             <p>
               Level up with group <em className="primary">code review</em>. Get
               help and feedback from Queen Raae and the other sailors and sea
@@ -120,9 +126,12 @@ const IndexPage = () => {
           </dd>
 
           <dt>
-            <Live /> Friday @ 20:00 CEST
+            <Live /> Friday @ <time>20:00 CEST</time>
           </dt>
           <dd>
+            <p className="dense">
+              <small>18:00 UTC / 11 AM PST</small>
+            </p>
             <p>
               We'll wrap up the challenge Nattermob style with a piratical{" "}
               <strong>live stream</strong> on YouTube 🏴‍☠️
