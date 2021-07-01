@@ -16,7 +16,7 @@ const Crew = ({ members }) => {
             sx={{
               mt: 2,
             }}
-            src={`/images/${avatar}`}
+            src={`/images${avatar}`}
           />
         </Box>
         <Box
