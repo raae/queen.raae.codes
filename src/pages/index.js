@@ -75,19 +75,19 @@ const IndexPage = () => {
         <h2>Five weeks, Five Challenges</h2>
         <p className="intro">
           Learn Gatsby Functions by completing at least three out of our five
-          challenges this summer. If you get stuck we are here to help with{" "}
-          <em>live webinars</em> on Tuesdays and <em>code review</em> in a small
-          group setting on Wednesdays.
+          challenges this summer.
         </p>
-        <dl>
-          <dt>When?</dt>
-          <dd>
-            <strong>Saturday July 17th</strong> to{" "}
-            <strong>Friday August 27th</strong> with a week's break between the
-            third and fourth challenge to let you relax, or catch up, before the
-            final stretch.
-          </dd>
-        </dl>
+        <p>
+          If you get stuck we are here to help with <em>live webinars</em> on
+          Tuesdays and group <em>code review</em> on Wednesdays.
+        </p>
+        <h4>When?</h4>
+        <p>
+          Summer Functions runs from <strong>Saturday, July 17th</strong> to{" "}
+          <strong>Friday, August 27th</strong>, with a week's break between the
+          third and fourth challenges to let you relax or catch up before the
+          final stretch.
+        </p>
 
         <h3>The Weekly Schedule</h3>
 
@@ -103,27 +103,29 @@ const IndexPage = () => {
           </dd>
 
           <dt>
-            <Live /> Tuesday
+            <Live /> Tuesday @ <time>12:00 CEST</time>
           </dt>
           <dd>
             <p>
-              Join the <em>live webinar</em> where the Queen will code through a
-              possible solution to the challenge.
+              Join the <em>live webinar</em> (or watch the replay at your
+              convenience) where Queen Raae codes through a possible solution to
+              the challenge and you may ask questions.
             </p>
           </dd>
 
           <dt>
-            <Group /> Wednesday
+            <Group /> Wednesday @ <time>12:00 CEST</time>
           </dt>
           <dd>
             <p>
-              Level up with <em className="primary">code review</em>. Get help
-              and feedback from Queen Raae and the other sailors (max 8).
+              Level up with group <em className="primary">code review</em>. Get
+              help and feedback from Queen Raae and the other sailors and sea
+              dogs (max&nbsp;8) on your code.
             </p>
           </dd>
 
           <dt>
-            <Live /> Friday
+            <Live /> Friday @ 20:00 CEST
           </dt>
           <dd>
             <p>
@@ -140,7 +142,15 @@ const IndexPage = () => {
           </small>
         </dl>
 
-        <SvgLollipop mt="5" mb="4" />
+        <hr />
+
+        <p class="intro">
+          In addition to the weekly schedule, we'll sprinkle in some{" "}
+          <em>bonus YouTube streams</em> on topics related to Gatsby Functions
+          and serverless with <em>guest instructors</em>.
+        </p>
+
+        <hr />
 
         <h3>The Challenges</h3>
 
@@ -164,7 +174,8 @@ const IndexPage = () => {
             {
               number: "3",
               challenge: "Old school Guestbook, but with edit functionality",
-              topic: "Local storage token authentication with Gatsby Function",
+              topic:
+                "Local storage token authentication with a Gatsby Function",
             },
             {
               number: "Break",
@@ -179,14 +190,10 @@ const IndexPage = () => {
             },
             {
               number: "5",
-              description: (
-                <>
-                  What would you like to see here?
-                  <br /> Email the Queen at{" "}
-                  <a href="mailto://queen@raae.codes">queen@raae.codes</a>
-                </>
-              ),
-              topic: "To be decided",
+              challenge: "Get paid!",
+              description:
+                "Charge money through your site for something. Start thinking about what that could be right now...",
+              topic: "Get access to Stripe events in a Gatsby Function",
             },
           ]}
         />
