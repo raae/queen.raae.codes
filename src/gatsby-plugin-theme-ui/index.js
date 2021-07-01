@@ -1,4 +1,6 @@
 const theme = {
+  borderWidths: [2, 4, 6],
+
   colors: {
     text: "#3d3c31",
     textDark: "#000c22",

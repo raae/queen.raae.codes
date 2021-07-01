@@ -1,41 +1,40 @@
 import React from "react"
 import { Grid, Box, Avatar } from "theme-ui"
 
-const Crew = ({ members }) => {
-  return members.map(({ avatar, intro, description, skill }, key) => (
-    <Box key={key} my="5">
-      {key === 1 ? <h2>The Nattermob Pirates</h2> : null}
-      <Grid
+const Crew = ({ avatar, intro, description, skill }) => {
+  return (
+    <Grid
+      sx={{
+        gridTemplateColumns: ["1fr", "auto 1fr"],
+        gap: [2, 4],
+      }}
+    >
+      <Avatar
         sx={{
-          gridTemplateColumns: ["1fr", "auto 1fr"],
-          gap: [0, 2],
+          width: 120,
+          height: 120,
+          borderWidth: 1,
+          borderStyle: "solid",
+          borderColor: "text",
+        }}
+        src={`/images/${avatar}`}
+      />
+
+      <Box
+        sx={{
+          h2: {
+            mt: 0,
+          },
         }}
       >
-        <Box>
-          <Avatar
-            sx={{
-              mt: 2,
-            }}
-            src={`/images${avatar}`}
-          />
-        </Box>
-        <Box
-          sx={{
-            h2: {
-              mt: 0,
-            },
-          }}
-        >
-          {key === 0 ? <h2>The Queen</h2> : null}
-          <p className="intro">{intro}</p>
-          <p>{description}</p>
-          <p>
-            <em>Special skill:</em> {skill}
-          </p>
-        </Box>
-      </Grid>
-    </Box>
-  ))
+        <p className="intro">{intro}</p>
+        <p>{description}</p>
+        <p>
+          <em>Special skill:</em> {skill}
+        </p>
+      </Box>
+    </Grid>
+  )
 }
 
 export default Crew
