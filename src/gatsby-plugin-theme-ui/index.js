@@ -1,4 +1,6 @@
 const theme = {
+  borderWidths: [2, 4, 6],
+
   colors: {
     text: "#3d3c31",
     textDark: "#000c22",
@@ -44,6 +46,12 @@ const theme = {
     "64rem",
   ],
 
+  sizes: {
+    narrow: "65ch",
+    container: "78ch",
+    wide: "100ch",
+  },
+
   fontSizes: [
     "0.512rem",
     "0.64rem",
@@ -63,10 +71,6 @@ const theme = {
   },
 
   radii: [0, 20],
-
-  sizes: {
-    container: "65ch",
-  },
 
   styles: {
     root: {
@@ -93,7 +97,7 @@ const theme = {
       lineHeight: "heading",
       fontSize: 6,
       marginTop: 5,
-      marginBottom: 2,
+      marginBottom: 3,
     },
     h3: {
       fontFamily: "heading",
@@ -101,7 +105,7 @@ const theme = {
       lineHeight: "heading",
       fontSize: 5,
       marginTop: 5,
-      marginBottom: 4,
+      marginBottom: 3,
     },
     h4: {
       fontFamily: "heading",
@@ -116,7 +120,7 @@ const theme = {
       fontWeight: "body",
       lineHeight: "heading",
       fontSize: 3,
-      marginTop: 4,
+      marginTop: 5,
       marginBottom: 2,
     },
     h6: {
@@ -124,7 +128,7 @@ const theme = {
       fontWeight: "body",
       lineHeight: "heading",
       fontSize: 2,
-      marginTop: 4,
+      marginTop: 5,
       marginBottom: 2,
     },
     p: {
@@ -132,6 +136,9 @@ const theme = {
       margin: "0.5em 0",
       "&.intro": {
         fontSize: "120%",
+      },
+      "&.dense": {
+        lineHeight: "compact",
       },
       "& small": {
         fontSize: "85%",
@@ -144,6 +151,12 @@ const theme = {
       ":nth-of-type(2n)": {
         color: "primary",
       },
+      "&.primary": {
+        color: "primary",
+      },
+      "&.secondary": {
+        color: "secondary",
+      },
     },
     strong: {
       fontWeight: "bold",
@@ -152,6 +165,9 @@ const theme = {
       borderStyle: "none",
       marginTop: 5,
       marginBottom: 0,
+    },
+    dl: {
+      marginTop: 5,
     },
     dt: {
       alignItems: "center",
@@ -188,10 +204,16 @@ const theme = {
 
   buttons: {
     default: {
-      cursor: "pointer",
-      transition: ".2s linear opacity",
-      ":hover": {
-        opacity: 0.9,
+      color: "white !important",
+      fontSize: 2,
+      fontWeight: "bold",
+      fontFamily: "heading",
+      transition: ".2s linear background",
+      "&:hover": {
+        backgroundColor: "tertiary",
+      },
+      "&.disabled, &:disabled": {
+        opacity: 0.6,
       },
     },
     primary: {
@@ -211,10 +233,10 @@ const theme = {
     input: {
       borderColor: "floralWhite",
       color: "text",
-      fontSize: 1,
+      fontSize: 2,
       borderWidth: 2,
       backgroundColor: "shades.section",
-      p: 3,
+      p: 2,
       ":placeholder": {
         color: "text",
       },
@@ -247,8 +269,17 @@ const theme = {
   },
 
   layout: {
+    narrow: {
+      maxWidth: "narrow",
+      px: [3, 5],
+    },
     container: {
-      px: [3, 4],
+      maxWidth: "container",
+      px: [3, 5],
+    },
+    wide: {
+      px: [3, 5],
+      maxWidth: "wide",
     },
   },
 

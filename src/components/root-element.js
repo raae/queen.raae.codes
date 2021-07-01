@@ -1,9 +1,12 @@
-import React, { Fragment } from "react"
+import React from "react"
+import { QueryClient, QueryClientProvider } from "react-query"
 import { Global, css } from "@emotion/react"
+
+const queryClient = new QueryClient()
 
 const RootElement = ({ children }) => {
   return (
-    <Fragment>
+    <QueryClientProvider client={queryClient}>
       <Global
         styles={css`
           @font-face {
@@ -30,7 +33,7 @@ const RootElement = ({ children }) => {
         `}
       />
       {children}
-    </Fragment>
+    </QueryClientProvider>
   )
 }
 

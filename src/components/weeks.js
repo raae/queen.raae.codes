@@ -48,7 +48,7 @@ const Weeks = ({ items }) => {
   return (
     <dl>
       {items.map((item) => (
-        <Week {...item} />
+        <Week key={item.number} {...item} />
       ))}
     </dl>
   )
