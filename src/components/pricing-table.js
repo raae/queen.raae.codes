@@ -78,7 +78,8 @@ const PricingTable = ({ plans, perks, outro, productId }) => {
               <p>
                 {metadata ? (
                   <span>
-                    {metadata.available} out of {metadata.total} seats left
+                    {/* {metadata.available} out of {metadata.total} seats left */}
+                    Total of {metadata.total} seats
                   </span>
                 ) : (
                   <span>&nbsp;</span>
