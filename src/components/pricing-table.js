@@ -90,7 +90,7 @@ const PricingTable = ({ plans, perks, outro, productId }) => {
         })}
       </Grid>
 
-      <Box mt={4} sx={{ textAlign: "center", maxWidth: "narrow", mx: "auto" }}>
+      <Box mt={4} sx={{ textAlign: "center", maxWidth: "tiny", mx: "auto" }}>
         {outro}
       </Box>
     </>

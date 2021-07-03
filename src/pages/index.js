@@ -386,17 +386,24 @@ const PricingSection = () => {
             { item: "3 One-on-One Pair Programming Sessions", plans: 2 },
           ]}
           outro={
-            <p className="dense">
-              <small>
-                <strong>Need a discount?</strong> If for some reason these
-                prices are outrageous for you (between jobs, transitioning into
-                tech etc. etc.) email{" "}
-                <a href="mailto:queen+mercy@raae.codes">
-                  queen+mercy@raae.codes
-                </a>
-                .
-              </small>
-            </p>
+            <>
+              <p>
+                <strong>100% Money-Back Guarantee</strong>
+                <br /> If you are not satisfied with Summer Functions, let me
+                know and I’ll give you a full refund.
+              </p>
+              <p className="dense">
+                <small>
+                  <strong>Need a discount?</strong>
+                  <br /> If for some reason these prices are outrageous for you
+                  (between jobs, transitioning into tech etc. etc.) email{" "}
+                  <a href="mailto:queen+mercy@raae.codes">
+                    queen+mercy@raae.codes
+                  </a>
+                  .
+                </small>
+              </p>
+            </>
           }
         />
       </SiteSection>
