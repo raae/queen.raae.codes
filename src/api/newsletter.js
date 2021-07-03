@@ -8,21 +8,27 @@ const addSubscriber = async ({ email, apiKey, formId }) => {
   })
 }
 
-export default async function handler(req, res) {
-  try {
-    await addSubscriber({
-      email: req.body.email,
-      formId: process.env.CK_FORM_ID,
-      apiKey: process.env.CK_API_KEY,
-    })
+export default async function handler(request, response) {
+  const { email } = request.body
 
-    res.status(200).json({ message: "Subscriber added to form" })
-  } catch (error) {
-    if (error.response) {
-      // Error from add subscriber request
-      res.status(error.response.status).json(error.response.data)
-    } else {
-      res.status(500).json({ message: error.message })
+  if (!email) {
+    response.status(400).send(`An email address is required`)
+  } else {
+    try {
+      await addSubscriber({
+        email,
+        formId: process.env.CK_FORM_ID,
+        apiKey: process.env.CK_API_KEY,
+      })
+
+      response.status(200).json({ message: "Subscriber added to form" })
+    } catch (error) {
+      if (error.response) {
+        // Error from add subscriber request
+        response.status(error.response.status).json(error.response.data)
+      } else {
+        response.status(500).json({ message: error.message })
+      }
     }
   }
 }
