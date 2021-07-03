@@ -3,7 +3,7 @@ import { Grid, Box, Button } from "theme-ui"
 import axios from "axios"
 import { useQuery } from "react-query"
 
-const intervalMs = 5000
+const intervalMs = 10000
 
 const PricingTable = ({ plans, perks, outro, productId }) => {
   const { data, error } = useQuery(
