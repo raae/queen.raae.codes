@@ -64,6 +64,16 @@ const IndexPage = () => {
             🤪
           </span>
         </p>
+
+        <h3>Want to integrate all the things?</h3>
+        <p>
+          By learning how to make serverless functions, you'll be able to
+          integrate any service with an API to your Gatsby site but also each
+          other{" "}
+          <span role="img" aria-label="Exploding Head emoji">
+            🤯
+          </span>
+        </p>
       </SiteSection>
 
       <SiteSection width="narrow">
