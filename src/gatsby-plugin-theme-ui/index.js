@@ -87,7 +87,11 @@ const theme = {
       backgroundColor: "shades.code",
     },
     a: {
-      color: "primary",
+      color: "primaryDark",
+      transition: ".2s linear color",
+      ":hover": {
+        color: "primary",
+      },
     },
     h1: {
       fontSize: 7,

@@ -238,7 +238,7 @@ const IndexPage = () => {
           <Crew
             color="tertiary"
             avatar="raae.jpg"
-            intro="Queen Raae wrote her fist with JavaScript in 2000"
+            intro="Queen Raae wrote her first JS in 2000"
             skill="Duck taping together services to create side projects"
             description="Raae started playing with Gatsby back in 2018. She is the woman behind the Gatsby app POW! — the privacy-first menstrual cycle journal and the creator of the Gatsby plugin: gatsby-remark-oembed. She also spoke at Gatsby Days 2020."
           />
@@ -319,14 +319,19 @@ const IndexPage = () => {
         textAlign="center"
       >
         <SvgFlag mx="auto" />
-        <h2>Not ready to climb onboard?</h2>
+        <h2>Not ready to climb onboard today?</h2>
+        <p className="intro">But a still a teensy bit interested?</p>
         <p>
-          To be notified about <em>free webinars</em> and the{" "}
-          <em>YouTube Streams</em> join Queen Raae's newsletter on all things
-          Gatsby.
+          Sign up for the <em>free</em> piratical{" "}
+          <a href="https://www.crowdcast.io/e/a-practical-introduction?utm_source=queen.raae.codes">
+            introduction to Gatsby Functions
+          </a>{" "}
+          webinar,
+          <br /> or join Queen Raae's Gatsby Newsletter.
         </p>
+
         <hr />
-        <NewsletterForm cta="Get notified" />
+        <NewsletterForm cta="Join Newsletter" />
       </SiteSection>
       <SiteSection textAlign="center">
         <h2>Questions?</h2>
