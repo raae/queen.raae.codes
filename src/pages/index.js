@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { Grid } from "theme-ui"
+import { Grid, Embed } from "theme-ui"
 
 import SvgSummerFunctionsHero from "../components/summer-functions-hero"
 import SiteSection from "../components/site-section"
@@ -31,8 +31,8 @@ const IndexPage = () => {
             🎉🎉🎉
           </span>
         </p>
-        <SvgFlowers mt="5" mx="auto" />
-        {/* <h2>VIDEO TO COME</h2> */}
+        <SvgFlowers my="5" mx="auto" />
+        <Embed src="https://www.youtube.com/embed/FUyyGCDmMD4?start=16" />
       </SiteSection>
 
       <SiteSection
@@ -107,7 +107,7 @@ const IndexPage = () => {
             <p>
               Join the <em>live webinar</em> (or watch the replay at your
               convenience) where Queen Raae codes through a possible solution to
-              the challenge and you may ask questions.
+              the challenge, and you may ask questions.
             </p>
           </dd>
 
