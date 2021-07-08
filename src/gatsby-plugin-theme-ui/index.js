@@ -49,7 +49,7 @@ const theme = {
   sizes: {
     tiny: "45ch",
     narrow: "65ch",
-    container: "78ch",
+    container: "75ch",
     wide: "100ch",
   },
 

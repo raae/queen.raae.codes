@@ -120,8 +120,8 @@ const IndexPage = () => {
             </p>
             <p>
               Level up with group <em className="primary">code review</em>. Get
-              help and feedback from Queen Raae and the other sailors and sea
-              dogs (max&nbsp;8) on your code.
+              help and feedback from us and the other sailors and sea dogs
+              (max&nbsp;8) on your code.
             </p>
           </dd>
 
@@ -134,7 +134,8 @@ const IndexPage = () => {
             </p>
             <p>
               We'll wrap up the challenge Nattermob style with a piratical{" "}
-              <strong>live stream</strong> on YouTube 🏴‍☠️
+              <strong>live stream</strong> on YouTube where Paul, the navigator,
+              talks Queen Raae through a possible solution 🏴‍☠️
             </p>
           </dd>
 
@@ -161,8 +162,8 @@ const IndexPage = () => {
         <SvgLollipop mx="auto" />
         <p className="intro">
           In addition to the weekly schedule, we'll sprinkle in some{" "}
-          <em>bonus YouTube streams</em> on topics related to Gatsby Functions
-          and serverless with <em>guest instructors</em>.
+          <em>Bonus Webinars</em> on topics related to Gatsby Functions and
+          serverless with <em>guest instructors</em>.
         </p>
       </SiteSection>
 
