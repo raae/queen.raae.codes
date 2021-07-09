@@ -185,23 +185,27 @@ const IndexPage = () => {
             {
               number: "1",
               challenge: "Collect email addresses (and more) from visitors",
-              topic: "Form submission through a Gatsby Function",
               description:
                 "It could be an RSVP on an event page, application submission, newsletter sign up or something else your site needs.",
+              topic:
+                "How to get data from your Gatsby site into Userlist, ConvertKit, GoogleSheet, Fauna, AirTable, or another service of your choice.",
             },
             {
               number: "2",
               challenge:
-                "Gather reactions (claps, hearts, unicorns) from visitors",
-              topic: "Securing your public Gatsby Function",
+                "Gather reactions (claps, hearts, unicorns, votes) from visitors",
               description:
-                "Add Medium-style clapping, Dev.to-style unicorns or your favorite emoji reactions to your site.",
+                "Add Medium-style clapping, Dev.to-style unicorns, your favorite emoji reactions or voting to your site using Fauna, or another service of your choice.",
+              topic:
+                "How to limit submissions and securing your function to minimize abuse and misuse.",
             },
             {
               number: "3",
-              challenge: "Old school Guestbook, but with edit functionality",
+              challenge: "Limit usage to visitors who have logged in",
+              description:
+                "Add authentication with Auth0 and limit either challenge 1 or 2 to logged in users.",
               topic:
-                "Local storage token authentication with a Gatsby Function",
+                "How to handle Auth0 authentication in your serverless function.",
             },
             {
               number: "Break",
@@ -212,14 +216,16 @@ const IndexPage = () => {
               challenge: "Display live data on your site",
               description:
                 "Get the data from Twitter, GitHub, YouTube, Twitch, Instagram or wherever makes sense for you.",
-              topic: "Polling and caching data with your Gatsby Function",
+              topic:
+                "How to poll data in React and how to cache data for your site in a Gatsby Functions if there are limits on the API you use.",
             },
             {
               number: "5",
               challenge: "Get paid!",
               description:
                 "Charge money through your site for something. Start thinking about what that could be right now...",
-              topic: "Get access to Stripe events in a Gatsby Function",
+              topic:
+                "How to customize you payment flow and hook into the Stripe events with a custom webhook.",
             },
           ]}
         />
