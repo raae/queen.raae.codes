@@ -325,15 +325,23 @@ const IndexPage = () => {
         textAlign="center"
       >
         <SvgFlag mx="auto" />
-        <h2>Not ready to climb onboard today?</h2>
-        <p className="intro">But a still a teensy bit interested?</p>
+        <h2>Rather be a Stowaway?</h2>
+        <p className="intro">
+          Would you like to keep the <em>summer open?</em> Only have time for{" "}
+          <em>one challenge?</em> Not really into <em>group things?</em> Not
+          ready to <em>commit yet?</em> Some other <em>reason</em> or{" "}
+          <em>impediment?</em>
+        </p>
         <p>
-          Sign up for the <em>free</em> piratical{" "}
-          <a href="https://www.crowdcast.io/e/a-practical-introduction?utm_source=queen.raae.codes">
-            introduction to Gatsby Functions
-          </a>{" "}
-          webinar,
-          <br /> or join Queen Raae's Gatsby Newsletter.
+          Summer Functions is more than the paid packages. We'll stream live on
+          YouTube every Friday, and sprinkled throughout, there are free bonus
+          webinars.
+        </p>
+        <p className="dense">
+          <small>
+            Stay in the loop as a Stowaway by signing up for Queen Raae's
+            Piratical Gatsby Newsletter!
+          </small>
         </p>
 
         <hr />
