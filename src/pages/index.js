@@ -17,6 +17,7 @@ import Chat from "../../static/images/question_answer_black_24dp.inline.svg"
 import Weeks from "../components/weeks"
 import PricingTable from "../components/pricing-table"
 import Crew from "../components/crew"
+import Webinar from "../components/webinar"
 
 const IndexPage = () => {
   return (
@@ -243,14 +244,14 @@ const IndexPage = () => {
         >
           <Crew
             color="tertiary"
-            avatar="raae.jpg"
+            avatar="avatar-raae.jpg"
             intro="Queen Raae wrote her first JS in 2000"
             skill="Duck taping together services to create side projects"
             description="Raae started playing with Gatsby back in 2018. She is the woman behind the Gatsby app POW! — the privacy-first menstrual cycle journal and the creator of the Gatsby plugin: gatsby-remark-oembed. She also spoke at Gatsby Days 2020."
           />
 
           <Crew
-            avatar="paul.jpg"
+            avatar="avatar-paul.jpg"
             intro="Pirate Paul is an absolute Gatsby fan-boy"
             skill="Once built a design system in 11 minutes"
             description="Paul's Gatsby adventure also began in 2018. Shortly after he released the
@@ -259,16 +260,62 @@ const IndexPage = () => {
           />
 
           <Crew
-            avatar="ola.jpg"
+            avatar="avatar-ola.jpg"
             intro="Pirate Ola taught himself to code"
             skill="Creates piratical stories to explain Gatsby concepts"
             description="Gatsby met Ola's need for 'hands-on'-tinkering and practical, real-world usage when learning to code. He is the junior dev on POW! — the privacy-first menstrual cycle journal and is very much looking forward to teaching the Pirate Princess Lillian (6) to code."
           />
         </Grid>
+        <hr />
+        <h2>The bonus pirates</h2>
+        <Grid
+          sx={{
+            mt: 5,
+            gap: 5,
+          }}
+        >
+          <Crew
+            color="secondary"
+            avatar="avatar-mike.jpg"
+            intro="Securing your Gatsby Serverless Functions"
+            description="Gatsby Staff Security Engineer, Mike Gualtieri will show us how to fix common security flaws he has seen in real life production code."
+            crowdcast="https://www.crowdcast.io/e/securing-your-gatsby"
+            date="Thu, Jul 29, 2021 20:00 CEST / 11:00 AM PST "
+          />
+
+          <Crew
+            color="secondary"
+            avatar="avatar-swizec.jpg"
+            intro="Architecting your Gatsby Serverless Functions"
+            description="Swizec Teller, author of the Serverless Handbook, shows us how to architect our serverless functions so we do not end up with a big old mess."
+            crowdcast="https://www.crowdcast.io/e/architecturing-your"
+            date="Mon, Aug 2, 2021 17:00 CEST / 08:00 AM PST"
+          />
+
+          <Crew
+            color="secondary"
+            avatar="avatar-unkown1.jpg"
+            intro="Testing your Gatsby Serverless Functions"
+            description="I am working on getting a special guest to show us how to test our Gatsby Functions."
+            date="Date to TBD"
+            photo={
+              <span>
+                Photo by{" "}
+                <a href="https://unsplash.com/@emilymorter?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+                  Emily Morter
+                </a>{" "}
+                on{" "}
+                <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+                  Unsplash
+                </a>
+              </span>
+            }
+          />
+        </Grid>
       </SiteSection>
 
       <SiteSection textAlign="center" width="narrow">
-        <h2>What's included?</h2>
+        <h2>What's included in the packages?</h2>
         <p className="intro">
           The Summer Functions <em>Command Central</em> is a private{" "}
           <em>GitHub repo</em> you'll get access to and keep access to until the
@@ -315,6 +362,41 @@ const IndexPage = () => {
           Sea dogs get 3 pair programming sessions with Queen Raae at a
           convenient time for both. Each session is 40 minutes.
         </p>
+      </SiteSection>
+
+      <SiteSection textAlign="center" width="narrow">
+        <h2>Community functions</h2>
+        <p className="intro">
+          In addition to the paid packages there are <em>bonus webinars</em> and{" "}
+          <em>YouTube live streams</em> open to all!
+        </p>
+
+        <h3>YouTube live streams </h3>
+        <p>
+          Every week we close off the challenge with a Nattermob live streams
+          where Pirate Paul navigates us through his solution to the challenge.
+          And we show off what you have accomplished if you let use know.
+        </p>
+
+        <h3>Free Bonus Webinars</h3>
+        <Webinar
+          crowdcast="https://www.crowdcast.io/e/a-practical-introduction"
+          title="A practical introduction to Gatsby Functions"
+          cover="webinar-intro.png"
+          date="Tue, Jul 13, 2021 17:00 CEST / 8:00 AM PST"
+        />
+        <Webinar
+          crowdcast="https://www.crowdcast.io/e/securing-your-gatsby"
+          title="Securing your Gatsby Functions with Gatsby Staff Security Engineer, Mike Gualtieri"
+          cover="webinar-mike.png"
+          date="Thu, Jul 29, 2021 20:00 CEST / 11:00 AM PST"
+        />
+        <Webinar
+          crowdcast="https://www.crowdcast.io/e/architecturing-your"
+          title="Architecting your Gatsby Serverless Functions with author of the Serverless Handbook, Swizec Teller"
+          cover="webinar-swizec.png"
+          date="Mon, Aug 2, 2021 17:00 CEST / 08:00 AM PST"
+        />
       </SiteSection>
 
       <PricingSection />
@@ -373,7 +455,7 @@ const PricingSection = () => {
         <h2>Join the fun</h2>
         <p>
           Make sure to jump onboard as soon as you can, <br />
-          the paid plans all have limited seats!
+          the paid packages all have limited seats!
         </p>
         <p className="dense">
           <small>

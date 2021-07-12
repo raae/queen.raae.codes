@@ -1,7 +1,16 @@
 import React from "react"
-import { Grid, Box, Avatar } from "theme-ui"
+import { Grid, Box, Avatar, Text } from "theme-ui"
 
-const Crew = ({ avatar, intro, description, skill, color = "primaryDark" }) => {
+const Crew = ({
+  avatar,
+  intro,
+  description,
+  skill,
+  crowdcast,
+  date,
+  photo,
+  color = "primaryDark",
+}) => {
   return (
     <Grid
       sx={{
@@ -11,21 +20,53 @@ const Crew = ({ avatar, intro, description, skill, color = "primaryDark" }) => {
     >
       <Box
         sx={{
-          h2: {
-            mt: 0,
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
+
+          h3: {
+            fontSize: 3,
+            marginTop: 0,
+            marginBottom: 0,
           },
         }}
       >
-        <p className="intro">{intro}</p>
+        <h3>{intro}</h3>
+
         <p>{description}</p>
-        <p>
-          <small>
-            <em>Special skill:</em> {skill}
-          </small>
-        </p>
+        {skill && (
+          <p className="dense">
+            <small>
+              <em>Special skill:</em> {skill}
+            </small>
+          </p>
+        )}
+        {date && (
+          <p className="dense">
+            <small>
+              {crowdcast && (
+                <>
+                  <em>Sign up</em> for{" "}
+                  <a href={crowdcast} target="_blank" rel="noreferrer">
+                    the free webinar
+                  </a>
+                  <br />
+                </>
+              )}
+              {date}
+            </small>
+          </p>
+        )}
       </Box>
 
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
         <Avatar
           sx={{
             width: 240,
@@ -36,6 +77,7 @@ const Crew = ({ avatar, intro, description, skill, color = "primaryDark" }) => {
           }}
           src={`/images/${avatar}`}
         />
+        {photo && <Text sx={{ fontSize: 0, marginTop: 2 }}>{photo}</Text>}
       </Box>
     </Grid>
   )

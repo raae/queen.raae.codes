@@ -149,6 +149,9 @@ const theme = {
         fontSize: "85%",
       },
     },
+    img: {
+      maxWidth: "100%",
+    },
     em: {
       color: "secondary",
       fontSize: "85%",
