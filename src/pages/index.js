@@ -23,17 +23,15 @@ const IndexPage = () => {
   return (
     <Fragment>
       <SvgSummerFunctionsHero />
-      <SiteSection textAlign="center">
+      <SiteSection textAlign="center" width="narrow">
         <p className="intro">
-          Join the <em>fun</em> this summer and learn Gatsby Functions by adding
-          at least three <em>serverless</em> features to your existing Gatsby
-          site&nbsp;&nbsp;
+          Join the <em>fun</em> this summer and deploy at least three Gatsby{" "}
+          <em>Serverless</em> Functions&nbsp;&nbsp;
           <span role="img" aria-label="Party popper emojis">
             🎉🎉🎉
           </span>
         </p>
-        <SvgFlowers my="5" mx="auto" />
-        <Embed src="https://www.youtube.com/embed/FUyyGCDmMD4?start=16" />
+        <SvgFlowers mt="5" mx="auto" />
       </SiteSection>
 
       <SiteSection
@@ -44,9 +42,8 @@ const IndexPage = () => {
         <h3>Tried and failed with serverless/lambda/aws before?</h3>
         <p>
           Newly released Gatsby Functions radically simplifies how to write and
-          deploy serverless functions. Adding features to your own existing
-          Gatsby site gives you home turf advantage, and we're here to make sure
-          you get all the way to deploy this time{" "}
+          deploy serverless functions. We are here to make sure you get all the
+          way to deploy this time with a forum, live webinars and more{" "}
           <span role="img" aria-label="Muscle emoji">
             💪
           </span>
@@ -69,12 +66,15 @@ const IndexPage = () => {
         <h3>Want to integrate all the things?</h3>
         <p>
           By learning how to make serverless functions, you'll be able to
-          integrate any service with an API to your Gatsby site but also each
-          other{" "}
+          integrate any service with an API to your site but also to each other{" "}
           <span role="img" aria-label="Exploding Head emoji">
             🤯
           </span>
         </p>
+        <Embed
+          mt="5"
+          src="https://www.youtube.com/embed/FUyyGCDmMD4?start=16"
+        />
       </SiteSection>
 
       <SiteSection width="narrow">
@@ -95,6 +95,83 @@ const IndexPage = () => {
           final stretch.
         </p>
 
+        <h3>The Challenges</h3>
+
+        <p>
+          You can add the Gatsby Serverless Functions to you existing Gatsby
+          site&nbsp;(>=3.7), use our starter Gatsby site or create an API only
+          Gatsby project to be consumed by your older Gatsby site or another
+          site completely.
+        </p>
+
+        <p className="dense">
+          <small>
+            Email Queen Raae if you are wondering what option is best for you at{" "}
+            <a href="mailto://">queen@raae.codes</a>
+          </small>
+        </p>
+
+        <Weeks
+          items={[
+            {
+              number: "1",
+              challenge: "Collect email addresses (and more) from visitors",
+              description:
+                "It could be an RSVP on an event page, application submission, newsletter sign up or something else your site needs.",
+              topic:
+                "How to get data from your Gatsby site into Userlist, ConvertKit, GoogleSheet, Fauna, AirTable, or another service of your choice.",
+            },
+            {
+              number: "2",
+              challenge:
+                "Gather reactions (claps, hearts, unicorns, votes) from visitors",
+              description:
+                "Add Medium-style clapping, Dev.to-style unicorns, your favorite emoji reactions or voting to your site using Fauna, or another service of your choice.",
+              topic:
+                "How to limit submissions and securing your function to minimize abuse and misuse.",
+            },
+            {
+              number: "3",
+              challenge: "Limit usage to visitors who have logged in",
+              description:
+                "Add authentication checks to either challenge 1 or 2. We'll add Auth0 to your site if you have no auth already.",
+              topic:
+                "How to handle authentication in your serverless function.",
+            },
+            {
+              number: "Break",
+              topic: "Relax or play catch up!",
+            },
+            {
+              number: "4",
+              challenge: "Display live data on your site",
+              description:
+                "Get the data from Twitter, GitHub, YouTube, Twitch, Instagram or wherever makes sense for you.",
+              topic:
+                "How to poll data in React and how to cache data for your site in a Gatsby Functions if there are limits on the API you use.",
+            },
+            {
+              number: "5",
+              challenge: "Get paid!",
+              description:
+                "Charge money through your site for something. Stay in Stripe test mode, or start thinking about something real to sell...",
+              topic:
+                "How to customize you payment flow and hook into the Stripe events with a custom webhook.",
+            },
+          ]}
+        />
+      </SiteSection>
+
+      <SiteSection height="dense" textAlign="center">
+        <SvgLollipop mx="auto" />
+        <p className="intro">
+          In addition to the weekly schedule, we'll sprinkle in some{" "}
+          <em>Bonus Webinars</em> on topics related to Gatsby Functions and
+          serverless with <em>guest instructors</em>.
+        </p>
+      </SiteSection>
+
+      <SiteSection width="narrow">
         <h3>The Weekly Schedule</h3>
 
         <dl>
@@ -169,69 +246,6 @@ const IndexPage = () => {
         </dl>
       </SiteSection>
 
-      <SiteSection height="dense" textAlign="center">
-        <SvgLollipop mx="auto" />
-        <p className="intro">
-          In addition to the weekly schedule, we'll sprinkle in some{" "}
-          <em>Bonus Webinars</em> on topics related to Gatsby Functions and
-          serverless with <em>guest instructors</em>.
-        </p>
-      </SiteSection>
-
-      <SiteSection width="narrow">
-        <h3>The Challenges</h3>
-
-        <Weeks
-          items={[
-            {
-              number: "1",
-              challenge: "Collect email addresses (and more) from visitors",
-              description:
-                "It could be an RSVP on an event page, application submission, newsletter sign up or something else your site needs.",
-              topic:
-                "How to get data from your Gatsby site into Userlist, ConvertKit, GoogleSheet, Fauna, AirTable, or another service of your choice.",
-            },
-            {
-              number: "2",
-              challenge:
-                "Gather reactions (claps, hearts, unicorns, votes) from visitors",
-              description:
-                "Add Medium-style clapping, Dev.to-style unicorns, your favorite emoji reactions or voting to your site using Fauna, or another service of your choice.",
-              topic:
-                "How to limit submissions and securing your function to minimize abuse and misuse.",
-            },
-            {
-              number: "3",
-              challenge: "Limit usage to visitors who have logged in",
-              description:
-                "Add authentication with Auth0 and limit either challenge 1 or 2 to logged in users.",
-              topic:
-                "How to handle Auth0 authentication in your serverless function.",
-            },
-            {
-              number: "Break",
-              topic: "Relax or play catch up!",
-            },
-            {
-              number: "4",
-              challenge: "Display live data on your site",
-              description:
-                "Get the data from Twitter, GitHub, YouTube, Twitch, Instagram or wherever makes sense for you.",
-              topic:
-                "How to poll data in React and how to cache data for your site in a Gatsby Functions if there are limits on the API you use.",
-            },
-            {
-              number: "5",
-              challenge: "Get paid!",
-              description:
-                "Charge money through your site for something. Start thinking about what that could be right now...",
-              topic:
-                "How to customize you payment flow and hook into the Stripe events with a custom webhook.",
-            },
-          ]}
-        />
-      </SiteSection>
-
       <PricingSection Icon={SvgBeach} />
 
       <SiteSection backgroundColor="shades.section" showDots={true}>
@@ -289,7 +303,7 @@ const IndexPage = () => {
             intro="Architecting your Gatsby Serverless Functions"
             description="Swizec Teller, author of the Serverless Handbook, shows us how to architect our serverless functions so we do not end up with a big old mess."
             crowdcast="https://www.crowdcast.io/e/architecturing-your"
-            date="Mon, Aug 2, 2021 17:00 CEST / 08:00 AM PST"
+            date="Mon, Aug 2, 2021 17:00 CEST / 08:00 AM PST (might change)"
           />
 
           <Crew
