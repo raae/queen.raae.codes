@@ -250,6 +250,16 @@ const IndexPage = () => {
 
       <SiteSection backgroundColor="shades.section" showDots={true}>
         <h2>The crew</h2>
+        <p>
+          You might know of us from Gatsby Deep Dives with Queen Raae and the
+          Nattermob Pirates; a weekly rum-fueled treasure hunt in the sharky
+          waters around the Gatsby islands on YouTube.
+        </p>
+        <p>
+          This summer we anchored up at the island of Gatsby Functions to help
+          you get properly started with serverless.
+        </p>
+
         <Grid
           sx={{
             mt: 5,
