@@ -531,12 +531,13 @@ const PricingSection = () => {
               <p className="dense">
                 <small>
                   <strong>Need a discount?</strong>
-                  <br /> If for some reason these prices are outrageous for you
-                  (between jobs, transitioning into tech etc. etc.) email{" "}
+                  <br /> If for some reason these prices are outrageous to you
+                  (between jobs, transitioning into tech, do not live in the US
+                  or Northern Europe etc. etc.) email{" "}
                   <a href="mailto:queen+mercy@raae.codes">
                     queen+mercy@raae.codes
-                  </a>
-                  .
+                  </a>{" "}
+                  and we'll figure something out 👀
                 </small>
               </p>
             </>
