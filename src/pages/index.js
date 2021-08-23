@@ -24,6 +24,17 @@ const IndexPage = () => {
     <Fragment>
       <SvgSummerFunctionsHero />
       <SiteSection textAlign="center" width="narrow">
+        <h2>Gatsy Summer Functions was&nbsp;a&nbsp;blast!</h2>
+
+        <p>
+          More Gatsby-related fun will definitely be coming your way; sign up
+          for emails from Queen Raae to stay in the loop.
+        </p>
+        <NewsletterForm mt="4" cta="Stay in the loop" />
+      </SiteSection>
+
+      <SiteSection textAlign="center" width="narrow">
+        <SvgFlowers mb="5" mx="auto" />
         <p className="intro">
           Join the <em>fun</em> this summer and deploy at least three Gatsby{" "}
           <em>Serverless</em> Functions&nbsp;&nbsp;
@@ -31,7 +42,6 @@ const IndexPage = () => {
             🎉🎉🎉
           </span>
         </p>
-        <SvgFlowers mt="5" mx="auto" />
       </SiteSection>
 
       <SiteSection
