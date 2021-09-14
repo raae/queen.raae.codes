@@ -1,0 +1,43 @@
+/* Site Nav */
+nav a {
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: none;
+}
+
+nav > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav > ul li {
+  display: inline-block;
+  margin: 0;
+  margin-right: 1em;
+  position: relative;
+  text-align: left;
+}
+
+/* Section List */
+section > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+section > ul li {
+  margin: 0.75em 0;
+}
+
+section > ul li strong {
+  color: var(--color-link);
+}
+
+/* Forms */
+
+p + fieldset {
+  margin-top: 1em;
+}
