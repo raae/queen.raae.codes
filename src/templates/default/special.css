@@ -1,4 +1,9 @@
 /* Site Nav */
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
 nav a {
   text-decoration: none;
 }
@@ -9,6 +14,7 @@ nav a:hover {
 
 nav > ul {
   list-style: none;
+  display: inline-block;
   padding: 0;
   margin: 0;
 }

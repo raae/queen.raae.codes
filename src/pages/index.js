@@ -1,13 +1,18 @@
 import React from "react";
-import Layout from "../components/layout";
+
+import DefaultLayout from "../templates/default";
+import Seo from "../components/seo";
+
 import NewsletterSection from "../content/newsletter-section";
 import UpcomingSection from "../content/upcoming-section";
 import AboutSection from "../content/about-section";
 import HomeHeader from "../content/home-header";
 
-const IndexPage = () => {
+const IndexPage = (props) => {
+  console.log({ props });
   return (
-    <Layout>
+    <DefaultLayout>
+      <Seo {...props} />
       <HomeHeader />
 
       <NewsletterSection />
@@ -17,7 +22,7 @@ const IndexPage = () => {
       <AboutSection />
 
       <NewsletterSection />
-    </Layout>
+    </DefaultLayout>
   );
 };
 

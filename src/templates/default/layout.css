@@ -24,3 +24,13 @@ main > *:nth-child(2n) {
 main > *:last-child {
   padding-bottom: 15vmin;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav {
+  grid-column: var(--grid-wider) !important;
+}
