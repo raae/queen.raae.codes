@@ -16,8 +16,6 @@
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   --hover-brightness: 1.2;
   --line-height: 1.5;
-  --grid-full-bleed: 1 / 5;
-  --grid-wider: 2 / 4;
   --color-link: var(--color-accent);
   --color-button: var(--color-primary);
 }

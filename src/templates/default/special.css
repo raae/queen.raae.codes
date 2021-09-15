@@ -28,17 +28,14 @@ nav > ul li {
 }
 
 /* Section List */
+
 section > ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  display: grid;
+  row-gap: 0.75em;
 }
 
-section > ul li {
-  margin: 0.75em 0;
-}
-
-section > ul li strong {
+section > ul strong {
   color: var(--color-link);
 }
 
@@ -48,11 +45,18 @@ form {
   position: relative;
 }
 
-form p + fieldset {
+form > fieldset {
+  border: none;
   margin-top: 1em;
+  margin-bottom: 0.35em;
 }
 
-form aside {
+form > fieldset > * {
+  margin-bottom: 0.4em;
+  margin-right: 0.5em;
+}
+
+form > aside {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,8 +70,14 @@ form aside {
   right: 0;
 }
 
-form aside button {
+form > aside button {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+/* Gatsby Image */
+
+.gatsby-image-wrapper {
+  border-radius: var(--border-radius);
 }
