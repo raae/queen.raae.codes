@@ -1,0 +1,56 @@
+:root {
+  --grid-full-bleed: 1 / 6;
+  --grid-loopsided: 3 / 5;
+  --grid-wider: 2 / 5;
+}
+
+main > * {
+  display: grid;
+  grid-template-columns: 1fr 0.1fr min(50ch, 90%) 0.25fr 1fr;
+  row-gap: 0.75em;
+}
+
+main > * > * {
+  grid-column: 3;
+}
+
+main > * {
+  padding-top: 8vmin;
+  padding-bottom: 6vmin;
+}
+
+main > *:first-child {
+  padding-top: 15vmin;
+}
+
+main > *:nth-child(2n) {
+  background-color: var(--color-bg-secondary);
+}
+
+main > *:last-child {
+  padding-bottom: 10vmin;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  grid-column: var(--grid-loopsided) !important;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+nav {
+  grid-column: var(--grid-loopsided) !important;
+}
+
+.gatsby-image-wrapper {
+  grid-column: var(--grid-wider) !important;
+  margin: 0.75em 0;
+}
+
+.gatsby-image-wrapper:last-child {
+  margin-bottom: 0;
+}
