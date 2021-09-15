@@ -38,6 +38,30 @@ section > ul li strong {
 
 /* Forms */
 
-p + fieldset {
+form {
+  position: relative;
+}
+
+form p + fieldset {
   margin-top: 1em;
+}
+
+form aside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius);
+  color: var(--color-text-contrast);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+form aside button {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

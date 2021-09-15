@@ -9,7 +9,7 @@ main > * > * {
 
 main > * {
   padding-top: 7vmin;
-  padding-bottom: 5vmin;
+  padding-bottom: 6vmin;
 }
 
 main > *:first-child {
@@ -17,7 +17,10 @@ main > *:first-child {
   border-top: var(--border-width) solid var(--color-primary);
 }
 
+main > *:nth-child(2n) {
+  background-color: var(--color-bg-secondary);
+}
+
 main > *:last-child {
-  background-color: var(--color-secondary-accent);
   padding-bottom: 15vmin;
 }
