@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-const Seo = ({ location, meta, children, image }) => {
+const Seo = ({ location, meta, children }) => {
   const {
     site: { siteMetadata },
   } = useStaticQuery(
@@ -14,8 +14,8 @@ const Seo = ({ location, meta, children, image }) => {
             tagline
             description
             twitter
-            keywords
             url
+            lang
           }
         }
       }
@@ -23,21 +23,20 @@ const Seo = ({ location, meta, children, image }) => {
   );
 
   const title = meta?.title;
+  const siteName = `${siteMetadata.title} — ${siteMetadata.tagline}`;
+  const lang = meta?.lang || siteMetadata.lang;
 
   const description = meta?.description || siteMetadata.description;
   const canonical = location && `${siteMetadata.url}${location.pathname}`;
   const socialType = meta?.type || "website";
-  const socialTitle = title
-    ? `${siteMetadata.title}: ${title}`
-    : `${siteMetadata.title} — ${siteMetadata.tagline}`;
+  const socialTitle = title ? title : siteName;
   const socialDescription = description;
+  const twitterSite = siteMetadata.twitter;
+  const twitterCreator = meta?.creator;
 
   return (
-    <Helmet
-      titleTemplate={`%s / ${siteMetadata.title} — ${siteMetadata.tagline}`}
-      defaultTitle={`${siteMetadata.title} — ${siteMetadata.tagline}`}
-    >
-      <html lang="en" />
+    <Helmet titleTemplate={`%s / ${siteName}`} defaultTitle={siteName}>
+      <html lang={lang} />
       <title>{title}</title>
       <link rel="canonical" href={canonical} />
 
@@ -46,10 +45,12 @@ const Seo = ({ location, meta, children, image }) => {
       <meta property="og:type" content={socialType} />
       <meta property="og:title" content={socialTitle} />
       <meta property="og:description" content={socialDescription} />
+      <meta property="og:site_name" content={siteName} />
       {/* <meta property="og:image" content="" /> */}
 
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content={siteMetadata.twitter} />
+      <meta name="twitter:site" content={twitterSite} />
+      <meta name="twitter:creator" content={twitterCreator} />
       <meta name="twitter:title" content={socialTitle} />
       <meta name="twitter:description" content={socialDescription} />
       {/* <meta name="twitter:image" content="" /> */}

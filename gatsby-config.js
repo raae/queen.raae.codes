@@ -4,9 +4,8 @@ module.exports = {
     title: `Queen Raae`,
     tagline: `Gatsby Plugins, Streams and Webinars`,
     description: `I teach web devs how to get the most out of Gatsby through workshops, rum-fueled treasure hunts in the sharky waters around the Gatsby islands and more!`,
-    language: `en-gb`,
-    keywords: [`gatsby`, `raae`, `jamstack`, `serverless`],
-    twitter: `@raae`,
+    lang: `en`,
+    twitter: "@raae",
   },
   plugins: [
     `gatsby-plugin-gatsby-cloud`,
