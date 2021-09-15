@@ -48,6 +48,7 @@ const NewsletterForm = ({
 
       <fieldset disabled={status === "pending"}>
         <label htmlFor="email">Your email address:</label>
+        <br />
         <input id="email" name="email" type="email" required />
         <button type="submit">{cta}</button>
       </fieldset>

@@ -164,7 +164,6 @@ textarea[readonly] {
 label {
   font-size: 0.8em;
   font-weight: bold;
-  margin-bottom: 0.4rem;
 }
 
 button {
@@ -186,15 +185,12 @@ button:hover {
 fieldset {
   border: none;
   padding: 0;
-  margin: 0.75em 0;
+  margin-bottom: 0.35em;
 }
 
 fieldset > * {
+  margin-bottom: 0.4em;
   margin-right: 0.5em;
-}
-
-fieldset label {
-  display: block;
 }
 
 /* Tables */
