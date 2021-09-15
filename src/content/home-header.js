@@ -12,7 +12,12 @@ const HomeHeader = () => {
             &nbsp;👑
           </span>
         </mark>{" "}
-        <span>I teach web devs how to get the most out of Gatsby.</span>
+        <span>
+          I help web devs get the most out of Gatsby{" "}
+          <span role="img" aria-label="Party poppers">
+            🎉🎉🎉
+          </span>
+        </span>
       </h1>
 
       <nav>

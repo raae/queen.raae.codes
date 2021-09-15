@@ -58,7 +58,7 @@ const UPCOMING = [
   },
   {
     title: "From idea to deployed Gatsby Function",
-    what: "Open Workshop",
+    what: "Workshop",
     details: "a webinar + q&a session + forum + code sample combo.",
     date: "November 9th - 16th",
     path: "https://www.crowdcast.io/e/from-idea-to-deployed",
