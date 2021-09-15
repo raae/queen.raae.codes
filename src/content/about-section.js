@@ -13,7 +13,7 @@ const AboutSection = () => {
           others.
         </p>
         <StaticImage
-          src="../static/raae.png"
+          src="../../static/raae.png"
           alt="Queen Raae in front of her gallery wall with a laptop in her arms"
         />
         <p>

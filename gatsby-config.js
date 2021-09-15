@@ -6,6 +6,7 @@ module.exports = {
     description: `I teach web devs how to get the most out of Gatsby through workshops, rum-fueled treasure hunts in the sharky waters around the Gatsby islands and more!`,
     lang: `en`,
     twitter: "@raae",
+    image: `raae.png`,
   },
   plugins: [
     `gatsby-plugin-gatsby-cloud`,
