@@ -15,6 +15,7 @@ body {
   overflow-x: hidden;
   padding: 0;
   min-height: 100vh;
+  border-top: var(--border-width) solid var(--color-primary);
 }
 
 h1,
