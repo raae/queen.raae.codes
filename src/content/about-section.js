@@ -18,8 +18,8 @@ const AboutSection = () => {
         />
         <p>
           Gatsby came into my life in 2018. Since then, I have created
-          gatsby-remark-oembed (open-source Gatsby plugin) and spoken at both
-          Gatsby Days 2019 and Gatsby Fall Camp 2021.
+          gatsby-remark-oembed (open-source Gatsby plugin) and spoken at Gatsby
+          Days 2019 and Gatsby Fall Camp 2021.
         </p>
         <p>
           On International Women's day 2020 I launced POW! — the privacy-first

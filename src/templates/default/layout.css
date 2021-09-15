@@ -28,7 +28,7 @@ main > *:nth-child(2n) {
 }
 
 main > *:last-child {
-  padding-bottom: 15vmin;
+  padding-bottom: 10vmin;
 }
 
 h1,
@@ -48,4 +48,9 @@ nav {
 
 .gatsby-image-wrapper {
   grid-column: var(--grid-wider) !important;
+  margin: 0.75em 0;
+}
+
+.gatsby-image-wrapper:last-child {
+  margin-bottom: 0;
 }

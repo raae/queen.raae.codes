@@ -13,7 +13,7 @@ const HomeHeader = () => {
           </span>
         </mark>{" "}
         <span>
-          I help web devs get the most out of Gatsby{" "}
+          I help web devs get the most out&nbsp;of&nbsp;Gatsby{" "}
           <span role="img" aria-label="Party poppers">
             🎉🎉🎉
           </span>
