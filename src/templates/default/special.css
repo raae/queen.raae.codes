@@ -57,7 +57,7 @@ form aside {
   justify-content: center;
   align-items: center;
   position: absolute;
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
   border-radius: var(--border-radius);
   color: var(--color-text-contrast);
   top: 0;

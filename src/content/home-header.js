@@ -5,7 +5,7 @@ const HomeHeader = () => {
   return (
     <header>
       <h1>
-        <span>Greetings!&nbsp;</span>
+        <span>Welcome!&nbsp;</span>
         <mark>
           I'm Queen Raae{" "}
           <span role="img" aria-label="Crown">
