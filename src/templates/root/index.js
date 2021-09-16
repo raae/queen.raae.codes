@@ -6,13 +6,13 @@ import "./special.css";
 
 import Seo from "../../components/seo";
 
-const DefaultLayout = ({ children, ...props }) => {
+const RootLayout = ({ children, ...props }) => {
   return (
-    <main>
+    <>
       <Seo {...props} />
       {children}
-    </main>
+    </>
   );
 };
 
-export default DefaultLayout;
+export default RootLayout;

@@ -15,6 +15,40 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `talk`,
+        path: `${__dirname}/content/talks`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+          },
+          {
+            resolve: `gatsby-remark-images`,
+          },
+          {
+            resolve: `@raae/gatsby-remark-oembed`,
+            options: {
+              providers: {
+                // Important to exclude providers
+                // that adds js to the page.
+                // If you do not need them.
+                exclude: ["Reddit", "Instagram", "Twitter", "Flickr"],
+              },
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+          },
+        ],
+      },
+    },
     `gatsby-plugin-gatsby-cloud`,
     `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,

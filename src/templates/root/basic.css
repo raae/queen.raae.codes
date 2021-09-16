@@ -32,6 +32,10 @@ h6 {
   line-height: var(--line-height);
 }
 
+h1 {
+  font-size: 2em;
+}
+
 pre {
   white-space: pre-wrap;
 }

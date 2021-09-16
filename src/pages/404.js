@@ -1,11 +1,9 @@
 import React from "react";
-import { Link } from "gatsby";
 
 import Seo from "../components/seo";
-
-import DefaultLayout from "../templates/default";
+import MainMenu from "../content/main-menu";
 import SocialLinks from "../content/social-links";
-import NewsletterSection from "../content/newsletter-section";
+import DefaultLayout from "../templates/default";
 
 const NotFoundPage = (props) => {
   return (
@@ -21,11 +19,7 @@ const NotFoundPage = (props) => {
           we couldn’t find what you were looking for.
         </h1>
         <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </ul>
+          <MainMenu />
           <SocialLinks />
         </nav>
       </header>
@@ -33,8 +27,6 @@ const NotFoundPage = (props) => {
       <section>
         <img src="https://http.cat/404" alt="Cat hiding, but clearly visible" />
       </section>
-
-      <NewsletterSection />
     </DefaultLayout>
   );
 };

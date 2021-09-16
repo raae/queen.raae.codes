@@ -1,6 +1,6 @@
 import React from "react";
 
-import DefaultLayout from "../templates/default";
+import RootLayout from "../templates/root";
 import Seo from "../components/seo";
 
 import NewsletterSection from "../content/newsletter-section";
@@ -11,7 +11,7 @@ import HomeHeader from "../content/home-header";
 const IndexPage = (props) => {
   console.log({ props });
   return (
-    <DefaultLayout>
+    <RootLayout>
       <Seo {...props} />
       <HomeHeader />
 
@@ -20,9 +20,7 @@ const IndexPage = (props) => {
       <UpcomingSection />
 
       <AboutSection />
-
-      <NewsletterSection />
-    </DefaultLayout>
+    </RootLayout>
   );
 };
 

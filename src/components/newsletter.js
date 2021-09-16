@@ -25,6 +25,7 @@ const NewsletterForm = ({
     setStatus("PENDING");
 
     try {
+      // TODO: Already subscribed through this form message
       await addSubscriber({
         email: event.target.elements.email.value,
         subscription: subscription,
