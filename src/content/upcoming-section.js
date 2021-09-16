@@ -40,6 +40,12 @@ const UPCOMING = [
     href: "https://youtu.be/mHVVFsaDg_8",
   },
   {
+    title: "Gatsby v4 Bootcamp",
+    what: "Get pratical experience with SSR vs. SSG vs. DSR",
+    date: "TBA",
+    path: "/gatsby-v4-bootcamp/",
+  },
+  {
     title: "Introduction to Gatsby",
     what: "Internal talk",
     details: "for wordpress / drupal developers",
