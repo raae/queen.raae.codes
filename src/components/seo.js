@@ -63,7 +63,8 @@ const Seo = ({ location, meta, children }) => {
       <meta name="twitter:creator" content={twitterCreator} />
       <meta name="twitter:title" content={socialTitle} />
       <meta name="twitter:description" content={socialDescription} />
-      <meta name="twitter:image" content={socialImage} />
+      {/* <meta name="twitter:image" content={socialImage} /> */}
+      {/* <meta name="twitter:image:alt" content={socialImage} /> */}
 
       {children}
     </Helmet>
