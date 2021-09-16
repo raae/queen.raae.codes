@@ -38,6 +38,7 @@ const Seo = ({ location, meta, children }) => {
   const socialDescription = description;
   const twitterSite = siteMetadata.twitter;
   const twitterCreator = meta?.creator;
+  const twitterCard = "summary_large_image";
 
   return (
     <Helmet titleTemplate={`%s / ${siteName}`} defaultTitle={siteName}>
@@ -57,7 +58,7 @@ const Seo = ({ location, meta, children }) => {
       <meta property="og:description" content={socialDescription} />
       <meta property="og:image" content={socialImage} />
 
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content={twitterCard} />
       <meta name="twitter:site" content={twitterSite} />
       <meta name="twitter:creator" content={twitterCreator} />
       <meta name="twitter:title" content={socialTitle} />
