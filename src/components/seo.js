@@ -32,15 +32,14 @@ const Seo = ({ location, meta, children }) => {
   const title = meta?.title;
   const siteName = `${siteMetadata.title} — ${siteMetadata.tagline}`;
   const lang = meta?.lang || siteMetadata.lang;
+  const image = meta?.image || siteMetadata.social.image;
 
   const description = meta?.description || siteMetadata.description;
   const canonical = location && `${siteMetadata.url}${location.pathname}`;
   const socialType = meta?.type || "website";
   const socialTitle = title ? title : siteName;
-  const socialImage = meta?.image
-    ? meta?.image
-    : `${location?.origin}/${siteMetadata.social.image}`;
-  const socialImageAlt = meta?.alt ? meta?.alt : siteMetadata.social.alt;
+  const socialImage = image && location && `${location?.origin}${image}`;
+  const socialImageAlt = meta?.image ? meta?.alt : siteMetadata.social.alt;
   const socialDescription = description;
   const twitterSite = siteMetadata.social.twitter.site;
   const twitterCreator = meta?.creator;
