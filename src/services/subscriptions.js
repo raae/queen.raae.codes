@@ -16,6 +16,7 @@ const TAGS = {
 const FORM_ID = {
   QUEEN: "2454187",
   TIMESHIP: "2604593",
+  VERSION4: "2608546",
 };
 
 export const addSubscriber = async ({ subscription, email, tags }) => {
