@@ -5,8 +5,14 @@ module.exports = {
     tagline: `Gatsby Plugins, Streams and Webinars`,
     description: `I teach web devs how to get the most out of Gatsby through workshops, rum-fueled treasure hunts in the sharky waters around the Gatsby islands and more!`,
     lang: `en`,
-    twitter: "@raae",
-    image: `raae.png`,
+    social: {
+      image: `raae.png`,
+      alt: "Queen Raae holding a laptop in front of her gallery wall",
+      twitter: {
+        site: "@raae",
+        card: "summary_large_image",
+      },
+    },
   },
   plugins: [
     `gatsby-plugin-gatsby-cloud`,

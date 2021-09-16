@@ -13,10 +13,16 @@ const Seo = ({ location, meta, children }) => {
             title
             tagline
             description
-            twitter
             url
             lang
-            image
+            social {
+              image
+              alt
+              twitter {
+                site
+                card
+              }
+            }
           }
         }
       }
@@ -26,19 +32,19 @@ const Seo = ({ location, meta, children }) => {
   const title = meta?.title;
   const siteName = `${siteMetadata.title} — ${siteMetadata.tagline}`;
   const lang = meta?.lang || siteMetadata.lang;
-  const image = meta?.image || siteMetadata.image;
-
-  console.log({ location });
 
   const description = meta?.description || siteMetadata.description;
   const canonical = location && `${siteMetadata.url}${location.pathname}`;
   const socialType = meta?.type || "website";
   const socialTitle = title ? title : siteName;
-  const socialImage = image && location && `${location.origin}/${image}`;
+  const socialImage = meta?.image
+    ? meta?.image
+    : `${location?.origin}/${siteMetadata.social.image}`;
+  const socialImageAlt = meta?.alt ? meta?.alt : siteMetadata.social.alt;
   const socialDescription = description;
-  const twitterSite = siteMetadata.twitter;
+  const twitterSite = siteMetadata.social.twitter.site;
   const twitterCreator = meta?.creator;
-  const twitterCard = "summary_large_image";
+  const twitterCard = siteMetadata.social.twitter.card;
 
   return (
     <Helmet titleTemplate={`%s / ${siteName}`} defaultTitle={siteName}>
@@ -63,8 +69,8 @@ const Seo = ({ location, meta, children }) => {
       <meta name="twitter:creator" content={twitterCreator} />
       <meta name="twitter:title" content={socialTitle} />
       <meta name="twitter:description" content={socialDescription} />
-      {/* <meta name="twitter:image" content={socialImage} /> */}
-      {/* <meta name="twitter:image:alt" content={socialImage} /> */}
+      <meta name="twitter:image:src" content={socialImage} />
+      <meta name="twitter:image:alt" content={socialImageAlt} />
 
       {children}
     </Helmet>
