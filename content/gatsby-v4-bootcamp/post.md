@@ -1,0 +1,15 @@
+---
+title: "Gatsby v4 Bootcamp"
+subscription:
+  key: "version4"
+  cta: "Tell me more"
+---
+
+I'm exited?  
+**Are you exited?**
+
+Gatsby v4 is here and in addition to Static Site Generation (SSG) we get Server Side Rendering (SSR) and Deffered Static Generation (DSG).
+
+## Confused?
+
+Get unconfused by getting pratical experience in my upcoming Gatsby v4 Bootcamp!
