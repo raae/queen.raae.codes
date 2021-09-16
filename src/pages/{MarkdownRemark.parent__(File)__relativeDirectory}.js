@@ -1,38 +1,84 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
+import Layout from "../templates/default";
 import Seo from "../components/seo";
-import DefaultLayout from "../templates/default";
+import NewsletterSection from "../content/newsletter-section";
+import NewsletterForm from "../components/newsletter";
+import MainMenu from "../content/main-menu";
+import SocialLinks from "../content/social-links";
 
 const PageTemplate = ({ data, ...props }) => {
   const post = data.markdownRemark;
-
-  const image = getImage(post.frontmatter.featuredImage);
+  const { cover, alt, title, subscription, testimonials } = post.frontmatter;
+  const gatsbyCover = getImage(cover);
 
   return (
-    <DefaultLayout>
-      <Seo {...props} meta={{ title: post.frontmatter.title }} />
-      <header>
-        {/* <aside>
-          <nav style={{ position: "absolute", top: "2rem" }}>
-            <ul>
-              <li>
-                <Link to="/">Queen Raae</Link>
-              </li>
-              <li>
-                <Link path="/talks">Talks</Link>
-              </li>
-            </ul>
-          </nav>
-        </aside> */}
-        <h1>{post.frontmatter.title}</h1>
+    <Layout>
+      <Seo
+        {...props}
+        meta={{
+          title: title,
+          alt: gatsbyCover && alt,
+          image: gatsbyCover && gatsbyCover.images.fallback.src,
+        }}
+      />
+      <main>
+        {title && (
+          <header>
+            <h1>{post.frontmatter.title}</h1>
 
-        <GatsbyImage image={image} alt={post.frontmatter.title} />
-      </header>
+            {gatsbyCover && (
+              <GatsbyImage image={gatsbyCover} alt={post.frontmatter.title} />
+            )}
+            {subscription && (
+              <NewsletterForm
+                subscription={subscription.key}
+                cta={subscription.cta}
+              />
+            )}
+          </header>
+        )}
 
-      <section dangerouslySetInnerHTML={{ __html: post.html }} />
-    </DefaultLayout>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+
+        {testimonials && (
+          <section>
+            <h2>{testimonials.title}</h2>
+            <p>{testimonials.intro}</p>
+            {testimonials.list.map(({ testimonial, who, avatar }) => (
+              <blockquote key={who}>
+                <GatsbyImage image={getImage(avatar)} alt={who} />
+                <p>
+                  {testimonial}
+                  <cite>{who}</cite>
+                </p>
+              </blockquote>
+            ))}
+          </section>
+        )}
+      </main>
+
+      <footer>
+        {subscription ? (
+          <section id="signup">
+            <NewsletterForm
+              subscription={subscription.key}
+              cta={subscription.cta}
+            >
+              <p>{subscription.message}</p>
+            </NewsletterForm>
+          </section>
+        ) : (
+          <NewsletterSection />
+        )}
+        <nav>
+          <MainMenu />
+          <SocialLinks />
+        </nav>
+      </footer>
+    </Layout>
   );
 };
 
@@ -46,9 +92,36 @@ export const query = graphql`
       html
       frontmatter {
         title
-        featuredImage {
+        cover {
           childImageSharp {
-            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData(
+              width: 1200
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+        alt
+        subscription {
+          cta
+          key
+          message
+        }
+        testimonials {
+          title
+          intro
+          list {
+            who
+            testimonial
+            avatar {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 200
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
+            }
           }
         }
       }

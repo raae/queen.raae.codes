@@ -27,6 +27,11 @@ nav > ul li {
   text-align: left;
 }
 
+footer a {
+  color: var(--color-link) !important;
+  font-size: small;
+}
+
 /* Section List */
 
 section > ul {
@@ -78,6 +83,12 @@ form > aside button {
 
 /* Gatsby Image */
 
-.gatsby-image-wrapper {
+.gatsby-image-wrapper,
+.gatsby-resp-image-wrapper img {
   border-radius: var(--border-radius);
+}
+
+/* List link */
+ul li a:only-child {
+  color: var(--color-accent);
 }

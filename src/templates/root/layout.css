@@ -4,20 +4,27 @@
   --grid-wider: 2 / 5;
 }
 
+body {
+  background-color: var(--color-secondary-transparent);
+  overflow-x: hidden;
+  padding: 0;
+  min-height: 100vh;
+  border-top: var(--border-width) solid var(--color-primary);
+}
+
 main > *,
-footer > * {
+footer {
   display: grid;
   grid-template-columns: 1fr 0.1fr min(50ch, 90%) 0.25fr 1fr;
   row-gap: 0.75em;
 }
 
 main > * > *,
-footer > * > * {
+footer > * {
   grid-column: 3;
 }
 
-main > *,
-footer > * {
+main > * {
   padding-top: 8vmin;
   padding-bottom: 6vmin;
 }
@@ -26,39 +33,110 @@ main > *:first-child {
   padding-top: 15vmin;
 }
 
+main > *:nth-child(2n + 1) {
+  background-color: var(--color-bg-primary);
+}
+
 main > *:nth-child(2n) {
   background-color: var(--color-bg-secondary);
 }
 
-main > *:last-child,
-footer > *:last-child {
+main > *:last-child {
   padding-bottom: 10vmin;
 }
 
 footer {
-  background-color: var(--color-primary-transparent);
+  padding-top: 8vmin;
+  padding-bottom: 3vmin;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+footer > * + * {
+  margin-top: 3vmin;
+}
+
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
   grid-column: var(--grid-loopsided) !important;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
 }
 
-nav {
+main nav,
+footer nav {
   grid-column: var(--grid-loopsided) !important;
 }
 
-.gatsby-image-wrapper {
+footer nav {
+  color: var(--color-text-primary) !important;
+}
+
+main .gatsby-image-wrapper,
+main .gatsby-resp-image-wrapper {
   grid-column: var(--grid-wider) !important;
   margin: 0.75em 0;
 }
 
-.gatsby-image-wrapper:last-child {
+main .gatsby-image-wrapper:last-child {
   margin-bottom: 0;
+}
+
+main > div > blockquote {
+  grid-column: var(--grid-full-bleed) !important;
+  background-color: var(--color-primary-transparent);
+  margin: 0.75em 0;
+  padding: 6vmin 0;
+  font-size: xx-large;
+  text-align: center;
+  line-height: 1.2;
+}
+
+main > div > blockquote:last-child {
+  margin-bottom: -6vmin;
+}
+
+main > div > blockquote p {
+  font-weight: bold;
+  max-width: 35ch;
+  padding: 0 1em;
+  margin: 0 auto;
+}
+
+main > section > blockquote {
+  font-size: smaller;
+  background-color: var(--color-primary-transparent);
+  grid-column: var(--grid-wider);
+  padding: 2em;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main > section > blockquote > .gatsby-image-wrapper {
+  margin-right: 2em;
+  flex-shrink: 0;
+}
+
+main > section > blockquote > p {
+  max-width: 50ch;
+  flex-shrink: 1;
+}
+
+main > section > blockquote cite {
+  display: block;
+}
+
+@media screen and (max-width: 560px) {
+  main > section > blockquote {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  main > section > blockquote > .gatsby-image-wrapper {
+    margin-right: 0;
+  }
 }

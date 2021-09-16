@@ -5,7 +5,7 @@ const MainMenu = ({ menu = MENU }) => {
   return (
     <ul>
       {menu.map(({ path, label }) => (
-        <li>
+        <li key={path}>
           <Link to={path}>{label}</Link>
         </li>
       ))}

@@ -6,9 +6,11 @@ const UpcomingSection = ({ upcoming = UPCOMING }) => {
     <section>
       <h2>Upcoming</h2>
       <ul>
-        {upcoming.map(({ path, title, what, details, date }) => (
-          <li>
-            {path ? <Link to={path}>{title}</Link> : <strong>{title}</strong>}
+        {upcoming.map(({ path, href, title, what, details, date }, index) => (
+          <li key={index}>
+            {path && <Link to={path}>{title}</Link>}
+            {href && <a href={href}>{title}</a>}
+            {!href && !path && <strong>{title}</strong>}
             <br />
             {what} {details && <em>— {details}</em>}
             <br />
@@ -27,7 +29,7 @@ const UPCOMING = [
     title: "Add Flexibility to Your Site with Gatsby Functions",
     what: "Lightning talk at Gatsby Camp",
     date: "September 17th",
-    path: "https://www.gatsbyjs.com/blog/gatsbycamp-the-fall-edition/",
+    path: "/gatsby-fall-camp-2021/",
   },
   {
     title: "Season Premiere of Gatsby Deep Dives",
@@ -35,7 +37,7 @@ const UPCOMING = [
     details:
       "our weekly rum-fueled treasure hunts in the sharky waters around the Gatsby islands.",
     date: "September 23rd",
-    path: "https://youtu.be/mHVVFsaDg_8",
+    href: "https://youtu.be/mHVVFsaDg_8",
   },
   {
     title: "Introduction to Gatsby",
@@ -48,7 +50,7 @@ const UPCOMING = [
     what: "Free webinar",
     details: "learn the basic of serverless.",
     date: "September 28th",
-    path: "https://www.crowdcast.io/e/a-practical-introduction",
+    href: "https://www.crowdcast.io/e/a-practical-introduction",
   },
   {
     title: "How to test your Gatsby Functions",
@@ -61,6 +63,6 @@ const UPCOMING = [
     what: "Workshop",
     details: "a webinar + q&a session + forum + code sample combo.",
     date: "November 9th - 16th",
-    path: "https://www.crowdcast.io/e/from-idea-to-deployed",
+    href: "https://www.crowdcast.io/e/from-idea-to-deployed",
   },
 ];

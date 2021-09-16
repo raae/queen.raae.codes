@@ -6,14 +6,7 @@ import SocialLinks from "../content/social-links";
 import RootLayout from "./root";
 
 const DefaultLayout = ({ children, ...props }) => {
-  return (
-    <RootLayout {...props}>
-      <main>{children}</main>
-      <footer>
-        <NewsletterSection />
-      </footer>
-    </RootLayout>
-  );
+  return <RootLayout {...props}>{children}</RootLayout>;
 };
 
 export default DefaultLayout;

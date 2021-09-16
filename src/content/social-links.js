@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from "gatsby";
 
 const SocialLinks = ({ menu = MENU }) => {
   return (
     <ul>
-      {menu.map(({ path, label }) => (
-        <li>
-          <Link to={path}>{label}</Link>
+      {menu.map(({ href, label }) => (
+        <li key={label}>
+          <a href={href}>{label}</a>
         </li>
       ))}
     </ul>
@@ -16,6 +15,6 @@ const SocialLinks = ({ menu = MENU }) => {
 export default SocialLinks;
 
 const MENU = [
-  { label: "YouTube", path: "https://youtube.com/raaecodes" },
-  { label: "Twitter (@raae)", path: "https://twitter.com/raae" },
+  { label: "YouTube", href: "https://youtube.com/raaecodes" },
+  { label: "Twitter (@raae)", href: "https://twitter.com/raae" },
 ];
