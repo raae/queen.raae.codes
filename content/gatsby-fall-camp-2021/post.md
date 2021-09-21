@@ -6,7 +6,7 @@ alt: "Talk cover: Add flexibility to your site with Gatsby Functions"
 
 **September 16th** I spoke about Gatsby Functions at Gatsby Fall Camp.
 
-Missed it? Sign up for [emails from yours truly](/emails) and I'll let you know when the recording is up.
+Missed it? You may [register to watch the replay](https://www.gatsbyjs.com/camp-fall-2021), or sign up for [emails from yours truly](/emails) and I'll let you know when the recording is up on YouTube.
 
 It was a short 15 minute talk, but there was a full [code demo](https://github.com/queen-raae/gatsby-fall-camp-2021) on how to charge money for time traveling using Stripe, and how to let the travellers know if they found the princess or not using SendGrid.
 
