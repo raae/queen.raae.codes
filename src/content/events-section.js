@@ -1,28 +1,37 @@
 import React from "react";
 import { Link } from "gatsby";
 
-const UpcomingSection = ({ upcoming = UPCOMING }) => {
+const EventsSection = ({ upcoming = UPCOMING }) => {
   return (
     <section>
-      <h2>Upcoming</h2>
+      <h2>Events</h2>
       <ul>
-        {upcoming.map(({ path, href, title, what, details, date }, index) => (
-          <li key={index}>
-            {path && <Link to={path}>{title}</Link>}
-            {href && <a href={href}>{title}</a>}
-            {!href && !path && <strong>{title}</strong>}
-            <br />
-            {what} {details && <em>— {details}</em>}
-            <br />
-            <small>{date}</small>
-          </li>
-        ))}
+        {upcoming.map(
+          ({ path, href, title, what, details, date, mark }, index) => (
+            <li key={index}>
+              {path && <Link to={path}>{title}</Link>}
+              {href && <a href={href}>{title}</a>}
+              {!href && !path && <strong>{title}</strong>}
+              <br />
+              {what} {details && <em>— {details}</em>}
+              <br />
+              <small>
+                {date}{" "}
+                {mark && (
+                  <Link to={path}>
+                    <mark>{mark}</mark>
+                  </Link>
+                )}
+              </small>
+            </li>
+          )
+        )}
       </ul>
     </section>
   );
 };
 
-export default UpcomingSection;
+export default EventsSection;
 
 const UPCOMING = [
   {
@@ -30,6 +39,7 @@ const UPCOMING = [
     what: "Lightning talk at Gatsby Camp",
     date: "September 17th",
     path: "/gatsby-fall-camp-2021/",
+    mark: "Replay available",
   },
   {
     title: "Season Premiere of Gatsby Deep Dives",
@@ -46,17 +56,17 @@ const UPCOMING = [
     path: "/gatsby-v4-bootcamp/",
   },
   {
-    title: "Introduction to Gatsby",
-    what: "Internal talk",
-    details: "for wordpress / drupal developers",
-    date: "September 29th",
-  },
-  {
     title: "A practical introduction to Gatsby Serverless Functions",
     what: "Free webinar",
     details: "learn the basic of serverless.",
     date: "September 28th",
     href: "https://www.crowdcast.io/e/a-practical-introduction",
+  },
+  {
+    title: "Introduction to Gatsby",
+    what: "Internal talk",
+    details: "for a web agency (WordPress/Drupal)",
+    date: "September 29th",
   },
   {
     title: "How to test your Gatsby Functions",
