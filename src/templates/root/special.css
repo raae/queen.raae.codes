@@ -92,3 +92,7 @@ form > aside button {
 ul li a:only-child {
   color: var(--color-accent);
 }
+
+dl dd a:only-child {
+  color: var(--color-accent);
+}

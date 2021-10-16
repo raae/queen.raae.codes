@@ -7,12 +7,14 @@ import Seo from "../components/seo";
 import NewsletterSection from "../content/newsletter-section";
 import NewsletterForm from "../components/newsletter";
 import MainMenu from "../content/main-menu";
+import TestimonialsSection from "../content/testimonials-section";
 import SocialLinks from "../content/social-links";
+import TalkMeta from "../components/talk-meta";
 
-const PageTemplate = ({ data, ...props }) => {
+const RemarkPage = ({ data, ...props }) => {
   const post = data.markdownRemark;
-  const { cover, alt, title, subscription, testimonials } = post.frontmatter;
-  const gatsbyCover = getImage(cover);
+  const { cover, title, subscription, talk, testimonials } = post.frontmatter;
+  const gatsbyCover = getImage(cover?.src);
 
   return (
     <Layout>
@@ -20,7 +22,7 @@ const PageTemplate = ({ data, ...props }) => {
         {...props}
         meta={{
           title: title,
-          alt: gatsbyCover && alt,
+          alt: gatsbyCover && cover?.alt,
           image: gatsbyCover && gatsbyCover.images.fallback.src,
         }}
       />
@@ -28,48 +30,26 @@ const PageTemplate = ({ data, ...props }) => {
         {title && (
           <header>
             <h1>{post.frontmatter.title}</h1>
+            {talk && <TalkMeta {...talk} />}
 
             {gatsbyCover && (
-              <GatsbyImage image={gatsbyCover} alt={post.frontmatter.title} />
+              <GatsbyImage image={gatsbyCover} alt={cover?.alt} />
             )}
-            {subscription && (
-              <NewsletterForm
-                subscription={subscription.key}
-                cta={subscription.cta}
-              />
-            )}
+
+            {subscription && <NewsletterForm {...subscription} />}
           </header>
         )}
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
-        {testimonials && (
-          <section>
-            <h2>{testimonials.title}</h2>
-            <p>{testimonials.intro}</p>
-            {testimonials.list.map(({ testimonial, who, avatar }) => (
-              <blockquote key={who}>
-                <GatsbyImage image={getImage(avatar)} alt={who} />
-                <p>
-                  {testimonial}
-                  <cite>{who}</cite>
-                </p>
-              </blockquote>
-            ))}
-          </section>
-        )}
+        {testimonials && <TestimonialsSection {...testimonials} />}
       </main>
 
       <footer>
         {subscription ? (
-          <section id="signup">
-            <NewsletterForm
-              subscription={subscription.key}
-              cta={subscription.cta}
-            >
-              <p>{subscription.message}</p>
-            </NewsletterForm>
-          </section>
+          <NewsletterForm {...subscription} anchor="signup">
+            <p>{subscription.message}</p>
+          </NewsletterForm>
         ) : (
           <NewsletterSection />
         )}
@@ -82,10 +62,10 @@ const PageTemplate = ({ data, ...props }) => {
   );
 };
 
-export default PageTemplate;
+export default RemarkPage;
 
 export const query = graphql`
-  query PageBySlug($id: String!) {
+  query MarkdownBySlug($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
@@ -93,18 +73,28 @@ export const query = graphql`
       frontmatter {
         title
         cover {
-          childImageSharp {
-            gatsbyImageData(
-              width: 1200
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
+          src {
+            childImageSharp {
+              gatsbyImageData(
+                width: 1200
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
           }
+          alt
         }
-        alt
+        talk {
+          date
+          url
+          event
+          recording
+          type
+          tags
+        }
         subscription {
           cta
-          key
+          formKey
           message
         }
         testimonials {

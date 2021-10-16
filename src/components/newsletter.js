@@ -13,10 +13,11 @@ const TEXT = {
 };
 
 const NewsletterForm = ({
-  subscription = "queen",
+  formKey = "queen",
   children,
   cta = "Get notifed",
   tags = [],
+  anchor = "",
 }) => {
   const [status, setStatus] = useState("INITIAL");
 
@@ -28,7 +29,7 @@ const NewsletterForm = ({
       // TODO: Already subscribed through this form message
       await addSubscriber({
         email: event.target.elements.email.value,
-        subscription: subscription,
+        formKey: formKey,
         tags: tags,
       });
       setStatus("FULFILLED");
@@ -44,7 +45,7 @@ const NewsletterForm = ({
   };
 
   return (
-    <form onSubmit={handleOnSubmit}>
+    <form onSubmit={handleOnSubmit} id={anchor}>
       {children}
 
       <fieldset disabled={status === "pending"}>

@@ -40,6 +40,21 @@ ul li {
   padding: 0.2rem 0;
 }
 
+dl dt,
+dl dd {
+  display: inline;
+}
+
+dl dt {
+  font-weight: bold;
+  margin-right: 0.5em;
+}
+
+dl dd:after {
+  display: block;
+  content: "";
+}
+
 details summary {
   font-weight: bold;
   cursor: pointer;
