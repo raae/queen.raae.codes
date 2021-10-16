@@ -19,8 +19,12 @@ const FORM_ID = {
   VERSION4: "2608546",
 };
 
-export const addSubscriber = async ({ subscription, email, tags }) => {
-  const formId = FORM_ID[`${subscription.toUpperCase()}`];
+export const addSubscriber = async ({ formKey, email, tags }) => {
+  const formId = FORM_ID[`${formKey.toUpperCase()}`];
+  if (!formId) {
+    throw new Error("Not a valid form key");
+  }
+
   const endpoint = `https://api.convertkit.com/v3/forms/${formId}/subscribe`;
   const tagIds = tags.map((tag) => {
     return TAGS[`${tag.toUpperCase()}`];

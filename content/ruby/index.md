@@ -1,10 +1,11 @@
 ---
 title: "Transform yourself from a friendly frontend engineer to a proper princess-life-saving skill builder"
-cover: "./Cover.png"
-alt: "Ruby's TimeShip Cover: a collage"
+cover:
+  src: "./Cover.png"
+  alt: "Ruby's TimeShip Cover: a collage"
 creator: "@OlaHolstVea"
 subscription:
-  key: "timeship"
+  formKey: "timeship"
   cta: "Send me the prolog now"
   message: "Transform yourself from a friendly frontend engineer to a proper princess life saving skill builder."
 testimonials:
