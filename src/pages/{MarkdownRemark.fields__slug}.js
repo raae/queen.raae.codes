@@ -7,6 +7,7 @@ import Seo from "../components/seo";
 import NewsletterSection from "../content/newsletter-section";
 import NewsletterForm from "../components/newsletter";
 import MainMenu from "../content/main-menu";
+import TestimonialsSection from "../content/testimonials-section";
 import SocialLinks from "../content/social-links";
 import TalkMeta from "../components/talk-meta";
 
@@ -41,21 +42,7 @@ const RemarkPage = ({ data, ...props }) => {
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
-        {testimonials && (
-          <section>
-            <h2>{testimonials.title}</h2>
-            <p>{testimonials.intro}</p>
-            {testimonials.list.map(({ testimonial, who, avatar }) => (
-              <blockquote key={who}>
-                <GatsbyImage image={getImage(avatar)} alt={who} />
-                <p>
-                  {testimonial}
-                  <cite>{who}</cite>
-                </p>
-              </blockquote>
-            ))}
-          </section>
-        )}
+        {testimonials && <TestimonialsSection {...testimonials} />}
       </main>
 
       <footer>
