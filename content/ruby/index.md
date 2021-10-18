@@ -11,7 +11,7 @@ subscription:
 testimonials:
   title: "Wait! Don't take my word for it..."
   intro: "Here’s what engineers back in 1554 said about getting motivated by Lillian (6 🏴‍☠️👸 ) and me:"
-  list:
+  items:
     - who: Lizabeth, Princess of England and later Queen
       avatar: ./Lizabeth_1.png
       testimonial: I'd be in prison in The Tower of London if it wasn't for Ruby's frontend skill building. And you dear reader probably wouldn't have for example William Shakespear's plays. Where would Shakespear's plays have been without my years of golden rule and the following Golden Age of Pirates? Gone if Mary 1 had won. Don't thank me, thank my half sister Ruby Reckless.

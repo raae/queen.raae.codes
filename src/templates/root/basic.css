@@ -60,10 +60,6 @@ details summary {
   cursor: pointer;
 }
 
-small {
-  color: var(--color-text-secondary);
-}
-
 mark {
   background-color: var(--color-primary);
   color: var(--color-text-contrast);

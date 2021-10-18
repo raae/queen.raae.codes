@@ -7,9 +7,11 @@ const Emoji = ({ variant }) => {
     case "calendar":
       return `🗓️`;
     case "tag":
-      return `🏷️`;
+      return `🔖`;
     case "recording":
       return `📺`;
+    case "location":
+      return `📍`;
 
     default:
       return null;

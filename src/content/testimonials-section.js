@@ -1,13 +1,13 @@
 import React from "react";
 import Testimonial from "../components/testimonial";
 
-const TestimonialsSection = ({ title, intro, list }) => {
+const TestimonialsSection = ({ title, intro, items }) => {
   return (
     <section>
       {title && <h2>{title}</h2>}
       {intro && <p>{intro}</p>}
-      {list.map((testimonial) => (
-        <Testimonial {...testimonial} />
+      {items.map((item) => (
+        <Testimonial {...item} />
       ))}
     </section>
   );

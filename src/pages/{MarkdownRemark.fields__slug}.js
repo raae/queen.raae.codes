@@ -9,12 +9,18 @@ import NewsletterForm from "../components/newsletter";
 import MainMenu from "../content/main-menu";
 import TestimonialsSection from "../content/testimonials-section";
 import SocialLinks from "../content/social-links";
-import TalkMeta from "../components/talk-meta";
+import TalkIntro from "../content/talk-intro";
+import BootcampIntro from "../content/bootcamp-intro";
 
 const RemarkPage = ({ data, ...props }) => {
   const post = data.markdownRemark;
-  const { cover, title, subscription, talk, testimonials } = post.frontmatter;
-  const gatsbyCover = getImage(cover?.src);
+  const { cover, title } = post.frontmatter;
+  const { bootcamp, talk } = post.frontmatter;
+  const { subscription, testimonials, includes } = post.frontmatter;
+
+  const coverImage = getImage(cover?.src);
+  const coverAlt = cover?.alt;
+  const CoverImage = <GatsbyImage image={coverImage} alt={coverAlt} />;
 
   return (
     <Layout>
@@ -22,23 +28,19 @@ const RemarkPage = ({ data, ...props }) => {
         {...props}
         meta={{
           title: title,
-          alt: gatsbyCover && cover?.alt,
-          image: gatsbyCover && gatsbyCover.images.fallback.src,
+          alt: coverImage && cover?.alt,
+          image: coverImage && coverImage.images.fallback.src,
         }}
       />
       <main>
-        {title && (
-          <header>
-            <h1>{post.frontmatter.title}</h1>
-            {talk && <TalkMeta {...talk} />}
+        <header>
+          {bootcamp && <BootcampIntro title={title} {...bootcamp} />}
+          {talk && (
+            <TalkIntro title={title} CoverImage={CoverImage} {...talk} />
+          )}
 
-            {gatsbyCover && (
-              <GatsbyImage image={gatsbyCover} alt={cover?.alt} />
-            )}
-
-            {subscription && <NewsletterForm {...subscription} />}
-          </header>
-        )}
+          {subscription && <NewsletterForm {...subscription} />}
+        </header>
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
@@ -92,6 +94,13 @@ export const query = graphql`
           type
           tags
         }
+        bootcamp {
+          outcome
+          location
+          tags
+          start
+          end
+        }
         subscription {
           cta
           formKey
@@ -100,7 +109,7 @@ export const query = graphql`
         testimonials {
           title
           intro
-          list {
+          items {
             who
             testimonial
             avatar {

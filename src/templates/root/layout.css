@@ -45,32 +45,47 @@ main > *:last-child {
   padding-bottom: 10vmin;
 }
 
-footer {
+main > header h1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+main > header > p,
+main > header > aside {
+  margin-bottom: 0.75rem;
+}
+
+main > header > p {
+  font-weight: bolder;
+  font-size: larger;
+}
+
+main + footer {
   padding-top: 8vmin;
   padding-bottom: 3vmin;
 }
 
-footer > * + * {
+main + footer > * + * {
   margin-top: 3vmin;
 }
 
-main h1,
-main h2,
-main h3,
-main h4,
-main h5,
-main h6 {
+main > :not(header) h1,
+main > :not(header) h2,
+main > :not(header) h3,
+main > :not(header) h4,
+main > :not(header) h5,
+main > :not(header) h6 {
   grid-column: var(--grid-loopsided) !important;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
 }
 
 main nav,
-footer nav {
+main + footer nav {
   grid-column: var(--grid-loopsided) !important;
 }
 
-footer nav {
+main + footer nav {
   color: var(--color-text-primary) !important;
 }
 
@@ -82,6 +97,17 @@ main .gatsby-resp-image-wrapper {
 
 main .gatsby-image-wrapper:last-child {
   margin-bottom: 0;
+}
+
+main > div > ul {
+  list-style: none;
+}
+
+main > div > ul li::before {
+  content: "➽";
+  display: inline-block;
+  margin-right: 0.5rem;
+  color: var(--color-secondary);
 }
 
 main > div > blockquote {
