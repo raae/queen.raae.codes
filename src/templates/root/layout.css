@@ -147,9 +147,13 @@ main > section > blockquote > .gatsby-image-wrapper {
   flex-shrink: 0;
 }
 
-main > section > blockquote > p {
+main > section > blockquote > div {
   max-width: 50ch;
   flex-shrink: 1;
+}
+
+main > section > blockquote p {
+  margin-bottom: 0.5em;
 }
 
 main > section > blockquote cite {

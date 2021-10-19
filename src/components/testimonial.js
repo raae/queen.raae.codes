@@ -1,14 +1,17 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const Testimonial = ({ who, avatar, testimonial }) => {
+const Testimonial = ({ who, avatar, attended, children }) => {
   return (
     <blockquote key={who}>
       <GatsbyImage image={getImage(avatar)} alt={who} />
-      <p>
-        {testimonial}
-        <cite>{who}</cite>
-      </p>
+      <div>
+        {children}
+        <cite>
+          {who}
+          <br /> {attended && `Attended ${attended}`}
+        </cite>
+      </div>
     </blockquote>
   );
 };

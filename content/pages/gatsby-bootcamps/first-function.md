@@ -15,15 +15,8 @@ bootcamp:
 testimonials:
   title: Wait! Don't take my word for it...
   items:
-    - who: Ineza Bonté (@inezabonte)
-      avatar: ./ineza-avatar.jpg
-      testimonial: I'd be in prison in The Tower of London if it wasn't for Ruby's frontend skill building. And you dear reader probably wouldn't have for example William Shakespear's plays. Where would Shakespear's plays have been without my years of golden rule and the following Golden Age of Pirates? Gone if Mary 1 had won. Don't thank me, thank my half sister Ruby Reckless.
-    - who: Paul Scanlon (@PaulieScanlon)
-      avatar: ./paulie-avatar.jpg
-      testimonial: I wish I could turn back the clock and get these weekly motivation reminders when I first started my frontend skill building - it would have saved me hours in the suck zone. I always thought I could FORCE myself to do frontend skill building - but I hit a wall and realized I needed help to get to next level of my own motivation game.
-    - who: Aremu Smog (@aremu_smog)
-      avatar: ./aremu-avatar.jpg
-      testimonial: Ruby is a wonderful opponent. She goes out of her way to make my life interesting and will challenge me and do the things that – though I might not always want them done to me – are crucial to keeping me motivated to build my skills as a scary super spy.
+    - ineza-summer
+    - aremu-summer
 ---
 
 ## 🎶 A little bit of backend in your life 🎶

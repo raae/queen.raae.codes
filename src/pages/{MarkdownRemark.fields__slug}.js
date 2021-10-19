@@ -16,7 +16,7 @@ const RemarkPage = ({ data, ...props }) => {
   const post = data.markdownRemark;
   const { cover, title } = post.frontmatter;
   const { bootcamp, talk } = post.frontmatter;
-  const { subscription, testimonials, includes } = post.frontmatter;
+  const { subscription, testimonials } = post.frontmatter;
 
   const coverImage = getImage(cover?.src);
   const coverAlt = cover?.alt;
@@ -35,8 +35,16 @@ const RemarkPage = ({ data, ...props }) => {
       <main>
         <header>
           {bootcamp && <BootcampIntro title={title} {...bootcamp} />}
+
           {talk && (
             <TalkIntro title={title} CoverImage={CoverImage} {...talk} />
+          )}
+
+          {!bootcamp && !talk && (
+            <>
+              <h1>{title}</h1>
+              {CoverImage}
+            </>
           )}
 
           {subscription && <NewsletterForm {...subscription} />}
@@ -109,19 +117,7 @@ export const query = graphql`
         testimonials {
           title
           intro
-          items {
-            who
-            testimonial
-            avatar {
-              childImageSharp {
-                gatsbyImageData(
-                  width: 200
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
-                )
-              }
-            }
-          }
+          items
         }
       }
     }
