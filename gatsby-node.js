@@ -19,10 +19,9 @@ exports.onCreatePage = ({ page, actions, getNode }) => {
   const node = getNode(page.context?.id);
 
   // Delete the page if its of type Markdown
-  // and the parent node is of type block
-  if (node?.internal.type === "MarkdownRemark" && node) {
-    const parent = getNode(node.parent);
-    if (parent.sourceInstanceName === "block") {
+  // and there is "/_" in its slug
+  if (node?.internal.type === "MarkdownRemark") {
+    if (node.fields.slug.includes("/_")) {
       deletePage(page);
     }
   }

@@ -7,9 +7,13 @@ const TestimonialsSection = ({ title, intro, items }) => {
     allMarkdownRemark: { nodes },
   } = useStaticQuery(allTestimonialsQuery);
 
-  const testimonials = items.map((item) => {
-    return nodes.find(({ fields }) => `/testimonials/${item}/` === fields.slug);
-  });
+  const testimonials = items
+    .map((item) => {
+      return nodes.find(({ fields }) =>
+        fields.slug.includes(`testimonials/${item}/`)
+      );
+    })
+    .filter((node) => !!node);
 
   return (
     <section>
@@ -27,7 +31,7 @@ const TestimonialsSection = ({ title, intro, items }) => {
 const allTestimonialsQuery = graphql`
   {
     allMarkdownRemark(
-      filter: { fields: { slug: { glob: "/testimonials/*" } } }
+      filter: { fields: { slug: { glob: "/*/_testimonials/*" } } }
     ) {
       nodes {
         fields {
