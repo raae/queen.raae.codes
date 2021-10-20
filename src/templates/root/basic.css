@@ -1,5 +1,5 @@
 html {
-  font-size: calc(112.5% + 0.25vw);
+  font-size: calc(112.5% + 0.15vw);
 }
 
 html * {
@@ -40,6 +40,10 @@ ul li {
   padding: 0.2rem 0;
 }
 
+dl {
+  margin: 0.75em 0;
+}
+
 dl dt,
 dl dd {
   display: inline;
@@ -58,10 +62,6 @@ dl dd:after {
 details summary {
   font-weight: bold;
   cursor: pointer;
-}
-
-small {
-  color: var(--color-text-secondary);
 }
 
 mark {
@@ -170,7 +170,12 @@ label {
   font-weight: bold;
 }
 
-button {
+button,
+h1 a:only-child,
+h2 a:only-child,
+h3 a:only-child,
+h4 a:only-child {
+  text-decoration: none;
   border: 2px solid var(--color-button);
   border-radius: var(--border-radius);
   background-color: var(--color-button);
@@ -181,8 +186,17 @@ button {
   font-family: var(--font-family);
 }
 
+h1 a:only-child::after,
+h2 a:only-child::after,
+h3 a:only-child::after,
+h4 a:only-child::after {
+  content: "➽";
+  display: inline-block;
+  vertical-align: bottom;
+  margin-left: 0.75em;
+}
+
 button:hover {
-  cursor: pointer;
   filter: brightness(var(--hover-brightness));
 }
 

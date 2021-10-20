@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import QueenPhoto from "../components/queen-photo";
 
 const AboutSection = () => {
   return (
@@ -12,10 +12,7 @@ const AboutSection = () => {
           Forces, The Norwegian Water Resources and Energy Directorate, and
           others.
         </p>
-        <StaticImage
-          src="../../static/raae.png"
-          alt="Queen Raae in front of her gallery wall with a laptop in her arms"
-        />
+        <QueenPhoto />
         <p>
           Gatsby came into my life in 2018. Since then, I have created
           gatsby-remark-oembed (open-source Gatsby plugin) and spoken at Gatsby
