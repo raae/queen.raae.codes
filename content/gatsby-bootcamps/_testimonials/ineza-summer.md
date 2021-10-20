@@ -1,7 +1,7 @@
 ---
 who: Ineza Bonté (@inezabonte)
 avatar: ./ineza-avatar.jpg
-attended: Gatsby Summer Functions 2020
+attended: Gatsby Summer Functions 2021
 ---
 
 I had never worked with serverless before, I assumed it was a topic that was way out of my league 😅. But you proved me wrong!
