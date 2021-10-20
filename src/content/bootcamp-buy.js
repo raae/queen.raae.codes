@@ -29,9 +29,9 @@ const BootcampBuy = ({ title, outcome, start, end, payment_link, price }) => {
           You may apply any of these coupon codes depending on your situation.
         </p>
         <ul>
-          <li>PP-30-OFF gives you 30% off the price</li>
-          <li>PP-60-OFF gives you 60% off the price</li>
-          <li>PP-85-OFF gives you 85% off the price</li>
+          <li>PPD30 gives you 30% off the price</li>
+          <li>PPD60 gives you 60% off the price</li>
+          <li>PPD85 gives you 85% off the price</li>
         </ul>
         <p>
           This came about after comparing developer salaries across the world.
@@ -41,8 +41,7 @@ const BootcampBuy = ({ title, outcome, start, end, payment_link, price }) => {
         </p>
         <p>
           Another reason for choosing a coupon might be that you are
-          transitioning into tech, or one of a million other reasons. I trust
-          you!
+          transitioning into tech, or some other valid reason. I trust you!
         </p>
       </details>
       <h4>

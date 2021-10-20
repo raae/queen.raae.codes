@@ -1,5 +1,5 @@
 html {
-  font-size: calc(112.5% + 0.25vw);
+  font-size: calc(112.5% + 0.15vw);
 }
 
 html * {
@@ -41,7 +41,7 @@ ul li {
 }
 
 dl {
-  font-size: smaller;
+  margin: 0.75em 0;
 }
 
 dl dt,

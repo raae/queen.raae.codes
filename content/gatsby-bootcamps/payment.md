@@ -1,7 +1,7 @@
 ---
 title: Develop and Deploy a custom payment flow with Stripe
 bootcamp:
-  outcome: Learn to fulfill Stripe orders with a webhook, and how to break out of the standard Stripe payment look and feel.
+  outcome: Learn how to fulfill Stripe orders with a webhook, and customize the Stripe Checkout flow to fit your needs.
   location: Wherever you are most comfortable
   tags:
     - Gatsby Functions

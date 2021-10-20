@@ -12,6 +12,7 @@ import SocialLinks from "../content/social-links";
 import TalkIntro from "../content/talk-intro";
 import BootcampIntro from "../content/bootcamp-intro";
 import BootcampBuy from "../content/bootcamp-buy";
+import QueenPhoto from "../components/queen-photo";
 
 const RemarkPage = ({ data, ...props }) => {
   const post = data.markdownRemark;
@@ -52,6 +53,8 @@ const RemarkPage = ({ data, ...props }) => {
         </header>
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
+
+        <section>{bootcamp && <QueenPhoto />}</section>
 
         {testimonials && <TestimonialsSection {...testimonials} />}
 

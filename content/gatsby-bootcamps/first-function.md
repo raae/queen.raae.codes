@@ -15,7 +15,7 @@ bootcamp:
     - Axios
   start: 2021-11-06
   end: 2021-11-13
-  payment_link: https://buy.stripe.com/test_eVa15h7Tw1TFaZybIL
+  payment_link: https://buy.stripe.com/aEU6sq8qo1ie3cc7sv
   price: 79.50 USD
 testimonials:
   title: Wait! Don't take my word for it...
@@ -56,9 +56,9 @@ If you are not into time travelling, make the project your own or add similar fu
 ## What you'll learn?
 
 - How to approach your idea and split it into manageable tasks
-- The structure of a good serverless function
+- The structure of a good Serverless function
 - The joys of data validation and error handling!
-- Calling/polling a serverless function from your site
+- Calling/polling/requesting a Serverless function from your site
 - How to deploy to Netlify or Gatsby Cloud
 
 #### [Join now](#join)
@@ -102,3 +102,19 @@ The live webinar code will be available as a Pull Request in the private GitHub 
 _Saturday 20:00 CEST / 11:00 PST - 1 hour_
 
 Bring your questions, code and or celebratory beverage to this live Q&A session.
+
+#### [Join now](#join)
+
+## Who am I?
+
+I have been having fun on the web with code since the late '90s.
+
+The person who first introduced me to HTML was my Norwegian teacher, and since then:
+
+I have completed a Master in Computer Science; built apps trusted by the Swedish Armed Forces, The Norwegian Water Resources and Energy Directorate, and others.
+Created POW! — the encrypted menstrual cycle journal made with Gatsby and many other skill-building side projects.
+Spoken at both Gatsby Days and Gatsby Camp, in addition to RuhrJS, JSConf Budapest, and more.
+
+Last but not least, I started live-streaming my coding resulting in the weekly YouTube show Gatsby Deep Dives with Queen Raae and the Nattermob Pirates.
+
+Sleek and "professional" I am not. My thing is informal, energetic, and fun. Failing code is part of the process, and together we figure out how to fix it. No need to conform to any ideas of how a coder should be or act; come as you are!
