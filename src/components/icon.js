@@ -12,6 +12,10 @@ const Emoji = ({ variant }) => {
       return `📺`;
     case "location":
       return `📍`;
+    case "price":
+      return `💲`;
+    case "alarm":
+      return `⏰`;
 
     default:
       return null;

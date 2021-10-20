@@ -1,5 +1,8 @@
 ---
 title: Develop and Deploy your first Serverless Function
+cover:
+  src: "./cover-first-function.png"
+  alt: "Queen Raae with laptop"
 bootcamp:
   outcome: Learn to develop and deploy backend functionality that handles secret tokens and communications with a third-party service.
   location: Wherever you are most comfortable
@@ -12,6 +15,8 @@ bootcamp:
     - Axios
   start: 2021-11-06
   end: 2021-11-13
+  payment_link: https://buy.stripe.com/test_eVa15h7Tw1TFaZybIL
+  price: 79.50 USD
 testimonials:
   title: Wait! Don't take my word for it...
   items:
@@ -22,12 +27,6 @@ faq:
   items:
     - question: What are the pre-requisites?
       answer: You should be comfortable writing Javascript. Basic React experience is a plus, as the front-end part of the Gatsby framework is based on React.
-packages:
-  - type: standalone
-    priceId: price_1JmHU9Jxjwgedgz9tO0d7wkX
-    price: 49.50
-  - type: bundle
-    priceId:
 ---
 
 ## 🎶 A little bit of backend in your life 🎶
@@ -42,7 +41,7 @@ Imagine being able to effortlessly develop and deploy Serverless functionality w
 
 Newly released Gatsby Functions radically simplifies how to write and deploy Aerverless functions. It removes the need for complicated configuration, letting you focus on developing and deploying the functionality you need. A student of our 5 week summer program replaced a paid product with a single function in his first week 🤯
 
-### [Join now](#join)
+#### [Join now](#join)
 
 ## What you'll make?
 
@@ -61,6 +60,8 @@ If you are not into time travelling, make the project your own or add similar fu
 - The joys of data validation and error handling!
 - Calling/polling a serverless function from your site
 - How to deploy to Netlify or Gatsby Cloud
+
+#### [Join now](#join)
 
 ## What's included?
 

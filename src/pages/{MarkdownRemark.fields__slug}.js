@@ -11,6 +11,7 @@ import TestimonialsSection from "../content/testimonials-section";
 import SocialLinks from "../content/social-links";
 import TalkIntro from "../content/talk-intro";
 import BootcampIntro from "../content/bootcamp-intro";
+import BootcampBuy from "../content/bootcamp-buy";
 
 const RemarkPage = ({ data, ...props }) => {
   const post = data.markdownRemark;
@@ -53,16 +54,19 @@ const RemarkPage = ({ data, ...props }) => {
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
         {testimonials && <TestimonialsSection {...testimonials} />}
+
+        {bootcamp && <BootcampBuy title={title} {...bootcamp} />}
       </main>
 
       <footer>
-        {subscription ? (
+        {subscription && (
           <NewsletterForm {...subscription} anchor="signup">
             <p>{subscription.message}</p>
           </NewsletterForm>
-        ) : (
-          <NewsletterSection />
         )}
+
+        {!subscription && !bootcamp && <NewsletterSection />}
+
         <nav>
           <MainMenu />
           <SocialLinks />
@@ -108,6 +112,8 @@ export const query = graphql`
           tags
           start
           end
+          payment_link
+          price
         }
         subscription {
           cta

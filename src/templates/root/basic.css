@@ -40,6 +40,10 @@ ul li {
   padding: 0.2rem 0;
 }
 
+dl {
+  font-size: smaller;
+}
+
 dl dt,
 dl dd {
   display: inline;
@@ -180,6 +184,16 @@ h4 a:only-child {
   padding: 0.4rem 0.8rem;
   line-height: var(--line-height);
   font-family: var(--font-family);
+}
+
+h1 a:only-child::after,
+h2 a:only-child::after,
+h3 a:only-child::after,
+h4 a:only-child::after {
+  content: "➽";
+  display: inline-block;
+  vertical-align: bottom;
+  margin-left: 0.75em;
 }
 
 button:hover {

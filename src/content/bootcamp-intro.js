@@ -2,7 +2,15 @@ import React from "react";
 import { IconList, IconListItem } from "../components/icon-list";
 import { DateText, TagsText } from "../components/text";
 
-const BootcampIntro = ({ title, outcome, location, tags, start, end }) => {
+const BootcampIntro = ({
+  title,
+  outcome,
+  location,
+  tags,
+  start,
+  end,
+  CoverImage,
+}) => {
   return (
     <>
       <small>
@@ -27,6 +35,8 @@ const BootcampIntro = ({ title, outcome, location, tags, start, end }) => {
           </IconListItem>
         )}
       </IconList>
+
+      {CoverImage}
     </>
   );
 };

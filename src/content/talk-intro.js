@@ -43,7 +43,7 @@ const TalkMeta = ({ date, tags, url, recording, event }) => {
 };
 
 const TalkIntro = (props) => {
-  const { title, type, CoverImage, recording } = props;
+  const { title, type, CoverImage } = props;
   return (
     <>
       <small>
@@ -53,13 +53,7 @@ const TalkIntro = (props) => {
       <h1>{title}</h1>
 
       <TalkMeta {...props} />
-      {recording ? (
-        <a href={recording} title={getRecordingText(recording)}>
-          {CoverImage}
-        </a>
-      ) : (
-        CoverImage
-      )}
+      {CoverImage}
     </>
   );
 };

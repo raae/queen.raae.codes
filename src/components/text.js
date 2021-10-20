@@ -1,15 +1,28 @@
 import React from "react";
-import { format } from "date-fns";
+import {
+  format as formatFn,
+  formatISO as formatISOFn,
+  addDays as addDaysFn,
+} from "date-fns";
 
-export const DateText = ({ dateString, skipYear }) => {
+export const DateText = ({ dateString, addDays, skipYear }) => {
   let formatString = "MMMM do, yyyy";
   if (skipYear) {
-    formatString = "MMMM do";
+    formatString = "EEEE, MMMM do";
   }
+
   try {
+    let date = new Date(dateString);
+    if (addDays) {
+      date = addDaysFn(date, addDays);
+    }
     return (
-      <time datetime={dateString}>
-        {format(new Date(dateString), formatString)}
+      <time
+        dateTime={formatISOFn(date, {
+          representation: "date",
+        })}
+      >
+        {formatFn(date, formatString)}
       </time>
     );
   } catch (error) {

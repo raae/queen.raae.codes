@@ -15,9 +15,9 @@ talk:
     - Webhooks
 ---
 
-A short 15 minute talk demonstarting how to charge money for time travels using Stripe, and how to let the travellers know if they found the princess or not using SendGrid.
+A short 15-minute talk demonstrating how to charge money for time travels using Stripe and let the travelers know if they found the princess or not using SendGrid.
 
-Who is this princess, why time travelling? Sign up for [the backstory](/ruby) via email.
+Who is this princess, why time traveling? Sign up for [the backstory](/ruby) via email.
 
 ## Interested in more?
 

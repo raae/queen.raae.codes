@@ -37,7 +37,7 @@ Imagine this – Imagine if your frontend skill building had to get unstuck or y
 - I have done 1000+ hours of frontend skill building (I logged the hours in my skill building logbook)
 - I routinely motivate myself using cutting edge motivation methods from recognized experts in the field
 
-[_Sign up now_](#signup)
+#### [Sign up now](#signup)
 
 ### How It Works:
 
@@ -57,7 +57,7 @@ It'll be like giving your frontend skill building a weekly shot of vitamin B12.
 
 Are you ready to get your frontend skill building unstuck even though it will be painful? Great! Sign up for Ruby's TimeShip by clicking the button below.
 
-[_Sign up now_](#signup)
+#### [Sign up now](#signup)
 
 ## About the author
 
@@ -80,4 +80,4 @@ My father used his traditional sailing ship as a tool to show us that we already
 
 You’re running out of web page! Don’t spend another day believing that the solution to your programming practice woes is waiting around for motivation while you are distracted by something else.
 
-[_Sign up now_](#signup)
+### [Sign up now](#signup)
