@@ -166,7 +166,12 @@ label {
   font-weight: bold;
 }
 
-button {
+button,
+h1 a:only-child,
+h2 a:only-child,
+h3 a:only-child,
+h4 a:only-child {
+  text-decoration: none;
   border: 2px solid var(--color-button);
   border-radius: var(--border-radius);
   background-color: var(--color-button);
@@ -178,7 +183,6 @@ button {
 }
 
 button:hover {
-  cursor: pointer;
   filter: brightness(var(--hover-brightness));
 }
 

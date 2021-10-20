@@ -116,6 +116,7 @@ main > div > blockquote {
   margin: 0.75em 0;
   padding: 6vmin 0;
   font-size: xx-large;
+  font-weight: bolder;
   text-align: center;
   line-height: 1.2;
 }
