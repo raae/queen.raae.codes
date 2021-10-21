@@ -52,6 +52,10 @@ const RemarkPage = ({ data, ...props }) => {
           {subscription && <NewsletterForm {...subscription} />}
         </header>
 
+        {testimonials && bootcamp && (
+          <TestimonialsSection skipIntro {...testimonials} />
+        )}
+
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
         <section>{bootcamp && <QueenPhoto />}</section>

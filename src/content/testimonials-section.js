@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Testimonial from "../components/testimonial";
 
-const TestimonialsSection = ({ title, intro, items }) => {
+const TestimonialsSection = ({ title, intro, skipIntro, items }) => {
   const {
     allMarkdownRemark: { nodes },
   } = useStaticQuery(allTestimonialsQuery);
@@ -17,8 +17,8 @@ const TestimonialsSection = ({ title, intro, items }) => {
 
   return (
     <section>
-      {title && <h2>{title}</h2>}
-      {intro && <p>{intro}</p>}
+      {title && !skipIntro && <h2>{title}</h2>}
+      {intro && !skipIntro && <p>{intro}</p>}
       {testimonials.map((node) => (
         <Testimonial key={node.fields.slug} {...node.frontmatter}>
           <div dangerouslySetInnerHTML={{ __html: node.html }} />
