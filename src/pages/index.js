@@ -15,8 +15,6 @@ const IndexPage = (props) => {
       <main>
         <HomeHeader />
 
-        <NewsletterSection />
-
         <EventsSection />
 
         <AboutSection />

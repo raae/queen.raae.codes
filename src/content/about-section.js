@@ -5,7 +5,7 @@ const AboutSection = () => {
   return (
     <>
       <section>
-        <h2>About</h2>
+        <h2>Who am I?</h2>
         <p>
           I am a seasoned web developer who loves duct-taping together side
           projects in addition to making apps trusted by the Swedish Armed
