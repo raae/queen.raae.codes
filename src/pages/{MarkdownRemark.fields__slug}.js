@@ -16,7 +16,7 @@ import QueenPhoto from "../components/queen-photo";
 
 const RemarkPage = ({ data, ...props }) => {
   const post = data.markdownRemark;
-  const { cover, title } = post.frontmatter;
+  const { cover, title, description } = post.frontmatter;
   const { bootcamp, talk } = post.frontmatter;
   const { subscription, testimonials } = post.frontmatter;
 
@@ -30,6 +30,7 @@ const RemarkPage = ({ data, ...props }) => {
         {...props}
         meta={{
           title: title,
+          description: description,
           alt: coverImage && cover?.alt,
           image: coverImage && coverImage.images.fallback.src,
         }}
@@ -51,6 +52,10 @@ const RemarkPage = ({ data, ...props }) => {
 
           {subscription && <NewsletterForm {...subscription} />}
         </header>
+
+        {testimonials && bootcamp && (
+          <TestimonialsSection skipIntro {...testimonials} />
+        )}
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
@@ -89,6 +94,7 @@ export const query = graphql`
       html
       frontmatter {
         title
+        description
         cover {
           src {
             childImageSharp {
