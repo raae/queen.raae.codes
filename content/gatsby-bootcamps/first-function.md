@@ -1,8 +1,6 @@
 ---
 title: Develop and Deploy your first Serverless Function
-cover:
-  src: "./cover-first-function.png"
-  alt: "Queen Raae with laptop"
+description: Gatsby Mini Bootcamp with Queen Raae 👑 — a webinar + q&a session + forum + co-working + code sample combo.
 bootcamp:
   outcome: Learn to develop and deploy backend functionality that handles secret tokens and communications with a third-party service.
   location: Wherever you are most comfortable

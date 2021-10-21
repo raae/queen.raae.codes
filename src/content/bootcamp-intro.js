@@ -4,7 +4,7 @@ const BootcampIntro = ({ title, outcome }) => {
   return (
     <>
       <small>
-        <mark>Gatsby Mini Bootcamp</mark> with Queen Raae
+        <mark>Gatsby Mini Bootcamp</mark> with Queen Raae&nbsp;👑
       </small>
 
       <h1>{title}</h1>

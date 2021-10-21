@@ -46,7 +46,7 @@ const Seo = ({ location, meta, children }) => {
   const twitterCard = siteMetadata.social.twitter.card;
 
   return (
-    <Helmet titleTemplate={`%s / ${siteName}`} defaultTitle={siteName}>
+    <Helmet defaultTitle={siteName}>
       <html lang={lang} />
       <title>{title}</title>
       <link rel="canonical" href={canonical} />
