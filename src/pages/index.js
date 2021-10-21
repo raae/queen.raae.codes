@@ -7,6 +7,8 @@ import NewsletterSection from "../content/newsletter-section";
 import EventsSection from "../content/events-section";
 import AboutSection from "../content/about-section";
 import HomeHeader from "../content/home-header";
+import SocialLinks from "../content/social-links";
+import MainMenu from "../content/main-menu";
 
 const IndexPage = (props) => {
   return (
@@ -21,6 +23,10 @@ const IndexPage = (props) => {
       </main>
       <footer>
         <NewsletterSection />
+        <nav>
+          <MainMenu />
+          <SocialLinks />
+        </nav>
       </footer>
     </Layout>
   );

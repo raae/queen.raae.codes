@@ -43,6 +43,14 @@ const UPCOMING = [
     mark: "Sign up today!",
   },
   {
+    title: "Gatsby Deep Dives with Queen Raae and the Nattermob Pirates",
+    what: "YouTube live show",
+    details:
+      "our weekly rum-fueled treasure hunts in the sharky waters around the Gatsby islands.",
+    date: "Every Thursday at 20:00 CEST",
+    href: "https://youtu.be/mHVVFsaDg_8",
+  },
+  {
     title: "Gatsby v4 Bootcamp",
     what: "Get pratical experience with SSR vs. SSG vs. DSR",
     date: "To be scheduled",
@@ -54,14 +62,7 @@ const UPCOMING = [
     path: "/gatsby-fall-camp-2021/",
     // mark: "Replay available",
   },
-  {
-    title: "Gatsby Deep Dives with Queen Raae and the Nattermob Pirates",
-    what: "YouTube live show",
-    details:
-      "our weekly rum-fueled treasure hunts in the sharky waters around the Gatsby islands.",
-    date: "Every Thursday at 20:00 CEST",
-    href: "https://youtu.be/mHVVFsaDg_8",
-  },
+
   {
     title: "A practical introduction to Gatsby Serverless Functions",
     what: "Free webinar recording",

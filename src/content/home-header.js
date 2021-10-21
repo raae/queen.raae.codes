@@ -4,21 +4,16 @@ import SocialLinks from "./social-links";
 const HomeHeader = () => {
   return (
     <header>
-      <h1>
-        <span>Welcome!&nbsp;</span>
-        <mark>
-          I'm Queen Raae{" "}
-          <span role="img" aria-label="Crown">
-            &nbsp;👑
-          </span>
-        </mark>{" "}
-        <span>
-          I help web devs get the most out&nbsp;of&nbsp;Gatsby{" "}
-          <span role="img" aria-label="Party poppers">
-            🎉🎉🎉
-          </span>
-        </span>
-      </h1>
+      <small>
+        <mark>Welcome!</mark> I'm Queen Raae&nbsp;👑
+      </small>
+
+      <h1>Let's get the most out of Gatsby, together!</h1>
+
+      <p>
+        Watch a webinar, join a bootcamp, ask questions in the chat of our
+        weekly show, send me an email or check out some Gatsby GitHub repos.
+      </p>
 
       <nav>
         <SocialLinks />
