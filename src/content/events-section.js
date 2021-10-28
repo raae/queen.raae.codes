@@ -43,6 +43,15 @@ const UPCOMING = [
     mark: "Sign up today!",
   },
   {
+    title: "How to test your Gatsby Functions",
+    what: "Free webinar",
+    details:
+      "Mirjam shows us how to get started with testing out Gatsby Functions",
+    date: "November 2nd at 20:00 CEST",
+    href: "https://www.crowdcast.io/e/testing-your-functions",
+    mark: "NEW",
+  },
+  {
     title: "Gatsby Deep Dives with Queen Raae and the Nattermob Pirates",
     what: "YouTube live show",
     details:
@@ -76,11 +85,5 @@ const UPCOMING = [
     details: "learn how to split your function into smaller functions.",
     href: "https://www.crowdcast.io/e/architecturing-your",
     // mark: "Replay available",
-  },
-  {
-    title: "How to test your Gatsby Functions",
-    what: "Free webinar",
-    details: "more info coming soon",
-    date: "November 2nd",
   },
 ];
