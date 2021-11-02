@@ -2,7 +2,7 @@
 title: Develop and Deploy your first Serverless Function
 description: Gatsby Mini Bootcamp with Queen Raae 👑 — a webinar + q&a session + forum + co-working + code sample combo.
 bootcamp:
-  outcome: Learn to develop and deploy backend functionality that handles secret tokens and communications with a third-party service.
+  outcome: Get started creating backend functionality by learning Gatsby Serverless Functions!
   location: Wherever you are most comfortable
   video: https://vimeo.com/636967396
   tags:
@@ -13,6 +13,7 @@ bootcamp:
     - Axios
   start: 2021-11-06
   end: 2021-11-13
+  deadline: 2
   payment_link: https://buy.stripe.com/aEU6sq8qo1ie3cc7sv
   price: 79.50 USD
 testimonials:
@@ -29,38 +30,51 @@ faq:
 
 ## 🎶 A little bit of backend in your life 🎶
 
-You are a front-end developer; you would like to take some tiny steps towards full-stack. But where to start? You heard Serverless is an excellent place to start, but last time you tried, you couldn't get past configuration h\*ll or the `hello world` example.
+You are a front-end developer. You are eager to move backwards in the stack. You heard Serverless is an excellent place to start!
+
+However you are weary of getting tangled up in **configuration h\*ll**&nbsp;(aws&nbsp;👀). Or maybe you've completed the `hello world` example, but could use some guidance on what to build next?
 
 ## 🎶 A little bit of Serverless on your side 🎶
 
-Imagine being able to effortlessly develop and deploy Serverless functionality when needed. Knowing how to handle secrets on the server and integrating with _all the things_ utilizing their APIs, not needing to call for help to complete backend functionality.
+Imagine being able to effortlessly develop and deploy Serverless functionality when needed.
+
+Imagine knowing how to integrate with _all the things_ and how to handle secrets on the server 🔐
+
+Imagine not needing to wait for the backend devs to move ahead with straight forward backend functionality.
 
 ## 🎶 A little bit of Gatsby is all you need 🎶
 
-Newly released Gatsby Functions radically simplifies how to write and deploy Serverless functions. It removes the need for complicated configuration, letting you focus on developing and deploying the functionality you need. A student of the 5 week summer program replaced a paid product with a single function in his first week 🤯
+Newly released Gatsby Functions radically simplifies how to write and deploy Serverless functions.
+
+It removes the need for complicated configuration, letting you focus on developing and deploying the functionality you need.
+
+A student of the 5 week summer program replaced a paid product with a single function in his first week 🤯
 
 #### [Join now](#join)
 
 ## What you'll make?
 
-A TimeShip!
+**A TimeShip!**
 
 One intended to find Pirate Princess Lillian, aged 11, to help break Lizabeth out of jail in London back in the year 1554.
 
-Or in less creative terms
+Or in less creative terms:
 
 - a Gatsby Serverless Function that takes data from a form and pushes it to a third party service
-- a Gatsby Serverless Function that fetches the submitted data, displays it on your page, and automatically updates new data appears.
+- a Gatsby Serverless Function that fetches the submitted date
+- React code to displays the data on your page, and automatically updates with new data
 
 If you are not into time-traveling, make the project your own or add similar functionality to your own existing Gatsby site.
 
 ## What you'll learn?
 
-- How to approach your idea and split it into manageable tasks
+- How to approach writing a function and splitting it into manageable tasks
 - The structure of a good Serverless function
+- How to handle secrets both in development and production environments
 - The joys of data validation and error handling!
 - Calling/polling/requesting a Serverless function from your site
 - How to deploy to Netlify or Gatsby Cloud
+- Save and retreive data from a third party service
 
 #### [Join now](#join)
 
@@ -112,9 +126,10 @@ I have been having fun on the web with code since the late '90s.
 
 The person who first introduced me to HTML was my Norwegian teacher, and since then:
 
-I have completed a Master in Computer Science; built apps trusted by the Swedish Armed Forces, The Norwegian Water Resources and Energy Directorate, and others.
-Created POW! — the encrypted menstrual cycle journal made with Gatsby and many other skill-building side projects.
-Spoken at both Gatsby Days and Gatsby Camp, in addition to RuhrJS, JSConf Budapest, and more.
+- I have completed a Master in Computer Science
+- Built apps trusted by the Swedish Armed Forces, The Norwegian Water Resources and Energy Directorate, and others.
+- Created POW! — the encrypted menstrual cycle journal made with Gatsby and many other skill-building side projects.
+- Spoken at both Gatsby Days and Gatsby Camp, in addition to RuhrJS, JSConf Budapest, and more.
 
 Last but not least, I started live-streaming my coding resulting in the weekly YouTube show Gatsby Deep Dives with Queen Raae and the Nattermob Pirates.
 

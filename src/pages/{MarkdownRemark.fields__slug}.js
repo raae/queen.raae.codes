@@ -123,6 +123,7 @@ export const query = graphql`
           end
           payment_link
           price
+          deadline
         }
         subscription {
           cta

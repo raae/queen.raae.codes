@@ -2,7 +2,15 @@ import React from "react";
 import { IconList, IconListItem } from "../components/icon-list";
 import { DateText } from "../components/text";
 
-const BootcampBuy = ({ title, outcome, start, end, payment_link, price }) => {
+const BootcampBuy = ({
+  title,
+  outcome,
+  start,
+  end,
+  payment_link,
+  price,
+  deadline,
+}) => {
   return (
     <>
       <section>
@@ -18,7 +26,7 @@ const BootcampBuy = ({ title, outcome, start, end, payment_link, price }) => {
           {start && (
             <IconListItem icon="alarm">
               Registration closes{" "}
-              <DateText dateString={start} addDays={-3} skipYear />
+              <DateText dateString={start} addDays={deadline} skipYear />
             </IconListItem>
           )}
           {price && <IconListItem icon="price">{price}</IconListItem>}
