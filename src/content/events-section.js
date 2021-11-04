@@ -39,7 +39,7 @@ const UPCOMING = [
     details:
       "a webinar + q&a session + forum + co-working + code sample combo.",
     date: "November 6th - 13th",
-    path: "/gatsby-bootcamps/first-function",
+    path: "/gatsby-bootcamps/first-function/",
     mark: "Sign up today!",
   },
   {
@@ -48,7 +48,7 @@ const UPCOMING = [
     details:
       "Mirjam shows us how to get started with testing out Gatsby Functions",
     date: "November 2nd at 20:00 CEST",
-    href: "https://www.crowdcast.io/e/testing-your-functions",
+    href: "https://www.crowdcast.io/e/testing-your-functions/",
     mark: "NEW",
   },
   {
@@ -57,13 +57,13 @@ const UPCOMING = [
     details:
       "our weekly rum-fueled treasure hunts in the sharky waters around the Gatsby islands.",
     date: "Every Thursday at 20:00 CEST",
-    href: "https://youtu.be/mHVVFsaDg_8",
+    href: "https://youtu.be/mHVVFsaDg_8/",
   },
   {
     title: "Gatsby v4 Bootcamp",
     what: "Get pratical experience with SSR vs. SSG vs. DSR",
     date: "To be scheduled",
-    path: "/gatsby-bootcamps/v4",
+    path: "/gatsby-bootcamps/v4/",
   },
   {
     title: "Add Flexibility to Your Site with Gatsby Functions",
@@ -76,14 +76,14 @@ const UPCOMING = [
     title: "A practical introduction to Gatsby Serverless Functions",
     what: "Free webinar recording",
     details: "learn the basic of serverless.",
-    href: "https://www.crowdcast.io/e/a-practical-introduction",
+    href: "https://www.crowdcast.io/e/a-practical-introduction/",
     // mark: "Replay available",
   },
   {
     title: "Architecting your Gatsby Serverless Functions with Swizec Teller",
     what: "Free webinar recording",
     details: "learn how to split your function into smaller functions.",
-    href: "https://www.crowdcast.io/e/architecturing-your",
+    href: "https://www.crowdcast.io/e/architecturing-your/",
     // mark: "Replay available",
   },
 ];
