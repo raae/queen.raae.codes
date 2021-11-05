@@ -21,9 +21,7 @@ Watch me blast through selling time travels for 1000 USD a pop in 15 minutes at 
 
 https://youtu.be/s2yjFq_wDsE
 
-If you'd like a slower pace, support, accountability, and community, join the boot camp, and I'll **guarantee** you'll have your **pay-what-you-want feature deployed** by the end of the week.
-
-_If you actively participate that is 🤪_
+If you would like to learn how to create a pay-what-you-want feature at a slower pace, with live support and group accountability — join the boot camp, and I'll **guarantee** you'll have your **pay-what-you-want feature deployed** by the end of the week 💪
 
 ## What you'll build
 
