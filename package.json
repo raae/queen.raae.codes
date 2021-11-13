@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@raae/gatsby-plugin-fathom": "0.0.4",
+    "@raae/gatsby-plugin-let-it-snow": "0.0.4",
     "@raae/gatsby-remark-oembed": "0.1.1",
     "axios": "0.21.1",
     "date-fns": "2.25.0",

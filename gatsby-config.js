@@ -57,6 +57,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `@raae/gatsby-plugin-let-it-snow`,
     {
       resolve: `@raae/gatsby-plugin-fathom`,
       options: {
