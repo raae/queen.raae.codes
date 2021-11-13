@@ -13,7 +13,7 @@ const BootcampIntro = ({ title, outcome, start, end, price, deadline }) => {
 
       <p>{outcome}</p>
 
-      <IconList>
+      {/* <IconList>
         {start && end && (
           <IconListItem icon="calendar">
             <DateText dateString={start} skipYear /> -{" "}
@@ -21,7 +21,7 @@ const BootcampIntro = ({ title, outcome, start, end, price, deadline }) => {
           </IconListItem>
         )}
         {price && <IconListItem icon="price">{price}</IconListItem>}
-      </IconList>
+      </IconList> */}
       <h4>
         <a href="#join">Join now!</a>
       </h4>

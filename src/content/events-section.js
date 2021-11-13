@@ -17,9 +17,18 @@ const EventsSection = ({ upcoming = UPCOMING }) => {
               <small>
                 {date}{" "}
                 {mark && (
-                  <Link to={path}>
-                    <mark>{mark}</mark>
-                  </Link>
+                  <>
+                    {path && (
+                      <Link to={path}>
+                        <mark>{mark}</mark>
+                      </Link>
+                    )}
+                    {href && (
+                      <a href={href}>
+                        <mark>{mark}</mark>
+                      </a>
+                    )}
+                  </>
                 )}
               </small>
             </li>
@@ -34,52 +43,30 @@ export default EventsSection;
 
 const UPCOMING = [
   {
-    title: "Develop and Deploy your first Serverless Function",
-    what: "Gatsby Mini Bootcamp",
-    details:
-      "a webinar + q&a session + forum + co-working + code sample combo.",
-    date: "November 6th - 13th",
-    path: "/gatsby-bootcamps/first-function/",
-    mark: "Starts this weekend!",
-  },
-  {
-    title: "Develop and deploy a pay-what-you-want feature with Stripe",
-    what: "Gatsby Mini Bootcamp",
-    details:
-      "a webinar + q&a session + forum + co-working + code sample combo.",
-    date: "November 13th - 20th",
-    path: "/gatsby-bootcamps/payment/",
-    mark: "Registrer",
-  },
-  {
-    title: "Test Driven Development of your Gatsby Functions",
-    what: "Free webinar",
-    details: "Mirjam shows us how to get started with TDD",
-    // date: "November 2nd at 20:00 CEST",
-    href: "https://www.crowdcast.io/e/testing-your-functions/",
-    mark: "Replay available",
-  },
-  {
     title: "Gatsby Deep Dives with Queen Raae and the Nattermob Pirates",
     what: "YouTube live show",
     details:
       "our weekly rum-fueled treasure hunts in the sharky waters around the Gatsby islands.",
-    date: "Every Thursday at 20:00 CEST",
+    mark: "Every Thursday at 20:00 CST",
     href: "https://youtu.be/mHVVFsaDg_8/",
-  },
-  {
-    title: "Gatsby v4 Bootcamp",
-    what: "Get pratical experience with SSR vs. SSG vs. DSR",
-    date: "To be scheduled",
-    path: "/gatsby-bootcamps/v4/",
   },
   {
     title: "Add Flexibility to Your Site with Gatsby Functions",
     what: "Lightning talk at Gatsby Fall Camp '21",
+    details:
+      "learn how to charge money with Stripe and send emails with SendGrid",
     path: "/gatsby-fall-camp-2021/",
     // mark: "Replay available",
   },
-
+  {
+    title: "TDD + Gatsby Serverless Functions",
+    what: "Free webinar recording",
+    details:
+      "Mirjam shows us how to get started with Test Driven Development (TDD)",
+    // date: "November 2nd at 20:00 CEST",
+    href: "https://www.crowdcast.io/e/testing-your-functions/",
+    // mark: "Replay available",
+  },
   {
     title: "A practical introduction to Gatsby Serverless Functions",
     what: "Free webinar recording",
@@ -93,5 +80,31 @@ const UPCOMING = [
     details: "learn how to split your function into smaller functions.",
     href: "https://www.crowdcast.io/e/architecturing-your/",
     // mark: "Replay available",
+  },
+  {
+    title: "Get pratical experience with SSR vs. SSG vs. DSR",
+    what: "Gatsby Mini Bootcamp",
+    details:
+      "a webinar + q&a session + forum + co-working + code sample combo.",
+    date: "To be scheduled",
+    path: "/gatsby-bootcamps/v4/",
+  },
+  {
+    title: "Develop and Deploy your first Serverless Function",
+    what: "Gatsby Mini Bootcamp",
+    details:
+      "a webinar + q&a session + forum + co-working + code sample combo.",
+    date: "To be scheduled",
+    path: "/gatsby-bootcamps/first-function/",
+    // mark: "Starts this weekend!",
+  },
+  {
+    title: "Develop and deploy a pay-what-you-want feature with Stripe",
+    what: "Gatsby Mini Bootcamp",
+    details:
+      "a webinar + q&a session + forum + co-working + code sample combo.",
+    date: "To be scheduled",
+    path: "/gatsby-bootcamps/payment/",
+    // mark: "Registrer",
   },
 ];

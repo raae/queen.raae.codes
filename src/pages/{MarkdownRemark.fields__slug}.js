@@ -73,7 +73,7 @@ const RemarkPage = ({ data, ...props }) => {
           </NewsletterForm>
         )}
 
-        {!subscription && !bootcamp && <NewsletterSection />}
+        {!subscription && <NewsletterSection />}
 
         <nav>
           <MainMenu />
