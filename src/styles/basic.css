@@ -106,7 +106,6 @@ blockquote strong {
 /* Links */
 a {
   color: var(--color-link);
-  display: inline-block;
   font-weight: bold;
 }
 
