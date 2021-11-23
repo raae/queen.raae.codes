@@ -1,16 +1,27 @@
 const path = require(`path`);
 const { createFilePath } = require("gatsby-source-filesystem");
 
+const NOW = new Date().toISOString();
+const FAR_FUTURE = new Date("2300-01-01").toISOString();
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === "MarkdownRemark") {
     const slug = createFilePath({ node, getNode });
+    const pattern = /\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])/;
+    const dateSearch = pattern.exec(slug);
 
     createNodeField({
       name: "slug",
       node,
       value: `${slug}`,
+    });
+
+    createNodeField({
+      name: "date",
+      node,
+      value: dateSearch ? new Date(dateSearch[0]) : new Date(0),
     });
   }
 };
@@ -18,18 +29,21 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const { data } = await graphql(`
-    query loadPagesQuery {
-      allMarkdownRemark {
-        nodes {
-          id
-          fields {
-            slug
+  const { data } = await graphql(
+    `
+      query loadPagesQuery($lteDate: Date!) {
+        allMarkdownRemark(filter: { fields: { date: { lte: $lteDate } } }) {
+          nodes {
+            id
+            fields {
+              slug
+            }
           }
         }
       }
-    }
-  `);
+    `,
+    { lteDate: process.env.NODE_ENV === "development" ? FAR_FUTURE : NOW }
+  );
 
   data.allMarkdownRemark.nodes.forEach((node) => {
     let slug = node.fields.slug;
