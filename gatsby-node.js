@@ -12,16 +12,26 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const pattern = /\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])/;
     const dateSearch = pattern.exec(slug);
 
+    if (slug.includes("/queen-emails/")) {
+      createNodeField({
+        name: "rss",
+        node,
+        value: "queen-emails",
+      });
+    }
+
     createNodeField({
       name: "slug",
       node,
-      value: `${slug}`,
+      value: slug.replace("/queen-emails/", "/emails/"),
     });
 
     createNodeField({
       name: "date",
       node,
-      value: dateSearch ? new Date(dateSearch[0]) : new Date(0),
+      value: dateSearch
+        ? new Date(dateSearch[0]).toISOString()
+        : new Date(0).toISOString(),
     });
   }
 };
@@ -46,21 +56,19 @@ exports.createPages = async ({ graphql, actions }) => {
   );
 
   data.allMarkdownRemark.nodes.forEach((node) => {
-    let slug = node.fields.slug;
     let template = path.resolve(`./src/templates/default.js`);
 
-    if (slug.includes("/_")) {
+    if (node.fields.slug.includes("/_")) {
       // Skip markdown files containing "/_"
       return;
     }
 
-    if (node.fields.slug.includes("queen-emails")) {
-      slug = node.fields.slug.replace("queen-emails", "emails");
+    if (node.fields.slug.includes("/emails/")) {
       template = path.resolve(`./src/templates/queen-email.js`);
     }
 
     createPage({
-      path: slug,
+      path: node.fields.slug,
       component: template,
       ownerNodeId: node.id,
       context: {

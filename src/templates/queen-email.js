@@ -22,11 +22,7 @@ const RemarkPage = ({ data, ...props }) => {
       />
       <main>
         <header>
-          <h1>
-            {emojii}
-            &nbsp;
-            {title}
-          </h1>
+          <h1>{title}</h1>
           <small>
             An email sent by <Link to="/">Queen Raae</Link>&nbsp;👑 on {date}
           </small>
