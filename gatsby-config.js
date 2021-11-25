@@ -72,12 +72,28 @@ module.exports = {
             site {
               siteMetadata {
                 url
+                description
               }
             }
           }
         `,
         feeds: [
           {
+            output: "/emails/rss.xml",
+            title: "Emails from Queen Raae",
+            match: "^/emails/",
+            setup: ({
+              query: {
+                site: { siteMetadata },
+              },
+              ...rest
+            }) => {
+              return {
+                ...siteMetadata,
+                ...rest,
+                site_url: siteMetadata.url + "/emails",
+              };
+            },
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.nodes.map((node) => {
                 return Object.assign({}, node.frontmatter, {
@@ -86,7 +102,14 @@ module.exports = {
                   date: node.fields.date,
                   url: site.siteMetadata.url + node.fields.slug,
                   guid: site.siteMetadata.url + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }],
+                  custom_elements: [
+                    {
+                      "content:encoded": node.html.replace(
+                        /(?<=\"|\s)\/static\//g,
+                        `${site.siteMetadata.url}\/static\/`
+                      ),
+                    },
+                  ],
                 });
               });
             },
@@ -111,9 +134,6 @@ module.exports = {
                 }
               }
             `,
-            output: "/queen-emails-rss.xml",
-            title: "Emails from Queen Raae",
-            match: "^/email/",
           },
         ],
       },
