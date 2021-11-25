@@ -11,8 +11,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const slug = createFilePath({ node, getNode });
     const pattern = /\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])/;
     const dateSearch = pattern.exec(slug);
+    const date = dateSearch
+      ? new Date(dateSearch[0]).toISOString()
+      : new Date(0).toISOString();
 
-    if (slug.includes("/queen-emails/")) {
+    if (slug.includes("/queen-emails/") && date <= NOW) {
       createNodeField({
         name: "rss",
         node,
@@ -29,9 +32,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: "date",
       node,
-      value: dateSearch
-        ? new Date(dateSearch[0]).toISOString()
-        : new Date(0).toISOString(),
+      value: date,
     });
   }
 };
