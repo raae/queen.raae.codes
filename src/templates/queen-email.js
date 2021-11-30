@@ -26,7 +26,8 @@ const RemarkPage = ({ data, ...props }) => {
         <header>
           <h1>{title}</h1>
           <small>
-            An email sent by <Link to="/">Queen Raae</Link>&nbsp;👑 on {date}
+            An <Link to="/emails">email</Link> sent by{" "}
+            <Link to="/">Queen Raae</Link>&nbsp;👑 on {date}
           </small>
         </header>
 
