@@ -8,8 +8,10 @@ import SocialLinks from "../content/social-links";
 
 const RemarkPage = ({ data, ...props }) => {
   const post = data.markdownRemark;
-  const { title, emojii } = post.frontmatter;
+  const { title } = post.frontmatter;
   const { date } = post.fields;
+
+  const body = `<p>Hello there, </p>` + post.html;
 
   return (
     <>
@@ -28,7 +30,7 @@ const RemarkPage = ({ data, ...props }) => {
           </small>
         </header>
 
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div dangerouslySetInnerHTML={{ __html: body }} />
 
         <section>
           <NewsletterForm formKey="queen">
