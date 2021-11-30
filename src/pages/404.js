@@ -1,6 +1,5 @@
 import React from "react";
 
-import Layout from "../templates/default";
 import Seo from "../components/seo";
 
 import MainMenu from "../content/main-menu";
@@ -9,7 +8,7 @@ import NewsletterSection from "../content/newsletter-section";
 
 const NotFoundPage = (props) => {
   return (
-    <Layout>
+    <>
       <Seo {...props} meta={{ title: "Not found" }} />
       <main>
         <header>
@@ -36,7 +35,7 @@ const NotFoundPage = (props) => {
       <footer>
         <NewsletterSection />
       </footer>
-    </Layout>
+    </>
   );
 };
 
