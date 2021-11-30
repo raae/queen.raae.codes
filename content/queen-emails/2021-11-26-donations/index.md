@@ -3,7 +3,7 @@ title: Accept donations with @raae/gatsby-plugin-donations
 emojii: 📦 💰
 ---
 
-Yesterday's tiny task on [our unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands](https://youtu.be/lVMNrThbQOM) was "accept donations".
+Yesterday's [unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands](https://youtu.be/lVMNrThbQOM) tiny-task was "accept donations."
 
 We did so by adding soon-to-be-officially released plugin: [@raae/gatsby-plugin-donations](https://www.npmjs.com/package/@raae/gatsby-plugin-donations).
 
