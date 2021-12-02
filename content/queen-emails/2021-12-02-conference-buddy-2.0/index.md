@@ -6,6 +6,8 @@ emojii: 🔴 ✨
 _In a dramatic movie trailer voice..._
 Today at 19:00 CET the journey towards Conference Buddy 2.0 [begins on YouTube](https://youtu.be/ZTIoA298mX4).
 
+[![Picture of the family (Ola, Lillian and Queen Raae), Picure of Mirjam, the Conference Buddy logo and a Gatsby flag on top of a picture of the sea.](./thumbnail.png "YouTube Thumbnail")](https://youtu.be/ZTIoA298mX4)
+
 ## What is Conference Buddy?
 
 Conference Buddy is an initiative started by [Mirjam](https://twitter.com/mirjam_diala). Its purpose is to help lessen the anxiety for first-time conference-goers by giving them a chance to get to know other attendees ahead of time.
