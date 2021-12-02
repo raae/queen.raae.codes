@@ -4,7 +4,7 @@ emojii: 🔴 ✨
 ---
 
 _In a dramatic movie trailer voice..._
-Today at 19:00 CET the journey towards Conference Buddy 2.0 begins on YouTube.
+Today at 19:00 CET the journey towards Conference Buddy 2.0 [begins on YouTube](https://youtu.be/ZTIoA298mX4).
 
 ## What is Conference Buddy?
 
@@ -21,4 +21,4 @@ Be a fly on the wall, or an active participant, in the development of Conference
 All the best,  
 Queen Raae
 
-**PS:** If you would like to get notified 30 minutes before we go live sign up for [stream reminders](/emails/reminders).
+**PS:** If you would like to be notified 30 minutes beforehand, sign up for [stream reminders](/emails/reminders).
