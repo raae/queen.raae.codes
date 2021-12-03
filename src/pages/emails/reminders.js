@@ -4,7 +4,6 @@ import Seo from "../../components/seo";
 
 import MainMenu from "../../content/main-menu";
 import SocialLinks from "../../content/social-links";
-import NewsletterSection from "../../content/newsletter-section";
 import NewsletterForm from "../../components/newsletter";
 
 const EmailRemindersPage = (props) => {

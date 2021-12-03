@@ -64,7 +64,6 @@ export const query = graphql`
       html
       frontmatter {
         title
-        emojii
       }
       fields {
         date(formatString: "MMMM Do, YYYY")
