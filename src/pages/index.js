@@ -1,6 +1,6 @@
 import React from "react";
+import { graphql, Link } from "gatsby";
 
-import Layout from "../templates/default";
 import Seo from "../components/seo";
 
 import NewsletterSection from "../content/newsletter-section";
@@ -10,9 +10,9 @@ import HomeHeader from "../content/home-header";
 import SocialLinks from "../content/social-links";
 import MainMenu from "../content/main-menu";
 
-const IndexPage = (props) => {
+const IndexPage = ({ data, ...props }) => {
   return (
-    <Layout>
+    <>
       <Seo {...props} />
       <main>
         <HomeHeader />
@@ -20,6 +20,23 @@ const IndexPage = (props) => {
         <EventsSection />
 
         <AboutSection />
+
+        <section>
+          <h2>
+            <Link to="/emails">Emails from yours truly 💌</Link>
+          </h2>
+          <ul>
+            {data.allEmails.nodes.map(
+              ({ fields: { date, slug }, frontmatter: { title } }) => (
+                <li key={slug}>
+                  <small>{date}</small>
+                  <br />
+                  <Link to={slug}>{title}</Link>
+                </li>
+              )
+            )}
+          </ul>
+        </section>
       </main>
       <footer>
         <NewsletterSection />
@@ -28,8 +45,28 @@ const IndexPage = (props) => {
           <SocialLinks />
         </nav>
       </footer>
-    </Layout>
+    </>
   );
 };
+
+export const query = graphql`
+  {
+    allEmails: allMarkdownRemark(
+      filter: { fields: { slug: { glob: "/emails/*" } } }
+      sort: { fields: fields___date, order: DESC }
+      limit: 5
+    ) {
+      nodes {
+        fields {
+          slug
+          date(formatString: "MMMM Do, YYYY")
+        }
+        frontmatter {
+          title
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;

@@ -12,11 +12,15 @@ body {
   border-top: var(--border-width) solid var(--color-primary);
 }
 
+main {
+  background-color: var(--color-bg-primary);
+}
+
 main > *,
 footer {
   display: grid;
   grid-template-columns: 1fr 0.1fr min(50ch, 90%) 0.25fr 1fr;
-  row-gap: 0.5em;
+  row-gap: 1em;
 }
 
 main > * > *,
@@ -33,12 +37,16 @@ main > *:first-child {
   padding-top: 15vmin;
 }
 
-main > *:nth-child(2n + 1) {
-  background-color: var(--color-bg-primary);
+main > div {
+  padding-top: 0;
 }
 
-main > *:nth-child(2n) {
+main > section:nth-of-type(2n + 1) {
   background-color: var(--color-bg-secondary);
+}
+
+main > section:nth-of-type(2n) {
+  background-color: var(--color-bg-primary);
 }
 
 main > *:last-child {

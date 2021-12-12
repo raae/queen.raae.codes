@@ -1,6 +1,5 @@
 import React from "react";
 
-import Layout from "../../templates/default";
 import Seo from "../../components/seo";
 
 import MainMenu from "../../content/main-menu";
@@ -8,7 +7,7 @@ import SocialLinks from "../../content/social-links";
 
 const EmailsWelcome = (props) => {
   return (
-    <Layout>
+    <>
       <Seo {...props} meta={{ title: "Emails from the Queen" }} />
       <main>
         <header>
@@ -29,7 +28,7 @@ const EmailsWelcome = (props) => {
           <SocialLinks />
         </nav>
       </footer>
-    </Layout>
+    </>
   );
 };
 

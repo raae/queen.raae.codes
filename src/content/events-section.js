@@ -43,12 +43,12 @@ export default EventsSection;
 
 const UPCOMING = [
   {
-    title: "Gatsby Deep Dives with Queen Raae and the Nattermob Pirates",
-    what: "YouTube live show",
+    title: "Gatsby Show with Queen Raae + Pirates",
+    what: "YouTube Live Stream",
     details:
-      "our weekly rum-fueled treasure hunts in the sharky waters around the Gatsby islands.",
-    mark: "Every Thursday at 20:00 CST",
-    href: "https://youtu.be/mHVVFsaDg_8/",
+      "our weekly unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands.",
+    mark: "Every Thursday at 19:00 CET",
+    href: "https://www.youtube.com/QueenRaae/live",
   },
   {
     title: "Add Flexibility to Your Site with Gatsby Functions",

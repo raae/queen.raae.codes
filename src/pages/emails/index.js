@@ -1,15 +1,15 @@
 import React from "react";
+import { graphql, Link } from "gatsby";
 
-import Layout from "../../templates/default";
 import Seo from "../../components/seo";
 
 import MainMenu from "../../content/main-menu";
 import SocialLinks from "../../content/social-links";
 import NewsletterSection from "../../content/newsletter-section";
 
-const Emails = (props) => {
+const Emails = ({ data, ...props }) => {
   return (
-    <Layout>
+    <>
       <Seo {...props} meta={{ title: "Emails from the Queen" }} />
       <main>
         <header>
@@ -27,6 +27,19 @@ const Emails = (props) => {
         <section>
           <NewsletterSection />
         </section>
+        <section>
+          <ul>
+            {data.allEmails.nodes.map(
+              ({ fields: { date, slug }, frontmatter: { title } }) => (
+                <li key={slug}>
+                  <small>{date}</small>
+                  <br />
+                  <Link to={slug}>{title}</Link>
+                </li>
+              )
+            )}
+          </ul>
+        </section>
       </main>
       <footer>
         <nav>
@@ -34,8 +47,27 @@ const Emails = (props) => {
           <SocialLinks />
         </nav>
       </footer>
-    </Layout>
+    </>
   );
 };
+
+export const query = graphql`
+  {
+    allEmails: allMarkdownRemark(
+      filter: { fields: { slug: { glob: "/emails/*" } } }
+      sort: { fields: fields___date, order: DESC }
+    ) {
+      nodes {
+        fields {
+          slug
+          date(formatString: "MMMM Do, YYYY")
+        }
+        frontmatter {
+          title
+        }
+      }
+    }
+  }
+`;
 
 export default Emails;

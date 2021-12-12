@@ -23,6 +23,7 @@
     "date-fns": "2.25.0",
     "gatsby": "3.7.2",
     "gatsby-mdx": "1.0.0",
+    "gatsby-plugin-feed": "4.2.0",
     "gatsby-plugin-gatsby-cloud": "2.7.1",
     "gatsby-plugin-image": "1.7.1",
     "gatsby-plugin-react-helmet": "4.7.1",

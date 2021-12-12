@@ -33,6 +33,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 800,
+              linkImagesToOriginal: false,
             },
           },
           {
@@ -42,7 +43,13 @@ module.exports = {
                 // Important to exclude providers
                 // that adds js to the page.
                 // If you do not need them.
-                exclude: ["Reddit", "Instagram", "Twitter", "Flickr"],
+                exclude: [
+                  "Reddit",
+                  "Instagram",
+                  "Twitter",
+                  "Flickr",
+                  "YouTube",
+                ],
               },
             },
           },
@@ -58,6 +65,80 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `@raae/gatsby-plugin-let-it-snow`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                url
+                description
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            output: "/emails/rss.xml",
+            title: "Emails from Queen Raae",
+            match: "^/emails/",
+            setup: ({
+              query: {
+                site: { siteMetadata },
+              },
+              ...rest
+            }) => {
+              return {
+                ...siteMetadata,
+                ...rest,
+                site_url: siteMetadata.url + "/emails",
+              };
+            },
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.nodes.map((node) => {
+                return Object.assign({}, node.frontmatter, {
+                  title: `${node.frontmatter.emojii} ~ ${node.frontmatter.title}`,
+                  description: node.excerpt,
+                  date: node.fields.date,
+                  url: site.siteMetadata.url + node.fields.slug,
+                  guid: site.siteMetadata.url + node.fields.slug,
+                  custom_elements: [
+                    {
+                      "content:encoded": node.html.replace(
+                        /(?<=\"|\s)\/static\//g,
+                        `${site.siteMetadata.url}\/static\/`
+                      ),
+                    },
+                  ],
+                });
+              });
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [fields___date] },
+                  filter: {fields: {rss: {eq: "queen-emails"}}}
+                ) {
+                  nodes {
+                    excerpt
+                    html
+                    fields {
+                      slug
+                      date
+                    }
+                    frontmatter {
+                      title
+                      emojii
+                    }
+                  }
+                }
+              }
+            `,
+          },
+        ],
+      },
+    },
     {
       resolve: `@raae/gatsby-plugin-fathom`,
       options: {
