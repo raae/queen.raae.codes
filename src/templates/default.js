@@ -49,7 +49,7 @@ const RemarkPage = ({ data, ...props }) => {
             </>
           )}
 
-          {/* {subscription && <NewsletterForm {...subscription} />} */}
+          {subscription && <NewsletterForm {...subscription} />}
         </header>
 
         {testimonials && bootcamp && (

@@ -13,7 +13,7 @@ talk:
 subscription:
   formKey: "mpya"
   cta: "Stay in touch"
-  # message: "Get updated from me related to topics concerning the demo and talk"
+  message: "Get updated from me related to topics concerning the demo and talk"
 ---
 
 **Thank you for coming to my talk!**
