@@ -26,11 +26,11 @@ const TalkMeta = ({ date, tags, url, recording, event }) => {
           </IconListItem>
         )}
 
-        {tags && (
+        {/* {tags && (
           <IconListItem icon="tag">
             <TagsText tags={tags} />
           </IconListItem>
-        )}
+        )} */}
 
         {recording && (
           <IconListItem icon="recording">
