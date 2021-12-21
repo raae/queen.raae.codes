@@ -32,7 +32,7 @@ h1 {
 }
 
 pre {
-  white-space: pre-wrap;
+  font-size: 0.6em !important;
 }
 
 ol li,
@@ -75,10 +75,6 @@ mark {
   font-weight: bold;
   padding: 0 0.4em;
   border-radius: 5px;
-}
-
-span {
-  display: inline-block;
 }
 
 sup {
