@@ -56,9 +56,13 @@ const RemarkPage = ({ data, ...props }) => {
           <TestimonialsSection skipIntro {...testimonials} />
         )}
 
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
-        <section>{bootcamp && <QueenPhoto />}</section>
+        {bootcamp && (
+          <section>
+            <QueenPhoto />
+          </section>
+        )}
 
         {testimonials && <TestimonialsSection {...testimonials} />}
 
