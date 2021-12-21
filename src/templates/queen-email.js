@@ -57,7 +57,7 @@ const RemarkPage = ({ data, ...props }) => {
 export default RemarkPage;
 
 export const query = graphql`
-  query EmailById($id: String!) {
+  query QueenEmailById($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)

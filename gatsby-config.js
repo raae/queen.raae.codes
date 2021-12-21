@@ -79,6 +79,7 @@ module.exports = {
           }
         `,
         feeds: [
+          // Queen Emails Feed
           {
             output: "/emails/rss.xml",
             title: "Emails from Queen Raae",
@@ -119,6 +120,64 @@ module.exports = {
                 allMarkdownRemark(
                   sort: { order: DESC, fields: [fields___date] },
                   filter: {fields: {rss: {eq: "queen-emails"}}}
+                ) {
+                  nodes {
+                    excerpt
+                    html
+                    fields {
+                      slug
+                      date
+                    }
+                    frontmatter {
+                      title
+                      emojii
+                    }
+                  }
+                }
+              }
+            `,
+          },
+          // Ola Vea Emails Feed
+          {
+            output: "/emails/olavea/rss.xml",
+            title: "Emails from Queen Raae",
+            match: "^/emails/olavea/",
+            setup: ({
+              query: {
+                site: { siteMetadata },
+              },
+              ...rest
+            }) => {
+              return {
+                ...siteMetadata,
+                ...rest,
+                site_url: siteMetadata.url + "/emails/olavea",
+              };
+            },
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.nodes.map((node) => {
+                return Object.assign({}, node.frontmatter, {
+                  title: `⛵🔧 ~ ${node.frontmatter.title}`,
+                  description: node.excerpt,
+                  date: node.fields.date,
+                  url: site.siteMetadata.url + node.fields.slug,
+                  guid: site.siteMetadata.url + node.fields.slug,
+                  custom_elements: [
+                    {
+                      "content:encoded": node.html.replace(
+                        /(?<=\"|\s)\/static\//g,
+                        `${site.siteMetadata.url}\/static\/`
+                      ),
+                    },
+                  ],
+                });
+              });
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [fields___date] },
+                  filter: {fields: {rss: {eq: "olavea-emails"}}}
                 ) {
                   nodes {
                     excerpt
