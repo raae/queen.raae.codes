@@ -15,25 +15,47 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       ? new Date(dateSearch[0]).toISOString()
       : new Date(0).toISOString();
 
-    if (slug.includes("/queen-emails/") && date <= NOW) {
-      createNodeField({
-        name: "rss",
-        node,
-        value: "queen-emails",
-      });
-    }
-
-    createNodeField({
-      name: "slug",
-      node,
-      value: slug.replace("/queen-emails/", "/emails/"),
-    });
-
+    // Add date
     createNodeField({
       name: "date",
       node,
       value: date,
     });
+
+    if (slug.includes("/queen-emails/") && date <= NOW) {
+      // Queen emails
+      createNodeField({
+        name: "rss",
+        node,
+        value: "queen-emails",
+      });
+
+      createNodeField({
+        name: "slug",
+        node,
+        value: slug.replace("/queen-emails/", "/emails/"),
+      });
+    } else if (slug.includes("/olavea-emails/") && date <= NOW) {
+      // Ola emails
+      createNodeField({
+        name: "rss",
+        node,
+        value: "olavea-emails",
+      });
+
+      createNodeField({
+        name: "slug",
+        node,
+        value: slug.replace("/olavea-emails/", "/emails/olavea/"),
+      });
+    } else {
+      // Other markdown pages
+      createNodeField({
+        name: "slug",
+        node,
+        value: slug,
+      });
+    }
   }
 };
 
@@ -64,7 +86,11 @@ exports.createPages = async ({ graphql, actions }) => {
       return;
     }
 
-    if (node.fields.slug.includes("/emails/")) {
+    if (node.fields.slug.includes("/emails/olavea/")) {
+      // Ola Email
+      template = path.resolve(`./src/templates/olavea-email.js`);
+    } else if (node.fields.slug.includes("/emails")) {
+      // Queen Email
       template = path.resolve(`./src/templates/queen-email.js`);
     }
 
