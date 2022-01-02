@@ -3,6 +3,7 @@ const { createFilePath } = require("gatsby-source-filesystem");
 
 const NOW = new Date().toISOString();
 const FAR_FUTURE = new Date("2300-01-01").toISOString();
+const CUT_OFF = process.env.NODE_ENV === "development" ? FAR_FUTURE : NOW;
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -22,7 +23,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: date,
     });
 
-    if (slug.includes("/queen-emails/") && date <= NOW) {
+    if (slug.includes("/queen-emails/") && date <= CUT_OFF) {
       // Queen emails
       createNodeField({
         name: "rss",
@@ -75,7 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     `,
-    { lteDate: process.env.NODE_ENV === "development" ? FAR_FUTURE : NOW }
+    { lteDate: CUT_OFF }
   );
 
   data.allMarkdownRemark.nodes.forEach((node) => {
