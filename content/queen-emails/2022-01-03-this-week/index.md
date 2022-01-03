@@ -11,6 +11,8 @@ Ola has committed to doing skill-building streams every Sunday for the next 100 
 
 Friend of the pirates Nicholas "Nico" Martin raised over £6000 with his [Gatsby-powered site](https://festivegiving.org.uk/fundraising/festive-mini/) and a very festive Mini Cooper — make sure to click that link to see the Mini in action (and donate for another couple of days).
 
+Lastly, you have until the end of the day tomorrow (Jan 4th) to submit an entry for Netlify's Dusty Domains, according to [Jason Lengstorf](https://twitter.com/jlengstorf/status/1477322160284700672?s=20)!
+
 ## Our streaming schedule this week
 
 - [🔴 👩‍🏫 Third-party scripts with #GatsbyJS · Live Screencast](https://youtu.be/Kldx6d5XBSE)&nbsp;—&nbsp;Tuesday, January 11th&nbsp;@&nbsp;14:00
