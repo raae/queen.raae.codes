@@ -15,11 +15,11 @@ Lastly, you have until the end of the day tomorrow (Jan 4th) to submit an entry 
 
 ## Our streaming schedule this week
 
-- [🔴 👩‍🏫 Third-party scripts with #GatsbyJS · Live Screencast](https://youtu.be/Kldx6d5XBSE)&nbsp;—&nbsp;Tuesday, January 11th&nbsp;@&nbsp;14:00
+- [🔴 👩‍🏫 Third-party scripts with #GatsbyJS · Live Screencast](https://youtu.be/Kldx6d5XBSE)&nbsp;—&nbsp;Tuesday, January 4th&nbsp;@&nbsp;14:00
 
-- [🔴 🐶 Let's help Mirjam with tagging #ConferenceBuddy v2.0 (with Benedikt Deicke)](https://youtu.be/WzrjHVy134M)&nbsp;—&nbsp;Thursday, January 13th&nbsp;@&nbsp;19:00
+- [🔴 🐶 Let's help Mirjam with tagging #ConferenceBuddy v2.0 (with Benedikt Deicke)](https://youtu.be/WzrjHVy134M)&nbsp;—&nbsp;Thursday, January 6th&nbsp;@&nbsp;19:00
 
-- [🔴 ⛵️ #OlaCast with Tom Erik Støwer](https://www.youtube.com/watch?v=4fQj3YNKYoQ)&nbsp;—&nbsp;Sunday, January 16th&nbsp;@&nbsp;20:00
+- [🔴 ⛵️ Can tags be the nav in Lillian's webapp? #OlaCast with Tom Erik Støwer](https://www.youtube.com/watch?v=4fQj3YNKYoQ)&nbsp;—&nbsp;Sunday, January 9th&nbsp;@&nbsp;20:00
 
 &nbsp;  
 All the best,  
