@@ -1,5 +1,6 @@
 const path = require(`path`);
 const { createFilePath } = require("gatsby-source-filesystem");
+const redirects = require("./redirects.json");
 
 const NOW = new Date().toISOString();
 const FAR_FUTURE = new Date("2300-01-01").toISOString();
@@ -61,7 +62,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 };
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
   const { data } = await graphql(
     `
@@ -103,6 +104,13 @@ exports.createPages = async ({ graphql, actions }) => {
         id: node.id,
       },
     });
+
+    redirects.forEach((redirect) =>
+      createRedirect({
+        fromPath: redirect.fromPath,
+        toPath: redirect.toPath,
+      })
+    );
   });
 };
 
