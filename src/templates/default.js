@@ -12,11 +12,12 @@ import TalkIntro from "../content/talk-intro";
 import BootcampIntro from "../content/bootcamp-intro";
 import BootcampBuy from "../content/bootcamp-buy";
 import QueenPhoto from "../components/queen-photo";
+import WebinarIntro from "../content/webinar-intro";
 
 const RemarkPage = ({ data, ...props }) => {
   const post = data.markdownRemark;
   const { cover, title, description } = post.frontmatter;
-  const { bootcamp, talk } = post.frontmatter;
+  const { bootcamp, talk, webinar } = post.frontmatter;
   const { subscription, testimonials } = post.frontmatter;
 
   const coverImage = getImage(cover?.src);
@@ -42,7 +43,9 @@ const RemarkPage = ({ data, ...props }) => {
             <TalkIntro title={title} CoverImage={CoverImage} {...talk} />
           )}
 
-          {!bootcamp && !talk && (
+          {webinar && <WebinarIntro title={title} {...webinar} />}
+
+          {!bootcamp && !talk && !webinar && (
             <>
               <h1>{title}</h1>
               {CoverImage}
@@ -117,6 +120,10 @@ export const query = graphql`
           recording
           type
           tags
+        }
+        webinar {
+          date
+          url
         }
         bootcamp {
           outcome
