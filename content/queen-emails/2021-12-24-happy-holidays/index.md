@@ -1,5 +1,5 @@
 ---
-title: God Jul - v1.0.0 of Let it snow is out ❄️❄️❄️
+title: v1.0.0 of Let it snow is out ❄️❄️❄️
 emojii: 🎄 ❄️
 ---
 

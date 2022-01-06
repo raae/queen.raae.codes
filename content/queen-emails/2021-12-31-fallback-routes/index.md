@@ -1,5 +1,5 @@
 ---
-title: Godt nytt år - Server rendered fallback routes
+title: Server rendered fallback routes
 emojii: 🎇 ∞
 ---
 
