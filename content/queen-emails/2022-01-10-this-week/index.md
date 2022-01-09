@@ -9,7 +9,7 @@ This week there are two interesting webinars back to back on Thursday. One by Ga
 
 I'll have to watch them both after the fact, as Thursday is also the day for our unauthorized and rum-fueled [treasure hunt](https://youtu.be/D_03KW4AkSk) in the sharky waters around the Gatsby islands.
 
-Last week Fellow [Blogging for Devs](https://bloggingfordevs.com/pro/) member Philo Hermans released [Unlock](https://www.producthunt.com/posts/unlock-7). A product that should take all the pain out of selling software, including npm packages.
+Last week fellow [Blogging for Devs](https://bloggingfordevs.com/pro/) member Philo Hermans released [Unlock](https://www.producthunt.com/posts/unlock-7). A product that should take all the pain out of selling software, including npm packages.
 
 I think this could be a solution for those of us wanting to sell Gatsby Plugins...
 
