@@ -17,7 +17,7 @@ const Emails = ({ data, ...props }) => {
             Emails from{" "}
             <span>
               yours truly{" "}
-              <span role="img" aria-label="Envolope with heart">
+              <span role="img" aria-label="Envelope with heart">
                 💌
               </span>
             </span>
