@@ -12,7 +12,7 @@ const EmailsWelcome = (props) => {
       <main>
         <header>
           <h1>
-            Welcome! You'll hear from
+            Welcome! You'll hear from{" "}
             <span>
               me shortly{" "}
               <span role="img" aria-label="Mailbox">
