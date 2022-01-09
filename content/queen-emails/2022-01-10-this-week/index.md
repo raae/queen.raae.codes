@@ -19,7 +19,7 @@ I think this could be a solution for those of us wanting to sell Gatsby Plugins.
 
 - [🔴 🐶 Let's help Mirjam with #ConferenceBuddy v2.0](https://youtu.be/Wipi2lw6Mvc)&nbsp;—&nbsp;Thursday, January 6th&nbsp;@&nbsp;19:00 CET
 
-- [🔴 ⛵️ Working on the art site for the Pirate Princess · #OlaCast ](https://www.youtube.com/watch?v=4fQj3YNKYoQ)&nbsp;—&nbsp;Sunday, January 9th&nbsp;@&nbsp;20:00 CET
+- [🔴 ⛵️ Working on the art site for the Pirate Princess · #OlaCast ](https://youtu.be/4fQj3YNKYoQ)&nbsp;—&nbsp;Sunday, January 9th&nbsp;@&nbsp;20:00 CET
 
 ## Other events
 
