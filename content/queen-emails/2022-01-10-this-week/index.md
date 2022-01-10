@@ -23,7 +23,7 @@ I think this could be a solution for those of us wanting to sell Gatsby Plugins.
 
 ## Other events
 
-- My birthday&nbsp;—&nbsp;Tuesday, January 11th
+- My birthday&nbsp;—&nbsp;Tuesday, January 11th 🥳
 - [Achieving Peak Frontend Performance with Gatsby](https://www.gatsbyjs.com/resources/webinars/gatsby-peak-frontend-performance)&nbsp;—&nbsp;Thursday, January 13th&nbsp;@&nbsp;17:00 CET · Gatsby
 - [Managing Remote State w/ React Query](https://cfe.dev/events/managing-remote-state-react/)&nbsp;—&nbsp;Thursday, January 13th&nbsp;@&nbsp;19:00 CET · cfe.dev
 
