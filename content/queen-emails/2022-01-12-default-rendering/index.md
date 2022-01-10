@@ -9,7 +9,7 @@ _SSG is the default rendering mode in Gatsby. While the name has the word “sta
 
 [![SSG Diagram](./ssg-diagram.jpg)](https://www.gatsbyjs.com/docs/conceptual/rendering-options/#static-site-generation-ssg)
 
-**But how do we get SSG?**
+**But how do we SSG?**
 
 - [Watch the Live Screeencast](https://youtu.be/D_03KW4AkSk)
 
@@ -19,15 +19,23 @@ Read more in the [Gatsby Docs about Routing](https://www.gatsbyjs.com/docs/refer
 
 ### 1. React components in `src/pages`
 
+_TODO: Add code example_
+
 ### 2. File System Route API
 
+_TODO: Add code example_
+
 ### 3. `createPages` in `gatsby-node.js`
+
+_TODO: Add code example_
 
 - https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#createPages
 
 ## Content from the Gatsby Data Layer
 
-For all three ways you can and probabably should sprinkle in content from the Gatsby Data Layer. The Gatsby Data Layer holds all the data sourced at build time, and is therefore available when the site is statically generated.
+For all three ways you can, and probabably want to, sprinkle in content from the Gatsby Data Layer. The Gatsby Data Layer holds all the data sourced at build time, and is therefore available when the site is statically generated.
+
+_TODO: Add code example_
 
 &nbsp;  
 All the best,  
