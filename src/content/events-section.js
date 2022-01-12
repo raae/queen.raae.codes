@@ -43,12 +43,26 @@ export default EventsSection;
 
 const UPCOMING = [
   {
+    title: "5 Gatsby Gotchas to look out for as React developer",
+    what: "Webinar",
+    details: "Learn how to work with, not against the framework",
+    mark: "Tuesday February 7th at 19:00 CET",
+    href: "https://www.crowdcast.io/e/gatsby-gotchas-react",
+  },
+  {
     title: "Gatsby Show with Queen Raae + Pirates",
     what: "YouTube Live Stream",
     details:
       "our weekly unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands.",
     mark: "Every Thursday at 19:00 CET",
-    href: "https://www.youtube.com/QueenRaae/live",
+    href: "https://www.youtube.com/QueenRaae",
+  },
+  {
+    title: "Live Screencasts with Queen Raae",
+    what: "YouTube Live Stream",
+    details: "teaching you something new about Gatsby every week",
+    mark: "Every Tuesday at 14:00 CET",
+    href: "https://www.youtube.com/QueenRaae",
   },
   {
     title: "Add Flexibility to Your Site with Gatsby Functions",
