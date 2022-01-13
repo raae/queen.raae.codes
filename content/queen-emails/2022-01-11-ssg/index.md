@@ -44,7 +44,7 @@ export default DemoPage;
 The file generates a page for each YouTube node in the data layer with the node's id as the path.
 
 ```
-// src/{YouTube.id}.js
+// src/pages/{YouTube.id}.js
 
 import React from "react";
 
