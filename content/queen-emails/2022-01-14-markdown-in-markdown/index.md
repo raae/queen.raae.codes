@@ -3,9 +3,9 @@ title: Markdown referencing markdown with Gatsby
 emojii: 📄 🔄
 ---
 
-In yesterday's unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands helping Mirjam we looked at how to use [markdown for marketing pages](https://youtu.be/Wipi2lw6Mvc).
+In yesterday's unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands helping Mirjam we looked at how to use [markdown for marketing pages](https://youtu.be/Wipi2lw6Mvc?t=803).
 
-[![YouTube Sceengrab](./yt-screengrab.png)](https://youtu.be/Wipi2lw6Mvc)
+[![YouTube Sceengrab](./yt-screengrab.png)](https://youtu.be/Wipi2lw6Mvc?t=803)
 
 One trick we covered was to reference a markdown file from the frontmatter of another markdown file.
 
