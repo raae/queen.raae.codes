@@ -57,7 +57,7 @@ Keep your skill-builder-ship afloat this week!
 Ola Vea
 Cap'n of his own skill-builder-ship
 
-P.S
-Here is the video of my late-night live Skill-Builder-Session [starting at 5 minutes](https://youtu.be/_ZLxiOfhIi8?t=329) when I start coding from «i. id» If you watch for 1 minute, you will see gorgeous Giggles-the-pug in the video of the id I am using. Giggles is one of Sid's two dogs. Sid, formerly at Gatsby, now at Cloudflare.
+&nbsp;
+**PS:** Here is the video of my late-night live Skill-Builder-Session [starting at 5 minutes](https://youtu.be/_ZLxiOfhIi8?t=329) when I start coding from «i. id» If you watch for 1 minute, you will see gorgeous Giggles-the-pug in the video of the id I am using. Giggles is one of Sid's two dogs. Sid, formerly at Gatsby, now at Cloudflare.
 
-You can find my cheat sheet for the live coding [this GitHub issue] (https://github.com/olavea/Rubys-TimeShip/issues/8)
+**PPS:** You can find my cheat sheet for the live coding [this GitHub issue] (https://github.com/olavea/Rubys-TimeShip/issues/8).
