@@ -1,13 +1,11 @@
 ---
 title: ⛵️ How did Ola free up his mind to focus on ONE coding step at the time? While live coding, late at night.
-
 ---
-
-⛵️ How did Ola free up his mind to focus on ONE coding step at the time? While live coding, late at night.
 
 Ship Ahoy Skill-Builder!
 
 ## My Sunday Skill Builder Sessions:
+
 This Sunday I did 2 live Skill-Builder-Sessions and the second was terrible! 🙀
 
 I knew it waking up, so I prepared. I needed to prepare to keep myself un-distracted even when tired.
@@ -24,19 +22,22 @@ The terrible third session though, would find me physically and mentally tired f
 
 3. I would have come straight up from a great tasting, but rich fish dinner cooked by the queen herself.
 
-4. Before the dinner I would have come straight in from bicycling Lillian (7 🏴‍☠️👸) to the wintry woods. Bicycling around after the skiing Pirate Princess between the ski tracks under snow-laden branches. And  bicycling back home on icy and car-filled roads. Lovely, but tiring.
+4. Before the dinner I would have come straight in from bicycling Lillian (7 🏴‍☠️👸) to the wintry woods. Bicycling around after the skiing Pirate Princess between the ski tracks under snow-laden branches. And bicycling back home on icy and car-filled roads. Lovely, but tiring.
 
 So I knew I'd be tired and distracted. How did I prepare to free up my mind to focus on only one coding step at the time?
 
 ![focus](skill-builder-w3-2022.png)
 
 ## What did I do?
+
 I used an acronym to name the steps om my task. I wrote «iACTiONS» on paper.
 
 ## Why did I do it?
+
 Looking over at «iACTiONS» freed up my mind to focus on doing each step. Like i. id.
 
 ## How did I do it?
+
 I wrote down the «iACTiONS» on paper like this:
 
 i. id
@@ -61,6 +62,6 @@ Cap'n of his own skill-builder-ship
 P.S
 Here is the video of my late night live Skill-Builder-Session starting 5 minutes when I start coding from «i. id» If you watch for 1 minute you will see gorgeous Giggles-the-pug in the video I am using the id from. Giggles is one of Sid's two dogs. Sid, formerly at Gatsby now at Cloudflare.
 
-[https://youtu.be/_ZLxiOfhIi8?t=329](https://youtu.be/_ZLxiOfhIi8?t=329)
+[https://youtu.be/\_ZLxiOfhIi8?t=329](https://youtu.be/_ZLxiOfhIi8?t=329)
 
 In this github issue is my cheatsheet for the live coding [github.com/..../issues/8] (https://github.com/olavea/Rubys-TimeShip/issues/8)
