@@ -1,4 +1,7 @@
-Subject:
+---
+title: ⛵️ How did Ola free up his mind to focus on ONE coding step at the time? While live coding, late at night.
+
+---
 
 ⛵️ How did Ola free up his mind to focus on ONE coding step at the time? While live coding, late at night.
 
@@ -59,3 +62,5 @@ P.S
 Here is the video of my late night live Skill-Builder-Session starting 5 minutes when I start coding from «i. id» If you watch for 1 minute you will see gorgeous Giggles-the-pug in the video I am using the id from. Giggles is one of Sid's two dogs. Sid, formerly at Gatsby now at Cloudflare.
 
 [https://youtu.be/_ZLxiOfhIi8?t=329](https://youtu.be/_ZLxiOfhIi8?t=329)
+
+In this github issue is my cheatsheet for the live coding [github.com/..../issues/8] (https://github.com/olavea/Rubys-TimeShip/issues/8)
