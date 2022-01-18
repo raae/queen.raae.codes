@@ -1,5 +1,5 @@
 ---
-title: How did Ola free up his mind to focus on ONE coding step at the time? While live coding, late at night.
+title: How did I free up my mind to focus on ONE coding step at the time? While live coding, late at night.
 ---
 
 ## My Sunday Skill Builder Sessions:
