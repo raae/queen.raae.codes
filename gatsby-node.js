@@ -6,6 +6,20 @@ const NOW = new Date().toISOString();
 const FAR_FUTURE = new Date("2300-01-01").toISOString();
 const CUT_OFF = process.env.NODE_ENV === "development" ? FAR_FUTURE : NOW;
 
+exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
+  const { createNode } = actions;
+
+  const ID = `unique`;
+
+  createNode({
+    id: createNodeId(`minimal-content-node-${ID}`),
+    internal: {
+      type: `Minimal`,
+      contentDigest: createContentDigest(ID),
+    },
+  });
+};
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
