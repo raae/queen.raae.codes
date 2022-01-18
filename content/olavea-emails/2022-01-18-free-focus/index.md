@@ -2,8 +2,6 @@
 title: ⛵️ How did Ola free up his mind to focus on ONE coding step at the time? While live coding, late at night.
 ---
 
-Ship Ahoy Skill-Builder!
-
 ## My Sunday Skill Builder Sessions:
 
 This Sunday I did 2 live Skill-Builder-Sessions and the second was terrible! 🙀
