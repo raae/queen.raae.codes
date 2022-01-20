@@ -1,5 +1,5 @@
 ---
-title: Source YouTube videos into Gatsby without a plugin nor a YT API Key
+title: Source YouTube videos in Gatsby without a plugin nor a YT API Key
 emojii: 🔴 🏴‍☠️
 ---
 
