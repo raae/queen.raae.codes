@@ -35,6 +35,11 @@ pre {
   font-size: 0.6em !important;
 }
 
+code {
+  font-size: 0.85em !important;
+  white-space: inherit !important;
+}
+
 ol li,
 ul li {
   padding: 0.2rem 0;
