@@ -68,6 +68,7 @@ const drawImage = (
   image.onload = () => {
     ctx.beginPath();
     ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
+    ctx.lineWidth = height * 0.03;
     ctx.strokeStyle = "#ffde59";
     ctx.stroke();
     ctx.clip();
@@ -87,6 +88,7 @@ const drawImage = (
   ctx.textBaseline = "top";
 
   ctx.font = `900 ${titleSize}px Roboto`;
+
   const titleLines = splitIntoLines(ctx, {
     text: title,
     maxLines: 3,
@@ -94,8 +96,11 @@ const drawImage = (
     widths: [copyWidth + radius * 0.25, copyWidth + radius * 0.15],
   });
 
+  const titleY =
+    height * 0.2 + titleLead * Math.min(3 - titleLines.length * 0.8, 1.5);
+
   titleLines.forEach((line, index) => {
-    ctx.fillText(line, padding, height * 0.2 + titleLead * index);
+    ctx.fillText(line, padding, titleY + titleLead * index);
   });
 
   ctx.font = `400 ${bodySize}px Roboto`;
@@ -110,7 +115,7 @@ const drawImage = (
     ctx.fillText(
       line,
       padding * 1.05,
-      height * 0.25 + titleLead * titleLines.length + bodyLead * index
+      titleY + titleLead * (titleLines.length + 0.25) + bodyLead * index
     );
   });
 
@@ -128,11 +133,11 @@ const drawImage = (
   },
   {
     title: "Short title",
-    description: "Short description",
+    description:
+      "In yesterday's unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands, we looked closely at sourcing content nodes with data…",
   },
   {
-    title:
-      "Unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands",
+    title: "Unauthorized and rum-fueled treasure hunts",
     description:
       "In yesterday's unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands, we looked closely at sourcing content nodes with data…",
   },
