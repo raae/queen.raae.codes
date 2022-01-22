@@ -50,9 +50,9 @@ const drawImage = (
   } = {}
 ) => {
   const titleSize = Math.floor(height / 12);
-  const titleLead = titleSize * 1.2;
-  const bodySize = titleSize / 2;
-  const bodyLead = bodySize * 1.3;
+  const titleLead = Math.floor(titleSize * 1.2);
+  const bodySize = Math.floor(titleSize / 2);
+  const bodyLead = Math.floor(bodySize * 1.3);
   const radius = height * 0.5;
   const circleX = width - radius * 0.5;
   const circleY = radius * 1.2;
@@ -109,7 +109,7 @@ const drawImage = (
   descriptionLines.forEach((line, index) => {
     ctx.fillText(
       line,
-      padding,
+      padding * 1.05,
       height * 0.25 + titleLead * titleLines.length + bodyLead * index
     );
   });
@@ -117,13 +117,12 @@ const drawImage = (
   const footerY = height * 0.97;
   ctx.textBaseline = "bottom";
   ctx.fillStyle = primaryColor;
-  ctx.fillText("queen.raae.codes", padding, footerY);
+  ctx.fillText("queen.raae.codes", padding * 1.05, footerY);
 };
 
 [
   {
-    title:
-      "Source YouTube videos in Gatsby without a plugin l l l nor a YT API Key",
+    title: "Source YouTube videos in Gatsby without a plugin nor a YT API Key",
     description:
       "In yesterday's unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands, we looked closely at sourcing content nodes with data…",
   },
