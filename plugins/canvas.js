@@ -56,6 +56,21 @@ const drawImage = (
   canvas.height = height;
   canvas.width = width;
   var ctx = canvas.getContext("2d");
+
+  const image = new Image(); // Using optional size for image
+  image.src = "raae.png";
+  image.onload = () => {
+    const radius = height * 0.5;
+    const circleX = width - radius * 0.5;
+    const circleY = radius * 1.2;
+    ctx.beginPath();
+    ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
+    ctx.strokeStyle = "#ffde59";
+    ctx.stroke();
+    ctx.clip();
+    ctx.drawImage(image, circleX - radius, circleY - radius, height, height);
+  };
+
   ctx.fillStyle = backgroundColor;
   ctx.fillRect(0, 0, width, height);
 
@@ -109,8 +124,7 @@ const drawImage = (
   },
   {
     title: "Short title",
-    description:
-      "In yesterday's unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands, we looked closely at sourcing content nodes with data…",
+    description: "Short description",
   },
   {
     title:
