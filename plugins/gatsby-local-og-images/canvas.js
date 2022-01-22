@@ -64,7 +64,7 @@ const drawImage = (
   var ctx = canvas.getContext("2d");
 
   const image = new Image(); // Using optional size for image
-  image.src = "raae.png";
+  image.src = "./assets/raae.png";
   image.onload = () => {
     ctx.beginPath();
     ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
