@@ -1,7 +1,7 @@
 const HEIGHT = 600;
 const WIDTH = 1200;
 
-const splitIntoLines = (ctx, { width, text, maxLines }) => {
+const splitIntoLines = (ctx, { width, widths = [], text, maxLines }) => {
   const words = text.split(" ");
   const lines = [];
   let lineIndex = 0;
@@ -9,16 +9,17 @@ const splitIntoLines = (ctx, { width, text, maxLines }) => {
   words.every((word) => {
     const tempLine = lines[lineIndex] ? `${lines[lineIndex]} ${word}` : word;
     let roomForMoreWords = true;
+    const lineWidth = widths[lineIndex] || width;
 
     if (lineIndex < maxLines - 1) {
-      if (ctx.measureText(tempLine).width <= width) {
+      if (ctx.measureText(tempLine).width <= lineWidth) {
         lines[lineIndex] = tempLine;
       } else {
         lineIndex++;
         lines[lineIndex] = word;
       }
     } else {
-      if (ctx.measureText(tempLine).width <= width * 0.8) {
+      if (ctx.measureText(tempLine).width <= lineWidth * 0.9) {
         lines[lineIndex] = tempLine;
       } else {
         lines[lineIndex] += "…";
@@ -48,10 +49,15 @@ const drawImage = (
     secondaryTextColor = "#412f20bb",
   } = {}
 ) => {
-  const titleSize = Math.floor(width / 20);
+  const titleSize = Math.floor(height / 12);
   const titleLead = titleSize * 1.2;
   const bodySize = titleSize / 2;
   const bodyLead = bodySize * 1.3;
+  const radius = height * 0.5;
+  const circleX = width - radius * 0.5;
+  const circleY = radius * 1.2;
+  const padding = width * 0.05;
+  const copyWidth = circleX - radius - padding * 2;
 
   canvas.height = height;
   canvas.width = width;
@@ -60,9 +66,6 @@ const drawImage = (
   const image = new Image(); // Using optional size for image
   image.src = "raae.png";
   image.onload = () => {
-    const radius = height * 0.5;
-    const circleX = width - radius * 0.5;
-    const circleY = radius * 1.2;
     ctx.beginPath();
     ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
     ctx.strokeStyle = "#ffde59";
@@ -86,26 +89,27 @@ const drawImage = (
   ctx.font = `900 ${titleSize}px Roboto`;
   const titleLines = splitIntoLines(ctx, {
     text: title,
-    maxLines: 2,
-    width: width * 0.9,
+    maxLines: 3,
+    width: copyWidth,
+    widths: [copyWidth + radius * 0.25, copyWidth + radius * 0.15],
   });
 
   titleLines.forEach((line, index) => {
-    ctx.fillText(line, width * 0.05, height * 0.2 + titleLead * index);
+    ctx.fillText(line, padding, height * 0.2 + titleLead * index);
   });
 
   ctx.font = `400 ${bodySize}px Roboto`;
   ctx.fillStyle = secondaryTextColor;
   const descriptionLines = splitIntoLines(ctx, {
     text: description,
-    maxLines: 3,
-    width: width * 0.9,
+    maxLines: 4,
+    width: copyWidth,
   });
 
   descriptionLines.forEach((line, index) => {
     ctx.fillText(
       line,
-      width * 0.05,
+      padding,
       height * 0.25 + titleLead * titleLines.length + bodyLead * index
     );
   });
@@ -113,12 +117,13 @@ const drawImage = (
   const footerY = height * 0.97;
   ctx.textBaseline = "bottom";
   ctx.fillStyle = primaryColor;
-  ctx.fillText("queen.raae.codes", width * 0.05, footerY);
+  ctx.fillText("queen.raae.codes", padding, footerY);
 };
 
 [
   {
-    title: "Source YouTube videos in Gatsby without a plugin nor a YT API Key",
+    title:
+      "Source YouTube videos in Gatsby without a plugin l l l nor a YT API Key",
     description:
       "In yesterday's unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands, we looked closely at sourcing content nodes with data…",
   },
