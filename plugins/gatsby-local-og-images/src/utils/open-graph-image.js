@@ -124,11 +124,7 @@ exports.drawOgImage = async (
   ctx.fillStyle = primaryColor;
   ctx.fillText("queen.raae.codes", padding * 1.05, footerY);
 
-  console.log("before image");
-
   const image = await loadImage(avatar);
-
-  console.log("after image");
 
   ctx.beginPath();
   ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);

@@ -1,6 +1,5 @@
 const path = require(`path`);
 const { createFileNodeFromBuffer } = require(`gatsby-source-filesystem`);
-
 const { createImageBuffer } = require("./src/utils/open-graph-image");
 
 const IS_PROD = process.env.NODE_ENV === "production";
