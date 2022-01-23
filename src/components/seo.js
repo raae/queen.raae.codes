@@ -29,6 +29,8 @@ const Seo = ({ location, meta, children }) => {
     `
   );
 
+  console.log("Helmet meta", meta);
+
   const title = meta?.title;
   const siteName = `${siteMetadata.title} — ${siteMetadata.tagline}`;
   const lang = meta?.lang || siteMetadata.lang;

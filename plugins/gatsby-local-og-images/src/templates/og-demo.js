@@ -1,9 +1,26 @@
 import React, { useEffect } from "react";
-import { graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 
-import { drawImage } from "../utils/open-graph-image";
+import { drawOgImage } from "../utils/open-graph-image";
 
-const OpenGraphTestPage = ({ data }) => {
+const OpenGraphTestPage = () => {
+  const data = useStaticQuery(graphql`
+    {
+      allEmails: allMarkdownRemark(
+        filter: { fields: { slug: { glob: "/emails/*" } } }
+        sort: { fields: fields___date, order: DESC }
+      ) {
+        nodes {
+          excerpt
+          frontmatter {
+            title
+            description
+          }
+        }
+      }
+    }
+  `);
+
   useEffect(() => {
     if (!data) return;
 
@@ -11,8 +28,9 @@ const OpenGraphTestPage = ({ data }) => {
       ({ frontmatter: { title, description }, excerpt }) => {
         const canvas = document.createElement("canvas");
         document.getElementById("content").append(canvas);
-        drawImage(canvas, {
+        drawOgImage(canvas, {
           title,
+          avatar: "/raae-avatar.png",
           description: description || excerpt,
           height: 300,
           width: 600,
@@ -30,22 +48,5 @@ const OpenGraphTestPage = ({ data }) => {
     </main>
   );
 };
-
-export const query = graphql`
-  {
-    allEmails: allMarkdownRemark(
-      filter: { fields: { slug: { glob: "/emails/*" } } }
-      sort: { fields: fields___date, order: DESC }
-    ) {
-      nodes {
-        excerpt
-        frontmatter {
-          title
-          description
-        }
-      }
-    }
-  }
-`;
 
 export default OpenGraphTestPage;
