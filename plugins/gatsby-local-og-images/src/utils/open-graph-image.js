@@ -1,6 +1,6 @@
 const { createCanvas, loadImage } = require("canvas");
 
-const splitIntoLines = (ctx, { width, widths = [], text, maxLines }) => {
+const splitIntoLines = (ctx, { width, text, maxLines }) => {
   const words = text.split(" ");
   const lines = [];
   let lineIndex = 0;
@@ -62,20 +62,6 @@ exports.drawOgImage = async (
   canvas.width = width;
   var ctx = canvas.getContext("2d");
 
-  // const drawAvatar = (image) => {};
-
-  // const image = new Image(); // Using optional size for image
-  // image.src = "/raae-avatar.png";
-  // image.onload = () => {
-  //   ctx.beginPath();
-  //   ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
-  //   ctx.lineWidth = height * 0.03;
-  //   ctx.strokeStyle = "#ffde59";
-  //   ctx.stroke();
-  //   ctx.clip();
-  //   ctx.drawImage(image, circleX - radius, circleY - radius, height, height);
-  // };
-
   ctx.fillStyle = backgroundColor;
   ctx.fillRect(0, 0, width, height);
 
@@ -96,8 +82,9 @@ exports.drawOgImage = async (
     width: copyWidth,
   });
 
-  const titleY =
-    height * 0.2 + titleLead * Math.min(3 - titleLines.length * 0.8, 1.5);
+  const titleYs = [height * 0.37, height * 0.32, height * 0.27];
+
+  const titleY = titleYs[titleLines.length - 1];
 
   titleLines.forEach((line, index) => {
     ctx.fillText(line, padding, titleY + titleLead * index);

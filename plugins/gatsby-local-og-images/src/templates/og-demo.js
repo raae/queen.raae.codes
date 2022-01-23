@@ -11,7 +11,7 @@ const OpenGraphTestPage = () => {
         sort: { fields: fields___date, order: DESC }
       ) {
         nodes {
-          excerpt
+          excerpt(pruneLength: 250)
           frontmatter {
             title
             description

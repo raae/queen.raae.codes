@@ -1,4 +1,6 @@
 const path = require(`path`);
+const remark = require("remark");
+const visit = require("unist-util-visit");
 const { createFileNodeFromBuffer } = require(`gatsby-source-filesystem`);
 const { createImageBuffer } = require("./src/utils/open-graph-image");
 
@@ -26,12 +28,17 @@ exports.onCreateNode = async ({
       // Queen emails
       const {
         frontmatter: { title, description },
-        excerpt,
       } = node;
+
+      let plaintext = "";
+      const tree = remark().parse(node.rawMarkdownBody);
+      visit(tree, "text", (node) => {
+        plaintext += node.value;
+      });
 
       const imageBuffer = await createImageBuffer({
         title,
-        description: description || excerpt,
+        description: description || plaintext,
         height: 600,
         width: 1200,
       });
