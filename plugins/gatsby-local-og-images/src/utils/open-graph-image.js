@@ -1,6 +1,43 @@
-exports.drawImage = (
+const { createCanvas, loadImage } = require("canvas");
+
+const splitIntoLines = (ctx, { width, widths = [], text, maxLines }) => {
+  const words = text.split(" ");
+  const lines = [];
+  let lineIndex = 0;
+
+  words.every((word) => {
+    const tempLine = lines[lineIndex] ? `${lines[lineIndex]} ${word}` : word;
+    let roomForMoreWords = true;
+    const lineWidth = width;
+
+    if (lineIndex < maxLines - 1) {
+      if (ctx.measureText(tempLine).width <= lineWidth) {
+        lines[lineIndex] = tempLine;
+      } else {
+        lineIndex++;
+        lines[lineIndex] = word;
+      }
+    } else {
+      if (ctx.measureText(tempLine).width <= lineWidth * 0.9) {
+        lines[lineIndex] = tempLine;
+      } else {
+        lines[lineIndex] += "…";
+        // In case description ends in … and its the last word
+        lines[lineIndex].replace("……", "…");
+        roomForMoreWords = false;
+      }
+    }
+
+    return roomForMoreWords;
+  });
+
+  return lines;
+};
+
+exports.drawOgImage = async (
   canvas,
   {
+    avatar,
     title,
     description,
     height = 600,
@@ -25,17 +62,19 @@ exports.drawImage = (
   canvas.width = width;
   var ctx = canvas.getContext("2d");
 
-  const image = new Image(); // Using optional size for image
-  image.src = "/raae-avatar.png";
-  image.onload = () => {
-    ctx.beginPath();
-    ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
-    ctx.lineWidth = height * 0.03;
-    ctx.strokeStyle = "#ffde59";
-    ctx.stroke();
-    ctx.clip();
-    ctx.drawImage(image, circleX - radius, circleY - radius, height, height);
-  };
+  // const drawAvatar = (image) => {};
+
+  // const image = new Image(); // Using optional size for image
+  // image.src = "/raae-avatar.png";
+  // image.onload = () => {
+  //   ctx.beginPath();
+  //   ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
+  //   ctx.lineWidth = height * 0.03;
+  //   ctx.strokeStyle = "#ffde59";
+  //   ctx.stroke();
+  //   ctx.clip();
+  //   ctx.drawImage(image, circleX - radius, circleY - radius, height, height);
+  // };
 
   ctx.fillStyle = backgroundColor;
   ctx.fillRect(0, 0, width, height);
@@ -84,38 +123,32 @@ exports.drawImage = (
   ctx.textBaseline = "bottom";
   ctx.fillStyle = primaryColor;
   ctx.fillText("queen.raae.codes", padding * 1.05, footerY);
+
+  console.log("before image");
+
+  const image = await loadImage(avatar);
+
+  console.log("after image");
+
+  ctx.beginPath();
+  ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
+  ctx.lineWidth = height * 0.03;
+  ctx.strokeStyle = "#ffde59";
+  ctx.stroke();
+  ctx.clip();
+  ctx.drawImage(image, circleX - radius, circleY - radius, height, height);
 };
 
-const splitIntoLines = (ctx, { width, widths = [], text, maxLines }) => {
-  const words = text.split(" ");
-  const lines = [];
-  let lineIndex = 0;
-
-  words.every((word) => {
-    const tempLine = lines[lineIndex] ? `${lines[lineIndex]} ${word}` : word;
-    let roomForMoreWords = true;
-    const lineWidth = width;
-
-    if (lineIndex < maxLines - 1) {
-      if (ctx.measureText(tempLine).width <= lineWidth) {
-        lines[lineIndex] = tempLine;
-      } else {
-        lineIndex++;
-        lines[lineIndex] = word;
-      }
-    } else {
-      if (ctx.measureText(tempLine).width <= lineWidth * 0.9) {
-        lines[lineIndex] = tempLine;
-      } else {
-        lines[lineIndex] += "…";
-        // In case description ends in … and its the last word
-        lines[lineIndex].replace("……", "…");
-        roomForMoreWords = false;
-      }
-    }
-
-    return roomForMoreWords;
-  });
-
-  return lines;
+exports.createImageBuffer = async (config) => {
+  const canvas = createCanvas();
+  try {
+    await this.drawOgImage(canvas, {
+      ...config,
+      avatar: __dirname + "/../assets/raae-avatar.png",
+    });
+    return canvas.toBuffer();
+  } catch (error) {
+    console.error(error.message);
+    return null;
+  }
 };
