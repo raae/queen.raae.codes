@@ -14,7 +14,7 @@ And last but not least, the Pirate Princess turns seven this week 🥳
 ## Our streaming schedule this week
 
 - [🔴 🏴‍☠️ Unauthorized and rum-fueled treasure hunt in the sharky waters around the Gatsby islands](https://youtu.be/26CDRdhXozo)&nbsp;—&nbsp;Thursday, January 27th @&nbsp;19:00&nbsp;CET
-- [🔴 ⛵️ TBS — time might change · #OlaCast](https://youtu.be/Yi0Ho8SdBEw)&nbsp;—&nbsp;Sunday, January 30th @&nbsp;11:30&nbsp;CET
+- [🔴 ⛵️ TBS — time might change · #OlaCast](https://youtu.be/UlU-zGbjVus)&nbsp;—&nbsp;Sunday, January 30th @&nbsp;11:30&nbsp;CET
 
 ## Other events
 
