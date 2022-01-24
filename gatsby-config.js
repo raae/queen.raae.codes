@@ -1,3 +1,5 @@
+const { getImage } = require("gatsby-plugin-image");
+
 module.exports = {
   siteMetadata: {
     url: `https://queen.raae.codes`,
@@ -99,12 +101,18 @@ module.exports = {
             },
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.nodes.map((node) => {
+                const ogGatsbyImage = getImage(node.ogImage);
                 return Object.assign({}, node.frontmatter, {
                   title: `${node.frontmatter.emojii} ~ ${node.frontmatter.title}`,
                   description: node.excerpt,
                   date: node.fields.date,
                   url: site.siteMetadata.url + node.fields.slug,
                   guid: site.siteMetadata.url + node.fields.slug,
+                  enclosure: {
+                    url:
+                      site.siteMetadata.url +
+                      ogGatsbyImage?.images?.fallback?.src,
+                  },
                   custom_elements: [
                     {
                       "content:encoded": node.html.replace(
@@ -125,6 +133,11 @@ module.exports = {
                   nodes {
                     excerpt
                     html
+                    ogImage {
+                      childImageSharp {
+                        gatsbyImageData
+                      }
+                    }
                     fields {
                       slug
                       date
