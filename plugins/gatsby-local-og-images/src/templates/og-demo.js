@@ -32,7 +32,7 @@ const OpenGraphDemoPage = () => {
           title,
           avatar: "/raae-avatar.png",
           description: description || excerpt,
-          height: 300,
+          height: 314,
           width: 600,
           titleFont: "Roboto",
           bodyFont: "Roboto",

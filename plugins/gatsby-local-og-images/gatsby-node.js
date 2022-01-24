@@ -39,7 +39,7 @@ exports.onCreateNode = async ({
       const imageBuffer = await createImageBuffer({
         title,
         description: description || plaintext,
-        height: 600,
+        height: 628,
         width: 1200,
       });
 
