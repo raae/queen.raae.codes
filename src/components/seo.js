@@ -29,8 +29,6 @@ const Seo = ({ location, meta, children }) => {
     `
   );
 
-  console.log("Helmet meta", meta);
-
   const title = meta?.title;
   const siteName = `${siteMetadata.title} — ${siteMetadata.tagline}`;
   const lang = meta?.lang || siteMetadata.lang;
@@ -40,7 +38,7 @@ const Seo = ({ location, meta, children }) => {
   const canonical = location && `${siteMetadata.url}${location.pathname}`;
   const socialType = meta?.type || "website";
   const socialTitle = title ? title : siteName;
-  const socialImage = image && location && `${location?.origin}${image}`;
+  const socialImage = image && `${siteMetadata.url}${image}`;
   const socialImageAlt = meta?.image ? meta?.alt : siteMetadata.social.alt;
   const socialDescription = description;
   const twitterSite = siteMetadata.social.twitter.site;
