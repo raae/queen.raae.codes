@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import { drawOgImage } from "../utils/open-graph-image";
 
-const OpenGraphTestPage = () => {
+const OpenGraphDemoPage = () => {
   const data = useStaticQuery(graphql`
     {
       allEmails: allMarkdownRemark(
@@ -34,6 +34,8 @@ const OpenGraphTestPage = () => {
           description: description || excerpt,
           height: 300,
           width: 600,
+          titleFont: "Roboto",
+          bodyFont: "Roboto",
         });
       }
     );
@@ -49,4 +51,4 @@ const OpenGraphTestPage = () => {
   );
 };
 
-export default OpenGraphTestPage;
+export default OpenGraphDemoPage;

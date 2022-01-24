@@ -1,4 +1,4 @@
-const { createCanvas, loadImage } = require("canvas");
+const { registerFont, createCanvas, loadImage } = require("canvas");
 
 const splitIntoLines = (ctx, { width, text, maxLines }) => {
   const words = text.split(" ");
@@ -39,6 +39,8 @@ exports.drawOgImage = async (
   {
     avatar,
     title,
+    titleFont,
+    bodyFont,
     description,
     height = 600,
     width = 1200,
@@ -74,7 +76,7 @@ exports.drawOgImage = async (
   ctx.fillStyle = primaryTextColor;
   ctx.textBaseline = "top";
 
-  ctx.font = `900 ${titleSize}px Roboto`;
+  ctx.font = `bold ${titleSize}px ${titleFont}`;
 
   const titleLines = splitIntoLines(ctx, {
     text: title,
@@ -90,7 +92,7 @@ exports.drawOgImage = async (
     ctx.fillText(line, padding, titleY + titleLead * index);
   });
 
-  ctx.font = `400 ${bodySize}px Roboto`;
+  ctx.font = `${bodySize}px ${bodyFont}`;
   ctx.fillStyle = secondaryTextColor;
   const descriptionLines = splitIntoLines(ctx, {
     text: description,
@@ -123,11 +125,21 @@ exports.drawOgImage = async (
 };
 
 exports.createImageBuffer = async (config) => {
+  registerFont(__dirname + "/../assets/Roboto/Roboto-Regular.ttf", {
+    family: "Roboto",
+  });
+  registerFont(__dirname + "/../assets/Roboto/Roboto-Black.ttf", {
+    family: "Roboto",
+    weight: "bold",
+  });
+
   const canvas = createCanvas();
   try {
     await this.drawOgImage(canvas, {
       ...config,
       avatar: __dirname + "/../assets/raae-avatar.png",
+      titleFont: "Roboto",
+      bodyFont: "Roboto",
     });
     return canvas.toBuffer();
   } catch (error) {
