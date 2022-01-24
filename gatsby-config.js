@@ -65,6 +65,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `@raae/gatsby-plugin-let-it-snow`,
+    `gatsby-local-og-images`,
     {
       resolve: `gatsby-plugin-feed`,
       options: {
