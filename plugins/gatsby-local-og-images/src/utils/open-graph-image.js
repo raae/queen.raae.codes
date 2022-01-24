@@ -42,7 +42,7 @@ exports.drawOgImage = async (
     titleFont,
     bodyFont,
     description,
-    height = 600,
+    height = 628,
     width = 1200,
     backgroundColor = "#fffaf0",
     primaryColor = "#ec4326",
