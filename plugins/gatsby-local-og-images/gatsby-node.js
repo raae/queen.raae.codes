@@ -68,10 +68,17 @@ exports.createPages = ({ actions: { createPage } }) => {
   if (IS_PROD) return;
 
   const demoTemplate = path.resolve(__dirname, `src/templates/og-demo.js`);
+  const imagesTemplate = path.resolve(__dirname, `src/templates/og-images.js`);
 
   createPage({
     // Path for this page — required
     path: `open-graph-image-demo`,
     component: demoTemplate,
+  });
+
+  createPage({
+    // Path for this page — required
+    path: `open-graph-images`,
+    component: imagesTemplate,
   });
 };
