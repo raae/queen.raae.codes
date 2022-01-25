@@ -1,5 +1,6 @@
 ---
 title: 1-on-1 Emergency Gatsby Call with Queen Raae
+description: You have Googled. You have looked through Stack Overflow. You have tried to get help in the Gatsby Discord. But you are stuck on that reef. You are ready to give up! To abandon ship!
 ---
 
 Friendly advice you can put into action immediately, guaranteed.
