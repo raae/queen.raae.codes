@@ -9,9 +9,9 @@ _Get Unstuck • Gain confidence • Take Action_
 
 #### [Book your call now](https://savvycal.com/raae/emergency)
 
-## Stuck on a reef in the sharky waters around Gatsby?
+## Stuck on a reef in the sharky waters around the Gatsby islands?
 
-You have Googled. You have looked through Stack Overflow. You have tried to get help in the Gatsby Discord. But you are stuck on that reef. You are ready to give up! To abandon ship!
+You have Googled. You have looked through Stack Overflow. You have tried to get help in the Gatsby Discord. But you are stuck on that reef. You are ready to give up! To abandon the ship!
 
 ## Imagine getting the help you need
 
