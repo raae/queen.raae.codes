@@ -1,6 +1,5 @@
 ---
 title: This Sunday’s Skill-Builder-Session went WRONG!
-emojii: ⛵️
 ---
 
 ![wrong](OlaCast-14-POW-Day-1-WRONG-26.jpeg)
