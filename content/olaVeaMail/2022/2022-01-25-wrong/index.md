@@ -3,8 +3,6 @@ title: This Sunday’s Skill-Builder-Session went WRONG!
 emojii: ⛵️
 ---
 
-Ship Ahoy Skill-Builder!
-
 ![wrong](OlaCast-14-POW-Day-1-WRONG-26.jpeg)
 
 ## My Sunday Skill Builder Session:
