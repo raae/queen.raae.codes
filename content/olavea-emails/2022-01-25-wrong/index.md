@@ -23,7 +23,8 @@ I just kept coding further. For 2 more hours! Live on youtube.
 💪😺👍
 
 Keep your skill-builder-ship afloat this week!
+
 🔧⛵🏴‍☠️
 
-Ola Vea
+Ola Vea  
 Cap'n of his own skill-builder-ship
