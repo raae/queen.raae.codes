@@ -35,4 +35,4 @@ Have you made use of this pattern?
 All the best,
 Queen Raae
 
-**PS:** We'll have a look at the local plugin approach in tomorrow's unauthorized and rum-fueled [treasure hunt](https://youtu.be/26CDRdhXozo).
+**PS:** We'll have a look at the local plugin approach in todays's unauthorized and rum-fueled [treasure hunt](https://youtu.be/26CDRdhXozo).
