@@ -15,7 +15,7 @@ You have Googled. You have looked through Stack Overflow. You have tried to get 
 
 ## Imagine getting the help you need
 
-Imagine this – Imagine getting pulled off the reef without damage. Imagine your Gatsby navigation skills improving. Imagine having the confidence that you'll stay clear of the reef next time.
+Imagine this – Imagine getting pulled off the reef without damage. Imagine your Gatsby navigation skills improving. Imagine having the confidence that you'll stay clear of the reef the next time around.
 
 ## Speak with a seasoned Gatsby developer
 
