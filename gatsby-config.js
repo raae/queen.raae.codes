@@ -25,6 +25,9 @@ module.exports = {
       },
     },
     {
+      resolve: "local-source-emails",
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [

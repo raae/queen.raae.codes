@@ -24,7 +24,7 @@ exports.onCreateNode = async ({
   if (!node) return;
 
   if (node.internal.type === "MarkdownRemark") {
-    if (node.fileAbsolutePath.includes("/queen-emails/")) {
+    if (node.fileAbsolutePath?.includes("/queen-emails/")) {
       // Queen emails
       const {
         frontmatter: { title, description },
