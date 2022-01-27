@@ -1,5 +1,9 @@
 const { createFilePath } = require("gatsby-source-filesystem");
 
+const NOW = new Date().toISOString();
+const FAR_FUTURE = new Date("2300-01-01").toISOString();
+const CUT_OFF = process.env.NODE_ENV === "development" ? FAR_FUTURE : NOW;
+
 exports.onCreateNode = async ({
   node,
   actions: { createNode },
@@ -20,6 +24,8 @@ exports.onCreateNode = async ({
     const date = dateSearch
       ? new Date(dateSearch[0]).toISOString()
       : new Date(0).toISOString();
+
+    if (date > CUT_OFF) return;
 
     createNode({
       ...node,
