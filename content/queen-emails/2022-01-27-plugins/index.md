@@ -5,7 +5,7 @@ emojii: 📜 📜
 
 We've all been there; you just want to source a little here, create some pages there, and then before you know it, your gatsby-node.js is _as long as a bad year_ (Norwegian proverb).
 
-Code files becoming too long is not unique to gatsby-node.js. But with gatsby-node.js, you may solve it the Gatsby way using plugins.
+Code files becoming too long is not unique to gatsby-node.js. But there is a Gatsby way to solve it: plugins.
 
 "But I have no idea how to publish a plugin!"
 
@@ -16,9 +16,9 @@ You can use:
 - [a local plugin](https://www.gatsbyjs.com/docs/creating-a-local-plugin/#project-structure-for-a-local-plugin),
 - or make use of [yarn workspace](https://classic.yarnpkg.com/en/docs/cli/workspace).
 
-You may also use npm workspace in theory, but I can never get those to work. If you do, please tell me your secret.
+In theory, you may also use npm workspace, but I can never get those to work. If you do, please tell me your secret.
 
-A plugin may include more than the gatsby-node.js. But it's the one that always gets out of hand for me, so I chose it to get your attention.
+A plugin may include more than the gatsby-node.js file. But it's the one that always gets out of hand first for me, so it's the one that pushed me to start modularizing with plugins.
 
 **Why make use of a Gatsby plugin?**
 
@@ -29,10 +29,10 @@ A plugin may include more than the gatsby-node.js. But it's the one that always 
 - Very little boilerplate is needed: a package.json file, and you are good to go.
 
 &nbsp;
-Have you made use of this pattern?
+Have you ever made a local plugin?
 
 &nbsp;
 All the best,
 Queen Raae
 
-**PS:** We'll have a look at the local plugin approach in todays's unauthorized and rum-fueled [treasure hunt](https://youtu.be/26CDRdhXozo).
+**PS:** We'll have a look at the local plugin approach in today's unauthorized and rum-fueled [treasure hunt](https://youtu.be/26CDRdhXozo).
