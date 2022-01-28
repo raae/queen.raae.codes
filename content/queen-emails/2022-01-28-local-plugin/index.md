@@ -1,5 +1,6 @@
 ---
 title: Modularize your Gatsby project with local plugins
+image: ./yt-photo.jpg
 emojii: 📜 📦
 ---
 
