@@ -38,8 +38,14 @@ const Emails = ({ data, ...props }) => {
         </section>
         <section>
           <ul>
-            {data.allOlaVeaEmails.nodes.map(
-              ({ fields: { date, slug }, frontmatter: { title } }) => (
+            {data.allEmails.nodes.map(
+              ({
+                date,
+                slug,
+                childMarkdownRemark: {
+                  frontmatter: { title },
+                },
+              }) => (
                 <li key={slug}>
                   <small>{date}</small>
                   <br />
@@ -62,18 +68,15 @@ const Emails = ({ data, ...props }) => {
 
 export const query = graphql`
   {
-    allOlaVeaEmails: allMarkdownRemark(
-      filter: { fields: { slug: { glob: "/emails/olavea/*" } } }
-      sort: { fields: fields___date, order: DESC }
-    ) {
+    allEmails: allOlaVeaEmail(sort: { order: DESC, fields: date }) {
       nodes {
-        fields {
-          slug
-          date(formatString: "MMMM Do, YYYY")
+        childMarkdownRemark {
+          frontmatter {
+            title
+          }
         }
-        frontmatter {
-          title
-        }
+        slug
+        date(formatString: "MMMM Do, YYYY")
       }
     }
   }

@@ -6,10 +6,7 @@ import { drawOgImage } from "../utils/open-graph-image";
 const OpenGraphDemoPage = () => {
   const data = useStaticQuery(graphql`
     {
-      allEmails: allMarkdownRemark(
-        filter: { fields: { slug: { glob: "/emails/*" } } }
-        sort: { fields: fields___date, order: DESC }
-      ) {
+      allEmails: allMarkdownRemark {
         nodes {
           excerpt(pruneLength: 250)
           frontmatter {

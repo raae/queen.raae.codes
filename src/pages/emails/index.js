@@ -30,7 +30,13 @@ const Emails = ({ data, ...props }) => {
         <section>
           <ul>
             {data.allEmails.nodes.map(
-              ({ fields: { date, slug }, frontmatter: { title } }) => (
+              ({
+                date,
+                slug,
+                childMarkdownRemark: {
+                  frontmatter: { title },
+                },
+              }) => (
                 <li key={slug}>
                   <small>{date}</small>
                   <br />
@@ -53,18 +59,15 @@ const Emails = ({ data, ...props }) => {
 
 export const query = graphql`
   {
-    allEmails: allMarkdownRemark(
-      filter: { fields: { slug: { glob: "/emails/*" } } }
-      sort: { fields: fields___date, order: DESC }
-    ) {
+    allEmails: allQueenEmail(sort: { order: DESC, fields: date }) {
       nodes {
-        fields {
-          slug
-          date(formatString: "MMMM Do, YYYY")
+        childMarkdownRemark {
+          frontmatter {
+            title
+          }
         }
-        frontmatter {
-          title
-        }
+        slug
+        date(formatString: "MMMM Do, YYYY")
       }
     }
   }

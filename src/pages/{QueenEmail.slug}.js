@@ -7,11 +7,11 @@ import NewsletterForm from "../components/newsletter";
 import MainMenu from "../content/main-menu";
 import SocialLinks from "../content/social-links";
 
-const RemarkPage = ({ data, ...props }) => {
-  const post = data.markdownRemark;
+const QueenEmail = ({ data, ...props }) => {
+  const post = data.queenEmail.childMarkdownRemark;
 
   const { title } = post.frontmatter;
-  const { date } = post.fields;
+  const { date } = post;
 
   const ogGatsbyImage = getImage(post.ogImage);
 
@@ -60,23 +60,22 @@ const RemarkPage = ({ data, ...props }) => {
   );
 };
 
-export default RemarkPage;
+export default QueenEmail;
 
 export const query = graphql`
-  query QueenEmailById($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-      }
-      fields {
-        date(formatString: "MMMM Do, YYYY")
-      }
-      ogImage {
-        childImageSharp {
-          gatsbyImageData
+  query QueenEmailNewById($id: String!) {
+    queenEmail(id: { eq: $id }) {
+      date(formatString: "MMMM Do, YYYY")
+      childMarkdownRemark {
+        excerpt(pruneLength: 160)
+        html
+        frontmatter {
+          title
+        }
+        ogImage {
+          childImageSharp {
+            gatsbyImageData
+          }
         }
       }
     }

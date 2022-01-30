@@ -1,15 +1,15 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 
-import Seo from "../../../components/seo";
-import NewsletterForm from "../../../components/newsletter";
-import MainMenu from "../../../content/main-menu";
-import SocialLinks from "../../../content/social-links";
+import Seo from "../components/seo";
+import NewsletterForm from "../components/newsletter";
+import MainMenu from "../content/main-menu";
+import SocialLinks from "../content/social-links";
 
 const OlaVeaEmail = ({ data, ...props }) => {
   const post = data.olaVeaEmail.childMarkdownRemark;
   const { title } = post.frontmatter;
-  const { date } = post.fields;
+  const { date } = post;
 
   const body = `<p>Ship Ahoy Skill Builder! </p>` + post.html;
 
@@ -59,15 +59,13 @@ export default OlaVeaEmail;
 export const query = graphql`
   query OlaEmailNewById($id: String!) {
     olaVeaEmail(id: { eq: $id }) {
+      date(formatString: "MMMM Do, YYYY")
       childMarkdownRemark {
         id
         excerpt(pruneLength: 160)
         html
         frontmatter {
           title
-        }
-        fields {
-          date(formatString: "MMMM Do, YYYY")
         }
       }
     }

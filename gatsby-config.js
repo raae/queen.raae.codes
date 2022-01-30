@@ -18,14 +18,13 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: "local-source-emails",
       options: {
-        name: `content`,
-        path: `${__dirname}/landing`,
+        basePath: "/emails",
       },
     },
     {
-      resolve: "local-source-emails",
+      resolve: "local-source-landing",
     },
     {
       resolve: `gatsby-transformer-remark`,

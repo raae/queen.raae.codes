@@ -93,8 +93,8 @@ const RemarkPage = ({ data, ...props }) => {
 export default RemarkPage;
 
 export const query = graphql`
-  query MarkdownBySlug($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query MarkdownByParentId($id: String!) {
+    markdownRemark(parent: { id: { eq: $id } }) {
       id
       excerpt(pruneLength: 160)
       html
