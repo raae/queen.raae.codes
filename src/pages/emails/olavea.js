@@ -38,7 +38,7 @@ const Emails = ({ data, ...props }) => {
         </section>
         <section>
           <ul>
-            {data.allEmails.nodes.map(
+            {data.allEmail.nodes.map(
               ({
                 date,
                 slug,
@@ -68,7 +68,7 @@ const Emails = ({ data, ...props }) => {
 
 export const query = graphql`
   {
-    allEmails: allOlaVeaEmail(sort: { order: DESC, fields: date }) {
+    allEmail: allOlaVeaEmail(sort: { order: DESC, fields: date }) {
       nodes {
         childMarkdownRemark {
           frontmatter {

@@ -27,7 +27,7 @@ const IndexPage = ({ data, ...props }) => {
           </h2>
 
           <ul>
-            {data.allEmails.nodes.map(
+            {data.allEmail.nodes.map(
               ({
                 date,
                 slug,
@@ -58,7 +58,7 @@ const IndexPage = ({ data, ...props }) => {
 
 export const query = graphql`
   {
-    allEmails: allQueenEmail(sort: { order: DESC, fields: date }, limit: 5) {
+    allEmail: allQueenEmail(sort: { order: DESC, fields: date }, limit: 5) {
       nodes {
         childMarkdownRemark {
           frontmatter {
