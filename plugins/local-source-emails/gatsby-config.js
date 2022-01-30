@@ -6,24 +6,14 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: `QueenEmail`,
-        path: path.join(
-          __dirname,
-          "..",
-          "..",
-          "/content-restructure/queen-emails"
-        ),
+        path: path.join(__dirname, "..", "..", "/content/queen-emails"),
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: `OlaVeaEmail`,
-        path: path.join(
-          __dirname,
-          "..",
-          "..",
-          "/content-restructure/olavea-emails"
-        ),
+        path: path.join(__dirname, "..", "..", "/content/olavea-emails"),
       },
     },
     {
