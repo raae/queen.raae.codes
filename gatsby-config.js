@@ -70,7 +70,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `@raae/gatsby-plugin-let-it-snow`,
-    "gatsby-local-og-images",
+    "local-plugin-og-images",
     "local-plugin-feed",
   ],
 };
