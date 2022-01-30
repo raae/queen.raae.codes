@@ -22,6 +22,7 @@ exports.onCreateNode = async ({
       ...node,
       id: createNodeId(`${node.id} >>> ${type}`),
       slug: slug,
+      parent: node.id,
       internal: {
         content: content,
         mediaType: node.internal.mediaType,
@@ -46,6 +47,7 @@ exports.onCreateNode = async ({
       ...node,
       id: createNodeId(`${node.id} >>> ${type}`),
       slug: slug,
+      parent: node.id,
       internal: {
         content: content,
         mediaType: node.internal.mediaType,

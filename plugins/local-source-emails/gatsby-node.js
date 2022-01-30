@@ -30,6 +30,7 @@ exports.onCreateNode = async (
       id: createNodeId(`${node.id} >>> ${type}`),
       slug: slug,
       date: date,
+      parent: node.id,
       internal: {
         content: content,
         mediaType: node.internal.mediaType,
