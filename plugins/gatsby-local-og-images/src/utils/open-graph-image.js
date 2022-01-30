@@ -115,10 +115,8 @@ exports.drawOgImage = async (
   ctx.fillText("queen.raae.codes", padding * 1.05, footerY);
 
   const loadedImage = await loadImage(image || avatar);
-  // console.log("IMAGE", loadImage);
   const imgWidth = loadedImage.width;
   const imgHeight = loadedImage.height;
-  console.log(image || avatar, imgWidth, imgHeight);
 
   ctx.beginPath();
   ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);

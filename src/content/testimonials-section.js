@@ -9,7 +9,7 @@ const TestimonialsSection = ({ title, intro, skipIntro, items }) => {
 
   const testimonials = items
     .map((item) => {
-      return nodes.find(({ relativePath }) => relativePath.includes(item));
+      return nodes.find(({ slug }) => slug.includes(item));
     })
     .filter((node) => !!node);
 
@@ -34,7 +34,7 @@ const allTestimonialsQuery = graphql`
     allTestimonial {
       nodes {
         id
-        relativePath
+        slug
         childMarkdownRemark {
           frontmatter {
             who

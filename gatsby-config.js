@@ -25,6 +25,7 @@ module.exports = {
     },
     {
       resolve: "local-source-landing",
+      basePath: "",
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -69,13 +70,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `@raae/gatsby-plugin-let-it-snow`,
-    `gatsby-local-og-images`,
-    {
-      resolve: `@raae/gatsby-plugin-fathom`,
-      options: {
-        site: `DIFBAEOT`,
-        includedDomains: `queen.raae.codes`,
-      },
-    },
+    "gatsby-local-og-images",
+    "local-plugin-feed",
   ],
 };

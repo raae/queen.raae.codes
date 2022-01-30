@@ -5,7 +5,13 @@ const FAR_FUTURE = new Date("2300-01-01").toISOString();
 const CUT_OFF = process.env.NODE_ENV === "development" ? FAR_FUTURE : NOW;
 
 exports.onCreateNode = async (
-  { node, actions: { createNode }, createNodeId, getNode, loadNodeContent },
+  {
+    node,
+    actions: { createNode, createNodeField },
+    createNodeId,
+    getNode,
+    loadNodeContent,
+  },
   options
 ) => {
   if (
@@ -23,20 +29,29 @@ exports.onCreateNode = async (
       ? new Date(dateSearch[0]).toISOString()
       : new Date(0).toISOString();
 
-    if (date > CUT_OFF) return;
+    if (date <= CUT_OFF) {
+      createNode({
+        ...node,
+        id: createNodeId(`${node.id} >>> ${type}`),
+        slug: slug,
+        date: date,
+        parent: node.id,
+        internal: {
+          content: content,
+          mediaType: node.internal.mediaType,
+          contentDigest: node.internal.contentDigest,
+          type: type,
+        },
+      });
+    }
+  }
 
-    createNode({
-      ...node,
-      id: createNodeId(`${node.id} >>> ${type}`),
-      slug: slug,
-      date: date,
-      parent: node.id,
-      internal: {
-        content: content,
-        mediaType: node.internal.mediaType,
-        contentDigest: node.internal.contentDigest,
-        type: type,
-      },
+  if (node.internal.type === "MarkdownRemark") {
+    const fileNode = getNode(node.parent);
+    createNodeField({
+      name: "date",
+      node,
+      value: fileNode.date,
     });
   }
 };

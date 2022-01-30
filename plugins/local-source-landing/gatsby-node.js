@@ -1,12 +1,9 @@
 const { createFilePath } = require("gatsby-source-filesystem");
 
-exports.onCreateNode = async ({
-  node,
-  actions: { createNode },
-  createNodeId,
-  getNode,
-  loadNodeContent,
-}) => {
+exports.onCreateNode = async (
+  { node, actions: { createNode }, createNodeId, getNode, loadNodeContent },
+  options
+) => {
   if (
     node.internal.type === "File" &&
     node.sourceInstanceName.includes("Landing") &&
@@ -14,7 +11,7 @@ exports.onCreateNode = async ({
     // Do not make landing pages of sections
     !node.relativePath.includes("_")
   ) {
-    const slug = createFilePath({ node, getNode });
+    const slug = options.basePath + createFilePath({ node, getNode });
     const content = await loadNodeContent(node);
     const type = node.sourceInstanceName;
 
