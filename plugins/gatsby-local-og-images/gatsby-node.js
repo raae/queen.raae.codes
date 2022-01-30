@@ -27,7 +27,7 @@ exports.onCreateNode = async ({
     if (node.fileAbsolutePath?.includes("/queen-emails/")) {
       // Queen emails
       const {
-        frontmatter: { title, description },
+        frontmatter: { title, description, image },
       } = node;
 
       let plaintext = "";
@@ -38,6 +38,7 @@ exports.onCreateNode = async ({
 
       const imageBuffer = await createImageBuffer({
         title,
+        image: image && path.resolve(node.fileAbsolutePath, "..", image),
         description: description || plaintext,
         height: 628,
         width: 1200,

@@ -39,6 +39,7 @@ exports.drawOgImage = async (
   {
     avatar,
     title,
+    image,
     titleFont,
     bodyFont,
     description,
@@ -113,7 +114,11 @@ exports.drawOgImage = async (
   ctx.fillStyle = primaryColor;
   ctx.fillText("queen.raae.codes", padding * 1.05, footerY);
 
-  const image = await loadImage(avatar);
+  const loadedImage = await loadImage(image || avatar);
+  // console.log("IMAGE", loadImage);
+  const imgWidth = loadedImage.width;
+  const imgHeight = loadedImage.height;
+  console.log(image || avatar, imgWidth, imgHeight);
 
   ctx.beginPath();
   ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
@@ -121,7 +126,18 @@ exports.drawOgImage = async (
   ctx.strokeStyle = "#ffde59";
   ctx.stroke();
   ctx.clip();
-  ctx.drawImage(image, circleX - radius, circleY - radius, height, height);
+  // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
+  ctx.drawImage(
+    loadedImage,
+    imgWidth / 2 - imgHeight / 2,
+    0,
+    imgHeight,
+    imgHeight,
+    circleX - radius,
+    circleY - radius,
+    height,
+    height
+  );
 };
 
 exports.createImageBuffer = async (config) => {
