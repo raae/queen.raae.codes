@@ -2,6 +2,10 @@
 title: Pirate Show
 ---
 
+## Useful links
+
+- [YouTube Studio Live Videos](https://studio.youtube.com/channel/UCDlrzlRdM1vGr8nO708KFmQ/videos/live)
+
 ## Templates
 
 ### Title

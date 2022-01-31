@@ -2,18 +2,28 @@
 title: OlaCast
 ---
 
+## Useful links
+
+- [YouTube Studio Live Videos](https://studio.youtube.com/channel/UCDlrzlRdM1vGr8nO708KFmQ/videos/live)
+
 ## Templates
 
 ### Title
 
 ```
-🔴⛵ <title> · #OlaCast · Episode <XX>
+🔴⛵ <title> · #OlaCast · Sunday #<XX>
+
+🔴⛵ TBD - Time might change · #OlaCast · Sunday #<XX>
 ```
 
 ### Description
 
 ```md
-# What is #OlaCast
+# Today's practice
+
+Links to be added!
+
+# What is OlaCast
 
 Every Sunday Cap'n Ola practices his Gatsby skillbuilding here on the Queen's channel.
 
