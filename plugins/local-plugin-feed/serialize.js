@@ -1,17 +1,18 @@
 const { getImage } = require("gatsby-plugin-image");
 
-module.exports = (node, site) => {
+module.exports = (node, site, options) => {
   const {
-    frontmatter: { title, description, emojii = "⛵🔧" },
+    frontmatter: { title, description, emojii },
     html,
     excerpt,
     ogImage,
     parent: { date, slug },
   } = node;
   const ogGatsbyImage = getImage(ogImage);
+  const titleEmojii = emojii || options.emojii;
 
   return {
-    title: `${emojii} ~ ${title}`,
+    title: titleEmojii ? `${titleEmojii} ~ ${title}` : title,
     description: description || excerpt,
     date: date,
     url: site.siteMetadata.url + slug,

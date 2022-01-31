@@ -35,7 +35,7 @@ module.exports = {
             },
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.nodes.map((node) =>
-                serializeFeed(node, site)
+                serializeFeed(node, site, { emojii: "⛵ 🔧" })
               );
             },
             query: `
@@ -137,7 +137,7 @@ module.exports = {
             },
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.nodes.map((node) =>
-                serializeFeed(node, site)
+                serializeFeed(node, site, { emojii: "⛵ 🔧" })
               );
             },
             query: `
