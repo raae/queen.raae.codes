@@ -2,5 +2,9 @@
   {
     "fromPath": "/react/",
     "toPath": "/react-gotchas/"
+  },
+  {
+    "fromPath": "/emails/2021-12-02-conference-buddy-2.0/",
+    "toPath": "/emails/2021-12-02-conference-buddy-v2/"
   }
 ]
