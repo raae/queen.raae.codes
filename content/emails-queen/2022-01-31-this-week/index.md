@@ -5,7 +5,7 @@ image: ./sld-photo.jpeg
 emojii: 🏝 🗓
 ---
 
-Netlify released support for Gatsby SSG and DSG today 🎉 It's been in beta since September but is now ON by default. Check out [their announcement]() for more information.
+Netlify released support for Gatsby SSG and DSG today 🎉 It's been in beta since September but is now ON by default. Check out [their announcement](https://github.com/netlify/netlify-plugin-gatsby/releases/tag/v2.0.0) for more information.
 
 Gatsby is still hard at work with their Gatsby Conf, and you have until tomorrow 08:59 CET to enter the Gatsby Best of 2021 Agency Awards.
 
