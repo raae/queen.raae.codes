@@ -22,7 +22,9 @@ const RemarkPage = ({ data, ...props }) => {
 
   const coverImage = getImage(cover?.src);
   const coverAlt = cover?.alt;
-  const CoverImage = <GatsbyImage image={coverImage} alt={coverAlt} />;
+  const CoverImage = coverImage ? (
+    <GatsbyImage image={coverImage} alt={coverAlt} />
+  ) : null;
 
   return (
     <>
@@ -93,8 +95,8 @@ const RemarkPage = ({ data, ...props }) => {
 export default RemarkPage;
 
 export const query = graphql`
-  query MarkdownBySlug($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query MarkdownByLandingId($id: String!) {
+    markdownRemark(parent: { id: { eq: $id } }) {
       id
       excerpt(pruneLength: 160)
       html

@@ -18,10 +18,15 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: "local-source-emails",
       options: {
-        name: `content`,
-        path: `${__dirname}/content`,
+        basePath: "/emails",
+      },
+    },
+    {
+      resolve: "local-source-landing",
+      options: {
+        basePath: "",
       },
     },
     {
@@ -67,157 +72,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `@raae/gatsby-plugin-let-it-snow`,
-    `gatsby-local-og-images`,
-    {
-      resolve: `gatsby-plugin-feed`,
-      options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                url
-                description
-              }
-            }
-          }
-        `,
-        feeds: [
-          // Queen Emails Feed
-          {
-            output: "/emails/rss.xml",
-            title: "Emails from Queen Raae",
-            match: "^/emails/",
-            setup: ({
-              query: {
-                site: { siteMetadata },
-              },
-              ...rest
-            }) => {
-              return {
-                ...siteMetadata,
-                ...rest,
-                site_url: siteMetadata.url + "/emails",
-              };
-            },
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map((node) => {
-                const ogGatsbyImage = getImage(node.ogImage);
-                return Object.assign({}, node.frontmatter, {
-                  title: `${node.frontmatter.emojii} ~ ${node.frontmatter.title}`,
-                  description: node.excerpt,
-                  date: node.fields.date,
-                  url: site.siteMetadata.url + node.fields.slug,
-                  guid: site.siteMetadata.url + node.fields.slug,
-                  enclosure: {
-                    url:
-                      site.siteMetadata.url +
-                      ogGatsbyImage?.images?.fallback?.src,
-                  },
-                  custom_elements: [
-                    {
-                      "content:encoded": node.html.replace(
-                        /(?<=\"|\s)\/static\//g,
-                        `${site.siteMetadata.url}\/static\/`
-                      ),
-                    },
-                  ],
-                });
-              });
-            },
-            query: `
-              {
-                allMarkdownRemark(
-                  sort: { order: DESC, fields: [fields___date] },
-                  filter: {fields: {rss: {eq: "queen-emails"}}}
-                ) {
-                  nodes {
-                    excerpt
-                    html
-                    ogImage {
-                      childImageSharp {
-                        gatsbyImageData
-                      }
-                    }
-                    fields {
-                      slug
-                      date
-                    }
-                    frontmatter {
-                      title
-                      emojii
-                    }
-                  }
-                }
-              }
-            `,
-          },
-          // Ola Vea Emails Feed
-          {
-            output: "/emails/olavea/rss.xml",
-            title: "Emails from Queen Raae",
-            match: "^/emails/olavea/",
-            setup: ({
-              query: {
-                site: { siteMetadata },
-              },
-              ...rest
-            }) => {
-              return {
-                ...siteMetadata,
-                ...rest,
-                site_url: siteMetadata.url + "/emails/olavea",
-              };
-            },
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map((node) => {
-                return Object.assign({}, node.frontmatter, {
-                  title: `⛵🔧 ~ ${node.frontmatter.title}`,
-                  description: node.excerpt,
-                  date: node.fields.date,
-                  url: site.siteMetadata.url + node.fields.slug,
-                  guid: site.siteMetadata.url + node.fields.slug,
-                  custom_elements: [
-                    {
-                      "content:encoded": node.html.replace(
-                        /(?<=\"|\s)\/static\//g,
-                        `${site.siteMetadata.url}\/static\/`
-                      ),
-                    },
-                  ],
-                });
-              });
-            },
-            query: `
-              {
-                allMarkdownRemark(
-                  sort: { order: DESC, fields: [fields___date] },
-                  filter: {fields: {rss: {eq: "olavea-emails"}}}
-                ) {
-                  nodes {
-                    excerpt
-                    html
-                    fields {
-                      slug
-                      date
-                    }
-                    frontmatter {
-                      title
-                      emojii
-                    }
-                  }
-                }
-              }
-            `,
-          },
-        ],
-      },
-    },
-    {
-      resolve: `@raae/gatsby-plugin-fathom`,
-      options: {
-        site: `DIFBAEOT`,
-        includedDomains: `queen.raae.codes`,
-      },
-    },
+    "local-plugin-og-images",
+    "local-plugin-feed",
   ],
 };

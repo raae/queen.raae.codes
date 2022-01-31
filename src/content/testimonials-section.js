@@ -4,14 +4,12 @@ import Testimonial from "../components/testimonial";
 
 const TestimonialsSection = ({ title, intro, skipIntro, items }) => {
   const {
-    allMarkdownRemark: { nodes },
+    allTestimonial: { nodes },
   } = useStaticQuery(allTestimonialsQuery);
 
   const testimonials = items
     .map((item) => {
-      return nodes.find(({ fields }) =>
-        fields.slug.includes(`testimonials/${item}/`)
-      );
+      return nodes.find(({ slug }) => slug.includes(item));
     })
     .filter((node) => !!node);
 
@@ -19,38 +17,40 @@ const TestimonialsSection = ({ title, intro, skipIntro, items }) => {
     <section>
       {title && !skipIntro && <h2>{title}</h2>}
       {intro && !skipIntro && <p>{intro}</p>}
-      {testimonials.map((node) => (
-        <Testimonial key={node.fields.slug} {...node.frontmatter}>
-          <div dangerouslySetInnerHTML={{ __html: node.html }} />
-        </Testimonial>
-      ))}
+      {testimonials.map((node) => {
+        const { frontmatter, html } = node.childMarkdownRemark;
+        return (
+          <Testimonial key={node.id} {...frontmatter}>
+            <div dangerouslySetInnerHTML={{ __html: html }} />
+          </Testimonial>
+        );
+      })}
     </section>
   );
 };
 
 const allTestimonialsQuery = graphql`
   {
-    allMarkdownRemark(
-      filter: { fields: { slug: { glob: "/*/_testimonials/*" } } }
-    ) {
+    allTestimonial {
       nodes {
-        fields {
-          slug
-        }
-        frontmatter {
-          who
-          attended
-          avatar {
-            childImageSharp {
-              gatsbyImageData(
-                width: 200
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
+        id
+        slug
+        childMarkdownRemark {
+          frontmatter {
+            who
+            attended
+            avatar {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 200
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
             }
           }
+          html
         }
-        html
       }
     }
   }

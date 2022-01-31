@@ -6,12 +6,15 @@ import NewsletterForm from "../components/newsletter";
 import MainMenu from "../content/main-menu";
 import SocialLinks from "../content/social-links";
 
-const RemarkPage = ({ data, ...props }) => {
-  const post = data.markdownRemark;
-  const { title } = post.frontmatter;
-  const { date } = post.fields;
+const OlaVeaEmail = ({ data, ...props }) => {
+  const {
+    frontmatter: { title, description },
+    html,
+    excerpt,
+    parent: { date },
+  } = data.markdownRemark;
 
-  const body = `<p>Ship Ahoy Skill Builder! </p>` + post.html;
+  const body = `<p>Ship Ahoy Skill Builder! </p>` + html;
 
   return (
     <>
@@ -19,7 +22,7 @@ const RemarkPage = ({ data, ...props }) => {
         {...props}
         meta={{
           title: title,
-          description: post.excerpt,
+          description: description || excerpt,
         }}
       />
       <main>
@@ -54,19 +57,21 @@ const RemarkPage = ({ data, ...props }) => {
   );
 };
 
-export default RemarkPage;
+export default OlaVeaEmail;
 
 export const query = graphql`
-  query OlaEmailById($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      id
+  query MarkdownByOlaVeaEmailId($id: String!) {
+    markdownRemark(parent: { id: { eq: $id } }) {
+      parent {
+        ... on OlaVeaEmail {
+          date(formatString: "MMMM Do, YYYY")
+        }
+      }
       excerpt(pruneLength: 160)
       html
       frontmatter {
         title
-      }
-      fields {
-        date(formatString: "MMMM Do, YYYY")
+        description
       }
     }
   }

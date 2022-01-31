@@ -19,26 +19,26 @@ exports.onCreateNode = async ({
   node,
   actions: { createNode, createNodeField },
   createNodeId,
+  getNode,
   getCache,
 }) => {
-  if (!node) return;
-
   if (node.internal.type === "MarkdownRemark") {
-    if (node.fileAbsolutePath.includes("/queen-emails/")) {
-      // Queen emails
+    const parentNode = getNode(node.parent);
+    if (parentNode.internal.type === "QueenEmail") {
       const {
         frontmatter: { title, description, image },
+        rawMarkdownBody,
       } = node;
 
       let plaintext = "";
-      const tree = remark().parse(node.rawMarkdownBody);
+      const tree = remark().parse(rawMarkdownBody);
       visit(tree, "text", (node) => {
         plaintext += node.value;
       });
 
       const imageBuffer = await createImageBuffer({
         title,
-        image: image && path.resolve(node.fileAbsolutePath, "..", image),
+        image: image && path.resolve(parentNode.absolutePath, "..", image),
         description: description || plaintext,
         height: 628,
         width: 1200,
