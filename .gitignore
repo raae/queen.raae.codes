@@ -4,3 +4,4 @@ public
 .env.*
 !.env.example
 .DS_Store
+package-lock.json
