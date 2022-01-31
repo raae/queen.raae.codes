@@ -1,7 +1,15 @@
+const { isString } = require("lodash");
 const { createFilePath } = require("gatsby-source-filesystem");
 
 exports.onCreateNode = async (
-  { node, actions: { createNode }, createNodeId, getNode, loadNodeContent },
+  {
+    node,
+    actions: { createNode },
+    createNodeId,
+    getNode,
+    loadNodeContent,
+    reporter,
+  },
   options
 ) => {
   if (
@@ -11,6 +19,10 @@ exports.onCreateNode = async (
     // Do not make landing pages of sections
     !node.relativePath.includes("_")
   ) {
+    if (!isString(options.basePath)) {
+      reporter.panic("Landing pages need a base path");
+    }
+
     const slug = options.basePath + createFilePath({ node, getNode });
     const content = await loadNodeContent(node);
     const type = node.sourceInstanceName;

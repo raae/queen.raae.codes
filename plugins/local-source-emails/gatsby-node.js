@@ -1,3 +1,4 @@
+const { isString } = require("lodash");
 const { createFilePath } = require("gatsby-source-filesystem");
 
 const NOW = new Date().toISOString();
@@ -11,6 +12,7 @@ exports.onCreateNode = async (
     createNodeId,
     getNode,
     loadNodeContent,
+    reporter,
   },
   options
 ) => {
@@ -19,6 +21,10 @@ exports.onCreateNode = async (
     node.sourceInstanceName.includes("Email") &&
     node.internal.mediaType === "text/markdown"
   ) {
+    if (!isString(options.basePath)) {
+      reporter.panic("Landing pages need a base path");
+    }
+
     const slug = options.basePath + createFilePath({ node, getNode });
     const content = await loadNodeContent(node);
     const type = node.sourceInstanceName;

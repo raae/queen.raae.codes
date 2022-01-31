@@ -25,7 +25,9 @@ module.exports = {
     },
     {
       resolve: "local-source-landing",
-      basePath: "",
+      options: {
+        basePath: "",
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
