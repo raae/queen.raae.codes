@@ -1,5 +1,3 @@
-const { getImage } = require("gatsby-plugin-image");
-
 module.exports = {
   siteMetadata: {
     url: `https://queen.raae.codes`,

@@ -23,44 +23,40 @@ exports.onCreateNode = async ({
   getCache,
 }) => {
   if (node.internal.type === "MarkdownRemark") {
-    const parentNode = getNode(node.parent);
-    if (parentNode.internal.type === "QueenEmail") {
-      const {
-        frontmatter: { title, description, image },
-        rawMarkdownBody,
-      } = node;
-
-      let plaintext = "";
-      const tree = remark().parse(rawMarkdownBody);
-      visit(tree, "text", (node) => {
-        plaintext += node.value;
-      });
-
-      const imageBuffer = await createImageBuffer({
-        title,
-        image: image && path.resolve(parentNode.absolutePath, "..", image),
-        description: description || plaintext,
-        height: 628,
-        width: 1200,
-      });
-
-      if (imageBuffer) {
-        const fileNode = await createFileNodeFromBuffer({
-          buffer: imageBuffer,
-          parentNodeId: node.id,
-          name: `ogImage`,
-          getCache,
-          createNode,
-          createNodeId,
-        });
-
-        createNodeField({
-          name: "ogImage",
-          node,
-          value: fileNode.id,
-        });
-      }
-    }
+    // const parentNode = getNode(node.parent);
+    // if (parentNode.internal.type === "QueenEmail") {
+    //   const {
+    //     frontmatter: { title, description, image },
+    //     rawMarkdownBody,
+    //   } = node;
+    //   let plaintext = "";
+    //   const tree = remark().parse(rawMarkdownBody);
+    //   visit(tree, "text", (node) => {
+    //     plaintext += node.value;
+    //   });
+    //   const imageBuffer = await createImageBuffer({
+    //     title,
+    //     image: image && path.resolve(parentNode.absolutePath, "..", image),
+    //     description: description || plaintext,
+    //     height: 628,
+    //     width: 1200,
+    //   });
+    //   if (imageBuffer) {
+    //     const fileNode = await createFileNodeFromBuffer({
+    //       buffer: imageBuffer,
+    //       parentNodeId: node.id,
+    //       name: `ogImage`,
+    //       getCache,
+    //       createNode,
+    //       createNodeId,
+    //     });
+    //     createNodeField({
+    //       name: "ogImage",
+    //       node,
+    //       value: fileNode.id,
+    //     });
+    //   }
+    // }
   }
 };
 
@@ -68,18 +64,34 @@ exports.createPages = ({ actions: { createPage } }) => {
   // Only create demo page when not in production
   if (IS_PROD) return;
 
-  const demoTemplate = path.resolve(__dirname, `src/templates/og-demo.js`);
   const imagesTemplate = path.resolve(__dirname, `src/templates/og-images.js`);
-
-  createPage({
-    // Path for this page — required
-    path: `open-graph-image-demo`,
-    component: demoTemplate,
-  });
 
   createPage({
     // Path for this page — required
     path: `open-graph-images`,
     component: imagesTemplate,
+  });
+};
+
+exports.createResolvers = ({
+  actions,
+  cache,
+  createNodeId,
+  createResolvers,
+  store,
+  reporter,
+}) => {
+  const { createNode } = actions;
+  createResolvers({
+    QueenEmail: {
+      imageFile: {
+        type: `String`,
+        resolve(source, args) {
+          console.log({ source, args });
+
+          return "test";
+        },
+      },
+    },
   });
 };
