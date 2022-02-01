@@ -20,11 +20,11 @@ I did just a tiiiny task again. So that I automate it in my brain. (That rhymes,
 
 I kept on coding further. For 2 more hours! Live on youtube. What was I thinking?
 
-💪😺👍
+&nbsp;  
+💪😺👍  
+Keep your skill-building-ship afloat this week!  
+⛵🔧🏴‍☠️
 
-Keep your skill-builder-ship afloat this week!
-
-🔧⛵🏴‍☠️
-
+&nbsp;  
 Ola Vea  
 Cap'n of his own skill-builder-ship

@@ -49,12 +49,12 @@ S. singing
 
 Every time I got distracted, I could take a quick look at my paper. But because I KNEW my paper was there, I relaxed and stayed focused enough to remember that I was on «T. type» and get back to coding. I remember this happening several times 💪😺.
 
-💪😺👍
+&nbsp;  
+💪😺👍  
+Keep your skill-building-ship afloat this week!  
+⛵🔧🏴‍☠️
 
-Keep your skill-builder-ship afloat this week!
-
-🔧⛵🏴‍☠️
-
+&nbsp;  
 Ola Vea  
 Cap'n of his own skill-builder-ship
 
