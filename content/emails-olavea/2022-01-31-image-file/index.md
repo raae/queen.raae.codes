@@ -1,24 +1,24 @@
 ---
-title: I created an imageFile with createRemoteFileNode
+title: I created an image file with createRemoteFileNode
 ---
 
 ![imageFile](imageFile-1.jpeg)
 
 ## My Sunday Skill Builder Session:
 
-This Sunday, I created an imageFile with createRemoteFileNode
+This Sunday, I created an image file with createRemoteFileNode
 
 ## What did I do?
 
-I created an imageFile to use inside my node
+I created an image file to use inside my node
 
 ## Why did I do it?
 
-I wanted to use som Gatsby Image trickery on the thumbnail in our youtube data 💪😺. Therefore I downloaded the thumbnail into my data layer. At least that is how I see it.
+I wanted to use some Gatsby Image trickery on the thumbnail in our youtube data 💪😺. Therefore I downloaded the thumbnail into my data layer. At least, that is how I see it.
 
-## How did I do it ?
+## How did I do it?
 
-### Short version:
+The short version:
 
 ```js
 // POW!-website plugins / local - source - youtube / gatsby - node.js;
@@ -35,7 +35,7 @@ const imageFile = await createRemoteFileNode({
 });
 ```
 
-And then I use my imageFile inside my node like this.
+And then, I use my image file inside my node like this.
 
 ```js
 createNode({
@@ -43,15 +43,13 @@ createNode({
 });
 ```
 
-### Longer version:
+For the longer version, watch [Sunday's OlaCast on YouTube](https://youtu.be/LQ2DRJbG8FY)
 
-[Sunday's OlaCast on YouTube](https://youtu.be/LQ2DRJbG8FY)
+&nbsp;  
+💪😺👍  
+Keep your skill-building-ship afloat this week!  
+⛵🔧🏴‍☠️
 
-💪😺👍
-
-Keep your skill-builder-ship afloat this week!
-
-🔧⛵🏴‍☠️
-
-Ola Vea
+&nbsp;  
+Ola Vea  
 Cap'n of his own skill-builder-ship
