@@ -66,7 +66,7 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-gatsby-cloud`,
+
     `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
@@ -80,5 +80,6 @@ module.exports = {
         path: path.join(__dirname, "redirects.json"),
       },
     },
+    `gatsby-plugin-gatsby-cloud`,
   ],
 };
