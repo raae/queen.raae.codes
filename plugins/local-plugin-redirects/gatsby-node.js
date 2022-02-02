@@ -1,16 +1,20 @@
-exports.createPages = async ({ actions }, options) => {
+exports.createPages = async (gatsbyUtils, pluginOptions) => {
+  const { actions, reporter } = gatsbyUtils;
   const { createRedirect } = actions;
 
-  if (!options.path) {
+  if (!pluginOptions.path) {
     reporter.panic("Redirects needs a redirects file");
   }
 
-  const redirects = require(options.path);
+  const redirects = require(pluginOptions.path);
 
-  redirects.forEach((redirect) =>
+  redirects.forEach((redirect) => {
     createRedirect({
       fromPath: redirect.fromPath,
       toPath: redirect.toPath,
-    })
-  );
+    });
+    reporter.info(
+      `Redirect created from ${redirect.fromPath} to ${redirect.toPath}`
+    );
+  });
 };
