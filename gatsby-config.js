@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   siteMetadata: {
     url: `https://queen.raae.codes`,
@@ -64,7 +66,7 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-gatsby-cloud`,
+
     `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
@@ -72,5 +74,12 @@ module.exports = {
     `@raae/gatsby-plugin-let-it-snow`,
     "local-plugin-og-images",
     "local-plugin-feed",
+    {
+      resolve: "local-plugin-redirects",
+      options: {
+        path: path.join(__dirname, "redirects.json"),
+      },
+    },
+    `gatsby-plugin-gatsby-cloud`,
   ],
 };
