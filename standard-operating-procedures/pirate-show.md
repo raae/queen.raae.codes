@@ -2,13 +2,53 @@
 title: Pirate Show
 ---
 
-## Useful links
+## Useful links/tips
 
 - [YouTube Studio Live Videos](https://studio.youtube.com/channel/UCDlrzlRdM1vGr8nO708KFmQ/videos/live)
+- Sign in to [streamyard.com](https://streamyard.com/) using `streamyard@lillylabs.no`. It will forward the login code to all emails in the "group". Not getting them, let Benedicte know and she'll add your email.
 
-## Templates
+## Tweet
 
-### Title
+```
+🔔 🏴‍☠️ Stream incoming
+<Thursday/Today> at 19:00 CET 🏴‍☠️ 🔔
+
+<Text about stream>
+
+@OlaHolstVea will be there, will you?
+
+Voyage deets 👇🏻
+```
+
+```
+It will be fun; it will be informal!
+You might even learn a thing or two...
+
+🥛 🍷 🥤 🍺
+
+🗓 Tune in Thursdays
+🕰 at 19:00 (CET)
+📺 on youtube.com/QueenRaae
+
+https://youtu.be/eaZm9MC0GeE
+```
+
+## Go live SOP
+
+1. Go to [streamyard.com](https://streamyard.com/)
+
+TODO: Info about adding Twitter!
+
+## Schedule SOP
+
+1. Go to [streamyard.com](https://streamyard.com/)
+2. Select "Create a broadcast" -> "New broadcast"
+3. Select only "YouTube" under "Broadcast to"
+4. Add title and description per templates below
+
+### Stream templates
+
+#### Title
 
 ```md
 🔴 🏴‍☠️ <title> · #GatsbyJS Deep Dive
@@ -16,7 +56,7 @@ title: Pirate Show
 🔴 🏴‍☠️ Unauthorized and rum-fueled treasure hunt · #GatsbyJS Deep Dive
 ```
 
-### Description
+#### Description
 
 ```md
 # The Crew
