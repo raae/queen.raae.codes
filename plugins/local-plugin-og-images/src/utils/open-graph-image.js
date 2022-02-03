@@ -117,6 +117,7 @@ exports.drawOgImage = async (
   const loadedImage = await loadImage(image || avatar);
   const imgWidth = loadedImage.width;
   const imgHeight = loadedImage.height;
+  const size = Math.min(imgWidth, imgHeight);
 
   ctx.beginPath();
   ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
@@ -127,10 +128,10 @@ exports.drawOgImage = async (
   // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
   ctx.drawImage(
     loadedImage,
-    imgWidth / 2 - imgHeight / 2,
-    0,
-    imgHeight,
-    imgHeight,
+    imgWidth / 2 - size / 2,
+    imgHeight / 2 - size / 2,
+    size,
+    size,
     circleX - radius,
     circleY - radius,
     height,
