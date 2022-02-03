@@ -18,7 +18,7 @@ That's it; it will now be available for anyone anywhere to use 🤯
 If the folder of code you decide to publish is worthy of becoming a package, though, that is another discussion altogether.
 
 &nbsp;  
-All the best,
+All the best,  
 Queen Raae
 
 &nbsp;  
