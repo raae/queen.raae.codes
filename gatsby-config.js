@@ -30,6 +30,10 @@ module.exports = {
       },
     },
     {
+      resolve: "local-source-testimonials",
+      options: {},
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [

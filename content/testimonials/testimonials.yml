@@ -1,0 +1,8 @@
+- url: https://twitter.com/Ash_Hitchcock/status/1471048277747548163?s=20&t=YKN2khQAbqaLSSccqculsw
+  post: "almost forgot thanks to @raae the Gatsby Plugin starter ... made the plugin blazingly fast to write, with full Semantic Release to NPM Raising hands"
+  image: ./gatsby-plugin-starter-ash.png
+  product: gatsby-plugin-starter
+- url: https://twitter.com/GeoffTRoberts/status/1488901196454629377?s=20&t=YKN2khQAbqaLSSccqculsw
+  post: "This happened — @raae crushed it. So excited to have her contribute to Outseta for the first time! If you're interested in integrating @outseta with @reactjs, start here: https://go.outseta.com/support/kb/articles/A93nZlQ0/how-to-integrate-outseta-with-react"
+  image: ./outseta-demo.png
+  product: done-for-you-demo
