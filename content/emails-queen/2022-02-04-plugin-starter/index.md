@@ -1,5 +1,6 @@
 ---
 title: Create your own Gatsby plugin with automated releases
+emojii: 📦 🪄
 ---
 
 In yesterday's unauthorized and rum-fueled [treasure hunt](https://youtu.be/eaZm9MC0GeE) in the sharky waters around the Gatsby islands, we tested the Gatsby Plugin Starter I have been working on.
