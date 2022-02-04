@@ -84,6 +84,13 @@ module.exports = {
         path: path.join(__dirname, "redirects.json"),
       },
     },
+    {
+      resolve: `@raae/gatsby-plugin-fathom`,
+      options: {
+        site: `DIFBAEOT`,
+        includedDomains: `queen.raae.codes`,
+      },
+    },
     `gatsby-plugin-gatsby-cloud`,
   ],
 };
