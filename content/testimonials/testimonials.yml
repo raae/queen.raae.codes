@@ -2,11 +2,19 @@
   post: "almost forgot thanks to @raae the Gatsby Plugin starter ... made the plugin blazingly fast to write, with full Semantic Release to NPM Raising hands"
   image: gatsby-plugin-starter-ash.png
   product: gatsby-plugin-starter
+  date: 2021-12-15
 - url: https://twitter.com/GeoffTRoberts/status/1488901196454629377?s=20&t=YKN2khQAbqaLSSccqculsw
   post: "This happened — @raae crushed it. So excited to have her contribute to Outseta for the first time! If you're interested in integrating @outseta with @reactjs, start here: https://go.outseta.com/support/kb/articles/A93nZlQ0/how-to-integrate-outseta-with-react"
   image: outseta-demo.png
   product: done-for-you-demo
+  date: 2022-02-02
 - url: https://twitter.com/gtchakama/status/1489270833340108805
   post: 👨🏽‍🔧 Thursday are always awesome when I chill with these shipmates to build cool tools with @GatsbyJS.
   image: george-shipmate.png
   product: pirate-show
+  date: 2022-02-03
+- url: https://twitter.com/nmastroianni/status/1489956019371491328
+  post: "For any budding @GatsbyJS developers, @raae makes great videos like this for our benefit: https://youtu.be/Kldx6d5XBSE -with #gratitude"
+  image: neil-tweet.png
+  product: live-stream
+  date: 2022-02-05
