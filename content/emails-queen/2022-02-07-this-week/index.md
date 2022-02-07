@@ -26,6 +26,7 @@ JSWorld postponed their conference until June but is giving us a free [online co
 ## Other events
 
 - [JSWorld Online Conference](https://jsworldconference.com/free)&nbsp;—&nbsp;Wednesday, February 9th - Friday, February 11th
+- [Modeling Application Logic Visually (cfe.dev)](https://cfe.dev/events/modeling-app-logic-visually/)&nbsp;—&nbsp;Thursday, February 10th @&nbsp;19:00&nbsp;CET
 
 &nbsp;  
 All the best,  
