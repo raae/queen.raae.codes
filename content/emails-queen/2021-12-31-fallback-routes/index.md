@@ -1,5 +1,5 @@
 ---
-title: Server rendered fallback routes
+title: Server Side Rendered (SSR) fallback routes with Gatsby
 emojii: 🎇 ∞
 ---
 
@@ -17,7 +17,7 @@ In Mirjam's case with Conference Buddy there will be a period between a user sub
 
 In that interim time, we can rely on fallback routes using either CSR (Client Side Rendering) or SSR (Server Side Rendering).
 
-I was not sure if SSR would be allowed, so I spun up a contrived demo using SSG (Static Site Generation) for sourced YouTube videos and SSR for non-sourced YouTube videos.
+I was not sure if SSR fallback route would be allowed, so I spun up a contrived demo using SSG (Static Site Generation) for sourced YouTube videos and SSR for non-sourced YouTube videos.
 
 The Gatsby docs does not mention SSR for fallback routes, but it builds and serves locally on my machine. However I must admit I have not yet tested deployment...
 
