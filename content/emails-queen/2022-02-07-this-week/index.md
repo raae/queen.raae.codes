@@ -20,8 +20,8 @@ JSWorld postponed their conference until June but is giving us a free [online co
 
 ## Our streaming schedule this week
 
-- [🔴 🏴‍☠️ Unauthorized and rum-fueled treasure hunt · #GatsbyJS Deep Dive](https://youtu.be/sj3YuX_TpVk)&nbsp;—&nbsp;Thursday, February 10th @&nbsp;19:00&nbsp;CET
-- [🔴⛵ TBD - Time might change · #OlaCast · Sunday #16](https://youtu.be/rPiQi_bOk8s)&nbsp;—&nbsp;Sunday, February 13th
+- [🔴 🏴‍☠️ Add tests to your Gatsby Plugin · #GatsbyJS Deep Dive](https://youtu.be/sj3YuX_TpVk)&nbsp;—&nbsp;Thursday, February 10th @&nbsp;19:00&nbsp;CET
+- [🔴⛵ 🔴⛵ Markdown marketing pages for POW! · #OlaCast · Sunday #16](https://youtu.be/rPiQi_bOk8s)&nbsp;—&nbsp;Sunday, February 13th @&nbsp;11:00&nbsp;CET
 
 ## Other events
 
