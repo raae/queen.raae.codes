@@ -1,5 +1,5 @@
 ---
-title: Ola adds a sslug field to his homemade markdown node
+title: Ola adds a slug field to his homemade markdown node
 ---
 
 ## My Sunday Skill Builder Session:
@@ -12,9 +12,10 @@ I added a slug field to my homemade markdown node with createNodeField from the 
 
 ## Why did I do it?
 
-I need that slug to add support for a basic content section so I can create Markdown marketing pages with sections for Queen @raae's usepow.app
+I need that slug to add support for a basic content section to create Markdown marketing pages with sections for Queen @raae's usepow.app
 
-## How did I do it ?
+## How did I do it?
+
 ### Short version:
 
 ```js
@@ -55,6 +56,7 @@ async function slugifyMarkdownRemarkNode({ actions, node, getNode }) {          
   }
 };
 ```
+
 If you can guess what one of the emojis mean, reply to this email 😺👍
 
 ### Longer version:
