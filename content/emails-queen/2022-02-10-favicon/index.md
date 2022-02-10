@@ -30,4 +30,4 @@ All the best,
 Queen Raae
 
 &nbsp;  
-**PS:** Learn how to add test to your plugins on[tonight's unauthorized and rum-fueled treasure hunt](https://youtu.be/sj3YuX_TpVk) in the sharky waters around the Gatsby islands, and contribute a test or two to the favicon plugin if you'd like.
+**PS:** Learn how to add test to your plugins on [tonight's unauthorized and rum-fueled treasure hunt](https://youtu.be/sj3YuX_TpVk) in the sharky waters around the Gatsby islands, and contribute a test or two to the favicon plugin if you'd like.
