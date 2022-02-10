@@ -36,8 +36,7 @@ You might even learn a thing or two...
 ## Go live SOP
 
 1. Go to [streamyard.com](https://streamyard.com/)
-
-TODO: Info about adding Twitter!
+2. Make sure Tweet is enabled and correct
 
 ## Schedule SOP
 
@@ -45,6 +44,9 @@ TODO: Info about adding Twitter!
 2. Select "Create a broadcast" -> "New broadcast"
 3. Select only "YouTube" under "Broadcast to"
 4. Add title and description per templates below
+5. Create Tweet (if not TBD title) by adding
+   - `[LIVE NOW]` after emojis
+   - `➽ Better quality and conversation on YouTube <YT link/>` to the end
 
 ### Stream templates
 
