@@ -28,9 +28,9 @@ You might even learn a thing or two...
 
 🗓 Tune in Thursdays
 🕰 at 19:00 (CET)
-📺 on youtube.com/QueenRaae
+📺 on Queen Raae's YouTube
 
-https://youtu.be/eaZm9MC0GeE
+<YouTube Link>
 ```
 
 ## Go live SOP
