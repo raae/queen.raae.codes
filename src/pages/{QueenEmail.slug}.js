@@ -1,11 +1,13 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Seo from "../components/seo";
 import NewsletterForm from "../components/newsletter";
 import MainMenu from "../content/main-menu";
 import SocialLinks from "../content/social-links";
+
+const IS_PROD = process.env.NODE_ENV === "production";
 
 const QueenEmail = ({ data, ...props }) => {
   const {
@@ -32,6 +34,12 @@ const QueenEmail = ({ data, ...props }) => {
         }}
       />
       <main>
+        {!IS_PROD && (
+          <section>
+            <GatsbyImage image={ogGatsbyImage} />
+          </section>
+        )}
+
         <header>
           <h1>{title}</h1>
           <small>
@@ -81,7 +89,7 @@ export const query = graphql`
       }
       ogImage {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(formats: NO_CHANGE)
         }
       }
     }
