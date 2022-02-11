@@ -1,5 +1,5 @@
 ---
-title: Add tests your Gatsby Plugin
+title: Add tests to your Gatsby Plugin project
 emojii: ✅ 🧪
 ---
 
