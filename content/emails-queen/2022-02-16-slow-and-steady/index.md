@@ -1,7 +1,9 @@
 ---
-title: Did you know I co-host a podcast?
+title: Behind the scenes of this Queen business and POW!
 emoji: 🎧 🎙
 ---
+
+Did you know I co-host a podcast?
 
 Last summer, I was interviewed by Benedikt of Userlist on my live streaming shenanigans for his and Brian's podcast Slow&Steady.
 
