@@ -53,11 +53,7 @@ module.exports = {
                     }
                     excerpt
                       html
-                      ogImage {
-                        childImageSharp {
-                          gatsbyImageData
-                        }
-                      }
+                      ogImage
                       frontmatter {
                         title
                         emojii
@@ -104,11 +100,7 @@ module.exports = {
                     }
                     excerpt
                     html
-                    ogImage {
-                      childImageSharp {
-                        gatsbyImageData
-                      }
-                    }
+                    ogImage
                     frontmatter {
                       title
                       emojii

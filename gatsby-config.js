@@ -77,6 +77,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `@raae/gatsby-plugin-let-it-snow`,
     "local-plugin-og-images",
+    {
+      resolve: "local-plugin-og-images",
+      options: {
+        publicPath: path.join(__dirname, "./public"),
+      },
+    },
     "local-plugin-feed",
     {
       resolve: "local-plugin-redirects",

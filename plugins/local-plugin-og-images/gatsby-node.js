@@ -1,17 +1,17 @@
 const path = require(`path`);
 const remark = require("remark");
 const visit = require("unist-util-visit");
-const { createFileNodeFromBuffer } = require(`gatsby-source-filesystem`);
+const fs = require("fs");
+const { createHash } = require("crypto");
+
 const { createImageBuffer } = require("./src/utils/open-graph-image");
 
-exports.createResolvers = async ({
-  actions,
-  createNodeId,
-  createResolvers,
-  getCache,
-  reporter,
-}) => {
-  const { createNode } = actions;
+exports.createResolvers = async (
+  { createResolvers, reporter },
+  pluginOptions
+) => {
+  const { publicPath } = pluginOptions || {};
+
   createResolvers({
     MarkdownRemark: {
       ogImageAlt: {
@@ -21,7 +21,7 @@ exports.createResolvers = async ({
         },
       },
       ogImage: {
-        type: `File`,
+        type: "String",
         async resolve(source, args, context, info) {
           if (source.internal.type === "MarkdownRemark") {
             const parentNode = context.nodeModel.getNodeById({
@@ -49,18 +49,23 @@ exports.createResolvers = async ({
                 width: 1200,
               });
 
-              if (imageBuffer) {
-                reporter.info("Open Graph Image generated for " + title);
-                const fileNode = await createFileNodeFromBuffer({
-                  buffer: imageBuffer,
-                  parentNodeId: source.id,
-                  name: `ogImage`,
-                  getCache,
-                  createNode,
-                  createNodeId,
-                });
-                return fileNode;
+              reporter.info("Open Graph Image generated for " + title);
+
+              const hash = createHash("sha256");
+              const digest = hash.update(imageBuffer).digest("hex");
+              const filename = digest + ".png";
+              const outputDirectory = path.join(publicPath, "ogImage");
+              const fileOutput = path.join(publicPath, "ogImage", filename);
+
+              console.log(fileOutput);
+
+              if (!fs.existsSync(outputDirectory)) {
+                fs.mkdirSync(outputDirectory);
               }
+
+              fs.writeFileSync(fileOutput, imageBuffer);
+
+              return "/ogImage/" + filename;
             }
           }
         },
