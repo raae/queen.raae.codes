@@ -5,8 +5,7 @@ module.exports = (node, site, options) => {
     frontmatter: { title, description, emojii },
     html,
     excerpt,
-    ogImage,
-    parent: { date, slug },
+    parent: { date, slug, ogImage },
   } = node;
   const ogGatsbyImage = getImage(ogImage);
   const titleEmojii = emojii || options.emojii;

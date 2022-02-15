@@ -28,8 +28,8 @@ exports.onCreateNode = async (
     const type = node.sourceInstanceName;
 
     createNode({
-      ...node,
       id: createNodeId(`${node.id} >>> ${type}`),
+      dir: node.dir,
       slug: slug,
       parent: node.id,
       internal: {

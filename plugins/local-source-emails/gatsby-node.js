@@ -22,7 +22,7 @@ exports.onCreateNode = async (
     node.internal.mediaType === "text/markdown"
   ) {
     if (!isString(options.basePath)) {
-      reporter.panic("Landing pages need a base path");
+      reporter.panic("Email pages need a base path");
     }
 
     const slug = options.basePath + createFilePath({ node, getNode });
@@ -37,11 +37,10 @@ exports.onCreateNode = async (
 
     if (date <= CUT_OFF) {
       createNode({
-        ...node,
         id: createNodeId(`${node.id} >>> ${type}`),
+        dir: node.dir,
         slug: slug,
         date: date,
-        parent: node.id,
         internal: {
           content: content,
           mediaType: node.internal.mediaType,

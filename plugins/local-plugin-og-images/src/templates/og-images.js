@@ -9,7 +9,7 @@ const OpenGraphImagesPage = () => {
         filter: { original: { src: { regex: "/ogImage/g" } } }
       ) {
         nodes {
-          gatsbyImageData
+          gatsbyImageData(formats: NO_CHANGE)
         }
       }
     }
@@ -21,10 +21,10 @@ const OpenGraphImagesPage = () => {
         <h1>Open Graph Image Demo Page</h1>
       </header>
       <div>
-        {data.allOpenGraphImages.nodes.map((node, i) => {
-          const image = getImage(node);
-          console.log(image);
-          return <img src={image.images.fallback.src} alt="Open Graph Image" />;
+        {data.allOpenGraphImages.nodes.map((node) => {
+          const gatsbyImage = getImage(node);
+          const src = gatsbyImage.images.fallback.src;
+          return <img src={src} key={src} alt="Open Graph" />;
         })}
       </div>
     </main>

@@ -3,14 +3,16 @@ const remark = require("remark");
 const visit = require("unist-util-visit");
 const { createFileNodeFromBuffer } = require(`gatsby-source-filesystem`);
 const { createImageBuffer } = require("./src/utils/open-graph-image");
+const { reporter } = require("gatsby-cli/lib/reporter/reporter");
 
 const IS_PROD = process.env.NODE_ENV === "production";
 
-exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
   createTypes(`
-    type MarkdownRemark implements Node {
-      ogImage: File @link(from: "fields.ogImage")
-      ogImageAlt: String @link(from: "fields.ogImageAlt")
+    type QueenEmail implements Node {
+      ogImage: File @link(from: "fields.ogImageId")
     }
   `);
 };
@@ -24,37 +26,49 @@ exports.onCreateNode = async ({
 }) => {
   if (node.internal.type === "MarkdownRemark") {
     const parentNode = getNode(node.parent);
+
     if (parentNode.internal.type === "QueenEmail") {
       const {
         frontmatter: { title, description, image },
         rawMarkdownBody,
       } = node;
+
+      // Hack: excerpt
       let plaintext = "";
       const tree = remark().parse(rawMarkdownBody);
       visit(tree, "text", (node) => {
         plaintext += node.value;
       });
-      const imageBuffer = await createImageBuffer({
-        title,
-        image: image && path.resolve(parentNode.absolutePath, "..", image),
-        description: description || plaintext,
-        height: 628,
-        width: 1200,
-      });
-      if (imageBuffer) {
+
+      try {
+        const imageBuffer = await createImageBuffer({
+          title,
+          image: image && path.resolve(parentNode.dir, image),
+          description: description || plaintext,
+          height: 628,
+          width: 1200,
+        });
+
         const fileNode = await createFileNodeFromBuffer({
           buffer: imageBuffer,
-          parentNodeId: node.id,
+          parentNodeId: parentNode.id,
           name: `ogImage`,
           getCache,
           createNode,
           createNodeId,
         });
+
         createNodeField({
-          name: "ogImage",
-          node,
+          node: parentNode,
+          name: "ogImageId",
           value: fileNode.id,
         });
+
+        reporter.info(`Open Graph Image generated for: ${title}`);
+      } catch (error) {
+        reporter.warn(
+          `Open Graph Image not generated for ${title}: ${error.message}`
+        );
       }
     }
   }
@@ -70,28 +84,5 @@ exports.createPages = ({ actions: { createPage } }) => {
     // Path for this page — required
     path: `open-graph-images`,
     component: imagesTemplate,
-  });
-};
-
-exports.createResolvers = ({
-  actions,
-  cache,
-  createNodeId,
-  createResolvers,
-  store,
-  reporter,
-}) => {
-  const { createNode } = actions;
-  createResolvers({
-    QueenEmail: {
-      imageFile: {
-        type: `String`,
-        resolve(source, args) {
-          console.log({ source, args });
-
-          return "test";
-        },
-      },
-    },
   });
 };
