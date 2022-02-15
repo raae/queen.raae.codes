@@ -49,15 +49,15 @@ module.exports = {
                       ... on QueenEmail {
                         date
                         slug
+                        ogImage {
+                          childImageSharp {
+                            gatsbyImageData(formats: NO_CHANGE)
+                          }
+                        }
                       }
                     }
                     excerpt
                       html
-                      ogImage {
-                        childImageSharp {
-                          gatsbyImageData
-                        }
-                      }
                       frontmatter {
                         title
                         emojii
@@ -100,15 +100,15 @@ module.exports = {
                       ... on QueenEmail {
                         date
                         slug
+                        ogImage {
+                          childImageSharp {
+                            gatsbyImageData(formats: NO_CHANGE)
+                          }
+                        }
                       }
                     }
                     excerpt
                     html
-                    ogImage {
-                      childImageSharp {
-                        gatsbyImageData
-                      }
-                    }
                     frontmatter {
                       title
                       emojii
