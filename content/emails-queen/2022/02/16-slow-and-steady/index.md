@@ -1,6 +1,6 @@
 ---
 title: Behind the scenes of Queen Raae and POW!
-description: Did you know I co-host a podcast? Slow&Steady where you get to follow along as we build products in public.
+description: Did you know I co-host a podcast? Slow&Steady, where you get to follow along as we build products in public.
 image: ./og.jpg
 emojii: 🎧 🎙
 ---
