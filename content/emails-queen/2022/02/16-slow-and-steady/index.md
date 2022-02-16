@@ -1,6 +1,7 @@
 ---
 title: Behind the scenes of Queen Raae and POW!
 description: Did you know I co-host a podcast? Slow&Steady where you get to follow along as we build products in public.
+image: ./og.jpg
 emojii: 🎧 🎙
 ---
 
@@ -9,6 +10,8 @@ Did you know I co-host a podcast?
 Last summer, I was interviewed by Benedikt of Userlist on my live streaming shenanigans for his and Brian's podcast Slow&Steady.
 
 A podcast all about building products in public!
+
+![Benedicte and Benedikt recording](recording.jpg)
 
 Long story short, a few episodes later, I became a co-host.
 
@@ -21,6 +24,8 @@ Once a month-ish, you also get to hear from other product folks we admire. Janua
 - My first episode as a guest all about [live streaming](https://www.slowandsteadypodcast.com/episodes/live-streaming-with-benedicte-raae)
 - Get to know our backstories on episode [🥳 100! 🥳](https://www.slowandsteadypodcast.com/episodes/100)
 - [The Interview](https://www.slowandsteadypodcast.com/episodes/newsletter-glue-with-lesley) with our first guest of the year, Lesley
+
+[![Slow&Steady logo](brand.png)](https://www.slowandsteadypodcast.com)
 
 &nbsp;  
 All the best,  
