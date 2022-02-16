@@ -50,10 +50,10 @@ exports.onCreateNode = async (
           },
         });
 
-        reporter.info(`Created email node for ${filePath} at ${slug}`);
+        reporter.info(`${type} created for ${filePath} at ${slug} `);
       }
     } catch (error) {
-      reporter.warn(`Error creating node for ${filePath}: ${error.message}`);
+      reporter.warn(`${type} for ${filePath} failed: ${error.message}`);
     }
   }
 
