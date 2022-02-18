@@ -73,16 +73,3 @@ exports.onCreateNode = async ({
     }
   }
 };
-
-exports.createPages = ({ actions: { createPage } }) => {
-  // Only create demo page when not in production
-  if (IS_PROD) return;
-
-  const imagesTemplate = path.resolve(__dirname, `src/templates/og-images.js`);
-
-  createPage({
-    // Path for this page — required
-    path: `open-graph-images`,
-    component: imagesTemplate,
-  });
-};
