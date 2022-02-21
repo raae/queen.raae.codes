@@ -1,9 +1,36 @@
-const { isString } = require("lodash");
 const { createFilePath } = require("gatsby-source-filesystem");
 
 const NOW = new Date().toISOString().substring(0, 10);
 const FAR_FUTURE = "2300-01-01";
 const CUT_OFF = process.env.NODE_ENV === "development" ? FAR_FUTURE : NOW;
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  const typeDefs = `
+    interface Email implements Node {
+      id: ID!
+      slug: String
+      date: Date @dateformat
+      childMarkdownRemark: MarkdownRemark @link
+    }
+
+    type QueenEmail implements Node & Email {
+      slug: String
+      date: Date @dateformat
+      childMarkdownRemark: MarkdownRemark @link
+      ogImage: File @link(from: "fields.ogImage")
+    }
+
+    type OlaVeaEmail implements Node & Email {
+      slug: String
+      date: Date @dateformat
+      childMarkdownRemark: MarkdownRemark @link
+    }
+  `;
+
+  createTypes(typeDefs);
+};
 
 exports.onCreateNode = async (
   {
@@ -11,58 +38,53 @@ exports.onCreateNode = async (
     actions: { createNode, createNodeField },
     createNodeId,
     getNode,
-    loadNodeContent,
     reporter,
   },
   options
 ) => {
-  if (
-    node.internal.type === "File" &&
-    node.sourceInstanceName.includes("Email") &&
-    node.internal.mediaType === "text/markdown"
-  ) {
-    if (!isString(options.basePath)) {
-      reporter.panic("Email pages need a base path");
-    }
+  if (node.internal.type === "MarkdownRemark") {
+    const markdownNode = node;
+    const fileNode = getNode(node.parent);
+    const type = fileNode?.sourceInstanceName || "";
 
-    const filePath = createFilePath({ node, getNode });
-    const content = await loadNodeContent(node);
-    const type = node.sourceInstanceName;
+    if (type.includes("Email")) {
+      const filePath = createFilePath({ node: fileNode, getNode });
 
-    const pattern = /((\d{4})\/(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01]))-(.*)/;
-    const dateSearch = pattern.exec(node.relativeDirectory);
+      const pattern =
+        /((\d{4})\/(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01]))-(.*)/;
+      const dateSearch = pattern.exec(fileNode.relativeDirectory);
 
-    try {
-      const dateString = `${dateSearch[2]}-${dateSearch[3]}-${dateSearch[4]}`;
-      const slug = `${options.basePath}/${dateString}-${dateSearch[5]}/`;
+      try {
+        const emailId = createNodeId(`${markdownNode.id} >>> ${type}`);
+        const dateString = `${dateSearch[2]}-${dateSearch[3]}-${dateSearch[4]}`;
+        const slug = `${options.basePath}/${dateString}-${dateSearch[5]}/`;
 
-      if (dateString <= CUT_OFF) {
-        createNode({
-          id: createNodeId(`${node.id} >>> ${type}`),
-          dir: node.dir,
-          slug: slug,
-          date: dateString,
-          internal: {
-            content: content,
-            mediaType: node.internal.mediaType,
-            contentDigest: node.internal.contentDigest,
-            type: type,
-          },
+        createNodeField({
+          name: "date",
+          node: markdownNode,
+          value: dateString,
         });
 
-        reporter.info(`${type} created for ${filePath} at ${slug} `);
-      }
-    } catch (error) {
-      reporter.warn(`${type} for ${filePath} failed: ${error.message}`);
-    }
-  }
+        if (dateString <= CUT_OFF) {
+          createNode({
+            id: emailId,
+            slug: slug,
+            date: dateString,
+            parent: fileNode.id,
+            childMarkdownRemark: markdownNode.id,
+            internal: {
+              contentDigest: markdownNode.internal.contentDigest,
+              type: type,
+            },
+          });
 
-  if (node.internal.type === "MarkdownRemark") {
-    const fileNode = getNode(node.parent);
-    createNodeField({
-      name: "date",
-      node,
-      value: fileNode.date,
-    });
+          reporter.info(`${type} created for ${filePath} at ${slug} `);
+        } else {
+          reporter.warn(`${type} for ${filePath} is in the far future `);
+        }
+      } catch (error) {
+        reporter.error(`${type} for ${filePath} failed: ${error.message}`);
+      }
+    }
   }
 };

@@ -33,36 +33,33 @@ module.exports = {
                 site_url: siteMetadata.url + "/emails",
               };
             },
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map((node) =>
+            serialize: ({ query: { site, allEmail } }) => {
+              return allEmail.nodes.map((node) =>
                 serializeFeed(node, site, { emojii: "⛵ 🔧" })
               );
             },
             query: `
               {
-                allMarkdownRemark(
-                  filter: {parent: {internal: {type: {glob: "*Email"}}}}
-                  sort: {fields: fields___date, order: DESC}
-                ) {
+                allEmail(sort: {order: DESC, fields: slug}) {
                   nodes {
-                    parent {
-                      ... on QueenEmail {
-                        date
-                        slug
-                        ogImage {
-                          childImageSharp {
-                            gatsbyImageData(formats: NO_CHANGE)
-                          }
-                        }
-                      }
-                    }
-                    excerpt
+                    date
+                    slug
+                    childMarkdownRemark {
+                      excerpt
                       html
                       frontmatter {
                         title
                         emojii
                         description
                       }
+                    }
+                    ... on QueenEmail {
+                      ogImage {
+                        childImageSharp {
+                          gatsbyImageData
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -84,35 +81,28 @@ module.exports = {
                 site_url: siteMetadata.url + "/emails",
               };
             },
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map((node) =>
-                serializeFeed(node, site)
-              );
+            serialize: ({ query: { site, allEmail } }) => {
+              return allEmail.nodes.map((node) => serializeFeed(node, site));
             },
             query: `
               {
-                allMarkdownRemark(
-                  filter: {parent: {internal: {type: {eq: "QueenEmail"}}}},
-                  sort: {fields: fields___date, order: DESC}
-                ) {
+                allEmail: allQueenEmail(sort: {order: DESC, fields: slug}) {
                   nodes {
-                    parent {
-                      ... on QueenEmail {
-                        date
-                        slug
-                        ogImage {
-                          childImageSharp {
-                            gatsbyImageData(formats: NO_CHANGE)
-                          }
-                        }
+                    slug
+                    date
+                    childMarkdownRemark {
+                      excerpt
+                      html
+                      frontmatter {
+                        title
+                        emojii
+                        description
                       }
                     }
-                    excerpt
-                    html
-                    frontmatter {
-                      title
-                      emojii
-                      description
+                    ogImage {
+                      childImageSharp {
+                        gatsbyImageData
+                      }
                     }
                   }
                 }
@@ -135,31 +125,26 @@ module.exports = {
                 site_url: siteMetadata.url + "/emails/olavea",
               };
             },
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map((node) =>
+            serialize: ({ query: { site, allEmail } }) => {
+              return allEmail.nodes.map((node) =>
                 serializeFeed(node, site, { emojii: "⛵ 🔧" })
               );
             },
             query: `
               {
-                allMarkdownRemark(
-                  filter: {parent: {internal: {type: {eq: "OlaVeaEmail"}}}},
-                  sort: {fields: fields___date, order: DESC}
-                ) {
+                allEmail: allOlaVeaEmail(sort: {order: DESC, fields: slug}) {
                   nodes {
-                    parent {
-                      ... on OlaVeaEmail {
-                        date
-                        slug
-                      }
-                    }
-                    excerpt
+                    slug
+                    date
+                    childMarkdownRemark {
+                      excerpt
                       html
                       frontmatter {
                         title
                         emojii
                         description
                       }
+                    }
                   }
                 }
               }
