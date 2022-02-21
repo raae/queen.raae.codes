@@ -10,12 +10,12 @@ import SocialLinks from "../content/social-links";
 const IS_PROD = process.env.NODE_ENV === "production";
 
 const QueenEmail = ({ data, ...props }) => {
+  const { date, ogImage, childMarkdownRemark } = data.email;
   const {
     frontmatter: { title, description },
     html,
     excerpt,
-    parent: { date, ogImage },
-  } = data.markdownRemark;
+  } = childMarkdownRemark;
 
   const ogGatsbyImage = getImage(ogImage);
   const ogImageSrc = ogGatsbyImage?.images?.fallback?.src;
@@ -74,22 +74,20 @@ export default QueenEmail;
 
 export const query = graphql`
   query QueenEmailById($id: String!) {
-    markdownRemark(parent: { id: { eq: $id } }) {
-      parent {
-        ... on QueenEmail {
-          date(formatString: "MMMM Do, YYYY")
-          ogImage {
-            childImageSharp {
-              gatsbyImageData(formats: NO_CHANGE)
-            }
-          }
+    email: queenEmail(id: { eq: $id }) {
+      ogImage {
+        childImageSharp {
+          gatsbyImageData(formats: NO_CHANGE)
         }
       }
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        description
+      date(formatString: "MMMM Do, YYYY")
+      childMarkdownRemark {
+        excerpt(pruneLength: 160)
+        html
+        frontmatter {
+          title
+          description
+        }
       }
     }
   }

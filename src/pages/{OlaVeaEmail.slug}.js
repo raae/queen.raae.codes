@@ -7,12 +7,12 @@ import MainMenu from "../content/main-menu";
 import SocialLinks from "../content/social-links";
 
 const OlaVeaEmail = ({ data, ...props }) => {
+  const { date, childMarkdownRemark } = data.email;
   const {
     frontmatter: { title, description },
     html,
     excerpt,
-    parent: { date },
-  } = data.markdownRemark;
+  } = childMarkdownRemark;
 
   const body = `<p>Ship Ahoy Skill Builder! </p>` + html;
 
@@ -60,18 +60,16 @@ const OlaVeaEmail = ({ data, ...props }) => {
 export default OlaVeaEmail;
 
 export const query = graphql`
-  query MarkdownByOlaVeaEmailId($id: String!) {
-    markdownRemark(parent: { id: { eq: $id } }) {
-      parent {
-        ... on OlaVeaEmail {
-          date(formatString: "MMMM Do, YYYY")
+  query OlaVeaEmailById($id: String!) {
+    email: olaVeaEmail(id: { eq: $id }) {
+      date(formatString: "MMMM Do, YYYY")
+      childMarkdownRemark {
+        excerpt(pruneLength: 160)
+        html
+        frontmatter {
+          title
+          description
         }
-      }
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        description
       }
     }
   }
