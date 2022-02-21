@@ -70,6 +70,7 @@ exports.onCreateNode = async (
             id: emailId,
             slug: slug,
             date: dateString,
+            parent: fileNode.id,
             childMarkdownRemark: markdownNode.id,
             internal: {
               contentDigest: markdownNode.internal.contentDigest,
