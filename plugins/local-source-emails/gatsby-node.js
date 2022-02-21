@@ -7,17 +7,28 @@ const CUT_OFF = process.env.NODE_ENV === "development" ? FAR_FUTURE : NOW;
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
-  createTypes(`
-    type QueenEmail implements Node {
+  const typeDefs = `
+    interface Email implements Node {
+      id: ID!
+      slug: String
+      date: Date @dateformat
       childMarkdownRemark: MarkdownRemark @link
     }
-  `);
 
-  createTypes(`
-    type OlaVeaEmail implements Node {
+    type QueenEmail implements Node & Email {
+      slug: String
+      date: Date @dateformat
       childMarkdownRemark: MarkdownRemark @link
     }
-  `);
+
+    type OlaVeaEmail implements Node & Email {
+      slug: String
+      date: Date @dateformat
+      childMarkdownRemark: MarkdownRemark @link
+    }
+  `;
+
+  createTypes(typeDefs);
 };
 
 exports.onCreateNode = async (
