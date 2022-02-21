@@ -14,19 +14,12 @@ const Emails = ({ data, ...props }) => {
       <main>
         <header>
           <h1>
-            Emails from{" "}
-            <span>
-              yours truly{" "}
-              <span role="img" aria-label="Envelope with heart">
-                💌
-              </span>
-            </span>
+            💌&nbsp;&nbsp;&nbsp;Queen Raae's Daily List&nbsp;&nbsp;&nbsp;💌
           </h1>
         </header>
 
-        <section>
-          <NewsletterSection />
-        </section>
+        <NewsletterSection />
+
         <section>
           <ul>
             {data.allEmail.nodes.map(
@@ -34,11 +27,13 @@ const Emails = ({ data, ...props }) => {
                 date,
                 slug,
                 childMarkdownRemark: {
-                  frontmatter: { title },
+                  frontmatter: { title, emojii },
                 },
               }) => (
                 <li key={slug}>
-                  <small>{date}</small>
+                  <small>
+                    {emojii || "⛵ 🔧"}&nbsp;&nbsp;{date}
+                  </small>
                   <br />
                   <Link to={slug}>{title}</Link>
                 </li>
@@ -59,11 +54,12 @@ const Emails = ({ data, ...props }) => {
 
 export const query = graphql`
   {
-    allEmail: allQueenEmail(sort: { order: DESC, fields: date }) {
+    allEmail(sort: { order: DESC, fields: slug }) {
       nodes {
         childMarkdownRemark {
           frontmatter {
             title
+            emojii
           }
         }
         slug

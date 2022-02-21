@@ -2,9 +2,9 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 
 import Seo from "../components/seo";
-import NewsletterForm from "../components/newsletter";
 import MainMenu from "../content/main-menu";
 import SocialLinks from "../content/social-links";
+import NewsletterSection from "../content/newsletter-section";
 
 const OlaVeaEmail = ({ data, ...props }) => {
   const { date, childMarkdownRemark } = data.email;
@@ -29,25 +29,16 @@ const OlaVeaEmail = ({ data, ...props }) => {
         <header>
           <h1>{title}</h1>
           <small>
-            An <Link to="/emails/olavea/">email</Link> sent by{" "}
-            <Link to="/emails/olavea/">Gatsby Piraty Captain</Link> on {date}
+            An <Link to="/emails/">email</Link> sent by{" "}
+            <strong>Cap'n Ola</strong> on {date}
           </small>
         </header>
 
         <div dangerouslySetInnerHTML={{ __html: body }} />
-
-        <section>
-          <NewsletterForm formKey="olavea" cta="Subscribe">
-            <p>
-              I send emails like this one to keep up with my{" "}
-              <strong>Gatsby Skillbuilding</strong> once a week. Sign up to get
-              them delivered to your inbox.
-            </p>
-          </NewsletterForm>
-        </section>
       </main>
 
       <footer>
+        <NewsletterSection />
         <nav>
           <MainMenu />
           <SocialLinks />

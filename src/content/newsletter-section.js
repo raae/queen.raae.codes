@@ -1,16 +1,17 @@
 import React from "react";
 import NewsletterForm from "../components/newsletter";
 
-const NewsletterSection = () => {
+const NewsletterSection = ({ children }) => {
   return (
     <section>
-      <NewsletterForm cta="Stay updated">
+      <NewsletterForm cta="Yes please!">
         <p>
-          Stay updated on plugins, bootcamps, streams etc. to{" "}
-          <strong>help you get the most out of Gatsby</strong> by signing up for
-          emails from yours&nbsp;truly.
+          <strong>Serious about Gatsby?</strong> Sign up for emails from Queen
+          Raae (and Cap'n Ola) sent every weekday to help you get the most out
+          of Gatsby!
         </p>
       </NewsletterForm>
+      {children}
     </section>
   );
 };

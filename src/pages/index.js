@@ -17,33 +17,34 @@ const IndexPage = ({ data, ...props }) => {
       <main>
         <HomeHeader />
 
-        <EventsSection />
-
-        <AboutSection />
-
-        <section>
-          <h2>
-            <Link to="/emails">Emails from yours truly 💌</Link>
-          </h2>
-
+        <NewsletterSection>
           <ul>
             {data.allEmail.nodes.map(
               ({
                 date,
                 slug,
                 childMarkdownRemark: {
-                  frontmatter: { title },
+                  frontmatter: { title, emojii },
                 },
               }) => (
                 <li key={slug}>
-                  <small>{date}</small>
+                  <small>
+                    {emojii || "⛵ 🔧"}&nbsp;&nbsp;{date}
+                  </small>
                   <br />
                   <Link to={slug}>{title}</Link>
                 </li>
               )
             )}
           </ul>
-        </section>
+          <h4>
+            <Link to="/emails/">💌&nbsp;&nbsp;all emails</Link>
+          </h4>
+        </NewsletterSection>
+
+        <EventsSection />
+
+        <AboutSection />
       </main>
       <footer>
         <NewsletterSection />
@@ -58,11 +59,12 @@ const IndexPage = ({ data, ...props }) => {
 
 export const query = graphql`
   {
-    allEmail: allQueenEmail(sort: { order: DESC, fields: date }, limit: 5) {
+    allEmail(sort: { order: DESC, fields: date }, limit: 5) {
       nodes {
         childMarkdownRemark {
           frontmatter {
             title
+            emojii
           }
         }
         slug
