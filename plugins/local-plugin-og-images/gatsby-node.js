@@ -5,16 +5,6 @@ const { createFileNodeFromBuffer } = require(`gatsby-source-filesystem`);
 const { createImageBuffer } = require("./src/utils/open-graph-image");
 const { reporter } = require("gatsby-cli/lib/reporter/reporter");
 
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
-
-  createTypes(`
-    type QueenEmail implements Node {
-      ogImage: File @link(from: "fields.ogImage")
-    }
-  `);
-};
-
 exports.onCreateNode = async ({
   node,
   actions: { createNode, createNodeField },

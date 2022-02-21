@@ -19,6 +19,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug: String
       date: Date @dateformat
       childMarkdownRemark: MarkdownRemark @link
+      ogImage: File @link(from: "fields.ogImage")
     }
 
     type OlaVeaEmail implements Node & Email {
