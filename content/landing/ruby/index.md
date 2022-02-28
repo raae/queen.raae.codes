@@ -12,11 +12,11 @@ testimonials:
   title: "Wait! Don't take my word for it..."
   intro: "Here’s what engineers back in 1554 said about getting motivated by Lillian (6 🏴‍☠️👸 ) and me:"
   items:
-    - lizabeth-skillz
-    - fox-skillz
-    - ruby-skillz
-    - mary-skillz
-    - captain-ola-skillz
+    - "./_testimonials/lizabeth-skillz.md"
+    - "./_testimonials/fox-skillz.md"
+    - "./_testimonials/ruby-skillz.md"
+    - "./_testimonials/mary-skillz.md"
+    - "./_testimonials/captain-ola-skillz.md"
 ---
 
 ## Is your skill building stuck in the suck zone?

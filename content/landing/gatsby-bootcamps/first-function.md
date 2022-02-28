@@ -19,8 +19,8 @@ bootcamp:
 testimonials:
   title: Wait! Don't take my word for it...
   items:
-    - ineza-summer
-    - aremu-summer
+    - "./_testimonials/ineza-summer.md"
+    - "./_testimonials/aremu-summer.md"
 faq:
   title: FAQ
   items:

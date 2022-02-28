@@ -11,8 +11,8 @@ bootcamp:
 testimonials:
   title: Wait! Don't take my word for it...
   items:
-    - aremu-summer
-    - ineza-summer
+    - "./_testimonials/ineza-summer.md"
+    - "./_testimonials/aremu-summer.md"
 ---
 
 ## Would you like to add a tip jar to your site? Accept donations? Or sell a digital something?

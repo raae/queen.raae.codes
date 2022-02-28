@@ -9,10 +9,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug: String
       childMarkdownRemark: MarkdownRemark @link
     }
-    type Testimonial implements Node {
-      slug: String
-      childMarkdownRemark: MarkdownRemark @link
-    }
   `;
 
   createTypes(typeDefs);
@@ -44,26 +40,6 @@ exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
 
       createNode({
         id: landingId,
-        slug: slug,
-        parent: fileNode.id,
-        childMarkdownRemark: markdownNode.id,
-        internal: {
-          contentDigest: markdownNode.internal.contentDigest,
-          type: type,
-        },
-      });
-
-      reporter.info(`${type} created for ${filePath} at ${slug} `);
-    }
-
-    if (type.includes("Landing") && relativePath.includes("_testimonials")) {
-      const type = "Testimonial";
-      const testimonialId = createNodeId(`${markdownNode.id} >>> ${type}`);
-      const filePath = createFilePath({ node: fileNode, getNode });
-      const slug = pluginOptions.basePath + filePath;
-
-      createNode({
-        id: testimonialId,
         slug: slug,
         parent: fileNode.id,
         childMarkdownRemark: markdownNode.id,
