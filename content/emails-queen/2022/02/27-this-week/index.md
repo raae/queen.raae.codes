@@ -3,10 +3,10 @@ title: This week around the Gatsby islands
 emojii: 🏝 🗓
 ---
 
-It's the week of Gatsby Conf 🎉
+It's the week of GatsbyConf 🎉
 
 A full day of talks all about Gatsby!  
-And a day of workshops all about Gatsby!
+And a full day of workshops all about Gatsby!
 
 **Would you attend a watch party?**  
 Reply with a "yes please," and I'll make it happen 🥂
@@ -43,4 +43,4 @@ All the best,
 Queen Raae
 
 &nbsp;  
-PS: Winter break was magical!
+PS: Winter break was magical and we are back to weekdaily emails 🎉
