@@ -17,7 +17,7 @@ const IndexPage = ({ data, ...props }) => {
       <main>
         <HomeHeader />
 
-        <NewsletterSection>
+        <section>
           <ul>
             {data.allEmail.nodes.map(
               ({
@@ -38,9 +38,11 @@ const IndexPage = ({ data, ...props }) => {
             )}
           </ul>
           <h4>
-            <Link to="/emails/">💌&nbsp;&nbsp;all emails</Link>
+            <Link to="/emails/">💌&nbsp;&nbsp;&nbsp;view all emails</Link>
           </h4>
-        </NewsletterSection>
+        </section>
+
+        <NewsletterSection />
 
         <EventsSection />
 
