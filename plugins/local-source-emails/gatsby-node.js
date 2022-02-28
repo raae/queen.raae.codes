@@ -1,8 +1,10 @@
+const { isString } = require("lodash");
 const { createFilePath } = require("gatsby-source-filesystem");
 
+const IS_DEV = process.env.NODE_ENV === "development";
 const NOW = new Date().toISOString().substring(0, 10);
 const FAR_FUTURE = "2300-01-01";
-const CUT_OFF = process.env.NODE_ENV === "development" ? FAR_FUTURE : NOW;
+const CUT_OFF = IS_DEV ? FAR_FUTURE : NOW;
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
@@ -32,22 +34,26 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(typeDefs);
 };
 
-exports.onCreateNode = async (
-  {
+exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
+  const {
     node,
     actions: { createNode, createNodeField },
     createNodeId,
     getNode,
     reporter,
-  },
-  options
-) => {
+  } = gatsbyUtils;
+
+  if (!isString(pluginOptions.basePath)) {
+    reporter.panic("Email pages need a base path");
+  }
+
   if (node.internal.type === "MarkdownRemark") {
     const markdownNode = node;
     const fileNode = getNode(node.parent);
     const type = fileNode?.sourceInstanceName || "";
 
     if (type.includes("Email")) {
+      // Create email node
       const filePath = createFilePath({ node: fileNode, getNode });
 
       const pattern =
@@ -57,13 +63,13 @@ exports.onCreateNode = async (
       try {
         const emailId = createNodeId(`${markdownNode.id} >>> ${type}`);
         const dateString = `${dateSearch[2]}-${dateSearch[3]}-${dateSearch[4]}`;
-        const slug = `${options.basePath}/${dateString}-${dateSearch[5]}/`;
+        const slug = `${pluginOptions.basePath}/${dateString}-${dateSearch[5]}/`;
 
-        createNodeField({
-          name: "date",
-          node: markdownNode,
-          value: dateString,
-        });
+        // createNodeField({
+        //   name: "date",
+        //   node: markdownNode,
+        //   value: dateString,
+        // });
 
         if (dateString <= CUT_OFF) {
           createNode({
