@@ -155,7 +155,24 @@ export const query = graphql`
           testimonials {
             title
             intro
-            items
+            items {
+              childMarkdownRemark {
+                frontmatter {
+                  who
+                  attended
+                  avatar {
+                    childImageSharp {
+                      gatsbyImageData(
+                        width: 200
+                        placeholder: BLURRED
+                        formats: [AUTO, WEBP, AVIF]
+                      )
+                    }
+                  }
+                }
+                html
+              }
+            }
           }
         }
       }
