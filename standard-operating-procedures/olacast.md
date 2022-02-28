@@ -11,9 +11,9 @@ title: OlaCast
 ### Title
 
 ```
-🔴⛵ <title> · #OlaCast · Sunday #<XX>
+🔴 ⛵ <title> · #OlaCast · Sunday #<XX>
 
-🔴⛵ TBD - Time might change · #OlaCast · Sunday #<XX>
+🔴 ⛵ TBD - Time might change · #OlaCast · Sunday #<XX>
 ```
 
 ### Description
