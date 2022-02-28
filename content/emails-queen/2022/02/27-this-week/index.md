@@ -29,7 +29,7 @@ Check out [Becoming an Open Source Champion with Gatsby](https://gatsbyconf.com/
 ## Our streaming schedule this week
 
 - [🔴 🏴‍☠️ Markdown Marketing pages for usepow.app · #GatsbyJS Deep Dive](https://youtu.be/BzigfV2BiIE)&nbsp;—&nbsp;Thursday, March 3rd @&nbsp;19:00&nbsp;CET
-- [🔴⛵ TBD · #OlaCast · Sunday #19]()&nbsp;—&nbsp;Sunday, March 6th @&nbsp;10:30&nbsp;CET
+- [🔴 ⛵ TBD - Time might change· #OlaCast · Sunday #19/100](https://youtu.be/QMtXZRviiqE)&nbsp;—&nbsp;Sunday, March 6th @&nbsp;10:30&nbsp;CET
 
 ## Other events
 
