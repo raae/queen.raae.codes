@@ -1,68 +1,79 @@
 const { isString } = require("lodash");
 const { createFilePath } = require("gatsby-source-filesystem");
 
-exports.onCreateNode = async (
-  {
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  const typeDefs = `
+    type Landing implements Node {
+      slug: String
+      childMarkdownRemark: MarkdownRemark @link
+    }
+    type Testimonial implements Node {
+      slug: String
+      childMarkdownRemark: MarkdownRemark @link
+    }
+  `;
+
+  createTypes(typeDefs);
+};
+
+exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
+  const {
     node,
     actions: { createNode },
     createNodeId,
     getNode,
-    loadNodeContent,
     reporter,
-  },
-  options
-) => {
-  if (
-    node.internal.type === "File" &&
-    node.sourceInstanceName.includes("Landing") &&
-    node.internal.mediaType === "text/markdown" &&
-    // Do not make landing pages of sections
-    !node.relativePath.includes("_")
-  ) {
-    if (!isString(options.basePath)) {
-      reporter.panic("Landing pages need a base path");
-    }
+  } = gatsbyUtils;
 
-    const slug = options.basePath + createFilePath({ node, getNode });
-    const content = await loadNodeContent(node);
-    const type = node.sourceInstanceName;
-
-    createNode({
-      id: createNodeId(`${node.id} >>> ${type}`),
-      dir: node.dir,
-      slug: slug,
-      parent: node.id,
-      internal: {
-        content: content,
-        mediaType: node.internal.mediaType,
-        contentDigest: node.internal.contentDigest,
-        type: type,
-      },
-    });
+  if (!isString(pluginOptions.basePath)) {
+    reporter.panic("Email pages need a base path");
   }
 
-  if (
-    node.internal.type === "File" &&
-    node.sourceInstanceName.includes("Landing") &&
-    node.internal.mediaType === "text/markdown" &&
-    // Do not make landing pages of sections
-    node.relativePath.includes("_testimonials")
-  ) {
-    const slug = createFilePath({ node, getNode });
-    const content = await loadNodeContent(node);
-    const type = "Testimonial";
+  if (node.internal.type === "MarkdownRemark") {
+    const markdownNode = node;
+    const fileNode = getNode(node.parent);
+    const type = fileNode?.sourceInstanceName || "";
+    const relativePath = fileNode?.relativePath || "";
 
-    createNode({
-      ...node,
-      id: createNodeId(`${node.id} >>> ${type}`),
-      slug: slug,
-      parent: node.id,
-      internal: {
-        content: content,
-        mediaType: node.internal.mediaType,
-        contentDigest: node.internal.contentDigest,
-        type: type,
-      },
-    });
+    if (type.includes("Landing") && !relativePath.includes("_")) {
+      const landingId = createNodeId(`${markdownNode.id} >>> ${type}`);
+      const filePath = createFilePath({ node: fileNode, getNode });
+      const slug = pluginOptions.basePath + filePath;
+
+      createNode({
+        id: landingId,
+        slug: slug,
+        parent: fileNode.id,
+        childMarkdownRemark: markdownNode.id,
+        internal: {
+          contentDigest: markdownNode.internal.contentDigest,
+          type: type,
+        },
+      });
+
+      reporter.info(`${type} created for ${filePath} at ${slug} `);
+    }
+
+    if (type.includes("Landing") && relativePath.includes("_testimonials")) {
+      const type = "Testimonial";
+      const testimonialId = createNodeId(`${markdownNode.id} >>> ${type}`);
+      const filePath = createFilePath({ node: fileNode, getNode });
+      const slug = pluginOptions.basePath + filePath;
+
+      createNode({
+        id: testimonialId,
+        slug: slug,
+        parent: fileNode.id,
+        childMarkdownRemark: markdownNode.id,
+        internal: {
+          contentDigest: markdownNode.internal.contentDigest,
+          type: type,
+        },
+      });
+
+      reporter.info(`${type} created for ${filePath} at ${slug} `);
+    }
   }
 };

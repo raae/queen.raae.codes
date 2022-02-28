@@ -15,10 +15,20 @@ import QueenPhoto from "../components/queen-photo";
 import WebinarIntro from "../content/webinar-intro";
 
 const RemarkPage = ({ data, ...props }) => {
-  const post = data.markdownRemark;
-  const { cover, title, description } = post.frontmatter;
-  const { bootcamp, talk, webinar } = post.frontmatter;
-  const { subscription, testimonials } = post.frontmatter;
+  const { childMarkdownRemark } = data.landing;
+  const {
+    frontmatter: {
+      cover,
+      title,
+      description,
+      bootcamp,
+      talk,
+      webinar,
+      subscription,
+      testimonials,
+    },
+    html,
+  } = childMarkdownRemark;
 
   const coverImage = getImage(cover?.src);
   const coverAlt = cover?.alt;
@@ -61,7 +71,7 @@ const RemarkPage = ({ data, ...props }) => {
           <TestimonialsSection skipIntro {...testimonials} />
         )}
 
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div dangerouslySetInnerHTML={{ __html: html }} />
 
         {bootcamp && (
           <section>
@@ -95,57 +105,58 @@ const RemarkPage = ({ data, ...props }) => {
 export default RemarkPage;
 
 export const query = graphql`
-  query MarkdownByLandingId($id: String!) {
-    markdownRemark(parent: { id: { eq: $id } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        description
-        cover {
-          src {
-            childImageSharp {
-              gatsbyImageData(
-                width: 1200
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
-            }
-          }
-          alt
-        }
-        talk {
-          date
-          url
-          event
-          recording
-          type
-          tags
-        }
-        webinar {
-          date
-          url
-        }
-        bootcamp {
-          outcome
-          location
-          tags
-          start
-          end
-          payment_link
-          price
-          deadline
-        }
-        subscription {
-          cta
-          formKey
-          message
-        }
-        testimonials {
+  query LandingById($id: String!) {
+    landing(id: { eq: $id }) {
+      childMarkdownRemark {
+        excerpt(pruneLength: 160)
+        html
+        frontmatter {
           title
-          intro
-          items
+          description
+          cover {
+            src {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 1200
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
+            }
+            alt
+          }
+          talk {
+            date
+            url
+            event
+            recording
+            type
+            tags
+          }
+          webinar {
+            date
+            url
+          }
+          bootcamp {
+            outcome
+            location
+            tags
+            start
+            end
+            payment_link
+            price
+            deadline
+          }
+          subscription {
+            cta
+            formKey
+            message
+          }
+          testimonials {
+            title
+            intro
+            items
+          }
         }
       }
     }
