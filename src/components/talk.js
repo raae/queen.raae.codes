@@ -1,6 +1,6 @@
 import React from "react";
-import { IconList, IconListItem } from "../components/icon-list";
-import { TagsText, DateText, PossibleExternalLink } from "../components/text";
+import { IconList, IconListItem } from "./icon-list";
+import { DateText, PossibleExternalLink } from "./text";
 
 const getRecordingText = (url) => {
   if (url.includes("youtu")) {
@@ -10,7 +10,7 @@ const getRecordingText = (url) => {
   }
 };
 
-const TalkMeta = ({ date, tags, url, recording, event }) => {
+const Talk = ({ date, url, recording, event }) => {
   return (
     <aside>
       <IconList>
@@ -26,12 +26,6 @@ const TalkMeta = ({ date, tags, url, recording, event }) => {
           </IconListItem>
         )}
 
-        {/* {tags && (
-          <IconListItem icon="tag">
-            <TagsText tags={tags} />
-          </IconListItem>
-        )} */}
-
         {recording && (
           <IconListItem icon="recording">
             <a href={recording}>{getRecordingText(recording)}</a>
@@ -42,20 +36,4 @@ const TalkMeta = ({ date, tags, url, recording, event }) => {
   );
 };
 
-const TalkIntro = (props) => {
-  const { title, type, CoverImage } = props;
-  return (
-    <>
-      <small>
-        <mark>{type || "Talk"}</mark> by Queen Raae
-      </small>
-
-      <h1>{title}</h1>
-
-      <TalkMeta {...props} />
-      {CoverImage}
-    </>
-  );
-};
-
-export default TalkIntro;
+export default Talk;

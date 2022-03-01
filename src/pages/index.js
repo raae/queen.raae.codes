@@ -36,10 +36,10 @@ const IndexPage = ({ data, ...props }) => {
                 </li>
               )
             )}
+            <li>
+              <Link to="/emails/">More emails...</Link>
+            </li>
           </ul>
-          <h4>
-            <Link to="/emails/">💌&nbsp;&nbsp;&nbsp;view all emails</Link>
-          </h4>
         </section>
 
         <NewsletterSection />
@@ -47,9 +47,10 @@ const IndexPage = ({ data, ...props }) => {
         <EventsSection />
 
         <AboutSection />
+
+        <NewsletterSection />
       </main>
       <footer>
-        <NewsletterSection />
         <nav>
           <MainMenu />
           <SocialLinks />

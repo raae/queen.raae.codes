@@ -190,6 +190,14 @@ h4 a:only-child {
   font-family: var(--font-family);
 }
 
+h1 a:only-child,
+h2 a:only-child,
+h3 a:only-child,
+h4 a:only-child {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+}
+
 h1 a:only-child::after,
 h2 a:only-child::after,
 h3 a:only-child::after,

@@ -1,17 +1,27 @@
 ---
-title: 1-on-1 Emergency Gatsby Call with Queen Raae
-description: You have Googled. You have looked through Stack Overflow. You have tried to get help in the Gatsby Discord. But you are stuck on that reef. You are ready to give up! To abandon ship!
+badge: 1-on-1 Emergency Gatsby Call
+title: Stuck on a reef in the sharky waters around the Gatsby islands?
+lead: Friendly advice you can put into action immediately, guaranteed.
+tagline: Get Unstuck • Gain confidence • Take Action
+seo:
+  title: Stuck on a reef in the sharky waters around the Gatsby islands?
+  description: Book a 1-on-1 Emergency Gatsby Call with Queen Raae. Friendly advice you can put into action immediately, guaranteed!
+cta:
+  label: Book your call
+  path: https://savvycal.com/raae/emergency
+sections:
+  - element: header
+    content: cta
+  - content: main
+  - image: ../raae.png
+    imageAlt: Queen Raae holding a laptop and looking into the camera in her signature green dress.
+  - content: cta
+    tagline: Get Unstuck • Gain confidence • Take Action
 ---
 
-Friendly advice you can put into action immediately, guaranteed.
+## You have Googled
 
-_Get Unstuck • Gain confidence • Take Action_
-
-#### [Book your call now](https://savvycal.com/raae/emergency)
-
-## Stuck on a reef in the sharky waters around the Gatsby islands?
-
-You have Googled. You have looked through Stack Overflow. You have tried to get help in the Gatsby Discord. But you are stuck on that reef. You are ready to give up! To abandon the ship!
+You have looked through Stack Overflow. You have tried to get help in the Gatsby Discord. But you are stuck on that reef. You are ready to give up! To abandon ship!
 
 ## Imagine getting the help you need
 
@@ -34,14 +44,14 @@ Book a live [1-on-1 Emergency Gatsby Call with me now](https://savvycal.com/raae
 
 ### Here's How It Works
 
-You book an Emergency Gatsby Call with me using my private scheduling link. The event is 60 minutes, but you might want to block out extra time in case we go a little long. Our call will take place over Whereby. When booking, I'll ask you to give me a quick rundown of your troubles and your tech stack.
+You book an Emergency Gatsby Call with me using [my scheduling link](https://savvycal.com/raae/emergency). The event is 60 minutes, but you might want to block out extra time in case we go a little long. Our call will take place over Whereby. When booking, I'll ask you to give me a quick rundown of your troubles and your tech stack.
 
-### 100% Money back guarantee
+#### [Book your call](https://savvycal.com/raae/emergency)
+
+#### 100% Money back guarantee
 
 If I cannot help you find a way to get off your reef, I'll refund your payment in full.
 
-#### [Book your call now](https://savvycal.com/raae/emergency)
-
-### Availability is limited
+#### Availability is limited
 
 I'm only available for a couple live emergency calls per week. Scheduling is first-come, first-served, so the sooner you book your call, the sooner you'll get off the reef.

@@ -8,14 +8,15 @@ import SocialLinks from "../../content/social-links";
 import NewsletterSection from "../../content/newsletter-section";
 
 const Emails = ({ data, ...props }) => {
+  const title = "Emails to help you get the most out of Gatsby 💌";
+  const description =
+    "Serious about Gatsby? Sign up for emails from Queen Raae (and Cap'n Ola) sent every weekday to help you get the most out of Gatsby!";
   return (
     <>
-      <Seo {...props} meta={{ title: "Emails from the Queen" }} />
+      <Seo {...props} meta={{ title, description }} />
       <main>
         <header>
-          <h1>
-            💌&nbsp;&nbsp;&nbsp;Queen Raae's Daily List&nbsp;&nbsp;&nbsp;💌
-          </h1>
+          <h1>{title}</h1>
         </header>
 
         <NewsletterSection />

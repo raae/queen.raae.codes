@@ -38,18 +38,22 @@ exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
       const filePath = createFilePath({ node: fileNode, getNode });
       const slug = pluginOptions.basePath + filePath;
 
-      createNode({
-        id: landingId,
-        slug: slug,
-        parent: fileNode.id,
-        childMarkdownRemark: markdownNode.id,
-        internal: {
-          contentDigest: markdownNode.internal.contentDigest,
-          type: type,
-        },
-      });
+      if (!markdownNode.frontmatter.sections) {
+        reporter.warn(`${type} not created for ${filePath}, missing sections`);
+      } else {
+        createNode({
+          id: landingId,
+          slug: slug,
+          parent: fileNode.id,
+          childMarkdownRemark: markdownNode.id,
+          internal: {
+            contentDigest: markdownNode.internal.contentDigest,
+            type: type,
+          },
+        });
 
-      reporter.info(`${type} created for ${filePath} at ${slug} `);
+        reporter.info(`${type} created for ${filePath} at ${slug}`);
+      }
     }
   }
 };
