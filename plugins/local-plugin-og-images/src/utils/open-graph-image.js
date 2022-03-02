@@ -34,15 +34,49 @@ const splitIntoLines = (ctx, { width, text, maxLines }) => {
   return lines;
 };
 
+const drawImage = async (
+  path,
+  ctx,
+  { circleX, circleY, radius, borderColor, borderWidth }
+) => {
+  const loadedImage = await loadImage(path);
+  const imgWidth = loadedImage.width;
+  const imgHeight = loadedImage.height;
+  const imageSize = Math.min(imgWidth, imgHeight);
+  const diameter = radius * 2;
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
+  ctx.lineWidth = borderWidth;
+  ctx.strokeStyle = borderColor;
+  ctx.stroke();
+  ctx.closePath();
+  ctx.clip();
+  // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
+  ctx.drawImage(
+    loadedImage,
+    imgWidth / 2 - imageSize / 2,
+    imgHeight / 2 - imageSize / 2,
+    imageSize,
+    imageSize,
+    circleX - radius,
+    circleY - radius,
+    diameter,
+    diameter
+  );
+  ctx.restore();
+};
+
 exports.drawOgImage = async (
   canvas,
   {
     avatar,
-    title,
+    title = "",
+    description = "",
     image,
     titleFont,
     bodyFont,
-    description,
     height,
     width,
     backgroundColor = "#fffaf0",
@@ -55,11 +89,29 @@ exports.drawOgImage = async (
   const titleLead = Math.floor(titleSize * 1.2);
   const bodySize = Math.floor(titleSize / 2);
   const bodyLead = Math.floor(bodySize * 1.3);
-  const radius = height * 0.5;
-  const circleX = width - radius * 0.5;
-  const circleY = radius * 1.2;
+
   const padding = width * 0.05;
-  const copyWidth = circleX - radius - padding * 2;
+
+  const largeRadius = height * 0.5;
+  const smallRadius = height * 0.2;
+
+  const largeImageOptions = {
+    radius: largeRadius,
+    circleX: width - largeRadius * 0.5,
+    circleY: largeRadius * 1.2,
+    borderWidth: height * 0.03,
+    borderColor: "#ffde59",
+  };
+  const smallImageOptions = {
+    radius: smallRadius,
+    circleX: largeImageOptions.circleX - largeRadius + smallRadius * 0.25,
+    circleY: largeImageOptions.circleY + largeRadius - smallRadius * 1.2,
+    borderWidth: height * 0.02,
+    borderColor: "#ec4326",
+  };
+
+  const copyWidth =
+    largeImageOptions.circleX - largeImageOptions.radius - padding * 2;
 
   canvas.height = height;
   canvas.width = width;
@@ -114,29 +166,11 @@ exports.drawOgImage = async (
   ctx.fillStyle = primaryColor;
   ctx.fillText("queen.raae.codes", padding * 1.05, footerY);
 
-  const loadedImage = await loadImage(image || avatar);
-  const imgWidth = loadedImage.width;
-  const imgHeight = loadedImage.height;
-  const size = Math.min(imgWidth, imgHeight);
+  await drawImage(image || avatar, ctx, largeImageOptions);
 
-  ctx.beginPath();
-  ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
-  ctx.lineWidth = height * 0.03;
-  ctx.strokeStyle = "#ffde59";
-  ctx.stroke();
-  ctx.clip();
-  // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
-  ctx.drawImage(
-    loadedImage,
-    imgWidth / 2 - size / 2,
-    imgHeight / 2 - size / 2,
-    size,
-    size,
-    circleX - radius,
-    circleY - radius,
-    height,
-    height
-  );
+  if (image) {
+    await drawImage(avatar, ctx, smallImageOptions);
+  }
 };
 
 exports.createImageBuffer = async (config) => {
