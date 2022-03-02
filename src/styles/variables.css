@@ -17,5 +17,5 @@
   --hover-brightness: 1.2;
   --line-height: 1.5;
   --color-link: inherit;
-  --color-button: var(--color-primary);
+  --color-button: var(--color-accent);
 }

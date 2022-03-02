@@ -1,31 +1,42 @@
 ---
+badge: Gatsby Mini Bootcamp
 title: Develop and Deploy your first Serverless Function
-description: Gatsby Mini Bootcamp with Queen Raae 👑 — a webinar + q&a session + forum + co-working + code sample combo.
-bootcamp:
-  outcome: Get started creating backend functionality by learning Gatsby Serverless Functions!
-  location: Wherever you are most comfortable
-  video: https://vimeo.com/636967396
-  tags:
-    - Gatsby Functions
-    - Gatsby Cloud
-    - Serverless
-    - HTTP Requests
-    - Axios
+lead: Get started creating backend functionality by learning Gatsby Serverless Functions!
+# tags: Gatsby Functions, Gatsby Cloud, Serverless, HTTP Requests, Axios
+seo:
+  title: Develop and Deploy your first Serverless Function
+  description: Gatsby Mini Bootcamp with Queen Raae 👑 — a webinar + q&a session + forum + co-working + code sample combo.
+  image: ./cover-first-function.png
+  imageAlt: Queen Raae holding a laptop with festive Gatsby flag illustrations and title + description
+cta:
+  path: "#join"
+  label: Join now
+join:
   start: 2021-11-06
   end: 2021-11-13
-  deadline: 2
-  payment_link: https://buy.stripe.com/aEU6sq8qo1ie3cc7sv
+  paymentLink: https://buy.stripe.com/aEU6sq8qo1ie3cc7sv
   price: 79.50 USD
-testimonials:
-  title: Wait! Don't take my word for it...
-  items:
-    - "./_testimonials/ineza-summer.md"
-    - "./_testimonials/aremu-summer.md"
-faq:
-  title: FAQ
-  items:
-    - question: What are the pre-requisites?
-      answer: You should be comfortable writing Javascript. Basic React experience is a plus, as the front-end part of the Gatsby framework is based on React.
+  deadline: 2
+  status: open
+sections:
+  - element: header
+    badge: Gatsby Mini Bootcamp
+    content: cta
+  - testimonials:
+      - ./_testimonials/ineza-summer.md
+  - content: main
+  - body: ./_included.md
+  # - video: https://vimeo.com/636967396
+  # - title: FAQ
+  #   faq:
+  #     - question: What are the pre-requisites?
+  #       answer: You should be comfortable writing Javascript. Basic React experience is a plus, as the front-end part of the Gatsby framework is based on React.
+  - title: Who am I?
+    body: ./_about-me.md
+  - title: Wait! Don't take my word for it...
+    testimonials:
+      - ./_testimonials/aremu-summer.md
+  - content: join
 ---
 
 ## 🎶 A little bit of backend in your life 🎶
@@ -77,60 +88,3 @@ If you are not into time-traveling, make the project your own or add similar fun
 - Save and retreive data from a third party service
 
 #### [Join now](#join)
-
-## What's included?
-
-The Mini Bootcamp Command Central is a private GitHub repo you'll get access to, and keep access to until the end of the year (at least).
-
-### Forum
-
-_24/7 access_
-
-The Discussions tab of the private GitHub repo will be our forum. There you may ask questions, discuss possible solutions and get to know the other current (and former) students.
-
-### Assignment + Starter Files
-
-_Saturday 10:00 CEST_
-
-We’ll start the week with a couple of days for you to try your hands at coming up with a solution on our assignment on your own, I promise it will make the live webinar so much more valuable!
-
-### Live Webinar
-
-_Tuesday 20:00 CEST / 11:00 PST - 1.5 hour_
-
-See how a Gatsby Function is made from start to finish in the live webinar where I code through a complete example solution to our assignment. The recording will be made available.
-
-### Co-working session
-
-_Wednesday 10:00 CEST - 3 hours_
-
-Highly optional, but if you need some accountability, we'll be there to make sure you stay on task. We check in with each other 3 times but mostly work silently (virtually) side-by-side.
-
-### Code Sample
-
-_Thursday 10:00 CEST_
-
-The live webinar code will be available as a Pull Request in the private GitHub repo. Feel free to comment and ask questions directly on the Pull Request.
-
-### Celebratory Q&A Session
-
-_Saturday 20:00 CEST / 11:00 PST - 1 hour_
-
-Bring your questions, code, and or celebratory beverage to this live Q&A session.
-
-#### [Join now](#join)
-
-## Who am I?
-
-I have been having fun on the web with code since the late '90s.
-
-The person who first introduced me to HTML was my Norwegian teacher, and since then:
-
-- I have completed a Master in Computer Science
-- Built apps trusted by the Swedish Armed Forces, The Norwegian Water Resources and Energy Directorate, and others.
-- Created POW! — the encrypted menstrual cycle journal made with Gatsby and many other skill-building side projects.
-- Spoken at both Gatsby Days and Gatsby Camp, in addition to RuhrJS, JSConf Budapest, and more.
-
-Last but not least, I started live-streaming my coding resulting in the weekly YouTube show Gatsby Deep Dives with Queen Raae and the Nattermob Pirates.
-
-Sleek and "professional" I am not. My thing is informal, energetic, and fun. Failing code is part of the process, and together we figure out how to fix it. No need to conform to any ideas of how a coder should be or act; come as you are!

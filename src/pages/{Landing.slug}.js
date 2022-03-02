@@ -2,97 +2,120 @@ import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import Seo from "../components/seo";
-import NewsletterSection from "../content/newsletter-section";
-import NewsletterForm from "../components/newsletter";
 import MainMenu from "../content/main-menu";
-import TestimonialsSection from "../content/testimonials-section";
 import SocialLinks from "../content/social-links";
-import TalkIntro from "../content/talk-intro";
-import BootcampIntro from "../content/bootcamp-intro";
-import BootcampBuy from "../content/bootcamp-buy";
-import QueenPhoto from "../components/queen-photo";
-import WebinarIntro from "../content/webinar-intro";
+
+import Seo from "../components/seo";
+import Prose from "../components/prose";
+import Testimonial from "../components/testimonial";
+import Talk from "../components/talk";
+import Join from "../components/join";
+import NewsletterForm from "../components/newsletter";
+import Webinar from "../components/webinar";
+
+const CtaContent = ({ path, label }) => {
+  if (!path || !label) return null;
+
+  return (
+    <h4>
+      <a href={path}>{label}</a>
+    </h4>
+  );
+};
 
 const RemarkPage = ({ data, ...props }) => {
   const { childMarkdownRemark } = data.landing;
-  const {
-    frontmatter: {
-      cover,
-      title,
-      description,
-      bootcamp,
-      talk,
-      webinar,
-      subscription,
-      testimonials,
-    },
-    html,
-  } = childMarkdownRemark;
+  const { frontmatter, html: pageHtml } = childMarkdownRemark || {};
+  const { cta, talk, seo, join, form, webinar, ...page } = frontmatter || {};
+  const { sections } = frontmatter || {};
 
-  const coverImage = getImage(cover?.src);
-  const coverAlt = cover?.alt;
-  const CoverImage = coverImage ? (
-    <GatsbyImage image={coverImage} alt={coverAlt} />
-  ) : null;
+  const metaImage = getImage(seo?.image || page.image);
 
   return (
     <>
       <Seo
         {...props}
         meta={{
-          title: title,
-          description: description,
-          alt: coverImage && cover?.alt,
-          image: coverImage && coverImage.images.fallback.src,
+          title: seo?.title || page.title,
+          description: seo?.description || page.lead,
+          alt: metaImage && (seo?.imageAlt || page.imageAlt),
+          image: metaImage && metaImage.images.fallback.src,
         }}
       />
       <main>
-        <header>
-          {bootcamp && <BootcampIntro title={title} {...bootcamp} />}
+        {(sections || []).map((section, key) => {
+          let { badge, title, lead, tagline } = section;
+          let { content, element, body, testimonials } = section;
+          let { image, imageAlt } = section;
 
-          {talk && (
-            <TalkIntro title={title} CoverImage={CoverImage} {...talk} />
-          )}
+          content = content || "";
 
-          {webinar && <WebinarIntro title={title} {...webinar} />}
+          if (element === "header") {
+            badge = badge || page.badge;
+            title = title || page.title;
+            lead = lead || page.lead;
+            tagline = tagline || page.tagline;
+            image = image || page.image;
+            imageAlt = imageAlt || page.imageAlt;
+          }
 
-          {!bootcamp && !talk && !webinar && (
-            <>
-              <h1>{title}</h1>
-              {CoverImage}
-            </>
-          )}
+          if (content.includes("join")) {
+            title = title || page.title;
+            lead = lead || page.lead;
+            tagline = tagline || page.tagline;
+          }
 
-          {subscription && <NewsletterForm {...subscription} />}
-        </header>
+          const gatsbyImage = getImage(image);
+          const Element = element || "section";
+          const TitleElement = element === "header" ? "h1" : "h2";
+          const sectionHtml = body?.childMarkdownRemark?.html;
 
-        {testimonials && bootcamp && (
-          <TestimonialsSection skipIntro {...testimonials} />
-        )}
+          return (
+            <Element key={key} id={content}>
+              {badge && (
+                <small>
+                  <mark>{badge}</mark>
+                </small>
+              )}
+              {title && <TitleElement>{title}</TitleElement>}
+              {lead && <p className="lead">{lead}</p>}
+              {tagline && (
+                <p>
+                  <em>{tagline}</em>
+                </p>
+              )}
 
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+              {content.includes("talk") && <Talk {...talk} />}
 
-        {bootcamp && (
-          <section>
-            <QueenPhoto />
-          </section>
-        )}
+              {content.includes("join") && <Join {...join} />}
 
-        {testimonials && <TestimonialsSection {...testimonials} />}
+              {content.includes("webinar") && <Webinar {...webinar} />}
 
-        {bootcamp && <BootcampBuy title={title} {...bootcamp} />}
+              {sectionHtml && <Prose html={sectionHtml} />}
+
+              {content.includes("main") && <Prose html={pageHtml} />}
+
+              {testimonials &&
+                testimonials.map((item, key) => {
+                  const { frontmatter, html } = item.childMarkdownRemark;
+                  return (
+                    <Testimonial key={key} {...frontmatter}>
+                      <div dangerouslySetInnerHTML={{ __html: html }} />
+                    </Testimonial>
+                  );
+                })}
+
+              {content.includes("cta") && <CtaContent {...cta} />}
+
+              {content.includes("form") && <NewsletterForm {...form} />}
+
+              {image && <GatsbyImage image={gatsbyImage} alt={imageAlt} />}
+            </Element>
+          );
+        })}
       </main>
 
       <footer>
-        {subscription && (
-          <NewsletterForm {...subscription} anchor="signup">
-            <p>{subscription.message}</p>
-          </NewsletterForm>
-        )}
-
-        {!subscription && !bootcamp && <NewsletterSection />}
-
         <nav>
           <MainMenu />
           <SocialLinks />
@@ -108,13 +131,27 @@ export const query = graphql`
   query LandingById($id: String!) {
     landing(id: { eq: $id }) {
       childMarkdownRemark {
-        excerpt(pruneLength: 160)
         html
         frontmatter {
+          badge
           title
-          description
-          cover {
-            src {
+          lead
+          tagline
+          imageAlt
+          image {
+            childImageSharp {
+              gatsbyImageData(
+                width: 1200
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
+          seo {
+            title
+            description
+            imageAlt
+            image {
               childImageSharp {
                 gatsbyImageData(
                   width: 1200
@@ -123,39 +160,56 @@ export const query = graphql`
                 )
               }
             }
-            alt
+          }
+          cta {
+            path
+            label
           }
           talk {
             date
             url
-            event
             recording
-            type
-            tags
+            event
           }
           webinar {
             date
             url
           }
-          bootcamp {
-            outcome
-            location
-            tags
+          form {
+            cta
+            formKey: key
+          }
+          join {
             start
             end
-            payment_link
-            price
             deadline
+            paymentLink
+            price
+            status
           }
-          subscription {
-            cta
-            formKey
-            message
-          }
-          testimonials {
+          sections {
+            element
+            badge
             title
-            intro
-            items {
+            lead
+            tagline
+            content
+            imageAlt
+            image {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 1200
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
+            }
+            body {
+              childMarkdownRemark {
+                html
+              }
+            }
+            testimonials {
               childMarkdownRemark {
                 frontmatter {
                   who

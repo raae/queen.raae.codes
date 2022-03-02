@@ -1,22 +1,26 @@
 ---
-title: "Transform yourself from a friendly frontend engineer to a proper princess-life-saving skill builder"
-cover:
-  src: "./Cover.png"
-  alt: "Ruby's TimeShip Cover: a collage"
+badge: Ruby's TimeShip
+title: Transform yourself from a friendly frontend engineer to a proper princess-life-saving skill builder
+image: ./Cover.png
+imageAlt: "Ruby's TimeShip Cover: a collage"
 creator: "@OlaHolstVea"
-subscription:
-  formKey: "timeship"
+form:
+  key: "timeship"
   cta: "Send me the prolog now"
-  message: "Transform yourself from a friendly frontend engineer to a proper princess life saving skill builder."
-testimonials:
-  title: "Wait! Don't take my word for it..."
-  intro: "Here’s what engineers back in 1554 said about getting motivated by Lillian (6 🏴‍☠️👸 ) and me:"
-  items:
-    - "./_testimonials/lizabeth-skillz.md"
-    - "./_testimonials/fox-skillz.md"
-    - "./_testimonials/ruby-skillz.md"
-    - "./_testimonials/mary-skillz.md"
-    - "./_testimonials/captain-ola-skillz.md"
+sections:
+  - element: header
+    content: form
+  - content: main
+  - title: "Wait! Don't take my word for it..."
+    intro: "Here’s what engineers back in 1554 said about getting motivated by Lillian (6 🏴‍☠️👸 ) and me:"
+    testimonials:
+      - "./_testimonials/lizabeth-skillz.md"
+      - "./_testimonials/fox-skillz.md"
+      - "./_testimonials/ruby-skillz.md"
+      - "./_testimonials/mary-skillz.md"
+      - "./_testimonials/captain-ola-skillz.md"
+  - title: Transform yourself from a friendly frontend engineer to a proper princess-life-saving skill builder
+    content: form
 ---
 
 ## Is your skill building stuck in the suck zone?

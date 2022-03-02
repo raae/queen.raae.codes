@@ -16,6 +16,7 @@ const NewsletterForm = ({
   formKey = "queen",
   children,
   cta = "Get notifed",
+  label,
   tags = [],
   anchor = "",
 }) => {
@@ -52,7 +53,7 @@ const NewsletterForm = ({
         <label htmlFor="email">Your email address:</label>
         <br />
         <input id="email" name="email" type="email" required />
-        <button type="submit">{cta}</button>
+        <button type="submit">{label || cta}</button>
       </fieldset>
 
       {status !== "INITIAL" && (

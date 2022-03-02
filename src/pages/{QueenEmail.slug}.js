@@ -2,25 +2,22 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 
-import Seo from "../components/seo";
 import MainMenu from "../content/main-menu";
 import SocialLinks from "../content/social-links";
-import NewsletterSection from "../content/newsletter-section";
+import NewsletterForm from "../components/newsletter";
+
+import Seo from "../components/seo";
+import Prose from "../components/prose";
 
 const IS_PROD = process.env.NODE_ENV === "production";
 
 const QueenEmail = ({ data, ...props }) => {
-  const { date, ogImage, childMarkdownRemark } = data.email;
-  const {
-    frontmatter: { title, description },
-    html,
-    excerpt,
-  } = childMarkdownRemark;
+  const { date, ogImage, childMarkdownRemark } = data.email || {};
+  const { frontmatter, html, excerpt } = childMarkdownRemark || {};
+  const { title, emojii, description } = frontmatter || {};
 
   const ogGatsbyImage = getImage(ogImage);
   const ogImageSrc = ogGatsbyImage?.images?.fallback?.src;
-
-  const body = `<p>Hello there, </p>` + html;
 
   return (
     <>
@@ -32,26 +29,38 @@ const QueenEmail = ({ data, ...props }) => {
           image: ogImageSrc,
         }}
       />
+
       <main>
+        <header>
+          {title && (
+            <h1>
+              {title}&nbsp;&nbsp;
+              {emojii}
+            </h1>
+          )}
+          <small>
+            An <Link to="/emails/">email</Link> sent on {date}
+          </small>
+        </header>
+
+        <Prose html={html} />
+
+        <section>
+          <NewsletterForm>
+            <strong>Serious about Gatsby?</strong> Sign up for emails like this
+            from Queen Raae (and Cap'n Ola) sent every weekday to help you get
+            the most out of Gatsby!
+          </NewsletterForm>
+        </section>
+
         {!IS_PROD && (
           <section>
             <img src={ogImageSrc} alt="Cover test" />
           </section>
         )}
-
-        <header>
-          <h1>{title}</h1>
-          <small>
-            An <Link to="/emails/">email</Link> sent by{" "}
-            <strong>Queen Raae</strong>&nbsp;👑 on {date}
-          </small>
-        </header>
-
-        <div dangerouslySetInnerHTML={{ __html: body }} />
       </main>
 
       <footer>
-        <NewsletterSection />
         <nav>
           <MainMenu />
           <SocialLinks />
@@ -77,6 +86,7 @@ export const query = graphql`
         html
         frontmatter {
           title
+          emojii
           description
         }
       }
