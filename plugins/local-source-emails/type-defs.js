@@ -7,7 +7,6 @@ exports.typeDefs = `
     html: String
     description: String
     date: Date @dateformat
-    childMarkdownRemark: MarkdownRemark @link
   }
 
   type QueenEmail implements Node & Email {
@@ -18,7 +17,6 @@ exports.typeDefs = `
     html: String @childMarkdownRemarkResolver
     description: String @childMarkdownRemarkResolver(alternative: "excerpt")
     ogImage: File @link(from: "fields.ogImage")
-    childMarkdownRemark: MarkdownRemark @link
   }
 
   type OlaVeaEmail implements Node & Email {
@@ -28,6 +26,5 @@ exports.typeDefs = `
     emojii: String @childMarkdownRemarkResolver(default: "⛵ 🔧")
     html: String @childMarkdownRemarkResolver
     description: String @childMarkdownRemarkResolver(alternative: "excerpt")
-    childMarkdownRemark: MarkdownRemark @link
   }
 `;
