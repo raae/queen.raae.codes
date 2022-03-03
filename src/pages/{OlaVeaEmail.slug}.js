@@ -9,12 +9,7 @@ import Seo from "../components/seo";
 import Prose from "../components/prose";
 
 const OlaVeaEmail = ({ data, ...props }) => {
-  const { date, childMarkdownRemark } = data.email;
-  const {
-    frontmatter: { title, description },
-    html,
-    excerpt,
-  } = childMarkdownRemark;
+  const { date, title, emojii, description, html } = data.email || {};
 
   return (
     <>
@@ -22,12 +17,17 @@ const OlaVeaEmail = ({ data, ...props }) => {
         {...props}
         meta={{
           title: title,
-          description: description || excerpt,
+          description: description,
         }}
       />
       <main>
         <header>
-          <h1>{title} ⛵ 🔧</h1>
+          {title && (
+            <h1>
+              {title}&nbsp;&nbsp;
+              {emojii}
+            </h1>
+          )}
           <small>
             An <Link to="/emails/">email</Link> sent on {date}
           </small>
@@ -59,15 +59,11 @@ export default OlaVeaEmail;
 export const query = graphql`
   query OlaVeaEmailById($id: String!) {
     email: olaVeaEmail(id: { eq: $id }) {
+      title
+      emojii
+      description
+      html
       date(formatString: "MMMM Do, YYYY")
-      childMarkdownRemark {
-        excerpt(pruneLength: 160)
-        html
-        frontmatter {
-          title
-          description
-        }
-      }
     }
   }
 `;

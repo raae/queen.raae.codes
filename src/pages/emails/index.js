@@ -23,23 +23,15 @@ const Emails = ({ data, ...props }) => {
 
         <section>
           <ul>
-            {data.allEmail.nodes.map(
-              ({
-                date,
-                slug,
-                childMarkdownRemark: {
-                  frontmatter: { title, emojii },
-                },
-              }) => (
-                <li key={slug}>
-                  <small>
-                    {emojii || "⛵ 🔧"}&nbsp;&nbsp;{date}
-                  </small>
-                  <br />
-                  <Link to={slug}>{title}</Link>
-                </li>
-              )
-            )}
+            {data.allEmail.nodes.map(({ date, slug, title, emojii }) => (
+              <li key={slug}>
+                <small>
+                  {emojii}&nbsp;&nbsp;{date}
+                </small>
+                <br />
+                <Link to={slug}>{title}</Link>
+              </li>
+            ))}
           </ul>
         </section>
       </main>
@@ -57,12 +49,8 @@ export const query = graphql`
   {
     allEmail(sort: { order: DESC, fields: slug }) {
       nodes {
-        childMarkdownRemark {
-          frontmatter {
-            title
-            emojii
-          }
-        }
+        title
+        emojii
         slug
         date(formatString: "MMMM Do, YYYY")
       }

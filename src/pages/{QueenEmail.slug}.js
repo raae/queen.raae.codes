@@ -12,9 +12,7 @@ import Prose from "../components/prose";
 const IS_PROD = process.env.NODE_ENV === "production";
 
 const QueenEmail = ({ data, ...props }) => {
-  const { date, ogImage, childMarkdownRemark } = data.email || {};
-  const { frontmatter, html, excerpt } = childMarkdownRemark || {};
-  const { title, emojii, description } = frontmatter || {};
+  const { date, ogImage, title, emojii, description, html } = data.email || {};
 
   const ogGatsbyImage = getImage(ogImage);
   const ogImageSrc = ogGatsbyImage?.images?.fallback?.src;
@@ -25,7 +23,7 @@ const QueenEmail = ({ data, ...props }) => {
         {...props}
         meta={{
           title: title,
-          description: description || excerpt,
+          description: description,
           image: ogImageSrc,
         }}
       />
@@ -75,21 +73,16 @@ export default QueenEmail;
 export const query = graphql`
   query QueenEmailById($id: String!) {
     email: queenEmail(id: { eq: $id }) {
+      title
+      emojii
+      description
+      html
       ogImage {
         childImageSharp {
           gatsbyImageData(formats: NO_CHANGE)
         }
       }
       date(formatString: "MMMM Do, YYYY")
-      childMarkdownRemark {
-        excerpt(pruneLength: 160)
-        html
-        frontmatter {
-          title
-          emojii
-          description
-        }
-      }
     }
   }
 `;
