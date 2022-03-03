@@ -19,23 +19,15 @@ const IndexPage = ({ data, ...props }) => {
 
         <section>
           <ul>
-            {data.allEmail.nodes.map(
-              ({
-                date,
-                slug,
-                childMarkdownRemark: {
-                  frontmatter: { title, emojii },
-                },
-              }) => (
-                <li key={slug}>
-                  <small>
-                    {emojii || "⛵ 🔧"}&nbsp;&nbsp;{date}
-                  </small>
-                  <br />
-                  <Link to={slug}>{title}</Link>
-                </li>
-              )
-            )}
+            {data.allEmail.nodes.map(({ date, slug, title, emojii }) => (
+              <li key={slug}>
+                <small>
+                  {emojii}&nbsp;&nbsp;{date}
+                </small>
+                <br />
+                <Link to={slug}>{title}</Link>
+              </li>
+            ))}
             <li>
               <Link to="/emails/">More emails...</Link>
             </li>
@@ -64,12 +56,8 @@ export const query = graphql`
   {
     allEmail(sort: { order: DESC, fields: date }, limit: 5) {
       nodes {
-        childMarkdownRemark {
-          frontmatter {
-            title
-            emojii
-          }
-        }
+        title
+        emojii
         slug
         date(formatString: "MMMM Do, YYYY")
       }

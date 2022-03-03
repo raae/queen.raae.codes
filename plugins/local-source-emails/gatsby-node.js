@@ -1,35 +1,90 @@
 const { isString } = require("lodash");
 const { createFilePath } = require("gatsby-source-filesystem");
+const { typeDefs } = require("./type-defs");
 
 const IS_DEV = process.env.NODE_ENV === "development";
 const NOW = new Date().toISOString().substring(0, 10);
 const FAR_FUTURE = "2300-01-01";
 const CUT_OFF = IS_DEV ? FAR_FUTURE : NOW;
 
+const findInSource = async ({ type, field, source, args, context, info }) => {
+  const fields = info.schema.getType(type).getFields();
+  const resolver = fields[field]?.resolve;
+  if (resolver) {
+    return await resolver(source, args, context, info);
+  }
+};
+
+const findInMarkdownNode = async ({ markdownNode, ...params }) => {
+  if (params.field === "excerpt") {
+    params.args = {
+      pruneLength: 155,
+    };
+  }
+
+  let resolved = await findInSource({
+    type: "MarkdownRemark",
+    source: markdownNode,
+    ...params,
+  });
+
+  if (!resolved) {
+    // Try frontmatter
+    resolved = await findInSource({
+      type: "MarkdownRemarkFrontmatter",
+      source: markdownNode.frontmatter,
+      ...params,
+    });
+  }
+
+  return resolved;
+};
+
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
+  const { createTypes, createFieldExtension } = actions;
 
-  const typeDefs = `
-    interface Email implements Node {
-      id: ID!
-      slug: String
-      date: Date @dateformat
-      childMarkdownRemark: MarkdownRemark @link
-    }
+  createFieldExtension({
+    name: "childMarkdownRemarkResolver",
+    args: {
+      from: {
+        type: "String",
+      },
+      alternative: {
+        type: "String",
+      },
+      default: {
+        type: "String",
+      },
+    },
+    extend(options) {
+      return {
+        async resolve(source, args, context, info) {
+          const markdownNode = context.nodeModel.getNodeById({
+            id: source.childMarkdownRemark,
+          });
 
-    type QueenEmail implements Node & Email {
-      slug: String
-      date: Date @dateformat
-      childMarkdownRemark: MarkdownRemark @link
-      ogImage: File @link(from: "fields.ogImage")
-    }
+          const params = { args, context, info };
 
-    type OlaVeaEmail implements Node & Email {
-      slug: String
-      date: Date @dateformat
-      childMarkdownRemark: MarkdownRemark @link
-    }
-  `;
+          let resolved = await findInMarkdownNode({
+            markdownNode: markdownNode,
+            field: options.from || info.fieldName,
+            ...params,
+          });
+
+          if (!resolved) {
+            // Try alternative field
+            resolved = await findInMarkdownNode({
+              markdownNode: markdownNode,
+              field: options.alternative,
+              ...params,
+            });
+          }
+
+          return resolved || options.default;
+        },
+      };
+    },
+  });
 
   createTypes(typeDefs);
 };

@@ -34,9 +34,7 @@ module.exports = {
               };
             },
             serialize: ({ query: { site, allEmail } }) => {
-              return allEmail.nodes.map((node) =>
-                serializeFeed(node, site, { emojii: "⛵ 🔧" })
-              );
+              return allEmail.nodes.map((node) => serializeFeed(node, site));
             },
             query: `
               {
@@ -44,15 +42,10 @@ module.exports = {
                   nodes {
                     date
                     slug
-                    childMarkdownRemark {
-                      excerpt
-                      html
-                      frontmatter {
-                        title
-                        emojii
-                        description
-                      }
-                    }
+                    html
+                    title
+                    emojii
+                    description
                     ... on QueenEmail {
                       ogImage {
                         childImageSharp {
@@ -88,17 +81,12 @@ module.exports = {
               {
                 allEmail: allQueenEmail(sort: {order: DESC, fields: slug}) {
                   nodes {
-                    slug
                     date
-                    childMarkdownRemark {
-                      excerpt
-                      html
-                      frontmatter {
-                        title
-                        emojii
-                        description
-                      }
-                    }
+                    slug
+                    html
+                    title
+                    emojii
+                    description
                     ogImage {
                       childImageSharp {
                         gatsbyImageData
@@ -126,25 +114,18 @@ module.exports = {
               };
             },
             serialize: ({ query: { site, allEmail } }) => {
-              return allEmail.nodes.map((node) =>
-                serializeFeed(node, site, { emojii: "⛵ 🔧" })
-              );
+              return allEmail.nodes.map((node) => serializeFeed(node, site));
             },
             query: `
               {
                 allEmail: allOlaVeaEmail(sort: {order: DESC, fields: slug}) {
                   nodes {
-                    slug
                     date
-                    childMarkdownRemark {
-                      excerpt
-                      html
-                      frontmatter {
-                        title
-                        emojii
-                        description
-                      }
-                    }
+                    slug
+                    html
+                    title
+                    emojii
+                    description
                   }
                 }
               }
