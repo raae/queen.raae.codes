@@ -168,9 +168,9 @@ exports.drawOgImage = async (
 
   await drawImage(image || avatar, ctx, largeImageOptions);
 
-  if (image) {
-    await drawImage(avatar, ctx, smallImageOptions);
-  }
+  // if (image) {
+  //   await drawImage(avatar, ctx, smallImageOptions);
+  // }
 };
 
 exports.createImageBuffer = async (config) => {

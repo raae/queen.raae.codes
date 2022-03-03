@@ -1,6 +1,6 @@
 ---
 title: How to weed out large files in your Gatsby project
-image: ./tweet-files-answer.png
+description: "Sam Larsen Disney asked on Twitter: Is there any way to see which file the gatsby-plugin-sharp.IMAGE_PROCESSING job is currently working on?"
 emojii: 🗃 🖼
 ---
 
