@@ -1,5 +1,5 @@
 ---
-title: I was super excited, but it seems the "Gatsby Image CDN Beta" does not support gatsby-source-filesystem
+title: I was super excited, but it seems the "Gatsby Image CDN Beta" does not support gatsby-source-filesystem (yet...)
 emojii: 🖼 ☁️
 ---
 
