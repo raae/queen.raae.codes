@@ -2,4 +2,6 @@ Queen Raae is a seasoned web developer who loves duct-taping together side proje
 
 Cap'n Ola is the junior developer with a business background who asks all the right questions!
 
-Together with Pirate Princess Lillian, we have fun in the sharky waters around the Gatsby islands. Get to know us on our [weekly treasure hunts](https://www.youtube.com/QueenRaae) on YouTube.
+Together with Pirate Princess Lillian, we spend our days sailing the sharky waters around the Gatsby islands.
+
+Join us for our [weekly treasure hunts](https://www.youtube.com/QueenRaae) over on YouTube to get to know us better&nbsp;🏴‍☠️
