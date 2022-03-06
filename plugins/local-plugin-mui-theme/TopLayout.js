@@ -10,13 +10,9 @@ export default function TopLayout(props) {
     <React.Fragment>
       <Helmet>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <link
-          href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
-          rel="stylesheet"
-        />
         <style>
           {`html {
-            font-size: clamp(16px, 0.34vw + 14.5px, 19px)
+            font-size: clamp(16px, 112.5% + .15vw, 19px)
           }`}
         </style>
       </Helmet>

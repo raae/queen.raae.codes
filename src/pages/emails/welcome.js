@@ -1,33 +1,33 @@
 import React from "react";
 
 import Seo from "../../components/seo";
-
-import MainMenu from "../../content/main-menu";
-import SocialLinks from "../../content/social-links";
+import SiteHeader from "../../components/site-header";
+import PageSection, {
+  PageSectionBreadcrumbs,
+  PageSectionHeader,
+} from "../../components/page-section";
+import Emails from "../../content/emails";
 
 const EmailsWelcome = (props) => {
+  const badge = "Daily emails";
+  const title = "Welcome";
+  const description = <>You'll hear from us shortly&nbsp;📬</>;
   return (
     <>
-      <Seo {...props} meta={{ title: "Emails from the Queen" }} />
+      <Seo {...props} meta={{ title: `${title} · ${badge}`, description }} />
+      <SiteHeader />
       <main>
-        <header>
-          <h1>
-            Welcome! You'll hear from{" "}
-            <span>
-              me shortly{" "}
-              <span role="img" aria-label="Mailbox">
-                📬
-              </span>
-            </span>
-          </h1>
-        </header>
+        <PageSection component="header">
+          <PageSectionBreadcrumbs
+            items={[{ label: badge, to: ".." }, { label: title }]}
+          />
+          <PageSectionHeader title={description} hLevel={1} />
+        </PageSection>
+        <PageSection>
+          <PageSectionHeader title="Latest emails" />
+          <Emails more />
+        </PageSection>
       </main>
-      <footer>
-        <nav>
-          <MainMenu />
-          <SocialLinks />
-        </nav>
-      </footer>
     </>
   );
 };

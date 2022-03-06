@@ -2,32 +2,27 @@ import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import MainMenu from "../content/main-menu";
-import SocialLinks from "../content/social-links";
+import { Box } from "@mui/material";
 
+import SiteHeader from "../components/site-header";
 import Seo from "../components/seo";
+import PageSection, { PageSectionHeader } from "../components/page-section";
 import Prose from "../components/prose";
 import Testimonial from "../components/testimonial";
 import Talk from "../components/talk";
 import Join from "../components/join";
-import NewsletterForm from "../components/newsletter";
+
 import Webinar from "../components/webinar";
+import { Cta } from "../components/cta";
 
-const CtaContent = ({ path, label }) => {
-  if (!path || !label) return null;
-
-  return (
-    <h4>
-      <a href={path}>{label}</a>
-    </h4>
-  );
-};
+import { Newsletter } from "../content/newsletter";
+import Emails from "../content/emails";
+import Noteworthy from "../content/noteworthy";
 
 const RemarkPage = ({ data, ...props }) => {
   const { childMarkdownRemark } = data.landing;
   const { frontmatter, html: pageHtml } = childMarkdownRemark || {};
-  const { cta, talk, seo, join, form, webinar, ...page } = frontmatter || {};
-  const { sections } = frontmatter || {};
+  const { seo, sections, ...page } = frontmatter || {};
 
   const metaImage = getImage(seo?.image || page.image);
 
@@ -42,13 +37,28 @@ const RemarkPage = ({ data, ...props }) => {
           image: metaImage && metaImage.images.fallback.src,
         }}
       />
+      <SiteHeader />
       <main>
         {(sections || []).map((section, key) => {
           let { badge, title, lead, tagline } = section;
           let { content, element, body, testimonials } = section;
           let { image, imageAlt } = section;
 
-          content = content || "";
+          let blocks = content
+            ? content.split(",").map((block) => block.trim())
+            : [];
+
+          if (blocks.length === 0) {
+            if (body) {
+              blocks.push("body");
+            }
+            if (testimonials) {
+              blocks.push("testimonials");
+            }
+            if (image) {
+              blocks.push("image");
+            }
+          }
 
           if (element === "header") {
             badge = badge || page.badge;
@@ -59,68 +69,80 @@ const RemarkPage = ({ data, ...props }) => {
             imageAlt = imageAlt || page.imageAlt;
           }
 
-          if (content.includes("join")) {
+          if (blocks.includes("join")) {
             title = title || page.title;
             lead = lead || page.lead;
             tagline = tagline || page.tagline;
           }
 
           const gatsbyImage = getImage(image);
-          const Element = element || "section";
-          const TitleElement = element === "header" ? "h1" : "h2";
+
           const sectionHtml = body?.childMarkdownRemark?.html;
 
           return (
-            <Element key={key} id={content}>
-              {badge && (
-                <small>
-                  <mark>{badge}</mark>
-                </small>
-              )}
-              {title && <TitleElement>{title}</TitleElement>}
-              {lead && <p className="lead">{lead}</p>}
-              {tagline && (
-                <p>
-                  <em>{tagline}</em>
-                </p>
-              )}
+            <PageSection component={element} key={key} id={content}>
+              <PageSectionHeader
+                badge={badge}
+                title={title}
+                lead={lead}
+                tagline={tagline}
+                hLevel={element === "header" ? 1 : 2}
+              />
 
-              {content.includes("talk") && <Talk {...talk} />}
+              {blocks.map((block) => {
+                switch (block) {
+                  case "talk":
+                    return <Talk key={block} {...page.talk} />;
+                  case "join":
+                    return <Join key={block} {...page.join} />;
+                  case "webinar":
+                    return <Webinar key={block} {...page.webinar} />;
+                  case "main":
+                    return <Prose key={block} html={pageHtml} />;
+                  case "body":
+                    return <Prose key={block} html={sectionHtml} />;
+                  case "cta":
+                    return <Cta key={block} sx={{ my: "2em" }} {...page.cta} />;
+                  case "form":
+                    return (
+                      <Newsletter
+                        key={block}
+                        sx={{ my: "1em" }}
+                        {...page.form}
+                      />
+                    );
+                  case "image":
+                    return (
+                      <Box sx={{ my: "2em" }} key={block}>
+                        <GatsbyImage image={gatsbyImage} alt={imageAlt} />
+                      </Box>
+                    );
+                  case "emails":
+                    return <Emails key={block} more />;
+                  case "noteworthy":
+                    return <Noteworthy key={block} more />;
+                  case "testimonials":
+                    return testimonials.map((item, key) => {
+                      const { frontmatter, html } = item.childMarkdownRemark;
+                      return (
+                        <Testimonial
+                          sx={{ my: "2em" }}
+                          key={`testimonial-${key}`}
+                          {...frontmatter}
+                        >
+                          <Prose html={html} />
+                        </Testimonial>
+                      );
+                    });
 
-              {content.includes("join") && <Join {...join} />}
-
-              {content.includes("webinar") && <Webinar {...webinar} />}
-
-              {sectionHtml && <Prose html={sectionHtml} />}
-
-              {content.includes("main") && <Prose html={pageHtml} />}
-
-              {testimonials &&
-                testimonials.map((item, key) => {
-                  const { frontmatter, html } = item.childMarkdownRemark;
-                  return (
-                    <Testimonial key={key} {...frontmatter}>
-                      <div dangerouslySetInnerHTML={{ __html: html }} />
-                    </Testimonial>
-                  );
-                })}
-
-              {content.includes("cta") && <CtaContent {...cta} />}
-
-              {content.includes("form") && <NewsletterForm {...form} />}
-
-              {image && <GatsbyImage image={gatsbyImage} alt={imageAlt} />}
-            </Element>
+                  default:
+                    return null;
+                }
+              })}
+            </PageSection>
           );
         })}
       </main>
-
-      <footer>
-        <nav>
-          <MainMenu />
-          <SocialLinks />
-        </nav>
-      </footer>
     </>
   );
 };
@@ -136,7 +158,6 @@ export const query = graphql`
           badge
           title
           lead
-          tagline
           imageAlt
           image {
             childImageSharp {
@@ -164,6 +185,7 @@ export const query = graphql`
           cta {
             path
             label
+            note
           }
           talk {
             date
@@ -178,6 +200,8 @@ export const query = graphql`
           form {
             cta
             formKey: key
+            message
+            tagline
           }
           join {
             start
@@ -191,7 +215,6 @@ export const query = graphql`
             element
             badge
             title
-            lead
             tagline
             content
             imageAlt

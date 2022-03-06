@@ -4,6 +4,7 @@ import {
   formatISO as formatISOFn,
   addDays as addDaysFn,
 } from "date-fns";
+import { Link as MuiLink, Typography } from "@mui/material";
 
 export const DateText = ({ dateString, addDays, skipYear }) => {
   let formatString = "MMMM do, yyyy";
@@ -34,10 +35,26 @@ export const TagsText = ({ tags }) => {
   return <>{tags.join(", ")}</>;
 };
 
-export const PossibleExternalLink = ({ children, url }) => {
+export const PossibleExternalLink = ({ children, url, ...props }) => {
   if (url) {
-    return <a href={url}>{children}</a>;
+    return (
+      <MuiLink component="a" href={url} {...props}>
+        {children}
+      </MuiLink>
+    );
   } else {
-    return children;
+    return <Typography {...props}>{children}</Typography>;
   }
 };
+
+// export const PossibleExternalLink = ({ children, url, ...props }) => {
+//   if (url) {
+//     return (
+//       <MuiLink component="a" href={url} {...props}>
+//         {children}
+//       </MuiLink>
+//     );
+//   } else {
+//     return <Typography {...props}>{children}</Typography>;
+//   }
+// };

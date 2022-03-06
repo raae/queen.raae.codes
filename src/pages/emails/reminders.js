@@ -1,33 +1,29 @@
 import React from "react";
 
 import Seo from "../../components/seo";
-
-import MainMenu from "../../content/main-menu";
-import SocialLinks from "../../content/social-links";
+import SiteHeader from "../../components/site-header";
+import PageSection, {
+  PageSectionBreadcrumbs,
+  PageSectionHeader,
+} from "../../components/page-section";
+import Prose from "../../components/prose";
 import NewsletterForm from "../../components/newsletter";
 
 const EmailRemindersPage = (props) => {
+  const badge = "Emails";
+  const title = "Reminders";
+  const description = "Live stream reminders";
   return (
     <>
-      <Seo {...props} meta={{ title: "Stream reminders from the Queen" }} />
+      <Seo {...props} meta={{ title: `${title} · ${badge}`, description }} />
+      <SiteHeader />
       <main>
-        <header>
-          <h1>
-            Live stream reminders from{" "}
-            <span>
-              yours truly{" "}
-              <span
-                role="img"
-                aria-label="Live on air red circle and notification bell emojii"
-              >
-                🔴 🔔
-              </span>
-            </span>
-          </h1>
-        </header>
-
-        <section>
-          <NewsletterForm formKey="reminders" cta="Yes, please">
+        <PageSection component="header">
+          <PageSectionBreadcrumbs
+            items={[{ label: badge, to: ".." }, { label: title }]}
+          />
+          <PageSectionHeader title={description} hLevel={1} />
+          <Prose>
             <p>
               Receive a reminder via email 30 minutes before we go live on the{" "}
               <a href="https://www.youtube.com/channel/UCDlrzlRdM1vGr8nO708KFmQ">
@@ -42,15 +38,10 @@ const EmailRemindersPage = (props) => {
                 )
               </small>
             </p>
-          </NewsletterForm>
-        </section>
+          </Prose>
+          <NewsletterForm mt="2em" formKey="reminders" cta="Yes, please" />
+        </PageSection>
       </main>
-      <footer>
-        <nav>
-          <MainMenu />
-          <SocialLinks />
-        </nav>
-      </footer>
     </>
   );
 };

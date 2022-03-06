@@ -37,5 +37,3 @@ The live webinar code will be available as a Pull Request in the private GitHub 
 _Saturday 20:00 CEST / 11:00 PST - 1 hour_
 
 Bring your questions, code, and or celebratory beverage to this live Q&A session.
-
-#### [Join now](#join)

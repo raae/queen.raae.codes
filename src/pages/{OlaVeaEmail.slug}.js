@@ -1,12 +1,15 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 
-import { Typography, Link as MuiLink } from "@mui/material";
+import { Typography, Link as MuiLink, Breadcrumbs } from "@mui/material";
 
 import Seo from "../components/seo";
 import Prose from "../components/prose";
 import SiteHeader from "../components/site-header";
-import SiteSection from "../components/site-section";
+import PageSection, {
+  PageSectionBreadcrumbs,
+  PageSectionHeader,
+} from "../components/page-section";
 import NewsletterForm from "../components/newsletter";
 
 const OlaVeaEmail = ({ data, ...props }) => {
@@ -24,24 +27,28 @@ const OlaVeaEmail = ({ data, ...props }) => {
       />
       <SiteHeader />
       <main>
-        <SiteSection component="article">
-          <Typography variant="h1" gutterBottom>
-            {title}&nbsp;&nbsp;{emojis[0]}&nbsp;{emojis[1]}
-          </Typography>
-          <Typography variant="caption">Email sent {date} / Go to </Typography>
-          <MuiLink variant="caption" component={Link} to="/emails/">
-            email archive
-          </MuiLink>
+        <PageSection component="article">
+          <PageSectionBreadcrumbs
+            items={[{ label: "Daily Emails", to: "/emails/" }, { label: date }]}
+          />
+          <PageSectionHeader
+            hLevel={1}
+            title={
+              <>
+                {title}&nbsp;&nbsp;{emojis[0]}&nbsp;{emojis[1]}
+              </>
+            }
+          />
 
-          <Prose sx={{ py: 2 }} html={html} />
-        </SiteSection>
-        <SiteSection component="footer">
+          <Prose mt="3em" html={html} />
+        </PageSection>
+        <PageSection component="footer">
           <NewsletterForm>
             <strong>Serious about Gatsby?</strong> Sign up for emails like this
             from Queen Raae (and Cap'n Ola) sent every weekday to help you get
             the most out of Gatsby!
           </NewsletterForm>
-        </SiteSection>
+        </PageSection>
       </main>
     </>
   );

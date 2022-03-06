@@ -1,49 +1,44 @@
 import React from "react";
 import { graphql } from "gatsby";
 
+import SiteHeader from "../../components/site-header";
+import PageSection, { PageSectionHeader } from "../../components/page-section";
 import Seo from "../../components/seo";
 import NewsletterForm from "../../components/newsletter";
-import EmailList from "../../components/email-list";
 
-import SiteHeader from "../../components/site-header";
-import { Box, Typography } from "@mui/material";
-import SiteSection from "../../components/site-section";
+import Emails from "../../content/emails";
 
-const Emails = ({ data, ...props }) => {
-  const title = "Emails to help you get the most out of Gatsby 💌";
+const EmailsPage = ({ data, ...props }) => {
+  const badge = "Daily emails";
+  const title = "Serious about Gatsby? ";
   const description =
-    "Serious about Gatsby? Sign up for emails from Queen Raae (and Cap'n Ola) sent every weekday to help you get the most out of Gatsby!";
+    "Sign up for emails from Queen Raae (and Cap'n Ola) sent every weekday to help you get the most out of Gatsby!";
   return (
     <>
-      <Seo {...props} meta={{ title, description }} />
+      <Seo {...props} meta={{ title: badge, description }} />
       <SiteHeader />
       <main>
-        <SiteSection component="header">
-          <Box sx={{ maxWidth: "55ch" }}>
-            <Typography variant="h1" gutterBottom>
-              {title}
-            </Typography>
-            <NewsletterForm>
-              <Typography variant="subtitle1" component="p" gutterBottom>
-                <strong>Serious about Gatsby?</strong> Sign up for emails from
-                Queen Raae (and Cap'n Ola) sent every weekday to help you get
-                the most out of Gatsby!
-              </Typography>
-            </NewsletterForm>
-          </Box>
-        </SiteSection>
+        <PageSection component="header">
+          <PageSectionHeader
+            badge={badge}
+            title={title}
+            lead={description}
+            hLevel={1}
+          />
+          <NewsletterForm mt="2em" cta="Yes, please!" formKey="queen" />
+        </PageSection>
 
-        <SiteSection component="section">
-          <EmailList emails={data.allEmail.nodes} sx={{ maxWidth: "50ch" }} />
-        </SiteSection>
+        <PageSection component="section">
+          <Emails emails={data.allEmail} sx={{ maxWidth: "50ch" }} />
+        </PageSection>
 
-        <SiteSection component="footer">
-          <NewsletterForm>
+        <PageSection component="footer">
+          <NewsletterForm cta="Yes, please!" formKey="queen">
             <strong>Serious about Gatsby?</strong> Sign up for emails like these
             from Queen Raae (and Cap'n Ola) sent every weekday to help you get
             the most out of Gatsby!
           </NewsletterForm>
-        </SiteSection>
+        </PageSection>
       </main>
     </>
   );
@@ -62,4 +57,4 @@ export const query = graphql`
   }
 `;
 
-export default Emails;
+export default EmailsPage;

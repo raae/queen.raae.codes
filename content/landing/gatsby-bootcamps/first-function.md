@@ -17,14 +17,14 @@ join:
   paymentLink: https://buy.stripe.com/aEU6sq8qo1ie3cc7sv
   price: 79.50 USD
   deadline: 2
-  status: open
+  status: closed
 sections:
   - element: header
     badge: Gatsby Mini Bootcamp
     content: cta
   - testimonials:
       - ./_testimonials/ineza-summer.md
-  - content: main
+  - content: main, cta
   - body: ./_included.md
   # - video: https://vimeo.com/636967396
   # - title: FAQ
@@ -61,8 +61,6 @@ It removes the need for complicated configuration, letting you focus on developi
 
 A student of the 5 week summer program replaced a paid product with a single function in his first week 🤯
 
-#### [Join now](#join)
-
 ## What you'll make?
 
 **A TimeShip!**
@@ -86,5 +84,3 @@ If you are not into time-traveling, make the project your own or add similar fun
 - Calling/polling/requesting a Serverless function from your site
 - How to deploy to Netlify or Gatsby Cloud
 - Save and retreive data from a third party service
-
-#### [Join now](#join)

@@ -28,7 +28,9 @@ const Talk = ({ date, url, recording, event }) => {
 
         {recording && (
           <IconListItem icon="recording">
-            <a href={recording}>{getRecordingText(recording)}</a>
+            <PossibleExternalLink url={recording}>
+              {getRecordingText(recording)}
+            </PossibleExternalLink>
           </IconListItem>
         )}
       </IconList>

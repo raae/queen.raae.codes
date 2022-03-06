@@ -3,7 +3,7 @@ badge: Lightning Talk
 title: Add flexibility to your site with Gatsby Functions
 lead: A short 15-minute talk demonstrating how to charge money for time travels using Stripe and let the travelers know if they found the princess or not using SendGrid.
 image: ./speaker-graphic.png
-imageAlt: "Graphic with information about the talk and an avatar of Queen Raae"
+imageAlt: "Information about the talk and an avatar of Queen Raae"
 talk:
   date: 2021-09-16
   event: "Gatsby Fall Camp '21"
@@ -13,13 +13,12 @@ talk:
 form:
   key: queen
   cta: Sign up
+  message: Serious about Gatsby? Sign up for emails from Queen Raae (and Cap'n Ola) sent every weekday to help you get the most out of Gatsby!
 sections:
   - element: header
-    content: talk
+    content: talk, image
   - content: main
   - content: form
-    title: Serious about Gatsby?
-    lead: Sign up for emails from Queen Raae (and Cap'n Ola) sent every weekday to help you get the most out of Gatsby!
 ---
 
 ## Interested in more?

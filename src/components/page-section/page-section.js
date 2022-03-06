@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Box, Container } from "@mui/material";
 
-const SiteSection = ({
+export const PageSection = ({
   children,
   component = "section",
   maxWidth = "md",
@@ -14,14 +14,11 @@ const SiteSection = ({
       sx={{
         bgcolor: "background.paper",
         py: 8,
-        "&:first-child": {
-          pt: 16,
-        },
         "&:nth-child(even)": {
           bgcolor: "background.default",
         },
-        ">* >*": {
-          maxWidth: "60ch",
+        "& > * > *": {
+          maxWidth: "34rem",
         },
         ...props.sx,
       }}
@@ -30,5 +27,3 @@ const SiteSection = ({
     </Box>
   );
 };
-
-export default SiteSection;

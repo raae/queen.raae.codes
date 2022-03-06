@@ -1,16 +1,67 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
+import { Box } from "@mui/material";
 
 const Root = styled("div")(({ theme }) => ({
   "> *": {
     ...theme.typography.body1,
     maxWidth: "100%",
+    marginBottom: "1rem",
   },
   "& h1": {
     ...theme.typography.h1,
+    marginTop: "1.5em",
+    marginBottom: "1em",
   },
   "& h2": {
     ...theme.typography.h2,
+    marginTop: "1.5em",
+    marginBottom: "1em",
+  },
+  "& h3": {
+    ...theme.typography.h3,
+    marginTop: "1.5em",
+  },
+  "& h4": {
+    ...theme.typography.h4,
+    marginTop: "1.5em",
+  },
+  "& h5": {
+    ...theme.typography.h5,
+    marginTop: "1.5em",
+  },
+  "& h5": {
+    ...theme.typography.h6,
+    marginTop: "1.5em",
+  },
+  "& ul": {
+    listStyle: "none",
+    padding: 0,
+
+    "& li": {
+      margin: "0.25rem 0",
+      a: {
+        display: "inline-block",
+        "&:after": { content: `""`, display: "block" },
+      },
+      "&:before": {
+        content: "'➽'",
+        display: "inline-block",
+        marginRight: "0.5rem",
+        color: theme.palette.secondary.dark,
+      },
+    },
+  },
+  "& ol": {
+    listStyle: "inside",
+    padding: 0,
+
+    "& li": {
+      margin: "0.25rem 0",
+    },
+  },
+  "& a": {
+    color: theme.palette.primary.dark,
   },
   "& .gatsby-highlight": {
     marginTop: theme.spacing(3),
@@ -24,17 +75,16 @@ const Root = styled("div")(({ theme }) => ({
 
 const Prose = ({ html, children, ...props }) => {
   return (
-    <>
+    <Box {...props}>
       {html && (
         <Root
-          {...props}
           dangerouslySetInnerHTML={{
             __html: html,
           }}
         />
       )}
       {children && <Root>{children}</Root>}
-    </>
+    </Box>
   );
 };
 

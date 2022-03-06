@@ -14,9 +14,9 @@ import { Link } from "gatsby";
 import LinkButton from "./link-button";
 
 const pages = [
-  { label: "Services", path: "/services" },
-  { label: "Projects", path: "/projects" },
-  { label: "Daily", path: "/emails" },
+  // { label: "Services", path: "/services" },
+  // { label: "Done-for-you Demo", path: "/done-for-you-demo" },
+  // { label: "Daily emails", path: "/emails" },
 ];
 
 const links = [
@@ -40,12 +40,12 @@ const SiteHeader = () => {
     <MuiAppBar
       position="sticky"
       color="transparent"
-      elevation="0"
+      elevation={0}
       sx={{
         backgroundColor: "#fffaf0b3",
         backdropFilter: "blur(20px)",
         borderTop: 5,
-        borderTopColor: "secondary.main",
+        borderTopColor: "brand.500",
         borderBottom: "thin",
         borderBottomColor: "background.default",
       }}
@@ -56,7 +56,7 @@ const SiteHeader = () => {
             <Box sx={{ transform: "scale(1.5)" }}>👑</Box>
           </Button>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          {/* <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map(({ label, path }) => (
               <Button
                 component={Link}
@@ -67,13 +67,13 @@ const SiteHeader = () => {
                 <Box sx={{ transform: "translateY(2px)" }}>{label}</Box>
               </Button>
             ))}
-          </Box>
+          </Box> */}
           <Box sx={{ ml: "auto" }}>
             {links.map((url) => (
-              <LinkButton url={url} />
+              <LinkButton key={url} url={url} />
             ))}
           </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
+          {/* <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <Button
               disableElevation
               variant="contained"
@@ -112,7 +112,7 @@ const SiteHeader = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box> */}
         </Toolbar>
       </Container>
     </MuiAppBar>
