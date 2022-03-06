@@ -20,6 +20,7 @@ const NewsletterForm = ({
   label,
   tags = [],
   anchor = "",
+  ...props
 }) => {
   const [status, setStatus] = useState("INITIAL");
 
@@ -47,7 +48,7 @@ const NewsletterForm = ({
   };
 
   return (
-    <Box component="form" onSubmit={handleOnSubmit} id={anchor}>
+    <Box component="form" onSubmit={handleOnSubmit} id={anchor} {...props}>
       {children}
 
       <Box sx={{ display: "flex", maxWidth: "90%", mt: 3 }}>
