@@ -2,6 +2,7 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 
 import Seo from "../components/seo";
+import MuiAppBar from "../components/app-bar";
 
 import NewsletterSection from "../content/newsletter-section";
 import EventsSection from "../content/events-section";
@@ -14,6 +15,7 @@ const IndexPage = ({ data, ...props }) => {
   return (
     <>
       <Seo {...props} />
+      <MuiAppBar />
       <main>
         <HomeHeader />
 
