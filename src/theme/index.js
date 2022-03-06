@@ -1,11 +1,14 @@
-import { deepOrange, brown, yellow } from "@mui/material/colors";
+import { deepOrange, brown, deepPurple } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
+import themeTypography from "./typography";
 
 // A custom theme for this app
-const theme = createTheme({
+let theme = createTheme({
   palette: {
-    primary: deepOrange,
-    secondary: yellow,
+    secondary: deepOrange,
+    primary: {
+      main: "#007b7d",
+    },
     text: brown,
     grey: brown,
     background: {
@@ -13,7 +16,8 @@ const theme = createTheme({
       default: "#fcedd8",
     },
   },
-  typography: {},
 });
+
+theme = createTheme(theme, { typography: themeTypography(theme) });
 
 export default theme;

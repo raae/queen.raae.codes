@@ -2,12 +2,14 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 
-import MainMenu from "../content/main-menu";
-import SocialLinks from "../content/social-links";
-import NewsletterForm from "../components/newsletter";
+import { Link as MuiLink, Typography } from "@mui/material";
 
 import Seo from "../components/seo";
 import Prose from "../components/prose";
+import AppBar from "../components/app-bar";
+import SiteSection from "../components/site-section";
+import NewsletterForm from "../components/newsletter";
+import QueenAvatar from "../components/queen-avatar";
 
 const IS_PROD = process.env.NODE_ENV === "production";
 
@@ -27,43 +29,33 @@ const QueenEmail = ({ data, ...props }) => {
           image: ogImageSrc,
         }}
       />
-
+      <AppBar />
       <main>
-        <header>
-          {title && (
-            <h1>
-              {title}&nbsp;&nbsp;
-              {emojii}
-            </h1>
+        <SiteSection component="article">
+          <Typography variant="h1" gutterBottom>
+            {title}&nbsp;&nbsp;{emojii}
+          </Typography>
+          <Typography variant="caption">Email sent {date} / Go to </Typography>
+          <MuiLink variant="caption" component={Link} to="/emails/">
+            email archive
+          </MuiLink>
+
+          <Prose sx={{ py: 2 }} html={html} />
+
+          {!IS_PROD && (
+            <Prose>
+              <img src={ogImageSrc} alt="Cover test" />
+            </Prose>
           )}
-          <small>
-            An <Link to="/emails/">email</Link> sent on {date}
-          </small>
-        </header>
-
-        <Prose html={html} />
-
-        <section>
+        </SiteSection>
+        <SiteSection component="footer">
           <NewsletterForm>
             <strong>Serious about Gatsby?</strong> Sign up for emails like this
             from Queen Raae (and Cap'n Ola) sent every weekday to help you get
             the most out of Gatsby!
           </NewsletterForm>
-        </section>
-
-        {!IS_PROD && (
-          <section>
-            <img src={ogImageSrc} alt="Cover test" />
-          </section>
-        )}
+        </SiteSection>
       </main>
-
-      <footer>
-        <nav>
-          <MainMenu />
-          <SocialLinks />
-        </nav>
-      </footer>
     </>
   );
 };

@@ -5,10 +5,8 @@ import {
   Toolbar,
   Container,
   Button,
-  IconButton,
   Menu,
   MenuItem,
-  Typography,
 } from "@mui/material";
 import { Menu as MenuIcon } from "@mui/icons-material";
 import { Link } from "gatsby";
@@ -18,7 +16,7 @@ import LinkButton from "./link-button";
 const pages = [
   { label: "Services", path: "/services" },
   { label: "Projects", path: "/projects" },
-  { label: "Daily Emails", path: "/emails" },
+  { label: "Daily", path: "/emails" },
 ];
 
 const links = [
@@ -44,23 +42,28 @@ const AppBar = () => {
       color="transparent"
       elevation="0"
       sx={{
-        backgroundColor: "#fcedd8b3",
+        backgroundColor: "#fffaf0b3",
         backdropFilter: "blur(20px)",
         borderTop: 5,
-        borderTopColor: "primary.main",
+        borderTopColor: "secondary.main",
         borderBottom: "thin",
         borderBottomColor: "background.default",
       }}
     >
       <Container maxWidth="lg">
         <Toolbar disableGutters>
-          <Button variant="outlined" component={Link} to="/" sx={{ mr: 2 }}>
+          <Button component={Link} title="Queen Raae" to="/" sx={{ ml: -2.5 }}>
             <Box sx={{ transform: "scale(1.5)" }}>👑</Box>
           </Button>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map(({ label, path }) => (
-              <Button component={Link} to={path} key={path}>
+              <Button
+                component={Link}
+                to={path}
+                key={path}
+                sx={{ textTransform: "none", color: "text.primary", mr: 1 }}
+              >
                 <Box sx={{ transform: "translateY(2px)" }}>{label}</Box>
               </Button>
             ))}

@@ -1,15 +1,17 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 
-import MainMenu from "../content/main-menu";
-import SocialLinks from "../content/social-links";
-import NewsletterForm from "../components/newsletter";
+import { Typography, Link as MuiLink } from "@mui/material";
 
 import Seo from "../components/seo";
 import Prose from "../components/prose";
+import AppBar from "../components/app-bar";
+import SiteSection from "../components/site-section";
+import NewsletterForm from "../components/newsletter";
 
 const OlaVeaEmail = ({ data, ...props }) => {
   const { date, title, emojii, description, html } = data.email || {};
+  const emojis = emojii.split(" ");
 
   return (
     <>
@@ -20,36 +22,27 @@ const OlaVeaEmail = ({ data, ...props }) => {
           description: description,
         }}
       />
+      <AppBar />
       <main>
-        <header>
-          {title && (
-            <h1>
-              {title}&nbsp;&nbsp;
-              {emojii}
-            </h1>
-          )}
-          <small>
-            An <Link to="/emails/">email</Link> sent on {date}
-          </small>
-        </header>
+        <SiteSection component="article">
+          <Typography variant="h1" gutterBottom>
+            {title}&nbsp;&nbsp;{emojis[0]}&nbsp;{emojis[1]}
+          </Typography>
+          <Typography variant="caption">Email sent {date} / Go to </Typography>
+          <MuiLink variant="caption" component={Link} to="/emails/">
+            email archive
+          </MuiLink>
 
-        <Prose html={`<p>Ship Ahoy Skill Builder! </p>` + html} />
-
-        <section>
+          <Prose sx={{ py: 2 }} html={html} />
+        </SiteSection>
+        <SiteSection component="footer">
           <NewsletterForm>
             <strong>Serious about Gatsby?</strong> Sign up for emails like this
-            from Cap'n Ola (and Queen Raae) sent every weekday to help you get
+            from Queen Raae (and Cap'n Ola) sent every weekday to help you get
             the most out of Gatsby!
           </NewsletterForm>
-        </section>
+        </SiteSection>
       </main>
-
-      <footer>
-        <nav>
-          <MainMenu />
-          <SocialLinks />
-        </nav>
-      </footer>
     </>
   );
 };

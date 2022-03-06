@@ -1,11 +1,13 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 
 import Seo from "../../components/seo";
+import NewsletterForm from "../../components/newsletter";
+import EmailList from "../../components/email-list";
 
-import MainMenu from "../../content/main-menu";
-import SocialLinks from "../../content/social-links";
-import NewsletterSection from "../../content/newsletter-section";
+import AppBar from "../../components/app-bar";
+import { Box, Typography } from "@mui/material";
+import SiteSection from "../../components/site-section";
 
 const Emails = ({ data, ...props }) => {
   const title = "Emails to help you get the most out of Gatsby 💌";
@@ -14,33 +16,35 @@ const Emails = ({ data, ...props }) => {
   return (
     <>
       <Seo {...props} meta={{ title, description }} />
+      <AppBar />
       <main>
-        <header>
-          <h1>{title}</h1>
-        </header>
+        <SiteSection component="header">
+          <Box sx={{ maxWidth: "55ch" }}>
+            <Typography variant="h1" gutterBottom>
+              {title}
+            </Typography>
+            <NewsletterForm>
+              <Typography variant="subtitle1" component="p" gutterBottom>
+                <strong>Serious about Gatsby?</strong> Sign up for emails from
+                Queen Raae (and Cap'n Ola) sent every weekday to help you get
+                the most out of Gatsby!
+              </Typography>
+            </NewsletterForm>
+          </Box>
+        </SiteSection>
 
-        <NewsletterSection />
+        <SiteSection component="section">
+          <EmailList emails={data.allEmail.nodes} sx={{ maxWidth: "50ch" }} />
+        </SiteSection>
 
-        <section>
-          <ul>
-            {data.allEmail.nodes.map(({ date, slug, title, emojii }) => (
-              <li key={slug}>
-                <small>
-                  {emojii}&nbsp;&nbsp;{date}
-                </small>
-                <br />
-                <Link to={slug}>{title}</Link>
-              </li>
-            ))}
-          </ul>
-        </section>
+        <SiteSection component="footer">
+          <NewsletterForm>
+            <strong>Serious about Gatsby?</strong> Sign up for emails like these
+            from Queen Raae (and Cap'n Ola) sent every weekday to help you get
+            the most out of Gatsby!
+          </NewsletterForm>
+        </SiteSection>
       </main>
-      <footer>
-        <nav>
-          <MainMenu />
-          <SocialLinks />
-        </nav>
-      </footer>
     </>
   );
 };

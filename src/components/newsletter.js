@@ -1,3 +1,4 @@
+import { Box, Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { addSubscriber } from "../services/subscriptions";
 
@@ -15,7 +16,7 @@ const TEXT = {
 const NewsletterForm = ({
   formKey = "queen",
   children,
-  cta = "Get notifed",
+  cta = "Yes, please!",
   label,
   tags = [],
   anchor = "",
@@ -46,15 +47,29 @@ const NewsletterForm = ({
   };
 
   return (
-    <form onSubmit={handleOnSubmit} id={anchor}>
+    <Box component="form" onSubmit={handleOnSubmit} id={anchor}>
       {children}
 
-      <fieldset disabled={status === "pending"}>
-        <label htmlFor="email">Your email address:</label>
-        <br />
-        <input id="email" name="email" type="email" required />
-        <button type="submit">{label || cta}</button>
-      </fieldset>
+      <Box sx={{ display: "flex", maxWidth: "90%", mt: 3 }}>
+        <TextField
+          id="email"
+          name="email"
+          type="email"
+          label="Your best email"
+          size="small"
+          disabled={status === "pending"}
+          sx={{ flexGrow: 1, mr: 1 }}
+          required
+        />
+        <Button
+          disableElevation
+          variant="contained"
+          type="submit"
+          disabled={status === "pending"}
+        >
+          {label || cta}
+        </Button>
+      </Box>
 
       {status !== "INITIAL" && (
         <aside>
@@ -66,7 +81,7 @@ const NewsletterForm = ({
           <strong>{TEXT[status]}</strong>
         </aside>
       )}
-    </form>
+    </Box>
   );
 };
 
