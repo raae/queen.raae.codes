@@ -16,6 +16,11 @@
     "prettier": "prettier --config ./.prettierrc.js --ignore-path ./.prettierignore --write \"**/*.{json,js,ts,tsx,mdx}\""
   },
   "dependencies": {
+    "@emotion/react": "11.8.1",
+    "@emotion/server": "11.4.0",
+    "@emotion/styled": "11.8.1",
+    "@mui/icons-material": "5.4.4",
+    "@mui/material": "5.4.4",
     "@raae/gatsby-plugin-fathom": "0.0.4",
     "@raae/gatsby-plugin-let-it-snow": "1.0.0",
     "@raae/gatsby-remark-oembed": "0.1.1",
