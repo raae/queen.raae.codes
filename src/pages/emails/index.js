@@ -5,7 +5,7 @@ import Seo from "../../components/seo";
 import NewsletterForm from "../../components/newsletter";
 import EmailList from "../../components/email-list";
 
-import AppBar from "../../components/app-bar";
+import SiteHeader from "../../components/site-header";
 import { Box, Typography } from "@mui/material";
 import SiteSection from "../../components/site-section";
 
@@ -16,7 +16,7 @@ const Emails = ({ data, ...props }) => {
   return (
     <>
       <Seo {...props} meta={{ title, description }} />
-      <AppBar />
+      <SiteHeader />
       <main>
         <SiteSection component="header">
           <Box sx={{ maxWidth: "55ch" }}>

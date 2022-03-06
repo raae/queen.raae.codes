@@ -25,7 +25,7 @@ const links = [
   "https://youtube.com/QueenRaae",
 ];
 
-const AppBar = () => {
+const SiteHeader = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -118,4 +118,4 @@ const AppBar = () => {
     </MuiAppBar>
   );
 };
-export default AppBar;
+export default SiteHeader;

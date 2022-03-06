@@ -5,7 +5,7 @@ import { Typography, Link as MuiLink } from "@mui/material";
 
 import Seo from "../components/seo";
 import Prose from "../components/prose";
-import AppBar from "../components/app-bar";
+import SiteHeader from "../components/site-header";
 import SiteSection from "../components/site-section";
 import NewsletterForm from "../components/newsletter";
 
@@ -22,7 +22,7 @@ const OlaVeaEmail = ({ data, ...props }) => {
           description: description,
         }}
       />
-      <AppBar />
+      <SiteHeader />
       <main>
         <SiteSection component="article">
           <Typography variant="h1" gutterBottom>

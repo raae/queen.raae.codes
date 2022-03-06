@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby";
 import { Typography, Box, Link as MuiLink } from "@mui/material";
 
 import Seo from "../components/seo";
-import MuiAppBar from "../components/app-bar";
+import SiteHeader from "../components/site-header";
 import EmailList from "../components/email-list";
 import SiteSection from "../components/site-section";
 
@@ -25,7 +25,7 @@ const IndexPage = ({ data, ...props }) => {
   return (
     <>
       <Seo {...props} />
-      <MuiAppBar />
+      <SiteHeader />
       <main>
         <SiteSection component="header">
           <Typography variant="h1" gutterBottom>
