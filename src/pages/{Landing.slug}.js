@@ -213,7 +213,12 @@ export const query = graphql`
               childMarkdownRemark {
                 frontmatter {
                   who
+                  url
                   attended
+                  company {
+                    name
+                    url
+                  }
                   avatar {
                     childImageSharp {
                       gatsbyImageData(
