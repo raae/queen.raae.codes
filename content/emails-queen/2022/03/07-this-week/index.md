@@ -25,6 +25,9 @@ Also, [Gatsby v4.9](https://www.gatsbyjs.com/docs/reference/release-notes/v4.9/)
 
 - Support for TypeScript in gatsby-config and gatsby-node
 
+&nbsp;  
+What made you most excited?
+
 ## Our streaming schedule this week
 
 🔴 🏴‍☠️ [TBD · #GatsbyJS Deep Dive](https://youtu.be/kzUUoglO63k)  
