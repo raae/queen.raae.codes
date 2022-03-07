@@ -18,7 +18,6 @@ Interested in Open Source?
 Check out [Becoming an Open Source Champion with Gatsby](https://gatsbyconf.com/lennart-joergens/#details) and [Sustainably Maintaining the Gatsby Plugin Ecosystem
 ](https://gatsbyconf.com/alex-moon/#details).
 
-&nbsp;  
 [Gatsby v4.8](https://www.gatsbyjs.com/docs/reference/release-notes/v4.8/) was released last week:
 
 - Support for TypeScript in gatsby-browser and gatsby-ssr
@@ -28,15 +27,25 @@ Check out [Becoming an Open Source Champion with Gatsby](https://gatsbyconf.com/
 
 ## Our streaming schedule this week
 
-- [🔴 🏴‍☠️ TBD (Gatsby Conf) · #GatsbyJS Deep Dive](https://youtu.be/BzigfV2BiIE)&nbsp;—&nbsp;Thursday, March 3rd @&nbsp;19:00&nbsp;CET
-- [🔴 ⛵ TBD - Time might change· #OlaCast · Sunday #19/100](https://youtu.be/QMtXZRviiqE)&nbsp;—&nbsp;Sunday, March 6th @&nbsp;10:30&nbsp;CET
+🔴 🏴‍☠️ [TBD (Gatsby Conf) · #GatsbyJS Deep Dive](https://youtu.be/BzigfV2BiIE)  
+— Thursday, March 3rd @ 19:00 CET
+
+🔴 ⛵ [TBD - Time might change· #OlaCast · Sunday #19/100](https://youtu.be/QMtXZRviiqE)  
+— Sunday, March 6th @ 10:30 CET
 
 ## Other events
 
-- [Jamstack Berlin #19](https://www.meetup.com/jamstack_berlin/events/282051742)&nbsp;—&nbsp;Monday, February 28th @&nbsp;18:30&nbsp;CET
-- [GreeceJS #43](https://www.meetup.com/GreeceJS/events/283770374)&nbsp;—&nbsp;Tuesday, March 1st @&nbsp;18:00&nbsp;CET
-- [Gatsby Conf - Day 1 - Talks](https://gatsbyconf.com/)&nbsp;—&nbsp;Wednesday, March 2nd @&nbsp;17:30&nbsp;CET&nbsp;-&nbsp;00:30&nbsp;CET
-- [Gatsby Conf - Day 2 - Workshops](https://gatsbyconf.com/)&nbsp;—&nbsp;Thursday, March 3rd @&nbsp;17:30&nbsp;CET&nbsp;-&nbsp;22:45&nbsp;CET
+[Jamstack Berlin #19](https://www.meetup.com/jamstack_berlin/events/282051742)  
+— Monday, February 28th @ 18:30 CET
+
+[GreeceJS #43](https://www.meetup.com/GreeceJS/events/283770374)  
+— Tuesday, March 1st @ 18:00 CET
+
+[Gatsby Conf - Day 1 - Talks](https://gatsbyconf.com/)  
+— Wednesday, March 2nd @ 17:30 CET - 00:30 CET
+
+[Gatsby Conf - Day 2 - Workshops](https://gatsbyconf.com/)  
+— Thursday, March 3rd @ 17:30 CET - 22:45 CET
 
 &nbsp;  
 All the best,  
