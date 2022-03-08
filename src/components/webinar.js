@@ -1,9 +1,10 @@
 import React from "react";
 
 const Webinar = (props) => {
-  const { url } = props;
+  const { url, title } = props;
   return (
     <iframe
+      title={title}
       width="100%"
       height="800"
       frameborder="0"

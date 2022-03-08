@@ -1,7 +1,5 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
-
-import { Typography, Link as MuiLink, Breadcrumbs } from "@mui/material";
+import { graphql } from "gatsby";
 
 import Seo from "../components/seo";
 import Prose from "../components/prose";
@@ -10,7 +8,8 @@ import PageSection, {
   PageSectionBreadcrumbs,
   PageSectionHeader,
 } from "../components/page-section";
-import NewsletterForm from "../components/newsletter";
+
+import { Newsletter } from "../content/newsletter";
 
 const OlaVeaEmail = ({ data, ...props }) => {
   const { date, title, emojii, description, html } = data.email || {};
@@ -43,11 +42,7 @@ const OlaVeaEmail = ({ data, ...props }) => {
           <Prose mt="3em" html={html} />
         </PageSection>
         <PageSection component="footer">
-          <NewsletterForm>
-            <strong>Serious about Gatsby?</strong> Sign up for emails like this
-            from Queen Raae (and Cap'n Ola) sent every weekday to help you get
-            the most out of Gatsby!
-          </NewsletterForm>
+          <Newsletter />
         </PageSection>
       </main>
     </>

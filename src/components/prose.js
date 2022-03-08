@@ -30,7 +30,7 @@ const Root = styled("div")(({ theme }) => ({
     ...theme.typography.h5,
     marginTop: "1.5em",
   },
-  "& h5": {
+  "& h6": {
     ...theme.typography.h6,
     marginTop: "1.5em",
   },

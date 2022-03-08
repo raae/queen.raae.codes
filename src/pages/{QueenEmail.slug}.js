@@ -9,7 +9,8 @@ import PageSection, {
   PageSectionHeader,
   PageSectionBreadcrumbs,
 } from "../components/page-section";
-import NewsletterForm from "../components/newsletter";
+
+import { Newsletter } from "../content/newsletter";
 
 const IS_PROD = process.env.NODE_ENV === "production";
 
@@ -54,11 +55,7 @@ const QueenEmail = ({ data, ...props }) => {
           )}
         </PageSection>
         <PageSection component="footer">
-          <NewsletterForm>
-            <strong>Serious about Gatsby?</strong> Sign up for emails like this
-            from Queen Raae (and Cap'n Ola) sent every weekday to help you get
-            the most out of Gatsby!
-          </NewsletterForm>
+          <Newsletter />
         </PageSection>
       </main>
     </>

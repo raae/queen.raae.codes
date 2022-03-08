@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import { Link } from "gatsby";
 import React from "react";
 import { IconList, IconListItem } from "./icon-list";

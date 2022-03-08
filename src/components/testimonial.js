@@ -1,6 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Avatar, Box } from "@mui/material";
+import { Avatar, Box, Link } from "@mui/material";
 import Prose from "./prose";
 
 const Testimonial = ({
@@ -33,7 +33,7 @@ const Testimonial = ({
         </Avatar>
         <Box component="cite">
           {who && !url && <>{who}</>}
-          {who && url && <a href={url}>{who}</a>}
+          {who && url && <Link href={url}>{who}</Link>}
 
           {attended && (
             <>
@@ -43,7 +43,7 @@ const Testimonial = ({
           {company && (
             <>
               <br />
-              <a href={company.url}>{company.name}</a>
+              <Link href={company.url}>{company.name}</Link>
             </>
           )}
         </Box>
