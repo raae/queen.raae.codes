@@ -1,15 +1,19 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
-
-import MainMenu from "../content/main-menu";
-import SocialLinks from "../content/social-links";
-import NewsletterForm from "../components/newsletter";
+import { graphql } from "gatsby";
 
 import Seo from "../components/seo";
 import Prose from "../components/prose";
+import SiteHeader from "../components/site-header";
+import PageSection, {
+  PageSectionBreadcrumbs,
+  PageSectionHeader,
+} from "../components/page-section";
+
+import { Newsletter } from "../content/newsletter";
 
 const OlaVeaEmail = ({ data, ...props }) => {
   const { date, title, emojii, description, html } = data.email || {};
+  const emojis = emojii.split(" ");
 
   return (
     <>
@@ -20,36 +24,27 @@ const OlaVeaEmail = ({ data, ...props }) => {
           description: description,
         }}
       />
+      <SiteHeader />
       <main>
-        <header>
-          {title && (
-            <h1>
-              {title}&nbsp;&nbsp;
-              {emojii}
-            </h1>
-          )}
-          <small>
-            An <Link to="/emails/">email</Link> sent on {date}
-          </small>
-        </header>
+        <PageSection component="article">
+          <PageSectionBreadcrumbs
+            items={[{ label: "Daily Emails", to: "/emails/" }, { label: date }]}
+          />
+          <PageSectionHeader
+            hLevel={1}
+            title={
+              <>
+                {title}&nbsp;&nbsp;{emojis[0]}&nbsp;{emojis[1]}
+              </>
+            }
+          />
 
-        <Prose html={`<p>Ship Ahoy Skill Builder! </p>` + html} />
-
-        <section>
-          <NewsletterForm>
-            <strong>Serious about Gatsby?</strong> Sign up for emails like this
-            from Cap'n Ola (and Queen Raae) sent every weekday to help you get
-            the most out of Gatsby!
-          </NewsletterForm>
-        </section>
+          <Prose mt="3em" html={html} />
+        </PageSection>
+        <PageSection component="footer">
+          <Newsletter />
+        </PageSection>
       </main>
-
-      <footer>
-        <nav>
-          <MainMenu />
-          <SocialLinks />
-        </nav>
-      </footer>
     </>
   );
 };

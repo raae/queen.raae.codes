@@ -1,4 +1,4 @@
-## How does it work?
+## Here's How It Works
 
 You let us know what comes up again and again in support requests and point us towards relevant documentation.
 
@@ -23,6 +23,6 @@ The base price is USD 4.500 paid in full before we start coding.
 - Additional framework (i.e. Gatsby, Next, or plain&nbsp;React)&nbsp;+&nbsp;USD&nbsp;1.500&nbsp;each
 - Written tutorial edited by a professional&nbsp;+&nbsp;USD&nbsp;2.500
 
-&nbsp;  
-_100% MONEY-BACK GUARANTEE_  
+#### 100% Money-back Guarantee
+
 If you at any point are not happy with our service, let us know, and we will refund your money in full.

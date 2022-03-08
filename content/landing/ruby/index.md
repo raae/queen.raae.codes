@@ -7,6 +7,7 @@ creator: "@OlaHolstVea"
 form:
   key: "timeship"
   cta: "Send me the prolog now"
+  tagline: "Storytime"
 sections:
   - element: header
     content: form

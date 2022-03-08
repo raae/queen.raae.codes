@@ -1,46 +1,45 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 
+import SiteHeader from "../../components/site-header";
+import PageSection, { PageSectionHeader } from "../../components/page-section";
 import Seo from "../../components/seo";
+import NewsletterForm from "../../components/newsletter";
 
-import MainMenu from "../../content/main-menu";
-import SocialLinks from "../../content/social-links";
-import NewsletterSection from "../../content/newsletter-section";
+import Emails from "../../content/emails";
 
-const Emails = ({ data, ...props }) => {
-  const title = "Emails to help you get the most out of Gatsby 💌";
+const EmailsPage = ({ data, ...props }) => {
+  const badge = "Daily emails";
+  const title = "Serious about Gatsby? ";
   const description =
-    "Serious about Gatsby? Sign up for emails from Queen Raae (and Cap'n Ola) sent every weekday to help you get the most out of Gatsby!";
+    "Sign up for emails from Queen Raae (and Cap'n Ola) sent every weekday to help you get the most out of Gatsby!";
   return (
     <>
-      <Seo {...props} meta={{ title, description }} />
+      <Seo {...props} meta={{ title: badge, description }} />
+      <SiteHeader />
       <main>
-        <header>
-          <h1>{title}</h1>
-        </header>
+        <PageSection component="header">
+          <PageSectionHeader
+            badge={badge}
+            title={title}
+            lead={description}
+            hLevel={1}
+          />
+          <NewsletterForm mt="2em" cta="Yes, please!" formKey="queen" />
+        </PageSection>
 
-        <NewsletterSection />
+        <PageSection component="section">
+          <Emails emails={data.allEmail} sx={{ maxWidth: "50ch" }} />
+        </PageSection>
 
-        <section>
-          <ul>
-            {data.allEmail.nodes.map(({ date, slug, title, emojii }) => (
-              <li key={slug}>
-                <small>
-                  {emojii}&nbsp;&nbsp;{date}
-                </small>
-                <br />
-                <Link to={slug}>{title}</Link>
-              </li>
-            ))}
-          </ul>
-        </section>
+        <PageSection component="footer">
+          <NewsletterForm cta="Yes, please!" formKey="queen">
+            <strong>Serious about Gatsby?</strong> Sign up for emails like these
+            from Queen Raae (and Cap'n Ola) sent every weekday to help you get
+            the most out of Gatsby!
+          </NewsletterForm>
+        </PageSection>
       </main>
-      <footer>
-        <nav>
-          <MainMenu />
-          <SocialLinks />
-        </nav>
-      </footer>
     </>
   );
 };
@@ -58,4 +57,4 @@ export const query = graphql`
   }
 `;
 
-export default Emails;
+export default EmailsPage;

@@ -1,6 +1,8 @@
 import { Link } from "gatsby";
 import React from "react";
 import { IconList, IconListItem } from "./icon-list";
+import Prose from "./prose";
+import { Cta } from "../components/cta";
 import { DateText } from "./text";
 
 const Join = ({ start, end, paymentLink, price, status, deadline }) => {
@@ -31,34 +33,38 @@ const Join = ({ start, end, paymentLink, price, status, deadline }) => {
             {price && <IconListItem icon="price">{price}</IconListItem>}
           </IconList>
 
-          <h4>
-            <a href={paymentLink}>Save your spot</a>
-          </h4>
+          <Cta
+            label="Save your spot"
+            note="or send queen@raae.codes any questions you might have"
+            path={paymentLink}
+            sx={{ my: "2em" }}
+          />
 
-          <br />
-
-          <details>
-            <summary>Choose your own Purchasing Parity Discount</summary>
-            <p>
-              You may apply any of these coupon codes depending on your
-              situation.
-            </p>
-            <ul>
-              <li>PPD30 gives you 30% off the price</li>
-              <li>PPD60 gives you 60% off the price</li>
-              <li>PPD85 gives you 85% off the price</li>
-            </ul>
-            <p>
-              This came about after comparing developer salaries across the
-              world. Salaries in Pakistan, Nigeria, Rwanda etc. are approx 85%
-              less than the US and Northern Europe. Salaries in Spain, Italy,
-              Portugal etc are about 60% less.{" "}
-            </p>
-            <p>
-              Another reason for choosing a coupon might be that you are
-              transitioning into tech, or some other valid reason. I trust you!
-            </p>
-          </details>
+          <Prose>
+            <details>
+              <summary>Choose your own Purchasing Parity Discount</summary>
+              <p>
+                You may apply any of these coupon codes depending on your
+                situation.
+              </p>
+              <ul>
+                <li>PPD30 gives you 30% off the price</li>
+                <li>PPD60 gives you 60% off the price</li>
+                <li>PPD85 gives you 85% off the price</li>
+              </ul>
+              <p>
+                This came about after comparing developer salaries across the
+                world. Salaries in Pakistan, Nigeria, Rwanda etc. are approx 85%
+                less than the US and Northern Europe. Salaries in Spain, Italy,
+                Portugal etc are about 60% less.{" "}
+              </p>
+              <p>
+                Another reason for choosing a coupon might be that you are
+                transitioning into tech, or some other valid reason. I trust
+                you!
+              </p>
+            </details>
+          </Prose>
         </>
       )}
     </>

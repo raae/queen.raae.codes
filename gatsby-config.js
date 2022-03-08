@@ -76,8 +76,8 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `@raae/gatsby-plugin-let-it-snow`,
-    "local-plugin-og-images",
-    "local-plugin-feed",
+    `local-plugin-og-images`,
+    `local-plugin-feed`,
     {
       resolve: "local-plugin-redirects",
       options: {
@@ -91,6 +91,8 @@ module.exports = {
         includedDomains: `queen.raae.codes`,
       },
     },
+    `local-plugin-mui-emotion`,
+    `local-plugin-mui-theme`,
     `gatsby-plugin-gatsby-cloud`,
   ],
 };
