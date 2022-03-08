@@ -2,9 +2,12 @@
 badge: queen.raae.codes
 title: Welcome to the sharky waters arround the Gatsby islands
 lead: The place to be for treasure hunts and deep dives to help you get the most out of Gatsby
+cta:
+  to: /done-for-you-demo/
+  label: "NEW: Done-for-you Integration Demo Service"
 sections:
   - element: header
-    content: main
+    content: main, cta
   - title: Daily emails
     content: form, emails
   - badge: noteworthy

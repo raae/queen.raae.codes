@@ -1,14 +1,14 @@
 ---
-badge: Done-for-you Demo
-title: Swamped in customer requests for how to use your SaaS with Gatsby, Next or even plain React?
+badge: Done-for-you Integration Demo
+title: Swamped in customer requests for how to integrate your SaaS with Gatsby, Next or even plain React?
 lead: No time to learn the intricacies of yet another framework while also building and maintaining your product?
 cta:
   label: Book a short call to kick things off
-  path: https://savvycal.com/raae/demo
+  href: https://savvycal.com/raae/demo
   note: or email queen@raae.codes if you would rather keep it all asynchronous
 sections:
   - element: header
-    content: main
+    content: main, cta
   - title: But don’t take our word for it...
     testimonials:
       - ./_goeff.md

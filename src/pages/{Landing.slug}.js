@@ -13,8 +13,8 @@ import Talk from "../components/talk";
 import Join from "../components/join";
 
 import Webinar from "../components/webinar";
-import { Cta } from "../components/cta";
 
+import { Cta } from "../content/cta";
 import { Newsletter } from "../content/newsletter";
 import Emails from "../content/emails";
 import Noteworthy from "../content/noteworthy";
@@ -183,7 +183,8 @@ export const query = graphql`
             }
           }
           cta {
-            path
+            to
+            href
             label
             note
           }

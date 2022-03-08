@@ -7,7 +7,7 @@ seo:
   description: Book a 1-on-1 Gatsby Call with Queen Raae. Friendly advice you can put into action immediately, guaranteed!
 cta:
   label: Book your call
-  path: https://savvycal.com/raae/emergency
+  href: https://savvycal.com/raae/emergency
 sections:
   - element: header
     content: main, cta

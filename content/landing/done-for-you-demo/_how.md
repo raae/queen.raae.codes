@@ -6,8 +6,6 @@ We propose a feature set for the demo showcasing solutions to the most costly su
 
 You approve the feature set and decide on the demo framework (i.e., Gatsby, Next, or plain React).
 
-When the payment comes through, We get to coding!
-
 ### What you get:
 
 - Unstyled demo in a transferable Code Sandbox or Github repository

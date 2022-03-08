@@ -6,7 +6,7 @@ seo:
   title: Add Github Authentication to your site and learn to master the authentication dance
   description: Gatsby Mini Bootcamp with Queen Raae 👑 — a webinar + q&a session + forum + co-working + code sample combo.
 cta:
-  path: "#join"
+  href: "#join"
   label: Join now
 join:
   start: 2021-11-20

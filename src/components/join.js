@@ -2,8 +2,9 @@ import { Link } from "gatsby";
 import React from "react";
 import { IconList, IconListItem } from "./icon-list";
 import Prose from "./prose";
-import { Cta } from "../components/cta";
 import { DateText } from "./text";
+
+import { Cta } from "../content/cta";
 
 const Join = ({ start, end, paymentLink, price, status, deadline }) => {
   return (
