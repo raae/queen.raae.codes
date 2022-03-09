@@ -91,8 +91,7 @@ module.exports = {
         includedDomains: `queen.raae.codes`,
       },
     },
-    `local-plugin-mui-emotion`,
-    `local-plugin-mui-theme`,
+    `@raae/gatsby-theme-mui`,
     `gatsby-plugin-gatsby-cloud`,
   ],
 };
