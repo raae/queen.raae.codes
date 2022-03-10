@@ -1,4 +1,4 @@
-import { brown, deepOrange, pink, amber } from "@mui/material/colors";
+import { brown, deepOrange, amber } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 import themeForm from "./form";
 import themeList from "./list";
@@ -28,29 +28,31 @@ let theme = createTheme({
     primary: {
       main: "#007b7d",
     },
+    background: {
+      paper: "#fffaf0",
+      default: "#fcedd8",
+    },
   },
   shape: {
     borderRadius: 2,
   },
 });
 
-theme = createTheme(theme, {
+const options = {
   palette: {
     text: {
       primary: brown[900],
       secondary: theme.palette.primary.dark,
       disabled: brown[200],
     },
-    grey: pink,
-    background: {
-      paper: "#fffaf0",
-      default: "#fcedd8",
-    },
   },
-});
+  typography: themeTypography(theme),
+  components: {
+    ...themeList(theme),
+    ...themeForm(theme),
+  },
+};
 
-theme = createTheme(theme, { typography: themeTypography(theme) });
-theme = createTheme(theme, { components: themeList(theme) });
-theme = createTheme(theme, { components: themeForm(theme) });
+theme = createTheme(theme, options);
 
 export default theme;
