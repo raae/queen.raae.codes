@@ -2,6 +2,7 @@ import { brown, deepOrange, amber } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 import themeForm from "./form";
 import themeList from "./list";
+import themeAppBar from "./app-bar";
 import themeTypography from "./typography";
 
 // A custom theme for this app
@@ -48,6 +49,7 @@ const options = {
   },
   typography: themeTypography(theme),
   components: {
+    ...themeAppBar(theme),
     ...themeList(theme),
     ...themeForm(theme),
   },

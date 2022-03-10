@@ -1,4 +1,4 @@
-export const themeList = (theme) => {
+const themeList = (theme) => {
   return {
     MuiListItem: {
       defaultProps: {

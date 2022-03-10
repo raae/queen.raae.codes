@@ -39,15 +39,9 @@ const SiteHeader = () => {
   return (
     <MuiAppBar
       position="sticky"
-      color="transparent"
-      elevation={0}
       sx={{
-        backgroundColor: "#fffaf0b3",
-        backdropFilter: "blur(20px)",
         borderTop: 5,
         borderTopColor: "brand.500",
-        borderBottom: "thin",
-        borderBottomColor: "background.default",
       }}
     >
       <Container maxWidth="lg">
