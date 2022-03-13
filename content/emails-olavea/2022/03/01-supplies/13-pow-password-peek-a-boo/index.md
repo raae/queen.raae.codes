@@ -30,7 +30,7 @@ And then I added this:
                   onClick={handleClickShowPassword}
 ```
 
-For the long version of My Sunday Skill Builder Session:, watch [Sunday's OlaCast on YouTube](https://youtu.be/hkGZiodGe7U)
+For the long version of My Sunday Skill Builder Session:, watch [Sunday's OlaCast on YouTube](https://youtu.be/v00Uro6UQvY)
 
 
 💪😺👍
