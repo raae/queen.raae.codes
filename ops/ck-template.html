@@ -1,0 +1,253 @@
+<html>
+  <head>
+    <style>
+      h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-top: 1.5em;
+        margin-bottom: 0.75em;
+      }
+      h3 {
+        font-size: 1.2rem;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+      }
+      p,
+      ul {
+        margin: 1em 0;
+      }
+      pre {
+        margin-top: 2em;
+        margin-bottom: 2em;
+        overflow-x: scroll;
+      }
+      ul,
+      ol {
+        padding: 0;
+        list-style: inside;
+      }
+      li {
+        margin-bottom: 0.25em;
+      }
+      li p {
+        display: inline;
+      }
+      video {
+        margin-bottom: 1.5em;
+      }
+      hr {
+        margin: 3em 0;
+        width: 4em;
+        border: 1px solid orangered;
+        height: 0px;
+      }
+      .message-content,
+      .footer {
+        max-width: 50ch;
+        font-size: 1.2em;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5;
+      }
+      .message-content img {
+        max-width: 100%;
+        height: auto;
+      }
+      .footer {
+        font-size: 1em;
+      }
+      .footer a {
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="message-content">
+      <p>
+        As I mentioned in yesterday's email, we are standardizing on MUI as our
+        React UI Library across the board. So, of course, I created a reusable
+        plugin taking care of all the nitty-gritty work of setting MUI up
+        correctly after getting it all to work on queen.raae.codes.
+      </p>
+      <p>
+        On this week's unauthorized and rum-fueled
+        <a href="https://youtu.be/kzUUoglO63k">treasure hunt</a> in the sharky
+        waters around the Gatsby islands, the time had come to add MUI to the
+        new POW! marketing site.
+      </p>
+      <p>
+        <a href="https://youtu.be/kzUUoglO63k"
+          ><span
+            class="gatsby-resp-image-wrapper"
+            style="
+              position: relative;
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              max-width: 800px;
+            "
+          >
+            <span
+              class="gatsby-resp-image-background-image"
+              style="
+                padding-bottom: 74.5%;
+                position: relative;
+                bottom: 0px;
+                left: 0px;
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABYlAAAWJQFJUiTwAAAEJklEQVQ4y02Oa0yTBxiFvx9LZpbJdG54d3MTHWwuA6wgrbQUAbkEEAStgosgRVH5xGhxwyI3AVFRkQFDAbWsEynSWlprNowiOiMXg6jbnxkuIi4T1NBCcDHPss4lO8nJed7z4+QVDPU64tclcLayAkdPF/0tjVytPktVQQn6k5WYz/2A2WQjcXsyWWI6+bszyd2Xx9bNIo3narh37w7W5tO0NBzlQc8thABlCPNmL6C95gw/l1ZRv0dDdbqWut0abp6r43xZOSnqPXjJPYmPjCAhJIYDapGkVRFUFWVzrc1KWfEuCjVruWr7EWH5ipXEyf2oE3dSn5vH8fTd5IuZtJ/RYaz4nge3r7IzZTs+q4NQqTZyIieL3zouU3XsKE26Wq60WjnpHFzH9VYjQur6GPLiVqHflcqAvpK2kkKqtQfIF1MR4yPJTVKxI3ED6wMCSQgMI2eLmiNZ6WRsTaX4YB5mmwVTYzX1pwpou9GKEBSoRB0s4eJ+NeYskUNfJxAh8cR9hguSme8hytw5qFaRtj6MYyWFZH+zH0NpPn90dZCsUlFWXsa32VmIe/fQYGhE2BIeRPIXixHlcorDg4n39GLhh24k+npzRRvFDW04Nbti0WZuo6JMy6Wak1hKc+m91ERNcRGl+fvQpG3gYN5+LD9dQciJC0YTHEi0jz/VoUHkKhR87rqQKO8VXCtUUxAjZXOIkvlzXZk+9V0CvT+jo7oEx83rGMpPsC9jG4cLMtGd+o72jg6E9uZaHtnqSFzuSY7Sn7IEFbIZLiT6fkVr8RZyYpUkyZcx1eUdXGa78v7UKRQkreF3m5HE8FVIfSUUlldxPCWSy0Uiwl+Dd6nUisxzmcaGpR4UxUYRvHAuVcnRaNasZFPMakL9vJFsjEWRksAs1w84ffwQvc31rJFL+GTuTORRUWR4T8eyMxyh6Eg5aWkZBMhWEiiVsS50NTIvL5a6LebLRQuIkHqwNjKIEE063jIJC+bPIbv0CL806okPDcDLYwkSfxlhIRIu7N2EEB23CcUKKVFhoSj85Sj8/ZH6SfHxleH20SxiZEsJ9/PCXSHl7Slv4TJtGh4+vigDlCzz82XJkkW4u33KHLePyd6RjGAwGamtrcXY2IBep0Ovq6dBr+Pi+RqaDE3YzCZsVgtmi4WWlhasl20Ym41cMBgwWa1YrFYumUwYzWY6uzoR/ux9yC2Ljc57vdx/8JCe3of8er+bF4OdPBp4wtDwUxyOcRwOBxMTE4yNjTl5bMyOfczu5P/0+vVrhKfdPVwzNNN2+zbd3Xe5c6eDzq679A0MMTw8TF9fH/39/fT3D/B4aMiZAwODTg8NPWHw8WPs9n+H7Q4HwguHnZGXL3n2bISRkVFGR0cZff7c+c3k5CSTk6+YfPXqDb+5/8n/dePjE4yPjzv9N3BoDNAxuLO0AAAAAElFTkSuQmCC');
+                background-size: cover;
+                display: block;
+                transition: opacity 0.5s ease 0.5s;
+                opacity: 0;
+              "
+            ></span>
+            <img
+              class="gatsby-resp-image-image"
+              alt="Screengrab of stream"
+              title="Screengrab of stream"
+              src="/static/e407896ddb2968aa2c34059e51682f2c/5a190/youtube-screengrab.png"
+              srcset="
+                /static/e407896ddb2968aa2c34059e51682f2c/772e8/youtube-screengrab.png  200w,
+                /static/e407896ddb2968aa2c34059e51682f2c/e17e5/youtube-screengrab.png  400w,
+                /static/e407896ddb2968aa2c34059e51682f2c/5a190/youtube-screengrab.png  800w,
+                /static/e407896ddb2968aa2c34059e51682f2c/1ff84/youtube-screengrab.png 1040w
+              "
+              sizes="(max-width: 800px) 100vw, 800px"
+              style="
+                width: 100%;
+                height: 100%;
+                margin: 0px;
+                vertical-align: middle;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                opacity: 1;
+                transition: opacity 0.5s ease 0s;
+                color: inherit;
+                box-shadow: white 0px 0px 0px 400px inset;
+              "
+              loading="lazy"
+              decoding="async"
+            /> </span
+        ></a>
+      </p>
+      <p>
+        Since configuring MUI is a little more complex than what your average
+        plugin options should handle, we are utilizing
+        <a
+          href="https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/"
+          >Shadowing in Gatsby Themes</a
+        >.
+      </p>
+      <p>
+        There is no real technical difference between a Gatsby Theme and a
+        Gatsby Plugin, but Gatsby would like us to call plugins that have their
+        own gatsby-config file or are set up for shadowing for themes.
+      </p>
+      <p>
+        I might just rebel and call them all plugins, but for now, I have stuck
+        to their recommendation and used the theme naming convention:
+        @raae/gatsby-theme-mui.
+      </p>
+      <p>Back to shadowing...</p>
+      <p>
+        You may replace any file located in the
+        <code class="language-text">src</code>-folder of a plugin or theme with
+        a file in your root Gatsby project.
+      </p>
+      <p>Best explained with an example.</p>
+      <p>
+        For the new POW! marketing site, we added @raae/gatsby-theme-mui to our
+        project.
+      </p>
+      <p>
+        Then we found the plugin's file structure by taking a peek in our
+        node_modules folder.
+      </p>
+      <h3>A title over some code</h3>
+      <div class="gatsby-highlight" data-language="text">
+        <pre class="language-text"><code class="language-text">@raae/
+├─ gatsby-theme-mui/
+│  ├─ src/
+│  │  ├─ ThemeRoot.js
+│  │  ├─ config.js
+│  │  ├─ getEmotionCache.js
+│  │  ├─ theme.js
+│  ├─ gatsby-browser.js
+│  ├─ gatsby-node.js
+│  ├─ gatsby-ssr.js
+│  ├─ index.js
+│  ├─ package.json</code></pre>
+      </div>
+      <p>
+        We decided to shadow the config.js file. By doing so, we replace the
+        code that gets imported by the @raae/gatsby-theme-mui theme.js file:
+      </p>
+      <div class="gatsby-highlight" data-language="js">
+        <pre
+          class="language-js"
+        ><code class="language-js"><span class="token comment">// File: @raae/gatsby-theme-mui/src/theme.js</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> createTheme<span class="token punctuation">,</span> responsiveFontSizes <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@mui/material/styles"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> config <span class="token keyword">from</span> <span class="token string">"./config"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> theme <span class="token operator">=</span> <span class="token function">createTheme</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">responsiveFontSizes</span><span class="token punctuation">(</span>theme<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> theme<span class="token punctuation">;</span></code></pre>
+      </div>
+      <p>
+        Shadowing is achieved by adding a new config.js file to our Gatsby
+        project at a particular location:
+      </p>
+      <div class="gatsby-highlight" data-language="text">
+        <pre class="language-text"><code class="language-text">pow-site/
+├─ src/
+│  ├─ @raae/
+│  │  ├─ gatsby-theme-mui/
+│  │  │  ├─ config.js
+│  ├─ pages/
+│  ├─ templates/
+│  ├─ ...more
+├─ gatsby-node.js
+├─ package.json</code></pre>
+      </div>
+      <div class="gatsby-highlight" data-language="js">
+        <pre
+          class="language-js"
+        ><code class="language-js"><span class="token comment">// File: pow-site/src/@raae/gatsby-theme-mui/config.js</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> red <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@mui/material/colors"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">palette</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">primary</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">main</span><span class="token operator">:</span> red<span class="token punctuation">.</span><span class="token constant">A700</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> config<span class="token punctuation">;</span></code></pre>
+      </div>
+      <h2>Another title</h2>
+      <p>And voila, we have changed the primary color to a POW! red.</p>
+      <p>
+        Check out the
+        <a
+          href="https://github.com/olavea/pow-site/blob/main/src/%40raae/gatsby-theme-mui/config.js"
+          >pow-site repository</a
+        >
+        on GitHub for more detail, and take a look at Gatsby's official
+        <a
+          href="https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/"
+          >Shadowing in Gatsby Themes</a
+        >
+        article.
+      </p>
+      <p>
+        &nbsp;<br />
+        All the best,<br />
+        Queen Raae
+      </p>
+    </div>
+  </body>
+</html>
