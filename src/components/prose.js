@@ -34,6 +34,12 @@ const Root = styled("div")(({ theme }) => ({
     ...theme.typography.h6,
     marginTop: "1.5em",
   },
+  "& blockquote": {
+    border: `4px solid ${theme.palette.secondary.main}`,
+    padding: "0.5em 1.5em",
+    margin: "1em 0",
+    marginBottom: "1.5em",
+  },
   "& ul": {
     listStyle: "none",
     padding: 0,
