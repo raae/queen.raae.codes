@@ -6,3 +6,5 @@
   tags: markdown
 - url: https://cloudcannon.com/gatsby-cms/
   tags: cms, git-based
+- url: https://www.meilisearch.com/
+  tags: search
