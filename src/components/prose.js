@@ -69,6 +69,9 @@ const Root = styled("div")(({ theme }) => ({
   "& a": {
     color: theme.palette.primary.dark,
   },
+  "& code": {
+    fontSize: "0.8em !important",
+  },
   "& .gatsby-highlight": {
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(4),
