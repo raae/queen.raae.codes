@@ -27,7 +27,7 @@ You might even learn a thing or two...
 🥛 🍷 🥤 🍺
 
 🗓 Tune in Thursdays
-🕰 at 19:00 (CET)
+🕰 at 19:00 (Oslo / Berlin / CET)
 📺 on Queen Raae's YouTube
 
 <YouTube Link>
