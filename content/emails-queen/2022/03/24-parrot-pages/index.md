@@ -82,7 +82,8 @@ exports.createSchemaCustomization = ({ actions }) => {
 Now inside our parrot pages, we can query for the content on childMarkdownRemark:
 
 ```js
-//
+// {Post.slug}.js
+
 import React from "react";
 import { graphql } from "gatsby";
 

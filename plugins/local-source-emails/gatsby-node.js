@@ -92,7 +92,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
   const {
     node,
-    actions: { createNode, createNodeField },
+    actions: { createNode },
     createNodeId,
     getNode,
     reporter,
@@ -119,12 +119,6 @@ exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
         const emailId = createNodeId(`${markdownNode.id} >>> ${type}`);
         const dateString = `${dateSearch[2]}-${dateSearch[3]}-${dateSearch[4]}`;
         const slug = `${pluginOptions.basePath}/${dateString}-${dateSearch[5]}/`;
-
-        // createNodeField({
-        //   name: "date",
-        //   node: markdownNode,
-        //   value: dateString,
-        // });
 
         if (dateString <= CUT_OFF) {
           createNode({
