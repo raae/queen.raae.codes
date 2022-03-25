@@ -5,7 +5,7 @@ emojii: 🖼 ☁️
 
 On yesterday's unauthorized and rum-fueled [treasure hunt](https://youtu.be/IDW2IfaHGIs) in the sharky waters around the Gatsby islands, the great and powerful Ward Peeters helped us add Gatsby ImageCDN support to the YouTube oEmbed plugin.
 
-It was his third time on the show, if you missed the other two have fun catching up:
+It was his third time on the show; if you missed the other two, have fun catching up:
 
 - [File System Route API to create a page per YouTube video](https://www.youtube.com/watch?v=TX5XPuHhz9o)
 - [Deferred Static Generation (DSG) for older videos](https://www.youtube.com/watch?v=TzJfepDjpzM)
@@ -15,15 +15,15 @@ It was his third time on the show, if you missed the other two have fun catching
 Ward [said it best](TIMESTAMP):
 
 - Faster builds (both local and in the cloud)
-- Better performance in the browser over using a CDN on a different domain
+- Better performance in the browser compared to a CDN on a different domain
 
-Adding support for Gatsby ImageCDN still lets you deploy to other services like Netlify. Build time there will be faster in the same way its faster locally, by only downloading the images that are being used. The "old way" `createRemoteFileNode` would eagerly download all images.
+Adding support for Gatsby ImageCDN still lets you deploy to other services like Netlify. Build time there will be faster, in the same way, it's faster locally, by only downloading the images in use by the site. The "old way" `createRemoteFileNode` would eagerly download all images.
 
 ## How to add Gatsby ImageCDN support?
 
 We'll need to replace the use of `createRemoteFileNode` with creating our own `RemoteFile` nodes.
 
-Many CMS's already have their own asset node type they can extend with `RemoteFile`, but for our plugin we need to first create a new node type that extends `RemoteFile`:
+Many CMSs already have their own asset node type they can extend with `RemoteFile`, but for our plugin, we first need to create a new node type that extends `RemoteFile`:
 
 ```js
 // gatsby-node.js
@@ -50,7 +50,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
 };
 ```
 
-`addRemoteFilePolyfillInterface` makes sure the plugin works even if the Gatsby site using it is on a lower version than 4. To make sure it works on older versions even in develop, you want to add `polyfillImageServiceDevRoutes`:
+`addRemoteFilePolyfillInterface` makes sure the plugin works even if the Gatsby site is on a lower version than 4. To make sure it works on older versions even in develop, you want to add `polyfillImageServiceDevRoutes`:
 
 ```js
 // gatsby-node.js
@@ -103,7 +103,7 @@ exports.onCreateNode = async (gatsbyUtils) => {
 };
 ```
 
-The last step for us is to update the the YouTube Node's schema customization to use the new node type `YouTubeThumbnail` instead of `File`:
+The last step for us is to update the YouTube Node's schema customization to use the new node type `YouTubeThumbnail` instead of `File`:
 
 ```js
 // gatsby-node.js
@@ -116,7 +116,7 @@ actions.createTypes([
 ]);
 ```
 
-To see the complete diff, check out the [Pull Request on GitHub](https://github.com/queen-raae/gatsby-source-youtube-oembed/pull/7/files).
+Check out the [Pull Request on GitHub](https://github.com/queen-raae/gatsby-source-youtube-oembed/pull/7/files) for the complete diff!
 
 &nbsp;  
 All the best,  
