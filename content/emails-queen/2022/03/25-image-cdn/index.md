@@ -7,12 +7,12 @@ On yesterday's unauthorized and rum-fueled [treasure hunt](https://youtu.be/IDW2
 
 It was his third time on the show; if you missed the other two, have fun catching up:
 
-- [File System Route API to create a page per YouTube video](https://www.youtube.com/watch?v=TX5XPuHhz9o)
-- [Deferred Static Generation (DSG) for older videos](https://www.youtube.com/watch?v=TzJfepDjpzM)
+- [File System Route API to create a page per YouTube video](https://youtu.be/TX5XPuHhz9o)
+- [Deferred Static Generation (DSG) for older videos](https://youtu.be/UsSJ_QNp6uo)
 
 ## Why add Gatsby ImageCDN support?
 
-Ward [said it best](TIMESTAMP):
+Ward [said it best](https://youtu.be/IDW2IfaHGIs?t=4345):
 
 - Faster builds (both local and in the cloud)
 - Better performance in the browser compared to a CDN on a different domain
