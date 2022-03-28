@@ -16,7 +16,7 @@ exports.typeDefs = `
     emojii: String @childMarkdownRemarkResolver
     html: String @childMarkdownRemarkResolver
     description: String @childMarkdownRemarkResolver(alternative: "excerpt")
-    ogImage: File @link(from: "fields.ogImage")
+    ogImage: String @proxy(from: "fields.ogImage")
   }
 
   type OlaVeaEmail implements Node & Email {

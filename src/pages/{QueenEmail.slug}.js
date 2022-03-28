@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
 
 import Seo from "../components/seo";
 import Prose from "../components/prose";
@@ -16,10 +15,8 @@ const IS_PROD = process.env.NODE_ENV === "production";
 
 const QueenEmail = ({ data, ...props }) => {
   const { date, ogImage, title, emojii, description, html } = data.email || {};
-  const emojis = emojii.split(" ");
 
-  const ogGatsbyImage = getImage(ogImage);
-  const ogImageSrc = ogGatsbyImage?.images?.fallback?.src;
+  const emojis = emojii.split(" ");
 
   return (
     <>
@@ -28,7 +25,7 @@ const QueenEmail = ({ data, ...props }) => {
         meta={{
           title: title,
           description: description,
-          image: ogImageSrc,
+          image: ogImage,
         }}
       />
       <SiteHeader variant="minimal" />
@@ -50,7 +47,7 @@ const QueenEmail = ({ data, ...props }) => {
 
           {!IS_PROD && (
             <Prose>
-              <img src={ogImageSrc} alt="Cover test" />
+              <img src={ogImage} alt="Cover test" />
             </Prose>
           )}
         </PageSection>
@@ -71,11 +68,7 @@ export const query = graphql`
       emojii
       description
       html
-      ogImage {
-        childImageSharp {
-          gatsbyImageData(formats: NO_CHANGE)
-        }
-      }
+      ogImage
       date(formatString: "MMMM Do, YYYY")
     }
   }

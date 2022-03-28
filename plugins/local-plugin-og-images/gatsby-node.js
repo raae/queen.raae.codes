@@ -1,16 +1,14 @@
 const path = require(`path`);
+const fs = require(`fs`);
 const remark = require("remark");
 const visit = require("unist-util-visit");
-const { createFileNodeFromBuffer } = require(`gatsby-source-filesystem`);
 const { createImageBuffer } = require("./src/utils/open-graph-image");
 const { reporter } = require("gatsby-cli/lib/reporter/reporter");
 
 exports.onCreateNode = async ({
   node,
-  actions: { createNode, createNodeField },
-  createNodeId,
+  actions: { createNodeField },
   getNode,
-  getCache,
 }) => {
   if (node.internal.type === "QueenEmail") {
     const emailNode = node;
@@ -18,8 +16,10 @@ exports.onCreateNode = async ({
     const markdownParentNode = getNode(markdownNode.parent);
 
     const {
+      id,
       frontmatter: { title, description, image },
       rawMarkdownBody,
+      internal: { contentDigest },
     } = markdownNode;
 
     // Hack: excerpt
@@ -37,20 +37,14 @@ exports.onCreateNode = async ({
         height: 628,
         width: 1200,
       });
-
-      const imageFileNode = await createFileNodeFromBuffer({
-        buffer: imageBuffer,
-        parentNodeId: emailNode.id,
-        name: `ogImage`,
-        getCache,
-        createNode,
-        createNodeId,
-      });
+      const imagePath = `/og-image-${id}-${contentDigest}.png`;
+      const outputPath = path.join("./public", imagePath);
+      fs.writeFileSync(outputPath, imageBuffer);
 
       createNodeField({
         node: emailNode,
         name: "ogImage",
-        value: imageFileNode.id,
+        value: imagePath,
       });
 
       reporter.info(`Open Graph Image generated for: ${title}`);
