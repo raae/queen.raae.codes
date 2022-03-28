@@ -47,11 +47,7 @@ module.exports = {
                     emojii
                     description
                     ... on QueenEmail {
-                      ogImage {
-                        childImageSharp {
-                          gatsbyImageData
-                        }
-                      }
+                      ogImage
                     }
                   }
                 }
@@ -87,11 +83,7 @@ module.exports = {
                     title
                     emojii
                     description
-                    ogImage {
-                      childImageSharp {
-                        gatsbyImageData
-                      }
-                    }
+                    ogImage
                   }
                 }
               }
