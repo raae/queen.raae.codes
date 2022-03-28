@@ -6,7 +6,7 @@ title: Minimal-doable-task
 
 I made a minimal-doable-task 🧚‍♀️
 
-![Now I have a Taskerbell-Task](./skill-builder-w2-2022-ship-it.png)
+![Now I have a Taskerbell-Task](./skill-builder-w2-2022-ship-it.jpg)
 
 ## What did I do?
 
