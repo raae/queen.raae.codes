@@ -13,7 +13,8 @@ sections:
   - title: Done for you Image CDN upgrade of your gatsby source plugin
     body:  ./_upgrade.md
   - title: Pay once, we upgrade your gatsby source plugin to Image CDN
-    content: cta
+    body: ./_how.md
+    content: body, cta
   - title: But don’t take our word for it...
     testimonials:
       - ./_goeff.md
@@ -25,6 +26,6 @@ sections:
     content: main, cta
 ---
 
-And "But you guys are keeping up with the newest Gatsby updates right? Giving me the fastest possible builds, right? Right?"
+And maybe she'll also say "But you guys are keeping up with the newest Gatsby updates right? Giving me the fastest possible builds, right? Right?"
 
-<cite>— Queen Raae, Cap'n Ola and Pirate Princess Lillian</cite>
+
