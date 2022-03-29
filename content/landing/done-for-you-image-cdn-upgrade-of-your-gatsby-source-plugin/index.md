@@ -18,12 +18,15 @@ sections:
   - title: But don’t take our word for it...
     testimonials:
       - ./_goeff.md
-  - body: ./_how.md
-    content: body, cta
+  - body: ./_but.md
+    content: body
   - title: Who are we?
     body: ./../_about-all.md
-  - title: Let us take a plate off your SaaS founder hands
-    content: main, cta
+  - title: Why us?
+    body: ./_whyus.md
+  - title: We could just wait with this Image CDN upgrade
+    body: ./_wait.md
+    content: body, cta
 ---
 
 And maybe she'll also say "But you guys are keeping up with the newest Gatsby updates right? Giving me the fastest possible builds, right? Right?"

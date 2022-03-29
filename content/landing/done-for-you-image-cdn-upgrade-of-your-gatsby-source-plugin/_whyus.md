@@ -1,0 +1,7 @@
+- Benedicte has worked on Gatsby projects since 2018.
+- Benedicte enjoy figuring out how to get the most out of Gatsby.
+- Benedicte and Ola have friends at Gatsby, like Ward in this video.
+- Benedicte has been coding since 1995 and have been stuck on my fair share of reefs by now.
+- Benedicte was chosen by Gatsby as a speaker for Gatsby Days 2020 and Gatsby Fall Camp 2021
+- Benedicte  is the winner of the Gatsby FuncJam 2021
+- Benedicte has created apps trusted by the Swedish Armed Forces, The Norwegian Water Resources and Energy Directorate, and others.
