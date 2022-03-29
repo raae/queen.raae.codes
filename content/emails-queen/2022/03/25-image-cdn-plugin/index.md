@@ -5,7 +5,7 @@ emojii: 🖼 ☁️
 
 On yesterday's unauthorized and rum-fueled [treasure hunt](https://youtu.be/IDW2IfaHGIs) in the sharky waters around the Gatsby islands, the great and powerful Ward Peeters helped us add Gatsby ImageCDN support to the YouTube oEmbed plugin.
 
-[![Screengrab of stream](./youtube-screengrab.png)](https://youtu.be/IDW2IfaHGIs)
+[![Screengrab of stream](./youtube-screengrab.jpg)](https://youtu.be/IDW2IfaHGIs)
 
 It was his third time on the show; if you missed the other two, have fun catching up:
 

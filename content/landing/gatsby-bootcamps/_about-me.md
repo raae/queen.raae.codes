@@ -7,7 +7,7 @@ The person who first introduced me to HTML was my Norwegian teacher, and since t
 - Created POW! — the encrypted menstrual cycle journal made with Gatsby and many other skill-building side projects.
 - Spoken at both Gatsby Days and Gatsby Camp, in addition to RuhrJS, JSConf Budapest, and more.
 
-![Queen Raae holding a laptop and looking into the camera in her signature green dress.](../raae.png)
+![Queen Raae holding a laptop and looking into the camera in her signature green dress.](../raae.jpg)
 
 Last but not least, I started live-streaming my coding resulting in the weekly YouTube show Gatsby Deep Dives with Queen Raae and the Nattermob Pirates.
 

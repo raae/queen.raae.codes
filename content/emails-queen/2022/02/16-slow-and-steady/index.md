@@ -25,7 +25,7 @@ Once a month-ish, you also get to hear from other product folks we admire. Janua
 - Get to know our backstories on episode [🥳 100! 🥳](https://www.slowandsteadypodcast.com/episodes/100)
 - [The Interview](https://www.slowandsteadypodcast.com/episodes/newsletter-glue-with-lesley) with our first guest of the year, Lesley
 
-[![Slow&Steady logo](brand.png)](https://www.slowandsteadypodcast.com)
+[![Slow&Steady logo](brand.jpg](https://www.slowandsteadypodcast.com)
 
 &nbsp;  
 All the best,  

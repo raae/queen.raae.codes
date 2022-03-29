@@ -9,18 +9,18 @@ I decided to pay it forward, and our Great and Powerful Pirate Guest, [Swizec](h
 
 > Wow, is that new? That is so cool!
 
-[![Screengrab of the stream where we demo the export code feature](./screenshot-youtube.png "Click to see the reactions on stream")](https://youtu.be/LcpLKXgfNNo?t=1151)
+[![Screengrab of the stream where we demo the export code feature](./screenshot-youtube.jpg "Click to see the reactions on stream")](https://youtu.be/LcpLKXgfNNo?t=1151)
 
 You can choose to export
 
 - Page Query code,
-  ![Screengrab showing off the Page Query export](./screenshot-page-query.png)
+  ![Screengrab showing off the Page Query export](./screenshot-page-query.jpg
 
 - StaticQuery hook code,
-  ![Screengrab showing off the StaticQuery hook export](./screenshot-static-query-hook.png)
+  ![Screengrab showing off the StaticQuery hook export](./screenshot-static-query-hook.jpg
 
 - or StaticQuery component code.
-  ![Screengrab showing off the StaticQuery hook export](./screenshot-static-query-component.png)
+  ![Screengrab showing off the StaticQuery hook export](./screenshot-static-query-component.jpg
 
 Did you know?  
 Do you use it?

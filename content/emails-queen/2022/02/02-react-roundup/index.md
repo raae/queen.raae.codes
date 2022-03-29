@@ -6,7 +6,7 @@ emojii: 🎙 🎧
 
 I had so much fun chatting to these two about Gatsby and my overall web journey: 25+ years and counting 👵
 
-[![Tweet Screenshot](./roundup-tweet.png "Just wrapped up a recording about having fun with @GatsbyJS for @reactroundup - and to be honest quite a lot of storytime tangents 🤪")](https://twitter.com/raae/status/1478775716967858179)
+[![Tweet Screenshot](./roundup-tweet.jpg "Just wrapped up a recording about having fun with @GatsbyJS for @reactroundup - and to be honest quite a lot of storytime tangents 🤪")](https://twitter.com/raae/status/1478775716967858179)
 
 The episode has dropped, and I love the title: The Great Gatsby with Queen Raae 😍
 

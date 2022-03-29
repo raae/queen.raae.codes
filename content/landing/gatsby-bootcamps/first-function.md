@@ -6,7 +6,7 @@ lead: Get started creating backend functionality by learning Gatsby Serverless F
 seo:
   title: Develop and Deploy your first Serverless Function
   description: Gatsby Mini Bootcamp with Queen Raae 👑 — a webinar + q&a session + forum + co-working + code sample combo.
-  image: ./cover-first-function.png
+  image: ./cover-first-function.jpg
   imageAlt: Queen Raae holding a laptop with festive Gatsby flag illustrations and title + description
 cta:
   path: "#join"

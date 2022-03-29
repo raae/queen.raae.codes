@@ -9,7 +9,7 @@ This Sunday, I made Password Peek-a-boo on the login page on our POW!-website. S
 ## What did I do?
 
 POW! Password Peek-a-boo
-![POW! Password Peek-a-boo](OlaCast-20-POW-Day-51-POW-Password-Peek-a-boo-41.png)
+![POW! Password Peek-a-boo](OlaCast-20-POW-Day-51-POW-Password-Peek-a-boo-41.jpg)
 
 ## Why did I do it?
 

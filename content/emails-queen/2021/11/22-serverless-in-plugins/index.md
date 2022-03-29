@@ -5,7 +5,7 @@ emojii: 𝛌 🤯
 
 **Did you know Gatsby Plugins can contain Gatsby Serverless Functions?**
 
-![Screengrab showing a /api/hello endpoint coming from the demo site and a /api/@raae/gatsby-plugin-donations/hello endpoint coming from the plugin](./demo.png "Demo")
+![Screengrab showing a /api/hello endpoint coming from the demo site and a /api/@raae/gatsby-plugin-donations/hello endpoint coming from the plugin](./demo.jpg "Demo")
 
 Since Kyle made an off handed comment about it on our [unauthorized and rum-fueled treasure hunt](https://youtu.be/gG9E7ZYbhGo) in the sharky waters around the Gatsby islands" back in June, I have been meaning to check it out.
 
@@ -51,7 +51,7 @@ This feels like an oversight to me....
 You can read the Twitter [discussion I had with Kyle](https://twitter.com/raae/status/1460649528202305541?s=20) about it. It ended withh him suggesting I create an issue.
 
 [![Haven't the convention been to add secrets as plugin options?
-Getting them from env vars of course. So that a plugin does not "own" any env vars. ](./tweet.png "Screengrab of Tweet")](https://twitter.com/raae/status/1460649528202305541?s=20)
+Getting them from env vars of course. So that a plugin does not "own" any env vars. ](./tweet.jpg "Screengrab of Tweet")](https://twitter.com/raae/status/1460649528202305541?s=20)
 
 So I did, or more correctly, I started a discussion under [Ideas / Feature Requests](https://github.com/gatsbyjs/gatsby/discussions/34047). Go upvote and add your thoughts!!
 

@@ -12,7 +12,7 @@ sections:
   - element: header
     content: main, cta
   - body: ./_about.md
-    image: ../raae.png
+    image: ../raae.jpg
     imageAlt: Queen Raae holding a laptop and looking into the camera in her signature green dress.
   - content: cta
     title: Friendly advice you can put into action immediately, guaranteed.

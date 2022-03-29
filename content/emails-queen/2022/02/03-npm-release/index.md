@@ -1,6 +1,6 @@
 ---
 title: How to release a Gatsby Plugin (or anything really) to npm
-image: ./npm-publish.png
+image: ./npm-publish.jpg
 emojii: 📦 ⬆️
 ---
 

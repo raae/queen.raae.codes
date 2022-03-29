@@ -5,7 +5,7 @@ emojii: 🗄️ ✨
 
 The great and powerful Benedikt Deicke of [Userlist](https://userlist.com/) climbed on board to help Mirjam settle on a data model on [Thursday's stream](https://youtu.be/Als15kQBxcU).
 
-[![Screengrab of the intro](./screenshot-youtube-intro.png)](https://youtu.be/Als15kQBxcU)
+[![Screengrab of the intro](./screenshot-youtube-intro.jpg](https://youtu.be/Als15kQBxcU)
 
 To keep the pressure off Benedikt, let us know ([@32:24](https://youtu.be/Als15kQBxcU?t=1944)):
 
@@ -15,7 +15,7 @@ But then, quite a few times throughout the stream, he would say: "I wouldn't wor
 
 Do your best in the initial planning and take the time to refactor the model when needed, but do not let the fear of getting it wrong stop you from getting started with your project!
 
-[![Screengrab of the stream on the data model section](./screenshot-youtube-datamodel.png "Jump straight to the data model chat")](https://youtu.be/Als15kQBxcU?t=1097)
+[![Screengrab of the stream on the data model section](./screenshot-youtube-datamodel.jpg "Jump straight to the data model chat")](https://youtu.be/Als15kQBxcU?t=1097)
 
 &nbsp;  
 All the best,  

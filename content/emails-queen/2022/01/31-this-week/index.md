@@ -13,7 +13,7 @@ Gatsby released [version v4.6](https://www.gatsbyjs.com/docs/reference/release-n
 
 And last but not least, Samuel Larsen-Disney released his book [Elevating React Web Development with Gatsby: Practical guide to building performant, accessible, and interactive web apps with React and Gatsby.js 4](https://twitter.com/SamLarsenDisney/status/1487112270782025731?s=20&t=Yl7K-g2Iz1rrZTRHHm65Cw). That is one very long and promising title; I can't wait to dig in!
 
-[![Tweet Screenshot](./sld-tweet.png "Ten months and close to three hundred pages later, my book all about Gatbsy.js is complete! You can check it out here if you are interested https://amzn.to/32Hb53y")](https://youtu.be/26CDRdhXozo)
+[![Tweet Screenshot](./sld-tweet.jpg "Ten months and close to three hundred pages later, my book all about Gatbsy.js is complete! You can check it out here if you are interested https://amzn.to/32Hb53y")](https://youtu.be/26CDRdhXozo)
 
 ## Our streaming schedule this week
 

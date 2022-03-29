@@ -186,7 +186,7 @@ exports.createImageBuffer = async (config) => {
   try {
     await this.drawOgImage(canvas, {
       ...config,
-      avatar: __dirname + "/../assets/raae-avatar.png",
+      avatar: __dirname + "/../assets/raae-avatar.jpg",
       titleFont: "Roboto",
       bodyFont: "Roboto",
     });

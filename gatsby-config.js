@@ -8,7 +8,7 @@ module.exports = {
     description: `I teach web devs how to get the most out of Gatsby through workshops, rum-fueled treasure hunts in the sharky waters around the Gatsby islands and more!`,
     lang: `en`,
     social: {
-      image: `/raae.png`,
+      image: `/raae.jpg`,
       alt: "Queen Raae holding a laptop in front of her gallery wall",
       twitter: {
         site: "@raae",

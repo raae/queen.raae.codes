@@ -9,7 +9,7 @@ While live coding it on last week's [unauthorized and rum-fueled treasure hunt](
 
 > Would there be a use case for images in the markdown?
 
-[![Link directly to the answer](./yt-screengrab.png)](https://youtu.be/Wipi2lw6Mvc?t=3412 "Screengrab of John's question overlayed on the screen and Mirjam and I searching for an image on Unsplash")
+[![Link directly to the answer](./yt-screengrab.jpg](https://youtu.be/Wipi2lw6Mvc?t=3412 "Screengrab of John's question overlayed on the screen and Mirjam and I searching for an image on Unsplash")
 
 **Yes absolutely.**
 

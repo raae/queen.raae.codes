@@ -4,7 +4,7 @@ title: Create data relationship between TAGS and Lillian's photos of projects
 
 ## My Skill Building Session:
 
-![data-relationships](./data-relationships-1-w51-2021.png)
+![data-relationships](./data-relationships-1-w51-2021.jpg)
 
 ## What did I do?
 

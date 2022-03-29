@@ -7,7 +7,7 @@ On [yesterday's unauthorized and rum-fueled treasure hunts](https://youtu.be/uO
 
 Our tiny task was to source an about page!
 
-[![Arisa, Ola, Paul and I on stream having a blast](youtube-screengrab.png "YouYube Screengrab")](https://youtu.be/uOfTcQ6VMwQ)
+[![Arisa, Ola, Paul and I on stream having a blast](youtube-screengrab.jpg "YouYube Screengrab")](https://youtu.be/uOfTcQ6VMwQ)
 
 This time we did not source it ourselves. We used Storyblok's official source plugin. Most of the Content Management Systems have official plugins for sourcin`g. You should use these official plugins, if you are not exploring for skill-building purposes of course 🤪
 
@@ -15,7 +15,7 @@ Content in Storyblok can take any form you'd like. You create the schema yoursel
 
 What is sourced and added to your Storyblok nodes is a JSON object you'll find on `storyblokEntry.content`.
 
-![GraphQL Query Example](graphql.png "GraphQL Screengrab")
+![GraphQL Query Example](graphql.jpg "GraphQL Screengrab")
 
 You'll grab that content on your page, parse it, loop over it, and render the bloks as you go along in a way that makes sense for each block. Or dump it out in a pre-tag to familiarize yourself like we did.
 

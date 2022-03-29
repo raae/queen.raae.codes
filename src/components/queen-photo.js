@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image";
 const QueenPhoto = () => {
   return (
     <StaticImage
-      src="../../static/raae.png"
+      src="../../static/raae.jpg"
       alt="Queen Raae in front of her gallery wall with a laptop in her arms"
     />
   );

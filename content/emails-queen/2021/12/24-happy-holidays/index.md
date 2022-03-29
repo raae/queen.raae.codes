@@ -11,7 +11,7 @@ No stream this week, but we've been busy making non the less:
 
 Seeing `Let it snow ❄️❄️❄️` in the wild brings me so much joy. Please let me know if you add it to your site over the holidays.
 
-![Drawing of Ola, Raae, and Lillian as nisser in front of a christmas tree](./julekort.png "God Jul")
+![Drawing of Ola, Raae, and Lillian as nisser in front of a christmas tree](./julekort.jpg "God Jul")
 
 **God jul** from our little family(business) to yours!
 

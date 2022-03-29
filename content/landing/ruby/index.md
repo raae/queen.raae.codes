@@ -1,7 +1,7 @@
 ---
 badge: Ruby's TimeShip
 title: Transform yourself from a friendly frontend engineer to a proper princess-life-saving skill builder
-image: ./Cover.png
+image: ./Cover.jpg
 imageAlt: "Ruby's TimeShip Cover: a collage"
 creator: "@OlaHolstVea"
 form:
@@ -68,7 +68,7 @@ Are you ready to get your frontend skill building unstuck even though it will be
 
 Hi! I’m Ola Vea, Queen Raae's piratical partner.
 
-![The family, Ola, Lillian and Raae](/Family.png)
+![The family, Ola, Lillian and Raae](/Family.jpg
 
 I wasn't always a _just another friendly_ Frontend Engineer I grew up at sea. I grew up in a city, but I spent every summer at sea onboard my father's ship full of youngsters. We crossed the North Sea looking like a sunny mirror and we crossed the North Sea with waves the size of our tiny, white, wooden house where I now live with the Queen and our daughter Lillian (6 🏴‍☠️👸 ).
 

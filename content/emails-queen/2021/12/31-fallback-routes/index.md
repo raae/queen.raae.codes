@@ -7,7 +7,7 @@ The unauthorized and rum-fueled treasure hunts in the sharky waters around the G
 
 And on [yesterday's stream](https://youtu.be/d834JE_bFog) helping Mirjam source conference data from Supabase, we briefly touched on fallback routes.
 
-[![Screengrab of the intro](./yt-screenshot.png)](https://youtu.be/d834JE_bFog)
+[![Screengrab of the intro](./yt-screenshot.jpg](https://youtu.be/d834JE_bFog)
 
 ## What are fallback routes?
 

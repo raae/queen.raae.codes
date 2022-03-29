@@ -24,7 +24,7 @@ However, the terrible third session would find me physically and mentally tired 
 
 So I knew I'd be tired and distracted. How did I prepare to free up my mind to focus on only one coding step at the time?
 
-![focus](skill-builder-w3-2022.png)
+![focus](skill-builder-w3-2022.jpg)
 
 ## What did I do?
 

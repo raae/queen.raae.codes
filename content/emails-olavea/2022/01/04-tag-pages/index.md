@@ -4,7 +4,7 @@ title: Programatically create pages for tags from Sanity.io
 
 ## My Sunday Skill Builder Session:
 
-![tags-on-a-pink-card](tags-on-a-pink-card-from-twitter-smaller.png)
+![tags-on-a-pink-card](tags-on-a-pink-card-from-twitter-smaller.jpg)
 
 ## What did I do?
 

@@ -37,7 +37,7 @@ exports.onCreateNode = async ({
         height: 628,
         width: 1200,
       });
-      const imagePath = `/og-image-${id}-${contentDigest}.png`;
+      const imagePath = `/og-image-${id}-${contentDigest}.jpg`;
       const outputPath = path.join("./public", imagePath);
       fs.writeFileSync(outputPath, imageBuffer);
 
