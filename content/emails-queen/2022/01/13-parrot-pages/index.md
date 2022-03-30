@@ -11,7 +11,7 @@ Making abstract concepts like that come alive is one of Cap'n Ola Vea's superpow
 
 Hear him present the naming to Ward Peters of Gatsby [in this live stream](https://youtu.be/TX5XPuHhz9o?t=3265) all about Parrot Pages.
 
-[![Screengrab of Ola presenting Parrot Pages](./yt-screenshot.jpg](https://youtu.be/TX5XPuHhz9o?t=3265)
+[![Screengrab of Ola presenting Parrot Pages](./yt-screenshot.jpg)](https://youtu.be/TX5XPuHhz9o?t=3265)
 
 What imagery would you choose for the [File System Route API](https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/#creating-client-only-routes) square bracket (`[]`) pages?
 

@@ -14,13 +14,13 @@ I decided to pay it forward, and our Great and Powerful Pirate Guest, [Swizec](h
 You can choose to export
 
 - Page Query code,
-  ![Screengrab showing off the Page Query export](./screenshot-page-query.jpg
+  ![Screengrab showing off the Page Query export](./screenshot-page-query.jpg)
 
 - StaticQuery hook code,
-  ![Screengrab showing off the StaticQuery hook export](./screenshot-static-query-hook.jpg
+  ![Screengrab showing off the StaticQuery hook export](./screenshot-static-query-hook.jpg)
 
 - or StaticQuery component code.
-  ![Screengrab showing off the StaticQuery hook export](./screenshot-static-query-component.jpg
+  ![Screengrab showing off the StaticQuery hook export](./screenshot-static-query-component.jpg)
 
 Did you know?  
 Do you use it?

@@ -13,7 +13,7 @@ Instead, I recommend assuming the visitor is supposed to be there if they hit an
 
 A skeleton version of a page is as much of the user interface as is possible without the data only available client-side. There is often a lot to show, menus, headers, icons, etc.
 
-[![Skeleton Profile page](./skeleton.jpg](https://my.usepow.app/profile/)
+[![Skeleton Profile page](./skeleton.jpg)](https://my.usepow.app/profile/)
 
 You can see the skeleton version of a profile page in action for [POW!](https://my.usepow.app/profile/). If you get kicked off too soon, disable javascript to see it.
 
@@ -21,7 +21,7 @@ This approach gives a better experience for visitors using your app correctly; t
 
 Incidentally, the same topic of discussion, and pair programming, as on yesterday's [unauthorized and rum-fueled treasure hunt](https://youtu.be/WzrjHVy134M) in the sharky waters around the Gatsby islands, helping Mirjam with Conference Buddy v2.
 
-[![Screengrab of the intro](./yt-screenshot.jpg](https://youtu.be/WzrjHVy134M)
+[![Screengrab of the intro](./yt-screenshot.jpg)](https://youtu.be/WzrjHVy134M)
 
 &nbsp;  
 Did any of this make sense?

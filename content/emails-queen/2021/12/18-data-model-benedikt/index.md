@@ -5,7 +5,7 @@ emojii: 🗄️ ✨
 
 The great and powerful Benedikt Deicke of [Userlist](https://userlist.com/) climbed on board to help Mirjam settle on a data model on [Thursday's stream](https://youtu.be/Als15kQBxcU).
 
-[![Screengrab of the intro](./screenshot-youtube-intro.jpg](https://youtu.be/Als15kQBxcU)
+[![Screengrab of the intro](./screenshot-youtube-intro.jpg)](https://youtu.be/Als15kQBxcU)
 
 To keep the pressure off Benedikt, let us know ([@32:24](https://youtu.be/Als15kQBxcU?t=1944)):
 

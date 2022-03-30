@@ -19,7 +19,7 @@ But even more excitedly, it comes with [Semantic Release](https://semantic-relea
 
 If automation does not make you all excited, you can [borrow some of mine](https://youtu.be/eaZm9MC0GeE?t=4124) 🤪
 
-[![Happy Queen, Happy Cap'n and a "Finally" chat message when the release happened](./yt-happy.jpg](https://youtu.be/eaZm9MC0GeE?t=4124)
+[![Happy Queen, Happy Cap'n and a "Finally" chat message when the release happened](./yt-happy.jpg)](https://youtu.be/eaZm9MC0GeE?t=4124)
 
 &nbsp;  
 Be sure to let me know of any problems you might encounter!  

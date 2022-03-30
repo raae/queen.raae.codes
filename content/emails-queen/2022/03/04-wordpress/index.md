@@ -6,7 +6,7 @@ emojii: 🗄 ♻️
 
 The founder of Gatsby WP Themes, Alexandra, helped us "Create and Customize a Gatsby Blog Powered by WordPress" in yesterday's unauthorized and rum-fueled [treasure hunt](https://youtu.be/BzigfV2BiIE) in the sharky waters around the Gatsby islands.
 
-[![Screengrab of Alexandra, Ola and me laughing](./show-screengrab.jpg](https://youtu.be/BzigfV2BiIE)
+[![Screengrab of Alexandra, Ola and me laughing](./show-screengrab.jpg)](https://youtu.be/BzigfV2BiIE)
 
 Like many of us in the world of web development past me created WordPress sites for a living. I stopped to focus on web apps rather than websites.
 

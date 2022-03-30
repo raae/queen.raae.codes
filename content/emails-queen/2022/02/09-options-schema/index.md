@@ -5,7 +5,7 @@ emojii: ⚙️ 📐
 
 When you make a Gasby Plugin make sure to include a schema for your options. By doing so, Gatsby will verify that the plugin is configured correctly and stop everything if it is not!
 
-![Options Error](option-error.jpg
+![Options Error](./option-error.jpg)
 
 Users of your plugin will thank you for this immediate feedback. It saves them from reading through obscure `undefined` error messages or making sense of unexpected behavior when the reason is bad configuration.
 

@@ -16,7 +16,7 @@ So to free up a lot of head-space, we are standardizing on MUI across the board.
 
 This week queen.raae.codes got the MUI treatment, and as you can see, it does not look very Material UI-y...
 
-[![Screenshot of queen.raae.codes](./queen-shot.jpg](https://queen.raae.codes)
+[![Screenshot of queen.raae.codes](./queen-shot.jpg)](https://queen.raae.codes)
 
 A big player in that is disabling "elevation" almost everywhere!
 
@@ -85,7 +85,7 @@ createTheme({
 });
 ```
 
-[![Before and after screenshot of the list component](./list.jpg](https://queen.raae.codes/emails)
+[![Before and after screenshot of the list component](./list.jpg)](https://queen.raae.codes/emails)
 
 To see all the global changes I made for queen.raae.codes check out [the theme folder](https://github.com/raae/queen.raae.codes/tree/main/src/%40raae/gatsby-theme-mui) in its repo on GitHub.
 

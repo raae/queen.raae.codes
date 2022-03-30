@@ -7,7 +7,7 @@ The Gatsby Conf announcement reminded me of how this whole YouTube thing started
 
 [The talk](https://youtu.be/kKp7Syxyxnw) walks you through how to create client-side only routes for authenticated users in Gatsby, following [the approach found in the Gatsby Docs](https://www.gatsbyjs.com/docs/how-to/routing/client-only-routes-and-user-authentication/#handling-client-only-routes-with-gatsby).
 
-[![YouTube Thumbnail](./yt-thumbnail.jpg](https://youtu.be/kKp7Syxyxnw)
+[![YouTube Thumbnail](./yt-thumbnail.jpg)](https://youtu.be/kKp7Syxyxnw)
 
 These days I like to generate a skeleton version of even these pages statically, then sprinkle in the user-specific data when it's loaded and ready. However, the above is still valid and is an excellent approach when converting an existing React app to Gatsby!
 

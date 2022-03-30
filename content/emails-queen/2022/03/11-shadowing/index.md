@@ -8,7 +8,7 @@ As I mentioned in yesterday's email, we are standardizing on MUI as our React UI
 
 On this week's unauthorized and rum-fueled [treasure hunt](https://youtu.be/kzUUoglO63k) in the sharky waters around the Gatsby islands, the time had come to add MUI to the new POW! marketing site.
 
-[![Screengrab of stream](./youtube-screengrab.jpg](https://youtu.be/kzUUoglO63k)
+[![Screengrab of stream](./youtube-screengrab.jpg)](https://youtu.be/kzUUoglO63k)
 
 Since configuring MUI is a little more complex than what your average plugin options should handle, we are utilizing [Shadowing in Gatsby Themes](https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/).
 

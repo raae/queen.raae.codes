@@ -7,7 +7,7 @@ We are getting advanced today!
 
 On yesterday's unauthorized and rum-fueled [treasure hunt](https://youtu.be/rURKTRPvSos) in the sharky waters around the Gatsby islands, we utilized the Gatsby Cache to skip fetching the YouTube oEmbed data again until the refresh interval is up!
 
-[![Screengrab of stream](./youtube-screengrab.jpg](https://youtu.be/rURKTRPvSos)
+[![Screengrab of stream](./youtube-screengrab.jpg)](https://youtu.be/rURKTRPvSos)
 
 This is an improvement on the ever-evolving @raae/gatsby-source-youtube-oembed. Next week Ward Peters from Gatsby will be on the stream to show us how to support Gatsby Image CDN 🤩
 
