@@ -2,19 +2,15 @@ const path = require("path");
 
 module.exports = {
   siteMetadata: {
-    url: `https://queen.raae.codes`,
-    title: `Queen Raae`,
-    tagline: `Gatsby Bootcamps, Plugins, Streams and Webinars`,
-    description: `I teach web devs how to get the most out of Gatsby through workshops, rum-fueled treasure hunts in the sharky waters around the Gatsby islands and more!`,
-    lang: `en`,
-    social: {
-      image: `/raae.jpg`,
-      alt: "Queen Raae holding a laptop in front of her gallery wall",
-      twitter: {
-        site: "@raae",
-        card: "summary_large_image",
-      },
-    },
+    siteUrl: `https://queen.raae.codes`,
+    siteName: `Queen Raae`,
+    siteTagline: `Gatsby Bootcamps, Plugins, Streams and Webinars`,
+    siteDescription: `I teach web devs how to get the most out of Gatsby through workshops, rum-fueled treasure hunts in the sharky waters around the Gatsby islands and more!`,
+    siteLang: `en`,
+    siteSocialImage: `/raae.jpg`,
+    siteSocialImageAlt:
+      "Queen Raae holding a laptop in front of her gallery wall",
+    siteTwitterCreator: "@raae",
   },
   plugins: [
     {
@@ -70,7 +66,6 @@ module.exports = {
         ],
       },
     },
-
     `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
@@ -93,5 +88,6 @@ module.exports = {
     },
     `@raae/gatsby-theme-mui`,
     `gatsby-plugin-gatsby-cloud`,
+    `gatsby-plugin-sitemap`,
   ],
 };

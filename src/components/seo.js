@@ -10,43 +10,48 @@ const Seo = ({ location, meta, children }) => {
       query {
         site {
           siteMetadata {
-            title
-            tagline
-            description
-            url
-            lang
-            social {
-              image
-              alt
-              twitter {
-                site
-                card
-              }
-            }
+            siteName
+            siteTagline
+            siteDescription
+            siteUrl
+            siteLang
+            siteSocialImage
+            siteSocialImageAlt
+            siteTwitterCreator
           }
         }
       }
     `
   );
+  const {
+    siteName,
+    siteTagline,
+    siteDescription,
+    siteUrl,
+    siteLang,
+    siteSocialImage,
+    siteSocialImageAlt,
+    siteTwitterCreator,
+  } = siteMetadata;
 
-  const title = meta?.title;
-  const siteName = `${siteMetadata.title} — ${siteMetadata.tagline}`;
-  const lang = meta?.lang || siteMetadata.lang;
-  const image = meta?.image || siteMetadata.social.image;
+  const siteTitle = `${siteName} — ${siteTagline}`;
+  const title = meta?.title ? `${meta.title}  —  ${siteName}` : siteTitle;
+  const lang = meta?.lang || siteLang;
+  const image = meta?.image || siteSocialImage;
 
-  const description = meta?.description || siteMetadata.description;
-  const canonical = location && `${siteMetadata.url}${location.pathname}`;
+  const description = meta?.description || siteDescription;
+  const canonical = location && `${siteUrl}${location.pathname}`;
   const socialType = meta?.type || "website";
   const socialTitle = title ? title : siteName;
-  const socialImage = image && `${siteMetadata.url}${image}`;
-  const socialImageAlt = meta?.image ? meta?.alt : siteMetadata.social.alt;
+  const socialImage = image && `${siteUrl}${image}`;
+  const socialImageAlt = meta?.image ? meta?.alt : siteSocialImageAlt;
   const socialDescription = description;
-  const twitterSite = siteMetadata.social.twitter.site;
-  const twitterCreator = meta?.creator;
-  const twitterCard = siteMetadata.social.twitter.card;
+  const twitterSite = siteTwitterCreator;
+  const twitterCreator = meta?.creator || siteTwitterCreator;
+  const twitterCard = "summary_image_large";
 
   return (
-    <Helmet defaultTitle={siteName}>
+    <Helmet>
       <html lang={lang} />
       <title>{title}</title>
       <link rel="canonical" href={canonical} />
@@ -57,7 +62,7 @@ const Seo = ({ location, meta, children }) => {
 
       <meta name="description" content={description} />
       <meta property="og:url" content={canonical} />
-      <meta property="og:site_name" content={siteName} />
+      <meta property="og:site_name" content={siteTitle} />
       <meta property="og:type" content={socialType} />
       <meta property="og:title" content={socialTitle} />
       <meta property="og:description" content={socialDescription} />

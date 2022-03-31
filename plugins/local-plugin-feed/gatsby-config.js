@@ -9,8 +9,8 @@ module.exports = {
           {
             site {
               siteMetadata {
-                url
-                description
+                url: siteUrl
+                description: siteDescription
               }
             }
           }

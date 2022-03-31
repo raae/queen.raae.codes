@@ -9,6 +9,7 @@ import NewsletterForm from "../../components/newsletter";
 import Emails from "../../content/emails";
 
 const EmailsPage = ({ data, ...props }) => {
+  console.log(props);
   const badge = "Daily emails";
   const title = "Serious about Gatsby? ";
   const description =
