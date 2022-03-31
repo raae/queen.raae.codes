@@ -16,7 +16,43 @@ I replicated a little of what Queen @raae live coded with @wardpeet on our Thurs
 Speed up your build when you use the plugin
 
 ## How did I do it?
-My steps are G. - I. M. A. G. E. - C. D. N.
+My steps are G. - I. M.
+Later I'll do A. G. E. - C. D. N.
+
+
+
+
+
+### G. GraphQL object type
+Creating a new node type
+
+```js
+
+```
+
+### I.
+
+```js
+
+```
+
+### M.
+
+```js
+
+```
+
+
+For the live version of my skill-builder session:, watch [Sunday's OlaCast on YouTube](https://youtu.be/v00Uro6UQvY)
+
+&nbsp;
+💪😺👍
+Keep your skill-building-ship afloat this week!
+⛵🔧🏴‍☠️
+
+&nbsp;
+Ola Vea
+Cap'n of his own skill-builder-ship
 
 
 Here is the finished gatsb-node.js file
@@ -156,66 +192,3 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   ]);
 };
 ```
-
-
-
-###
-
-```js
-
-```
-
-### .
-
-
-```js
-
-```
-
-### .
-
-```js
-
-```
-
-### .
-
-```js
-
-```
-
-### .
-
-```js
-
-```
-
-### .
-
-```js
-
-```
-### .
-```js
-
-```
-
-### .
-
-```js
-
-....
-
-```
-
-
-For the live version of my skill-builder session:, watch [Sunday's OlaCast on YouTube](https://youtu.be/v00Uro6UQvY)
-
-&nbsp;
-💪😺👍
-Keep your skill-building-ship afloat this week!
-⛵🔧🏴‍☠️
-
-&nbsp;
-Ola Vea
-Cap'n of his own skill-builder-ship
