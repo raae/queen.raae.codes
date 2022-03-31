@@ -6,5 +6,9 @@
   {
     "fromPath": "/emails/2021-12-02-conference-buddy-2.0/",
     "toPath": "/emails/2021-12-02-conference-buddy-v2/"
+  },
+  {
+    "fromPath": "/gatsby-v4-bootcamp/",
+    "toPath": "/gatsby-bootcamps/v4/"
   }
 ]
