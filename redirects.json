@@ -10,5 +10,9 @@
   {
     "fromPath": "/gatsby-v4-bootcamp/",
     "toPath": "/gatsby-bootcamps/v4/"
+  },
+  {
+    "fromPath": "/emails/2022-03-30-determenistic/",
+    "toPath": "/emails/2022-03-30-deterministic/"
   }
 ]
