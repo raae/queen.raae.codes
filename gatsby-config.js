@@ -90,4 +90,5 @@ module.exports = {
     `gatsby-plugin-gatsby-cloud`,
     `gatsby-plugin-sitemap`,
   ],
+  trailingSlash: "always",
 };
