@@ -23,3 +23,13 @@
   image: galactic-pow-talk.png
   product: pow-talk-2019
   date: 2022-02-19
+- url: https://twitter.com/PaulieScanlon/status/1509253192210694149
+  post: "If you’re building with @GatsbyJS I’d highly recommend signing up to @raae’s email list. Always full of brills top tips and great for all levels of learning. 💯"
+  product: emails
+  date: 2022-03-30
+  image: paul-emails.png
+- url: https://twitter.com/gtchakama/status/1509254206397505550
+  post: "I've learnt more about Gatsby from the Queen's YT streams and emails vs the Docs for Gatsby 😂😂"
+  product: emails, streams
+  image: gtchakama-emails-streams.png
+  date: 2022-03-30
