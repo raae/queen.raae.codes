@@ -11,7 +11,7 @@ You might be interested in [Previewing Content with Strapi and Gatsby Cloud](htt
 
 A new version of Gatsby is out — v4.10 that adds support for the prominent GatsbyConf feature: ImageCDN.
 
-Join us on [Thursday when Ward Peters]() of Gatsby will show us how to add support to our YouTube oEmbed plugin using the new RemoteFile GraphQL interface
+Join us on [Thursday when Ward Peters](https://youtu.be/IDW2IfaHGIs) of Gatsby will show us how to add support to our YouTube oEmbed plugin using the new RemoteFile GraphQL interface
 
 ## Our streaming schedule this week
 
