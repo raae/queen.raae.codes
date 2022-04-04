@@ -23,6 +23,10 @@ module.exports = (node, site) => {
           /(?<=\"|\s)\/static\//g,
           `${site.siteMetadata.url}\/static\/`
         ),
+        "content:encoded": html.replace(
+          /(?<=\"|\s)\/emails\//g,
+          `${site.siteMetadata.url}\/emails\/`
+        ),
       },
     ],
   };
