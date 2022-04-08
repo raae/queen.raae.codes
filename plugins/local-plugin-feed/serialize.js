@@ -1,12 +1,23 @@
 const { getImage } = require("gatsby-plugin-image");
 
 module.exports = (node, site) => {
-  const { slug, date, ogImage, title, description, emojii, html } = node;
+  const { slug, date, ogImage, title, description, emojii } = node;
+  let { html } = node;
 
-  const titleEmojii = emojii;
+  // Change relative static paths to absolute
+  html = html.replace(
+    /(?<=\"|\s)\/static\//g,
+    `${site.siteMetadata.url}\/static\/`
+  );
+
+  // Change relative email paths to absolute
+  html = html.replace(
+    /(?<=\"|\s)\/emails\//g,
+    `${site.siteMetadata.url}\/emails\/`
+  );
 
   return {
-    title: titleEmojii ? `${titleEmojii} ~ ${title}` : title,
+    title: emojii ? `${emojii} ~ ${title}` : title,
     description: description,
     date: date,
     url: site.siteMetadata.url + slug,
@@ -18,15 +29,7 @@ module.exports = (node, site) => {
     }),
     custom_elements: [
       {
-        // Change relative static paths to absolute
-        "content:encoded": html.replace(
-          /(?<=\"|\s)\/static\//g,
-          `${site.siteMetadata.url}\/static\/`
-        ),
-        "content:encoded": html.replace(
-          /(?<=\"|\s)\/emails\//g,
-          `${site.siteMetadata.url}\/emails\/`
-        ),
+        "content:encoded": html,
       },
     ],
   };
