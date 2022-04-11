@@ -48,7 +48,7 @@ const Seo = ({ location, meta, children }) => {
   const socialDescription = description;
   const twitterSite = siteTwitterCreator;
   const twitterCreator = meta?.creator || siteTwitterCreator;
-  const twitterCard = "summary_image_large";
+  const twitterCard = "summary_large_image";
 
   return (
     <Helmet>
