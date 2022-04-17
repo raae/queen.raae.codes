@@ -14,7 +14,8 @@ import { Newsletter } from "../content/newsletter";
 const IS_PROD = process.env.NODE_ENV === "production";
 
 const Email = ({ data, ...props }) => {
-  const { date, ogImage, title, emojii, description, html } = data.email || {};
+  const { date, ogImage, title, author, emojii, description, html } =
+    data.email || {};
 
   const emojis = emojii.split(" ");
 
@@ -26,6 +27,7 @@ const Email = ({ data, ...props }) => {
           title: title,
           description: description,
           image: ogImage,
+          creator: author === "OlaVea" && "@OlaHolstVea",
         }}
       />
       <SiteHeader variant="minimal" />
@@ -65,6 +67,7 @@ export const query = graphql`
   query EmailById($id: String!) {
     email(id: { eq: $id }) {
       title
+      author
       emojii
       description
       html

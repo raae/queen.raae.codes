@@ -110,6 +110,7 @@ exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
     if (type.includes("Email")) {
       // Create email node
       const filePath = createFilePath({ node: fileNode, getNode });
+      const author = type.replace("Email", "");
 
       const pattern =
         /((\d{4})\/(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01]))-(.*)/;
@@ -126,6 +127,7 @@ exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
             slug: slug,
             date: dateString,
             parent: fileNode.id,
+            author: author,
             childMarkdownRemark: markdownNode.id,
             internal: {
               contentDigest: markdownNode.internal.contentDigest,

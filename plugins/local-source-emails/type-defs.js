@@ -2,6 +2,7 @@ exports.typeDefs = `
   interface Email implements Node {
     id: ID!
     slug: String
+    author: String
     title: String
     emojii: String
     html: String
@@ -12,6 +13,7 @@ exports.typeDefs = `
 
   type QueenEmail implements Node & Email {
     slug: String
+    author: String
     date: Date @dateformat
     title: String @childMarkdownRemarkResolver
     emojii: String @childMarkdownRemarkResolver
@@ -22,6 +24,7 @@ exports.typeDefs = `
 
   type OlaVeaEmail implements Node & Email {
     slug: String
+    author: String
     date: Date @dateformat
     title: String @childMarkdownRemarkResolver
     emojii: String @childMarkdownRemarkResolver(default: "⛵ 🔧")
