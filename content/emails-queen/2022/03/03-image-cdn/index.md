@@ -3,7 +3,7 @@ title: I was super excited, but it seems the "Gatsby Image CDN Beta" does not su
 emojii: 🖼 ☁️
 ---
 
-Yesterday's email was quite on the nose when it came to one of GatsbyConf's big reveals: Image CDN.
+Yesterday's email on how to [weed out large images](/emails/2022-03-02-large-files/) was quite on the nose when it came to one of GatsbyConf's big reveals: Image CDN.
 
 With Gatsby Image CDN transformations of images are moved from the build to on-demand, waiting for the sharp transformations a thing of the past.
 

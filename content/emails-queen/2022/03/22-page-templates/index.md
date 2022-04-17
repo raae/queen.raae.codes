@@ -9,7 +9,7 @@ A typical example is sourcing both posts and projects content from markdown. Bot
 
 This week we'll look at three different approaches!
 
-First up is using _multiple page templates_. Tomorrow's email looks at _multiple page components_, and then we'll round it off with my favorite: _multiple file system routes_.
+First up is using _multiple page templates_. Tomorrow's email looks at [multiple page components](/emails/2022-03-23-page-components), and then we'll round it off with my current favorite: [parrot pages](/emails/2022-03-24-parrot-pages).
 
 ## Multiple Page Templates
 

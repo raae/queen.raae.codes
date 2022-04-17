@@ -5,7 +5,7 @@ emojii: 📄 3️⃣
 
 How can you achieve different page layouts for content with the same content node type but varying content types such as posts, projects, and pages?
 
-The approach covered in yesterday's email used _multiple page components_; the day before was _multiple page templates_ and today we are covering my favorite: _multiple parrot pages_.
+The approach covered in yesterday's email used [multiple page components](/emails/2022-03-23-page-components); the day before was [multiple page templates](/emails/2022-03-22-page-templates) and today we are covering my current favorite: _multiple parrot pages_.
 
 If you are not familiar with the term parrot pages, it's what we call files system routes around the Gatsby islands 🤪
 

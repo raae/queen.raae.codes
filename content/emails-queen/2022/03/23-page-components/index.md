@@ -5,7 +5,7 @@ emojii: 📄 2️⃣
 
 How can you achieve different page layouts for content with the same content node type but varying content types?
 
-In yesterday's email, we looked at a solution involving _multiple page templates_. Today we'll look at achieving the same with _multiple page components_. And tomorrow we'll look at how to use _multiple file system routes_ by making our own MarkdownRemark parent nodes 🤯
+In yesterday's email, we looked at a solution involving [multiple page templates](/emails/2022-03-22-page-templates). Today we'll look at achieving the same with _multiple page components_. And tomorrow we'll look at how to use [parrot pages](/emails/2022-03-24-parrot-pages) by making our own MarkdownRemark parent nodes 🤯
 
 ## Multiple Page Components
 

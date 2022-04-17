@@ -4,7 +4,7 @@ image: ./youtube-screengrab.jpg
 emojii: 👻 📦
 ---
 
-As I mentioned in yesterday's email, we are standardizing on MUI as our React UI Library across the board. So, of course, I created a reusable plugin taking care of all the nitty-gritty work of setting MUI up correctly after getting it all to work on queen.raae.codes.
+As I mentioned in yesterday's email, we are [standardizing on MUI](/emails/2022-03-10-mui/) as our React UI Library across the board. So, of course, I created a reusable plugin taking care of all the nitty-gritty work of setting MUI up correctly after getting it all to work on queen.raae.codes.
 
 On this week's unauthorized and rum-fueled [treasure hunt](https://youtu.be/kzUUoglO63k) in the sharky waters around the Gatsby islands, the time had come to add MUI to the new POW! marketing site.
 
