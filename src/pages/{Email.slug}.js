@@ -13,8 +13,9 @@ import { Newsletter } from "../content/newsletter";
 
 const IS_PROD = process.env.NODE_ENV === "production";
 
-const QueenEmail = ({ data, ...props }) => {
-  const { date, ogImage, title, emojii, description, html } = data.email || {};
+const Email = ({ data, ...props }) => {
+  const { date, ogImage, title, author, emojii, description, html } =
+    data.email || {};
 
   const emojis = emojii.split(" ");
 
@@ -26,6 +27,7 @@ const QueenEmail = ({ data, ...props }) => {
           title: title,
           description: description,
           image: ogImage,
+          creator: author === "OlaVea" && "@OlaHolstVea",
         }}
       />
       <SiteHeader variant="minimal" />
@@ -45,7 +47,7 @@ const QueenEmail = ({ data, ...props }) => {
 
           <Prose mt="3em" html={html} />
 
-          {!IS_PROD && (
+          {!IS_PROD && ogImage && (
             <Prose>
               <img src={ogImage} alt="Cover test" />
             </Prose>
@@ -59,12 +61,13 @@ const QueenEmail = ({ data, ...props }) => {
   );
 };
 
-export default QueenEmail;
+export default Email;
 
 export const query = graphql`
-  query QueenEmailById($id: String!) {
-    email: queenEmail(id: { eq: $id }) {
+  query EmailById($id: String!) {
+    email(id: { eq: $id }) {
       title
+      author
       emojii
       description
       html
