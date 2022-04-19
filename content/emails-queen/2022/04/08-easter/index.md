@@ -19,9 +19,6 @@ Pirate [Ineza](https://twitter.com/inezabonte) landed his first dev job a while 
 
 🔴 🏴‍☠️ The unauthorized and rum-fueled treasure hunts around the Gatsby islands will be back Thursday, April 21st.
 
-🔴 ⛵ [TBD - Time might change · #OlaCast · Sunday #23/100](https://youtu.be/hBXvgcwvL20)  
-— Sunday, April 17th @ 09:30 CET (also one on Sunday the 10th)
-
 ## Other events
 
 [The Path from Drupal to Drupal + Gatsby (Gatsby Webinar)](https://www.gatsbyjs.com/resources/webinars/path-to-headless-drupal/)  

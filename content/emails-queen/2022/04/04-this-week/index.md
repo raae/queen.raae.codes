@@ -19,9 +19,6 @@ If you need help getting your plugin ready, book a [call with Cap'n Ola and me](
 
 🔴 🏴‍☠️ The unauthorized and rum-fueled treasure hunts around the Gatsby islands will be back Thursday, April 21st.
 
-🔴 ⛵ [TBD - Time might change · #OlaCast · Sunday #22/100](https://youtu.be/Adbxb78MN0M)  
-— Sunday, April 10th @ 09:30 CET
-
 ## Other events
 
 [Let's Learn tRPC! (Learn with Jason)](https://www.learnwithjason.dev/let-s-learn-trpc)  
