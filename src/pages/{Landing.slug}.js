@@ -103,6 +103,14 @@ const RemarkPage = ({ data, ...props }) => {
                     return <Prose key={block} html={sectionHtml} />;
                   case "cta":
                     return <Cta key={block} sx={{ my: "2em" }} {...page.cta} />;
+                  case "ctas":
+                    return (
+                      <Box sx={{ my: "2em" }}>
+                        {(page.ctas || []).map((cta) => (
+                          <Cta {...cta} {...props} />
+                        ))}
+                      </Box>
+                    );
                   case "form":
                     return (
                       <Newsletter
@@ -183,10 +191,13 @@ export const query = graphql`
             }
           }
           cta {
-            to
             href
             label
             note
+          }
+          ctas {
+            to
+            label
           }
           talk {
             date
