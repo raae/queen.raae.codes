@@ -68,6 +68,7 @@ const Root = styled("div")(({ theme }) => ({
   },
   "& a": {
     color: theme.palette.primary.dark,
+    "&:hover": { textDecoration: "none" },
   },
   "& code": {
     fontSize: "0.8em !important",

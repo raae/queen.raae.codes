@@ -1,5 +1,5 @@
 ---
-badge: Gatsby Lifeline
+badge: Gatsby Emergency Call
 title: Stuck on a reef in the sharky waters around the Gatsby islands?
 lead: You have Googled. You have looked through Stack Overflow. You have tried to get help in the Gatsby Discord. But you are still stuck on that reef. You are ready to give up! To abandon ship!
 seo:
