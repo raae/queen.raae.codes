@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 
 import Seo from "../components/seo";
 import Prose from "../components/prose";
@@ -10,12 +10,18 @@ import PageSection, {
 } from "../components/page-section";
 
 import { Newsletter } from "../content/newsletter";
+import { Cta } from "../content/cta";
 
 const IS_PROD = process.env.NODE_ENV === "production";
 
 const Email = ({ data, ...props }) => {
   const { date, ogImage, title, author, emojii, description, html } =
     data.email || {};
+
+  const pitch = data.landing?.childMarkdownRemark?.frontmatter?.seo || {};
+  pitch.cta = data.landing?.childMarkdownRemark?.frontmatter?.cta || {};
+  pitch.cta.title = data.landing?.childMarkdownRemark?.frontmatter?.badge;
+  pitch.cta.slug = data.landing?.slug;
 
   const emojis = emojii.split(" ");
 
@@ -53,6 +59,22 @@ const Email = ({ data, ...props }) => {
             </Prose>
           )}
         </PageSection>
+        <PageSection>
+          <PageSectionHeader hLevel={2} title={pitch.title} />
+          <Prose mt="3em">
+            <p>{pitch.description}</p>
+          </Prose>
+          <Cta
+            {...pitch.cta}
+            sx={{ mt: "2em", mr: "0.5em" }}
+            note={
+              <>
+                or read more about{" "}
+                <Link to={pitch.cta.slug}>{pitch.cta.title}</Link>
+              </>
+            }
+          />
+        </PageSection>
         <PageSection component="footer">
           <Newsletter />
         </PageSection>
@@ -73,6 +95,22 @@ export const query = graphql`
       html
       ogImage
       date(formatString: "MMMM Do, YYYY")
+    }
+    landing(slug: { eq: "/gatsby-emergency/" }) {
+      slug
+      childMarkdownRemark {
+        frontmatter {
+          badge
+          seo {
+            description
+            title
+          }
+          cta {
+            label
+            href
+          }
+        }
+      }
     }
   }
 `;

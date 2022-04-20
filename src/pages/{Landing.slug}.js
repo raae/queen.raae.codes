@@ -105,9 +105,9 @@ const RemarkPage = ({ data, ...props }) => {
                     return <Cta key={block} sx={{ my: "2em" }} {...page.cta} />;
                   case "ctas":
                     return (
-                      <Box sx={{ my: "2em" }}>
+                      <Box sx={{ mt: "2em" }}>
                         {(page.ctas || []).map((cta) => (
-                          <Cta {...cta} {...props} />
+                          <Cta sx={{ mt: "0.5em" }} {...cta} {...props} />
                         ))}
                       </Box>
                     );
