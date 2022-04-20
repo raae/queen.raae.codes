@@ -25,7 +25,7 @@ So if you have any options on that, jump in with a comment.
 
 ## Our streaming schedule this week
 
-🔴 🏴‍☠️ [We are back! · #GatsbyJS Deep Dive](https://youtu.be/7mwWW8Ap7jQ)  
+🔴 🏴‍☠️ [Related content the #GatsbyJS Way using a custom GraphQL resolver · #GatsbyJS Deep Dive](https://youtu.be/7mwWW8Ap7jQ)  
 — Thursday, April 21st @ 19:00 CEST
 
 🔴 ⛵ [TBD - Time might change · #OlaCast · #23](https://youtu.be/1Eo_yCCVzQQ)  
