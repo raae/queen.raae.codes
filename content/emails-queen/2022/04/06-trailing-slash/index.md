@@ -1,6 +1,8 @@
 ---
 title: How to fix inconsistent trailing slashes in Gatsby
 emojii: ✅ ⚙️
+tags: trailing slash, seo, analytics
+peeps: monicalent
 ---
 
 I first learned about the problem of inconsistent trailing slashes from Monica Lent in her article [How to Uncover Non-obvious SEO Mistakes on Gatsby Websites](https://bloggingfordevs.com/gatsby-seo/).

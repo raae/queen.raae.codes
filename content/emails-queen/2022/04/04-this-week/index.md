@@ -1,6 +1,7 @@
 ---
 title: This week around the Gatsby islands - Meet me in NY
 emojii: 🏝 🗓
+tags: sanity, release
 ---
 
 Are you close to NY?  

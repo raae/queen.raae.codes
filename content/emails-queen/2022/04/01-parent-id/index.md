@@ -1,6 +1,7 @@
 ---
 title: Always define a parent when creating nodes in onCreateNode
 emojii: 📥 👩‍👧
+tags: onCreateNode, data layer, createNode, treasure hunt
 ---
 
 **TLDR:** When using the action `createNode` inside `onCreateNode` it is super duper important to give the node a parent!

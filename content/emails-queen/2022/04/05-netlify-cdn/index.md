@@ -1,6 +1,7 @@
 ---
 title: Gatsby ImageCDN on Netlify
 emojii: 🖼 ☁️
+tags: image cdn, netlify, pow, gatsby-source-youtube-oembed
 ---
 
 The POW! web app is hosted on Netlify, and so is the [soon to be released](https://pow-site.netlify.com/) version of the marketing site.

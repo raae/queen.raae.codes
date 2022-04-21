@@ -1,7 +1,8 @@
 ---
 title: How are your SEO skillz?
 emojii: 🔍 👩‍💻
-tags: seo
+tags: seo, recommended read
+peeps: monicalent
 ---
 
 Would you like to learn more about SEO in a dev-friendly way? No bullshitting and magic formulas?
