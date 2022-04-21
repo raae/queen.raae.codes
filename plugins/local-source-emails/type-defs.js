@@ -15,10 +15,10 @@ exports.typeDefs = `
     slug: String
     author: String
     date: Date @dateformat
-    title: String @childMarkdownRemarkResolver
-    emojii: String @childMarkdownRemarkResolver
-    html: String @childMarkdownRemarkResolver
-    description: String @childMarkdownRemarkResolver(alternative: "excerpt")
+    title: String @extractChildMarkdownRemarkField
+    emojii: String @extractChildMarkdownRemarkField
+    html: String @extractChildMarkdownRemarkField
+    description: String @extractChildMarkdownRemarkField(alternative: "excerpt")
     ogImage: String @proxy(from: "fields.ogImage")
   }
 
@@ -26,10 +26,10 @@ exports.typeDefs = `
     slug: String
     author: String
     date: Date @dateformat
-    title: String @childMarkdownRemarkResolver
-    emojii: String @childMarkdownRemarkResolver(default: "⛵ 🔧")
-    html: String @childMarkdownRemarkResolver
-    description: String @childMarkdownRemarkResolver(alternative: "excerpt")
+    title: String @extractChildMarkdownRemarkField
+    emojii: String @extractChildMarkdownRemarkField(default: "⛵ 🔧")
+    html: String @extractChildMarkdownRemarkField
+    description: String @extractChildMarkdownRemarkField(alternative: "excerpt")
     ogImage: String
   }
 `;
