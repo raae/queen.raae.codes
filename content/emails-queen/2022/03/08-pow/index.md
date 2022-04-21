@@ -1,6 +1,7 @@
 ---
 title: Happy International Women's Day and POW!'s second birthday
 emojii: 💥 🎉
+tags: web app, encryption, privacy
 ---
 
 It's International Women's Day and not so coincidentally also POW!'s second birthday!

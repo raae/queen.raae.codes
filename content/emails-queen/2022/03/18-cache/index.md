@@ -1,6 +1,7 @@
 ---
 title: How to use the Gatsby Cache to skip subsequent external API calls
 emojii: 🛑 🔄
+tags: cache, gatsby-node.js, build time
 ---
 
 We are getting advanced today!

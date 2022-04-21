@@ -1,6 +1,7 @@
 ---
 title: Sourcing content from Storyblok with Arisa
 emojii: 📝 💻
+tags: headless cms
 ---
 
 On [yesterday's unauthorized and rum-fueled treasure hunts](https://youtu.be/uOfTcQ6VMwQ) in the sharky waters around the Gatsby islands, Arisa Fukuzaki ([@arisa_dev](https://twitter.com/arisa_dev)) from Storyblok climbed onboard.

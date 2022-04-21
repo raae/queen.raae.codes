@@ -1,6 +1,7 @@
 ---
 title: Gatsby's createNodeId is deterministic
 emojii: 📥 💡
+tags: source plugins, gatsby-node.js
 ---
 
 Let's start with a definition:

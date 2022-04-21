@@ -1,6 +1,7 @@
 ---
 title: Multiple page components for the same node type in Gatsby
 emojii: 📄 2️⃣
+tags: gatsby-source-filesystem
 ---
 
 How can you achieve different page layouts for content with the same content node type but varying content types?

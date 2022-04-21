@@ -1,6 +1,7 @@
 ---
 title: Let's help Mirjam create Conference Buddy 2.0 this holiday season
 emojii: 🔴 ✨
+tags: conference buddy
 ---
 
 _In a dramatic movie trailer voice..._

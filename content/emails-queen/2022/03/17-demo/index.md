@@ -1,6 +1,7 @@
 ---
 title: "New service: Done-for-you Integration Demo"
 emojii: 👩‍💻 🎁
+tags: service, intergration demo
 ---
 
 Are you swamped in customer requests for how to integrate your SaaS with Gatsby, Next, or even plain React?

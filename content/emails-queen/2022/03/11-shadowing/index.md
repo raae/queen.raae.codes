@@ -2,6 +2,7 @@
 title: How to hijack Gatsby Plugins/Themes with shadowing
 image: ./youtube-screengrab.jpg
 emojii: 👻 📦
+tags: theme shadowing, gatsby theme, mui
 ---
 
 As I mentioned in yesterday's email, we are [standardizing on MUI](/emails/2022-03-10-mui/) as our React UI Library across the board. So, of course, I created a reusable plugin taking care of all the nitty-gritty work of setting MUI up correctly after getting it all to work on queen.raae.codes.

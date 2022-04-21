@@ -1,6 +1,7 @@
 ---
 title: One of the key things in software development is getting the data model right, but ...
 emojii: 🗄️ ✨
+tags: datamodel, supabase, userlist
 ---
 
 The great and powerful Benedikt Deicke of [Userlist](https://userlist.com/) climbed on board to help Mirjam settle on a data model on [Thursday's stream](https://youtu.be/Als15kQBxcU).

@@ -1,6 +1,7 @@
 ---
 title: How to make the MUI Component Library your own
 emojii: ✨ 👩‍🎨
+tags: mui, styling, ui
 ---
 
 For the app side of POW! ([my.usepow.app](https://my.usepow.app/login/)) I choose the [MUI Component Library](https://mui.com/).
