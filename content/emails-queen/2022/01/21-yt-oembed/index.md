@@ -1,6 +1,7 @@
 ---
 title: Source YouTube information using oEmbed, no YouTube API Key needed
 emojii: 🔴 🏴‍☠️
+tags: oembed, sourceNodes, createNode, createContentDigest, createNodeId, ,
 ---
 
 In yesterday's unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands, we looked closely at [sourcing content nodes](https://youtu.be/VhrOe0X_oA8) with data from the YouTube oEmbed endpoint.

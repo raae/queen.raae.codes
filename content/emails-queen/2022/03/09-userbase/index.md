@@ -2,6 +2,8 @@
 title: Encrypted journal app with Gatsby + Userbase
 image: ./youtube-square.jpg
 emojii: 📔 🔐
+tags: web app, encryption, privacy
+mentioned: UserbaseHQ
 ---
 
 Are you wondering how you could create an encrypted web app like POW?

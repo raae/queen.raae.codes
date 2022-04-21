@@ -1,6 +1,7 @@
 ---
 title: Upgrade all Gatsby packages in one command with yarn
 emojii: 📦 🪄
+tags: snippet, yolo, yarn
 ---
 
 Short tip from today's coding session where I needed to make sure all Gatsby related packages were up to date:

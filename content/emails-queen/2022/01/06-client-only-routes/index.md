@@ -1,6 +1,7 @@
 ---
 title: Client-side only routes with Gatsby
 emojii: 📺 👩‍💻
+tags: gatsby conf, web app, client-side only routes, authentication, skeleton ui
 ---
 
 The Gatsby Conf announcement reminded me of how this whole YouTube thing started. In April of 2020, I got asked if I wanted to submit a talk for Gatsby Virtual Days. I did, and Gatsby sent over a microphone, and a ring light... and the rest, as they say, is history 🤪

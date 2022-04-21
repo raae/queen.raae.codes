@@ -1,6 +1,7 @@
 ---
 title: This week around the Gatsby islands
 emojii: 🏝 🗓
+tags: gatsbyconf, release
 ---
 
 The dust is settling after a well blåst GatsbyConf 🎉

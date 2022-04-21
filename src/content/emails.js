@@ -1,18 +1,32 @@
 import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, Chip } from "@mui/material";
 import { ArrowForward as MoreIcon } from "@mui/icons-material";
 import { ContentList } from "../components/content-list";
+
+export const Tags = ({ tags, sx, ...props }) => {
+  return (tags || []).map(({ label, slug }) => {
+    return (
+      <Chip
+        variant="outlined"
+        size="small"
+        sx={{ mr: 1 }}
+        component={Link}
+        to={slug}
+        label={label}
+        key={slug}
+        clickable
+      />
+    );
+  });
+};
 
 export const Emails = ({ emails, sx, more, ...props }) => {
   const data = useStaticQuery(graphql`
     {
       latestEmails: allEmail(sort: { order: DESC, fields: date }, limit: 7) {
         nodes {
-          title
-          emojii
-          slug
-          date(formatString: "MMMM Do, YYYY")
+          ...EmailItemFragment
         }
       }
     }
@@ -54,3 +68,18 @@ export const Emails = ({ emails, sx, more, ...props }) => {
 };
 
 export default Emails;
+
+export const query = graphql`
+  fragment EmailItemFragment on Email {
+    title
+    description
+    author
+    emojii
+    slug
+    date(formatString: "MMMM Do, YYYY")
+    tags {
+      label
+      slug
+    }
+  }
+`;

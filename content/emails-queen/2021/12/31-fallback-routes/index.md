@@ -1,6 +1,7 @@
 ---
 title: Server Side Rendered (SSR) fallback routes with Gatsby
 emojii: 🎇 ∞
+tags: SSR, SSG, getServerData,
 ---
 
 The unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands Conference Buddy edition is back.

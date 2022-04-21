@@ -1,6 +1,7 @@
 ---
 title: Minimal Viable Content Node
 emojii: 🥗 🌮
+tags: data layer, sourceNodes,createNode, createNodeId
 ---
 
 Are you the type who preps all your ingredients in advance of cooking? No?

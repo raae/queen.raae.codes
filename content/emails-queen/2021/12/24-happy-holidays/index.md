@@ -1,6 +1,7 @@
 ---
 title: v1.0.0 of Let it snow is out ❄️❄️❄️
 emojii: 🎄 ❄️
+tags: holiday, gatsby-plugin-let-it-snow
 ---
 
 No stream this week, but we've been busy making non the less:

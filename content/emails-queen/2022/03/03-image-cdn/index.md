@@ -1,6 +1,7 @@
 ---
 title: I was super excited, but it seems the "Gatsby Image CDN Beta" does not support gatsby-source-filesystem (yet...)
 emojii: 🖼 ☁️
+tags: image cdn, gatsby conf
 ---
 
 Yesterday's email on how to [weed out large images](/emails/2022-03-02-large-files/) was quite on the nose when it came to one of GatsbyConf's big reveals: Image CDN.

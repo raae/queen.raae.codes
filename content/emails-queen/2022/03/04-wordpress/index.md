@@ -2,6 +2,8 @@
 title: Coming full circle? WordPress + Gatsby
 image: ./show-screengrab.jpg
 emojii: 🗄 ♻️
+tags: wordpress, stream, gatsby conf
+mentioned: alexadark
 ---
 
 The founder of Gatsby WP Themes, Alexandra, helped us "Create and Customize a Gatsby Blog Powered by WordPress" in yesterday's unauthorized and rum-fueled [treasure hunt](https://youtu.be/BzigfV2BiIE) in the sharky waters around the Gatsby islands.

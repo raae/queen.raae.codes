@@ -1,6 +1,7 @@
 ---
 title: Multiple parrot pages for the same node type in Gatsby
 emojii: 📄 3️⃣
+tags: file system route api, gatsby-source-filesystem
 ---
 
 How can you achieve different page layouts for content with the same content node type but varying content types such as posts, projects, and pages?

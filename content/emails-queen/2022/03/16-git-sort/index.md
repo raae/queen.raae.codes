@@ -1,6 +1,7 @@
 ---
 title: Lost in a sea of local branches? `--sort` might help!
 emojii: 🗓 ⬇️
+tags: git, snippet
 ---
 
 If you are like me, never really cleaning up your local Git branches, you might feel a little lost when coming back to a project.

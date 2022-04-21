@@ -6,6 +6,7 @@ import PageSection, { PageSectionHeader } from "../../components/page-section";
 import Seo from "../../components/seo";
 import NewsletterForm from "../../components/newsletter";
 
+import { Newsletter } from "../../content/newsletter";
 import Emails from "../../content/emails";
 
 const EmailsPage = ({ data, ...props }) => {
@@ -33,11 +34,7 @@ const EmailsPage = ({ data, ...props }) => {
         </PageSection>
 
         <PageSection component="footer">
-          <NewsletterForm cta="Yes, please!" formKey="queen">
-            <strong>Serious about Gatsby?</strong> Sign up for emails like these
-            from Queen Raae (and Cap'n Ola) sent every weekday to help you get
-            the most out of Gatsby!
-          </NewsletterForm>
+          <Newsletter />
         </PageSection>
       </main>
     </>
@@ -48,10 +45,7 @@ export const query = graphql`
   {
     allEmail(sort: { order: DESC, fields: slug }) {
       nodes {
-        title
-        emojii
-        slug
-        date(formatString: "MMMM Do, YYYY")
+        ...EmailItemFragment
       }
     }
   }
