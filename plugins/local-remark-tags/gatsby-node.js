@@ -11,6 +11,17 @@ const tagsToUniqueLowercaseArray = (tagsAsString) => {
   }
 };
 
+exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
+  const {
+    node,
+    actions: { createNode },
+    reporter,
+  } = gatsbyUtils;
+
+  if (node.internal.type === "MarkdownRemark") {
+  }
+};
+
 exports.createSchemaCustomization = ({ actions, schema }, pluginOptions) => {
   const { createTypes } = actions;
 

@@ -48,6 +48,7 @@
     "react-dom": "^17.0.2",
     "react-helmet": "6.1.0",
     "react-query": "3.34.12",
+    "string-similarity": "4.0.4",
     "stripe": "8.201.0"
   },
   "devDependencies": {
