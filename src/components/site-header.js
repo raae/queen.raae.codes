@@ -5,19 +5,11 @@ import {
   Toolbar,
   Container,
   Button,
-  Menu,
-  MenuItem,
 } from "@mui/material";
-import { Menu as MenuIcon } from "@mui/icons-material";
+
 import { Link } from "gatsby";
 
 import LinkButton from "./link-button";
-
-const pages = [
-  // { label: "Services", path: "/services" },
-  // { label: "Done-for-you Demo", path: "/done-for-you-demo" },
-  // { label: "Daily emails", path: "/emails" },
-];
 
 const links = [
   "https://github.com/queen-raae",
@@ -26,16 +18,6 @@ const links = [
 ];
 
 const SiteHeader = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
   return (
     <MuiAppBar
       position="sticky"
