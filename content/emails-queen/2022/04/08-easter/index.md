@@ -1,7 +1,6 @@
 ---
 title: Next week around the Gatsby islands - Easter holiday
 emojii: 🏝 🗓
-tags: holiday
 ---
 
 Next week you'll get a break from my emails and the Thursday stream as it's the Easter holiday here in Norway 🐣
