@@ -1,6 +1,7 @@
 ---
 title: Third-party scripts with Gatsby
 emojii: 🔴 👩‍🏫
+tags: external scripts, screencast
 ---
 
 Let's say you want to embed a Tweet or add website analytics. How would you go about including the external third-party script required?

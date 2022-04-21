@@ -1,6 +1,8 @@
 ---
 title: SSG even for authenticated routes in Gatsby
 emojii: 💀📄
+tags: skeleton ui, SSG, authentication, client-side only routes
+peeps: mirjam_diala
 ---
 
 In [yesterday's email](/emails/2022-01-06-client-only-routes/), I alluded to a different approach for authenticated routes.

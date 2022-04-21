@@ -1,6 +1,7 @@
 ---
 title: This week around the Gatsby islands
 emojii: 🏝 🗓
+tags: release, gatsby-remark-oembed, holiday
 ---
 
 It's not Monday, but I live in a long and "krokete" country, so the powers that be extended easter by one day way back when.

@@ -1,6 +1,7 @@
 ---
 title: Static Site Generation (SSG) with Gatsby
 emojii: 🔴 👩‍🏫
+tags: SSG, screencast
 ---
 
 Static Site Generation (SSG) is Gatsby's default rendering mode.

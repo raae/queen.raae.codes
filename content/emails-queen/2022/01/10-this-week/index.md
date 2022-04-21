@@ -1,6 +1,8 @@
 ---
 title: This week around the Gatsby islands
 emojii: 🏝 🗓
+tags: react query, unlock, gatsby plugins
+peeps: Philo01
 ---
 
 I had somehow convinced myself this is the week I turn 40, but alas its another year before I can join the rank of the older and wiser 🤪

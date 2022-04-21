@@ -1,6 +1,7 @@
 ---
 title: This week around the Gatsby islands
 emojii: 🏝 🗓
+tags: typescript, gatsby conf, release
 ---
 
 I had a great birthday, but for my 40th there will be a huge a\*\* party and [you are invited](https://twitter.com/raae/status/1480924823178121217) 🎉

@@ -1,6 +1,8 @@
 ---
 title: Images in Markdown front matter with Gatsby
 emojii: 📄 🖼
+tags: markdown, graphql
+peeps: johnhansenart
 ---
 
 I showed you a neat little trick in Friday's email: referencing a markdown file from the front matter of another markdown file.

@@ -1,6 +1,7 @@
 ---
 title: Recommended Read — How to Create List of Related Content in Gatsby.JS
 emojii: 👏 📖
+tags: recommended read, graphql
 ---
 
 While researching how to do related content, I came over this excellent article [How to Create List of Related Content in Gatsby.JS](https://reckoning.dev/blog/related-posts-gatsbyjs/).
