@@ -11,13 +11,22 @@ import PageSection, {
 
 import { Newsletter } from "../content/newsletter";
 import { Cta } from "../content/cta";
-import { Tags } from "../content/emails";
+import Emails, { Tags } from "../content/emails";
 
 const IS_PROD = process.env.NODE_ENV === "production";
 
 const Email = ({ data, ...props }) => {
-  const { date, ogImage, title, author, emojii, description, tags, html } =
-    data.email || {};
+  const {
+    date,
+    ogImage,
+    title,
+    author,
+    emojii,
+    description,
+    tags,
+    html,
+    relatedEmails,
+  } = data.email || {};
 
   const pitch = data.landing?.childMarkdownRemark?.frontmatter?.seo || {};
   pitch.cta = data.landing?.childMarkdownRemark?.frontmatter?.cta || {};
@@ -67,6 +76,15 @@ const Email = ({ data, ...props }) => {
             </Prose>
           )}
         </PageSection>
+        {relatedEmails && (
+          <PageSection>
+            <PageSectionHeader
+              hLevel={2}
+              lead="You might also be interested in..."
+            />
+            <Emails emails={relatedEmails} />
+          </PageSection>
+        )}
         <PageSection>
           <PageSectionHeader hLevel={2} title={pitch.title} />
           <Prose mt="3em">
@@ -99,6 +117,11 @@ export const query = graphql`
       ...EmailItemFragment
       html
       ogImage
+      ... on QueenEmail {
+        relatedEmails(limit: 3, titleTreshold: 0.7) {
+          ...EmailItemFragment
+        }
+      }
     }
     landing(slug: { eq: "/gatsby-emergency/" }) {
       slug

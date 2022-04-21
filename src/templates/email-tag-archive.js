@@ -15,10 +15,11 @@ const EmailsPage = ({ pageContext, data, ...props }) => {
   const { allEmail } = data;
 
   const title = `Emails tagged: "${pageContext.tagLabel}"`;
+  const description = `Learn more about "${pageContext.tagLabel}" by browsing the daily emails sent on the topic.`;
 
   return (
     <>
-      <Seo {...props} meta={{ title: title }} />
+      <Seo {...props} meta={{ title: title, description: description }} />
       <SiteHeader />
 
       <main>
