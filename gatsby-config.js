@@ -37,12 +37,6 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: "local-remark-tags",
-            options: {
-              basePath: "/tags",
-            },
-          },
-          {
             resolve: `gatsby-remark-prismjs`,
           },
           {

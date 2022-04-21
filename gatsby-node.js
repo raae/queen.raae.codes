@@ -3,14 +3,14 @@ const _ = require("lodash");
 const stringSimilarity = require("string-similarity");
 
 exports.createPages = async (gatsbyUtils) => {
-  await createTagPages(gatsbyUtils);
+  await createEmailTagArchives(gatsbyUtils);
 };
 
-const createTagPages = async (gatsbyUtils) => {
+const createEmailTagArchives = async (gatsbyUtils) => {
   const { actions, graphql, reporter } = gatsbyUtils;
   const { createPage } = actions;
 
-  const tagTemplate = path.resolve("src/templates/tag-template.js");
+  const tagTemplate = path.resolve("src/templates/email-tag-archive.js");
 
   const result = await graphql(`
     {
@@ -50,41 +50,3 @@ const createTagPages = async (gatsbyUtils) => {
     });
   });
 };
-
-exports.createResolvers = ({ createResolvers }) =>
-  createResolvers({
-    MarkdownRemark: {
-      relatedReads: {
-        type: "[MarkdownRemark!]",
-        args: { limit: "Int" },
-        async resolve(source, args, context, info) {
-          let limit = args.limit;
-          let otherMarkdownRemark = await context.nodeModel.runQuery({
-            firstOnly: false,
-            type: `MarkdownRemark`,
-            query: {
-              filter: {
-                fileAbsolutePath: {
-                  ne: source.fileAbsolutePath,
-                }, // not current article
-              },
-            },
-          });
-
-          return otherMarkdownRemark
-            .map((p) => ({
-              ...p,
-              similarity: stringSimilarity.compareTwoStrings(
-                p.frontmatter.title,
-                source.frontmatter.title
-              ),
-            }))
-            .filter(({ similarity }) => similarity !== 0)
-            .sort((a, b) => {
-              return b.similarity - a.similarity;
-            })
-            .slice(0, limit);
-        },
-      },
-    },
-  });
