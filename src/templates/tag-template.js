@@ -44,7 +44,10 @@ const EmailsPage = ({ pageContext, data, ...props }) => {
 
 export const query = graphql`
   query TagById($tagLabel: String!) {
-    allEmail(filter: { tags: { elemMatch: { label: { eq: $tagLabel } } } }) {
+    allEmail(
+      sort: { order: DESC, fields: slug }
+      filter: { tags: { elemMatch: { label: { eq: $tagLabel } } } }
+    ) {
       nodes {
         ...EmailItemFragment
       }
