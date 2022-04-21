@@ -11,11 +11,12 @@ import PageSection, {
 
 import { Newsletter } from "../content/newsletter";
 import { Cta } from "../content/cta";
+import { Tags } from "../content/emails";
 
 const IS_PROD = process.env.NODE_ENV === "production";
 
 const Email = ({ data, ...props }) => {
-  const { date, ogImage, title, author, emojii, description, html } =
+  const { date, ogImage, title, author, emojii, description, tags, html } =
     data.email || {};
 
   const pitch = data.landing?.childMarkdownRemark?.frontmatter?.seo || {};
@@ -42,6 +43,7 @@ const Email = ({ data, ...props }) => {
           <PageSectionBreadcrumbs
             items={[{ label: "Daily Emails", to: "/emails/" }, { label: date }]}
           />
+
           <PageSectionHeader
             hLevel={1}
             title={
@@ -50,6 +52,12 @@ const Email = ({ data, ...props }) => {
               </>
             }
           />
+
+          {tags && (
+            <aside>
+              <Tags tags={tags} />
+            </aside>
+          )}
 
           <Prose mt="3em" html={html} />
 
@@ -88,13 +96,9 @@ export default Email;
 export const query = graphql`
   query EmailById($id: String!) {
     email(id: { eq: $id }) {
-      title
-      author
-      emojii
-      description
+      ...EmailItemFragment
       html
       ogImage
-      date(formatString: "MMMM Do, YYYY")
     }
     landing(slug: { eq: "/gatsby-emergency/" }) {
       slug

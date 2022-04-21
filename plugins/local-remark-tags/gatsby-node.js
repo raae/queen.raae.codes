@@ -15,7 +15,7 @@ exports.createSchemaCustomization = ({ actions, schema }, pluginOptions) => {
   const { createTypes } = actions;
 
   const typeDefs = [
-    "type Tag { key: String!, slug: String! }",
+    "type Tag { label: String!, slug: String! }",
     schema.buildObjectType({
       name: "MarkdownRemarkFrontmatter",
       fields: {
@@ -28,7 +28,7 @@ exports.createSchemaCustomization = ({ actions, schema }, pluginOptions) => {
 
             return tagsToUniqueLowercaseArray(source.tags).map((tag) => {
               return {
-                key: tag,
+                label: tag,
                 slug: `${pluginOptions.basePath}/${slugify(tag)}/`,
               };
             });
