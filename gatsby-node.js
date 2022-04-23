@@ -1,15 +1,16 @@
 const path = require("path");
 const _ = require("lodash");
+const stringSimilarity = require("string-similarity");
 
 exports.createPages = async (gatsbyUtils) => {
-  await createTagPages(gatsbyUtils);
+  await createEmailTagArchives(gatsbyUtils);
 };
 
-const createTagPages = async (gatsbyUtils) => {
+const createEmailTagArchives = async (gatsbyUtils) => {
   const { actions, graphql, reporter } = gatsbyUtils;
   const { createPage } = actions;
 
-  const tagTemplate = path.resolve("src/templates/tag-template.js");
+  const tagTemplate = path.resolve("src/templates/email-tag-archive.js");
 
   const result = await graphql(`
     {

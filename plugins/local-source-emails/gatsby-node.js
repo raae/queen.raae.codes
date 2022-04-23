@@ -1,18 +1,82 @@
-const { isString } = require("lodash");
+const slugify = require("@sindresorhus/slugify");
+const stringSimilarity = require("string-similarity");
+const { isString, uniq, intersectionBy } = require("lodash");
 const { createFilePath } = require("gatsby-source-filesystem");
 const { typeDefs } = require("./type-defs");
 const { extractChildMarkdownRemarkField } = require("./field-extention");
-
-const IS_DEV = process.env.NODE_ENV === "development";
-const NOW = new Date().toISOString().substring(0, 10);
-const FAR_FUTURE = "2300-01-01";
-const CUT_OFF = IS_DEV ? FAR_FUTURE : NOW;
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes, createFieldExtension } = actions;
 
   createFieldExtension(extractChildMarkdownRemarkField);
   createTypes(typeDefs);
+};
+
+exports.createResolvers = ({ createResolvers }) =>
+  createResolvers({
+    QueenEmail: {
+      relatedEmails: {
+        type: "[QueenEmail!]",
+        args: { limit: "Int", titleTreshold: "Float" },
+        async resolve(source, args, context, info) {
+          const limit = args.limit || 3;
+          const titleTreshold = args.titleTreshold || 0.7;
+
+          let otherEmails = await context.nodeModel.runQuery({
+            firstOnly: false,
+            type: `QueenEmail`,
+            query: {
+              filter: {
+                slug: {
+                  ne: source.slug,
+                }, // not current email
+                isRelatable: {
+                  eq: true,
+                },
+              },
+            },
+          });
+
+          return otherEmails
+            .map((email) => {
+              const intersectingTags = intersectionBy(
+                source.tags,
+                email.tags,
+                "slug"
+              );
+
+              const titleScore = stringSimilarity.compareTwoStrings(
+                source.title.replace("Gatsby", ""),
+                email.title
+              );
+
+              // titleSimilarity = 0 if treshold is not met
+              const titleSimilarity =
+                titleScore > titleTreshold ? titleScore : 0;
+
+              return {
+                ...email,
+                similarity: intersectingTags.length + 3.0 * titleSimilarity,
+              };
+            })
+            .filter(({ similarity }) => similarity !== 0)
+            .sort((a, b) => {
+              return b.similarity - a.similarity;
+            })
+            .slice(0, limit);
+        },
+      },
+    },
+  });
+
+const tagsToUniqueLowercaseArray = (tagsAsString) => {
+  if (isString(tagsAsString)) {
+    const tags = tagsAsString.split(",").map((tag) => tag.trim().toLowerCase());
+    const uniqueTagsAndNonEmptyTags = uniq(tags).filter((tag) => !!tag);
+    return uniqueTagsAndNonEmptyTags;
+  } else {
+    return [];
+  }
 };
 
 exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
@@ -46,25 +110,34 @@ exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
         const emailId = createNodeId(`${markdownNode.id} >>> ${type}`);
         const dateString = `${dateSearch[2]}-${dateSearch[3]}-${dateSearch[4]}`;
         const slug = `${pluginOptions.basePath}/${dateString}-${dateSearch[5]}/`;
+        const title = markdownNode.frontmatter.title;
+        const isRelatable = !title.includes("week around the Gatsby islands");
+        const tags = tagsToUniqueLowercaseArray(
+          markdownNode.frontmatter.tags
+        ).map((tag) => {
+          return {
+            label: tag,
+            slug: `${pluginOptions.basePath}/${slugify(tag)}/`,
+          };
+        });
 
-        if (dateString <= CUT_OFF) {
-          createNode({
-            id: emailId,
-            slug: slug,
-            date: dateString,
-            parent: fileNode.id,
-            author: author,
-            childMarkdownRemark: markdownNode.id,
-            internal: {
-              contentDigest: markdownNode.internal.contentDigest,
-              type: type,
-            },
-          });
+        createNode({
+          id: emailId,
+          slug: slug,
+          title: title,
+          date: dateString,
+          parent: fileNode.id,
+          author: author,
+          tags: tags,
+          isRelatable: isRelatable,
+          childMarkdownRemark: markdownNode.id,
+          internal: {
+            contentDigest: markdownNode.internal.contentDigest,
+            type: type,
+          },
+        });
 
-          reporter.info(`${type} created for ${filePath} at ${slug} `);
-        } else {
-          reporter.warn(`${type} for ${filePath} is in the far future `);
-        }
+        reporter.info(`${type} created for ${filePath} at ${slug} `);
       } catch (error) {
         reporter.error(`${type} for ${filePath} failed: ${error.message}`);
       }

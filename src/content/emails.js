@@ -32,7 +32,7 @@ export const Emails = ({ emails, sx, more, ...props }) => {
     }
   `);
 
-  const items = (emails?.nodes || data.latestEmails.nodes).map(
+  const items = (emails?.nodes || emails || data.latestEmails.nodes).map(
     ({ title, slug, emojii, date }) => {
       return {
         to: slug,
