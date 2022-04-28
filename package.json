@@ -20,7 +20,7 @@
     "@mui/material": "5.4.4",
     "@raae/gatsby-plugin-fathom": "0.0.4",
     "@raae/gatsby-plugin-let-it-snow": "1.0.2",
-    "@raae/gatsby-remark-oembed": "0.1.1",
+    "@raae/gatsby-remark-oembed": "0.3.1",
     "@raae/gatsby-theme-mui": "0.1.1",
     "axios": "0.25.0",
     "canvas": "2.9.0",

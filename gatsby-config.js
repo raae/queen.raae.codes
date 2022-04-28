@@ -53,13 +53,7 @@ module.exports = {
                 // Important to exclude providers
                 // that adds js to the page.
                 // If you do not need them.
-                exclude: [
-                  "Reddit",
-                  "Instagram",
-                  "Twitter",
-                  "Flickr",
-                  "YouTube",
-                ],
+                exclude: ["Reddit", "Instagram", "Twitter", "Flickr"],
               },
             },
           },
