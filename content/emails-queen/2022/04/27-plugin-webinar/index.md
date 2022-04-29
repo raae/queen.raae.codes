@@ -1,5 +1,5 @@
 ---
-title: Look what I found
+title: Look what I found - an old Gatsby webinar featuring...
 emojii: 🗂 📺
 ---
 
