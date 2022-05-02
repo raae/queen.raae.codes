@@ -18,7 +18,7 @@ And last but not least, Samuel Larsen-Disney released his book [Elevating React 
 ## Our streaming schedule this week
 
 - [🔴 🏴‍☠️ Create your own plugin using @raae/gatsby-plugin-starter · #GatsbyJS Deep Dive](https://youtu.be/eaZm9MC0GeE)&nbsp;—&nbsp;Thursday, February 3rd @&nbsp;19:00&nbsp;CET
-- [🔴⛵ TBD - Time might change · #OlaCast · Sunday #16](https://youtu.be/otRx6U5zASw)&nbsp;—&nbsp;Sunday, February 6th
+- [🔴⛵ Using createNodeFields to add a slug field to my homemade markdown node · #OlaCast · Sunday #16](https://youtu.be/otRx6U5zASw)&nbsp;—&nbsp;Sunday, February 6th
 
 ## Other events
 

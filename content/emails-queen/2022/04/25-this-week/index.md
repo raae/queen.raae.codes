@@ -16,9 +16,6 @@ Other than that, I intend to enjoy springtime in the city 😎
 🔴 🏴‍☠️ [Gatsby Plugin (gatsby-remark-oembed) work session · #GatsbyJS Deep Dive](https://youtu.be/dRFPUyTEwmo)  
 — Thursday, April 28th @ 19:00 CEST
 
-🔴 ⛵ [TBD - Time might change · #OlaCast · #23](https://youtu.be/1Eo_yCCVzQQ)  
-— Sunday, May 1st @ 09:30 CEST
-
 ## Other events
 
 [Sanity.io Virtual Meetup - April 2022)](https://hopin.com/events/sanity-io-virtual-meetup-april-2022)  

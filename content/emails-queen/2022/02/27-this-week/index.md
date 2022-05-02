@@ -27,10 +27,10 @@ Check out [Becoming an Open Source Champion with Gatsby](https://gatsbyconf.com/
 
 ## Our streaming schedule this week
 
-🔴 🏴‍☠️ [TBD (Gatsby Conf) · #GatsbyJS Deep Dive](https://youtu.be/BzigfV2BiIE)  
+🔴 🏴‍☠️ [GatsbyConf: Try out Gatsby WP Theme with Alexandra · #GatsbyJS Deep Dive](https://youtu.be/BzigfV2BiIE)  
 — Thursday, March 3rd @ 19:00 CET
 
-🔴 ⛵ [TBD - Time might change· #OlaCast · Sunday #19/100](https://youtu.be/QMtXZRviiqE)  
+🔴 ⛵ [A new Sanity.io backend for photos by Lillian (7 🏴‍☠️👸) · #OlaCast · Sunday #19/100](https://youtu.be/QMtXZRviiqE)  
 — Sunday, March 6th @ 10:30 CET
 
 ## Other events

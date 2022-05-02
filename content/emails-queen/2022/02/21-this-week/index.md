@@ -12,7 +12,7 @@ I use node-canvas to draw social images for these emails. It was my first foray 
 ## Ola's streams this week
 
 - [🔴 🏴‍☠️ Markdown Marketing pages for usepow.app · #GatsbyJS Deep Dive](https://youtu.be/BzigfV2BiIE)&nbsp;—&nbsp;Thursday, February 24th @&nbsp;19:00&nbsp;CET
-- [🔴⛵ TBD · #OlaCast · Sunday #18](https://youtu.be/hkGZiodGe7U)&nbsp;—&nbsp;Sunday, February 27th @&nbsp;10:30&nbsp;CET
+- [🔴⛵ Using createPage and markdown on our Gatsby website for POW! · #OlaCast · Sunday #18](https://youtu.be/hkGZiodGe7U)&nbsp;—&nbsp;Sunday, February 27th @&nbsp;10:30&nbsp;CET
 
 ## Other events
 

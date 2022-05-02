@@ -11,11 +11,8 @@ We also heard rumors there will be a new release this week, fixing the aspect ra
 
 ## Our streaming schedule this week
 
-🔴 🏴‍☠️ [The new POW! Site is live · #GatsbyJS Deep Dive](https://youtu.be/IDW2IfaHGIs)  
+🔴 🏴‍☠️ [Did you know createNodeId is deterministic? · #GatsbyJS Deep Dive](https://youtu.be/SWumzHLEpYA)  
 — Thursday, March 31tst @ 19:00 CEST
-
-🔴 ⛵ [TBD - Time might change · #OlaCast · Sunday #21/100](https://youtu.be/Adbxb78MN0M)  
-— Sunday, April 3rd @ 09:30 CEST
 
 ## Other events
 

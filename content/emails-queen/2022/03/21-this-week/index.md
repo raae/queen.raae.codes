@@ -18,7 +18,7 @@ Join us on [Thursday when Ward Peters](https://youtu.be/IDW2IfaHGIs) of Gatsby w
 🔴 🏴‍☠️ [Add Gatsby ImageCDN to your plugins with Ward Peters · #GatsbyJS Deep Dive](https://youtu.be/IDW2IfaHGIs)  
 — Thursday, March 24th @ 19:00 CET
 
-🔴 ⛵ [TBD - Time might change · #OlaCast · Sunday #21/100](https://youtu.be/_MqchVYIaH0)  
+🔴 ⛵ [Adding Image CDN support for your gatsby source plugin · #OlaCast · Sunday #21/100](https://youtu.be/eV5B8kAvmB8)  
 — Sunday, March 27th @ 09:30 CET
 
 ## Other events

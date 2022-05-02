@@ -15,7 +15,7 @@ Lauren Etheridge of Sanity.io visit to [Content Strategy Seattle](https://www.me
 ## Our streaming schedule this week
 
 - [🔴 🏴‍☠️ Unauthorized and rum-fueled treasure hunt · #GatsbyJS Deep Dive](https://youtu.be/hzZOkTAvE8M)&nbsp;—&nbsp;Thursday, February 17th @&nbsp;19:00&nbsp;CET
-- [🔴⛵ TBD - Time might change · #OlaCast · Sunday #17](https://youtu.be/lMDA0WuAZSA)&nbsp;—&nbsp;Sunday, February 20th @&nbsp;10:30&nbsp;CET
+- [🔴⛵ Only create pages for markdown pages, not for markdown sections · #OlaCast · Sunday #17](https://youtu.be/lMDA0WuAZSA)&nbsp;—&nbsp;Sunday, February 20th @&nbsp;10:30&nbsp;CET
 
 ## Other events
 

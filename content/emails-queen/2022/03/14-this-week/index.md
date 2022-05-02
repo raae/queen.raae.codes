@@ -21,7 +21,7 @@ Let me know if you make use of the new YT clips feature, and I'll make a round-u
 🔴 🏴‍☠️ [Use the Gatsby Cache to speed up sourcing · #GatsbyJS Deep Dive](https://youtu.be/rURKTRPvSos)  
 — Thursday, March 17th @ 19:00 CET
 
-🔴 ⛵ [TBD - Time might change · #OlaCast · Sunday #20/100](https://youtu.be/_MqchVYIaH0)  
+🔴 ⛵ [ POW! Sign Up · #OlaCast · Sunday #20/100](https://youtu.be/_MqchVYIaH0)  
 — Sunday, March 20th @ 09:30 CET
 
 ## Other events

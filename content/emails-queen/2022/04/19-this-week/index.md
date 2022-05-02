@@ -29,9 +29,6 @@ So if you have any options on that, jump in with a comment.
 🔴 🏴‍☠️ [Related content the #GatsbyJS Way using a custom GraphQL resolver · #GatsbyJS Deep Dive](https://youtu.be/7mwWW8Ap7jQ)  
 — Thursday, April 21st @ 19:00 CEST
 
-🔴 ⛵ [TBD - Time might change · #OlaCast · #23](https://youtu.be/1Eo_yCCVzQQ)  
-— Sunday, April 24th @ 09:30 CEST
-
 ## Other events
 
 [Generate Dynamic Images with node-canvas (Learn with Jason)](https://www.learnwithjason.dev/generate-dynamic-images-with-node-canvas)  

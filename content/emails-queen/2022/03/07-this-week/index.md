@@ -31,10 +31,10 @@ Also, [Gatsby v4.9](https://www.gatsbyjs.com/docs/reference/release-notes/v4.9/)
 
 ## Our streaming schedule this week
 
-🔴 🏴‍☠️ [TBD · #GatsbyJS Deep Dive](https://youtu.be/kzUUoglO63k)  
+🔴 🏴‍☠️ [Theme shadowing to customize MUI Theme · #GatsbyJS Deep Dive](https://youtu.be/kzUUoglO63k)  
 — Thursday, March 10th @ 19:00 CET
 
-🔴 ⛵ [TBD - Time might change · #OlaCast · Sunday #20/100](https://youtu.be/v00Uro6UQvY)  
+🔴 ⛵ [POW! Password Peek-A-Boo w/ MUI and GatsbyJS · #OlaCast · Sunday #20/100](https://youtu.be/v00Uro6UQvY)  
 — Sunday, March 13th @ 09:30 CET
 
 ## Other events
