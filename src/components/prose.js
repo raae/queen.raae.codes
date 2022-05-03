@@ -39,6 +39,13 @@ const Root = styled("div")(({ theme }) => ({
     padding: "0.5em 1.5em",
     margin: "1em 0",
     marginBottom: "1.5em",
+    cite: {
+      display: "block",
+      fontSize: theme.typography.body2.fontSize,
+      ":before": {
+        content: '"— "',
+      },
+    },
   },
   "& ul": {
     listStyle: "none",
