@@ -1,7 +1,7 @@
 ---
 title: No need to create the content digest yourself
 emojii: 📄 🏷
-tags: sourceNodes, createNode, createContentDigest, Data Layer
+tags: sourceNodes, createNode, createContentDigest, Data Layer, Gatsby Source Plugin
 ---
 
 We see a lot of this type of code when looking at source plugins:

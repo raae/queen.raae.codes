@@ -1,7 +1,7 @@
 ---
 title: How to use the Gatsby Cache to skip subsequent external API calls
 emojii: 🛑 🔄
-tags: cache, gatsby-node.js, build time
+tags: cache, gatsby-node.js, build time, Gatsby Source Plugin, gatsby-source-youtube-oembed
 ---
 
 We are getting advanced today!

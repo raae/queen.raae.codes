@@ -1,7 +1,7 @@
 ---
 title: How to add support for Gatsby ImageCDN in your source plugin
 emojii: 🖼 ☁️
-tags: image cdn, source plugins, gatsby-node.js
+tags: image cdn, source plugins, gatsby-node.js, gatsby-source-youtube-oembed, images, createRemoteFileNode
 ---
 
 On yesterday's unauthorized and rum-fueled [treasure hunt](https://youtu.be/IDW2IfaHGIs) in the sharky waters around the Gatsby islands, the great and powerful Ward Peeters helped us add Gatsby ImageCDN support to the YouTube oEmbed plugin.

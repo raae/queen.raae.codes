@@ -1,6 +1,7 @@
 ---
 title: Source remote images the right way with Gatsby v4
 emojii: 🖼 📥
+tags: images, Gatsby Source Plugin, createRemoteFileNode, gatsby-source-youtube-oembed
 ---
 
 Gatsby v4 has been out for a while, and with v4 came a much stricter approach to creating and modifying nodes.
