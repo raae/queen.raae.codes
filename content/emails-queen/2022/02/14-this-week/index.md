@@ -2,6 +2,8 @@
 title: This week around the Gatsby islands
 description: "New Gatsby version 3.7, Netlify Graph on Learn with Jason, our regular streams and more..."
 emojii: 🏝 🗓
+tags: Netlify Graph
+brands: Netlify, Sanity
 ---
 
 A new [Gatsby version 3.7](https://twitter.com/GatsbyChangelog/status/1491110567247237121?s=20&t=D6o_JaeU7gk4VFevxFR9zA) came out last week giving us a new config for trailing slash behavior. It seems like minor versions are coming bi-weekly these days!

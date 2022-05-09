@@ -1,7 +1,9 @@
 ---
 title: This week around the Gatsby islands
 emojii: 🏝 🗓
-tags: netlify, gatsby conf
+tags: gatsby conf
+brands: netlify
+peeps: njbmartin
 ---
 
 At the end of the year, Gatsby released the dates for [Gatsby Conf 2022](https://www.gatsbyjs.com/blog/announcing-gatsbyconf-2022/): March 2nd and 3rd. If you have a talk idea, their Call for Proposals (CFP) is open through January 14th.

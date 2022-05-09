@@ -1,8 +1,9 @@
 ---
 title: This week around the Gatsby islands
 emojii: 🏝 🗓
-tags: scraping bee, jobs
+tags: jobs
 peeps: PierreDeWulf
+brands: ScrapingBee
 ---
 
 Last week's focus for me was the Gatsby Remark oEmbed Plugin. I fixed three tree-traversal bugs. Support for MDX is still a little up in the air, though, as the only possible solution at the moment will constitute a breaking change.

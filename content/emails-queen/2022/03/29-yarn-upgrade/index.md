@@ -6,7 +6,7 @@ tags: snippet, yolo, yarn
 
 Short tip from today's coding session where I needed to make sure all Gatsby related packages were up to date:
 
-```sh
+```shell
 yarn upgrade --pattern gatsby --latest
 ```
 

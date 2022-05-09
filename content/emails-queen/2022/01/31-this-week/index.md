@@ -3,6 +3,8 @@ title: This week around the Gatsby islands
 description: "Samuel Larsen-Disney releases Elevating React Web Development with Gatsby, Netlify support for DSG + SSG incoming, Gatsby v4.6 and more"
 image: ./sld-photo.jpeg
 emojii: 🏝 🗓
+brands: Netlify, Strapi
+peeps: SamLarsenDisney
 ---
 
 Netlify released support for Gatsby SSG and DSG today 🎉 It's been in beta since September, but this is the first stable release. Check out [their announcement](https://github.com/netlify/netlify-plugin-gatsby/releases/tag/v2.0.0) for more information.
@@ -13,7 +15,7 @@ Gatsby released [version v4.6](https://www.gatsbyjs.com/docs/reference/release-n
 
 And last but not least, Samuel Larsen-Disney released his book [Elevating React Web Development with Gatsby: Practical guide to building performant, accessible, and interactive web apps with React and Gatsby.js 4](https://twitter.com/SamLarsenDisney/status/1487112270782025731?s=20&t=Yl7K-g2Iz1rrZTRHHm65Cw). That is one very long and promising title; I can't wait to dig in!
 
-[![Tweet Screenshot](./sld-tweet.jpg "Ten months and close to three hundred pages later, my book all about Gatbsy.js is complete! You can check it out here if you are interested https://amzn.to/32Hb53y")](https://youtu.be/26CDRdhXozo)
+[![Tweet Screenshot](./sld-tweet.jpg "Ten months and close to three hundred pages later, my book all about Gatbsy.js is complete! You can check it out here if you are interested https://amzn.to/32Hb53y")](https://twitter.com/SamLarsenDisney/status/1487112270782025731)
 
 ## Our streaming schedule this week
 

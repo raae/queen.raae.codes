@@ -2,6 +2,7 @@
 title: This week around the Gatsby islands
 description: JSWord Online is on this week, Scheduled Functions by Netlify is in beta, Sponsored Repos is finally a thing and more...
 emojii: 🏝 🗓
+brands: Netlify, cfe.dev
 ---
 
 Netlify did not only release support for Gatsby SSG and DSG last week they also released [Scheduled Functions in beta](https://www.netlify.com/blog/quirrel-joins-netlify-and-scheduled-functions-launches-in-beta):

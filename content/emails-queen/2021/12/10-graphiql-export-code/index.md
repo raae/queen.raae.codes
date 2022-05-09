@@ -3,6 +3,7 @@ title: Did you know GraphiQL in Gatsby can export code for you?
 emojii: 👩‍💻 💡
 tags: graphql, GraphiQL, export code
 peeps: swizec, mirjam_diala
+brands: ConferenceBuddy
 ---
 
 Working through Mirjam's markdown homework on [yesterday's stream](https://youtu.be/LcpLKXgfNNo), I remembered how empowered I felt when I found out there is an **Export code** feature in Gatsby's GraphiQL.

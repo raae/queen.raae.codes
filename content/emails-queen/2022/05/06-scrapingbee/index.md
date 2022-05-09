@@ -1,8 +1,9 @@
 ---
 title: Source content from anywhere with ScrapingBee
 emojii: 🗂 🐝
-tags: web scraping, data layer, api, axios, gatsby-node.js, Crowdcast, ScrapingBee, createNode, sourceNodes, createNodeId, createContentDigest
+tags: web scraping, data layer, api, axios, gatsby-node.js, createNode, sourceNodes, createNodeId, createContentDigest
 peeps: PierreDeWulf
+brands: ScrapingBee, Crowdcast
 ---
 
 [Pierre de Wulf](https://twitter.com/PierreDeWulf), co-founder of [ScrapingBee](https://www.scrapingbee.com/) joined us on yesterday's [unauthorized and rum-fueled treasure hunt](https://youtu.be/MjcYzjYIFuI) in the sharky waters around the Gatsby islands.

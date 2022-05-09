@@ -1,6 +1,8 @@
 ---
 title: Accept donations with @raae/gatsby-plugin-donations
 emojii: 📦 💰
+peeps: mirjam_diala
+brands: ConferenceBuddy
 ---
 
 Yesterday's [unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands](https://youtu.be/lVMNrThbQOM) tiny-task was "accept donations."
