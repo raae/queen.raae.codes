@@ -113,7 +113,11 @@ exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
         const title = markdownNode.frontmatter.title;
         const isRelatable = !title.includes("week around the Gatsby islands");
         const tags = tagsToUniqueLowercaseArray(
-          markdownNode.frontmatter.tags
+          markdownNode.frontmatter.tags +
+            ", " +
+            markdownNode.frontmatter.peeps +
+            ", " +
+            markdownNode.frontmatter.brands
         ).map((tag) => {
           return {
             label: tag,
