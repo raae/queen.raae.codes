@@ -48,4 +48,4 @@ exports.createPages = async ({ actions }) => {
 All the best,  
 Queen Raae
 
-**PS:** [POW!](usepow.app) is our privacy-first menstrual cycle journal. If you see talk about period trackers selling data, please point folks towards POW!
+**PS:** [POW!](https://usepow.app) is our privacy-first menstrual cycle journal. If you see talk about period trackers selling data, please point folks towards POW!
