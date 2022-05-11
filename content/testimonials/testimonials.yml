@@ -1,9 +1,9 @@
-- url: https://twitter.com/Ash_Hitchcock/status/1471048277747548163?s=20&t=YKN2khQAbqaLSSccqculsw
+- url: https://twitter.com/Ash_Hitchcock/status/1471048277747548163
   post: "almost forgot thanks to @raae the Gatsby Plugin starter ... made the plugin blazingly fast to write, with full Semantic Release to NPM Raising hands"
   image: gatsby-plugin-starter-ash.png
   product: gatsby-plugin-starter
   date: 2021-12-15
-- url: https://twitter.com/GeoffTRoberts/status/1488901196454629377?s=20&t=YKN2khQAbqaLSSccqculsw
+- url: https://twitter.com/GeoffTRoberts/status/1488901196454629377
   post: "This happened — @raae crushed it. So excited to have her contribute to Outseta for the first time! If you're interested in integrating @outseta with @reactjs, start here: https://go.outseta.com/support/kb/articles/A93nZlQ0/how-to-integrate-outseta-with-react"
   image: outseta-demo.png
   product: done-for-you-demo
@@ -23,6 +23,11 @@
   image: galactic-pow-talk.png
   product: pow-talk-2019
   date: 2022-02-19
+- url: https://twitter.com/davidpaulsson/status/1498660929482993669
+  post: "@raae HUGE thanks for your gatsby-plugin-starter! I just started a new plugin and breezed through A LOT of boilerplate thanks to you and could focus on getting my project started instead 🙏"
+  image: davidpaulsson-plugin-tweet.png
+  product: gatsby-plugin-starter
+  date: 2022-03-01
 - url: https://twitter.com/PaulieScanlon/status/1509253192210694149
   post: "If you’re building with @GatsbyJS I’d highly recommend signing up to @raae’s email list. Always full of brills top tips and great for all levels of learning. 💯"
   product: emails
