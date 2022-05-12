@@ -71,7 +71,9 @@ exports.createResolvers = ({ createResolvers }) =>
 
 const tagsToUniqueLowercaseArray = (tagsAsString) => {
   if (isString(tagsAsString)) {
+    console.log(tagsAsString);
     const tags = tagsAsString.split(",").map((tag) => tag.trim().toLowerCase());
+    console.log(tags);
     const uniqueTagsAndNonEmptyTags = uniq(tags).filter((tag) => !!tag);
     return uniqueTagsAndNonEmptyTags;
   } else {
@@ -112,13 +114,11 @@ exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
         const slug = `${pluginOptions.basePath}/${dateString}-${dateSearch[5]}/`;
         const title = markdownNode.frontmatter.title;
         const isRelatable = !title.includes("week around the Gatsby islands");
-        const tags = tagsToUniqueLowercaseArray(
-          markdownNode.frontmatter.tags +
-            ", " +
-            markdownNode.frontmatter.peeps +
-            ", " +
-            markdownNode.frontmatter.brands
-        ).map((tag) => {
+        const tags = tagsToUniqueLowercaseArray(`
+           ${markdownNode.frontmatter.tags || ""},
+           ${markdownNode.frontmatter.brands || ""},
+           ${markdownNode.frontmatter.peeps || ""}
+          `).map((tag) => {
           return {
             label: tag,
             slug: `${pluginOptions.basePath}/${slugify(tag)}/`,
