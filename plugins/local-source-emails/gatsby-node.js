@@ -71,9 +71,7 @@ exports.createResolvers = ({ createResolvers }) =>
 
 const tagsToUniqueLowercaseArray = (tagsAsString) => {
   if (isString(tagsAsString)) {
-    console.log(tagsAsString);
     const tags = tagsAsString.split(",").map((tag) => tag.trim().toLowerCase());
-    console.log(tags);
     const uniqueTagsAndNonEmptyTags = uniq(tags).filter((tag) => !!tag);
     return uniqueTagsAndNonEmptyTags;
   } else {
