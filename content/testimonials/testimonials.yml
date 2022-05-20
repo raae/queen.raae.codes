@@ -42,3 +42,7 @@
   post: "Our Person of the Week is a senior developer and indie hacker from Oslo who is passionate about helping fellow developers get the most out of Gatsby. Please meet... Benedicte Raae!\nThank you for everything you do for the community, dear @raae!\n#smashingcommunity"
   image: person-of-the-week.png
   date: 2022-04-26
+- url: https://twitter.com/w_baslow/status/1527624322470363145
+  post: "I built it myself with @GatsbyJS, the people at gatsby and its great community (especially @raae for everything gatsby basically, @PaulieScanlon for the great blogposts on MDX out there, and few others)"
+  image: w_baslow_tweet.png
+  date: 2022-05-20
