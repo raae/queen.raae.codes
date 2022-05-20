@@ -1,6 +1,8 @@
 ---
 title: Stripe Event validation in a Gatsby Serverless Function
 emojii: λ 💰
+tags: serverless, lamda
+brands: Stripe
 ---
 
 If you are new to serverless, you might have thought nothing of [yesterday's "Using Http Request Body" example](/emails/2022-05-18-dynamic-serverless/).

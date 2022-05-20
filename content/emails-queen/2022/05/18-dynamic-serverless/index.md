@@ -1,6 +1,7 @@
 ---
 title: Dynamic data in your Gatsby Serverless Functions
 emojii: 3️⃣ λ
+tags: serverless, lamda
 ---
 
 How do you get data into a serverless function?
