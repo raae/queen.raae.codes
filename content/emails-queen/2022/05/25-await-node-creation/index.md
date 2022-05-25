@@ -5,7 +5,7 @@ tags: source plugins, sourceNodes, onCreateNode, lifecycle
 brands: Cloudinary
 ---
 
-In [yesterday's email](/email/2022-05-24-node-creation) I mentioned you must only create nodes within `sourceNodes` and `onCreateNode`.
+In [yesterday's email](/emails/2022-05-24-node-creation/) I mentioned you must only create nodes within `sourceNodes` and `onCreateNode`.
 
 A pretty straightforward rule, but sourcing data usually introduces asynchronous code. And with asynchronous code, you can quickly end up in a situation where you create nodes outside `sourceNodes` and `onCreateNode`.
 
