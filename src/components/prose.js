@@ -80,6 +80,10 @@ const Root = styled("div")(({ theme }) => ({
   "& code": {
     fontSize: "0.8em !important",
   },
+  "& del": {
+    opacity: 0.6,
+    fontWeight: theme.typography.fontWeightRegular,
+  },
   "& .gatsby-highlight": {
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(4),
