@@ -14,4 +14,4 @@ All the best,
 Queen Raae
 
 &nbsp;  
-**PS:** On tonight's [unauthorized and rum-fueled treasure hunt](https://youtu.be/Wqilgl_V7FA), we'll refactor the webhook from my price-winning [Gatsby FuncJam entry](https://github.com/queen-raae/gatsby-funcjam-21/blob/main/src/api/stripe-webhook.js) to use the raw body for Stripe verification.
+**PS:** On tonight's [unauthorized and rum-fueled treasure hunt](https://youtu.be/Wqilgl_V7FA), we'll refactor the webhook from our price-winning [Gatsby FuncJam entry](https://github.com/queen-raae/gatsby-funcjam-21/blob/main/src/api/stripe-webhook.js) to use the raw body for Stripe verification.
