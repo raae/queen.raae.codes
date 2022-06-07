@@ -1,6 +1,6 @@
 ## Here's How It Works
 
-You let us know what comes up again and again in support requests and point us towards relevant documentation.
+You let us know what comes up in support requests and point us towards relevant documentation.
 
 We propose a feature set for the demo showcasing solutions to the most costly support request.
 
