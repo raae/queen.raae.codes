@@ -1,6 +1,7 @@
 ---
 title: Add tests to your Gatsby Plugin project
 emojii: ✅ 🧪
+tags: testing, plugin, pluginOptionsSchema, jest
 ---
 
 We added tests to the Gatsby Plugin Starter in yesterday's unauthorized and rum-fueled [treasure hunt](https://youtu.be/sj3YuX_TpVk) in the sharky waters around the Gatsby islands.
