@@ -53,10 +53,6 @@ const Root = styled("div")(({ theme }) => ({
 
     "& li": {
       margin: "0.25rem 0",
-      a: {
-        display: "inline-block",
-        "&:after": { content: `""`, display: "block" },
-      },
       "&:before": {
         content: "'➽'",
         display: "inline-block",
