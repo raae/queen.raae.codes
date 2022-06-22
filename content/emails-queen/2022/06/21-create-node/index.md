@@ -1,5 +1,5 @@
 ---
-title: createNode does not return anything useful
+title: createNode does NOT return anything useful
 emojii: 📥 🏜
 tags: createNode, createParentChildLink, onCreateNode
 ---
