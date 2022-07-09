@@ -2,24 +2,41 @@
 title: Take the upgraded Gatsby Cloudinary plugins for a spin
 ---
 
+Taking a tiny break from the summer vacay content hiatus to let you know:
 
 ## The upgraded Gatsby Cloudinary plugins are ready for you!
 
-Take'em for a spin on your website. The good news is that you don't need to upgrade your Gatsby version. Because we made'em backwards compatible.
+Take'em for a spin on your website.
+
+Support for gatsby-plugin-image and Gatsby v4 support has landed.
+
+The good news is that you don't need to upgrade to Gatsby v4 because we made'em backward compatible with v3 as well.
 
 ## How do I get the upgraded Gatsby Cloudinary plugins?
 
-Go and see the recipe in the BETA pull request
+The source plugin has gotten an official release:
 
+```
+yarn add gatsby-source-cloudinary@latest
+npm install gatsby-source-cloudinary@latest
+```
 
-[Here is the BETA pull request](https://github.com/cloudinary-devs/gatsby-transformer-cloudinary/pull/173)
+While the transformer plugin is in beta, we would love it if you took it for a spin; it works with both Gatsby v3 and Gatsby v4:
+
+```
+yarn add gatsby-transformer-cloudinary@beta-v4
+npm install gatsby-transformer-cloudinary@beta-v4
+```
+
+Suppose you are already using gatsby-transformer-cloudinary with existing data. In that case, you might want to start with gatsby-transformer-cloudinary@beta, which has no breaking changes, but the possibility to migrate to gatsby-plugin-image.
 
 ## Backwards compatible plugins
 
-With the gentle guidance of my mentor and senior plugin-engineer I've contributed code and learned a lot. I don't know what your favourite learning style is, but I am a learning-by-doing kind of junior-dev. I'll share one thing I learned about backwards compatiblility, else if statement. That's right! Good old  else if is one thing I used to make gatsby-transformer-cloudinary work with your old Gatsby version. Or work with your new Gatsby version if you've updated.
+With the gentle guidance of my mentor and senior plugin engineer, I've contributed code and learned a lot. I don't know your favorite learning style, but I am a learning-by-doing kind of junior dev.
+
+I'll share one thing I learned about backward compatibility: the "if-else" statement. That's right! Good old else "if-else" is one thing I used to make gatsby-transformer-cloudinary work with your old Gatsby version. Or work with your new Gatsby version if you've updated it.
 
 This is what I did:
-
 
 I installed `gatsby-plugin-utils`
 
@@ -29,10 +46,9 @@ npm i gatsby-plugin-utils
 
 ```
 
-I followed the Great Gatsby version 4 docs on backwards compatible global state
+I followed the Great Gatsby version 4 docs on backward compatible global state:
 
-[3. Global state backwards compatible](https://www.gatsbyjs.com/docs/reference/release-notes/migrating-source-plugin-from-v3-to-v4/#3-global-state)
-
+[3. Global state backward compatible](https://www.gatsbyjs.com/docs/reference/release-notes/migrating-source-plugin-from-v3-to-v4/#3-global-state)
 
 ```js
 // packages/gatsby-transformer-cloudinary/gatsby-node.js
@@ -53,7 +69,7 @@ try {
 
 const pluginOptions = getPluginOptions();
 
-const initializaGlobalState = ({ reporter }, pluginOptions ) => {
+const initializaGlobalState = ({ reporter }, pluginOptions) => {
   setPluginOptions({ reporter, pluginOptions });
 };
 
@@ -64,18 +80,11 @@ if (coreSupportsOnPluginInit === "stable") {
 } else {
   exports.onPreBootstrap = initializeGlobalState;
 }
-
 ```
 
 ## Join our bug-treasure-hunt
 
-When I say learning-by-doing, I mean doing again and again and again. So if you DO run into a bug please report it. I'd love to look in on my code again, it's great repetition. 😺
+When I say learning-by-doing, I mean doing again and again and again. So if you DO run into a bug, please report it. I'd love to look in on my code again; it's great repetition. 😺
 
-## Check out the Great Gatsby docs on backwards compatible global state
-
-[3. Global state backwards compatible](https://www.gatsbyjs.com/docs/reference/release-notes/migrating-source-plugin-from-v3-to-v4/#3-global-state)
-
-
-All the best
-
+All the best  
 Captain Ola Vea
