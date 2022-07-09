@@ -74,6 +74,7 @@ exports.drawOgImage = async (
     avatar,
     title = "",
     description = "",
+    signature = "",
     image,
     titleFont,
     bodyFont,
@@ -81,6 +82,7 @@ exports.drawOgImage = async (
     width,
     backgroundColor = "#fffaf0",
     primaryColor = "#ec4326",
+    secondaryColor = "#ffde59",
     primaryTextColor = "#412f20",
     secondaryTextColor = "#412f20bb",
   } = {}
@@ -93,22 +95,22 @@ exports.drawOgImage = async (
   const padding = width * 0.05;
 
   const largeRadius = height * 0.5;
-  const smallRadius = height * 0.2;
+  // const smallRadius = height * 0.2;
 
   const largeImageOptions = {
     radius: largeRadius,
     circleX: width - largeRadius * 0.5,
     circleY: largeRadius * 1.2,
     borderWidth: height * 0.03,
-    borderColor: "#ffde59",
+    borderColor: secondaryColor,
   };
-  const smallImageOptions = {
-    radius: smallRadius,
-    circleX: largeImageOptions.circleX - largeRadius + smallRadius * 0.25,
-    circleY: largeImageOptions.circleY + largeRadius - smallRadius * 1.2,
-    borderWidth: height * 0.02,
-    borderColor: "#ec4326",
-  };
+  // const smallImageOptions = {
+  //   radius: smallRadius,
+  //   circleX: largeImageOptions.circleX - largeRadius + smallRadius * 0.25,
+  //   circleY: largeImageOptions.circleY + largeRadius - smallRadius * 1.2,
+  //   borderWidth: height * 0.02,
+  //   borderColor: "#ec4326",
+  // };
 
   const copyWidth =
     largeImageOptions.circleX - largeImageOptions.radius - padding * 2;
@@ -164,7 +166,7 @@ exports.drawOgImage = async (
   const footerY = height * 0.97;
   ctx.textBaseline = "bottom";
   ctx.fillStyle = primaryColor;
-  ctx.fillText("queen.raae.codes", padding * 1.05, footerY);
+  ctx.fillText(signature, padding * 1.05, footerY);
 
   await drawImage(image || avatar, ctx, largeImageOptions);
 
@@ -186,7 +188,7 @@ exports.createImageBuffer = async (config) => {
   try {
     await this.drawOgImage(canvas, {
       ...config,
-      avatar: __dirname + "/../assets/raae-avatar.jpg",
+      avatar: __dirname + `/../assets/${config.avatar}`,
       titleFont: "Roboto",
       bodyFont: "Roboto",
     });

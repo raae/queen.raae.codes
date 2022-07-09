@@ -46,9 +46,7 @@ module.exports = {
                     title
                     emojii
                     description
-                    ... on QueenEmail {
-                      ogImage
-                    }
+                    ogImage
                   }
                 }
               }
@@ -118,6 +116,7 @@ module.exports = {
                     title
                     emojii
                     description
+                    ogImage
                   }
                 }
               }

@@ -39,6 +39,6 @@ exports.typeDefs = `
     emojii: String @extractChildMarkdownRemarkField(default: "⛵ 🔧")
     html: String @extractChildMarkdownRemarkField
     description: String @extractChildMarkdownRemarkField(alternative: "excerpt")
-    ogImage: String
+    ogImage: String @proxy(from: "fields.ogImage")
   }
 `;
