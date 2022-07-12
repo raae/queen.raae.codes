@@ -1,15 +1,22 @@
 import * as React from "react";
+import { Link } from "gatsby";
 import { Typography } from "@mui/material";
 
-export const PageSectionHeader = ({ badge, title, lead, hLevel = 2 }) => {
+export const PageSectionHeader = ({
+  badge,
+  title,
+  titlePath,
+  lead,
+  hLevel = 2,
+}) => {
   const blocks = [
     { type: "badge", children: badge },
-    { type: "title", children: title },
+    { type: "title", children: title, path: titlePath },
     { type: "lead", children: lead },
   ].filter((block) => Boolean(block.children));
 
   return blocks.map((block, index) => {
-    const { children, type } = block;
+    const { children, type, path } = block;
     const blockProps = {
       component: hLevel + index <= 2 ? `h${hLevel + index}` : "p",
     };
@@ -37,7 +44,19 @@ export const PageSectionHeader = ({ badge, title, lead, hLevel = 2 }) => {
             {...blockProps}
             my="0.75em"
           >
-            {children}
+            {titlePath ? (
+              <Typography
+                component={Link}
+                variant={titleVariant}
+                to={path}
+                color="inherit"
+                sx={{ textDecoration: "none" }}
+              >
+                {children}
+              </Typography>
+            ) : (
+              children
+            )}
           </Typography>
         );
       case "lead":

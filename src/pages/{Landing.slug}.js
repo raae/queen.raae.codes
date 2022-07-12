@@ -40,7 +40,7 @@ const RemarkPage = ({ data, ...props }) => {
       <SiteHeader />
       <main>
         {(sections || []).map((section, key) => {
-          let { badge, title, lead, tagline } = section;
+          let { badge, title, titlePath, lead, tagline } = section;
           let { content, element, body, testimonials } = section;
           let { image, imageAlt } = section;
 
@@ -84,6 +84,7 @@ const RemarkPage = ({ data, ...props }) => {
               <PageSectionHeader
                 badge={badge}
                 title={title}
+                titlePath={titlePath}
                 lead={lead}
                 tagline={tagline}
                 hLevel={element === "header" ? 1 : 2}
@@ -227,6 +228,7 @@ export const query = graphql`
             element
             badge
             title
+            titlePath
             tagline
             content
             imageAlt

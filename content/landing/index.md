@@ -11,6 +11,7 @@ sections:
   - element: header
     content: main, ctas
   - title: Daily emails
+    titlePath: /emails
     content: form, emails
   - badge: noteworthy
     title: Talks, Webinars and Streams
