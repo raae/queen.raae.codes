@@ -10,7 +10,7 @@ export const PageSection = ({
   return (
     <Box
       {...props}
-      component={component}
+      component={component || "section"}
       sx={{
         bgcolor: "background.paper",
         py: 8,
