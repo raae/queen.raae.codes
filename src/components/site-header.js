@@ -5,7 +5,9 @@ import {
   Toolbar,
   Container,
   Button,
+  IconButton,
 } from "@mui/material";
+import { Search as SearchIcon } from "@mui/icons-material";
 
 import { Link } from "gatsby";
 
@@ -33,6 +35,15 @@ const SiteHeader = () => {
           </Button>
 
           <Box sx={{ ml: "auto" }}>
+            <IconButton
+              component={Link}
+              title="Search"
+              to="/search"
+              sx={{ mr: 2 }}
+            >
+              <SearchIcon />
+            </IconButton>
+
             {links.map((url) => (
               <LinkButton key={url} url={url} />
             ))}

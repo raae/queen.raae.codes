@@ -4,13 +4,13 @@ import { Button, Typography, Chip } from "@mui/material";
 import { ArrowForward as MoreIcon } from "@mui/icons-material";
 import { ContentList } from "../components/content-list";
 
-export const Tags = ({ tags, sx, ...props }) => {
+export const Tags = ({ tags, sx }) => {
   return (tags || []).map(({ label, slug }) => {
     return (
       <Chip
         variant="outlined"
         size="small"
-        sx={{ mr: 1 }}
+        sx={{ mr: 1, fontWeight: "normal" }}
         component={Link}
         to={slug}
         label={label}
@@ -21,7 +21,7 @@ export const Tags = ({ tags, sx, ...props }) => {
   });
 };
 
-export const Emails = ({ emails, sx, more, ...props }) => {
+export const Emails = ({ emails, more, variant, limit, ...props }) => {
   const data = useStaticQuery(graphql`
     {
       latestEmails: allEmail(sort: { order: DESC, fields: date }, limit: 7) {
@@ -32,11 +32,26 @@ export const Emails = ({ emails, sx, more, ...props }) => {
     }
   `);
 
-  const items = (emails?.nodes || emails || data.latestEmails.nodes).map(
-    ({ title, slug, emojii, date }) => {
+  const items = (emails?.nodes || emails || data.latestEmails.nodes)
+    .slice(0, limit || -1)
+    .map(({ title, description, slug, emojii, date, tags }) => {
       return {
         to: slug,
-        primary: title,
+        primary: (
+          <>
+            <Typography variant="h5" gutterBottom={variant === "detailed"}>
+              {title}
+            </Typography>
+
+            {variant === "detailed" && (
+              <Typography variant="body2" gutterBottom>
+                {description}
+              </Typography>
+            )}
+
+            {variant === "detailed" && <Tags tags={tags} />}
+          </>
+        ),
         secondary: (
           <>
             <Typography component="span" sx={{ mr: 1.5 }}>
@@ -46,8 +61,7 @@ export const Emails = ({ emails, sx, more, ...props }) => {
           </>
         ),
       };
-    }
-  );
+    });
 
   return (
     <ContentList items={items} {...props}>
