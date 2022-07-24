@@ -19,7 +19,8 @@ const FUSE_OPTIONS = {
   includeMatches: true,
   shouldSort: true,
   useExtendedSearch: true,
-  threshold: 0.1,
+  minMatchCharLength: 3,
+  threshold: 0.4,
   keys: [
     "title",
     "tags.label",
@@ -50,7 +51,6 @@ const SearchPage = (props) => {
   }, [input, debouncedChangeHandler]);
 
   useEffect(() => {
-    console.log("term change", term);
     setInput(term);
     setResults(fuseRef.current.search(term, { limit: 7 }));
   }, [term]);
@@ -67,7 +67,7 @@ const SearchPage = (props) => {
       <main>
         <PageSection component="header">
           <TextField
-            autoFocus
+            autoFocus={!term}
             fullWidth
             shrink
             label={title}
@@ -92,32 +92,30 @@ const SearchPage = (props) => {
             <Emails
               variant="detailed"
               emails={results.map((resultItem) => {
-                const matchItem = resultItem.matches[0];
-                const text = matchItem.value;
-                const matches = [...matchItem.indices];
-                let highlighted = "";
-                let pair = matches.shift();
+                resultItem.matches.forEach((matchItem) => {
+                  const text = matchItem.value;
+                  const matches = [...matchItem.indices];
+                  let highlighted = "";
+                  let pair = matches.shift();
 
-                for (var i = 0; i < text.length; i++) {
-                  var char = text.charAt(i);
-                  if (pair && i === pair[0]) {
-                    highlighted += "<mark>";
+                  for (var i = 0; i < text.length; i++) {
+                    var char = text.charAt(i);
+                    if (pair && i === pair[0]) {
+                      highlighted += "<mark>";
+                    }
+                    highlighted += char;
+                    if (pair && i === pair[1]) {
+                      highlighted += "</mark>";
+                      pair = matches.shift();
+                    }
                   }
-                  highlighted += char;
-                  if (pair && i === pair[1]) {
-                    highlighted += "</mark>";
-                    pair = matches.shift();
+
+                  const key = matchItem.key.split(".");
+                  if (matchItem.refIndex >= 0) {
+                    key.splice(1, 0, matchItem.refIndex);
                   }
-                }
-                matchItem.highlight = highlighted;
-
-                const key = matchItem.key.split(".");
-                if (matchItem.refIndex >= 0) {
-                  key.splice(1, 0, matchItem.refIndex);
-                }
-                set(resultItem.item, key, highlighted);
-
-                console.log(resultItem);
+                  set(resultItem.item, key, highlighted);
+                });
                 return resultItem.item;
               })}
               sx={{ mt: 4 }}
