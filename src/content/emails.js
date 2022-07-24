@@ -34,7 +34,7 @@ export const Emails = ({ emails, more, variant, limit, ...props }) => {
   `);
 
   const items = (emails?.nodes || emails || data.latestEmails.nodes)
-    .slice(0, limit || -1)
+    .slice(0, limit)
     .map(({ title, description, slug, emojii, date, tags }) => {
       return {
         to: slug,

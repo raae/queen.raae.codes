@@ -3,7 +3,12 @@ import Fuse from "fuse.js";
 import { graphql, navigate } from "gatsby";
 import { debounce, set } from "lodash";
 
-import { TextField, InputAdornment, IconButton } from "@mui/material";
+import {
+  TextField,
+  InputAdornment,
+  IconButton,
+  Typography,
+} from "@mui/material";
 import { Cancel as ResetIcon } from "@mui/icons-material";
 
 import Seo from "../../components/seo";
@@ -88,6 +93,10 @@ const SearchPage = (props) => {
               ),
             }}
           />
+
+          {results.length === 0 && term && (
+            <Typography sx={{ mt: 4 }}>No results...</Typography>
+          )}
           {results.length > 0 && (
             <Emails
               variant="detailed"
