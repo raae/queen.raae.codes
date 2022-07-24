@@ -43,6 +43,7 @@
     "gatsby-transformer-remark": "5.15.0",
     "gatsby-transformer-sharp": "4.15.0",
     "gatsby-transformer-yaml": "4.15.0",
+    "html-react-parser": "3.0.1",
     "lodash": "4.17.21",
     "prismjs": "1.26.0",
     "react": "^17.0.2",

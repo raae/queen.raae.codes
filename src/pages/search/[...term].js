@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useMemo } from "react";
 import Fuse from "fuse.js";
 import { graphql, navigate } from "gatsby";
-import { debounce } from "lodash";
+import { debounce, set } from "lodash";
 
 import { TextField, InputAdornment, IconButton } from "@mui/material";
 import { Cancel as ResetIcon } from "@mui/icons-material";
@@ -19,6 +19,7 @@ const FUSE_OPTIONS = {
   includeMatches: true,
   shouldSort: true,
   useExtendedSearch: true,
+  threshold: 0.1,
   keys: [
     "title",
     "tags.label",
@@ -90,7 +91,35 @@ const SearchPage = (props) => {
           {results.length > 0 && (
             <Emails
               variant="detailed"
-              emails={results.map(({ item }) => item)}
+              emails={results.map((resultItem) => {
+                const matchItem = resultItem.matches[0];
+                const text = matchItem.value;
+                const matches = [...matchItem.indices];
+                let highlighted = "";
+                let pair = matches.shift();
+
+                for (var i = 0; i < text.length; i++) {
+                  var char = text.charAt(i);
+                  if (pair && i === pair[0]) {
+                    highlighted += "<mark>";
+                  }
+                  highlighted += char;
+                  if (pair && i === pair[1]) {
+                    highlighted += "</mark>";
+                    pair = matches.shift();
+                  }
+                }
+                matchItem.highlight = highlighted;
+
+                const key = matchItem.key.split(".");
+                if (matchItem.refIndex >= 0) {
+                  key.splice(1, 0, matchItem.refIndex);
+                }
+                set(resultItem.item, key, highlighted);
+
+                console.log(resultItem);
+                return resultItem.item;
+              })}
               sx={{ mt: 4 }}
             />
           )}

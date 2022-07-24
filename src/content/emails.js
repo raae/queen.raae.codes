@@ -3,6 +3,7 @@ import { useStaticQuery, graphql, Link } from "gatsby";
 import { Button, Typography, Chip } from "@mui/material";
 import { ArrowForward as MoreIcon } from "@mui/icons-material";
 import { ContentList } from "../components/content-list";
+import parse from "html-react-parser";
 
 export const Tags = ({ tags, sx }) => {
   return (tags || []).map(({ label, slug }) => {
@@ -13,7 +14,7 @@ export const Tags = ({ tags, sx }) => {
         sx={{ mr: 1, fontWeight: "normal" }}
         component={Link}
         to={slug}
-        label={label}
+        label={parse(label)}
         key={slug}
         clickable
       />
@@ -40,12 +41,12 @@ export const Emails = ({ emails, more, variant, limit, ...props }) => {
         primary: (
           <>
             <Typography variant="h5" gutterBottom={variant === "detailed"}>
-              {title}
+              {parse(title)}
             </Typography>
 
             {variant === "detailed" && (
               <Typography variant="body2" gutterBottom>
-                {description}
+                {parse(description)}
               </Typography>
             )}
 
