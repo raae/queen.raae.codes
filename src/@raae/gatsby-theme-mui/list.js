@@ -12,6 +12,7 @@ const themeList = (theme) => {
           gutterBottom: true,
         },
         primaryTypographyProps: {
+          component: "div",
           variant: "h5",
           gutterBottom: true,
         },
@@ -26,14 +27,14 @@ const themeList = (theme) => {
     },
     MuiListItemButton: {
       styleOverrides: {
-        root: {
-          ".MuiListItemText-primary": {
-            textDecoration: "underline",
-            "&:hover": {
-              textDecoration: "none",
-            },
-          },
-        },
+        // root: {
+        //   ".MuiListItemText-primary": {
+        //     textDecoration: "underline",
+        //     "&:hover": {
+        //       textDecoration: "none",
+        //     },
+        //   },
+        // },
       },
     },
   };
