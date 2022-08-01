@@ -1,5 +1,5 @@
 ---
-title: When to (and not to) create Gatbsy Content Nodes?
+title: When to (and not to) create Gatsby Content Nodes?
 emojii: ✅ ❌
 tags: sourceNodes, onCreateNode, source plugins
 ---

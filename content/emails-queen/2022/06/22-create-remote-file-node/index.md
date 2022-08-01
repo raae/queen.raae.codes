@@ -1,7 +1,7 @@
 ---
 title: createRemoteFileNode does return something useful
 emojii: 📥 🎉
-tags: createRemoteFileNode, createParentChildLink, onCreateNode
+tags: createRemoteFileNode, createParentChildLink, onCreateNode, sourceNodes
 ---
 
 `createRemoteFileNode` does not return something useful, as [opposed to createNode](/emails/2022-06-21-create-node/):
