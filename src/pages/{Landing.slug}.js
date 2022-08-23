@@ -194,6 +194,7 @@ export const query = graphql`
           cta {
             href
             label
+            noteTitle
             note
           }
           ctas {
@@ -229,6 +230,7 @@ export const query = graphql`
             badge
             title
             titlePath
+
             tagline
             content
             imageAlt
