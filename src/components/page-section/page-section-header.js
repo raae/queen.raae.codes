@@ -7,12 +7,14 @@ export const PageSectionHeader = ({
   title,
   titlePath,
   lead,
+  tagline,
   hLevel = 2,
 }) => {
   const blocks = [
     { type: "badge", children: badge },
     { type: "title", children: title, path: titlePath },
     { type: "lead", children: lead },
+    { type: "tagline", children: tagline },
   ].filter((block) => Boolean(block.children));
 
   return blocks.map((block, index) => {
@@ -62,6 +64,12 @@ export const PageSectionHeader = ({
       case "lead":
         return (
           <Typography key={type} variant={leadVariant} {...blockProps} my="1em">
+            {children}
+          </Typography>
+        );
+      case "tagline":
+        return (
+          <Typography key={type} {...blockProps} my="1em">
             {children}
           </Typography>
         );

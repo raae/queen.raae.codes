@@ -8,6 +8,7 @@ export const Cta = ({
   to,
   label,
   note,
+  noteTitle,
   endIcon = <MoreIcon />,
   ...props
 }) => {
@@ -27,6 +28,21 @@ export const Cta = ({
           {label}
         </Button>
       </Box>
+      {noteTitle && (
+        <Typography
+          variant="caption"
+          color="textPrimary"
+          fontWeight={600}
+          component="p"
+          sx={{
+            pl: "4px",
+            mt: "1.5em",
+            a: { color: "inherit", "&:hover": { textDecoration: "none" } },
+          }}
+        >
+          {noteTitle}
+        </Typography>
+      )}
       {note && (
         <Typography
           variant="caption"
@@ -34,7 +50,7 @@ export const Cta = ({
           component="p"
           sx={{
             pl: "4px",
-            mt: "0.5em",
+            mt: noteTitle ? "0.25em" : "0.5em",
             a: { color: "inherit", "&:hover": { textDecoration: "none" } },
           }}
         >
