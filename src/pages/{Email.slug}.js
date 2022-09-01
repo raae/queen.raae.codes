@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 
-import Seo from "../components/seo";
 import Prose from "../components/prose";
 import SiteHeader from "../components/site-header";
 import PageSection, {
@@ -12,21 +11,28 @@ import PageSection, {
 import { Newsletter } from "../content/newsletter";
 import { Cta } from "../content/cta";
 import Emails, { Tags } from "../content/emails";
+import PageHead from "../components/page-head";
 
 const IS_PROD = process.env.NODE_ENV === "production";
 
-const Email = ({ data, ...props }) => {
-  const {
-    date,
-    ogImage,
-    title,
-    author,
-    emojii,
-    description,
-    tags,
-    html,
-    relatedEmails,
-  } = data.email || {};
+export function Head({ data, ...props }) {
+  const { ogImage, title, author, description } = data.email || {};
+  return (
+    <PageHead
+      {...props}
+      meta={{
+        title: title,
+        description: description,
+        image: ogImage,
+        creator: author === "OlaVea" && "@OlaHolstVea",
+      }}
+    />
+  );
+}
+
+export default function EmailPage({ data }) {
+  const { date, ogImage, title, emojii, tags, html, relatedEmails } =
+    data.email || {};
 
   const pitch = data.landing?.childMarkdownRemark?.frontmatter?.seo || {};
   pitch.cta = data.landing?.childMarkdownRemark?.frontmatter?.cta || {};
@@ -37,15 +43,6 @@ const Email = ({ data, ...props }) => {
 
   return (
     <>
-      <Seo
-        {...props}
-        meta={{
-          title: title,
-          description: description,
-          image: ogImage,
-          creator: author === "OlaVea" && "@OlaHolstVea",
-        }}
-      />
       <SiteHeader variant="minimal" />
       <main>
         <PageSection component="article">
@@ -107,9 +104,7 @@ const Email = ({ data, ...props }) => {
       </main>
     </>
   );
-};
-
-export default Email;
+}
 
 export const query = graphql`
   query EmailById($id: String!) {
