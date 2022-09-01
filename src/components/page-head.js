@@ -52,7 +52,7 @@ const PageHead = ({ location, meta, children }) => {
   return (
     <>
       <html lang={lang} />
-      <title>{title}</title>
+      <title>Page Head - {title}</title>
       <link rel="canonical" href={canonical} />
       <link
         rel="icon"
