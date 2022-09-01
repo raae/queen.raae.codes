@@ -33,7 +33,7 @@ Also worth noting that next week Sanity is putting on what seems to be an excell
 
 ## Other events
 
-[# Sanity.io Virtual Meetup - April 2022](https://www.meetup.com/meetup-group-dvjyRJdV/events/285234467/)  
+[# Sanity.io Virtual Meetup - April 2022](https://www.meetup.com/meetup-group-dvjyRJdV/)  
 — Wednesday, May 18th @ 19:00 CEST
 
 &nbsp;  

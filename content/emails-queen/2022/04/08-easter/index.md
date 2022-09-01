@@ -11,7 +11,7 @@ But that does not mean nothing is happening around the Gatsby islands, but I am 
 
 Gatsby is running a webinar, and we'll probably see them drop v4.12.
 
-If you are interested in working at Gatsby, they are looking for a [Senior Software Engineer (Full-Stack)](https://www.gatsbyjs.com/careers/senior-software-engineer--full-stack--4910418003).
+If you are interested in working at Gatsby, they are looking for a [Senior Software Engineer (Full-Stack)](https://www.gatsbyjs.com/careers/).
 
 Pirate [Ineza](https://twitter.com/inezabonte) landed his first dev job a while back, and this week Scrimba released their interview all about the process. [Give it a listen](https://twitter.com/inezabonte/status/1512076196644737034?s=20&t=LIypA9gn8tgWZVWFk_cc2g) 🎧
 

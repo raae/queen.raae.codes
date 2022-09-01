@@ -11,7 +11,7 @@ A pretty straightforward rule, but sourcing data usually introduces asynchronous
 
 Unfortunately, it still usually works, at least for a few nodes and often in development. However, when you deploy, it falls apart.
 
-When you see inconsistent and weird behavior around node creation, your issue is probably nodes created outside of `sourceNodes` and `onCreateNode`. Or direct manipulation of nodes; the topic for [tomorrow's email](/emails/2022-05-26-node-manipulation/).
+When you see inconsistent and weird behavior around node creation, your issue is probably nodes created outside of `sourceNodes` and `onCreateNode`. Or direct manipulation of nodes; the topic for [tomorrow's email](/emails/2022-05-26-direct-mutation/).
 
 There is an excellent example in [the Gatsby Docs](https://www.gatsbyjs.com/docs/debugging-async-lifecycles/), but here is another one without the use of `.then`:
 
