@@ -18,9 +18,10 @@ export const PageSectionBreadcrumbs = ({
       {items.map(({ label, to }, index) => {
         return (
           <MuiLink
-            component={Link}
+            key={index}
+            component={to ? Link : "span"}
             variant="overline"
-            underline={to ? "hover" : "never"}
+            underline={to ? "hover" : "none"}
             color={index + 1 === items.length ? "text.primary" : "inherit"}
             to={to}
           >

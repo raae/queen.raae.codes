@@ -4,7 +4,6 @@ const themeAppBar = (theme) => {
       defaultProps: {
         color: "transparent",
         elevation: 0,
-        border: true,
       },
       styleOverrides: {
         colorTransparent: {
