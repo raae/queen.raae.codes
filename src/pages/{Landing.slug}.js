@@ -5,6 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Box } from "@mui/material";
 
 import SiteHeader from "../components/site-header";
+import PageHead from "../components/page-head";
 import PageSection, { PageSectionHeader } from "../components/page-section";
 import Prose from "../components/prose";
 import Testimonial from "../components/testimonial";
@@ -17,7 +18,6 @@ import { Cta } from "../content/cta";
 import { Newsletter } from "../content/newsletter";
 import Emails from "../content/emails";
 import Noteworthy from "../content/noteworthy";
-import PageHead from "../components/page-head";
 
 export function Head({ data, ...props }) {
   const { childMarkdownRemark } = data.landing;
