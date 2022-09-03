@@ -89,7 +89,7 @@ const Root = styled("div")(({ theme }) => ({
     marginBottom: theme.spacing(4),
   },
   "& img": {
-    maxWidth: "100%",
+    width: "100%",
     marginTop: theme.spacing(1.5),
     marginBottom: theme.spacing(1.5),
   },

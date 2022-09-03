@@ -39,7 +39,7 @@ Recursion is when a function calls itself within its code. It's a great way to g
 
 But you must also make sure you stop at some point, or you'll continue to infinity and beyond (yes, I did just rewatch Toy Story with the Pirate Princess).
 
-![Buzz Lightyear spreading his wings and saying "to infinity and beyond"](/gifs/toy-story-buzz-lightyear.gif)
+![Buzz Lightyear spreading his wings and saying "to infinity and beyond"](toy-story-buzz-lightyear.gif)
 
 In our case, we only let `createCloudinaryNodes` call itself if there is a next cursor present in the response coming from Cloudinary.
 
