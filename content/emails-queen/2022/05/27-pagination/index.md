@@ -17,7 +17,7 @@ In our case, that means more than the "max results" returned from each request t
 
 ## The Why?
 
-Pagination is needed to solve the bug [Only returns up to 500 results](https://github.com/Chuloo/gatsby-source-cloudinary/issues/5) in gatsby-source-cloudinary.
+Pagination is needed to solve the bug [Only returns up to 500 results](https://github.com/cloudinary-devs/gatsby-source-cloudinary/issues/5) in gatsby-source-cloudinary.
 
 And it's on us to fix it as Cloudinary has hired us to make sure their Gatsby Plugins are up-to-date by summer 🎉🎉🎉
 

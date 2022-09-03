@@ -32,5 +32,5 @@ Who is this princess, why time traveling? Sign up for [the backstory](/ruby) via
 ## Links
 
 - [Gatsby Fall Camp](https://www.gatsbyjs.com/camp-fall-2021/)
-- [Ruby's TimeShip](/ruby)
+- [Ruby's TimeShip](/ruby/)
 - [Demo code](https://github.com/queen-raae/gatsby-fall-camp-2021)

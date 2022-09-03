@@ -26,4 +26,4 @@ Be a fly on the wall, or an active participant, in the development of Conference
 All the best,  
 Queen Raae
 
-**PS:** If you would like to be notified 30 minutes beforehand, sign up for [stream reminders](/emails/reminders).
+**PS:** If you would like to be notified 30 minutes beforehand, sign up for [stream reminders](/emails/reminders/).

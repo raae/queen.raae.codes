@@ -24,7 +24,7 @@ Once a month-ish, you also get to hear from other product folks we admire. Janua
 ## Some episodes to get you started:
 
 - My first episode as a guest all about [live streaming](https://www.slowandsteadypodcast.com/episodes/live-streaming-with-benedicte-raae)
-- Get to know our backstories on episode [🥳 100! 🥳](https://www.slowandsteadypodcast.com/episodes/100)
+- Get to know our backstories on episode [🥳 100! 🥳](https://www.slowandsteadypodcast.com/episodes/one-hundred)
 - [The Interview](https://www.slowandsteadypodcast.com/episodes/newsletter-glue-with-lesley) with our first guest of the year, Lesley
 
 [![Slow&Steady logo](brand.jpg)](https://www.slowandsteadypodcast.com)

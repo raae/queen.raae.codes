@@ -27,4 +27,4 @@ Queen Raae
 &nbsp;  
 **PS:** Mirjam will be back in 2 weeks, on December 30th.  
 **PPS:** Ola will keep streaming on Sunday's all through Christmas, and I might yolo a stream or two.  
-**PPPS:** If you would like to be notified 30 minutes before a stream goes live, sign up for [stream reminders](/emails/reminders).
+**PPPS:** If you would like to be notified 30 minutes before a stream goes live, sign up for [stream reminders](/emails/reminders/).

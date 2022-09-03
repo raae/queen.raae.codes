@@ -36,4 +36,4 @@ All the best,
 Queen Raae
 
 &nbsp;  
-**PS:** If you would like to be notified 30 minutes before the next stream, sign up for [stream reminders](/emails/reminders).
+**PS:** If you would like to be notified 30 minutes before the next stream, sign up for [stream reminders](/emails/reminders/).
