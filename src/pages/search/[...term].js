@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { Cancel as ResetIcon } from "@mui/icons-material";
 
-import Seo from "../../components/seo";
+import PageHead from "../../components/page-head";
 import SiteHeader from "../../components/site-header";
 import PageSection, { PageSectionHeader } from "../../components/page-section";
 
@@ -36,9 +36,22 @@ const FUSE_OPTIONS = {
   ],
 };
 
-const SearchPage = (props) => {
+const TITLE = "Search all daily emails";
+
+export function Head(props) {
+  return (
+    <PageHead
+      {...props}
+      meta={{
+        title: TITLE,
+      }}
+    />
+  );
+}
+
+export default function SearchPage(props) {
   const { data, path, uri, term } = props;
-  const title = "Search all daily emails";
+
   const fuseRef = useRef(new Fuse(data.allEmail.nodes, FUSE_OPTIONS));
   const [input, setInput] = useState(term || "");
   const [results, setResults] = useState([]);
@@ -62,12 +75,6 @@ const SearchPage = (props) => {
 
   return (
     <>
-      <Seo
-        {...props}
-        meta={{
-          title: title,
-        }}
-      />
       <SiteHeader {...props} />
       <main>
         <PageSection component="header">
@@ -75,7 +82,7 @@ const SearchPage = (props) => {
             autoFocus={!term}
             fullWidth
             shrink
-            label={title}
+            label={TITLE}
             value={input}
             InputLabelProps={{ shrink: true }}
             onChange={(event) => setInput(event.target.value)}
@@ -145,7 +152,7 @@ const SearchPage = (props) => {
       </main>
     </>
   );
-};
+}
 
 export const query = graphql`
   {
@@ -156,5 +163,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default SearchPage;
