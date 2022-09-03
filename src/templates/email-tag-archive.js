@@ -6,20 +6,30 @@ import PageSection, {
   PageSectionBreadcrumbs,
   PageSectionHeader,
 } from "../components/page-section";
-import Seo from "../components/seo";
+import PageHead from "../components/page-head";
 
 import Emails from "../content/emails";
 import { Newsletter } from "../content/newsletter";
 
-const EmailsPage = ({ pageContext, data, ...props }) => {
-  const { allEmail } = data;
-
+const getMeta = (props) => {
+  const { pageContext } = props;
   const title = `Emails tagged: "${pageContext.tagLabel}"`;
   const description = `Learn more about "${pageContext.tagLabel}" by browsing the daily emails sent on the topic.`;
+  return { title, description };
+};
+
+export function Head(props) {
+  const meta = getMeta(props);
+  return <PageHead {...props} meta={meta} />;
+}
+
+export default function EmailsPage(props) {
+  const { data, pageContext } = props;
+  const { allEmail } = data;
+  const { title } = getMeta(props);
 
   return (
     <>
-      <Seo {...props} meta={{ title: title, description: description }} />
       <SiteHeader />
 
       <main>
@@ -41,7 +51,7 @@ const EmailsPage = ({ pageContext, data, ...props }) => {
       </main>
     </>
   );
-};
+}
 
 export const query = graphql`
   query TagById($tagLabel: String!) {
@@ -55,5 +65,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default EmailsPage;

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Seo from "../../components/seo";
+import PageHead from "../../components/page-head";
 import SiteHeader from "../../components/site-header";
 import PageSection, {
   PageSectionBreadcrumbs,
@@ -8,20 +8,30 @@ import PageSection, {
 } from "../../components/page-section";
 import Emails from "../../content/emails";
 
-const EmailsWelcome = (props) => {
-  const badge = "Daily emails";
-  const title = "Welcome";
-  const description = <>You'll hear from us shortly&nbsp;📬</>;
+const BADGE = "Daily emails";
+const TITLE = "Welcome";
+const DESCRIPTION = <>You'll hear from us shortly&nbsp;📬</>;
+const META_DESCRIPTION = "You'll hear from us shortly 📬";
+
+export function Head(props) {
+  return (
+    <PageHead
+      {...props}
+      meta={{ title: `${BADGE} - ${TITLE}`, description: META_DESCRIPTION }}
+    />
+  );
+}
+
+const EmailsWelcome = () => {
   return (
     <>
-      <Seo {...props} meta={{ title: `${title} · ${badge}`, description }} />
       <SiteHeader />
       <main>
         <PageSection component="header">
           <PageSectionBreadcrumbs
-            items={[{ label: badge, to: ".." }, { label: title }]}
+            items={[{ label: BADGE, to: ".." }, { label: TITLE }]}
           />
-          <PageSectionHeader title={description} hLevel={1} />
+          <PageSectionHeader title={DESCRIPTION} hLevel={1} />
         </PageSection>
         <PageSection>
           <PageSectionHeader title="Latest emails" />

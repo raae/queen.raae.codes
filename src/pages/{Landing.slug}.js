@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Box } from "@mui/material";
 
 import SiteHeader from "../components/site-header";
-import Seo from "../components/seo";
+import PageHead from "../components/page-head";
 import PageSection, { PageSectionHeader } from "../components/page-section";
 import Prose from "../components/prose";
 import Testimonial from "../components/testimonial";
@@ -19,24 +19,32 @@ import { Newsletter } from "../content/newsletter";
 import Emails from "../content/emails";
 import Noteworthy from "../content/noteworthy";
 
-const RemarkPage = ({ data, ...props }) => {
+export function Head({ data, ...props }) {
   const { childMarkdownRemark } = data.landing;
-  const { frontmatter, html: pageHtml } = childMarkdownRemark || {};
+  const { frontmatter } = childMarkdownRemark || {};
   const { seo, sections, ...page } = frontmatter || {};
 
   const metaImage = getImage(seo?.image || page.image);
+  return (
+    <PageHead
+      {...props}
+      meta={{
+        title: seo?.title || page.title,
+        description: seo?.description || page.lead,
+        alt: metaImage && (seo?.imageAlt || page.imageAlt),
+        image: metaImage && metaImage.images.fallback.src,
+      }}
+    />
+  );
+}
+
+export default function RemarkPage({ data, ...props }) {
+  const { childMarkdownRemark } = data.landing;
+  const { frontmatter, html: pageHtml } = childMarkdownRemark || {};
+  const { sections, ...page } = frontmatter || {};
 
   return (
     <>
-      <Seo
-        {...props}
-        meta={{
-          title: seo?.title || page.title,
-          description: seo?.description || page.lead,
-          alt: metaImage && (seo?.imageAlt || page.imageAlt),
-          image: metaImage && metaImage.images.fallback.src,
-        }}
-      />
       <SiteHeader />
       <main>
         {(sections || []).map((section, key) => {
@@ -154,9 +162,7 @@ const RemarkPage = ({ data, ...props }) => {
       </main>
     </>
   );
-};
-
-export default RemarkPage;
+}
 
 export const query = graphql`
   query LandingById($id: String!) {

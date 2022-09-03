@@ -1,6 +1,6 @@
 import React from "react";
 
-import Seo from "../../components/seo";
+import PageHead from "../../components/page-head";
 import SiteHeader from "../../components/site-header";
 import PageSection, {
   PageSectionBreadcrumbs,
@@ -9,20 +9,29 @@ import PageSection, {
 import Prose from "../../components/prose";
 import NewsletterForm from "../../components/newsletter";
 
-const EmailRemindersPage = (props) => {
-  const badge = "Emails";
-  const title = "Reminders";
-  const description = "Live stream reminders";
+const BADGE = "Emails";
+const TITLE = "Reminders";
+const DESCRIPTION = "Live stream reminders";
+
+export function Head(props) {
+  return (
+    <PageHead
+      {...props}
+      meta={{ title: `${BADGE} - ${TITLE}`, description: DESCRIPTION }}
+    />
+  );
+}
+
+export default function EmailRemindersPage() {
   return (
     <>
-      <Seo {...props} meta={{ title: `${title} · ${badge}`, description }} />
       <SiteHeader />
       <main>
         <PageSection component="header">
           <PageSectionBreadcrumbs
-            items={[{ label: badge, to: ".." }, { label: title }]}
+            items={[{ label: BADGE, to: ".." }, { label: TITLE }]}
           />
-          <PageSectionHeader title={description} hLevel={1} />
+          <PageSectionHeader title={DESCRIPTION} hLevel={1} />
           <Prose>
             <p>
               Receive a reminder via email 30 minutes before we go live on the{" "}
@@ -44,6 +53,4 @@ const EmailRemindersPage = (props) => {
       </main>
     </>
   );
-};
-
-export default EmailRemindersPage;
+}
