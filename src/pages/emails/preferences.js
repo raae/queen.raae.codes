@@ -1,30 +1,37 @@
 import React from "react";
 
-import Seo from "../../components/seo";
+import PageHead from "../../components/page-head";
 import SiteHeader from "../../components/site-header";
 import PageSection, {
   PageSectionBreadcrumbs,
   PageSectionHeader,
 } from "../../components/page-section";
 
-const EmailsPreferences = (props) => {
-  const badge = "Daily emails";
-  const title = "Preferences";
-  const description = " Your preferences have been saved 📩";
+const BADGE = "Daily emails";
+const TITLE = "Preferences";
+const DESCRIPTION = "Your preferences have been saved 📩";
+
+export function Head(props) {
+  return (
+    <PageHead
+      {...props}
+      meta={{ title: `${BADGE} - ${TITLE}`, description: DESCRIPTION }}
+    />
+  );
+}
+
+export default function EmailsPreferences() {
   return (
     <>
-      <Seo {...props} meta={{ title: `${title} · ${badge}`, description }} />
       <SiteHeader />
       <main>
         <PageSection component="header">
           <PageSectionBreadcrumbs
-            items={[{ label: badge, to: ".." }, { label: title }]}
+            items={[{ label: BADGE, to: ".." }, { label: TITLE }]}
           />
-          <PageSectionHeader title={description} hLevel={1} />
+          <PageSectionHeader title={DESCRIPTION} hLevel={1} />
         </PageSection>
       </main>
     </>
   );
-};
-
-export default EmailsPreferences;
+}
