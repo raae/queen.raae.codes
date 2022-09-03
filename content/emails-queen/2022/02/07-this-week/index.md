@@ -17,7 +17,7 @@ GitHub released [Sponsored Repos](https://github.blog/2022-02-02-new-sponsors-on
 
 Gatsby is working on fixing the [trainling slash qunondrum](https://github.com/gatsbyjs/gatsby/discussions/34205).
 
-JSWorld postponed their conference until June but is giving us a free [online conference](https://jsworldconference.com/free) this week.
+JSWorld postponed their conference until June but is giving us a free [online conference](https://jsworldconference.com) this week.
 
 ## Our streaming schedule this week
 

@@ -88,6 +88,11 @@ const Root = styled("div")(({ theme }) => ({
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(4),
   },
+  "& img": {
+    maxWidth: "100%",
+    marginTop: theme.spacing(1.5),
+    marginBottom: theme.spacing(1.5),
+  },
 }));
 
 const Prose = ({ html, children, ...props }) => {

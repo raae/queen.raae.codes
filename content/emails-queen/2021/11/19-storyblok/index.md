@@ -16,7 +16,7 @@ Content in Storyblok can take any form you'd like. You create the schema yoursel
 
 What is sourced and added to your Storyblok nodes is a JSON object you'll find on `storyblokEntry.content`.
 
-![GraphQL Query Example](graphql.jpg "GraphQL Screengrab")
+<!-- ![GraphQL Query Example](./graphql.jpg "GraphQL Screengrab") -->
 
 You'll grab that content on your page, parse it, loop over it, and render the bloks as you go along in a way that makes sense for each block. Or dump it out in a pre-tag to familiarize yourself like we did.
 

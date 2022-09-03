@@ -17,7 +17,7 @@ I am especially excited about being able to use the raw body sent to a Gatsby Se
 
 The GraphQL Typegen also seems super interesting:
 
-![Demo of types being available inside the editor automagically](typegen.gif)
+![Demo of types being available inside the editor automagically](./typegen.gif)
 
 This week we'll make sure our gatsby-source-youtube-oEmbed plays nicely with both Gatsby ImageCDN and downloading the thumbnails as local files.
 
