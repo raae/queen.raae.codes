@@ -64,7 +64,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-image`,
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `@raae/gatsby-plugin-let-it-snow`,
