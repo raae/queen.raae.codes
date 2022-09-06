@@ -47,7 +47,10 @@ export default function EmailPage({ data }) {
       <main>
         <PageSection component="article">
           <PageSectionBreadcrumbs
-            items={[{ label: "Daily Emails", to: "/emails/" }, { label: date }]}
+            items={[
+              { label: "Daily Gatsby Treasures", to: "/emails/" },
+              { label: date },
+            ]}
           />
 
           <PageSectionHeader

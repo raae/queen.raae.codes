@@ -13,7 +13,7 @@ import { Newsletter } from "../content/newsletter";
 
 const getMeta = (props) => {
   const { pageContext } = props;
-  const title = `Emails tagged: "${pageContext.tagLabel}"`;
+  const title = `Gatsby Treasures tagged: "${pageContext.tagLabel}"`;
   const description = `Learn more about "${pageContext.tagLabel}" by browsing the daily emails sent on the topic.`;
   return { title, description };
 };

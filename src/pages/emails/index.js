@@ -9,7 +9,7 @@ import NewsletterForm from "../../components/newsletter";
 import { Newsletter } from "../../content/newsletter";
 import Emails from "../../content/emails";
 
-const BADGE = "Daily emails";
+const BADGE = "Daily Gatsby Treasures";
 const TITLE = "Serious about Gatsby? ";
 const DESCRIPTION =
   "Sign up for emails from Queen Raae (and Cap'n Ola) sent every weekday to help you get the most out of Gatsby!";

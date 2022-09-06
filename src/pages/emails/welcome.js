@@ -8,7 +8,7 @@ import PageSection, {
 } from "../../components/page-section";
 import Emails from "../../content/emails";
 
-const BADGE = "Daily emails";
+const BADGE = "Daily Gatsby Treasures";
 const TITLE = "Welcome";
 const DESCRIPTION = <>You'll hear from us shortly&nbsp;📬</>;
 const META_DESCRIPTION = "You'll hear from us shortly 📬";

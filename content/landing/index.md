@@ -15,7 +15,7 @@ sections:
     # title: Gatsby expertise for your project
     body: ./_products-services.md
     # content: ctas
-  - title: Daily emails
+  - title: Daily Gatsby Treasures
     titlePath: /emails
     content: form,emails
   - badge: noteworthy

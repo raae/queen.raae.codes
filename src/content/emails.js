@@ -75,7 +75,7 @@ export const Emails = ({ emails, more, variant, limit, ...props }) => {
           fullWidth
           sx={{ mt: "1em" }}
         >
-          More emails
+          More Treasures
         </Button>
       )}
     </ContentList>
