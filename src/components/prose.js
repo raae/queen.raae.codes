@@ -19,21 +19,21 @@ const Root = styled("div")(({ theme }) => ({
     marginBottom: "1em",
   },
   "& h3": {
-    ...theme.typography.h3,
-    marginTop: "1.5em",
-  },
-  "& h4": {
     ...theme.typography.h4,
     marginTop: "1.5em",
   },
-  "& h5": {
+  "& h4": {
     ...theme.typography.h5,
     marginTop: "1.5em",
   },
-  "& h6": {
+  "& h5": {
     ...theme.typography.h6,
     marginTop: "1.5em",
   },
+  // "& h6": {
+  //   ...theme.typography.h6,
+  //   marginTop: "1.5em",
+  // },
   "& blockquote": {
     border: `4px solid ${theme.palette.secondary.main}`,
     padding: "0.5em 1.5em",

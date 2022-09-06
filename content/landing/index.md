@@ -1,18 +1,23 @@
 ---
 badge: queen.raae.codes
-title: Welcome to the sharky waters arround the Gatsby islands
-lead: The place to be for treasure hunts and deep dives to help you get the most out of Gatsby
+title: Helping you get the most out of Gatsby
 ctas:
   - to: /done-for-you-demo/
     label: "Done-for-you Gatsby Demo"
   - to: /gatsby-emergency/
-    label: "Gatsby Emergency Call - only 2 slots per week"
+    label: "Gatsby Emergency Call"
+  - to: /gatsby-code-review/
+    label: "Gatsby Code Review"
 sections:
   - element: header
-    content: main, ctas
+    content: main, form
+  - badge: Products & Services
+    # title: Gatsby expertise for your project
+    body: ./_products-services.md
+    # content: ctas
   - title: Daily emails
     titlePath: /emails
-    content: form, emails
+    content: form,emails
   - badge: noteworthy
     title: Talks, Webinars and Streams
     content: noteworthy
@@ -21,6 +26,4 @@ sections:
   - content: form
 ---
 
-Climb on board and let us guide you!
-
-_— Queen Raae, Cap'n Ola and Pirate Princess Lillian_
+I am a developer, speaker and streamer here to guide you through the sharky waters around the Gatsby islands together with my piratical family&nbsp;🏴‍☠️
