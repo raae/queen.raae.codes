@@ -36,7 +36,7 @@ const FUSE_OPTIONS = {
   ],
 };
 
-const TITLE = "Search all daily emails";
+const TITLE = "Search all Gatsby Treasures";
 
 export function Head(props) {
   return (
