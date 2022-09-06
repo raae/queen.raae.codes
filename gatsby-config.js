@@ -87,7 +87,42 @@ module.exports = {
     },
     `@raae/gatsby-theme-mui`,
     `gatsby-plugin-gatsby-cloud`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            nodes {
+              path
+              pageContext
+            }
+          }
+        }`,
+        filterPages: (page, excludedRoute) => {
+          console.log(
+            page.path,
+            excludedRoute,
+            Boolean(excludedRoute === page.path)
+          );
+          const isTagArchive = Boolean(page.pageContext.tagLabel);
+          const isExclude = excludedRoute === page.path;
+
+          return isTagArchive || isExclude;
+        },
+        excludes: [
+          "/emails/preferences/",
+          "/emails/welcome/",
+          "/emails/reminders/",
+          "/search/[...term]/",
+        ],
+      },
+    },
   ],
   trailingSlash: "always",
 };
