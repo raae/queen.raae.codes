@@ -13,7 +13,6 @@ const PageHead = ({ location, meta, children }) => {
             siteTagline
             siteDescription
             siteUrl
-            siteLang
             siteSocialImage
             siteSocialImageAlt
             siteTwitterCreator
@@ -27,7 +26,6 @@ const PageHead = ({ location, meta, children }) => {
     siteTagline,
     siteDescription,
     siteUrl,
-    siteLang,
     siteSocialImage,
     siteSocialImageAlt,
     siteTwitterCreator,
@@ -35,7 +33,6 @@ const PageHead = ({ location, meta, children }) => {
 
   const siteTitle = `${siteName} — ${siteTagline}`;
   const title = meta?.title ? `${meta.title}  —  ${siteName}` : siteTitle;
-  const lang = meta?.lang || siteLang;
   const image = meta?.image || siteSocialImage;
 
   const description = meta?.description || siteDescription;
@@ -51,7 +48,6 @@ const PageHead = ({ location, meta, children }) => {
 
   return (
     <>
-      <html lang={lang} />
       <title>{title}</title>
       <link rel="canonical" href={canonical} />
       <link
