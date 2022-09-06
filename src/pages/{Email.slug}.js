@@ -16,7 +16,28 @@ import PageHead from "../components/page-head";
 const IS_PROD = process.env.NODE_ENV === "production";
 
 export function Head({ data, ...props }) {
-  const { ogImage, title, author, description } = data.email || {};
+  const { ogImage, title, author, description, date } = data.email || {};
+  const { siteMetadata } = data.site || {};
+
+  const isOla = author === "OlaVea";
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: title,
+    image: [`${siteMetadata.siteUrl}${ogImage}`],
+    datePublished: date,
+    author: [
+      {
+        "@type": "Person",
+        name: isOla ? "Ola Vea" : "Benedicte Raae",
+        sameAs: isOla
+          ? "https://twitter.com/olaholstvea"
+          : "https://twitter.com/raae",
+      },
+    ],
+  };
+
   return (
     <PageHead
       {...props}
@@ -26,7 +47,11 @@ export function Head({ data, ...props }) {
         image: ogImage,
         creator: author === "OlaVea" && "@OlaHolstVea",
       }}
-    />
+    >
+      <script type="application/ld+json">
+        {JSON.stringify(schema, null, 2)}
+      </script>
+    </PageHead>
   );
 }
 
@@ -111,6 +136,11 @@ export default function EmailPage({ data }) {
 
 export const query = graphql`
   query EmailById($id: String!) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     email(id: { eq: $id }) {
       ...EmailItemFragment
       html
