@@ -21,6 +21,10 @@
   },
   {
     "fromPath": "/email/2022-05-24-node-creation/",
-    "toPath": "/emails/2022-05-24-node-creation"
+    "toPath": "/emails/2022-05-24-node-creation/"
+  },
+  {
+    "fromPath": "/emails/2022-09-06-this-week/",
+    "toPath": "/emails/2022-09-05-this-week/"
   }
 ]
