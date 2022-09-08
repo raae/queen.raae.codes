@@ -50,7 +50,7 @@ export const Cta = ({
           component="p"
           sx={{
             pl: "4px",
-            mt: noteTitle ? "0.25em" : "0.5em",
+            mt: noteTitle ? "0em" : "0.5em",
             a: { color: "inherit", "&:hover": { textDecoration: "none" } },
           }}
         >

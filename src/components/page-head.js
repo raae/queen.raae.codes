@@ -40,7 +40,7 @@ const PageHead = ({ location, meta, children }) => {
   const socialType = meta?.type || "website";
   const socialTitle = title ? title : siteName;
   const socialImage = image && `${siteUrl}${image}`;
-  const socialImageAlt = meta?.image ? meta?.alt : siteSocialImageAlt;
+  const socialImageAlt = meta?.image ? meta?.imageAlt : siteSocialImageAlt;
   const socialDescription = description;
   const twitterSite = siteTwitterCreator;
   const twitterCreator = meta?.creator || siteTwitterCreator;

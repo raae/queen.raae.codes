@@ -10,13 +10,13 @@ const getRecordingText = (url) => {
   }
 };
 
-const Talk = ({ date, url, recording, event }) => {
+const Talk = ({ date, recording, event, eventUrl }) => {
   return (
     <aside>
       <IconList>
         {event && (
           <IconListItem icon="location">
-            <PossibleExternalLink url={url}>{event}</PossibleExternalLink>
+            <PossibleExternalLink url={eventUrl}>{event}</PossibleExternalLink>
           </IconListItem>
         )}
 
