@@ -26,4 +26,4 @@ sections:
   - content: form
 ---
 
-I am a developer, speaker and streamer here to guide you through the sharky waters around the Gatsby islands together with my piratical family&nbsp;🏴‍☠️
+I am a developer, speaker and [streamer](https://www.youtube.com/QueenRaae) here to guide you through the sharky waters around the Gatsby islands together with my piratical family&nbsp;🏴‍☠️
