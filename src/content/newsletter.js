@@ -17,6 +17,8 @@ const DEFAULTS = {
 export const Newsletter = (initialProps) => {
   let props = omitBy(initialProps, isNull);
 
+  console.log({ initialProps, props });
+
   if (!props.formKey || props.formKey === "queen") {
     props = defaults(QUEEN_DEFAULTS, props);
   } else {

@@ -207,12 +207,6 @@ export const query = graphql`
             to
             label
           }
-          talk {
-            date
-            url
-            recording
-            event
-          }
           webinar {
             date
             url

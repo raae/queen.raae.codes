@@ -26,5 +26,21 @@
   {
     "fromPath": "/emails/2022-09-06-this-week/",
     "toPath": "/emails/2022-09-05-this-week/"
+  },
+  {
+    "fromPath": "/react-norway/",
+    "toPath": "/speaker/2022-06-24-react-norway/"
+  },
+  {
+    "fromPath": "/gatsby-fall-camp-2021/",
+    "toPath": "/speaker/2021-09-16-gatsby-fall-camp/"
+  },
+  {
+    "fromPath": "/mpya/",
+    "toPath": "/speaker/2021-12-15-mpya/"
+  },
+  {
+    "fromPath": "/jamstackconf/",
+    "toPath": "/speaker/2022-11-08-jamstackconf/"
   }
 ]

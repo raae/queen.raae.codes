@@ -23,6 +23,12 @@ module.exports = {
       },
     },
     {
+      resolve: "local-source-talks",
+      options: {
+        basePath: "/talks",
+      },
+    },
+    {
       resolve: "local-source-landing",
       options: {
         basePath: "",
