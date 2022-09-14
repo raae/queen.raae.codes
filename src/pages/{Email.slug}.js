@@ -23,7 +23,7 @@ export function Head({ data, ...props }) {
 
   const schema = {
     "@context": "https://schema.org",
-    "@type": "NewsArticle",
+    "@type": "BlogPosting",
     headline: title,
     image: [`${siteMetadata.siteUrl}${ogImage}`],
     datePublished: date,
