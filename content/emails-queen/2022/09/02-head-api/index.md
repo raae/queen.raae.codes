@@ -1,7 +1,7 @@
 ---
 title: Migration from React Helmet to the new Head API
 emojii: 👤 💀
-tags: React Helmet, Head API, meta tags, SEO
+tags: React Helmet, Gatsby Head API, meta tags, SEO
 ---
 
 We had so much fun on yesterday's [unauthorized and rum-fueled treasure hunt](https://youtu.be/Zyeuj7I7A50) in the sharky waters around the Gatsby islands 🎉
@@ -29,7 +29,9 @@ The new Head API asks you to export a named component called `Head.` Similar to 
 ## The Code
 
 ```js
-// File: {Email.slug}.js
+// File: src/pages/{Email.slug}.js
+import React from "react";
+import { graphql, Link } from "gatsby";
 import PageHead from "../components/page-head";
 import EmailTemplate from "../components/email-template";
 
