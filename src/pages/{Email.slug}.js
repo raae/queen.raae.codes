@@ -16,7 +16,7 @@ import PageHead from "../components/page-head";
 const IS_PROD = process.env.NODE_ENV === "production";
 
 export function Head({ data, ...props }) {
-  const { ogImage, title, author, description, date } = data.email || {};
+  const { ogImage, title, author, description, dateISO } = data.email || {};
   const { siteMetadata } = data.site || {};
 
   const isOla = author === "OlaVea";
@@ -26,7 +26,7 @@ export function Head({ data, ...props }) {
     "@type": "BlogPosting",
     headline: title,
     image: [`${siteMetadata.siteUrl}${ogImage}`],
-    datePublished: date,
+    datePublished: dateISO,
     author: [
       {
         "@type": "Person",
@@ -38,6 +38,8 @@ export function Head({ data, ...props }) {
     ],
   };
 
+  const schemaAsString = JSON.stringify(schema, null, 2);
+
   return (
     <PageHead
       {...props}
@@ -48,15 +50,13 @@ export function Head({ data, ...props }) {
         creator: author === "OlaVea" && "@OlaHolstVea",
       }}
     >
-      <script type="application/ld+json">
-        {JSON.stringify(schema, null, 2)}
-      </script>
+      <script type="application/ld+json">{schemaAsString}</script>
     </PageHead>
   );
 }
 
 export default function EmailPage({ data }) {
-  const { date, ogImage, title, emojii, tags, html, relatedEmails } =
+  const { date, dateISO, ogImage, title, emojii, tags, html, relatedEmails } =
     data.email || {};
 
   const pitch = data.landing?.childMarkdownRemark?.frontmatter?.seo || {};
@@ -74,7 +74,7 @@ export default function EmailPage({ data }) {
           <PageSectionBreadcrumbs
             items={[
               { label: "Daily Gatsby Treasures", to: "/emails/" },
-              { label: date },
+              { label: <time timedate={dateISO}>{date}</time> },
             ]}
           />
 
@@ -143,6 +143,7 @@ export const query = graphql`
     }
     email(id: { eq: $id }) {
       ...EmailItemFragment
+      dateISO: date
       html
       ogImage
       ... on QueenEmail {
