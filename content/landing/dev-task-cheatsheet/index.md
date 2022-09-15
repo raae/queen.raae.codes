@@ -21,7 +21,7 @@ Imagine knowing your dev-task will STAY nailed down inside your dev-brain until 
 
 
 ## Captain Ola's Piraty Dev-Task Cheatsheet is your hammer and nail
-start rewriting your dev-task into many sub-tasks in 4 tiny steps
+Start rewriting your dev-task into several tiny sub-tasks in 4 tiny steps
 
 
 ## Sign up for updates about Captain Ola's Piraty Dev-Task Cheatsheet
