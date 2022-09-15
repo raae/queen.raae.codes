@@ -42,14 +42,6 @@ B. Bite off a can-do-with-effort sub-task
 
 Yo-Ho-Ho and a bottle of GO! 😺
 
-## HOW did Captain Ola Vea Junior find Lillian's can-do-with-effort sub-task?
-
-A. He looked up again a dev-task Lillian on our summer workation
-
-B. He bit off a sub-task that Lillian (7 🏴‍☠️👸) can-do-with-effort
-
-Yo-Ho-Ho and a bottle of GO! 😺
-
 ## Example (Warning: summer workcation tall tales alert!&nbsp;☀️&nbsp;🗣️&nbsp;💬&nbsp;🔈)
 
 Let's look at my slightly off-topic but weirdly handy example from our piraty summer workcation.
