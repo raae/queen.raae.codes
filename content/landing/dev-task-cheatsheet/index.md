@@ -20,14 +20,11 @@ Imagine this – Imagine knowing exactly how to practice a dev-task you'll need 
 Imagine knowing your dev-task will STAY nailed down inside your dev-brain until you need to do it again.
 
 
-## My Piraty Dev-Task Cheatsheet is your hammer and nail
-start rewriting your dev-task into many sub-task in 4 tiny steps
+## Captain Ola's Piraty Dev-Task Cheatsheet is your hammer and nail
+start rewriting your dev-task into many sub-tasks in 4 tiny steps
 
 
-## Sign up for updates about My Piraty Dev-Task Cheatsheet
+## Sign up for updates about Captain Ola's Piraty Dev-Task Cheatsheet
 
-All I need from you is your best email adress, so I can send you some emails with about how our work is going,
+All Captain Ola needs from you is your best email adress, so he can send you some emails with about how his work is going.
 
-
-
-tips and inspiration along the way
