@@ -21,12 +21,14 @@ I'll soon tell you WHY a can't-do sub-task is stealing your focus like a pirate,
 
 You sometimes start out with a can't-do sub-task. Then after practicing a little, it becomes a can-do-with-effort sub-task. And Then after practicing a lot more you have a can-do-96%-reliably sub-task. Because you have finally nailed your sub-task into your dev-brain.
 
-Imagine a white board with three parts
+Imagine a yellow board with three parts
 1. a can't-do sub-task
 2. a can-do-with-effort sub-task
 3. a can-do-96%-reliably sub-task
 
-You write your sub-task on a yellow sticky note and move it from 1. to 2. and then to 3.
+![sub-task-board](./sub-task-board.png)
+
+You write your sub-task on a blue sticky note and move it from 1. to 2. and then to 3.
 
 ## WHY a can't-do sub-task is stealing your focus like a pirate?
 
