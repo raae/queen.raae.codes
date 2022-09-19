@@ -54,7 +54,7 @@ const UPCOMING = [
     title:
       "Add Flexibility to Your Site with Gatsby Functions — learn how to charge money with Stripe and send emails with SendGrid",
     details: "Lightning talk · Gatsby Fall Camp '21",
-    to: "/talks/2021-09-16-gatsby-fall-camp/",
+    to: "/speaker/2021-09-16-gatsby-fall-camp/",
   },
   {
     title:
