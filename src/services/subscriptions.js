@@ -21,6 +21,7 @@ const FORM_ID = {
   OLAVEA: "2604593",
   MPYA: "2846086",
   REACTNORWAY: "3380548",
+  DEVTASKCHEATSHEET: "3634549",
 };
 
 export const addSubscriber = async ({ formKey, email, tags }) => {
