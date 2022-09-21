@@ -230,7 +230,7 @@ export const query = graphql`
             badge
             title
             titlePath
-
+            lead
             tagline
             content
             imageAlt

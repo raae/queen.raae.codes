@@ -20,9 +20,9 @@ export const Newsletter = (initialProps) => {
   console.log({ initialProps, props });
 
   if (!props.formKey || props.formKey === "queen") {
-    props = defaults(QUEEN_DEFAULTS, props);
+    props = defaults(props, QUEEN_DEFAULTS);
   } else {
-    props = defaults(DEFAULTS, props);
+    props = defaults(props, DEFAULTS);
   }
 
   const { tagline, message, ...rest } = props;
