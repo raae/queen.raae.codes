@@ -92,6 +92,7 @@ module.exports = {
       },
     },
     `@raae/gatsby-theme-mui`,
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-gatsby-cloud`,
     {
       resolve: "gatsby-plugin-sitemap",
