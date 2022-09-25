@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { Button, Typography, Chip } from "@mui/material";
-import { ArrowForward as MoreIcon } from "@mui/icons-material";
+import { ArrowLongRightIcon as MoreIcon } from "@heroicons/react/20/solid";
 import { ContentList } from "../components/content-list";
 import parse from "html-react-parser";
 
@@ -70,7 +70,7 @@ export const Emails = ({ emails, more, variant, limit, ...props }) => {
         <Button
           to="/emails/"
           component={Link}
-          endIcon={<MoreIcon />}
+          endIcon={<MoreIcon className="h-4" />}
           variant="outlined"
           fullWidth
           sx={{ mt: "1em" }}

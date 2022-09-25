@@ -9,7 +9,8 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import { Cancel as ResetIcon } from "@mui/icons-material";
+
+import { XCircleIcon as ResetIcon } from "@heroicons/react/20/solid";
 
 import PageHead from "../../components/page-head";
 import SiteHeader from "../../components/site-header";
@@ -94,7 +95,7 @@ export default function SearchPage(props) {
                     onClick={() => navigate(uri)}
                     edge="end"
                   >
-                    {input && <ResetIcon />}
+                    {input && <ResetIcon className="h-5" />}
                   </IconButton>
                 </InputAdornment>
               ),

@@ -37,7 +37,7 @@ const Join = ({ start, end, paymentLink, price, status, deadline }) => {
           <Cta
             label="Save your spot"
             note="or send queen@raae.codes any questions you might have"
-            path={paymentLink}
+            href={paymentLink}
             sx={{ my: "2em" }}
           />
 
