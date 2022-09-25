@@ -1,56 +1,66 @@
 import * as React from "react";
-import {
-  AppBar as MuiAppBar,
-  Box,
-  Toolbar,
-  Container,
-  Button,
-  IconButton,
-} from "@mui/material";
-import { Search as SearchIcon } from "@mui/icons-material";
-
 import { Link } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 
-import LinkButton from "./link-button";
+import GitbubIcon from "../icons/icons8-github-50.svg";
+import TwitterIcon from "../icons/icons8-twitter-circled-50.svg";
+import YouTubeIcon from "../icons/icons8-youtube-50.svg";
+import SearchIcon from "../icons/icons8-search-50.svg";
 
-const links = [
-  "https://github.com/queen-raae",
-  "https://twitter.com/raae",
-  "https://youtube.com/QueenRaae",
-];
+function SomeIcon({ url }) {
+  if (url.includes("github")) {
+    return <GitbubIcon />;
+  } else if (url.includes("twitter")) {
+    return <TwitterIcon />;
+  } else if (url.includes("youtube")) {
+    return <YouTubeIcon />;
+  } else {
+    return null;
+  }
+}
 
-const SiteHeader = () => {
+export default function SiteHeader() {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          siteSocialMedia
+        }
+      }
+    }
+  `);
   return (
-    <MuiAppBar
-      position="sticky"
-      sx={{
-        borderTop: 5,
-        borderTopColor: "brand.500",
-      }}
-    >
-      <Container maxWidth="lg">
-        <Toolbar disableGutters>
-          <Button component={Link} title="Queen Raae" to="/" sx={{ ml: -2.5 }}>
-            <Box sx={{ transform: "scale(1.5)" }}>👑</Box>
-          </Button>
+    <header className="sticky top-0 backdrop-blur-lg z-50 bg-[#fffaf0b3] border-solid border-0 border-t-4 border-[#ff5722]">
+      <div className="mx-auto max-w-4xl">
+        <nav className="py-3 px-4 flex items-center gap-3">
+          <Link
+            to="/"
+            className="text-xl mr-auto hover:scale-110 transition-transform no-underline"
+          >
+            👑
+            <span className="sr-only">Queen Raae</span>
+          </Link>
 
-          <Box sx={{ ml: "auto" }}>
-            <IconButton
-              component={Link}
-              title="Search"
-              to="/search"
-              sx={{ mr: 2 }}
-            >
-              <SearchIcon />
-            </IconButton>
-
-            {links.map((url) => (
-              <LinkButton key={url} url={url} />
-            ))}
-          </Box>
-        </Toolbar>
-      </Container>
-    </MuiAppBar>
+          <Link
+            to="/search"
+            className="[&>*]:h-5 [&>*]:w-5 translate-y-px hover:scale-110 transition-transform mr-4"
+          >
+            <SearchIcon />
+          </Link>
+          {data.site.siteMetadata.siteSocialMedia.map((url) => {
+            return (
+              <a
+                href={url}
+                key={url}
+                target="__blank"
+                className="[&>*]:h-6 [&>*]:w-6 hover:scale-110 transition-transform"
+              >
+                <SomeIcon url={url} />
+              </a>
+            );
+          })}
+        </nav>
+      </div>
+    </header>
   );
-};
-export default SiteHeader;
+}
