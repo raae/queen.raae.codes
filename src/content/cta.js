@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import { Box, Button, Typography } from "@mui/material";
-import { ArrowForward as MoreIcon } from "@mui/icons-material";
+import { ArrowLongRightIcon as MoreIcon } from "@heroicons/react/20/solid";
 
 export const Cta = ({
   href,
@@ -9,7 +9,7 @@ export const Cta = ({
   label,
   note,
   noteTitle,
-  endIcon = <MoreIcon />,
+  endIcon = <MoreIcon className="h-4 w-4" />,
   ...props
 }) => {
   if (!label) return null;
