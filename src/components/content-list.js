@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
-import { Logout as ExternalIcon } from "@mui/icons-material";
+import { ArrowTopRightOnSquareIcon as ExternalIcon } from "@heroicons/react/20/solid";
 
 export const ContentList = ({ items = [], sx, children, ...props }) => {
   return (
@@ -12,29 +12,21 @@ export const ContentList = ({ items = [], sx, children, ...props }) => {
             component={to ? Link : "a"}
             to={to}
             href={href}
+            target={href && "_blank"}
             sx={{
               mx: -1,
               svg: {
-                opacity: 0.4,
+                opacity: 0.1,
               },
               "&:hover": {
                 svg: {
-                  opacity: 1,
+                  opacity: 0.3,
                 },
               },
             }}
           >
             <ListItemText primary={primary} secondary={secondary} />
-            {href && (
-              <ExternalIcon
-                fontSize="small"
-                color="disabled"
-                sx={{
-                  ml: "auto",
-                  mr: 1,
-                }}
-              />
-            )}
+            {href && <ExternalIcon className="h-5 w-5" />}
           </ListItemButton>
         </ListItem>
       ))}
