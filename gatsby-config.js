@@ -14,6 +14,11 @@ module.exports = {
     siteSocialImageAlt:
       "Queen Raae holding a laptop in front of her gallery wall",
     siteTwitterCreator: "@raae",
+    siteSocialMedia: [
+      "https://github.com/queen-raae",
+      "https://twitter.com/raae",
+      "https://www.youtube.com/QueenRaae",
+    ],
   },
   plugins: [
     {
@@ -92,6 +97,15 @@ module.exports = {
       },
     },
     `@raae/gatsby-theme-mui`,
+    `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: /\-50\.svg$/,
+        },
+      },
+    },
     `gatsby-plugin-gatsby-cloud`,
     {
       resolve: "gatsby-plugin-sitemap",
