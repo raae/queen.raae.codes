@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@mui/material";
-import { Logout as MoreIcon } from "@mui/icons-material";
+import { ArrowTopRightOnSquareIcon as ExternalIcon } from "@heroicons/react/20/solid";
 
 import { ContentList } from "../components/content-list";
 
@@ -19,7 +19,8 @@ const Noteworthy = ({ upcoming = UPCOMING, more, ...props }) => {
         <>
           <Button
             href="https://www.crowdcast.io/raae"
-            endIcon={<MoreIcon />}
+            target="_blank"
+            endIcon={<ExternalIcon className="h-4 w-4 opacity-80" />}
             variant="outlined"
             fullWidth
             sx={{ mt: "1em" }}
@@ -28,7 +29,8 @@ const Noteworthy = ({ upcoming = UPCOMING, more, ...props }) => {
           </Button>
           <Button
             href="https://www.youtube.com/QueenRaae"
-            endIcon={<MoreIcon />}
+            target="_blank"
+            endIcon={<ExternalIcon className="h-4 w-4 opacity-80" />}
             variant="outlined"
             fullWidth
             sx={{ mt: "1em" }}

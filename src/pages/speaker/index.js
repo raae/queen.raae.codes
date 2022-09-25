@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Typography, Box, Button } from "@mui/material";
-import { Logout as MoreIcon } from "@mui/icons-material";
+import { ArrowTopRightOnSquareIcon as ExternalIcon } from "@heroicons/react/20/solid";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import PageHead from "../../components/page-head";
@@ -108,7 +108,8 @@ export default function TalksPage({ data }) {
           <Button
             href={archive.moreHref}
             component="a"
-            endIcon={<MoreIcon />}
+            target="_blank"
+            endIcon={<ExternalIcon className="h-4 w-4 opacity-80" />}
             variant="outlined"
             fullWidth
             sx={{ mt: "2em" }}
