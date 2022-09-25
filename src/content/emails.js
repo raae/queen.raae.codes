@@ -70,7 +70,7 @@ export const Emails = ({ emails, more, variant, limit, ...props }) => {
         <Button
           to="/emails/"
           component={Link}
-          endIcon={<MoreIcon className="h-4 w-4" />}
+          endIcon={<MoreIcon className="h-4" />}
           variant="outlined"
           fullWidth
           sx={{ mt: "1em" }}

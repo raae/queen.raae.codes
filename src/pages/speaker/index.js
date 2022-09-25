@@ -109,7 +109,7 @@ export default function TalksPage({ data }) {
             href={archive.moreHref}
             component="a"
             target="_blank"
-            endIcon={<ExternalIcon className="h-4 w-4 opacity-80" />}
+            endIcon={<ExternalIcon className="h-4 opacity-80" />}
             variant="outlined"
             fullWidth
             sx={{ mt: "2em" }}

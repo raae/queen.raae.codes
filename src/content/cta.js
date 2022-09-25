@@ -9,7 +9,7 @@ export const Cta = ({
   label,
   note,
   noteTitle,
-  endIcon = <MoreIcon className="h-4 w-4" />,
+  endIcon = <MoreIcon className="h-4" />,
   ...props
 }) => {
   if (!label) return null;

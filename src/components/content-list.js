@@ -26,7 +26,7 @@ export const ContentList = ({ items = [], sx, children, ...props }) => {
             }}
           >
             <ListItemText primary={primary} secondary={secondary} />
-            {href && <ExternalIcon className="h-5 w-5" />}
+            {href && <ExternalIcon className="h-5" />}
           </ListItemButton>
         </ListItem>
       ))}
