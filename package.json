@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@heroicons/react": "2.0.11",
-    "@mui/icons-material": "5.4.4",
     "@mui/material": "5.4.4",
     "@raae/gatsby-plugin-fathom": "0.0.4",
     "@raae/gatsby-plugin-let-it-snow": "1.0.2",
