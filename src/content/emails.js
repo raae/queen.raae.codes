@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import { Button, Typography, Chip } from "@mui/material";
+import { Button, Chip } from "@mui/material";
 import { ArrowLongRightIcon as MoreIcon } from "@heroicons/react/20/solid";
 import { ContentList } from "../components/content-list";
 import parse from "html-react-parser";
@@ -38,26 +38,18 @@ export const Emails = ({ emails, more, variant, limit, ...props }) => {
     .map(({ title, description, slug, emojii, date, tags }) => {
       return {
         to: slug,
-        primary: (
+        primary: <>{parse(title)}</>,
+        body: variant === "detailed" && (
           <>
-            <Typography variant="h5" gutterBottom={variant === "detailed"}>
-              {parse(title)}
-            </Typography>
-
-            {variant === "detailed" && (
-              <Typography variant="body2" gutterBottom>
-                {parse(description)}
-              </Typography>
-            )}
-
-            {variant === "detailed" && <Tags tags={tags} />}
+            <p className="my-2 text-sm">{parse(description)}</p>
+            <p className="my-0">
+              <Tags tags={tags} />
+            </p>
           </>
         ),
         secondary: (
           <>
-            <Typography component="span" sx={{ mr: 1.5 }}>
-              {emojii}
-            </Typography>
+            <span className="mr-2.5 text-base">{emojii}</span>
             {date}
           </>
         ),
