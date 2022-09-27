@@ -109,6 +109,7 @@ export default function TalksPage({ data }) {
             href={archive.moreHref}
             component="a"
             target="_blank"
+            rel={"noreferrer"}
             endIcon={<ExternalIcon className="h-4 opacity-80" />}
             variant="outlined"
             fullWidth

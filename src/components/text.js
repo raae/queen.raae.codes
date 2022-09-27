@@ -42,6 +42,7 @@ export const PossibleExternalLink = ({ children, url, ...props }) => {
         component="a"
         href={url}
         target="_blank"
+        rel={"noreferrer"}
         className="text-inherit group underline underline-offset-2 hover:decoration-amber-600 transition"
         {...props}
       >

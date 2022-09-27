@@ -20,6 +20,7 @@ const Noteworthy = ({ upcoming = UPCOMING, more, ...props }) => {
           <Button
             href="https://www.crowdcast.io/raae"
             target="_blank"
+            rel={"noreferrer"}
             endIcon={<ExternalIcon className="h-4 opacity-80" />}
             variant="outlined"
             fullWidth
@@ -30,6 +31,7 @@ const Noteworthy = ({ upcoming = UPCOMING, more, ...props }) => {
           <Button
             href="https://www.youtube.com/QueenRaae"
             target="_blank"
+            rel={"noreferrer"}
             endIcon={<ExternalIcon className="h-4 opacity-80" />}
             variant="outlined"
             fullWidth
