@@ -12,7 +12,7 @@ export const ContentList = ({ items = [], sx, children, ...props }) => {
             key={to || href}
             className="mx-2 my-1 p-4 pb-5 relative flex flex-col transition hover:bg-amber-100 focus-within:ring-2 focus-within:ring-amber-600"
           >
-            <h3 className="text-base my-0 font-bold text-stone-800">
+            <h3 className="text-base my-0 font-bold">
               <LinkOrA
                 to={to}
                 href={href}
