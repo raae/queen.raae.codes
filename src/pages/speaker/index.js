@@ -7,12 +7,10 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import PageHead from "../../components/page-head";
 import SiteHeader from "../../components/site-header";
 import PageSection, { PageSectionHeader } from "../../components/page-section";
-
-import { Newsletter } from "../../content/newsletter";
-
 import Talk from "../../components/talk";
 import Prose from "../../components/prose";
-import { Cta } from "../../content/cta";
+import { Cta } from "../../components/cta";
+import { Newsletter } from "../../components/newsletter";
 
 const aggregateTalkData = (orginalTalk) => {
   const talk = {

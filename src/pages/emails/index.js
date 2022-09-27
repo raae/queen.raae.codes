@@ -4,10 +4,8 @@ import { graphql } from "gatsby";
 import PageHead from "../../components/page-head";
 import SiteHeader from "../../components/site-header";
 import PageSection, { PageSectionHeader } from "../../components/page-section";
-import NewsletterForm from "../../components/newsletter";
-
-import { Newsletter } from "../../content/newsletter";
-import Emails from "../../content/emails";
+import { Newsletter } from "../../components/newsletter";
+import Emails from "../../components/emails";
 
 const BADGE = "Daily Gatsby Treasures";
 const TITLE = "Serious about Gatsby? ";
@@ -35,7 +33,7 @@ export default function EmailsPage({ data }) {
             lead={DESCRIPTION}
             hLevel={1}
           />
-          <NewsletterForm mt="2em" cta="Yes, please!" formKey="queen" />
+          <Newsletter mt="2em" cta="Yes, please!" formKey="queen" />
         </PageSection>
 
         <PageSection component="section">

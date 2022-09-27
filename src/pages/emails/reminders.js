@@ -7,7 +7,7 @@ import PageSection, {
   PageSectionHeader,
 } from "../../components/page-section";
 import Prose from "../../components/prose";
-import NewsletterForm from "../../components/newsletter";
+import { Newsletter } from "../../components/newsletter";
 
 const BADGE = "Emails";
 const TITLE = "Reminders";
@@ -48,7 +48,7 @@ export default function EmailRemindersPage() {
               </small>
             </p>
           </Prose>
-          <NewsletterForm mt="2em" formKey="reminders" cta="Yes, please" />
+          <Newsletter mt="2em" formKey="reminders" cta="Yes, please" />
         </PageSection>
       </main>
     </>

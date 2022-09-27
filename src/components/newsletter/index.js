@@ -1,5 +1,5 @@
 import React from "react";
-import NewsletterForm from "../components/newsletter";
+import NewsletterForm from "./newsletter-form";
 import { defaults, isNull, omitBy } from "lodash";
 
 const QUEEN_DEFAULTS = {
@@ -16,8 +16,6 @@ const DEFAULTS = {
 
 export const Newsletter = (initialProps) => {
   let props = omitBy(initialProps, isNull);
-
-  console.log({ initialProps, props });
 
   if (!props.formKey || props.formKey === "queen") {
     props = defaults(props, QUEEN_DEFAULTS);

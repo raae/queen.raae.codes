@@ -14,10 +14,10 @@ import Join from "../components/join";
 
 import Webinar from "../components/webinar";
 
-import { Cta } from "../content/cta";
-import { Newsletter } from "../content/newsletter";
-import Emails from "../content/emails";
-import Noteworthy from "../content/noteworthy";
+import { Cta } from "../components/cta";
+import { Newsletter } from "../components/newsletter";
+import Emails from "../components/emails";
+import Noteworthy from "../components/noteworthy";
 
 export function Head({ data, ...props }) {
   const { childMarkdownRemark } = data.landing;

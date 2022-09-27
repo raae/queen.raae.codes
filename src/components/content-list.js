@@ -17,6 +17,7 @@ export const ContentList = ({ items = [], sx, children, ...props }) => {
                 to={to}
                 href={href}
                 target={href && "_blank"}
+                rel="noreferrer"
                 className="text-inherit no-underline focus:outline-none"
               >
                 {/* Extend touch target to entire panel */}

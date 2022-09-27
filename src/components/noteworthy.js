@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@mui/material";
 import { ArrowTopRightOnSquareIcon as ExternalIcon } from "@heroicons/react/20/solid";
 
-import { ContentList } from "../components/content-list";
+import { ContentList } from "./content-list";
 
 const Noteworthy = ({ upcoming = UPCOMING, more, ...props }) => {
   const items = upcoming.map(({ title, details, ...rest }) => {

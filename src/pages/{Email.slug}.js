@@ -8,9 +8,9 @@ import PageSection, {
   PageSectionBreadcrumbs,
 } from "../components/page-section";
 
-import { Newsletter } from "../content/newsletter";
-import { Cta } from "../content/cta";
-import Emails, { Tags } from "../content/emails";
+import { Newsletter } from "../components/newsletter";
+import { Cta } from "../components/cta";
+import Emails, { Tags } from "../components/emails";
 import PageHead from "../components/page-head";
 
 const IS_PROD = process.env.NODE_ENV === "production";
