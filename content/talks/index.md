@@ -12,7 +12,7 @@ teaser:
   badge: Speaking of Joy at Mypa Digital
   title: Encryption and Privacy in web applications
   recording: https://vimeo.com/manage/videos/747600297
-  note: Watch the recap of this talk to get a feel for what I can bring to your event →
+  note: Watch the recap of this talk to get a feel for what I can bring to your event
 cta:
   label: Book a talk
   href: https://forms.reform.app/iXD8KR/book-talk/f9wr7p

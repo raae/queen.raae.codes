@@ -4,7 +4,7 @@ import {
   formatISO as formatISOFn,
   addDays as addDaysFn,
 } from "date-fns";
-import { Link as MuiLink, Typography } from "@mui/material";
+import { ArrowTopRightOnSquareIcon as ExternalIcon } from "@heroicons/react/20/solid";
 
 export const DateText = ({ dateString, addDays, skipYear }) => {
   let formatString = "MMMM do, yyyy";
@@ -38,23 +38,19 @@ export const TagsText = ({ tags }) => {
 export const PossibleExternalLink = ({ children, url, ...props }) => {
   if (url) {
     return (
-      <MuiLink component="a" href={url} {...props}>
+      <a
+        component="a"
+        href={url}
+        target="_blank"
+        className="text-inherit group underline underline-offset-2 hover:decoration-amber-600 transition"
+        {...props}
+      >
         {children}
-      </MuiLink>
+
+        <ExternalIcon className="h-4 ml-1.5 fill-amber-600 opacity-30 inline-block translate-y-1 group-hover:opacity-100 transition-opacity" />
+      </a>
     );
   } else {
-    return <Typography {...props}>{children}</Typography>;
+    return <span {...props}>{children}</span>;
   }
 };
-
-// export const PossibleExternalLink = ({ children, url, ...props }) => {
-//   if (url) {
-//     return (
-//       <MuiLink component="a" href={url} {...props}>
-//         {children}
-//       </MuiLink>
-//     );
-//   } else {
-//     return <Typography {...props}>{children}</Typography>;
-//   }
-// };
