@@ -88,6 +88,8 @@ export default function TalksPage({ data }) {
             }}
           >
             {teaser.note}
+
+            <ExternalIcon className="h-4 ml-1.5 fill-amber-600 opacity-30 inline-block translate-y-1" />
           </Typography>
         </PageSection>
 

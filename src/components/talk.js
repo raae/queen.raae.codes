@@ -14,15 +14,15 @@ const Talk = ({ date, recording, event, eventUrl }) => {
   return (
     <aside>
       <IconList>
-        {event && (
-          <IconListItem icon="location">
-            <PossibleExternalLink url={eventUrl}>{event}</PossibleExternalLink>
-          </IconListItem>
-        )}
-
         {date && (
           <IconListItem icon="calendar">
             <DateText dateString={date} />
+          </IconListItem>
+        )}
+
+        {event && (
+          <IconListItem icon="location">
+            <PossibleExternalLink url={eventUrl}>{event}</PossibleExternalLink>
           </IconListItem>
         )}
 
