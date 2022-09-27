@@ -4,7 +4,7 @@ import { IconList, IconListItem } from "./icon-list";
 import Prose from "./prose";
 import { DateText } from "./text";
 
-import { Cta } from "../content/cta";
+import { Cta } from "../components/cta";
 
 const Join = ({ start, end, paymentLink, price, status, deadline }) => {
   return (

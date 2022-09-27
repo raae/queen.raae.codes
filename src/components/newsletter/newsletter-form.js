@@ -7,7 +7,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { addSubscriber } from "../services/subscriptions";
+import { addSubscriber } from "./subscriptions";
 
 const ALERT = {
   PENDING: { severity: "info", message: "Hold on..." },

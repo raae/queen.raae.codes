@@ -9,7 +9,7 @@ import PageSection, {
   PageSectionBreadcrumbs,
 } from "../../components/page-section";
 
-import { Newsletter } from "../../content/newsletter";
+import { Newsletter } from "../../components/newsletter";
 import PageHead from "../../components/page-head";
 import Talk from "../../components/talk";
 import Prose from "../../components/prose";

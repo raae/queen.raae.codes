@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { Button, Chip } from "@mui/material";
 import { ArrowLongRightIcon as MoreIcon } from "@heroicons/react/20/solid";
-import { ContentList } from "../components/content-list";
+import { ContentList } from "./content-list";
 import parse from "html-react-parser";
 
 export const Tags = ({ tags, sx }) => {

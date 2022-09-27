@@ -16,8 +16,8 @@ import PageHead from "../../components/page-head";
 import SiteHeader from "../../components/site-header";
 import PageSection, { PageSectionHeader } from "../../components/page-section";
 
-import { Newsletter } from "../../content/newsletter";
-import Emails from "../../content/emails";
+import { Newsletter } from "../../components/newsletter";
+import Emails from "../../components/emails";
 
 const FUSE_OPTIONS = {
   includeScore: true,

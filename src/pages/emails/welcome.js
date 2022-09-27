@@ -6,7 +6,7 @@ import PageSection, {
   PageSectionBreadcrumbs,
   PageSectionHeader,
 } from "../../components/page-section";
-import Emails from "../../content/emails";
+import Emails from "../../components/emails";
 
 const BADGE = "Daily Gatsby Treasures";
 const TITLE = "Welcome";
