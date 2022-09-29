@@ -10,7 +10,8 @@ import PageSection, {
 
 import { Newsletter } from "../components/newsletter";
 import { Cta } from "../components/cta";
-import Emails, { Tags } from "../components/emails";
+import { Emails } from "../components/emails";
+import { Badge } from "../components/badge";
 import PageHead from "../components/page-head";
 
 const IS_PROD = process.env.NODE_ENV === "production";
@@ -89,7 +90,11 @@ export default function EmailPage({ data }) {
 
           {tags && (
             <aside>
-              <Tags tags={tags} />
+              {tags.map(({ label, slug }) => (
+                <Badge component={Link} key={label} to={slug}>
+                  {label}
+                </Badge>
+              ))}
             </aside>
           )}
 

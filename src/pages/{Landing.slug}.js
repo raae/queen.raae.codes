@@ -16,7 +16,7 @@ import Webinar from "../components/webinar";
 
 import { Cta } from "../components/cta";
 import { Newsletter } from "../components/newsletter";
-import Emails from "../components/emails";
+import { Emails } from "../components/emails";
 import Noteworthy from "../components/noteworthy";
 
 export function Head({ data, ...props }) {

@@ -1,28 +1,12 @@
 import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import { Button, Chip } from "@mui/material";
+import { Button } from "@mui/material";
 import { ArrowLongRightIcon as MoreIcon } from "@heroicons/react/20/solid";
 import { ContentList } from "./content-list";
 import parse from "html-react-parser";
+import { Badge } from "./badge";
 
-export const Tags = ({ tags, sx }) => {
-  return (tags || []).map(({ label, slug }) => {
-    return (
-      <Chip
-        variant="outlined"
-        size="small"
-        sx={{ mr: 1, fontWeight: "normal" }}
-        component={Link}
-        to={slug}
-        label={parse(label)}
-        key={slug}
-        clickable
-      />
-    );
-  });
-};
-
-export const Emails = ({ emails, more, variant, limit, ...props }) => {
+export function Emails({ emails, more, variant, limit, ...props }) {
   const data = useStaticQuery(graphql`
     {
       latestEmails: allEmail(sort: { order: DESC, fields: date }, limit: 7) {
@@ -42,9 +26,12 @@ export const Emails = ({ emails, more, variant, limit, ...props }) => {
         body: variant === "detailed" && (
           <>
             <p className="my-2 text-sm">{parse(description)}</p>
-            <p className="my-0">
-              <Tags tags={tags} />
-            </p>
+
+            <aside className="my-0">
+              {tags.map(({ label }) => (
+                <Badge key={label}>{parse(label)}</Badge>
+              ))}
+            </aside>
           </>
         ),
         secondary: (
@@ -72,9 +59,7 @@ export const Emails = ({ emails, more, variant, limit, ...props }) => {
       )}
     </ContentList>
   );
-};
-
-export default Emails;
+}
 
 export const query = graphql`
   fragment EmailItemFragment on Email {

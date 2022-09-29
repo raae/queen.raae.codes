@@ -8,7 +8,7 @@ import PageSection, {
 } from "../components/page-section";
 import PageHead from "../components/page-head";
 
-import Emails from "../components/emails";
+import { Emails } from "../components/emails";
 import { Newsletter } from "../components/newsletter";
 
 const getMeta = (props) => {
@@ -42,7 +42,7 @@ export default function EmailsPage(props) {
           />
           <PageSectionHeader title={title} hLevel={1} />
 
-          <Emails emails={allEmail} sx={{ maxWidth: "50ch" }} />
+          <Emails emails={allEmail} />
         </PageSection>
 
         <PageSection component="footer">

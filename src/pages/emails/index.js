@@ -5,7 +5,7 @@ import PageHead from "../../components/page-head";
 import SiteHeader from "../../components/site-header";
 import PageSection, { PageSectionHeader } from "../../components/page-section";
 import { Newsletter } from "../../components/newsletter";
-import Emails from "../../components/emails";
+import { Emails } from "../../components/emails";
 
 const BADGE = "Daily Gatsby Treasures";
 const TITLE = "Serious about Gatsby? ";
@@ -37,7 +37,7 @@ export default function EmailsPage({ data }) {
         </PageSection>
 
         <PageSection component="section">
-          <Emails emails={data.allEmail} sx={{ maxWidth: "50ch" }} />
+          <Emails emails={data.allEmail} />
         </PageSection>
 
         <PageSection component="footer">
