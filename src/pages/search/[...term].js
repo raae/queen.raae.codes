@@ -17,7 +17,7 @@ import SiteHeader from "../../components/site-header";
 import PageSection, { PageSectionHeader } from "../../components/page-section";
 
 import { Newsletter } from "../../components/newsletter";
-import Emails from "../../components/emails";
+import { Emails } from "../../components/emails";
 
 const FUSE_OPTIONS = {
   includeScore: true,
@@ -141,10 +141,8 @@ export default function SearchPage(props) {
         </PageSection>
 
         <PageSection>
-          <>
-            <PageSectionHeader badge="Latest emails" />
-            <Emails limit={3} />
-          </>
+          <PageSectionHeader badge="Latest emails" />
+          <Emails limit={3} />
         </PageSection>
 
         <PageSection component="footer">

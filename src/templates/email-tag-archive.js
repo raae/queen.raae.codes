@@ -8,7 +8,7 @@ import PageSection, {
 } from "../components/page-section";
 import PageHead from "../components/page-head";
 
-import Emails from "../components/emails";
+import { Emails } from "../components/emails";
 import { Newsletter } from "../components/newsletter";
 
 const getMeta = (props) => {
