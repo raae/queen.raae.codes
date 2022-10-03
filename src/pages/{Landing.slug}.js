@@ -135,9 +135,9 @@ export default function RemarkPage({ data, ...props }) {
                       </Box>
                     );
                   case "emails":
-                    return <Emails key={block} more />;
+                    return <Emails key={block} more className="mt-12" />;
                   case "noteworthy":
-                    return <Noteworthy key={block} more />;
+                    return <Noteworthy key={block} more className="mt-12" />;
                   case "testimonials":
                     return testimonials.map((item, key) => {
                       const { frontmatter, html } = item.childMarkdownRemark;
