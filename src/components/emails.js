@@ -1,7 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
-import { Button } from "@mui/material";
-import { ArrowLongRightIcon as MoreIcon } from "@heroicons/react/20/solid";
+import { useStaticQuery, graphql } from "gatsby";
 import { ContentList } from "./content-list";
 import parse from "html-react-parser";
 import { Badge } from "./badge";
@@ -43,22 +41,9 @@ export function Emails({ emails, more, variant, limit, ...props }) {
       };
     });
 
-  return (
-    <ContentList items={items} {...props}>
-      {more && (
-        <Button
-          to="/emails/"
-          component={Link}
-          endIcon={<MoreIcon className="h-4" />}
-          variant="outlined"
-          fullWidth
-          sx={{ mt: "1em" }}
-        >
-          More Treasures
-        </Button>
-      )}
-    </ContentList>
-  );
+  const ctas = [{ to: "/emails/", label: "More Daily Treasures" }];
+
+  return <ContentList items={items} ctas={more && ctas} {...props} />;
 }
 
 export const query = graphql`

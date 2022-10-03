@@ -1,7 +1,4 @@
 import React from "react";
-import { Button } from "@mui/material";
-import { ArrowTopRightOnSquareIcon as ExternalIcon } from "@heroicons/react/20/solid";
-
 import { ContentList } from "./content-list";
 
 const Noteworthy = ({ upcoming = UPCOMING, more, ...props }) => {
@@ -13,36 +10,12 @@ const Noteworthy = ({ upcoming = UPCOMING, more, ...props }) => {
     };
   });
 
-  return (
-    <ContentList items={items} {...props}>
-      {more && (
-        <>
-          <Button
-            href="https://www.crowdcast.io/raae"
-            target="_blank"
-            rel={"noreferrer"}
-            endIcon={<ExternalIcon className="h-4 opacity-80" />}
-            variant="outlined"
-            fullWidth
-            sx={{ mt: "1em" }}
-          >
-            More webinars
-          </Button>
-          <Button
-            href="https://www.youtube.com/QueenRaae"
-            target="_blank"
-            rel={"noreferrer"}
-            endIcon={<ExternalIcon className="h-4 opacity-80" />}
-            variant="outlined"
-            fullWidth
-            sx={{ mt: "1em" }}
-          >
-            More streams
-          </Button>
-        </>
-      )}
-    </ContentList>
-  );
+  const ctas = [
+    { href: "https://www.crowdcast.io/raae", label: "More webinars" },
+    { href: "https://www.youtube.com/QueenRaae", label: " More streams" },
+  ];
+
+  return <ContentList items={items} ctas={more && ctas} {...props} />;
 };
 
 export default Noteworthy;

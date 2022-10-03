@@ -135,14 +135,14 @@ export default function SearchPage(props) {
                 });
                 return resultItem.item;
               })}
-              sx={{ mt: 4 }}
+              className="mt-8"
             />
           )}
         </PageSection>
 
         <PageSection>
           <PageSectionHeader badge="Latest emails" />
-          <Emails limit={3} />
+          <Emails limit={3} className="mt-8" />
         </PageSection>
 
         <PageSection component="footer">
