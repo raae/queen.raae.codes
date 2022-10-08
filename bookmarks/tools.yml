@@ -8,3 +8,5 @@
   tags: cms, git-based
 - url: https://www.meilisearch.com/
   tags: search
+- url: https://oauth.tools/
+  tags: oauth
