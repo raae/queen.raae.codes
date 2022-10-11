@@ -10,3 +10,5 @@
   tags: search
 - url: https://oauth.tools/
   tags: oauth
+- url: https://www.npmpeer.dev/
+  tags: npm, version, package
