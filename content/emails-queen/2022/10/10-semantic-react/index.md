@@ -22,6 +22,7 @@ It could look something like this:
 import React from "react";
 
 export function Card(props) {
+  const { children } = props;
   return <div>{children}</div>;
 }
 ```
@@ -74,7 +75,7 @@ export function Card(props) {
   const { element, children } = props;
 
   // 2️⃣ Capitalise element to make it valid jsx
-  const Element = element;
+  let Element = element;
 
   // 3️⃣ Make "div" the default choice
   if (!element) {
@@ -134,4 +135,4 @@ Queen Raae
 
 &nbsp;
 
-**PS:** Would you be interested in more emails about fundamentals like semantic HTML?
+**PS:** There was an error in the example code caught by [GasimGasimzada on Reddit](https://www.reddit.com/r/reactjs/comments/y19t4k/comment/irx1z7z/?utm_source=reddit&utm_medium=web2x&context=3) Thank you!
