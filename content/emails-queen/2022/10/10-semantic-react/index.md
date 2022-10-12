@@ -11,7 +11,7 @@ What is semantic HTML? `article`, `heading`, `h2`, `aside`, `ul`, `section` etc.
 
 To lean more about check out [web.dev's article on Semantic HTML](https://web.dev/learn/html/semantic-html/).
 
-Unfouruntaly, adherence to semantic HTML often gets lost when creating reusable React UI components.
+Unfortunately, adherence to semantic HTML often gets lost when creating reusable React UI components.
 
 Let's say we make a reusable card component.
 
@@ -63,6 +63,13 @@ export function Example() {
 But we'll be notified that a `div` is not a valid child of `p`, and the approach feels iffy. At least to me 🤪
 
 ## The semantic HTML trick for React components!
+
+<aside class="notice">
+
+- There was an error earlier in the example code caught by [GasimGasimzada on Reddit](https://www.reddit.com/r/reactjs/comments/y19t4k/comment/irx1z7z/?utm_source=reddit&utm_medium=web2x&context=3) Thank you!
+- `as` is a better prop name than `element`, as suggested by several [commentators on Reddit](https://www.reddit.com/r/reactjs/comments/y19t4k/comment/irzwyr5/?context=3).
+
+</aside>
 
 Make the semantic HTML element configurable:
 
@@ -132,7 +139,3 @@ Credit where credit is due. I learned how to do this by looking at [MUI's source
 
 All the best,  
 Queen Raae
-
-&nbsp;
-
-**PS:** There was an error in the example code caught by [GasimGasimzada on Reddit](https://www.reddit.com/r/reactjs/comments/y19t4k/comment/irx1z7z/?utm_source=reddit&utm_medium=web2x&context=3) Thank you!
