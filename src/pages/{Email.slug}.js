@@ -9,7 +9,6 @@ import PageSection, {
 } from "../components/page-section";
 
 import { Newsletter } from "../components/newsletter";
-import { Cta } from "../components/cta";
 import { Emails } from "../components/emails";
 import { Badge } from "../components/badge";
 import PageHead from "../components/page-head";
@@ -106,6 +105,17 @@ export default function EmailPage({ data }) {
             </Prose>
           )}
         </PageSection>
+        <PageSection component="footer">
+          <Newsletter
+            tagline="Interested in more daily treasures like this one?"
+            message={
+              <>
+                <br />
+                Sent directly to your inbox?
+              </>
+            }
+          />
+        </PageSection>
         {relatedEmails?.length > 0 && (
           <PageSection>
             <PageSectionHeader
@@ -115,7 +125,7 @@ export default function EmailPage({ data }) {
             <Emails emails={relatedEmails} />
           </PageSection>
         )}
-        <PageSection>
+        {/* <PageSection>
           <PageSectionHeader hLevel={2} title={pitch.title} />
           <Prose mt="3em">
             <p>{pitch.description}</p>
@@ -130,10 +140,7 @@ export default function EmailPage({ data }) {
               </>
             }
           />
-        </PageSection>
-        <PageSection component="footer">
-          <Newsletter />
-        </PageSection>
+        </PageSection> */}
       </main>
     </>
   );
