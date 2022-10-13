@@ -16,7 +16,7 @@ A croco-clock 🐊 can be an egg clock ⏲️ that goes ARRR! when your sub-task
 
 Then you can stop
 
-![by-croc](./by-croc.png)
+![Sketch of Captain Croc](./by-croc.jpg)
 
 ## WHY could a croco-clock 🐊-⏲️ help you to focus like a pirate?
 
