@@ -17,7 +17,7 @@ We looked into "my favourite focus tool to find out when your sub-task practice 
 
 The Again Logbook is for example a little red notebook. Here is mine, The Queen bought it for me in Greece.
 
-![The-Again-Logbook](./The-Again-Logbook-2.1.png)
+![The-Again-Logbook](./The-Again-Logbook-2.3.png)
 
 ## WHY could The Again Logbook 📕 help you to do your sub-task again and again?
 Firstly you decide to automate your sub-task into your dev-brain. This is good for your motivation. Your personal value increase with each sub-task you have  automated into your dev-brain.
@@ -35,7 +35,7 @@ Thirdly if you give up before you have done your sub-task six times you loose.
 5. Keep doing your sub-task again and again until your croco-clock 🐊-⏲️ goes ARRR! even past your six times, but keep making a new "!" each time
 6. Because doing them more times than you planned feels like winning
 
-![The_Again_Logbook](The_Again_Logbook-1.1.png)
+![The_Again_Logbook](The_Again_Logbook-1-3.png)
 
 Yo-Ho-Ho and a bottle of GO! 😺
 
