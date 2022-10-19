@@ -28,6 +28,10 @@
     "toPath": "/emails/2022-09-05-this-week/"
   },
   {
+    "fromPath": "/emails/2022-09-29-croco-clock/",
+    "toPath": "/emails/2022-10-13-croco-clock/"
+  },
+  {
     "fromPath": "/react-norway/",
     "toPath": "/speaker/2022-06-24-react-norway/"
   },
