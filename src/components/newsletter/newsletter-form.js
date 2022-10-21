@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { Alert, AlertTitle, Typography } from "@mui/material";
-import { addSubscriber } from "./subscriptions";
 import clsx from "clsx";
+import { XCircleIcon as CloseIcon } from "@heroicons/react/20/solid";
 
+import { addSubscriber } from "./subscriptions";
 import NewsletterIcon from "../../icons/icons8-postal-50.svg";
 
 const ALERT = {
-  PENDING: { severity: "info", message: "Hold on..." },
+  PENDING: { variant: "info", message: "Hold on..." },
   FULFILLED: {
-    severity: "success",
+    variant: "success",
     title: "Almost there!",
     message: "Check your inbox to confirm...",
   },
   FAILED: {
-    severity: "error",
+    variant: "error",
     message: "Oh no...something went wrong...",
   },
 };
@@ -33,6 +33,7 @@ const NewsletterForm = ({
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
+    event.target[1].blur();
     setStatus("PENDING");
 
     try {
@@ -42,6 +43,7 @@ const NewsletterForm = ({
         formKey: formKey,
         tags: tags,
       });
+      event.target.elements.email.value = "";
       setStatus("FULFILLED");
     } catch (error) {
       console.warn(error);
@@ -71,11 +73,7 @@ const NewsletterForm = ({
       className={clsx("relative", className)}
       {...props}
     >
-      {children && (
-        <Typography variant="body1" sx={{ maxWidth: "48ch" }}>
-          {children}
-        </Typography>
-      )}
+      {children && <div className="max-w-[48ch]">{children}</div>}
 
       <div className="flex relative mt-5 max-w-[50ch]">
         <label
@@ -91,7 +89,7 @@ const NewsletterForm = ({
           name="email"
           type="email"
           disabled={status === "pending"}
-          className="pl-11 w-full flex-grow border-solid transition border-2 border-teal-900 focus:border-teal-900  focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-amber-500"
+          className="pl-11 font-medium w-full flex-grow border-solid transition border-2 border-teal-900 focus:border-teal-900  focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-amber-500"
           placeholder="Your best email"
           required
         />
@@ -106,33 +104,30 @@ const NewsletterForm = ({
       </div>
 
       {alert && (
-        <Alert
-          severity={alert.severity}
-          variant="outlined"
-          {...(alert.severity === "error" && {
-            onClose: handleDismiss,
-          })}
-          sx={{
-            bgcolor: "background.paper",
-            boderWidth: "2px",
-            alignItems: "center",
-            position: "absolute",
-            left: 0,
-            top: 0,
-            bottom: 0,
-            right: 0,
-            zIndex: "modal",
-            ".MuiAlert-icon": {
-              mr: 3,
-            },
-            ".MuiAlert-action": {
-              alignSelf: "flex-start",
-            },
-          }}
+        <div
+          className={clsx(
+            "absolute inset-0 flex flex-col justify-center text-center border-solid border-2 p-4",
+            alert.variant === "info" && "bg-sky-50 border-sky-800",
+            alert.variant === "success" && "bg-emerald-50 border-emerald-800",
+            alert.variant === "error" && "bg-red-50 border-red-800"
+          )}
         >
-          {alert.title && <AlertTitle>{alert.title}</AlertTitle>}
-          {alert.message && <>{alert.message}</>}
-        </Alert>
+          <CloseIcon
+            className={clsx(
+              "h-5 absolute top-2 right-2",
+              alert.variant === "info" && "opacity-0",
+              alert.variant === "success" &&
+                "transition text-emerald-900 hover:text-emerald-700",
+              alert.variant === "error" &&
+                "transition text-red-900 hover:text-red-700"
+            )}
+            onClick={handleDismiss}
+          />
+          {alert.title && (
+            <h3 className="m-0 mb-0.5 text-sm font-semibold">{alert.title}</h3>
+          )}
+          {alert.message && <p className="m-0 text-sm">{alert.message}</p>}
+        </div>
       )}
     </form>
   );
