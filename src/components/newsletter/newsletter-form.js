@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import {
-  Alert,
-  AlertTitle,
-  Box,
-  Button,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Alert, AlertTitle, Typography } from "@mui/material";
 import { addSubscriber } from "./subscriptions";
+import clsx from "clsx";
+
+import NewsletterIcon from "../../icons/icons8-postal-50.svg";
 
 const ALERT = {
   PENDING: { severity: "info", message: "Hold on..." },
@@ -28,6 +24,7 @@ const NewsletterForm = ({
   cta,
   tags = [],
   anchor = "",
+  className,
   sx,
   ...props
 }) => {
@@ -68,11 +65,10 @@ const NewsletterForm = ({
   }
 
   return (
-    <Box
-      component="form"
+    <form
       onSubmit={handleOnSubmit}
       id={anchor}
-      sx={{ position: "relative", ...sx }}
+      className={clsx("relative", className)}
       {...props}
     >
       {children && (
@@ -81,25 +77,33 @@ const NewsletterForm = ({
         </Typography>
       )}
 
-      <Box sx={{ display: "flex", maxWidth: "50ch", mt: 3 }}>
-        <TextField
+      <div className="flex relative mt-5 max-w-[50ch]">
+        <label
+          htmlFor="email"
+          className="[&>*]:w-6 [&>*]:self-center absolute flex left-3"
+        >
+          <NewsletterIcon />
+          <span class="sr-only">Email:</span>
+        </label>
+
+        <input
           id="email"
           name="email"
           type="email"
-          label="Your best email"
-          size="small"
           disabled={status === "pending"}
-          sx={{ flexGrow: 1, mr: 1 }}
+          className="pl-11 w-full flex-grow border-solid transition border-2 border-teal-900 focus:border-teal-900  focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-amber-500"
+          placeholder="Your best email"
           required
         />
-        <Button
-          variant="contained"
+
+        <button
+          className="ml-3 transition flex-shrink-0 text-sm font-semibold px-3 justify-center border border-transparent bg-teal-900 text-white hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
           type="submit"
           disabled={status === "pending"}
         >
           {cta}
-        </Button>
-      </Box>
+        </button>
+      </div>
 
       {alert && (
         <Alert
@@ -130,7 +134,7 @@ const NewsletterForm = ({
           {alert.message && <>{alert.message}</>}
         </Alert>
       )}
-    </Box>
+    </form>
   );
 };
 

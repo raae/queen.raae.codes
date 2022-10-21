@@ -22,6 +22,7 @@
     "@raae/gatsby-plugin-let-it-snow": "1.0.2",
     "@raae/gatsby-remark-oembed": "0.3.2",
     "@raae/gatsby-theme-mui": "0.1.1",
+    "@tailwindcss/forms": "0.5.3",
     "autoprefixer": "10.4.12",
     "axios": "1.1.2",
     "canvas": "2.10.1",
