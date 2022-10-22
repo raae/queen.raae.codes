@@ -1,8 +1,9 @@
 ---
-title: Supabase + Twitter API + Gatsby = Prune your follows
+title: Supabase + Twitter API + Gatsby = Prune your Follows
 emojii: ⚔️ 🪴
 tags: app, hackathon
 brands: supabase, twitter
+projects: Prune your Follows
 ---
 
 Over the years, I followed way too many people on Twitter, so many that I was actually not allowed to follow any more. There seems to be a magical 5000 limit.

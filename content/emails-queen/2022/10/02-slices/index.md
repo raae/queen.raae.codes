@@ -4,6 +4,7 @@ emojii: 🍕 🍕
 image: ./meme.jpg
 tags: slices, gatsby v5
 peeps: 0xJ05H
+projects: queen.raae.codes
 ---
 
 On Friday's [unauthorized and rum-fueled treasure hunt](https://youtu.be/F0Qs4NrSmBo), we got to play around with the still-not-public Slices alpha.

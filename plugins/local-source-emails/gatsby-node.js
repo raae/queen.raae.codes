@@ -115,7 +115,8 @@ exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
         const tags = tagsToUniqueLowercaseArray(`
            ${markdownNode.frontmatter.tags || ""},
            ${markdownNode.frontmatter.brands || ""},
-           ${markdownNode.frontmatter.peeps || ""}
+           ${markdownNode.frontmatter.peeps || ""},
+           ${markdownNode.frontmatter.projects || ""},
           `).map((tag) => {
           return {
             label: tag,

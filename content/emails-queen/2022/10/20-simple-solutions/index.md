@@ -1,7 +1,8 @@
 ---
 title: Why not go for the simple solution?
 emojii: ⁉️ ⁉️
-tags: database, architecture, slow&steady
+projects: Prune your Follows, Slow&Steady
+tags: database, architecture
 ---
 
 Last week on Slow&Steady, the podcast where we build products in public, [we talked about how the simple solution is often the right solution](https://twitter.com/SlowSteadyPod/status/1582627389950988288?s=20&t=frrX5_RPqFJmSR-UvMm-5A).

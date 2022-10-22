@@ -2,6 +2,7 @@
 title: Add a schema to avoid GraphQL cannot query errors
 emojii: 🧱 🗂
 tags: createSchema
+projects: Prune your Follows
 ---
 
 In yesterday's email, we solved the

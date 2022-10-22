@@ -2,6 +2,7 @@
 title: This week around the Gatsby islands
 emojii: 🏝 🗓
 brands: Xata
+projects: Prune you Follows
 ---
 
 **Happy news:** [Xata](https://xata.io/?utm_campaign=prune&utm_source=email&utm_medium=this-week) is sponsoring us to work on Prune your Follows, meaning we get to make it better and give it a proper launch in early November 🥳

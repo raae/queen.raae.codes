@@ -2,6 +2,7 @@
 title: Using the Gatsby Script component to add a Hopscotch tour
 emojii: 💬 💬
 tags: treasure hunt, Script, external scripts
+projects: Prune your Follows
 brands: Hopscotch
 peeps: SloanCam
 ---

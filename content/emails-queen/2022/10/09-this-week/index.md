@@ -2,6 +2,7 @@
 title: This week around the Gatsby islands
 emojii: 🏝 🗓
 peeps: SloanCam, mirjam_diala
+projects: Prune your Follows
 ---
 
 This week [Cam Sloan](https://twitter.com/SloanCam) climbs onboard, and we'll use his product [Hopscotch](https://hopscotch.club/) to add a product tour to [Prune your follows](https://prune.raae.tech/). I think this will be a fun one!

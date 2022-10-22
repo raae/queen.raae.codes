@@ -2,6 +2,7 @@
 title: Join us for the first show of the season
 emojii: 🏴‍☠️ 📺
 brands: supabase
+projects: Prune you Follows
 ---
 
 Friendly reminder that we are back today with our [unauthorized and rum-fueled treasure hunts](https://www.youtube.com/QueenRaae/live) in the sharky waters around the Gatsby island.

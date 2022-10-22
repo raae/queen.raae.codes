@@ -4,6 +4,7 @@ emojii: 🔐 👤
 tags: Authentication, Twitter
 brands: NextAuth
 peeps: inezabonte
+projects: Prune you Follows
 ---
 
 Oh boy, did we have trouble on yesterday's [unauthorized and rum-fueled treasure hunt](https://youtu.be/UWVsibCXBFg) in the sharky waters around the Gatsby islands 😬

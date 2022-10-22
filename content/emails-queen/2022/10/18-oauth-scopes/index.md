@@ -1,6 +1,7 @@
 ---
 title: Getting "403 Forbidden" responses from the Twitter API?
 emojii: 🔐 📝
+projects: Prune your Follows
 tags: authentication, OAuth2.0
 brands: NextAuth, Twitter
 ---
