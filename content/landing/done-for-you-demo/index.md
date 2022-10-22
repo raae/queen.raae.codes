@@ -26,4 +26,4 @@ Complete with a code repository on GitHub/CodeSandbox, and an engaging video wal
 
 Imagine spending less time on Gatsby support and more time on your product.
 
-<cite>— Queen Raae, Cap'n Ola and Pirate Princess Lillian</cite>
+<cite>Queen Raae, Cap'n Ola and Pirate Princess Lillian</cite>
