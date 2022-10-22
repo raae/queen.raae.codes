@@ -111,14 +111,14 @@ export default function RemarkPage({ data, ...props }) {
                   case "body":
                     return <Prose key={block} html={sectionHtml} />;
                   case "cta":
-                    return <Cta key={block} sx={{ my: "2em" }} {...page.cta} />;
+                    return <Cta key={block} className="mt-6" {...page.cta} />;
                   case "ctas":
                     return (
-                      <Box sx={{ mt: "2em" }}>
+                      <div className="mt-6 space-y-3">
                         {(page.ctas || []).map((cta) => (
-                          <Cta sx={{ mt: "0.5em" }} {...cta} {...props} />
+                          <Cta {...cta} {...props} />
                         ))}
-                      </Box>
+                      </div>
                     );
                   case "form":
                     return (

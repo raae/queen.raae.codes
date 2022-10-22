@@ -38,7 +38,7 @@ const Join = ({ start, end, paymentLink, price, status, deadline }) => {
             label="Save your spot"
             note="or send queen@raae.codes any questions you might have"
             href={paymentLink}
-            sx={{ my: "2em" }}
+            className="mt-6"
           />
 
           <Prose>
