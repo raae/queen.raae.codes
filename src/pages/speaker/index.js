@@ -60,7 +60,7 @@ export default function TalksPage({ data }) {
 
           <Prose html={html} />
 
-          <Cta sx={{ mt: "2em" }} {...cta} />
+          <Cta className="mt-6" {...cta} />
         </PageSection>
 
         <PageSection>

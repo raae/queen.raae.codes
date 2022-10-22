@@ -1,62 +1,28 @@
 import React from "react";
-import { Link } from "gatsby";
-import { Box, Button, Typography } from "@mui/material";
-import { ArrowLongRightIcon as MoreIcon } from "@heroicons/react/20/solid";
+import { ArrowTopRightOnSquareIcon as ExternalLinkIcon } from "@heroicons/react/20/solid";
+import { ArrowLongRightIcon as InternalLinkIcon } from "@heroicons/react/20/solid";
+import { InternalOrExternalLink } from "./link";
 
-export const Cta = ({
-  href,
-  to,
-  label,
-  note,
-  noteTitle,
-  endIcon = <MoreIcon className="h-4" />,
-  ...props
-}) => {
+export const Cta = ({ href, to, label, note, noteTitle, className }) => {
   if (!label) return null;
   if (!href && !to) return null;
 
   return (
-    <Box {...props}>
-      <Box>
-        <Button
-          variant={Boolean(to) ? "outlined" : "contained"}
-          component={Boolean(to) ? Link : "a"}
-          href={href}
-          to={to}
-          endIcon={endIcon}
-        >
-          {label}
-        </Button>
-      </Box>
+    <div className={className}>
+      <InternalOrExternalLink
+        href={href}
+        to={to}
+        className="no-underline inline-flex items-center justify-between border-2 border-solid border-teal-800 px-4 py-2 text-sm text-teal-900 font-bold shadow-sm hover:bg-amber-400/40 focus:outline-none focus:ring-4 focus:ring-teal-500"
+      >
+        {label}
+        {href && <ExternalLinkIcon className="ml-2 -mr-1 h-4" />}
+        {to && <InternalLinkIcon className="ml-2 -mr-1 h-4" />}
+      </InternalOrExternalLink>
+
       {noteTitle && (
-        <Typography
-          variant="caption"
-          color="textPrimary"
-          fontWeight={600}
-          component="p"
-          sx={{
-            pl: "4px",
-            mt: "1.5em",
-            a: { color: "inherit", "&:hover": { textDecoration: "none" } },
-          }}
-        >
-          {noteTitle}
-        </Typography>
+        <p className="text-xs pl-0.5 font-semibold my-2">{noteTitle}</p>
       )}
-      {note && (
-        <Typography
-          variant="caption"
-          color="textPrimary"
-          component="p"
-          sx={{
-            pl: "4px",
-            mt: noteTitle ? "0em" : "0.5em",
-            a: { color: "inherit", "&:hover": { textDecoration: "none" } },
-          }}
-        >
-          {note}
-        </Typography>
-      )}
-    </Box>
+      {note && <p className="text-xs pl-0.5 my-2">{note}</p>}
+    </div>
   );
 };
