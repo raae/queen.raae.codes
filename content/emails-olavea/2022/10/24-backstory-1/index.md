@@ -8,7 +8,7 @@ Ahoy skill-builder pirate of Jamstackia!
 
 We looked into "my Again Logbook 📕" in my last letter and today I'll start off the backstory of my plugin workbook. It's just a start and you can start thinking about:
 
-How writing your own backstory to your skill-bu ayway.
+How writing your own backstory could be good for your motivation.
 
 ## HOW Jamstack programming used to be illegal back in the good old, OLD times
 
