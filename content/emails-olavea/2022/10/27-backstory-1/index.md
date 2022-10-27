@@ -2,11 +2,11 @@
 title: Didn't you know Jamstack programming used to be illegal? Huh?
 ---
 
-Ahoy skill-builder pirate of Jamstackia!
+Ahoy, skill-builder pirate of Jamstackia!
 
 👋😸🏴‍☠️
 
-We looked into "my Again Logbook 📕" in my last letter and today I'll start off the backstory of my plugin workbook. It's just a start and you can start thinking about:
+We looked into "my Again Logbook 📕" in my last letter, and today I'll start with the backstory of my plugin workbook. It's just a start, and you can start thinking about:
 
 How writing your own backstory could be good for your motivation.
 
@@ -38,18 +38,14 @@ Lance-Lotta (13) is programming on her illegal Gatsby plugin.
 
 Yo-Ho-Ho and a bottle of GO! 😺
 
-## TODO
+## Your TODO
 
 Write up a sentence about your idea for your backstory and email it to Lillian (7 🏴‍☠️👸) and me, that would help us a lot!
 
- 🏴‍☠️😺👍
-
+🏴‍☠️😺👍  
 ARR!
 
 &nbsp;
 
-Stay piraty 🏴‍☠️😺👍 and keep skill-builing!
-
-
+Stay piraty 🏴‍☠️😺👍 and keep practicing!  
 Cap'n Ola Vea
-
