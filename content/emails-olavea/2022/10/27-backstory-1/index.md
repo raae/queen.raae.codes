@@ -16,7 +16,7 @@ You probably didn't know that, but soon you will.
 
 ## A long time ago, on a Bridge far, far away ....
 
-[a-long-time](a-long-time.png)
+![a-long-time](./a-long-time.jpg)
 
 Lance-Lotta (13) is programming on her illegal Gatsby plugin.
 
@@ -26,13 +26,13 @@ Lance-Lotta (13) is programming on her illegal Gatsby plugin.
 
 «Sourcery!? You KNOW how illegal Jamstack sourcery is under the city's new anti-witchcraft laws.» Says Lizabeth.
 
-[lance-lotta](lance-lotta-1.1.png)
+![lance-lotta](./lance-lotta-1.1.jpg)
 
 «Relax, I'll never get caught» Says Lance-Lotta.
 
 «You'll never get caught?! Like you didn't get caught last week when you "borrowed" Merlina's yellow submarine and crashed it into our bridge? Or like that time you....» Says Lizabeth.
 
-[sinking submarine](sinking-submarine-1.png)
+![sinking submarine](./sinking-submarine-1.jpg)
 
 «Oh DO shut up or else.» Says Lance-Lotta.
 
