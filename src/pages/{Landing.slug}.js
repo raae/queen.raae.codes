@@ -2,8 +2,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import { Box } from "@mui/material";
-
 import SiteHeader from "../components/site-header";
 import PageHead from "../components/page-head";
 import PageSection, { PageSectionHeader } from "../components/page-section";
@@ -130,9 +128,12 @@ export default function RemarkPage({ data, ...props }) {
                     );
                   case "image":
                     return (
-                      <Box sx={{ my: "2em" }} key={block}>
-                        <GatsbyImage image={gatsbyImage} alt={imageAlt} />
-                      </Box>
+                      <GatsbyImage
+                        className="pt-8"
+                        image={gatsbyImage}
+                        alt={imageAlt}
+                        key={block}
+                      />
                     );
                   case "emails":
                     return <Emails key={block} more className="mt-12" />;
