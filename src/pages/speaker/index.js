@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Typography, Box, Button } from "@mui/material";
 import { ArrowTopRightOnSquareIcon as ExternalIcon } from "@heroicons/react/20/solid";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
@@ -9,7 +8,7 @@ import SiteHeader from "../../components/site-header";
 import PageSection, { PageSectionHeader } from "../../components/page-section";
 import Talk from "../../components/talk";
 import Prose from "../../components/prose";
-import { Cta } from "../../components/cta";
+import { CtaButton, CtaSection } from "../../components/cta";
 import { Newsletter } from "../../components/newsletter";
 
 const aggregateTalkData = (orginalTalk) => {
@@ -60,7 +59,7 @@ export default function TalksPage({ data }) {
 
           <Prose html={html} />
 
-          <Cta className="mt-6" {...cta} />
+          <CtaSection className="mt-6" {...cta} />
         </PageSection>
 
         <PageSection>
@@ -72,23 +71,18 @@ export default function TalksPage({ data }) {
             </a>
           </Prose>
 
-          <Typography
+          <a
             variant="caption"
             color="textPrimary"
-            component="a"
+            className="mt-2 pl-1 block text-xs hover:decoration-amber-600 text-inherit group transition"
             href={teaser.recording}
-            sx={{
-              mt: "1em",
-              pl: "4px",
-              display: "block",
-              color: "inherit",
-              "&:hover": { textDecoration: "none" },
-            }}
+            target="_blank"
+            rel="noreferrer"
           >
             {teaser.note}
 
-            <ExternalIcon className="h-4 ml-1.5 fill-amber-600 opacity-30 inline-block translate-y-1" />
-          </Typography>
+            <ExternalIcon className="h-4 ml-1.5 fill-amber-600 opacity-30 inline-block translate-y-1 transition-opacity group-hover:opacity-100" />
+          </a>
         </PageSection>
 
         <PageSection component="section">
@@ -97,26 +91,15 @@ export default function TalksPage({ data }) {
             const talk = aggregateTalkData(data);
             const { title } = talk;
             return (
-              <Box key={index} sx={{ mt: "3em" }}>
-                <Typography variant="h4" component="h3" gutterBottom>
-                  {title}
-                </Typography>
+              <article key={index}>
+                <h3 className="mb-1 mt-9 text-lg font-extrabold">{title}</h3>
                 <Talk {...talk} />
-              </Box>
+              </article>
             );
           })}
-          <Button
-            href={archive.moreHref}
-            component="a"
-            target="_blank"
-            rel={"noreferrer"}
-            endIcon={<ExternalIcon className="h-4 opacity-80" />}
-            variant="outlined"
-            fullWidth
-            sx={{ mt: "2em" }}
-          >
+          <CtaButton href={archive.moreHref} className="mt-8 w-full">
             {archive.more}
-          </Button>
+          </CtaButton>
         </PageSection>
         <PageSection component="footer">
           <Newsletter />
