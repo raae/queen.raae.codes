@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import { Typography } from "@mui/material";
+import clsx from "clsx";
 
 export const PageSectionHeader = ({
   badge,
@@ -19,59 +19,52 @@ export const PageSectionHeader = ({
 
   return blocks.map((block, index) => {
     const { children, type, path } = block;
-    const blockProps = {
-      component: hLevel + index <= 2 ? `h${hLevel + index}` : "p",
-    };
     const titleVariant = `h${hLevel}`;
-    const leadVariant = `subtitle${hLevel}`;
+    const Component = hLevel + index <= 2 ? `h${hLevel + index}` : "p";
 
     switch (type) {
       case "badge":
         return (
-          <Typography
+          <Component
             key={type}
-            variant="overline"
-            color="primary"
-            {...blockProps}
-            my="1rem"
+            className="text-xs font-semibold uppercase leading-none text-teal-900 my-7"
           >
             {children}
-          </Typography>
+          </Component>
         );
       case "title":
         return (
-          <Typography
+          <Component
             key={type}
-            variant={titleVariant}
-            {...blockProps}
-            my="0.75em"
+            className={clsx(
+              titleVariant === "h1" &&
+                "text-[2.75rem] font-black leading-none my-9",
+              titleVariant === "h2" && "text-3xl font-black leading-none my-8"
+            )}
           >
             {titlePath ? (
-              <Typography
-                component={Link}
-                variant={titleVariant}
+              <Link
                 to={path}
-                color="inherit"
-                sx={{ textDecoration: "none" }}
+                className="text-inherit decoration-transparent transition hover:decoration-amber-600"
               >
                 {children}
-              </Typography>
+              </Link>
             ) : (
               children
             )}
-          </Typography>
+          </Component>
         );
       case "lead":
         return (
-          <Typography key={type} variant={leadVariant} {...blockProps} my="1em">
+          <Component key={type} className="text-xl font-bold leading-snug my-4">
             {children}
-          </Typography>
+          </Component>
         );
       case "tagline":
         return (
-          <Typography key={type} {...blockProps} my="1em">
+          <Component key={type} className="my-2">
             {children}
-          </Typography>
+          </Component>
         );
 
       default:
