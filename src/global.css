@@ -3,7 +3,12 @@
 @tailwind utilities;
 
 body {
+  @apply bg-orange-300;
   @apply selection:bg-amber-300;
+}
+
+#___gatsby {
+  @apply bg-[#fcedd8];
 }
 
 .notice {

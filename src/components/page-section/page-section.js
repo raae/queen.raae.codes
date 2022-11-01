@@ -1,29 +1,12 @@
 import * as React from "react";
-import { Box, Container } from "@mui/material";
 
-export const PageSection = ({
-  children,
-  component = "section",
-  maxWidth = "md",
-  ...props
-}) => {
+export const PageSection = ({ children, component = "section", ...props }) => {
+  const Component = component || "section";
   return (
-    <Box
-      {...props}
-      component={component || "section"}
-      sx={{
-        bgcolor: "background.paper",
-        py: 8,
-        "&:nth-child(even)": {
-          bgcolor: "background.default",
-        },
-        "& > * > *": {
-          maxWidth: "34rem",
-        },
-        ...props.sx,
-      }}
-    >
-      <Container maxWidth={maxWidth}>{children}</Container>
-    </Box>
+    <Component {...props} className="py-12 px-6 bg-[#fffaf0] even:bg-[#fcedd8]">
+      <div className="container mx-auto max-w-2xl [&>*]:max-w-xl">
+        {children}
+      </div>
+    </Component>
   );
 };
