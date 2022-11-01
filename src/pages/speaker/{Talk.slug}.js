@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Box } from "@mui/material";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import SiteHeader from "../../components/site-header";
@@ -60,9 +59,7 @@ export default function TalkPage({ data }) {
           <Talk {...talk} />
 
           {gatsbyImage && (
-            <Box sx={{ my: "2em" }}>
-              <GatsbyImage image={gatsbyImage} alt={imageAlt} />
-            </Box>
+            <GatsbyImage className="mt-4" image={gatsbyImage} alt={imageAlt} />
           )}
         </PageSection>
         {html && (
