@@ -1,16 +1,8 @@
 import React, { useEffect, useState, useRef, useMemo } from "react";
-import Fuse from "fuse.js";
 import { graphql, navigate } from "gatsby";
 import { debounce, set } from "lodash";
-
-import {
-  TextField,
-  InputAdornment,
-  IconButton,
-  Typography,
-} from "@mui/material";
-
-import { XCircleIcon as ResetIcon } from "@heroicons/react/20/solid";
+import clsx from "clsx";
+import Fuse from "fuse.js";
 
 import PageHead from "../../components/page-head";
 import SiteHeader from "../../components/site-header";
@@ -79,31 +71,26 @@ export default function SearchPage(props) {
       <SiteHeader {...props} />
       <main>
         <PageSection component="header">
-          <TextField
-            autoFocus={!term}
-            fullWidth
-            shrink
-            label={TITLE}
-            value={input}
-            InputLabelProps={{ shrink: true }}
+          <label htmlFor="search" className="sr-only">
+            Email
+          </label>
+          <input
+            autoFocus={true}
+            type="search"
+            name="search"
+            id="search"
+            className={clsx(
+              "font-medium w-full flex-grow border-solid transition border-2 border-teal-900",
+              "focus:border-amber-500 focus-within:ring-1 focus-within:ring-amber-500"
+            )}
+            placeholder="Type to search..."
             onChange={(event) => setInput(event.target.value)}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="reset search"
-                    onClick={() => navigate(uri)}
-                    edge="end"
-                  >
-                    {input && <ResetIcon className="h-5" />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
           />
 
           {results.length === 0 && term && (
-            <Typography sx={{ mt: 4 }}>No results...</Typography>
+            <p className="mt-12 pl-1 text-lg font-bold">
+              No results for <em>{term}</em>
+            </p>
           )}
           {results.length > 0 && (
             <Emails
