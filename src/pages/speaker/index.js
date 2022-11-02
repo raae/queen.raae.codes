@@ -28,7 +28,6 @@ const aggregatePageData = (data) => {
 
   page.gatsbyImage = getImage(page.image);
   page.imageSrc = page.gatsbyImage?.images?.fallback.src;
-  console.log(page.gatsbyImage, page.image);
   return page;
 };
 

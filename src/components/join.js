@@ -4,7 +4,7 @@ import { IconList, IconListItem } from "./icon-list";
 import Prose from "./prose";
 import { DateText } from "./text";
 
-import { Cta } from "../components/cta";
+import { CtaSection } from "../components/cta";
 
 const Join = ({ start, end, paymentLink, price, status, deadline }) => {
   return (
@@ -34,7 +34,7 @@ const Join = ({ start, end, paymentLink, price, status, deadline }) => {
             {price && <IconListItem icon="price">{price}</IconListItem>}
           </IconList>
 
-          <Cta
+          <CtaSection
             label="Save your spot"
             note="or send queen@raae.codes any questions you might have"
             href={paymentLink}

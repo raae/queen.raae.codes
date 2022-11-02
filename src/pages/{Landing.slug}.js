@@ -12,7 +12,7 @@ import Join from "../components/join";
 
 import Webinar from "../components/webinar";
 
-import { Cta } from "../components/cta";
+import { CtaSection } from "../components/cta";
 import { Newsletter } from "../components/newsletter";
 import { Emails } from "../components/emails";
 import Noteworthy from "../components/noteworthy";
@@ -109,12 +109,14 @@ export default function RemarkPage({ data, ...props }) {
                   case "body":
                     return <Prose key={block} html={sectionHtml} />;
                   case "cta":
-                    return <Cta key={block} className="mt-6" {...page.cta} />;
+                    return (
+                      <CtaSection key={block} className="mt-6" {...page.cta} />
+                    );
                   case "ctas":
                     return (
                       <div className="mt-6 space-y-3">
                         {(page.ctas || []).map((cta) => (
-                          <Cta {...cta} {...props} />
+                          <CtaSection {...cta} {...props} />
                         ))}
                       </div>
                     );
