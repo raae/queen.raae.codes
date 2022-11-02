@@ -12,3 +12,7 @@
   tags: oauth
 - url: https://www.npmpeer.dev/
   tags: npm, version, package
+- url: https://typesense.org/
+  tags: search
+- url: https://fusejs.io/
+  tags: search
