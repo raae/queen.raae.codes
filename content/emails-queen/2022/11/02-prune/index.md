@@ -1,5 +1,5 @@
 ---
-title: Prune you Follows almost in Beta
+title: Prune your Follows almost in Beta
 emojii: ⚔️ 🚀
 projects: Prune your Follows
 brands: xata
