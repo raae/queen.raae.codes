@@ -22,6 +22,7 @@ const FORM_ID = {
   MPYA: "2846086",
   REACTNORWAY: "3380548",
   DEVTASKCHEATSHEET: "3634549",
+  JAMSTACK: "3762408",
 };
 
 export const addSubscriber = async ({ formKey, email, tags }) => {

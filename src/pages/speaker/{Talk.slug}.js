@@ -69,6 +69,7 @@ export default function TalkPage({ data }) {
         )}
         {form && (
           <PageSection component="aside">
+            <PageSectionHeader {...form} />
             <Newsletter sx={{ my: "1em" }} {...form} />
           </PageSection>
         )}
@@ -114,6 +115,7 @@ export const query = graphql`
             }
           }
           form {
+            title
             cta
             formKey: key
             message
