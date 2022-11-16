@@ -23,7 +23,7 @@ exports.typeDefs = `
     author: String
     tags: [EmailTag]
     date: Date @dateformat
-    emojii: String @extractChildMarkdownRemarkField
+    emojii: String @extractChildMarkdownRemarkField(default: "👑 📝")
     html: String @extractChildMarkdownRemarkField
     description: String @extractChildMarkdownRemarkField(alternative: "excerpt")
     ogImage: String! @ogImage
