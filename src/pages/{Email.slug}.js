@@ -56,15 +56,13 @@ export function Head({ data, ...props }) {
 }
 
 export default function EmailPage({ data }) {
-  const { date, dateISO, ogImage, title, emojii, tags, html, relatedEmails } =
+  const { date, dateISO, ogImage, title, tags, html, relatedEmails } =
     data.email || {};
 
   const pitch = data.landing?.childMarkdownRemark?.frontmatter?.seo || {};
   pitch.cta = data.landing?.childMarkdownRemark?.frontmatter?.cta || {};
   pitch.cta.title = data.landing?.childMarkdownRemark?.frontmatter?.badge;
   pitch.cta.slug = data.landing?.slug;
-
-  const emojis = emojii.split(" ");
 
   return (
     <>
@@ -78,14 +76,7 @@ export default function EmailPage({ data }) {
             ]}
           />
 
-          <PageSectionHeader
-            hLevel={1}
-            title={
-              <>
-                {title}&nbsp;&nbsp;{emojis[0]}&nbsp;{emojis[1]}
-              </>
-            }
-          />
+          <PageSectionHeader hLevel={1} title={<>{title}</>} />
 
           {tags && (
             <aside>

@@ -17,7 +17,7 @@ export function Emails({ emails, more, variant, limit, ...props }) {
 
   const items = (emails?.nodes || emails || data.latestEmails.nodes)
     .slice(0, limit)
-    .map(({ title, description, slug, emojii, date, tags }) => {
+    .map(({ title, description, slug, date, tags }) => {
       return {
         to: slug,
         primary: <>{parse(title)}</>,
@@ -32,12 +32,7 @@ export function Emails({ emails, more, variant, limit, ...props }) {
             </aside>
           </>
         ),
-        secondary: (
-          <>
-            <span className="mr-2.5 text-base">{emojii}</span>
-            {date}
-          </>
-        ),
+        secondary: <>{date}</>,
       };
     });
 
@@ -51,7 +46,6 @@ export const query = graphql`
     title
     description
     author
-    emojii
     slug
     date(formatString: "MMMM Do, YYYY")
     tags {
