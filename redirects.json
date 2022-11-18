@@ -46,5 +46,9 @@
   {
     "fromPath": "/jam/",
     "toPath": "/speaker/2022-11-08-jamstackconf/"
+  },
+  {
+    "fromPath": "/modern/",
+    "toPath": "/speaker/2022-12-17-modern-frontends/"
   }
 ]
