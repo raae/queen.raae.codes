@@ -48,7 +48,7 @@ You might even learn a thing or two...
    - `[LIVE NOW]` after emojis
    - `➽ Better quality and conversation on YouTube <YT link/>` to the end
 
-### Stream templates
+### YouTube Template
 
 #### Title
 
@@ -73,6 +73,28 @@ Queen Raae is a seasoned web developer who loves duct-taping together side proje
 # More from Queen Raae
 
 - [Daily emails from the Queen and cap'n Ola on how to get the most out out Gatsby](https://queen.raae.codes/emails/?utm_source=youtube&utm_campaign=description&utm_content=pirate-show)
+```
+
+### Event Template (when guests)
+
+```md
+On this steam we will <topic of the stream>.
+
+<More info>
+
+While waiting for thing to build, bugs to be fixed etc. Ola will ask you questions about your life/work. If you have any pets we would love to see them.
+
+--- Practical ---
+
+We stream on StreamYard, no login needed - just head on over to <stream link> 5-10 minutes before the hour.
+
+It's usually pretty chaotic on our end for those minutes, as we prep the family to go live 🤪
+
+If you want more information, they have a guest help article you may read: https://support.streamyard.com/hc/articles/360043291612.
+
+We also recommend you open the stream on YouTube <youtube link> in a seperate and MUTED tab so you can participate in the chat if/when needed.
+
+There is a private chat in Streamyard if you want to tell us something while streaming, or need to send us links to open.
 ```
 
 ### Thumbnail
