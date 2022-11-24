@@ -1,6 +1,7 @@
 ---
 title: Remember to validate your Gatsby Plugin options
 emojii: ⚙️ 📐
+tags: gatsby plugin, gatsby-plugin-let-it-snow
 ---
 
 When you make a Gasby Plugin make sure to include a schema for your options. By doing so, Gatsby will verify that the plugin is configured correctly and stop everything if it is not!

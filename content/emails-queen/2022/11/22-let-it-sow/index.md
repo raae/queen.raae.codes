@@ -1,5 +1,5 @@
 ---
-title: Let it snow, on your Gatsby site that is
+title: Let it snow, on your Gatsby site that is!
 tags: gatsby-plugin-let-it-snow
 ---
 

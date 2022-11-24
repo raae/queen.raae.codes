@@ -1,7 +1,7 @@
 ---
 title: How to test schema defaults for a Gatsby Plugins
 emojii: ✅ 🧪
-tags: testing, plugins, jest
+tags: testing, gatsby plugin, jest
 ---
 
 The recommended way to test your `pluginSchemaOption` function is to use `testPluginOptionsSchema` from the `gatsby-plugin-utils` package.
