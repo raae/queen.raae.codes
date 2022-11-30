@@ -4,6 +4,7 @@ tags: Jamstack, Gatsby Plugins
 brands: Netlify
 event: JamstackConf 2022
 eventUrl: https://jamstackconf.com/
+recording: https://youtu.be/YFCFvzRuckg
 image: ./speaker-image-jam.png
 imageAlt: JamstackConf spaker cover
 form:
