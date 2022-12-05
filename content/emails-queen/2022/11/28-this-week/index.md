@@ -21,7 +21,7 @@ What am I even talking about?
 
 ## Our streaming schedule this week
 
-🔴 🏴‍☠️ [Seeding React Query with Gatsby SSR Data · #GatsbyJS Deep&nbsp;Dive](https://youtu.be/SeXKjKKHP2c)\
+🔴 🏴‍☠️ [Pagination with React Query · #PruneYourFollows Treasure&nbsp;Hunt](https://youtu.be/SeXKjKKHP2c)\
 — Thursday, December 1st @ 19:00 CET
 
 I said last week was the last, but here comes another one.
