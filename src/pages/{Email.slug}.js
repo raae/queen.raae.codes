@@ -12,6 +12,7 @@ import { Newsletter } from "../components/newsletter";
 import { Emails } from "../components/emails";
 import { Badge } from "../components/badge";
 import PageHead from "../components/page-head";
+import { ArrowRightIcon } from "@heroicons/react/20/solid";
 
 const IS_PROD = process.env.NODE_ENV === "production";
 
@@ -87,6 +88,19 @@ export default function EmailPage({ data }) {
               ))}
             </aside>
           )}
+
+          <aside className="bg-[#ff5722] px-4 py-1 rounded-sm shadow-sm mt-12">
+            <p className="text-orange-50 text-sm font-medium leading-snug">
+              <ArrowRightIcon className="w-3 h-3 mr-1 inline-block" /> Check out
+              our Prune your Follows launch today on{" "}
+              <a
+                href="https://www.producthunt.com/posts/prune-your-follows-a-twitter-tool"
+                className="text-orange-50 underline-offset-2"
+              >
+                Product Hunt
+              </a>
+            </p>
+          </aside>
 
           <Prose mt="3em" html={html} />
 
