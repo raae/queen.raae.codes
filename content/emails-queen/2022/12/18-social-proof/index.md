@@ -3,7 +3,7 @@ title: Source app usage for social proof on a Gatsby website
 brands: xata, tailwind, gatsby
 ---
 
-On this week's [unauthorized and rum-fueled treasure hunt](https://youtu.be/7FiUfiyJXt8) in the sharky waters around the Gatsby we added we added usage stats to [Prune your Follows](https://pruneyourfollows.com/).
+On this week's [unauthorized and rum-fueled treasure hunt](https://youtu.be/qAyaQaPIQCA) in the sharky waters around the Gatsby we added we added usage stats to [Prune your Follows](https://pruneyourfollows.com/).
 
 ![Social proof section](./social-proof-section.png)
 
@@ -13,8 +13,8 @@ It's one way to show "social proof". Other ways are testimonials, reviews, the l
 
 ## The How
 
-1️⃣ We queried Xata, our serverless database, for aggregated data,
-2️⃣ created a Gatsby data node to hold the information,
+1️⃣ We queried Xata, our serverless database, for aggregated data,\
+2️⃣ created a Gatsby data node to hold the information,\
 3️⃣ and used a static Gatsby query to get hold of the information in our component.
 
 ```js
