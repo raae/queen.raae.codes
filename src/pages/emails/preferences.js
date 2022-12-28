@@ -7,7 +7,7 @@ import PageSection, {
   PageSectionHeader,
 } from "../../components/page-section";
 
-const BADGE = "Daily Gatsby Treasures";
+const BADGE = "Emails";
 const TITLE = "Preferences";
 const DESCRIPTION = "Your preferences have been saved 📩";
 

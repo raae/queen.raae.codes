@@ -8,7 +8,7 @@ import PageSection, {
 } from "../../components/page-section";
 import { Emails } from "../../components/emails";
 
-const BADGE = "Daily Gatsby Treasures";
+const BADGE = "Emails";
 const TITLE = "Welcome";
 const DESCRIPTION = <>You'll hear from us shortly&nbsp;📬</>;
 const META_DESCRIPTION = "You'll hear from us shortly 📬";
@@ -34,7 +34,7 @@ const EmailsWelcome = () => {
           <PageSectionHeader title={DESCRIPTION} hLevel={1} />
         </PageSection>
         <PageSection>
-          <PageSectionHeader title="Latest emails" />
+          <PageSectionHeader title="Latest Gatsby Emails" />
           <Emails more />
         </PageSection>
       </main>

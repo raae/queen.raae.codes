@@ -27,3 +27,10 @@ sections:
 ---
 
 I am a developer, [speaker](/speaker) and [streamer](https://www.youtube.com/QueenRaae) here to guide you through the sharky waters around the Gatsby islands together with my piratical family&nbsp;🏴‍☠️
+
+<aside class="notice">
+
+**Here because of Prune your Follows?** Not Gatsby?\
+[Sign up for news](/emails/lillylabs) about side projects and other shenanigans!
+
+</aside>

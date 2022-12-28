@@ -33,7 +33,7 @@ export default function EmailsPage({ data }) {
             lead={DESCRIPTION}
             hLevel={1}
           />
-          <Newsletter mt="2em" cta="Yes, please!" formKey="queen" />
+          <Newsletter mt="2em" cta="Yes, please!" message="" tagline="" />
         </PageSection>
 
         <PageSection component="section">
