@@ -2,13 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-orange-300;
-  @apply selection:bg-amber-300;
-}
+@layer base {
+  body {
+    @apply bg-orange-300;
+    @apply selection:bg-amber-300;
+    @apply text-brown-900;
+  }
 
-#___gatsby {
-  @apply bg-[#fcedd8];
+  #___gatsby {
+    @apply bg-[#fcedd8];
+  }
 }
 
 .notice {

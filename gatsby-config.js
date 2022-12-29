@@ -96,7 +96,6 @@ module.exports = {
         includedDomains: `queen.raae.codes`,
       },
     },
-    `@raae/gatsby-theme-mui`,
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-react-svg`,

@@ -81,7 +81,7 @@ export default function EmailPage({ data }) {
           <PageSectionHeader hLevel={1} title={<>{title}</>} />
 
           {tags && (
-            <aside>
+            <aside className="space-x-2">
               {tags.map(({ label, slug }) => (
                 <Badge component={Link} key={label} to={slug}>
                   {label}
@@ -90,7 +90,7 @@ export default function EmailPage({ data }) {
             </aside>
           )}
 
-          <Prose mt="3em" html={html} />
+          <Prose className="mt-12" html={html} />
 
           {!IS_PROD && ogImage && (
             <Prose>

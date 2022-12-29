@@ -27,7 +27,7 @@ export const PageSectionHeader = ({
         return (
           <Component
             key={type}
-            className="text-xs font-semibold uppercase leading-none text-teal-900 my-7"
+            className="text-xs uppercase leading-none text-teal-900 my-7"
           >
             {children}
           </Component>
@@ -38,14 +38,15 @@ export const PageSectionHeader = ({
             key={type}
             className={clsx(
               titleVariant === "h1" &&
-                "text-[2.75rem] font-black leading-none my-9",
-              titleVariant === "h2" && "text-3xl font-black leading-none my-8"
+                "text-[2.75rem] font-black leading-none my-9 text-brown-900",
+              titleVariant === "h2" &&
+                "text-3xl font-black leading-none my-8 text-brown-900"
             )}
           >
             {titlePath ? (
               <Link
                 to={path}
-                className="text-inherit decoration-transparent transition hover:decoration-amber-600"
+                className="text-inherit underline decoration-transparent transition  hover:decoration-amber-600"
               >
                 {children}
               </Link>
@@ -56,13 +57,16 @@ export const PageSectionHeader = ({
         );
       case "lead":
         return (
-          <Component key={type} className="text-xl font-bold leading-snug my-4">
+          <Component
+            key={type}
+            className="text-lg font-medium leading-snug my-4 text-brown-900"
+          >
             {children}
           </Component>
         );
       case "tagline":
         return (
-          <Component key={type} className="my-2">
+          <Component key={type} className="my-2 text-brown-900">
             {children}
           </Component>
         );
