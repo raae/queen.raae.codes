@@ -71,6 +71,7 @@ export default function EmailPage({ data }) {
       <main>
         <PageSection component="article">
           <PageSectionBreadcrumbs
+            className="mt-4"
             items={[
               { label: "Daily Gatsby Treasures", to: "/emails/" },
               { label: <time timedate={dateISO}>{date}</time> },

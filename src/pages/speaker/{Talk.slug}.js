@@ -51,6 +51,7 @@ export default function TalkPage({ data }) {
       <main>
         <PageSection component="header">
           <PageSectionBreadcrumbs
+            className="mt-4"
             items={[{ label: badge, to: "../" }, { label: event }]}
           />
 

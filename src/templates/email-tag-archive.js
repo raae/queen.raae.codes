@@ -35,6 +35,7 @@ export default function EmailsPage(props) {
       <main>
         <PageSection component="article">
           <PageSectionBreadcrumbs
+            className="mt-4"
             items={[
               { label: "Daily Gatsby Treasures", to: "/emails/" },
               { label: pageContext.tagLabel },
