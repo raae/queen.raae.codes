@@ -43,7 +43,7 @@ export function Head(props) {
 }
 
 export default function SearchPage(props) {
-  const { data, path, uri, term } = props;
+  const { data, path, term } = props;
 
   const fuseRef = useRef(new Fuse(data.allEmail.nodes, FUSE_OPTIONS));
   const [input, setInput] = useState(term || "");

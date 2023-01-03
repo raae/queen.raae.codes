@@ -24,8 +24,8 @@ export const PageSectionBreadcrumbs = ({
             key={index}
             to={to}
             className={clsx(
-              "text-xs font-semibold uppercase leading-none no-underline inline-block group",
-              isLast ? "text-inherit" : "text-teal-900"
+              "text-xs uppercase leading-none inline-block group",
+              isLast ? "text-brown-900 font-light" : "text-teal-900 font-base"
             )}
           >
             <span className={clsx(to && "group-hover:underline")}>{label}</span>

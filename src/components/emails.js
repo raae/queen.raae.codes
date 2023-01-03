@@ -25,7 +25,7 @@ export function Emails({ emails, more, variant, limit, ...props }) {
           <>
             <p className="my-2 text-sm">{parse(description)}</p>
 
-            <aside className="my-0">
+            <aside className="my-0 space-x-2">
               {tags.map(({ label }) => (
                 <Badge key={label}>{parse(label)}</Badge>
               ))}
