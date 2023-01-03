@@ -17,11 +17,9 @@
   },
   "dependencies": {
     "@heroicons/react": "2.0.12",
-    "@mui/material": "5.10.9",
     "@raae/gatsby-plugin-fathom": "0.0.4",
     "@raae/gatsby-plugin-let-it-snow": "1.0.2",
     "@raae/gatsby-remark-oembed": "0.3.2",
-    "@raae/gatsby-theme-mui": "0.1.1",
     "@tailwindcss/forms": "0.5.3",
     "@tailwindcss/typography": "0.5.8",
     "autoprefixer": "10.4.12",
