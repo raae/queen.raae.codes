@@ -31,7 +31,7 @@ export default function FilterPage(props) {
 
 The path `/app/filter/unfollowed` in the above example prints out "Your selected filter is unfollowed" twice as I wanted to show that the selected filter is available both in `props.filter` and `props.params.filter`.
 
-To add pagination, we need to add another level in our file system:
+For pagination, we need to add another level in our file system:
 
 ```jsx
 // ./src/pages/app/filter/[filter]/[...page].js 👈👈👈
@@ -50,17 +50,18 @@ export default function FilterPage(props) {
 }
 ```
 
-The path `/app/filter/unpopular` in the above example prints out "Your selected filter is unpopular, and your selected page is" while `/app/filter/overactive/3` gives us "Your selected filter is overactive, and your selected page is 3".
+- `/app/filter/unpopular` => "Your selected filter is unpopular, and your selected page is"
+- `/app/filter/overactive/3` => "Your selected filter is overactive, and your selected page is 3"
 
-BTW: These values are strings (or undefined), so it might be a good idea to convert the `page` into a `pageIndex` right away:
+BTW: These values are strings (or undefined), so it might be a good idea to convert the `page` into a `pageIndex` right away and add a sensible default:
 
 ```jsx
-// ./src/pages/app/filter/[filter]/[...page].js 👈👈👈
+// ./src/pages/app/filter/[filter]/[...page].js
 
 import React from "react";
 
 export default function FilterPage(props) {
-  const pageIndex = props.page ? parseInt(props.page) : 0;
+  const pageIndex = props.page ? parseInt(props.page) : 0; 👈👈👈
   return (
     <main>
       <p>
@@ -72,7 +73,11 @@ export default function FilterPage(props) {
 }
 ```
 
-This also gives us a nice default. This time, the path `/app/filter/unpopular` will print "Your selected filter is unpopular, and your selected page is 0".
+With the above changes:
+
+- `/app/filter/unpopular` => "Your selected filter is unpopular, and your selected page is 0"
 
 All the best,\
 Queen Raae
+
+PS: There is a follow up showing [pagination in tandem with React Query](/emails/2023-01-04-react-query-pagination/)
