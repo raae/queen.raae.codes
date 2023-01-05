@@ -105,7 +105,14 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-gatsby-cloud`,
+    {
+      resolve: `gatsby-plugin-gatsby-cloud`,
+      options: {
+        headers: {
+          "/*": ["Referrer-Policy: strict-origin-when-cross-origin"],
+        },
+      },
+    },
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
