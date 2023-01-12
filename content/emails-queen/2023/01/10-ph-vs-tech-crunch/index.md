@@ -4,9 +4,11 @@ title: Did it drive traffic? Product Hunt vs. Tech Crunch
 
 Yes, in roughly equal amounts. But of course, without a Product Hunt, there would probably not have been a Tech Crunch article.
 
+[Prune your Follows](https://pruneyourfollows.com/) came in as the 13th product of the day, showing that even when missing the elusive top 10, a Product Hunt launch can still have an add-on effect.
+
 [![Full analytics for the last 30 days](./analytics-both.png)](https://app.usefathom.com/share/lfdkntld/pruneyourfollows.com)
 
-Things change a little by looking at the traffic directly from the two sources. Product Hunt does not have much of a long tale, but it seems Tech Crunch does.
+Things change a little by looking at the traffic directly from the two sources. Product Hunt does not have much of a long tale, but it seems Tech Crunch might.
 
 [![Product Hunt Traffic](./product-hunt.png)](https://app.usefathom.com/share/lfdkntld/pruneyourfollows.com)
 
