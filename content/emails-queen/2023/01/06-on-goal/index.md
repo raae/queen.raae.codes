@@ -43,5 +43,5 @@ export function Footer() {
 }
 ```
 
-All the best,  
+All the best,\
 Queen Raae

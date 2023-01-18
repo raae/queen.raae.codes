@@ -57,5 +57,5 @@ If "capturing the page number using the Gatsby File System Route API" made no se
 
 &nbsp;
 
-All the best,  
+All the best,\
 Queen Raae

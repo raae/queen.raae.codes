@@ -26,7 +26,7 @@ Current status:
 
 &nbsp;
 
-All the best,  
+All the best,\
 Queen Raae
 
 **PS:** You may play with the [analytics yourself on Fathom](https://app.usefathom.com/share/lfdkntld/pruneyourfollows.com)

@@ -44,7 +44,7 @@ And voila, I finally saw referrer information from [pruneyourfollows.com](https:
 
 &nbsp;
 
-All the best,  
+All the best,\
 Queen Raae
 
 &nbsp;

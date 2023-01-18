@@ -29,5 +29,5 @@ It's hitting harder than I thought it would, let's just leave it at that 🤪
 
 &nbsp;
 
-All the best,  
+All the best,\
 Queen Raae
