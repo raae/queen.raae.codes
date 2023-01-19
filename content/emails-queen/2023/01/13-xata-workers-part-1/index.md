@@ -85,7 +85,7 @@ export default function useSearch({ search }) {
 
 As mentioned, this code is incomplete, as we need to filter the accounts by the authenticated user.
 
-Sign up for an email reminder to ensure you catch the next stream, where we'll try to make that happen.
+Sign up for an [email reminder](/emails/reminders/) to ensure you catch the next stream, where we'll try to make that happen.
 
 &nbsp;
 
