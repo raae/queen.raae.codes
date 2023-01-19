@@ -1,5 +1,7 @@
 ---
 title: Have you checked your Referrer-Policy?
+brands: Gatsby Cloud
+tags: analytics
 ---
 
 [Prune your follows](https://pruneyourfollows.com) initial build was sponsored by Xata. As part of the agreement, the site has a "powered by Xata" notice on every page linking to [xata.io](https://xata.io/), in addition to a link to my site.

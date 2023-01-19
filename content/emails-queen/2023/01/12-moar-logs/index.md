@@ -1,5 +1,6 @@
 ---
 title: Moar logs with gatsby build/develop --verbose
+tags: gatsby, logging
 ---
 
 Gatsby has its own reporter helper giving us 5 log levels: verbose, info, warn, error and panic.

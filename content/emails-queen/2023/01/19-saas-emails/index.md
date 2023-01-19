@@ -1,7 +1,7 @@
 ---
 title: What do I email my SaaS users?
 brands: userlist
-tags: recommendation
+tags: recommendation, email
 ---
 
 "What do I email my SaaS users?" is a question you should probably be asking a little earlier in your journey than I did. No email has yet been sent to Prune your Follows users 😬

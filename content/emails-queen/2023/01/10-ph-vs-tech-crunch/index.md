@@ -1,5 +1,7 @@
 ---
 title: Did it drive traffic? Product Hunt vs. Tech Crunch
+brands: Product Hunt, Tech Crunch
+tags: analytics
 ---
 
 Yes, in roughly equal amounts. But of course, without a Product Hunt, there would probably not have been a Tech Crunch article.

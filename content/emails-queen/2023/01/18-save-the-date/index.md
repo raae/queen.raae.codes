@@ -1,5 +1,6 @@
 ---
 title: Save the date - You're invited to my 40+1
+tags: life
 ---
 
 I would love to mix internet friends and IRL friends for my big 40+1 bash 🥳

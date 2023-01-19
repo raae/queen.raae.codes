@@ -1,5 +1,7 @@
 ---
 title: Exploring Xata (Cloudflare) Workers for Prune your Follows
+brands: Xata, Cloudflare
+tags: serverless, search, treasure hunt
 ---
 
 As soon as Prune your Follows facilitates 500 unfollows in 24 hours, it gets blocked by Twitter for 24 hours.

@@ -1,5 +1,7 @@
 ---
 title: How to track outgoing links with Fathom + Gatsby
+brands: Fathom, Gatsby Cloud
+tags: treasure hunt, analytics
 ---
 
 So we fixed the [Referrer-Policy](/email/2023/01/referrer-policy) for [Prune you Follows](pruneyourfollows.com) earlier this week, and I started seeing `pruneyourfollows.com` as a referrer of traffic in my Queen Raae Fathom analytics.
