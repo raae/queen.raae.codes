@@ -22,8 +22,7 @@ exports.createResolvers = ({ createResolvers }) =>
           const limit = args.limit || 3;
           const titleTreshold = args.titleTreshold || 0.7;
 
-          let otherEmails = await context.nodeModel.runQuery({
-            firstOnly: false,
+          const { entries } = await context.nodeModel.findAll({
             type: `QueenEmail`,
             query: {
               filter: {
@@ -37,7 +36,7 @@ exports.createResolvers = ({ createResolvers }) =>
             },
           });
 
-          return otherEmails
+          const similarityEntries = entries
             .map((email) => {
               const intersectingTags = intersectionBy(
                 source.tags,
@@ -59,7 +58,9 @@ exports.createResolvers = ({ createResolvers }) =>
                 similarity: intersectingTags.length + 3.0 * titleSimilarity,
               };
             })
-            .filter(({ similarity }) => similarity !== 0)
+            .filter(({ similarity }) => similarity !== 0);
+
+          return Array.from(similarityEntries)
             .sort((a, b) => {
               return b.similarity - a.similarity;
             })
