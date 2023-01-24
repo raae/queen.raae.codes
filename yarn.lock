@@ -3492,13 +3492,13 @@ canvas-confetti@1.4.0:
   resolved "https://registry.yarnpkg.com/canvas-confetti/-/canvas-confetti-1.4.0.tgz#840f6db4a566f8f32abe28c00dcd82acf39c92bd"
   integrity sha512-S18o4Y9PqI/uabdlT/jI3MY7XBJjNxnfapFIkjkMwpz6qNxLFZOm2b22OMf4ZYDL9lpNWI+Ih4fEMVPwO1KHFQ==
 
-canvas@2.10.1:
-  version "2.10.1"
-  resolved "https://registry.yarnpkg.com/canvas/-/canvas-2.10.1.tgz#fbfd4b1b3b106c3454481d79d363ebadf8811c08"
-  integrity sha512-29pIjn9uwTUsIgJUNd7GXxKk8sg4iyJwLm1wIilNIqX1mVzXSc2nUij9exW1LqNpis1d2ebMYfMqTWcokZ4pdA==
+canvas@2.11.0:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/canvas/-/canvas-2.11.0.tgz#7f0c3e9ae94cf469269b5d3a7963a7f3a9936434"
+  integrity sha512-bdTjFexjKJEwtIo0oRx8eD4G2yWoUOXP9lj279jmQ2zMnTQhT8C3512OKz3s+ZOaQlLbE7TuVvRDYDB3Llyy5g==
   dependencies:
     "@mapbox/node-pre-gyp" "^1.0.0"
-    nan "^2.15.0"
+    nan "^2.17.0"
     simple-get "^3.0.3"
 
 capital-case@^1.0.4:
@@ -8266,7 +8266,7 @@ mute-stream@0.0.8, mute-stream@~0.0.4:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.8.tgz#1630c42b2251ff81e2a283de96a5497ea92e5e0d"
   integrity sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
 
-nan@^2.15.0:
+nan@^2.17.0:
   version "2.17.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.17.0.tgz#c0150a2368a182f033e9aa5195ec76ea41a199cb"
   integrity sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==

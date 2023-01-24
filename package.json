@@ -24,7 +24,7 @@
     "@tailwindcss/typography": "0.5.8",
     "autoprefixer": "10.4.12",
     "axios": "1.1.2",
-    "canvas": "2.10.1",
+    "canvas": "2.11.0",
     "clsx": "1.2.1",
     "date-fns": "2.29.3",
     "dotenv": "16.0.3",
