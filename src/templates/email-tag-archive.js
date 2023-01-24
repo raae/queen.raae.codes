@@ -57,7 +57,7 @@ export default function EmailsPage(props) {
 export const query = graphql`
   query TagById($tagLabel: String!) {
     allEmail(
-      sort: { order: DESC, fields: slug }
+      sort: { slug: DESC }
       filter: { tags: { elemMatch: { label: { eq: $tagLabel } } } }
     ) {
       nodes {

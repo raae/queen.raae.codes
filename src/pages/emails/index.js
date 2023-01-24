@@ -50,7 +50,7 @@ export default function EmailsPage({ data }) {
 
 export const query = graphql`
   {
-    allEmail(sort: { order: DESC, fields: slug }) {
+    allEmail(sort: { slug: DESC }) {
       nodes {
         ...EmailItemFragment
       }

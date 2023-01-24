@@ -1,6 +1,4 @@
 const path = require("path");
-const _ = require("lodash");
-const stringSimilarity = require("string-similarity");
 
 exports.createPages = async (gatsbyUtils) => {
   await createEmailTagArchives(gatsbyUtils);
@@ -15,7 +13,7 @@ const createEmailTagArchives = async (gatsbyUtils) => {
   const result = await graphql(`
     {
       tags: allEmail {
-        group(field: tags___slug) {
+        group(field: { tags: { slug: SELECT } }) {
           slug: fieldValue
           nodes {
             tags {

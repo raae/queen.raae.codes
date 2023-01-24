@@ -12,7 +12,6 @@ import { Newsletter } from "../components/newsletter";
 import { Emails } from "../components/emails";
 import { Badge } from "../components/badge";
 import PageHead from "../components/page-head";
-import { ArrowRightIcon } from "@heroicons/react/20/solid";
 
 const IS_PROD = process.env.NODE_ENV === "production";
 
