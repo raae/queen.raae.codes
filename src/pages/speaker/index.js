@@ -147,7 +147,7 @@ export const query = graphql`
         }
       }
     }
-    allTalk(sort: { order: DESC, fields: slug }) {
+    allTalk(sort: { slug: DESC }) {
       nodes {
         date
         childMarkdownRemark {

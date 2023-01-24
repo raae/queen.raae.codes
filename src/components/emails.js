@@ -7,7 +7,7 @@ import { Badge } from "./badge";
 export function Emails({ emails, more, variant, limit, ...props }) {
   const data = useStaticQuery(graphql`
     {
-      latestEmails: allEmail(sort: { order: DESC, fields: date }, limit: 7) {
+      latestEmails: allEmail(sort: { date: DESC }, limit: 7) {
         nodes {
           ...EmailItemFragment
         }
