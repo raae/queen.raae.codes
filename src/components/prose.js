@@ -8,7 +8,6 @@ const Prose = ({ html, children, className, ...props }) => {
         "prose prose-brown",
         "prose-p:leading-normal prose-headings:font-black",
         "prose-a:text-teal-900 prose-a:underline-offset-2 prose-a:font-normal prose-a:transition",
-        "prose-ul:px-0 prose-ol:px-0 prose-li:px-0 prose-li:leading-normal",
         className
       )}
     >

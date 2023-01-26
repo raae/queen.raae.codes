@@ -76,14 +76,20 @@ module.exports = {
               display: "inline-block",
               marginRight: "0.5rem",
             },
-            "ul > li::marker": {
+            "div > ul > li::marker": {
               content: "''",
             },
-            "ul > li::before": {
+            "div > ul > li::before": {
               color: "var(--tw-prose-bullets)",
               content: "'➽'",
               display: "inline-block",
               marginRight: "0.5rem",
+            },
+            "div > ul ul": {
+              marginTop: 0,
+            },
+            "div > ul ul li:first-child": {
+              marginTop: 0,
             },
           },
         },
