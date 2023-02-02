@@ -6,9 +6,9 @@ peeps: tujoworker
 
 **Breaking news:** Netlify Acquires Gatsby 🤯
 
-![We’re thrilled to announce that we have acquired Gatsby Inc.! Together we will build the future of composable, and empower developers with flexibility and choice in building composable web experiences.](./twitter.com_Netlify.jpg)
+![We're thrilled to announce that we have acquired Gatsby Inc.! Together we will build the future of composable, and empower developers with flexibility and choice in building composable web experiences.](./twitter.com_Netlify.jpg)
 
-The funny thing is that earlier today, I talked with pirate @tujoworker (IRL) about JavaScript framework business models...
+The funny thing is I talked about JavaScript framework business models with pirate @tujoworker when meeting him in real life earlier in the day.
 
 ![Wow, and I just talked today with @raae about JavaScript framework business models ✨](./twitter.com_raae.jpg)
 
