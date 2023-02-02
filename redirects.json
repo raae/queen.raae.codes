@@ -50,5 +50,9 @@
   {
     "fromPath": "/modern/",
     "toPath": "/speaker/2022-12-17-modern-frontends/"
+  },
+  {
+    "fromPath": "/emails/2023-02-01-netlify+gatsby/",
+    "toPath": "/emails/2023-02-01-netlify-gatsby/"
   }
 ]
