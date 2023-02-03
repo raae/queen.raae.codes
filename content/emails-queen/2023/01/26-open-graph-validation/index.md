@@ -18,5 +18,3 @@ Another quick way to ensure it's all correct is using the [Social Share Preview]
 
 All the best,\
 Queen Raae
-
-&nbsp;
