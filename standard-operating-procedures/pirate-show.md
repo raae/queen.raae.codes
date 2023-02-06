@@ -53,9 +53,9 @@ You might even learn a thing or two...
 #### Title
 
 ```md
-🔴 🏴‍☠️ <title> · #GatsbyJS Deep Dive
+🔴 🏴‍☠️ <title> · #JamstackPirates
 
-🔴 🏴‍☠️ Unauthorized and rum-fueled treasure hunt · #GatsbyJS Deep Dive
+🔴 🏴‍☠️ Unauthorized and rum-fueled treasure hunt · #JamstackPirates
 ```
 
 #### Description
