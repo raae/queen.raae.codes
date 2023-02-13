@@ -1,9 +1,7 @@
 import React from "react";
 
 export const onRenderBody = (gatsbyUtils) => {
-  const { setHeadComponents, setHtmlAttributes } = gatsbyUtils;
-
-  setHtmlAttributes({ lang: "en" });
+  const { setHeadComponents } = gatsbyUtils;
 
   setHeadComponents([
     <style key="base-font-size">
