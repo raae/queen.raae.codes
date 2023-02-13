@@ -48,6 +48,7 @@ const PageHead = ({ location, meta, children }) => {
 
   return (
     <>
+      <html lang="en" />
       <title>{title}</title>
       <link rel="canonical" href={canonical} />
       <link
