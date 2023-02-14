@@ -1,5 +1,6 @@
 ---
 title: We're creating a new podcast 👩‍💻 And this week around the Gatsby islands
+tags: Gatsby Head API
 ---
 
 In March, we'll start recording a new podcast (for [Xata](https://xata.io/)) digging into data modeling successes and failures. We hope to give you a jump start on your next project by building on others' experience getting their data model right.

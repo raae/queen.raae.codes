@@ -4,7 +4,7 @@ emojii: ⚙️ 📐
 tags: gatsby plugin, gatsby-plugin-let-it-snow
 ---
 
-When you make a Gasby Plugin make sure to include a schema for your options. By doing so, Gatsby will verify that the plugin is configured correctly and stop everything if it is not!
+When you make a Gatsby Plugin make sure to include a schema for your options. By doing so, Gatsby will verify that the plugin is configured correctly and stop everything if it is not!
 
 ![Options Error](./option-error.jpg)
 

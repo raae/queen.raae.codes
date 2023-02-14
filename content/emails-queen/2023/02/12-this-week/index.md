@@ -1,5 +1,6 @@
 ---
 title: The Twitter saga continues 🤪 And this week around the Gatsby islands
+tags: Gatsby Head API
 ---
 
 It's Monday, and we still don't know if Prune your Follows will work with the new Twitter API free plan or the new Twitter API paid plan 🤪 Get your pruning in today if you've postponed it!
