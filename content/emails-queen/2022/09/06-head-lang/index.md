@@ -4,6 +4,13 @@ emojii: 💀 ⚠️
 tags: Gatsby Head API, html lang, seo
 ---
 
+<aside class="notice">
+
+Outdated as of Gatsby v5.5 (January 2023 #2)!\
+➡️ Read [How to set HTML lang with Gatsby in 2023](/emails/2023-02-13-gatsby-head-lang/) instead.
+
+</aside>
+
 Last week we migrated from React Helmet to the new Gatsby Head API on our [unauthorized and rum-fueled treasure hunt](/emails/2022-09-02-head-api/).
 
 It was surprisingly straightforward as my existing use of React Helmet used their newest style,
