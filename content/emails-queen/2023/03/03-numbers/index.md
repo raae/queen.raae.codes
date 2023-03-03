@@ -1,6 +1,7 @@
 ---
 title: Formatting numbers is not that easy (on the eyes)...
 tags: localization
+projects: Prune your Follows
 ---
 
 On yesterday's [unauthorized and rum-fueled treasure hunt](https://www.youtube.com/live/HN0nPJ52gUk), we celebrated passing 25000 unfollows facilitated with Prune your Follows!

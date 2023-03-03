@@ -1,6 +1,7 @@
 ---
 title: Is 1200 x 630px the holy grail?
 tags: open graph, og image
+projects: Prune your Follows
 ---
 
 We finally added an open graph image on last week's [unauthorized and rum-fueled treasure hunt](https://www.youtube.com/watch?v=tBY3OjlRe2M), so the URL looks nice when shared on social media.
