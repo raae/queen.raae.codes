@@ -19,7 +19,7 @@ I had a blast hanging with the horse Elsa and some lovely colleagues from the ba
 — Tuesday, March 14th @ 19:00 CET
 
 🔴 🖼️ [Cloudinary DevJam · Cloudinary](https://www.youtube.com/@Cloudinary/streams)\
-— Wednesday, March 15th @ 19:00 CET (not on the schedule yet)
+— Postponed
 
 🔴 🏴‍☠️ [ChatGPT + Xata to find account to unfollow · #JamstackPirates](https://www.youtube.com/live/PmbSFeDzg0U)\
 — Thursday, March 16th @ 19:00 CET
