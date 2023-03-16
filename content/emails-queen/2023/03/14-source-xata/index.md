@@ -7,3 +7,8 @@ Learn how to create a social proof section like the one we added to [pruneyourfo
 ![Screengrab showing that Prune your Follows has 907 users and has facilitaded over 20.000 unfollows](./social-proof.png)
 
 [Read the rest on the Gatsby Blog ➡️](https://www.gatsbyjs.com/blog/source-xata)
+
+&nbsp;
+
+All the best,\
+Queen Raae
