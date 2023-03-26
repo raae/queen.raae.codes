@@ -1,8 +1,12 @@
 ---
-title: SOMETHING 🥳 And this week's schedule
+title: It takes practice and creative side quests 🥳 And this week's schedule
 ---
 
-SOMETHING
+We spent Saturday at the local library and their comic series party. The Pirate Princess and her friend enjoyed helping a comic book author [Sara Hjardar](https://sarahjardar.myportfolio.com/), create scary creatures from cute animals.
+
+![Sara Hjardar talks about her process](./sara-talk.jpg)
+
+I appreciated the part of her talk where she showed her process—even some drawings from kindergarten. It very visually drove home that it takes practice and creative side quests to end up with a project like hers—something we all need to be reminded of every now and then.
 
 This week we'll interview [Anna Maste](https://twitter.com/skulegirl) for the [Xata podcast Data in the Wild](https://www.youtube.com/live/7BHmr1KMRJg). She is the exited founder of Boondockers Welcome and the current founder of Subscribe Sense.
 
