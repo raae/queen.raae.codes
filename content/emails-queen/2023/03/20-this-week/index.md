@@ -12,13 +12,14 @@ This week we'll interview [Pierre de Wulf](https://twitter.com/PierreDeWulf) for
 
 ## This week
 
-🔴 🦋 [Inetrview with Pierre de Wulf of ScrapingBee](https://www.youtube.com/live/mukKhU3XXZU) · **Data in the wild**\
+🔴 🦋 [Date Model chat with Pierre de Wulf of ScrapingBee](https://www.youtube.com/live/mukKhU3XXZU) · **Data in the wild**\
 — Monday, March 20th @ 11:00 CET
 
 🔴 🐢 [Episode 174](https://www.youtube.com/live/6ymz2wjXd4w) · **Slow & Steady**\
 — Tuesday, March 21st @ 15:15 CET
 
-🔴 🏴‍☠️ [🔴 🏴‍☠️ Exploring Xata's new AI features to find suggested accounts to unfollow](https://www.youtube.com/live/PmbSFeDzg0U) · **JamstackPirates**
+🔴 🏴‍☠️ [Exploring Xata's new AI features to find suggested accounts to unfollow](https://www.youtube.com/live/PmbSFeDzg0U) · **JamstackPirates**\
+— Thursday, March 23rd @ 19:00 CET
 
 ## Some fun ones from the past
 
