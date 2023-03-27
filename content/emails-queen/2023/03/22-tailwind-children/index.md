@@ -1,6 +1,7 @@
 ---
 title: How to style `dangerouslySetInnerHTML` with Tailwind
-tags: Tailwind, css, react
+tags: css, react
+brands: Tailwind
 ---
 
 I stumbled on this challenge when working with highlighting for [Prune your Follows](https://pruneyourfollows.com/).

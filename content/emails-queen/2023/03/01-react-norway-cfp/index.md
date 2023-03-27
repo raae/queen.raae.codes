@@ -1,9 +1,10 @@
 ---
 title: React Norway is looking for speakers
+tags: conference, cfp
 brands: React Norway
 ---
 
-We would love to hang out with you in June! 
+We would love to hang out with you in June!
 
 React Norway is back, and the family is going. I personally plan to repeat the midnight swim session of last year and need comrades 🩱 🌠
 

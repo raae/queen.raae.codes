@@ -1,5 +1,6 @@
 ---
 title: 1000+ Prune your Follows users 🥳 And this week's schedule
+tags: this week
 peeps: PierreDeWulf
 brands: Xata, ScrapingBee
 ---

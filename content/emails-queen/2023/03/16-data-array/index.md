@@ -1,7 +1,9 @@
 ---
 title: Always start with an array, never...
+tags: data modeling
 peeps: monicalent
 brands: Affilimate, Xata
+projects: Data in the Wild
 ---
 
 In our interview with [Monica Lent](https://twitter.com/monicalent) for the Xata podcast Data in the Wild, she offhandedly said, "Never start with a string; start with an array of strings!" and it blew my mind.

@@ -1,6 +1,6 @@
 ---
 title: Formatting numbers is not that easy (on the eyes)...
-tags: localization
+tags: localization, javascript
 projects: Prune your Follows
 ---
 

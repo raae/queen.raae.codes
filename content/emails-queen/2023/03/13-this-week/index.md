@@ -1,5 +1,6 @@
 ---
 title: Ready, set, go! ✨ And this week's schedule
+tags: this week
 ---
 
 After a slow week of listening to a bunch of podcasts, I am ready to get my coding on this week 👩‍💻 I still need to be mindful of the concussion, though, so I postponed some scheduled streams to ensure I don't overdo it.

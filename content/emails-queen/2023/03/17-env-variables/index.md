@@ -1,5 +1,7 @@
 ---
 title: When to use GATSBY_
+tags: env var, environment variables
+brands: Gatsby
 ---
 
 Use `GATSBY_` for environmental variables (env vars) you use in your client-side code. In practice, that would be almost all of your code. The exceptions are code inside `gatsby-node.js`, `gatsby-config.js`, and a page's `getServerData` or `config`.

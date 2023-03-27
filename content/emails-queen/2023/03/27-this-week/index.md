@@ -1,5 +1,6 @@
 ---
-title: It takes practice and creative side quests 🥳 And this week's schedule
+title: It takes practice and creative side quests 👩‍🎨 And this week's schedule
+tags: this week
 peeps: skulegirl
 brands: Xata, Boondockers Welcome, Subscribe Sense
 ---

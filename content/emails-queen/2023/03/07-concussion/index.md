@@ -1,5 +1,6 @@
 ---
 title: Don't fall off the horse 🐴 And this week's (non) schedule
+tags: this week
 ---
 
 I had a blast hanging with the horse Elsa and some lovely colleagues from the bank I work for a couple of days a week. However, I fell off on Sunday and am not allowed much screen time this week because of the slight concussion. So no streams or emails from me, but plenty of streams next week 😅

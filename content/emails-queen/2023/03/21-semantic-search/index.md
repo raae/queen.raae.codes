@@ -1,6 +1,6 @@
 ---
 title: OpenAI-powered Semantic Search for Prune your Follows?
-brands: xata, openai
+brands: Xata, OpenAi
 tags: ai, search
 peeps: swizec
 ---
