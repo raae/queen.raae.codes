@@ -2,7 +2,7 @@
 title: Exploring "Similar Twitter accounts" - feature for Prune you Follows
 brands: Xata, OpenAI
 tags: ai, search, semantic search,
-projects: Prune your Follows
+projects: Prune your Follows, Search Demo
 ---
 
 In this week's unauthorized and rum-fueled treasure hunt, we explored how to use [semantic search](/emails/2023-03-21-semantic-search/) to find similar Twitter accounts to a selected account.

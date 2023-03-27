@@ -3,6 +3,7 @@ title: OpenAI-powered Semantic Search for Prune your Follows?
 brands: Xata, OpenAi
 tags: ai, search
 peeps: swizec
+projects: Search Demo
 ---
 
 This weekend I explored Semantic Search using OpenAI and Vector Search from Xata to see if it could be something for Prune your Follows.
