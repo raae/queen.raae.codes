@@ -13,8 +13,8 @@ To do so, I used probe-image-size because it throws an error when the image prob
 
 But back to the task at hand:
 
-1️⃣ Get all account records
-2️⃣ Probe each account profile image
+1️⃣ Get all account records\
+2️⃣ Probe each account profile image\
 3️⃣ Delete the account record if the image is unavailable
 
 ```js
@@ -27,8 +27,7 @@ let page = await xata.db.accounts
     },
   });
 
-
-const probeProfileImagePromises = page.records;.map(async (record) => {
+const deleteBrokenImage = async (record) => {
   try {
     // 2️⃣ Probe each account profile image
     await probe(record.meta.profile_image_url);
@@ -38,9 +37,9 @@ const probeProfileImagePromises = page.records;.map(async (record) => {
     await xata.db.accounts.delete(record.id);
     console.log("Deleted ", record.username);
   }
-});
+};
 
-await Promise.all(probeProfileImagePromises);
+await Promise.all(page.records.map(deleteBrokenImage));
 ```
 
 I've skipped pagination, so the example code will only go through the first 20 records. For the following 20 records and so forth, you'd need to do `await page.nextPage()`.
