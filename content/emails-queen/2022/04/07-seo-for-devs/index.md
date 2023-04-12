@@ -1,7 +1,7 @@
 ---
 title: How are your SEO skillz?
 emojii: 🔍 👩‍💻
-tags: seo, recommendation
+tags: seo, recommendation, resource
 peeps: monicalent
 ---
 
