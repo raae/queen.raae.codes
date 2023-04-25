@@ -3,7 +3,7 @@ title: An overview of system fonts for fast loading of your site
 tags: fonts, resource, recommendation
 ---
 
-Make sure to check out this great resource on system fonts:
+Make sure to check out this excellent overview of system fonts available on different operating systems:
 
 > The fastest fonts available. No downloading, no layout shifts, no flashes — just instant renders.
 
