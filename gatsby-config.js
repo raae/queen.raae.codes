@@ -43,6 +43,7 @@ module.exports = {
       resolve: "local-source-testimonials",
       options: {},
     },
+    `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
