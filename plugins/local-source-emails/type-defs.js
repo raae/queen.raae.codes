@@ -15,6 +15,7 @@ exports.typeDefs = `
     description: String
     date: Date @dateformat
     ogImage: String!
+    disclaimers: [String]
   }
 
   type QueenEmail implements Node & Email {
@@ -27,6 +28,7 @@ exports.typeDefs = `
     html: String @extractChildMarkdownRemarkField
     description: String @extractChildMarkdownRemarkField(alternative: "excerpt")
     ogImage: String! @ogImage
+    disclaimers: [String]
   }
 
   type OlaVeaEmail implements Node & Email {
@@ -39,5 +41,6 @@ exports.typeDefs = `
     html: String @extractChildMarkdownRemarkField
     description: String @extractChildMarkdownRemarkField(alternative: "excerpt")
     ogImage: String! @ogImage
+    disclaimers: [String]
   }
 `;
