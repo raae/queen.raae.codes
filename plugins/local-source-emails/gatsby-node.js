@@ -5,6 +5,26 @@ const { createFilePath } = require("gatsby-source-filesystem");
 const { typeDefs } = require("./type-defs");
 const { extractChildMarkdownRemarkField } = require("./field-extention");
 
+const emailFields = {
+  disclaimers: {
+    type: "[String]",
+    resolve: async (source, args, context, info) => {
+      const promises = source.tags.map(async ({ label }) => {
+        const brandYamlNode = await context.nodeModel.findOne({
+          type: "BrandsYaml",
+          query: {
+            filter: { label: { eq: label } },
+          },
+        });
+        return brandYamlNode?.disclaimer;
+      });
+
+      const disclaimers = await Promise.all(promises);
+      return disclaimers.filter((disclaimer) => Boolean(disclaimer));
+    },
+  },
+};
+
 exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes, createFieldExtension } = actions;
 
@@ -13,47 +33,11 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     typeDefs,
     schema.buildObjectType({
       name: "QueenEmail",
-      fields: {
-        disclaimers: {
-          type: "[String]",
-          resolve: async (source, args, context, info) => {
-            const promises = source.tags.map(async ({ label }) => {
-              const brandYamlNode = await context.nodeModel.findOne({
-                type: "BrandsYaml",
-                query: {
-                  filter: { label: { eq: label } },
-                },
-              });
-              return brandYamlNode?.disclaimer;
-            });
-
-            const disclaimers = await Promise.all(promises);
-            return disclaimers.filter((disclaimer) => Boolean(disclaimer));
-          },
-        },
-      },
+      fields: emailFields,
     }),
     schema.buildObjectType({
       name: "OlaVeaEmail",
-      fields: {
-        disclaimers: {
-          type: "[String]",
-          resolve: async (source, args, context, info) => {
-            const promises = source.tags.map(async ({ label }) => {
-              const brandYamlNode = await context.nodeModel.findOne({
-                type: "BrandsYaml",
-                query: {
-                  filter: { label: { eq: label } },
-                },
-              });
-              return brandYamlNode?.disclaimer;
-            });
-
-            const disclaimers = await Promise.all(promises);
-            return disclaimers.filter((disclaimer) => Boolean(disclaimer));
-          },
-        },
-      },
+      fields: emailFields,
     }),
   ]);
 };
