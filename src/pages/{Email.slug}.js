@@ -101,10 +101,13 @@ export default function EmailPage({ data }) {
 
           {disclaimers.length > 0 && (
             <aside className="notice space-y-1 py-4">
-              <h2 className="font-bold">FYI to be transparent:</h2>
+              <h2 className="font-bold text-normal">FYI to be transparent:</h2>
+
               <ul className="space-y-1">
                 {disclaimers.map((disclaimer) => (
-                  <li>{disclaimer}</li>
+                  <li className="before:content-['➽'] before:pr-2 before:pl-1 before:text-amber-500">
+                    {disclaimer}
+                  </li>
                 ))}
               </ul>
             </aside>
