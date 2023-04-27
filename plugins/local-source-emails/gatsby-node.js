@@ -5,11 +5,41 @@ const { createFilePath } = require("gatsby-source-filesystem");
 const { typeDefs } = require("./type-defs");
 const { extractChildMarkdownRemarkField } = require("./field-extention");
 
-exports.createSchemaCustomization = ({ actions }) => {
+const emailFields = {
+  disclaimers: {
+    type: "[String]",
+    resolve: async (source, args, context, info) => {
+      const promises = source.tags.map(async ({ label }) => {
+        const brandYamlNode = await context.nodeModel.findOne({
+          type: "BrandsYaml",
+          query: {
+            filter: { label: { eq: label } },
+          },
+        });
+        return brandYamlNode?.disclaimer;
+      });
+
+      const disclaimers = await Promise.all(promises);
+      return disclaimers.filter((disclaimer) => Boolean(disclaimer));
+    },
+  },
+};
+
+exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes, createFieldExtension } = actions;
 
   createFieldExtension(extractChildMarkdownRemarkField);
-  createTypes(typeDefs);
+  createTypes([
+    typeDefs,
+    schema.buildObjectType({
+      name: "QueenEmail",
+      fields: emailFields,
+    }),
+    schema.buildObjectType({
+      name: "OlaVeaEmail",
+      fields: emailFields,
+    }),
+  ]);
 };
 
 exports.createResolvers = ({ createResolvers }) =>

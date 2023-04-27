@@ -46,6 +46,7 @@ module.exports = {
                   emojii
                   description
                   ogImage
+                  disclaimers
                 }
               }
             }`,
@@ -79,6 +80,7 @@ module.exports = {
                   emojii
                   description
                   ogImage
+                  disclaimers
                 }
               }
             }`,
@@ -112,6 +114,7 @@ module.exports = {
                   emojii
                   description
                   ogImage
+                  disclaimers
                 }
               }
             }`,

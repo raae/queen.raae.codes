@@ -56,8 +56,16 @@ export function Head({ data, ...props }) {
 }
 
 export default function EmailPage({ data }) {
-  const { date, dateISO, ogImage, title, tags, html, relatedEmails } =
-    data.email || {};
+  const {
+    date,
+    dateISO,
+    ogImage,
+    title,
+    tags,
+    html,
+    relatedEmails,
+    disclaimers,
+  } = data.email || {};
 
   const pitch = data.landing?.childMarkdownRemark?.frontmatter?.seo || {};
   pitch.cta = data.landing?.childMarkdownRemark?.frontmatter?.cta || {};
@@ -91,12 +99,27 @@ export default function EmailPage({ data }) {
 
           <Prose className="mt-12" html={html} />
 
+          {disclaimers.length > 0 && (
+            <aside className="notice space-y-1 py-4">
+              <h2 className="font-bold text-normal">FYI to be transparent:</h2>
+
+              <ul className="space-y-1">
+                {disclaimers.map((disclaimer) => (
+                  <li className="before:content-['➽'] before:pr-2 before:pl-1 before:text-amber-500">
+                    {disclaimer}
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )}
+
           {!IS_PROD && ogImage && (
             <Prose>
               <img src={ogImage} alt="Cover test" />
             </Prose>
           )}
         </PageSection>
+
         <PageSection component="footer">
           <Newsletter
             tagline="Interested in more daily treasures like this one?"
@@ -150,6 +173,7 @@ export const query = graphql`
       dateISO: date
       html
       ogImage
+      disclaimers
       ... on QueenEmail {
         relatedEmails(limit: 3, titleTreshold: 0.7) {
           ...EmailItemFragment

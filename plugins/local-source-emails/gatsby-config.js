@@ -18,5 +18,11 @@ module.exports = {
         path: path.join(__dirname, "..", "..", `/${EMAIL_DIR}/emails-olavea`),
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.join(__dirname, "..", "..", `/${EMAIL_DIR}/tags`),
+      },
+    },
   ],
 };

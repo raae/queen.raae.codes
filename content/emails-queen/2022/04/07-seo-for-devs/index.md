@@ -3,6 +3,7 @@ title: How are your SEO skillz?
 emojii: 🔍 👩‍💻
 tags: seo, recommendation, resource
 peeps: monicalent
+brands: SEO for Devs
 ---
 
 Would you like to learn more about SEO in a dev-friendly way? No bullshitting and magic formulas?
