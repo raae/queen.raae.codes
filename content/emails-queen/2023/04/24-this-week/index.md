@@ -1,5 +1,6 @@
 ---
 title: Getting back in the (literal) saddle 🐎 And this week's schedule
+brands: Xata
 ---
 
 Spent the weekend at a horse farm with the Pirate Princess doing five classes each and plenty of chores. I don't know why I even brought my computer 🤷‍♀️
@@ -12,7 +13,7 @@ Tell me, and I'll be your accountability buddy!
 
 ## This week
 
-🔴 🦋 [Data Model Chat with Mathias Hansen](https://www.youtube.com/live/L4g4P_FfyDY) · **Data in the wild**\
+🔴 🦋 [Data Model Chat with Mathias Hansen](https://www.youtube.com/live/L4g4P_FfyDY) · **Data in the wild · A podcast from Xata — the serverless database platform **\
 — Monday, April 24th @ 11:10 CEST
 
 🔴 🐢 [Episode 178 with Anthony Eden from Simple DNS](https://www.youtube.com/live/Y9p2IgX1Zzs) · **Slow & Steady**\
