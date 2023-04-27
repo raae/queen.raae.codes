@@ -1,7 +1,7 @@
 - label: outseta
-  disclaimer: Queen Raae works part time as Outseta's Developer Advocate.
+  disclaimer: Queen Raae works part-time as Outseta's Developer Advocate.
 - label: xata
-  disclaimer: Queen Raae and family has has done several projects for Xata.
+  disclaimer: Queen Raae and family have done several projects for Xata.
 - label: cloudinary
   disclaimer: Queen Raae and family is responsible for the Cloudinary Gatsby Plugins.
 - label: affilimate
@@ -10,3 +10,5 @@
   disclaimer: SEO for Devs's creator Monica Lent is a good friend of Queen Raae.
 - label: userlist
   disclaimer: Userlist's co-founder Benedikt Deicke is Queen Raae's co-host on Slow & Steady podcast.
+- label: gatsby
+  disclaimer: Contrary to popular belief, Queen Raae and family have never worked for Gatsby.
