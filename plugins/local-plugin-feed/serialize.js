@@ -1,7 +1,7 @@
 const { getImage } = require("gatsby-plugin-image");
 
 module.exports = (node, site) => {
-  const { slug, date, ogImage, title, description, emojii } = node;
+  const { slug, date, ogImage, title, description, emojii, disclaimers } = node;
   let { html } = node;
 
   // Change relative static paths to absolute
@@ -15,6 +15,19 @@ module.exports = (node, site) => {
     /(?<=\"|\s)\/emails\//g,
     `${site.siteMetadata.url}\/emails\/`
   );
+
+  if (disclaimers.length > 0) {
+    html += `<aside className="notice">
+              <strong>FYI to be transparent:</strong>
+              <ul>`;
+
+    for (disclaimer of disclaimers) {
+      html += `<li>${disclaimer}</li>`;
+    }
+
+    html += `</ul>
+            </aside>`;
+  }
 
   return {
     title: emojii ? `${emojii} ~ ${title}` : title,
