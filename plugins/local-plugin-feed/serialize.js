@@ -17,7 +17,7 @@ module.exports = (node, site) => {
   );
 
   if (disclaimers.length > 0) {
-    html += `<aside className="notice">
+    html += `<aside class="notice">
               <strong>FYI to be transparent:</strong>
               <ul>`;
 
