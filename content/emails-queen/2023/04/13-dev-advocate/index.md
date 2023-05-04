@@ -6,7 +6,7 @@ brand: Xata, Outseta
 
 You might have seen it from a mile away, but it took me a long time to embrace, accept, lean into, or whatever it was, that my ideal role in this industry is as a Developer Advocate 🥑
 
-And just as I did, the opportunity of a lifetime came along. I am joining [Outseta](https://outseta.com/), the all-in-one membership software, as a fractional Developer Advocate.
+And just as I did, the opportunity of a lifetime came along. I am joining [Outseta](http://www.outseta.com?via=queen), the all-in-one membership software, as a fractional Developer Advocate.
 
 I'll be earning a salary and equity per Outseta's [unique approach to compensation and ownership](https://www.outseta.com/posts/payment-structure).
 
