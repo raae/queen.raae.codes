@@ -12,6 +12,12 @@ yarn upgrade --pattern gatsby --latest
 
 It will upgrade all packages with gatsby in its name to the latest version. Check out the [yarn upgrade docs](https://classic.yarnpkg.com/lang/en/docs/cli/upgrade/) for more options.
 
+If you want to yolo upgrade _everything_ to the latest version, go nuts with:
+
+```shell
+yarn upgrade --latest
+```
+
 &nbsp;  
 All the best,  
 Queen Raae
