@@ -17,7 +17,7 @@ module.exports = (node, site) => {
   );
 
   if (disclaimers.length > 0) {
-    html += `<aside class="notice">
+    html += `<br/>
               <strong>FYI to be transparent:</strong>
               <ul>`;
 
@@ -25,8 +25,7 @@ module.exports = (node, site) => {
       html += `<li>${disclaimer}</li>`;
     }
 
-    html += `</ul>
-            </aside>`;
+    html += `</ul>`;
   }
 
   return {
