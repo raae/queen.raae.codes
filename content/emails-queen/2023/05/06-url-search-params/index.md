@@ -4,7 +4,7 @@ tags: javascript
 brands: Outseta
 ---
 
-An [Outseta](http://www.outseta.com?via=queen) customer wanted to pass along the UTM search params to the Outseta SignUp widget so that a visitor who came in through `https://example.com?utm_source=facebook&utm_medium=paid_social&utm_campaign=summer_sale` gets attributed to the summer sale paid Facebook ad.
+An [Outseta](http://www.outseta.com?via=queen) customer wanted to pass along the UTM search params to the Outseta SignUp widget so that a visitor who came in through _https://example.com?utm_source=facebook&utm_medium=paid_social&utm_campaign=summer_sale_ gets attributed to the summer sale paid Facebook ad.
 
 Search, or query params, is the information after the `?` in a URL such as `utm_source=facebook&utm_medium=paid_social&utm_campaign=summer_sale` in our example.
 
@@ -31,6 +31,8 @@ console.log(
 [`URL` is the constructor](/emails/2022-05-10-new-url/) you should reach for every time you deal with URLs, and the `searchParams` we are accessing here conforms to the [`URLSearchParams` interface with methods such as `has`, `sort`, `getAll` and more](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams).
 
 Never try to deal with URLs yourself; JS got your back!
+
+You'll also need to keep the values arround in [session storage](/emails/2023-05-11-session-storage/) to make use of them later.
 
 &nbsp;
 
