@@ -1,7 +1,7 @@
 ---
 title: This week around the Gatsby islands
 emojii: 🏝 🗓
-tags: Gatsby Head API
+tags: Gatsby Head API, Gatsby
 ---
 
 Yesterday I got to meet long-term internet friend Monica Lent, of Blogging for devs fame. If you haven't [signed up for her free email course](https://bloggingfordevs.com/) yet, you are in for a treat.

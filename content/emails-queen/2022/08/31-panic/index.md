@@ -1,7 +1,7 @@
 ---
-title: Stop the build with reporter.panic
+title: Stop the build with `reporter.panic`
 emojii: ⛔️ 🏗
-tags: reporter
+tags: Gatsby Reporter, Gatsby
 ---
 
 On last week's show, we [sourced data from Supabase](/emails/2022-08-26-source-supabase/) in the form of little avatars.

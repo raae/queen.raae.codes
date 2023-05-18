@@ -3,7 +3,7 @@ title: Source data (avatars) into the Gatsby Data Layer from a Supabase table
 emojii: 🗂 🏴‍☠️
 tags: data layer, sdk, axios, gatsby-node.js, createNode, sourceNodes, createNodeId, createContentDigest
 brands: Supabase
-projects: Prune you Follows
+projects: Prune you Follows, Gatsby, gatsby-node, sourceNodes, createNode, createNodeId, createContentDigest
 ---
 
 On yesterday's [unauthorized and rum-fueled treasure hunt](https://youtu.be/EK74ACNxM7M) in the sharky waters around the Gatsby islands, we refactored the little avatar section on [Prune your follows](https://prune.raae.tech) from client-side to server-side rendering!
