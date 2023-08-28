@@ -18,7 +18,6 @@ module.exports = (node, site) => {
 
   if (disclaimers.length > 0) {
     html += `<br/>
-              <strong>FYI to be transparent:</strong>
               <ul>`;
 
     for (disclaimer of disclaimers) {
