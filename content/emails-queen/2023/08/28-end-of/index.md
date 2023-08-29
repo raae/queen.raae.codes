@@ -28,13 +28,13 @@ What we do know is that Gatsby Cloud will be shutting down.
 
 We also know that Gatsby powers [19% of Netlify's enterprise customers](https://www.netlify.com/blog/framework-popularity-on-netlify/) - enterprise is where the money's at! Twitter-devs making blogs and portfolios, not so much.
 
-This summer, Netlify [shipped adaptors](https://www.netlify.com/blog/gatsby-adapters-realize-the-full-potential-of-gatsby-on-your-platform/)](https://www.netlify.com/blog/gatsby-adapters-realize-the-full-potential-of-gatsby-on-your-platform/), making it possible for any hosting provider to run full-featured Gatsby sites. Before acquiring Gatsby, Netlify had to reverse engineer SSR, DSR, etc.
+This summer, Netlify [shipped adaptors](https://www.netlify.com/blog/gatsby-adapters-realize-the-full-potential-of-gatsby-on-your-platform/), making it possible for any hosting provider to run full-featured Gatsby sites. Before acquiring Gatsby, Netlify had to reverse engineer SSR, DSR, etc.
 
 I am still hopeful that we'll see Gatsby evolve, but I'll be looking into Astro while also spending some more time tinkering with good old Node.
 
-Totally feel the vibe of this post doing its rounds on Twitter.
+Totally feel the vibe of [this post doing its rounds on Twitter](https://twitter.com/flaviocopes/status/1695421873117438152).
 
-![“I want to build things for people” 💯](twitter.com_flaviocopes.png)
+[![“I want to build things for people” 💯](twitter.com_flaviocopes.png)](https://twitter.com/flaviocopes/status/1695421873117438152)
 
 **What are you up to this fall? Any projects got you extra excited? Let me know!**
 
