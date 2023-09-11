@@ -4,7 +4,7 @@ tags: Jamstack
 image: ./jamstack-dead-og.png
 ---
 
-Following up on the [End of summer, end of Gatsby?](/emails/2023-08-28-end-of/) I recommend watching this [deep dive into Jamstack architecture](https://www.youtube.com/watch?v=qAJhkDFODuo) by [Dev Agrawal](https://twitter.com/devagrawal09), covering how it went from simple HTML files pushed to a CDN to the quite complex frameworks we have today!
+Following up on the [End of summer, end of Gatsby?](/emails/2023-08-28-end-of/) I recommend watching this [deep dive into Jamstack architecture](https://www.youtube.com/watch?v=qAJhkDFODuo) by [Dev Agrawal](https://twitter.com/devagrawal09), covering how Jamstack went from simple HTML files pushed to a CDN to the quite complex frameworks we have today!
 
 [![Jamstack Is Dead... Or Is It? Architecture In Depth](./jamstack-dead.png)](https://www.youtube.com/watch?v=qAJhkDFODuo)
 
