@@ -7,8 +7,8 @@ module.exports = {
   siteMetadata: {
     siteUrl: `https://queen.raae.codes`,
     siteName: `Queen Raae`,
-    siteTagline: `Gatsby Bootcamps, Plugins, Streams and Webinars`,
-    siteDescription: `I teach web devs how to get the most out of Gatsby through workshops, rum-fueled treasure hunts in the sharky waters around the Gatsby islands and more!`,
+    siteTagline: `Sailing the high seas of the World Wide Web`,
+    siteDescription: `Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!`,
     siteLang: `en`,
     siteSocialImage: `/raae.jpg`,
     siteSocialImageAlt:

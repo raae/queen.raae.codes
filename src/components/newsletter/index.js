@@ -2,12 +2,12 @@ import React from "react";
 import NewsletterForm from "./newsletter-form";
 import { defaults, isNull, omitBy } from "lodash";
 
-const QUEEN_DEFAULTS = {
-  formKey: "queen",
+const LILLY_LABS_DEFAULTS = {
+  formKey: "lillylabs",
   cta: "Yes, please!",
-  tagline: "Serious about Gatsby?",
+  tagline: "Join the crew?",
   message:
-    "Sign up for emails sent every weekday to help you get the most out of Gatsby!",
+    "Join the crew and stay up to date by signing up for our Weekly Ship's Log.",
 };
 
 const DEFAULTS = {
@@ -17,8 +17,8 @@ const DEFAULTS = {
 export const Newsletter = (initialProps) => {
   let props = omitBy(initialProps, isNull);
 
-  if (!props.formKey || props.formKey === "queen") {
-    props = defaults(props, QUEEN_DEFAULTS);
+  if (!props.formKey || props.formKey === "lillylabs") {
+    props = defaults(props, LILLY_LABS_DEFAULTS);
   } else {
     props = defaults(props, DEFAULTS);
   }

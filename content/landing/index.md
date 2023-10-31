@@ -1,6 +1,6 @@
 ---
 badge: queen.raae.codes
-title: Helping you get the most out of Gatsby
+title: Sailing the high seas of the World Wide Web
 ctas:
   - to: /done-for-you-demo/
     label: "Done-for-you Gatsby Demo"
@@ -11,13 +11,13 @@ ctas:
 sections:
   - element: header
     content: main, form
-  - badge: Products & Services
-    # title: Gatsby expertise for your project
-    body: ./_products-services.md
-    # content: ctas
-  - title: Daily Gatsby Treasures
+  # - badge: Products & Services
+  # title: Gatsby expertise for your project
+  # body: ./_products-services.md
+  # content: ctas
+  - title: Treasures from the WWW
     titlePath: /emails
-    content: form,emails
+    content: emails
   - badge: noteworthy
     title: Talks, Webinars and Streams
     content: noteworthy
@@ -26,11 +26,10 @@ sections:
   - content: form
 ---
 
-I am a developer, [speaker](/speaker) and [streamer](https://www.youtube.com/QueenRaae) here to guide you through the sharky waters around the Gatsby islands together with my piratical family&nbsp;🏴‍☠️
+Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!
 
-<aside class="notice">
+🏴‍☠️ Set sail with us every other [Saturday on YouTube at 11:00 CET](https://www.youtube.com/QueenRaae/live)
 
-**Here because of Prune your Follows?** Not Gatsby?\
-[Sign up for news](/emails/lillylabs) about side projects and other shenanigans!
+![YouTube Cover](./youtube.png)
 
-</aside>
+&nbsp;
