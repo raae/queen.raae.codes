@@ -5,6 +5,12 @@ emojii: 🧙‍♀️ 🧱
 tags: semantic HTML, react, SEO
 ---
 
+<aside class="notice">
+
+Learn more about 24 Semantic HTML Elements this advent by signing up for my [Semantic Advent](https://advent.raae.codes) initiative.
+
+</aside>
+
 Semantic HTML is the foundation of a web project. It helps assistive technologies and Google make sense of your site.
 
 What is semantic HTML? `article`, `heading`, `h2`, `aside`, `ul`, `section` etc. all have semantic meaning. It says something about the content inside them. If the content is a stand-alone piece of content, use `article`; if it's a list, use `ul`, and so on. In comparison, `div` and `span` have no semantic meaning.
