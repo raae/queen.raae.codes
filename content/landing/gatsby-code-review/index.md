@@ -20,7 +20,7 @@ sections:
     title: Get another pair of eyes on your Gatsby project
 ---
 
-## Need another pair of eyes?
+## Need a pair of Gatsby-expert eyes?
 
 **Imagine this –** Imagine understanding the current state of your Gatsby project. Imagine knowing how to steer away from common Gatsby pitfalls in the future. Imagine having a plan to ensure a stable Gatsby project.
 
