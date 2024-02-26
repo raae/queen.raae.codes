@@ -44,7 +44,7 @@ export default function RemarkPage({ data, ...props }) {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main className="pb-12">
         {(sections || []).map((section, key) => {
           let { badge, title, titlePath, lead, tagline } = section;
           let { content, element, body, testimonials } = section;
