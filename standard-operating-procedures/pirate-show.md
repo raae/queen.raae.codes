@@ -11,7 +11,7 @@ title: Pirate Show
 
 ```
 🔔 🏴‍☠️ Stream incoming
-<Thursday/Today> at 19:00 CET 🏴‍☠️ 🔔
+Saturday at 11:00 CET 🏴‍☠️ 🔔
 
 <Text about stream>
 
@@ -26,8 +26,8 @@ You might even learn a thing or two...
 
 🥛 🍷 🥤 🍺
 
-🗓 Tune in Thursdays
-🕰 at 19:00 (Oslo / Berlin / CEST)
+🗓 Tune in (every other) Saturday
+🕰 at 11:00 (Oslo / Berlin / CET)
 📺 on Queen Raae's YouTube
 
 <YouTube Link>
