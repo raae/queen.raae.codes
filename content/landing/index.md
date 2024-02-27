@@ -11,10 +11,8 @@ ctas:
 sections:
   - element: header
     content: main, form
-  # - badge: Products & Services
-  # title: Gatsby expertise for your project
-  # body: ./_products-services.md
-  # content: ctas
+  - badge: Products & Services
+    body: ./_products-services.md
   - title: Treasures from the WWW
     titlePath: /emails
     content: emails
