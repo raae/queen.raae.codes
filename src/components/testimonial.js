@@ -35,7 +35,7 @@ const Testimonial = ({
           {who && !url && <span className="font-semibold">{who}</span>}
           {who && url && (
             <a
-              className="font-semibold text-inherit underline-offset-2 decoration-transparent hover:decoration-amber-600 transition"
+              className="font-semibold text-inherit underline underline-offset-2 decoration-transparent decoration-wavy hover:decoration-amber-600 transition-all ease-in-out duration-300"
               href={url}
             >
               {who}
@@ -51,7 +51,7 @@ const Testimonial = ({
             <>
               <br />
               <a
-                className="font-semibold text-inherit underline-offset-2 decoration-transparent hover:decoration-amber-600 transition"
+                className="font-semibold text-inherit underline underline-offset-2 decoration-transparent decoration-wavy hover:decoration-amber-600 transition-all ease-in-out duration-300"
                 href={company.url}
               >
                 {company.name}

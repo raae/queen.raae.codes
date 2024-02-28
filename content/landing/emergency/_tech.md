@@ -1,6 +1,4 @@
-I can help you with most things web related.
-
-Here are some of the things I know well:
+I can help you with most things web (dev) related:
 
 - **JavaScript**, **HTML** and **CSS** has been my bread and butter for years.
 - **JAMstack** and serverless architecture are in my vocabulary.

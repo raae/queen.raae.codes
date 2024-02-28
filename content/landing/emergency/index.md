@@ -11,6 +11,10 @@ cta:
 sections:
   - element: header
     content: main, cta
+  - title: But don’t take my word for it...
+    testimonials:
+      - ./_aurelien.md
+      - ./_stephen.md
   - body: ./_about.md
     image: ../raae.jpg
     imageAlt: Queen Raae holding a laptop and looking into the camera in her signature green dress.

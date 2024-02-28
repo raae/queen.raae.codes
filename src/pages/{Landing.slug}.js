@@ -146,7 +146,7 @@ export default function RemarkPage({ data, ...props }) {
                       const { frontmatter, html } = item.childMarkdownRemark;
                       return (
                         <Testimonial
-                          sx={{ my: "2em" }}
+                          className="my-6"
                           key={`testimonial-${key}`}
                           {...frontmatter}
                         >
