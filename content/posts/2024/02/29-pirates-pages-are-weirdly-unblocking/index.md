@@ -29,9 +29,9 @@ Yeah it's BAD shit, pouring out. And it's REAL. That is the  WHY right there, I 
 
 ## There's no wrong way to do Pirate's Pages
 
-There's no wrong way for me to do my Pirate's Pages. And doing morning pages is not really writing. I'm just dragging my pen across the page. Geting down whatever. As fast as I can. Nothing is too weird, weak, angry, evil, stupid or politically incorrect for my Pirate's Pages. Because nobody is EVER reading my Pirate's Pages. I didn't even read them MYSELF the first handful of weeks.
+There's no wrong way for me to do my Pirate's Pages. And doing morning pages is not really writing. I'm just dragging my pen across the page. Getting down whatever. As fast as I can. Nothing is too weird, weak, angry, evil, stupid or politically incorrect for my Pirate's Pages. Because nobody is EVER reading my Pirate's Pages. I didn't even read them MYSELF the first handful of weeks.
 
-![](https://slack-files.com/T0EVBNF70-F06M4PUFR8V-750b9bcdf3)
+![](https://pbs.twimg.com/media/GHf_nzKW8AAWGLi?format=jpg&name=large)
 
 ## Really?
 
