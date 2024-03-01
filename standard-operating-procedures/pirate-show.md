@@ -30,7 +30,7 @@ You might even learn a thing or two...
 🕰 at 11:00 (Oslo / Berlin / CET)
 📺 on Queen Raae's YouTube
 
-<YouTube Link>
+https://www.youtube.com/@QueenRaae/live
 ```
 
 ## Go live SOP
