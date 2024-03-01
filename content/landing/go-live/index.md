@@ -30,6 +30,8 @@ Close that "I should do some marketing" loop in your mind and get back to what y
 
 </aside>
 
+Live streaming is uniquely authentic. It's you, talking about what you know best, your Dev Tool. Without the veneer of marketing speak or rehearsed sales pitches. It's the perfect way to connect with your audience and build trust. Especially in the early days.
+
 ## Here's How It Works
 
 We start with an exploratory call. We'll talk about your Dev Tool, your audience, and your goals. We'll also workshop the concept for your live streams: office hours, live coding, product update chats or a combination of these.

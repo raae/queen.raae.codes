@@ -1,6 +1,6 @@
 ## Why me?
 
-I love live streaming, it energizes me and will make you relax and be the human you are. Not the robot that often comes out if you were to preparpe a presentation.
+I love live streaming, it energizes me and will make you relax and be your authentic self!
 
 - I started experimenting with live streaming in 2018,
 - and since 2020 I have live streamed regularly on YouTube: 150+ streams and counting.
