@@ -1,7 +1,7 @@
 ---
 badge: Go Live
-title: Ready for a constant stream of authentic social media content?
-lead: Go Live with Queen Raae by your side!
+title: Ready to DO marketing?
+lead: Get a constant stream of authentic social media content by committing to a biweekly live stream with Queen Raae by your side.
 cta:
   label: Book an exploratory call
   href: https://savvycal.com/raae/go-live
