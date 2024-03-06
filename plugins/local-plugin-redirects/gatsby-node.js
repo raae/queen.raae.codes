@@ -12,6 +12,9 @@ exports.createPages = async (gatsbyUtils, pluginOptions) => {
     createRedirect({
       fromPath: redirect.fromPath,
       toPath: redirect.toPath,
+      isPermanent: true,
+      force: true,
+      redirectInBrowser: true,
     });
     reporter.info(
       `Redirect created from ${redirect.fromPath} to ${redirect.toPath}`
