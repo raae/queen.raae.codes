@@ -9,7 +9,7 @@ import SiteHeader from "../../components/site-header";
 import PageSection, { PageSectionHeader } from "../../components/page-section";
 
 import { Newsletter } from "../../components/newsletter";
-import { Emails } from "../../components/emails";
+import { Posts } from "../../components/posts";
 
 const FUSE_OPTIONS = {
   includeScore: true,
@@ -29,7 +29,7 @@ const FUSE_OPTIONS = {
   ],
 };
 
-const TITLE = "Search all Gatsby Treasures";
+const TITLE = "Search all posts";
 
 export function Head(props) {
   return (
@@ -45,7 +45,7 @@ export function Head(props) {
 export default function SearchPage(props) {
   const { data, path, term } = props;
 
-  const fuseRef = useRef(new Fuse(data.allEmail.nodes, FUSE_OPTIONS));
+  const fuseRef = useRef(new Fuse(data.allPost.nodes, FUSE_OPTIONS));
   const [input, setInput] = useState(term || "");
   const [results, setResults] = useState([]);
 
@@ -72,7 +72,7 @@ export default function SearchPage(props) {
       <main>
         <PageSection component="header">
           <label htmlFor="search" className="sr-only">
-            Email
+            Post
           </label>
           <input
             autoFocus={true}
@@ -93,9 +93,9 @@ export default function SearchPage(props) {
             </p>
           )}
           {results.length > 0 && (
-            <Emails
+            <Posts
               variant="detailed"
-              emails={results.map((resultItem) => {
+              posts={results.map((resultItem) => {
                 resultItem.matches.forEach((matchItem) => {
                   const text = matchItem.value;
                   const matches = [...matchItem.indices];
@@ -128,8 +128,8 @@ export default function SearchPage(props) {
         </PageSection>
 
         <PageSection>
-          <PageSectionHeader badge="Latest emails" />
-          <Emails limit={3} className="mt-8" />
+          <PageSectionHeader badge="Latest posts" />
+          <Posts limit={3} className="mt-8" />
         </PageSection>
 
         <PageSection component="footer">
@@ -142,9 +142,9 @@ export default function SearchPage(props) {
 
 export const query = graphql`
   {
-    allEmail(sort: { slug: DESC }) {
+    allPost(sort: { slug: DESC }) {
       nodes {
-        ...EmailItemFragment
+        ...PostItemFragment
       }
     }
   }

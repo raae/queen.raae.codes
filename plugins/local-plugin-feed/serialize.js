@@ -10,10 +10,16 @@ module.exports = (node, site) => {
     `${site.siteMetadata.url}\/static\/`
   );
 
-  // Change relative email paths to absolute
+  // Change relative email paths to absolute posts paths
   html = html.replace(
     /(?<=\"|\s)\/emails\//g,
     `${site.siteMetadata.url}\/emails\/`
+  );
+
+  // Change relative posts paths to absolute
+  html = html.replace(
+    /(?<=\"|\s)\/posts\//g,
+    `${site.siteMetadata.url}\/posts\/`
   );
 
   if (disclaimers.length > 0) {

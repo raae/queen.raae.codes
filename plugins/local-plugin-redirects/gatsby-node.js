@@ -13,7 +13,6 @@ exports.createPages = async (gatsbyUtils, pluginOptions) => {
       fromPath: redirect.fromPath,
       toPath: redirect.toPath,
       isPermanent: true,
-      force: true,
       redirectInBrowser: true,
     });
     reporter.info(

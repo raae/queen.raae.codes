@@ -13,9 +13,9 @@ sections:
     content: main, form
   - badge: Products & Services
     body: ./_products-services.md
-  - title: Treasures from the WWW
-    titlePath: /emails
-    content: emails
+  - title: Latests Posts
+    titlePath: /posts
+    content: posts
   - badge: noteworthy
     title: Talks, Webinars and Streams
     content: noteworthy

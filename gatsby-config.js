@@ -1,9 +1,12 @@
+const adapter = require("gatsby-adapter-netlify").default;
 const path = require("path");
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
 module.exports = {
+  adapter: adapter(),
   siteMetadata: {
     siteUrl: `https://queen.raae.codes`,
     siteName: `Queen Raae`,
@@ -22,9 +25,9 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "local-source-emails",
+      resolve: "local-source-posts",
       options: {
-        basePath: "/emails",
+        basePath: "/posts",
       },
     },
     {
@@ -85,12 +88,6 @@ module.exports = {
     `local-extension-og-images`,
     `local-plugin-feed`,
     {
-      resolve: "local-plugin-redirects",
-      options: {
-        path: path.join(__dirname, "redirects.json"),
-      },
-    },
-    {
       resolve: `@raae/gatsby-plugin-fathom`,
       options: {
         site: `DIFBAEOT`,
@@ -107,11 +104,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-gatsby-cloud`,
+      resolve: "local-plugin-redirects",
       options: {
-        headers: {
-          "/*": ["Referrer-Policy: strict-origin-when-cross-origin"],
-        },
+        path: path.join(__dirname, "redirects.json"),
       },
     },
     {
@@ -143,9 +138,9 @@ module.exports = {
           return isTagArchive || isExclude;
         },
         excludes: [
-          "/emails/preferences/",
-          "/emails/welcome/",
-          "/emails/reminders/",
+          "/posts/preferences/",
+          "/posts/welcome/",
+          "/posts/reminders/",
           "/search/[...term]/",
         ],
       },
