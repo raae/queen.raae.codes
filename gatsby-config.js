@@ -7,6 +7,17 @@ require("dotenv").config({
 
 module.exports = {
   adapter: adapter(),
+  headers: [
+    {
+      source: `*`,
+      headers: [
+        {
+          key: `Referrer-Policy`,
+          value: `strict-origin-when-cross-origin`,
+        },
+      ],
+    },
+  ],
   siteMetadata: {
     siteUrl: `https://queen.raae.codes`,
     siteName: `Queen Raae`,
