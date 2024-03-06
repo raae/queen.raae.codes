@@ -4,7 +4,7 @@ emojii: 🔗 ✨
 tags: javascript, snippet
 ---
 
-When [scraping Crowdcast](/posts/2022-05-06-scrapingbee/) for webinars to add to the Gatsby Data Layer last week we got back some funny looking paths:
+When [scraping Crowdcast](/2022-05-06-scrapingbee/) for webinars to add to the Gatsby Data Layer last week we got back some funny looking paths:
 
 ```
 /e/gatsby-gotchas-react/register?utm_source=profile&utm_medium=profile_web&utm_campaign=profile`

@@ -4,7 +4,7 @@ tags: sessionStorage
 brands: Outseta
 ---
 
-As mentioned when talking about [search params](/posts/2023-05-06-url-search-params/), an [Outseta](http://www.outseta.com?via=queen) customer wanted to pass along the UTM search params to the Outseta SignUp widget so that a visitor who came in through _https://example.com?utm_source=facebook&utm_medium=paid_social&utm_campaign=summer_sale_ gets attributed to the summer sale paid Facebook ad.
+As mentioned when talking about [search params](/2023-05-06-url-search-params/), an [Outseta](http://www.outseta.com?via=queen) customer wanted to pass along the UTM search params to the Outseta SignUp widget so that a visitor who came in through _https://example.com?utm_source=facebook&utm_medium=paid_social&utm_campaign=summer_sale_ gets attributed to the summer sale paid Facebook ad.
 
 The vistor might not sign up at the first page they land on, so it makes sense to keep the UTM search params around for the entirety of the session.
 

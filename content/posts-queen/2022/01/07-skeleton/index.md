@@ -5,7 +5,7 @@ tags: skeleton ui, SSG, authentication, client-side only routes
 peeps: mirjam_diala
 ---
 
-In [yesterday's email](/posts/2022-01-06-client-only-routes/), I alluded to a different approach for authenticated routes.
+In [yesterday's email](/2022-01-06-client-only-routes/), I alluded to a different approach for authenticated routes.
 
 Instead of reaching for [client-side only routes](https://www.gatsbyjs.com/docs/how-to/routing/client-only-routes-and-user-authentication/#adjusting-routes-to-account-for-authenticated-users) I more often utilize statically generated pages even for the authenticated routes these days.
 

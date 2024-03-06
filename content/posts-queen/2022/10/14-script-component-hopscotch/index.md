@@ -11,7 +11,7 @@ Yesterday, we added an onboarding tour to "Prune your follows" together with Cam
 
 [![Screengrab from the show](screengrab-show.jpg)](https://youtu.be/yDxF8FUNUbI)
 
-To do so, we needed to add an external script. Since I wrote about [Third party scripts with Gatsby](/posts/2022-01-05-external-scripts/) back in January, Gatsby has added a new way: the [`Script` component](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-script/).
+To do so, we needed to add an external script. Since I wrote about [Third party scripts with Gatsby](/2022-01-05-external-scripts/) back in January, Gatsby has added a new way: the [`Script` component](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-script/).
 
 It can be used to add both inline scripts and external scripts.
 

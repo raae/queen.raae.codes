@@ -5,7 +5,7 @@ tags: serverless, lamda, raw body, webhook
 brands: Stripe
 ---
 
-If you are new to serverless, you might have thought nothing of [yesterday's "Using Http Request Body" example](/posts/2022-05-18-dynamic-serverless/).
+If you are new to serverless, you might have thought nothing of [yesterday's "Using Http Request Body" example](/2022-05-18-dynamic-serverless/).
 
 ```js
 export default function handler(req, res) {
@@ -63,7 +63,7 @@ export default function handler(req, res) {
 
 ~~Unfortunately, I cannot seem to make this work locally, but I have verified that it works on Gatsby Cloud. I will, of course, follow up with Gatsby to figure out what's up. Is it a feature? Or a bug? I know my opinion on the matter 😬~~
 
-Update: [Raw body works in develop from v4.16](/posts/2022-06-01-raw-body-fix/)
+Update: [Raw body works in develop from v4.16](/2022-06-01-raw-body-fix/)
 
 &nbsp;  
 All the best,  

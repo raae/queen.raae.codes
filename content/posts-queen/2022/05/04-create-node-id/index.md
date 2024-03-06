@@ -25,4 +25,4 @@ All the best,
 Queen Raae
 
 &nbsp;  
-**PS:** `createNodeId` [is deterministic](/posts/2022-03-30-deterministic/)
+**PS:** `createNodeId` [is deterministic](/2022-03-30-deterministic/)

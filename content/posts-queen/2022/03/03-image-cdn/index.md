@@ -4,7 +4,7 @@ emojii: 🖼 ☁️
 tags: image cdn, gatsby conf
 ---
 
-Yesterday's email on how to [weed out large images](/posts/2022-03-02-large-files/) was quite on the nose when it came to one of GatsbyConf's big reveals: Image CDN.
+Yesterday's email on how to [weed out large images](/2022-03-02-large-files/) was quite on the nose when it came to one of GatsbyConf's big reveals: Image CDN.
 
 With Gatsby Image CDN transformations of images are moved from the build to on-demand, waiting for the sharp transformations a thing of the past.
 

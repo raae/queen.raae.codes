@@ -4,7 +4,7 @@ emojii: 🤪 📑
 tags: graphql, resolver
 ---
 
-In [yesterday](/posts/2022-04-20-related-content-article/)'s email I recommended reading the article [How to Create List of Related Content in Gatsby.JS](https://reckoning.dev/blog/related-posts-gatsbyjs/).
+In [yesterday](/2022-04-20-related-content-article/)'s email I recommended reading the article [How to Create List of Related Content in Gatsby.JS](https://reckoning.dev/blog/related-posts-gatsbyjs/).
 
 I liked the approach of using both titles and tags to find similar content, especially since I can be a little sloppy with my tags and have not retroactively added it all emails yet.
 

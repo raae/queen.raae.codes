@@ -6,7 +6,7 @@ tags: testing, gatsby plugin, jest
 
 The recommended way to test your `pluginSchemaOption` function is to use `testPluginOptionsSchema` from the `gatsby-plugin-utils` package.
 
-For information on how to get started with plugin testing and how to use the `testPluginOptionsSchema`, read [Add tests to your Gatsby Plugin project ✅ 🧪](/posts/2022-02-11-plugins-tests/).
+For information on how to get started with plugin testing and how to use the `testPluginOptionsSchema`, read [Add tests to your Gatsby Plugin project ✅ 🧪](/2022-02-11-plugins-tests/).
 
 However, when writing tests for the [gatsby-plugin-cloudinary](https://github.com/cloudinary-devs/gatsby-source-cloudinary/blob/main/plugin/gatsby-node.test.js) plugin this week, I realized it does not help with testing the default configuration or any other modifiers.
 

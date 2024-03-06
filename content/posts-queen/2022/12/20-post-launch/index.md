@@ -18,7 +18,7 @@ Some highlights:
 
 - Having an annoyed user help rewrite the alert [to something positive](https://twitter.com/raae/status/1603492853585436706?s=20&t=aBPK5fBpomRgAqcmiZz26g)
 - Aremu doing all he could on Twitter to help support us [including this meme](https://twitter.com/aremu_smog/status/1603312952597270528?s=20&t=aBPK5fBpomRgAqcmiZz26g)
-- The 80+ comments on the [Product Hunt launch page](https://www.producthunt.com/posts/prune-your-follows)
+- The 80+ comments on the [Product Hunt launch page](https://www.producthunt.com/prune-your-follows)
 - Several folks loving PYF and [asking for new features](https://twitter.com/raae/status/1603331684052733952?s=20&t=aBPK5fBpomRgAqcmiZz26g)
 - 100+ new users on the day and another 100+ users over the weekend
 

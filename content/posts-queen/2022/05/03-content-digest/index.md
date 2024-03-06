@@ -41,7 +41,7 @@ exports.sourceNodes = async ({ actions, createContentDigest }) => {
 };
 ```
 
-`internal.contentDigest` is mandatory and thus part of a [Minimal Viable Content Node](/posts/2022-01-20-minimal-viable-content-node/). If this value has not changed, Gatsby uses the cached node instead of creating a new node, and for instance, `onCreateNode` is not called.
+`internal.contentDigest` is mandatory and thus part of a [Minimal Viable Content Node](/2022-01-20-minimal-viable-content-node/). If this value has not changed, Gatsby uses the cached node instead of creating a new node, and for instance, `onCreateNode` is not called.
 
 > **contentDigest:** the digest for the content of this node. Helps Gatsby avoid doing extra work on data that hasn’t changed.
 > <cite>[Gatsby Docs](https://www.gatsbyjs.com/docs/reference/config-files/actions/#createNode)</cite>

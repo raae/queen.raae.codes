@@ -4,7 +4,7 @@ emojii: 🛑 🔄
 tags: gatsby-source-youtube-oembed, gatsby cache, createNodeId, gatsby-node.js
 ---
 
-Acknowledging the [deterministic nature of `createNodeId`](/posts/2022-03-30-deterministic/) simplified our Gatsby Source YouTube oEmbed Plugin a smidge, resulting in:
+Acknowledging the [deterministic nature of `createNodeId`](/2022-03-30-deterministic/) simplified our Gatsby Source YouTube oEmbed Plugin a smidge, resulting in:
 
 ```js
 const youTubeNodeId = createNodeId(`YouTube >>> ${youTubeId}`);

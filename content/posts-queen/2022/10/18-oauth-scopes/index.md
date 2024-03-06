@@ -14,7 +14,7 @@ As always, the information is right there in plain sight in [the documentation](
 
 [![Tweet with image of the documentation](./twitter_auth_scopes.jpg)](https://twitter.com/raae/status/1582323947961401344)
 
-However, I set [up the NextAuth with Gatsby integration weeks ago](/posts/2022-09-09-nextauth/), and their default scope settings have worked perfectly so far 😱
+However, I set [up the NextAuth with Gatsby integration weeks ago](/2022-09-09-nextauth/), and their default scope settings have worked perfectly so far 😱
 
 To override NextAuth's default scope `authorization.params.scope` to your `TwitterProvider` configurations.
 

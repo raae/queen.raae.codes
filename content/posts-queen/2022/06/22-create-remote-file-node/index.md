@@ -4,7 +4,7 @@ emojii: 📥 🎉
 tags: createRemoteFileNode, createParentChildLink, onCreateNode, sourceNodes
 ---
 
-`createRemoteFileNode` does not return something useful, as [opposed to createNode](/posts/2022-06-21-create-node/):
+`createRemoteFileNode` does not return something useful, as [opposed to createNode](/2022-06-21-create-node/):
 
 ```js
 // gatsby-node.js

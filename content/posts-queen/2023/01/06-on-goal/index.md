@@ -4,7 +4,7 @@ brands: Fathom, Gatsby Cloud
 tags: treasure hunt, analytics
 ---
 
-So we fixed the [Referrer-Policy](/posts/2023-01-05-referrer-policy/) for [Prune you Follows](https://pruneyourfollows.com) earlier this week, and I started seeing `pruneyourfollows.com` as a referrer of traffic in my Queen Raae Fathom analytics.
+So we fixed the [Referrer-Policy](/2023-01-05-referrer-policy/) for [Prune you Follows](https://pruneyourfollows.com) earlier this week, and I started seeing `pruneyourfollows.com` as a referrer of traffic in my Queen Raae Fathom analytics.
 
 [![Traffic coming from Google, Twitter, pruneyourfollows.com, techcrunch.com](./referrer-traffic.png)](https://app.usefathom.com/share/difbaeot/queen.raae.codes)
 

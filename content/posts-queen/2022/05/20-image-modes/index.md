@@ -8,7 +8,7 @@ We added back support for downloading the YouTube thumbnails as local file nodes
 
 [![Hi Queen Raae, Our team has reviewed your content, and we think you may need to make changes to make sure it doesn't violate our spam, deceptive practices and scams policy. In the meantime, we've made the following content private](./youtube-spam.png "YouTube Email")](https://twitter.com/raae/status/1527593806513709057?s=20&t=8HbGrJ66ytV2IfM0qvwhDw)
 
-We removed it in exchanging for ImageCDN on a [treasure hunt with Ward of Gatsby](/posts/2022-03-25-image-cdn-plugin/), but as we are working on a plugin, I later realized it should support both 🤦‍♀️
+We removed it in exchanging for ImageCDN on a [treasure hunt with Ward of Gatsby](/2022-03-25-image-cdn-plugin/), but as we are working on a plugin, I later realized it should support both 🤦‍♀️
 
 [![Screengrab of Ward stream](./../../03/25-image-cdn-plugin/youtube-screengrab.jpg)](https://youtu.be/IDW2IfaHGIs)
 

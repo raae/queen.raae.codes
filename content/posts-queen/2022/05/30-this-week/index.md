@@ -8,7 +8,7 @@ brands: Cloudinary
 
 Ola and I will be focusing on the Cloudinary Plugins this week. Let us know if you use either gatsby-source-cloudinary or gatsby-transformer-cloudinary. We could use some beta testers for our upgrades.
 
-Last week Gatsby released the `Script` component as part of [v4.15](https://www.gatsbyjs.com/docs/reference/release-notes/v4.15/), making it easier to [add third-party/external](/posts/2022-01-05-external-scripts/) or custom scripts.
+Last week Gatsby released the `Script` component as part of [v4.15](https://www.gatsbyjs.com/docs/reference/release-notes/v4.15/), making it easier to [add third-party/external](/2022-01-05-external-scripts/) or custom scripts.
 
 I am hoping to make use of it in our gatsby-remark-oembed plugin. Maybe it should be the topic for this week's Deep Dive 🤔
 

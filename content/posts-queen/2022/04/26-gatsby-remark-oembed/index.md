@@ -4,7 +4,7 @@ emojii: 📄 🖼
 tags: gatsby-remark-oembed, markdown, oembed, gatsby plugin
 ---
 
-As mentioned [yesterday](/posts/2022-04-25-this-week/) I plan to get a good chunk of work done on the next version of the [gatsby-remark-oembed](https://github.com/queen-raae/gatsby-remark-oembed) plugin this week.
+As mentioned [yesterday](/2022-04-25-this-week/) I plan to get a good chunk of work done on the next version of the [gatsby-remark-oembed](https://github.com/queen-raae/gatsby-remark-oembed) plugin this week.
 
 But you might wonder what even is that and how does it work?
 

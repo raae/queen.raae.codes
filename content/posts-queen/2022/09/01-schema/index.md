@@ -11,7 +11,7 @@ In yesterday's email, we solved the
 Cannot query field "allUserAvatar" on type "Query"
 ```
 
-issue by [stopping the build](/posts/2022-08-31-panic/) if no data is sourced.
+issue by [stopping the build](/2022-08-31-panic/) if no data is sourced.
 
 However, you often want to allow empty data queries. Maybe the blog posts are not written yet, or there are no images for the gallery yet.
 

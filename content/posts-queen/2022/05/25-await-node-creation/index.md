@@ -5,13 +5,13 @@ tags: source plugins, sourceNodes, onCreateNode, lifecycle
 brands: Cloudinary
 ---
 
-In [yesterday's email](/posts/2022-05-24-node-creation/) I mentioned you must only create nodes within `sourceNodes` and `onCreateNode`.
+In [yesterday's email](/2022-05-24-node-creation/) I mentioned you must only create nodes within `sourceNodes` and `onCreateNode`.
 
 A pretty straightforward rule, but sourcing data usually introduces asynchronous code. And with asynchronous code, you can quickly end up in a situation where you create nodes outside `sourceNodes` and `onCreateNode`.
 
 Unfortunately, it still usually works, at least for a few nodes and often in development. However, when you deploy, it falls apart.
 
-When you see inconsistent and weird behavior around node creation, your issue is probably nodes created outside of `sourceNodes` and `onCreateNode`. Or direct manipulation of nodes; the topic for [tomorrow's email](/posts/2022-05-26-direct-mutation/).
+When you see inconsistent and weird behavior around node creation, your issue is probably nodes created outside of `sourceNodes` and `onCreateNode`. Or direct manipulation of nodes; the topic for [tomorrow's email](/2022-05-26-direct-mutation/).
 
 There is an excellent example in [the Gatsby Docs](https://www.gatsbyjs.com/docs/debugging-async-lifecycles/), but here is another one without the use of `.then`:
 

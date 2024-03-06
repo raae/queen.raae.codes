@@ -4,7 +4,7 @@ emojii: 🦜 📄
 tags: file system route api, SSG
 ---
 
-In the sharky waters around the Gatsby islands, we call the File System Route API SSG pages for Parrot Pages 🦜 as mentioned in Tuesday's email about [SSG with Gatsby](/posts/2022-01-11-ssg/).
+In the sharky waters around the Gatsby islands, we call the File System Route API SSG pages for Parrot Pages 🦜 as mentioned in Tuesday's email about [SSG with Gatsby](/2022-01-11-ssg/).
 
 ![{} = parrots](./parrot-pages.jpeg "Drawing of `src/pages/{YouTube.id}.js` with {} as parrots")
 

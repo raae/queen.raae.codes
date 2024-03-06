@@ -4,7 +4,7 @@ title: Ola is doing a can-do-with-effort sub-task
 
 Ahoy, skill-builder pirate of Jamstackia!
 
-We looked into one useless-on-it's-own sub-task [in my last letter](/posts/2022-09-07-async-await/), and I promised you this letter would be about "How do you know what type of sub-task is right to bite off for your dev-brain?"
+We looked into one useless-on-it's-own sub-task [in my last letter](/2022-09-07-async-await/), and I promised you this letter would be about "How do you know what type of sub-task is right to bite off for your dev-brain?"
 
 > To can't-do or NOT can't-do, that is the question.
 

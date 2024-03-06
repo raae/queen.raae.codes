@@ -4,7 +4,7 @@ title: Could a croco-clock 🐊-⏲️ help you to focus like a pirate?
 
 Ahoy, skill-builder pirate of Jamstackia!
 
-In my last letter, we looked into [Don't let Distraction Diaz distract you](/posts/2022-09-29-automate/). Today, I'll show you my favorite focus tool to determine when your sub-task practice session is done. It's my great-grandfather Captain Crook's croco clock. 🐊 ⏲️ We'll look at:
+In my last letter, we looked into [Don't let Distraction Diaz distract you](/2022-09-29-automate/). Today, I'll show you my favorite focus tool to determine when your sub-task practice session is done. It's my great-grandfather Captain Crook's croco clock. 🐊 ⏲️ We'll look at:
 
 What a croco-clock is,
 Why it can help you focus and

@@ -28,11 +28,11 @@ console.log(
 // Output: facebook paid_social summer_sale
 ```
 
-[`URL` is the constructor](/posts/2022-05-10-new-url/) you should reach for every time you deal with URLs, and the `searchParams` we are accessing here conforms to the [`URLSearchParams` interface with methods such as `has`, `sort`, `getAll` and more](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams).
+[`URL` is the constructor](/2022-05-10-new-url/) you should reach for every time you deal with URLs, and the `searchParams` we are accessing here conforms to the [`URLSearchParams` interface with methods such as `has`, `sort`, `getAll` and more](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams).
 
 Never try to deal with URLs yourself; JS got your back!
 
-You'll also need to keep the values arround in [session storage](/posts/2023-05-11-session-storage/) to make use of them later.
+You'll also need to keep the values arround in [session storage](/2023-05-11-session-storage/) to make use of them later.
 
 &nbsp;
 

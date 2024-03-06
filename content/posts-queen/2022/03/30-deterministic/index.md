@@ -8,7 +8,7 @@ Let's start with a definition:
 
 > In computer science, a deterministic algorithm is an algorithm that, given a particular input, will always produce the same output[...] <cite>[Wikipedia](https://en.wikipedia.org/wiki/Deterministic_algorithm)</cite>
 
-In our Gatsby Source YouTube oEmbed Plugin, I did not trust this to be true. Complicating the code by caching the connection between the YouTube Id and the generated node id as part of the [How to use the Gatsby Cache to skip subsequent external API calls](/posts/2022-03-18-cache/)
+In our Gatsby Source YouTube oEmbed Plugin, I did not trust this to be true. Complicating the code by caching the connection between the YouTube Id and the generated node id as part of the [How to use the Gatsby Cache to skip subsequent external API calls](/2022-03-18-cache/)
 
 But I had this inkling it would make sense for it is deterministic and made sure to check with Ward when he guested last week's unauthorized and rum-fueled treasure hunt.
 

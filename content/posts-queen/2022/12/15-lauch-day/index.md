@@ -7,7 +7,7 @@ The time has come, and with your help, we might get Prune your Follows into the 
 
 Prune your Follows is currently at #14, maybe you're upvote is the one that makes all the difference!
 
-➡️ Upvote (and perhaps even comment) on [Product Hunt](https://www.producthunt.com/posts/prune-your-follows-a-twitter-tool) ​
+➡️ Upvote (and perhaps even comment) on [Product Hunt](https://www.producthunt.com/prune-your-follows-a-twitter-tool) ​
 
 And by the way, you don't have to be a Twitter user to upvote, even though Prune your Follows is a Twitter tool.
 

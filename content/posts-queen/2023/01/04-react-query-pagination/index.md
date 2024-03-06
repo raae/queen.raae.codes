@@ -53,7 +53,7 @@ export default function SearchPage(props) {
 }
 ```
 
-If "capturing the page number using the Gatsby File System Route API" made no sense, then [Url-based (client-side) pagination with Gatsby](/posts/2022-12-01-url-based-pagination/) is for you.
+If "capturing the page number using the Gatsby File System Route API" made no sense, then [Url-based (client-side) pagination with Gatsby](/2022-12-01-url-based-pagination/) is for you.
 
 &nbsp;
 

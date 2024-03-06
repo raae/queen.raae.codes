@@ -25,7 +25,7 @@ export default function ExamplePage() {
 }
 ```
 
-If you are coming from Helmet, this is the exact syntax you know and probably love. Unfortunately, this was not possible when Gatsby introduced v4.19 (July 2022 #2), as I experienced [the hard way](/posts/2022-09-06-head-lang/)!
+If you are coming from Helmet, this is the exact syntax you know and probably love. Unfortunately, this was not possible when Gatsby introduced v4.19 (July 2022 #2), as I experienced [the hard way](/2022-09-06-head-lang/)!
 
 &nbsp;
 

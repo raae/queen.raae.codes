@@ -8,7 +8,7 @@ With Gatsby v4 came a much [strickter approach](https://www.gatsbyjs.com/docs/re
 
 Never in a resolver or anywhere else, even though I stumble over Gatsby Docs pointing in that direction every now and then.
 
-And remember, if you create a node in `onCreateNode` make sure [to add a parent](/posts/2022-04-01-parent-id/), or it will be gone on subsequent builds using the Gatsby Cache.
+And remember, if you create a node in `onCreateNode` make sure [to add a parent](/2022-04-01-parent-id/), or it will be gone on subsequent builds using the Gatsby Cache.
 
 &nbsp;  
 All the best,  

@@ -5,7 +5,7 @@ tags: ai, search, semantic search,
 projects: Prune your Follows, Search Demo
 ---
 
-In this week's unauthorized and rum-fueled treasure hunt, we explored how to use [semantic search](/posts/2023-03-21-semantic-search/) to find similar Twitter accounts to a selected account.
+In this week's unauthorized and rum-fueled treasure hunt, we explored how to use [semantic search](/2023-03-21-semantic-search/) to find similar Twitter accounts to a selected account.
 
 We think it might be a helpful feature for Prune you Follows. Either the user selects an account, or we look at already unfollowed accounts and suggest new ones.
 

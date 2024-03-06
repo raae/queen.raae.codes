@@ -80,4 +80,4 @@ With the above changes:
 All the best,\
 Queen Raae
 
-PS: There is a follow up showing [pagination in tandem with React Query](/posts/2023-01-04-react-query-pagination/)
+PS: There is a follow up showing [pagination in tandem with React Query](/2023-01-04-react-query-pagination/)

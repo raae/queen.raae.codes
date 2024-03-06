@@ -6,7 +6,7 @@ Ahoy, skill-builder pirate of Jamstackia!
 
 👋😸🏴‍☠️
 
-We looked into "my favorite focus tool to find out when your sub-task practice session is done, [the croco-clock 🐊-⏲️](/posts/2022-10-13-croco-clock/)" in my last letter. Today I'll show you The Again Logbook 📕.
+We looked into "my favorite focus tool to find out when your sub-task practice session is done, [the croco-clock 🐊-⏲️](/2022-10-13-croco-clock/)" in my last letter. Today I'll show you The Again Logbook 📕.
 
 We'll look at:
 

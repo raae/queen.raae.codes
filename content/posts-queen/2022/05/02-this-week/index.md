@@ -9,10 +9,10 @@ brands: ScrapingBee
 Last week's focus for me was the Gatsby Remark oEmbed Plugin. I fixed three tree-traversal bugs. Support for MDX is still a little up in the air, though, as the only possible solution at the moment will constitute a breaking change.
 
 More on Tree Traversal:  
-— [Fixing an abstract syntax tree bug in Gatsby Remark oEmbed  🌲 🐛](/posts/2022-04-29-tree-problem/)
+— [Fixing an abstract syntax tree bug in Gatsby Remark oEmbed  🌲 🐛](/2022-04-29-tree-problem/)
 
 More on MDX:  
-— [The cache solution that keeps on NOT giving...  😬 📥](/posts/2022-04-28-cache-problems/)
+— [The cache solution that keeps on NOT giving...  😬 📥](/2022-04-28-cache-problems/)
 
 &nbsp;  
 Last week also gave us a new Gatsby release: [v4.13](https://www.gatsbyjs.com/docs/reference/release-notes/v4.13/).

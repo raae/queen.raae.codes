@@ -11,4 +11,4 @@ Thank you for bringing joy and adventure into our lives, see you in 2023 🎉
 All the best,\
 Queen Raae
 
-PS: Pirate snowman by the Pirate Princess, last year she [drew us as santas](/posts/2021-12-24-happy-holidays/).
+PS: Pirate snowman by the Pirate Princess, last year she [drew us as santas](/2021-12-24-happy-holidays/).

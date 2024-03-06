@@ -22,4 +22,4 @@ All the best,
 Queen Raae
 
 &nbsp;  
-**PS:** Interested in learning how to add Gatsby ImageCDN support to your plugin? Check out [How to add support for Gatsby ImageCDN in your source plugin 🖼 ☁️](/posts/2022-03-25-image-cdn-plugin/)
+**PS:** Interested in learning how to add Gatsby ImageCDN support to your plugin? Check out [How to add support for Gatsby ImageCDN in your source plugin 🖼 ☁️](/2022-03-25-image-cdn-plugin/)

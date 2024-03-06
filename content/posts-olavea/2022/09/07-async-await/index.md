@@ -86,4 +86,4 @@ The next plugin-pirate letter will cover "How do you know what type of sub-task 
 
 \* Some people CAN chew a whole donut without choking on it. Don't believe me? Dig up the video with Paul Scanlon winning a donut-eating contest against a Gatsby co-worker. You'll find the video somewhere [on Paul's twitter.](https://twitter.com/PaulieScanlon)
 
-Read more about adding async await to sourceNodes in Queen @raae's email [Remember to await node creation! ⏳ ⌛️](/posts/2022-05-25-await-node-creation/)
+Read more about adding async await to sourceNodes in Queen @raae's email [Remember to await node creation! ⏳ ⌛️](/2022-05-25-await-node-creation/)

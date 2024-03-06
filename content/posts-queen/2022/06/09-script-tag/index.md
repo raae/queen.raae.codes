@@ -4,7 +4,7 @@ emojii: ﹤ ﹥
 tags: external scripts
 ---
 
-There is a new solutions to [Third-party scripts with Gatsby](/posts/2022-01-05-external-scripts/): the Script Component.
+There is a new solutions to [Third-party scripts with Gatsby](/2022-01-05-external-scripts/): the Script Component.
 
 Get the low down from Ty Hopp, Senior Software Engineer at Gatsby.
 

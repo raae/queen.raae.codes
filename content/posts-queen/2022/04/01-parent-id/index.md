@@ -8,8 +8,8 @@ tags: onCreateNode, data layer, createNode, treasure hunt
 
 On yesterday's unauthorized and rum-fueled [treasure hunt](https://youtu.be/SWumzHLEpYA) in the sharky waters around the Gatsby islands, we worked through the code from the last two emails:
 
-- [Gatsby's createNodeId is deterministic 📥 💡](/posts/2022-03-30-deterministic/)
-- [Should we skip the Gatsby Cache altogether? 🛑 🔄](/posts/2022-03-31-skip-cache/)
+- [Gatsby's createNodeId is deterministic 📥 💡](/2022-03-30-deterministic/)
+- [Should we skip the Gatsby Cache altogether? 🛑 🔄](/2022-03-31-skip-cache/)
 
 [![Screengrab of stream](./youtube-screengrab.jpg)](https://youtu.be/SWumzHLEpYA)
 

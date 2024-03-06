@@ -5,7 +5,7 @@ projects: Semantic Advent
 
 Semantic HTML Elements are a foundational piece of the World Wide Web.
 
-However, the popularity [A little semantic HTML trick for React components](https://queen.raae.codes/posts/2022-10-10-semantic-react/) and doing Gatsby code reviews have shown me that this is a topic that many developers need to brush up on.
+However, the popularity [A little semantic HTML trick for React components](https://queen.raae.codes/2022-10-10-semantic-react/) and doing Gatsby code reviews have shown me that this is a topic that many developers need to brush up on.
 
 Myself included!
 

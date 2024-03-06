@@ -4,7 +4,7 @@ emojii: ⛔️ 🏗
 tags: Gatsby Reporter, Gatsby
 ---
 
-On last week's show, we [sourced data from Supabase](/posts/2022-08-26-source-supabase/) in the form of little avatars.
+On last week's show, we [sourced data from Supabase](/2022-08-26-source-supabase/) in the form of little avatars.
 
 If the sourcing fails though, we'll get problems down the road with the `Avatars` component:
 
