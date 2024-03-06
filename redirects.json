@@ -1,31 +1,43 @@
 [
   {
-    "fromPath": "/react/",
-    "toPath": "/react-gotchas/"
+    "fromPath": "/emails/2021-12-02-conference-buddy-2.0/",
+    "toPath": "/posts/2021-12-02-conference-buddy-v2/"
   },
   {
-    "fromPath": "/posts/2021-12-02-conference-buddy-2.0/",
-    "toPath": "/emapostsils/2021-12-02-conference-buddy-v2/"
-  },
-  {
-    "fromPath": "/gatsby-v4-bootcamp/",
-    "toPath": "/gatsby-bootcamps/v4/"
-  },
-  {
-    "fromPath": "/posts/2022-03-30-determenistic/",
+    "fromPath": "/emails/2022-03-30-determenistic/",
     "toPath": "/posts/2022-03-30-deterministic/"
   },
   {
-    "fromPath": "/posts/2022-05-18-this-week/",
+    "fromPath": "/emails/2022-05-18-this-week/",
     "toPath": "/posts/2022-05-18-dynamic-serverless/"
   },
   {
-    "fromPath": "/posts/2022-09-06-this-week/",
+    "fromPath": "/emails/2022-09-06-this-week/",
     "toPath": "/posts/2022-09-05-this-week/"
   },
   {
-    "fromPath": "/posts/2022-09-29-croco-clock/",
+    "fromPath": "/emails/2022-09-29-croco-clock/",
     "toPath": "/posts/2022-10-13-croco-clock/"
+  },
+  {
+    "fromPath": "/emails/2023-02-01-netlify+gatsby/",
+    "toPath": "/posts/2023-02-01-netlify-gatsby/"
+  },
+  {
+    "fromPath": "/emails/welcome/",
+    "toPath": "/subs/welcome/"
+  },
+  {
+    "fromPath": "/emails/reminders/",
+    "toPath": "/subs/reminders/"
+  },
+  {
+    "fromPath": "/emails/preferences/",
+    "toPath": "/subs/preferences/"
+  },
+  {
+    "fromPath": "/emails/*",
+    "toPath": "/posts/*"
   },
   {
     "fromPath": "/react-norway/",
@@ -46,9 +58,5 @@
   {
     "fromPath": "/modern/",
     "toPath": "/speaker/2022-12-17-modern-frontends/"
-  },
-  {
-    "fromPath": "/posts/2023-02-01-netlify+gatsby/",
-    "toPath": "/posts/2023-02-01-netlify-gatsby/"
   }
 ]

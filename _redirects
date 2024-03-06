@@ -1,0 +1,18 @@
+/posts/2021-12-02-conference-buddy-2.0/ /posts/2021-12-02-conference-buddy-v2/
+/posts/2022-03-30-determenistic/ /posts/2022-03-30-deterministic/
+/posts/2022-05-18-this-week/ /posts/2022-05-18-dynamic-serverless/
+/posts/2022-09-06-this-week/ /posts/2022-09-05-this-week/
+/posts/2022-09-29-croco-clock/ /posts/2022-10-13-croco-clock/
+/react-norway/ /speaker/2022-06-24-react-norway/
+/gatsby-fall-camp-2021/ /speaker/2021-09-16-gatsby-fall-camp/
+/mpya/ /speaker/2021-12-15-mpya/
+/jam/ /speaker/2022-11-08-jamstackconf/
+/modern/ /speaker/2022-12-17-modern-frontends/
+/posts/2023-02-01-netlify+gatsby/ /posts/2023-02-01-netlify-gatsby/
+
+/emails/ /posts/
+/emails/lillylabs /subs/
+/emails/reminders /subs/reminders/
+/emails/welcome /subs/welcome/
+/emails/* /posts/:splat
+
