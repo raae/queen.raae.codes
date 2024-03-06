@@ -14,7 +14,7 @@ import Webinar from "../components/webinar";
 
 import { CtaSection } from "../components/cta";
 import { Newsletter } from "../components/newsletter";
-import { Emails } from "../components/emails";
+import { Posts } from "../components/posts";
 import Noteworthy from "../components/noteworthy";
 
 export function Head({ data, ...props }) {
@@ -137,8 +137,8 @@ export default function RemarkPage({ data, ...props }) {
                         key={block}
                       />
                     );
-                  case "emails":
-                    return <Emails key={block} more className="mt-12" />;
+                  case "posts":
+                    return <Posts key={block} more className="mt-12" />;
                   case "noteworthy":
                     return <Noteworthy key={block} more className="mt-12" />;
                   case "testimonials":

@@ -16,11 +16,11 @@ module.exports = {
           }
         `,
         feeds: [
-          // All emails
+          // All posts
           {
-            output: "/emails/rss.xml",
-            title: "Emails from Queen Raae and Cap'n Ola",
-            match: "^/emails/",
+            output: "/posts/rss.xml",
+            title: "Posts from Queen Raae & Family",
+            match: "^/posts/",
             setup: ({
               query: {
                 site: { siteMetadata },
@@ -30,14 +30,14 @@ module.exports = {
               return {
                 ...siteMetadata,
                 ...rest,
-                site_url: siteMetadata.url + "/emails",
+                site_url: siteMetadata.url + "/posts",
               };
             },
-            serialize: ({ query: { site, allEmail } }) => {
-              return allEmail.nodes.map((node) => serializeFeed(node, site));
+            serialize: ({ query: { site, allPost } }) => {
+              return allPost.nodes.map((node) => serializeFeed(node, site));
             },
             query: `{
-              allEmail(sort: { slug: DESC }) {
+              allPost(sort: { slug: DESC }) {
                 nodes {
                   date
                   slug
@@ -51,10 +51,10 @@ module.exports = {
               }
             }`,
           },
-          // Queen Emails Feed
+          // Queen Posts Feed
           {
-            output: "/emails/queen.xml",
-            title: "Emails from Queen Raae",
+            output: "/posts/queen.xml",
+            title: "Posts from Queen Raae",
             setup: ({
               query: {
                 site: { siteMetadata },
@@ -64,14 +64,14 @@ module.exports = {
               return {
                 ...siteMetadata,
                 ...rest,
-                site_url: siteMetadata.url + "/emails",
+                site_url: siteMetadata.url + "/posts",
               };
             },
-            serialize: ({ query: { site, allEmail } }) => {
-              return allEmail.nodes.map((node) => serializeFeed(node, site));
+            serialize: ({ query: { site, allPost } }) => {
+              return allPost.nodes.map((node) => serializeFeed(node, site));
             },
             query: `{
-              allEmail: allQueenEmail(sort: { slug: DESC }) {
+              allPost: allQueenPost(sort: { slug: DESC }) {
                 nodes {
                   date
                   slug
@@ -85,10 +85,10 @@ module.exports = {
               }
             }`,
           },
-          // Ola Vea Emails Feed
+          // Ola Vea Posts Feed
           {
-            output: "/emails/olavea.xml",
-            title: "Emails from Cap'n Ola",
+            output: "/posts/olavea.xml",
+            title: "Posts from Cap'n Ola",
             setup: ({
               query: {
                 site: { siteMetadata },
@@ -98,14 +98,14 @@ module.exports = {
               return {
                 ...siteMetadata,
                 ...rest,
-                site_url: siteMetadata.url + "/emails/olavea",
+                site_url: siteMetadata.url + "/posts/olavea",
               };
             },
-            serialize: ({ query: { site, allEmail } }) => {
-              return allEmail.nodes.map((node) => serializeFeed(node, site));
+            serialize: ({ query: { site, allPost } }) => {
+              return allPost.nodes.map((node) => serializeFeed(node, site));
             },
             query: `{
-              allEmail: allOlaVeaEmail(sort: { slug: DESC }) {
+              allPost: allOlaVeaPost(sort: { slug: DESC }) {
                 nodes {
                   date
                   slug

@@ -24,7 +24,7 @@ exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
   } = gatsbyUtils;
 
   if (!isString(pluginOptions.basePath)) {
-    reporter.panic("Email pages need a base path");
+    reporter.panic("Post pages need a base path");
   }
 
   if (node.internal.type === "MarkdownRemark") {

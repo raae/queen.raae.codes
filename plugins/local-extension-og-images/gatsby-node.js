@@ -6,18 +6,18 @@ const { createImageBuffer } = require("./src/utils/open-graph-image");
 const { reporter } = require("gatsby-cli/lib/reporter/reporter");
 
 const SECONDARY_COLOR = {
-  QueenEmail: "#ffde59",
-  OlaVeaEmail: "#5DADE2",
+  QueenPost: "#ffde59",
+  OlaVeaPost: "#5DADE2",
 };
 
 const AVATAR = {
-  QueenEmail: "queen-avatar.jpg",
-  OlaVeaEmail: "olavea-avatar.jpg",
+  QueenPost: "queen-avatar.jpg",
+  OlaVeaPost: "olavea-avatar.jpg",
 };
 
 const SIGNATURE = {
-  QueenEmail: "queen.raae.codes",
-  OlaVeaEmail: "Cap'n Ola (queen.raae.codes)",
+  QueenPost: "queen.raae.codes",
+  OlaVeaPost: "Cap'n Ola (queen.raae.codes)",
 };
 
 const createOgImage = async (source, args, context, info) => {
@@ -74,13 +74,13 @@ const createOgImage = async (source, args, context, info) => {
 
 // exports.createResolvers = ({ createResolvers }) => {
 //   const resolvers = {
-//     QueenEmail: {
+//     QueenPost: {
 //       ogImage: {
 //         type: "String!",
 //         resolve: createOgImage,
 //       },
 //     },
-//     OlaVeaEmail: {
+//     OlaVeaPost: {
 //       ogImage: {
 //         type: "String!",
 //         resolve: createOgImage,

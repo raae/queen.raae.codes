@@ -1,16 +1,14 @@
 import React from "react";
-import { graphql } from "gatsby";
 
 import PageHead from "../../components/page-head";
 import SiteHeader from "../../components/site-header";
 import PageSection, { PageSectionHeader } from "../../components/page-section";
 import { Newsletter } from "../../components/newsletter";
-import { Emails } from "../../components/emails";
 
-const BADGE = "Daily Gatsby Treasures";
-const TITLE = "Serious about Gatsby? ";
+const BADGE = "Ship's log";
+const TITLE = "Join the crew!";
 const DESCRIPTION =
-  "Sign up for emails from Queen Raae (and Cap'n Ola) sent every weekday to help you get the most out of Gatsby!";
+  "Stay up to date on all things Queen Raae & Family as a Ship's Log subscriber.";
 
 export function Head(props) {
   return (
@@ -21,7 +19,7 @@ export function Head(props) {
   );
 }
 
-export default function EmailsPage({ data }) {
+export default function PostsPage() {
   return (
     <>
       <SiteHeader />
@@ -35,25 +33,7 @@ export default function EmailsPage({ data }) {
           />
           <Newsletter mt="2em" cta="Yes, please!" message="" tagline="" />
         </PageSection>
-
-        <PageSection component="section">
-          <Emails emails={data.allEmail} />
-        </PageSection>
-
-        <PageSection component="footer">
-          <Newsletter />
-        </PageSection>
       </main>
     </>
   );
 }
-
-export const query = graphql`
-  {
-    allEmail(sort: { slug: DESC }) {
-      nodes {
-        ...EmailItemFragment
-      }
-    }
-  }
-`;

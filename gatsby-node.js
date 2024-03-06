@@ -1,18 +1,18 @@
 const path = require("path");
 
 exports.createPages = async (gatsbyUtils) => {
-  await createEmailTagArchives(gatsbyUtils);
+  await createPostTagArchives(gatsbyUtils);
 };
 
-const createEmailTagArchives = async (gatsbyUtils) => {
+const createPostTagArchives = async (gatsbyUtils) => {
   const { actions, graphql, reporter } = gatsbyUtils;
   const { createPage } = actions;
 
-  const tagTemplate = path.resolve("src/templates/email-tag-archive.js");
+  const tagTemplate = path.resolve("src/templates/posts-tag-archive.js");
 
   const result = await graphql(`
     {
-      tags: allEmail {
+      tags: allPost {
         group(field: { tags: { slug: SELECT } }) {
           slug: fieldValue
           nodes {
@@ -37,7 +37,7 @@ const createEmailTagArchives = async (gatsbyUtils) => {
 
   // Make tag pages
   tags.forEach(({ slug, nodes }) => {
-    // Find tag info (label and slug) on first email in group
+    // Find tag info (label and slug) on first post in group
     const tag = nodes[0].tags.find((tag) => tag.slug === slug);
     createPage({
       path: tag.slug,

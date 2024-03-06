@@ -22,9 +22,9 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "local-source-emails",
+      resolve: "local-source-posts",
       options: {
-        basePath: "/emails",
+        basePath: "/posts",
       },
     },
     {
@@ -143,9 +143,9 @@ module.exports = {
           return isTagArchive || isExclude;
         },
         excludes: [
-          "/emails/preferences/",
-          "/emails/welcome/",
-          "/emails/reminders/",
+          "/posts/preferences/",
+          "/posts/welcome/",
+          "/posts/reminders/",
           "/search/[...term]/",
         ],
       },

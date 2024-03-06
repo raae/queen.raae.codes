@@ -6,7 +6,7 @@ import PageSection, {
   PageSectionBreadcrumbs,
   PageSectionHeader,
 } from "../../components/page-section";
-import { Emails } from "../../components/emails";
+import { Posts } from "../../components/posts";
 
 const BADGE = "Emails";
 const TITLE = "Welcome";
@@ -35,8 +35,8 @@ const EmailsWelcome = () => {
           <PageSectionHeader title={DESCRIPTION} hLevel={1} />
         </PageSection>
         <PageSection>
-          <PageSectionHeader title="Latest Gatsby Emails" />
-          <Emails more />
+          <PageSectionHeader title="Latest Posts" />
+          <Posts more />
         </PageSection>
       </main>
     </>
