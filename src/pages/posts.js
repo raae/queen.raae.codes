@@ -1,11 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import PageHead from "../../components/page-head";
-import SiteHeader from "../../components/site-header";
-import PageSection, { PageSectionHeader } from "../../components/page-section";
-import { Newsletter } from "../../components/newsletter";
-import { Posts } from "../../components/posts";
+import PageHead from "../components/page-head";
+import SiteHeader from "../components/site-header";
+import PageSection, { PageSectionHeader } from "../components/page-section";
+import { Newsletter } from "../components/newsletter";
+import { Posts } from "../components/posts";
 
 const BADGE = "Posts";
 const TITLE = "All the posts";

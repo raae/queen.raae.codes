@@ -140,7 +140,7 @@ exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
       try {
         const postId = createNodeId(`${markdownNode.id} >>> ${type}`);
         const dateString = `${dateSearch[2]}-${dateSearch[3]}-${dateSearch[4]}`;
-        const slug = `${pluginOptions.basePath}/${dateString}-${dateSearch[5]}/`;
+        const slug = `/${dateString}-${dateSearch[5]}/`;
         const title = markdownNode.frontmatter.title;
         const isRelatable = !title.includes("week around the Gatsby islands");
         const tags = tagsToUniqueLowercaseArray(`
@@ -151,7 +151,7 @@ exports.onCreateNode = async (gatsbyUtils, pluginOptions) => {
           `).map((tag) => {
           return {
             label: tag,
-            slug: `${pluginOptions.basePath}/${slugify(tag)}/`,
+            slug: `/tag/${slugify(tag)}/`,
           };
         });
 

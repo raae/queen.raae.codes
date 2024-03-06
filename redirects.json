@@ -37,7 +37,7 @@
   },
   {
     "fromPath": "/emails/*",
-    "toPath": "/posts/*"
+    "toPath": "/*"
   },
   {
     "fromPath": "/react-norway/",
