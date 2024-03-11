@@ -4,6 +4,12 @@ tags: Astro, Transistor, Data Fetching, Build Time
 projects: Data in the Wild, Two Week Build
 ---
 
+<aside class="notice">
+
+You may also watch us figure this approach out [live on YouTube](https://youtube.com/live/yTNr3Y1xGbU).
+
+</aside>
+
 After adding the "most popular" episodes section to [our Astro podcast website](https://github.com/olavea/Our-podcast-websites) the local DX took a nose dive!
 
 Building the home page took 3789ms, that's almost 4 seconds 🤦‍♀️
