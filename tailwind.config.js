@@ -71,6 +71,9 @@ module.exports = {
             ol: {
               listStylePosition: "inside",
             },
+            li: {
+              textWrap: "pretty",
+            },
             "ol > li::marker": {
               fontWeight: 900,
               display: "inline-block",
