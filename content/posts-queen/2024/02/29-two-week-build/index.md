@@ -1,7 +1,7 @@
 ---
 title: Two Week Build is on 🚀
 tags: Astro
-project: Data in the Wild, Two Week Build
+projects: Data in the Wild, Two Week Build
 ---
 
 I signed up for Amy's inaugural [Two-Week Build Challenge](https://www.twoweekbuild.com/). And there is still time for you to sign up!

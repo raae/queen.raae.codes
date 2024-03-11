@@ -1,7 +1,7 @@
 ---
 title: Sort of Remote Astro Collections
-tags: Astro
-project: Data in the Wild, Two Week Build
+tags: Astro, Transistor, Data Fetching, Build Time
+projects: Data in the Wild, Two Week Build
 ---
 
 After adding the "most popular" episodes section to [our Astro podcast website](https://github.com/olavea/Our-podcast-websites) the local DX took a nose dive!
