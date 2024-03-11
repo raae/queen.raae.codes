@@ -1,5 +1,5 @@
 ---
-title: Sort of Remote Astro Collections
+title: Remote Astro Collections (sort of)
 tags: Astro, Transistor, Data Fetching, Build Time
 projects: Data in the Wild, Two Week Build
 ---
