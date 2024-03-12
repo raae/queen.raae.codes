@@ -50,7 +50,9 @@ Holding a microphone then becomes a way to signal that you are in fact [one of t
 
 Maybe not grab a microphone just yet!
 
-But maybe take the time to consider how you may have internalized certain markers that were not authentically you. If so it's time to shed them, because they will not serve as a marker others navigate by to find great content.
+But maybe take the time to consider how you may have internalized certain markers that were not authentically you.
+
+If the markers no longer serve as markers for others to navigate by, and they are not serving you? Why keep them around?
 
 ---
 
