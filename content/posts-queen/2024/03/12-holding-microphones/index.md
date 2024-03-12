@@ -12,11 +12,15 @@ But if you have no time for that, the **TLDR**: Authenticity.
 
 ## Overproduction of meh video content
 
+There used to be obvious markers for what was better or worse quality. Graininess, pixelation, lack of structure, lack of music, rambling – any number of things could show us as viewers that the video creator was more amateur than auteur. And at the same time, we learned to love these artifacts of amateurish production. They were entertaining and human and genuine. 
+
+When we wanted a quality video to watch, we knew what to look for. But the opposite of amateurishness is no longer a reliable signal for a quality video. 
+
 As stated in [The Big Social Media Shift Nobody Notices](https://youtube.com/clip/UgkxbBt3hz7vvXv2umtOpR9TO_ChYgcl_RpT?si=Ru2Ocq3owztCoHRP) Dominik states unsurprisingly:
 
-> Any fool can make a boring video look good, now.
+> Any fool can make a boring video look good now.
 
-So much so that well-produced is no longer a marker the audience can rely on to signal good content. And the audience is getting tired of it.
+So much so that well-produced is no longer a marker the audience can rely on to signal good content. And the audience is getting tired of it. So we search for different signals that will lead us to content that is entertaining, but also leaves us feeling connected to the video creator.
 
 What then, is a marker of great tech content?
 
