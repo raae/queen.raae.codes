@@ -12,9 +12,9 @@ But if you have no time for that, the **TLDR**: Authenticity.
 
 ## Overproduction of meh video content
 
-As stated in [The Big Social Media Shift Nobody Notices](https://www.youtube.com/clip/UgkxOzbflroWgA_g4VCF0noscTB423obVC9b?si=VE4jpa-SbFD37-dH) "any fool can make a boring video look good".
+As stated in [The Big Social Media Shift Nobody Notices](https://youtube.com/clip/UgkxbBt3hz7vvXv2umtOpR9TO_ChYgcl_RpT?si=Ru2Ocq3owztCoHRP) Dominik states unsurprisingly:
 
-![Screengrab from "The Big Social Media Shift Nobody Notices"](boring-video.png)
+> Any fool can make a boring video look good, now.
 
 So much so that well-produced is no longer a marker the audience can rely on to signal good content. And the audience is getting tired of it.
 
