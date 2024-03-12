@@ -20,7 +20,7 @@ So much so that well-produced is no longer a marker the audience can rely on to 
 
 What then, is a marker of great tech content?
 
-## Overhyped proffesional techfluencers
+## Overhyped professional techfluencers
 
 Do you trust anything a professional techfluencer says? I don't, anymore.
 
