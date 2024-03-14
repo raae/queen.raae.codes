@@ -7,7 +7,7 @@ cta:
   href: https://savvycal.com/raae/go-live
 sections:
   - element: header
-    content: cta, main
+    content: main, cta
   - body: ./_about.md
     image: ../raae.jpg
     imageAlt: Queen Raae holding a laptop and looking into the camera in her signature green dress.
