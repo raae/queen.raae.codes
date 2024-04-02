@@ -7,7 +7,7 @@ tags: semantic HTML, react, SEO
 
 <aside class="notice">
 
-Learn more about 24 Semantic HTML Elements this advent by signing up for my [Semantic Advent](https://advent.raae.codes) initiative.
+Learn more about 24 Semantic HTML Elements this advent by signing up for [Semantic Advent](https://advent.raae.codes) that will run again in 2024.
 
 </aside>
 
