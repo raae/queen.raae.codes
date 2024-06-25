@@ -63,16 +63,16 @@ https://www.youtube.com/@QueenRaae/live
 ```md
 # The Crew
 
-Pirate Ola · @OlaHolstVea · https://twitter.com/OlaHolstVea  
-Queen Raae · @raae · https://twitter.com/raae
+Pirate Ola · @OlaHolstVea · https://x.com/OlaHolstVea  
+Queen Raae · @raae · https://x.com/raae
 
 # Who is Queen Raae
 
 Queen Raae is a seasoned web developer who loves duct-taping together side projects in addition to making apps trusted by the Swedish Armed Forces, The Norwegian Water Resources and Energy Directorate, and others.
 
-# More from Queen Raae
+# More from Queen Raae & Family
 
-- [Daily emails from the Queen and cap'n Ola on how to get the most out out Gatsby](https://queen.raae.codes/emails/?utm_source=youtube&utm_campaign=description&utm_content=pirate-show)
+- [Stay connected through our biweekly newsletter](https://queen.raae.codes/?utm_source=youtube&utm_medium=social&utm_campaign=live&utm_content=mixpod)
 ```
 
 ### Event Template (when guests)
