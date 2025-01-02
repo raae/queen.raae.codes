@@ -7,4 +7,4 @@ company:
   url: https://sparker888.com/
 ---
 
-Queen Raae weas able to both diagnose the issues I faced and help me understand what I was doing wrong (and learned something from it). Getting help on short notice is extremely valuable to me as a busy professional, and her wonderful personality, professionalism and expertise is a treat.
+Queen Raae was able to both diagnose the issues I faced and help me understand what I was doing wrong (and learned something from it). Getting help on short notice is extremely valuable to me as a busy professional, and her wonderful personality, professionalism and expertise is a treat.
