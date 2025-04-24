@@ -5,8 +5,10 @@ date: 2025-04-18
 ---
 
 **What:** I tested our own Galleon attributes on [Carrd](https://carrd.co/), my fav one-page site no code tool. 
-**Why:** To see how useable our docs are
-**How:** Check out our docs on [Queen Raae's github](https://github.com/queen-raae/galleon-attributes)
+
+**Why:** To see how useable our docs are.
+
+**How:** Check out our docs on [Queen Raae's github](https://github.com/queen-raae/galleon-attributes).
 
 ## I Added Our Script to the `<head>` in my Carrd website
 
