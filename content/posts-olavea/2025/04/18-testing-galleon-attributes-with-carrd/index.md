@@ -1,13 +1,14 @@
 ---
-title: Testing Galleon attributes with Carrd
+title: Captain Ola is Testing Galleon attributes with Carrd
 author: "@OlaHolstVea"
 date: 2025-04-18
 ---
 
-I tested our own docs for Galleon attributes on our [Queen Raae's github](https://github.com/queen-raae/galleon-attributes)
+**What:** I tested our own Galleon attributes on [Carrd](https://carrd.co/), my fav one-page site no code tool. 
+**Why:** To see how useable our docs are
+**How:** Check out our docs on [Queen Raae's github](https://github.com/queen-raae/galleon-attributes)
 
-## I Added the Script to the `<head>` in my Carrd website
-
+## I Added Our Script to the `<head>` in my Carrd website
 
 1. I clicked "+ Add Element"
 2. I clicked "</> Embed" to create a new Embed element
@@ -15,11 +16,11 @@ I tested our own docs for Galleon attributes on our [Queen Raae's github](https:
 4. I Copy / Pasted in `<script async src="https://cdn.jsdelivr.net/npm/@raae/galleon-attributes@1/dist/script.js"></script>` 
 5. I Set the Style to "Hidden" and then "Head" for my website's `<head>` element
 
+![in the head](./carrd-1.2-in-the-head-yeah.png)
 
 I used these Excellent [Carrd docs](
 https://carrd.co/docs/building/embedding-custom-code)
 
-![in the head](./carrd-1.2-in-the-head-yeah.png)
 
 # [I Tested Galleon Attributes](https://github.com/queen-raae/galleon-attributes#test-galleon-attributes)
 
