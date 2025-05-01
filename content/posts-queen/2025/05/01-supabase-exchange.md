@@ -4,6 +4,10 @@ Supabase provides Row Level Security (RLS) as a way to control access to your da
 
 This is something our [Outseta](https://outseta.com/?via=queen&utm_source=queen&utm_medium=blog&utm_campaign=supabase-exchange) users struggled with. I was pretty sure it was possible, but it took me some time to come up with the solution and I realised it could be used with any JWT-based auth provider, so I thought I'd share it.
 
+<aside class="note">
+I've also create a full [React + Supabase + Outseta demo app](https://outseta-supabase-react-feedback-fort.netlify.app/) that you can use as a starting point for your own project. Full source code is available on [GitHub](https://github.com/outseta/outseta-supabase-react-feedback-fort).
+</aside>
+
 ## The Problem
 
 You have an existing authentication system that issues JWTs, but you want to leverage Supabase's Row Level Security (RLS) features that expect Supabase-signed tokens.
