@@ -7,10 +7,12 @@ projects: Feedback Fort
 
 Supabase provides Row Level Security (RLS) as a way to control access to your data. RLS makes it possible to query data from your client without an API layer. But what if you want to use your existing authentication system, instead of Supabase Auth?
 
-This is something our [Outseta](https://outseta.com/?via=queen&utm_source=queen&utm_medium=blog&utm_campaign=supabase-exchange) users struggled with. I was pretty sure it was possible, but it took me some time to come up with the solution and I realised it could be used with any JWT-based auth provider, so I thought I'd share it.
+This is something our [Outseta](https://outseta.com/?via=queen&utm_source=queen&utm_medium=blog&utm_campaign=supabase-exchange) users struggled with. I was pretty sure it was possible, but it took me some time to come up with the solution. I realised it could be used with any JWT-based auth provider, so I thought I'd share the solution here as well.
 
-<aside class="note">
-I've also create a full [React + Supabase + Outseta demo app](https://outseta-supabase-react-feedback-fort.netlify.app/) that you can use as a starting point for your own project. Full source code is available on [GitHub](https://github.com/outseta/outseta-supabase-react-feedback-fort).
+<aside class="notice">
+
+I've also created a full [React + Supabase + Outseta demo app](https://outseta-supabase-react-feedback-fort.netlify.app/) that you can use as a starting point for your own project. Full source code is available on [GitHub](https://github.com/outseta/outseta-supabase-react-feedback-fort).
+
 </aside>
 
 ## The Problem
