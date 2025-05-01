@@ -1,4 +1,9 @@
-# How to use JWT from any auth provider with Supabase RLS
+---
+title: How to use JWT from any auth provider with Supabase RLS
+tags: JWT, RLS, Auth, Authorization
+brands: Outseta, Supabase
+projects: Feedback Fort
+---
 
 Supabase provides Row Level Security (RLS) as a way to control access to your data. RLS makes it possible to query data from your client without an API layer. But what if you want to use your existing authentication system, instead of Supabase Auth?
 
