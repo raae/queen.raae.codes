@@ -7,7 +7,7 @@ How would you send an email 10 days from now in your app?
 
 Below is a cleaned-up version of my response to [Aditya Malani](https://twitter.com/Sniper2804/status/1701883884936548765) when he asked this question on x-bird app.
 
-**Drip Campaigns:** Platforms like [Userlist](https://userlist.com/), [ConvertKit](https://convertkit.com/), or [Outseta](https://outseta.com/) offer capabilities to set up drip campaigns with delays you may trigger from your app.
+**Drip Campaigns:** Platforms like [Userlist](https://userlist.com/), [ConvertKit](https://convertkit.com/), or [Outseta](https://outseta.com/?via=queen) offer capabilities to set up drip campaigns with delays you may trigger from your app.
 
 **Email Scheduling:** Services like like [SendGrid](https://sendgrid.com/) and [Mailchimp Transactional](https://mailchimp.com/features/transactional-email) let you schedule emails in the future.
 

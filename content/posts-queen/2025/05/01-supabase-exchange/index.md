@@ -43,7 +43,7 @@ And take note of the shape for the JWT payload they provide, typical it will inc
 - `name`: User's name
 - `org_id`: User's organisation ID
 
-For an example, check out the [Outseta JWT docs](https://go.outseta.com/support/kb/articles/XQYMXqQP/the-jwt-access-token).
+For an example, check out the [Outseta JWT docs](https://go.outseta.com/support/kb/articles/XQYMXqQP/the-jwt-access-token?utm_source=queen&utm_medium=blog&utm_campaign=supabase-exchange).
 
 ### 2. Create an Exchange Function
 

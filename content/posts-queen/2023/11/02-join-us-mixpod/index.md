@@ -22,4 +22,4 @@ Think of it as mixtapes but for podcast episodes.
 All the best,\
 Queen Raae
 
-PS: The project is made possible by [Outseta](https://outseta.com/?utm_source=raae.codes&utm_medium=email&utm_campaign=2023-11-02-we-are-back), and we're hopeful more sponsors will join us along the way.
+PS: The project is made possible by [Outseta](https://outseta.com/?via=queen&utm_source=raae.codes&utm_medium=email&utm_campaign=2023-11-02-we-are-back), and we're hopeful more sponsors will join us along the way.
