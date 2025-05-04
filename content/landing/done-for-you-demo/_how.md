@@ -4,7 +4,7 @@ You let us know what comes up in support requests and point us towards relevant 
 
 We propose a feature set for the demo showcasing solutions to the most costly support request.
 
-You approve the feature set, pay and we start coding!
+You approve the feature set and we get your Gatsby demo started.
 
 ### What you get:
 
