@@ -5,13 +5,13 @@ project: Feedback Fort
 brands: Supabase, Claude, Cursor
 ---
 
-This [week on stream](TODO: add stream link), I paired with Cursor + Claude to add commenting functionality to [Feedback Fort: React + Supabase + Outseta](https://outseta-supabase-react-feedback-fort.netlify.app/).
+This [week on stream](https://www.youtube.com/live/FY8b3kgFUVk), I paired with Cursor + Claude to add commenting functionality to [Feedback Fort: React + Supabase + Outseta](https://outseta-supabase-react-feedback-fort.netlify.app/).
 
-I teased the stream with "Will it #AI?" a nod to "Will it blend?" of yesteryear.
+I teased the stream with "Will it #AI?" a nod to ["Will it blend?" of yesteryear](https://youtu.be/lAl28d6tbko).
 
 It felt like the answer was unequivocally yes - Claude seamlessly pumped out the Supabase migration SQL and working React code.
 
-[See me react live on stream here](TODO: add stream link).
+[See me react live on stream here](https://www.youtube.com/live/FY8b3kgFUVk).
 
 Or so I thought...
 
@@ -124,4 +124,4 @@ For other tech stacks it might make more sense to do this in an API layer.
 - Implement validation at every layer, but always on the server side!!!
 - `TRIM(BOTH FROM content) <> ''::text` is your friend for text content validation
 
-Let's see if we can get Claude to add the constraint from the start next time, [Monday 26th May at 15:30 CEST](TODO: add stream link).
+Let's see if we can get Claude to add the constraint from the start next time, [Monday 26th May at 15:30 CEST](https://www.youtube.com/@QueenRaae/live).
