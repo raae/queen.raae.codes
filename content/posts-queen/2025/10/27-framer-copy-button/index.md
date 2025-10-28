@@ -4,7 +4,7 @@ tags: framer, code override, react, clipboard api
 brands: Framer
 ---
 
-I've been browsing the [Framer community forum](https://www.framer.community/) lately as I'm working on an updated [Outseta Framer Plugin](https://www.framer.com/marketplace/plugins/outseta/).
+I've been browsing the [Framer community forum](https://www.framer.community/) lately as I'm working on an updated [Outseta Framer Plugin](https://framer.link/outseta-plugin).
 
 There I found a [question about how to add a "copy link" code override](https://www.framer.community/c/developers/copy-current-page-link-button-cms-supported) and threw together a code override.
 

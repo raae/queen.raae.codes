@@ -5,7 +5,7 @@ projects: Feedback Fort
 brands: Supabase, Claude, Cursor
 ---
 
-This [week on stream](https://www.youtube.com/live/FY8b3kgFUVk), I paired with Cursor + Claude to add commenting functionality to [Feedback Fort: an Outseta + React + Supabase Starter](https://outseta-supabase-react-feedback-fort.netlify.app/) to create a feedback system or as a starting point for your own app/SaaS.
+This [week on stream](https://www.youtube.com/live/FY8b3kgFUVk), I paired with Cursor + Claude to add commenting functionality to [Feedback Fort](https://outseta-supabase-react-feedback-fort.netlify.app/) made with React + Supabase + [Outseta](https://outseta.com/?via=queen) to create a feedback system or as a starting point for your own app/SaaS.
 
 I teased the stream with "Will it #AI?" a nod to ["Will it blend?" of yesteryear](https://youtu.be/lAl28d6tbko).
 

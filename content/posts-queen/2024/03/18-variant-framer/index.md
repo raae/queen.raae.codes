@@ -6,7 +6,7 @@ projects: Fan Funded (Patreon Clone)
 
 This week I'm building a [Framer x Outseta Patreon](https://www.youtube.com/@outseta/streams) clone live on stream together with Damien, a designer I know from the Interwebz.
 
-We'll design the site in Framer, use Outseta for authentication and protection of members-only content, and stitch it all together with Framer's Code Overrides.
+We'll design the site in [Framer](https://framer.link/queen-raae), use [Outseta](https://outseta.com/?via=queen) for authentication and protection of members-only content, and stitch it all together with Framer's Code Overrides.
 
 The feature we tackled today was to show a different post-item variant based on the link to the post. We'll configure [Outseta to protect](https://go.outseta.com/support/kb/categories/rQVZLeQ6/protected-content) all pages starting with "/posts/locked-" from unauthenticated visitors, so it makes sense to use the same mechanism for selecting the "locked" design of the post.
 

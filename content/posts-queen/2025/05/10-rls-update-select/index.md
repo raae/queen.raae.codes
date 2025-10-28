@@ -5,7 +5,7 @@ brands: Outseta, Supabase
 projects: Feedback Fort
 ---
 
-When implementing Row Level Security (RLS) in PostgreSQL for [Feedback Fort: React + Supabase + Outseta](https://outseta-supabase-react-feedback-fort.netlify.app/) edition, I spent way way way too long figuring out why soft deleting a vote by updating `deleted_at` kept stating:
+When implementing Row Level Security (RLS) in PostgreSQL for [Feedback Fort](https://outseta-supabase-react-feedback-fort.netlify.app/) made with React + Supabase + [Outseta](https://outseta.com/?via=queen) edition, I spent way way way too long figuring out why soft deleting a vote by updating `deleted_at` kept stating:
 
 > new row violates row-level security policy for table "vote"
 
