@@ -4,7 +4,7 @@ tags: Framer, Code Components, Code Overrides, RenderTarget
 brands: Framer, Outseta
 ---
 
-If you're building code components or code overrides for Framer, you'll want to handle three different render modes: canvas, preview, and live.
+If you're building code components or code overrides for [Framer](https://framer.link/queen-raae), you'll want to handle three different render modes: canvas, preview, and live.
 
 **Canvas** — The Framer editor. Your component is rendered as a static preview while designing.
 

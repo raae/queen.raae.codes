@@ -1,10 +1,10 @@
 ---
 title: Copy current URL with a Framer Code Override
 tags: framer, code override, react, clipboard api
-brands: Framer
+brands: Framer, Outseta
 ---
 
-I've been browsing the [Framer community forum](https://www.framer.community/) lately as I'm working on an updated [Outseta Framer Plugin](https://framer.link/outseta-plugin).
+I've been browsing the [Framer](https://framer.link/queen-raae) community forum lately as I'm working on an updated [Outseta](https://outseta.com/?via=queen) [Framer Plugin](https://framer.link/outseta-plugin).
 
 There I found a [question about how to add a "copy link" code override](https://www.framer.community/c/developers/copy-current-page-link-button-cms-supported) and threw together a code override.
 
