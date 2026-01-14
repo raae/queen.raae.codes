@@ -2,6 +2,7 @@
 
 return [
     'production' => false,
+    'commonmark' => true,  // Enable CommonMark parser for proper markdown support
     'baseUrl' => 'https://queen.raae.codes',
     'siteName' => 'Queen Raae',
     'title' => 'Queen Raae',
@@ -76,19 +77,4 @@ return [
             ...$page->posts_olavea,
         ])->sortByDesc('date');
     },
-
-    // Markdown configuration
-    'markdown' => [
-        'commonmark' => [
-            'enable_em' => true,
-            'enable_strong' => true,
-            'use_asterisk' => true,
-            'use_underscore' => true,
-        ],
-        'renderer' => [
-            'block_separator' => "\n",
-            'inner_separator' => "\n",
-            'soft_break' => "\n",
-        ],
-    ],
 ];
