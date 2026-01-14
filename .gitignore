@@ -14,6 +14,7 @@ hot
 /source/_posts_queen/
 /source/_posts_olavea/
 /source/_talks/
+/source/202*/
 
 # macOS system files
 .DS_Store

@@ -12,7 +12,6 @@
         </p>
         <div class="prose prose-lg prose-brown max-w-3xl mx-auto">
             <p>Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!</p>
-            <p class="text-xl">🏴‍☠️ Set sail with us every other <a href="{{ $page->socialMedia['youtube'] }}/live">Saturday on YouTube at 11:00 CET</a></p>
         </div>
     </header>
 
