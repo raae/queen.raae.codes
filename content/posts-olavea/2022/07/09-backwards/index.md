@@ -17,18 +17,18 @@ The good news is that you don't need to upgrade to Gatsby v4 because we made'em 
 The source plugin has an official new release:
 
 ```
-yarn add gatsby-source-cloudinary@latest
-npm install gatsby-source-cloudinary@latest
+yarn add gatsby-source-cloudinary&#64;latest
+npm install gatsby-source-cloudinary&#64;latest
 ```
 
 While the transformer plugin is in beta, we would love it if you took it for a spin; it works with both Gatsby v3 and Gatsby v4:
 
 ```
-yarn add gatsby-transformer-cloudinary@beta-v4
-npm install gatsby-transformer-cloudinary@beta-v4
+yarn add gatsby-transformer-cloudinary&#64;beta-v4
+npm install gatsby-transformer-cloudinary&#64;beta-v4
 ```
 
-Suppose you are already using gatsby-transformer-cloudinary with existing data. In that case, you might want to start with gatsby-transformer-cloudinary@beta, which has no breaking changes, but the possibility to migrate to gatsby-plugin-image before doing v4 needed changes.
+Suppose you are already using gatsby-transformer-cloudinary with existing data. In that case, you might want to start with gatsby-transformer-cloudinary&#64;beta, which has no breaking changes, but the possibility to migrate to gatsby-plugin-image before doing v4 needed changes.
 
 ## Backwards compatible plugins
 

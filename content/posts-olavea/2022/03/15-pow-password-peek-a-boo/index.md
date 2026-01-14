@@ -13,7 +13,7 @@ POW! Password Peek-a-boo
 
 ## Why did I do it?
 
-I like to see my pasSwords when I copy-paste them from 1Password and write them from memory because I am a visual guy. So we want our POW! customers to be able to choose for themselves. And because Queen @raae told me to do it.
+I like to see my pasSwords when I copy-paste them from 1Password and write them from memory because I am a visual guy. So we want our POW! customers to be able to choose for themselves. And because Queen &#64;raae told me to do it.
 
 ## How did I do it?
 

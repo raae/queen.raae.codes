@@ -15,12 +15,24 @@
   --color-brown-900: #3e2723;
 }
 
-/* Custom list styling for pirate theme */
-ul {
+/* Body styling - orange background like original */
+body {
+  @apply bg-orange-300;
+  @apply selection:bg-amber-300;
+  @apply text-brown-900;
+}
+
+/* Content wrapper - cream background like original */
+#app {
+  @apply bg-[#fcedd8];
+}
+
+/* Custom list styling for pirate theme - scoped to prose content */
+.prose ul {
   list-style: none;
 }
 
-ul li::before {
+.prose ul li::before {
   content: '➽';
   color: theme('colors.amber.500');
   display: inline-block;

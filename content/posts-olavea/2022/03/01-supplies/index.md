@@ -8,11 +8,11 @@ This Sunday, I created pages only for markdown pages, not for markdown sections.
 
 ## What did I do?
 
-I created pages with markdown and the createPages hook from @GatsbyJS
+I created pages with markdown and the createPages hook from &#64;GatsbyJS
 
 ## Why did I do it?
 
-Because it's tidier than creating a bunch of "bonus" pages with content I already show on my index page. And because Queen Benedicte @raae told me to do it.
+Because it's tidier than creating a bunch of "bonus" pages with content I already show on my index page. And because Queen Benedicte &#64;raae told me to do it.
 
 ## How did I do it?
 

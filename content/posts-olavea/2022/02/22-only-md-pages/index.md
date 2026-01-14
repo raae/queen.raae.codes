@@ -8,11 +8,11 @@ This Sunday, I tried to create pages only for markdown pages, not for markdown s
 
 ## What did I do?
 
-I created pages with markdown files and the createPages hook from @GatsbyJS
+I created pages with markdown files and the createPages hook from &#64;GatsbyJS
 
 ## Why did I do it?
 
-Because it's tidier and because Queen Benedicte @raae told me to do it.
+Because it's tidier and because Queen Benedicte &#64;raae told me to do it.
 
 ## How did I do it?
 

@@ -12,7 +12,7 @@ I added a slug field to my homemade markdown node with createNodeField from the 
 
 ## Why did I do it?
 
-I need that slug to add support for a basic content section to create Markdown marketing pages with sections for Queen @raae's usepow.app.
+I need that slug to add support for a basic content section to create Markdown marketing pages with sections for Queen &#64;raae's usepow.app.
 
 ## How did I do it?
 
