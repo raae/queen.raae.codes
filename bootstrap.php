@@ -85,7 +85,7 @@ $events->afterCollections(function (Jigsaw $jigsaw) {
 
 /*
  * Fix relative image paths after build
- * Convert ./image.png to image.png so they work without trailing slashes
+ * Convert ./image.png to ../slug-image.png to match the new image location
  */
 $events->afterBuild(function (Jigsaw $jigsaw) {
     $outputPath = $jigsaw->getDestinationPath();
@@ -94,14 +94,31 @@ $events->afterBuild(function (Jigsaw $jigsaw) {
     $pattern = $outputPath . '/[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]/*/index.html';
 
     foreach (glob($pattern) as $file) {
-        $content = file_get_contents($file);
+        // Extract slug from file path: /path/to/YYYY/MM/DD/slug/index.html
+        if (preg_match('#/([^/]+)/index\.html$#', $file, $matches)) {
+            $slug = $matches[1];
 
-        // Replace src="./image" with src="image" (remove ./ prefix)
-        $content = preg_replace('/(<img[^>]+src=")\.\/([^"]+)/', '$1$2', $content);
+            $content = file_get_contents($file);
 
-        // Also fix href="./file" for links
-        $content = preg_replace('/(<a[^>]+href=")\.\/([^"]+)/', '$1$2', $content);
+            // Replace src="./image.png" with src="../slug-image.png"
+            $content = preg_replace_callback(
+                '/(<img[^>]+src=")\.\/([^"]+)/',
+                function($m) use ($slug) {
+                    return $m[1] . '../' . $slug . '-' . $m[2];
+                },
+                $content
+            );
 
-        file_put_contents($file, $content);
+            // Also fix href="./file" for links (not images)
+            $content = preg_replace_callback(
+                '/(<a[^>]+href=")\.\/([^"]+)/',
+                function($m) use ($slug) {
+                    return $m[1] . '../' . $slug . '-' . $m[2];
+                },
+                $content
+            );
+
+            file_put_contents($file, $content);
+        }
     }
 });
