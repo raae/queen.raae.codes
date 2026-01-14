@@ -47,17 +47,25 @@ code[class*="language-"] {
   font-size: 0.875em;
 }
 
-/* Override Prism theme for better contrast */
-pre[class*="language-"] {
+/* Override Prism theme for better contrast - use higher specificity for prose */
+.prose pre[class*="language-"],
+.prose pre:has(code[class*="language-"]),
+pre[class*="language-"],
+pre:has(code[class*="language-"]) {
   background: #2d2d2d !important;
 }
 
+.prose code[class*="language-"],
 code[class*="language-"] {
   color: #ccc !important;
   text-shadow: none !important;
 }
 
 /* Ensure comments are visible */
+.prose .token.comment,
+.prose .token.prolog,
+.prose .token.doctype,
+.prose .token.cdata,
 .token.comment,
 .token.prolog,
 .token.doctype,
@@ -66,6 +74,10 @@ code[class*="language-"] {
 }
 
 /* Keywords and control flow */
+.prose .token.keyword,
+.prose .token.operator,
+.prose .token.boolean,
+.prose .token.number,
 .token.keyword,
 .token.operator,
 .token.boolean,
@@ -74,6 +86,9 @@ code[class*="language-"] {
 }
 
 /* Strings */
+.prose .token.string,
+.prose .token.char,
+.prose .token.attr-value,
 .token.string,
 .token.char,
 .token.attr-value {
@@ -81,12 +96,15 @@ code[class*="language-"] {
 }
 
 /* Functions */
+.prose .token.function,
+.prose .token.class-name,
 .token.function,
 .token.class-name {
   color: #66d9ef !important;
 }
 
 /* Punctuation */
+.prose .token.punctuation,
 .token.punctuation {
   color: #ccc !important;
 }
