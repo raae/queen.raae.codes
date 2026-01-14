@@ -1,9 +1,21 @@
 <?php
 
 use TightenCo\Jigsaw\Jigsaw;
+use Mni\FrontYAML\Markdown\MarkdownParser as FrontYAMLMarkdownParser;
 
 /** @var \Illuminate\Container\Container $container */
 /** @var \TightenCo\Jigsaw\Events\EventBus $events */
+
+/*
+ * Disable CommonMark due to conflict with Blade @ escaping
+ *
+ * Issue: Jigsaw's MarkdownHandler escapes @ symbols to {{'@'}} which works with
+ * the default JigsawMarkdownParser but creates invalid PHP when used with CommonMark.
+ *
+ * Trade-off: We lose CommonMark's backslash line break feature (\), but @ symbols
+ * (@raae, @GatsbyJS) work correctly. Users can use two spaces at end of line for breaks.
+ */
+$container['config']->put('commonmark', false);
 
 /*
  * Extract date from directory path and add to page metadata
