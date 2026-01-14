@@ -11,6 +11,7 @@
         "vite": "^6.4.1"
     },
     "dependencies": {
-        "@tailwindcss/vite": "^4.1.8"
+        "@tailwindcss/vite": "^4.1.8",
+        "prismjs": "^1.30.0"
     }
 }
