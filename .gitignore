@@ -1,4 +1,6 @@
 /build_local/
+/build_staging/
+/build_production/
 /cache/
 /node_modules/
 /vendor/
@@ -7,7 +9,8 @@
 npm-debug.log
 hot
 
-# Optional ignores
-# /build_staging/
-# /build_production/
-# /source/assets/build/
+# Jigsaw build artifacts
+/source/assets/build/
+/source/_posts_queen/
+/source/_posts_olavea/
+/source/_talks/
