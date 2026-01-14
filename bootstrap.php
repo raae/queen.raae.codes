@@ -10,10 +10,30 @@ use TightenCo\Jigsaw\Jigsaw;
  * Posts are organized as YYYY/MM/DD-slug/index.md
  */
 $events->afterCollections(function (Jigsaw $jigsaw) {
+    $collections = ['posts_queen', 'posts_olavea'];
+
+    // First, ensure all posts have proper dates extracted from filenames
+    foreach ($collections as $collectionName) {
+        $collection = $jigsaw->getCollection($collectionName);
+
+        foreach ($collection as $post) {
+            // If date is not set in frontmatter, extract from filename
+            $filename = $post->getFilename();
+            if (preg_match('#^(\d{4})-(\d{2})-(\d{2})-(.+)$#', $filename, $matches)) {
+                // Only set if not already in frontmatter or if it's invalid
+                if (!isset($post->date) || empty($post->date)) {
+                    $year = $matches[1];
+                    $month = $matches[2];
+                    $day = $matches[3];
+                    $post->date = "$year-$month-$day";
+                }
+            }
+        }
+    }
+
     // Collect all unique tags from both post collections
     $allTags = collect();
 
-    $collections = ['posts_queen', 'posts_olavea'];
     foreach ($collections as $collectionName) {
         $collection = $jigsaw->getCollection($collectionName);
 
