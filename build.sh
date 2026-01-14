@@ -42,12 +42,8 @@ copy_post_images() {
                 target_dir="source/$year/$month/$day"
                 mkdir -p "$target_dir"
 
-                # Copy all files except index.md (images, etc.) with slug prefix
-                find "$post_dir" -maxdepth 1 -type f ! -name "index.md" | while read -r image_file; do
-                    filename=$(basename "$image_file")
-                    # Prefix filename with slug to avoid conflicts
-                    cp "$image_file" "$target_dir/${slug}-${filename}"
-                done
+                # Copy all files except index.md (images, etc.) without modification
+                find "$post_dir" -maxdepth 1 -type f ! -name "index.md" -exec cp {} "$target_dir/" \;
             fi
         fi
     done
