@@ -41,7 +41,7 @@
                 <article class="border-b border-brown-200 pb-6 hover:border-brown-400 transition-colors">
                     <div class="flex items-start justify-between gap-4">
                         <div class="flex-1">
-                            <a href="/{{ $post->getPath() }}" class="group">
+                            <a href="{{ $post->getPath() }}" class="group">
                                 <h3 class="text-2xl font-bold text-brown-900 mb-2 group-hover:text-brown-700 transition-colors">
                                     {{ $post->title }}
                                 </h3>
