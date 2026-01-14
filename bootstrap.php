@@ -10,33 +10,55 @@ use TightenCo\Jigsaw\Jigsaw;
  * Posts are organized as YYYY/MM/DD-slug/index.md
  */
 $events->afterCollections(function (Jigsaw $jigsaw) {
-    $collections = ['posts_queen', 'posts_olavea'];
+    // Collect all unique tags from both post collections
+    $allTags = collect();
 
+    $collections = ['posts_queen', 'posts_olavea'];
     foreach ($collections as $collectionName) {
         $collection = $jigsaw->getCollection($collectionName);
-        echo "Collection '$collectionName' has " . count($collection) . " items\n";
 
-        foreach ($collection as $item) {
-            // Extract date from path: YYYY/MM/DD-slug
-            $path = $item->getPath();
-            echo "Processing: $path\n";
-
-            // Match pattern: YYYY/MM/DD-slug
-            if (preg_match('#(\d{4})/(\d{2})/(\d{2})-([^/]+)#', $path, $matches)) {
-                $year = $matches[1];
-                $month = $matches[2];
-                $day = $matches[3];
-                $slug = $matches[4];
-
-                // Set date in Y-m-d format for sorting
-                $item->date = "$year-$month-$day";
-                $item->year = $year;
-                $item->month = $month;
-                $item->day = $day;
-                $item->slug = $slug;
-                echo "  -> Extracted date: $year-$month-$day, slug: $slug\n";
+        foreach ($collection as $post) {
+            if (isset($post->tags)) {
+                $tags = array_map('trim', explode(',', $post->tags));
+                foreach ($tags as $tag) {
+                    if (!empty($tag)) {
+                        $allTags->push($tag);
+                    }
+                }
             }
         }
     }
 
+    $uniqueTags = $allTags->unique()->sort()->values();
+
+    // Generate a page for each tag
+    foreach ($uniqueTags as $tag) {
+        // Get all posts with this tag
+        $taggedPosts = collect();
+
+        foreach ($collections as $collectionName) {
+            $collection = $jigsaw->getCollection($collectionName);
+            foreach ($collection as $post) {
+                if (isset($post->tags)) {
+                    $postTags = array_map('trim', explode(',', $post->tags));
+                    if (in_array($tag, $postTags)) {
+                        $taggedPosts->push($post);
+                    }
+                }
+            }
+        }
+
+        // Sort by date descending
+        $taggedPosts = $taggedPosts->sortByDesc('date');
+
+        // Create a new page for this tag
+        $jigsaw->newPage(
+            'posts/tag/' . $tag,
+            [
+                'extends' => '_layouts.tag',
+                'tag' => $tag,
+                'posts' => $taggedPosts,
+            ]
+        );
+    }
 });
