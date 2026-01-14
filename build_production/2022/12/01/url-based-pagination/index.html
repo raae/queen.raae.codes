@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/12/01/url-based-pagination">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Url-based (client-side) pagination with Gatsby</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Url-based (client-side) pagination with Gatsby</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        client side
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        gatsby
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>I like to be able to refresh my browser, use the back button or bookmark a page without losing context. So for <a href="https://pruneyourfollows.com">Prune your follows</a>, we already had an URL structure for filters like this:</p>
+
+<ul>
+<li><a href="https://pruneyourfollows.com/app/filter/unpopular">/app/filter/unpopular</a></li>
+<li><a href="https://pruneyourfollows.com/app/filter/unfollowed">/app/filter/unfollowed</a></li>
+<li><a href="https://pruneyourfollows.com/app/filter/unpopular">/app/filter/unpopular</a></li>
+</ul>
+
+<p>Keeping the selected filter in the URL makes all the use cases mentioned above possible.</p>
+
+<p>The <a href="https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/#creating-client-only-routes">Gatsby File System Route API</a> does the heavy lifting for us, automagically surfacing the selected filter as a page prop:</p>
+
+<pre><code class="language-jsx">// File: ./src/pages/app/filter/[...filter].js 👈👈👈
+
+import React from "react";
+
+export default function FilterPage(props) {
+  return (
+    &lt;main&gt;
+      &lt;p&gt;Your selected filter is {props.params.filter}&lt;/p&gt;
+      {/* OR */}
+      &lt;p&gt;Your selected filter is {props.filter}&lt;/p&gt;
+    &lt;/main&gt;
+  );
+}
+</code></pre>
+
+<p>The path <code>/app/filter/unfollowed</code> in the above example prints out "Your selected filter is unfollowed" twice as I wanted to show that the selected filter is available both in <code>props.filter</code> and <code>props.params.filter</code>.</p>
+
+<p>For pagination, we need to add another level in our file system:</p>
+
+<pre><code class="language-jsx">// ./src/pages/app/filter/[filter]/[...page].js 👈👈👈
+
+import React from "react";
+
+export default function FilterPage(props) {
+  return (
+    &lt;main&gt;
+      &lt;p&gt;
+        Your selected filter is {props.filter}, &lt;br /&gt;
+        and your selected page is {props.page}
+      &lt;/p&gt;
+    &lt;/main&gt;
+  );
+}
+</code></pre>
+
+<ul>
+<li><code>/app/filter/unpopular</code> => "Your selected filter is unpopular, and your selected page is"</li>
+<li><code>/app/filter/overactive/3</code> => "Your selected filter is overactive, and your selected page is 3"</li>
+</ul>
+
+<p>BTW: These values are strings (or undefined), so it might be a good idea to convert the <code>page</code> into a <code>pageIndex</code> right away and add a sensible default:</p>
+
+<pre><code class="language-jsx">// ./src/pages/app/filter/[filter]/[...page].js
+
+import React from "react";
+
+export default function FilterPage(props) {
+  const pageIndex = props.page ? parseInt(props.page) : 0; 👈👈👈
+  return (
+    &lt;main&gt;
+      &lt;p&gt;
+        Your selected filter is {props.filter} &lt;br /&gt;
+        and your selected page is {pageIndex}
+      &lt;/p&gt;
+    &lt;/main&gt;
+  );
+}
+</code></pre>
+
+<p>With the above changes:</p>
+
+<ul>
+<li><code>/app/filter/unpopular</code> => "Your selected filter is unpopular, and your selected page is 0"</li>
+</ul>
+
+<p>All the best,\
+Queen Raae</p>
+
+<p>PS: There is a follow up showing <a href="/2023-01-04-react-query-pagination/">pagination in tandem with React Query</a></p>
+    </div>
+</article>
+    </body>
+</html>

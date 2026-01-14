@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/02/08/markdown-slug">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Ola adds a slug field to his homemade markdown node</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Ola adds a slug field to his homemade markdown node</h1>
+
+        
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <h2>My Sunday Skill Builder Session:</h2>
+
+<p>This Sunday, I added a slug field to my homemade markdown node 🐛</p>
+
+<h2>What did I do?</h2>
+
+<p>I added a slug field to my homemade markdown node with createNodeField from the onCreateNode hook.</p>
+
+<h2>Why did I do it?</h2>
+
+<p>I need that slug to add support for a basic content section to create Markdown marketing pages with sections for Queen @raae's usepow.app.</p>
+
+<h2>How did I do it?</h2>
+
+<p>Short version:</p>
+
+<pre><code class="language-js">// POW!-website / gatsby - node.js;
+async function slugifyMarkdownRemarkNode({ actions, node, getNode }) {
+  const { createNodeField } = actions;
+  if (node.internal.type === "MarkdownRemark") {
+    const slug = createFilePath({ node, getNode });
+    createNodeField({
+      name: "slug",
+      node,
+      value: slug,
+    });
+  }
+}
+
+exports.onCreateNode = async (gatsbyUtils) =&gt; {
+  await Promise.all([slugifyMarkdownRemarkNode(gatsbyUtils)]);
+};
+</code></pre>
+
+<p>Cheat Sheet:</p>
+
+<pre><code class="language-js">// POW!-site/gatsby-node.js
+async function slugifyMarkdownRemarkNode({ actions, node, getNode }) {
+  // 🔨💰🍓
+  con
+  // my md type of node ... internal
+  if ( ) {
+    // 🐛 = 🔨 + 📁 + 🎢 ({ node, getNode })
+  con
+    // 🔨💰🍓 ({ 🐛, 💰, 🐛 })
+    cre
+      na
+      no
+      va
+    })
+  }
+};
+</code></pre>
+
+<p>If you can guess what one of the emojis mean, reply to this email 😺👍</p>
+
+<p>Long version: <a href="https://youtu.be/otRx6U5zASw">Sunday's OlaCast on YouTube</a></p>
+
+<p>&nbsp;<br />
+💪😺👍<br />
+Keep your skill-builder-ship afloat this week!<br />
+⛵🔧🏴‍☠️</p>
+
+<p>Ola Vea<br />
+Cap'n of his own skill-builder-ship</p>
+    </div>
+</article>
+    </body>
+</html>

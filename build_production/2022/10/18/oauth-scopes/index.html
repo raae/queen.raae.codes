@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/10/18/oauth-scopes">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Getting &quot;403 Forbidden&quot; responses from the Twitter API?</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Getting &quot;403 Forbidden&quot; responses from the Twitter API?</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        authentication
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        OAuth2.0
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>Today I spent some time not understanding why my request to Twitter was failing. It replied with <code>403 Forbidden</code>, but I was pretty confident the <code>accessToken</code> was correct. What could it be? I double, tripled checked my code.</p>
+
+<p>Then I turned to my frenemy Google and found the answer way down there in an old forum thread. I had probably not requested the correct scope when authenticating the user.</p>
+
+<p>As always, the information is right there in plain sight in <a href="https://developer.twitter.com/en/docs/twitter-api/users/follows/api-reference/get-users-id-following">the documentation</a>&nbsp;🤦‍♀️</p>
+
+<p><a href="https://twitter.com/raae/status/1582323947961401344"><img src="./twitter_auth_scopes.jpg" alt="Tweet with image of the documentation" /></a></p>
+
+<p>However, I set <a href="/2022-09-09-nextauth/">up the NextAuth with Gatsby integration weeks ago</a>, and their default scope settings have worked perfectly so far 😱</p>
+
+<p>To override NextAuth's default scope <code>authorization.params.scope</code> to your <code>TwitterProvider</code> configurations.</p>
+
+<pre><code class="language-js">export const authConfig = {
+  // Configure one or more authentication providers
+  providers: [
+    TwitterProvider({
+      clientId: process.env.TWITTER_CLIENT_ID,
+      clientSecret: process.env.TWITTER_CLIENT_SECRET,
+      version: "2.0",
+      // 👇👇👇
+      authorization: {
+        params: {
+          scope: "users.read tweet.read follows.read",
+        },
+      },
+    }),
+  ],
+};
+</code></pre>
+
+<p>I hope you remember this when you need it or find it again when you need it. I'll probably google and land back on this myself the next time this happens to me 🤪</p>
+
+<p>&nbsp;</p>
+
+<p>All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

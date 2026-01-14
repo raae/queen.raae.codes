@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2023/03/22/tailwind-children">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>How to style `dangerouslySetInnerHTML` with Tailwind</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">How to style `dangerouslySetInnerHTML` with Tailwind</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        css
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        react
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>I stumbled on this challenge when working with highlighting for <a href="https://pruneyourfollows.com/">Prune your Follows</a>.</p>
+
+<blockquote>
+  <p>How to style the <code>mark</code> element in the possibly highlighted search result?</p>
+</blockquote>
+
+<p>Turns out Tailwind has support for <a href="https://tailwindcss.com/docs/hover-focus-and-other-states#using-arbitrary-variants">Using arbitrary variants</a>, but it took me quite a while to find that in the documentation, I'll tell you 🕵️‍♀️</p>
+
+<pre><code class="language-jsx">const HighlighetResult = () =&gt; {
+  return (
+    &lt;span
+      className="[&amp;&gt;em]:bg-amber-300" // 👈👈👈
+      dangerouslySetInnerHTML={{
+        __html: highlight?.username || record.username,
+      }}
+    /&gt;
+  );
+};
+</code></pre>
+
+<p>Inside the <code>[]</code> in the code example, you may use any regular old css selector! So, for instance, if you are getting content from a third party, you could do <code>[&amp;&gt;p]</code>, <code>[&amp;&gt;img]</code> etc. The <code>&gt;</code> indicates direct descendant; for any <code>img</code> you'll need to do <code>[&amp;_img], the</code>&#95;` will be read as a space.</p>
+
+<p><img src="./higlighting.png" alt="The resulting styled highlight" /></p>
+
+<p>&nbsp;</p>
+
+<p>All the best,\
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

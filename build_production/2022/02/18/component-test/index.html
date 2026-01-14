@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/02/18/component-test">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Exploring React Component testing with Gatsby</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Exploring React Component testing with Gatsby</h1>
+
+        
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>We talked <a href="https://youtu.be/hzZOkTAvE8M?t=3925">POW! Positioning</a> with Slow Business Torill (@fjellflyt) and explored React Component testing in yesterday's unauthorized and rum-fueled <a href="https://youtu.be/hzZOkTAvE8M">treasure hunt</a> in the sharky waters around the Gatsby islands.</p>
+
+<p>The POW! app already has tests for some of the business logic but no tests for the user interface. I want to change that.</p>
+
+<p>To get started, we explored adding components tests to the new POW! Marketing site Ola is working on.</p>
+
+<p>As before, when it comes to testing with Gatsby, we followed the <a href="https://www.gatsbyjs.com/docs/how-to/testing/unit-testing/">Gatsby Unit Testing Guide</a>.</p>
+
+<p>After exploring on stream and some work this morning, I decided on a strategy to test the pages' semantic structure and make sure the page will render even when content is missing or incomplete.</p>
+
+<h2>Does the page render without content?</h2>
+
+<pre><code class="language-js">// {MarkdownRemark.fields__slug}.test.js
+
+import React from "react";
+import { create } from "react-test-renderer";
+import Page from "./{MarkdownRemark.fields__slug}";
+
+describe("without content", () =&gt; {
+  const root = create(&lt;Page /&gt;).root;
+  it("renders", () =&gt; {
+    expect(root).toBeDefined();
+  });
+});
+</code></pre>
+
+<h2>Does the page render correct semantic HTML for the content?</h2>
+
+<pre><code class="language-js">// {MarkdownRemark.fields__slug}.test.js
+
+import React from "react";
+import { create } from "react-test-renderer";
+import Page from "./{MarkdownRemark.fields__slug}";
+
+describe("with typical content", () =&gt; {
+  const root = create(
+    &lt;Page
+      data={{
+        markdownRemark: {
+          frontmatter: {
+            title: "Page title",
+          },
+        },
+      }}
+    /&gt;
+  ).root;
+
+  it("uses h1 for page title", () =&gt; {
+    const h1Element = root.findByType("h1");
+
+    expect(h1Element).toBeDefined();
+    expect(h1Element.props.children).toBe("Page title");
+  });
+});
+</code></pre>
+
+<h2>Does NOT render HTML elements for missing content?</h2>
+
+<pre><code class="language-js">// {MarkdownRemark.fields__slug}.test.js
+
+import React from "react";
+import { create } from "react-test-renderer";
+import Page from "./{MarkdownRemark.fields__slug}";
+
+describe("with missing title content", () =&gt; {
+  const root = create(
+    &lt;Page
+      data={{
+        markdownRemark: {
+          frontmatter: {},
+        },
+      }}
+    /&gt;
+  ).root;
+
+  it("has no empty h1 for missing page title", () =&gt; {
+    const checkForElement = () =&gt; {
+      root.findByType("h1");
+    };
+
+    expect(checkForElement).toThrow();
+  });
+});
+</code></pre>
+
+<p>I hope some of these examples make it easier for you to get started!</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+
+<p><strong>PS:</strong> Read a great article on test strategy? Send it my way!</p>
+    </div>
+</article>
+    </body>
+</html>

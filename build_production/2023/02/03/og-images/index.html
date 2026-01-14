@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2023/02/03/og-images">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Is 1200 x 630px the holy grail?</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Is 1200 x 630px the holy grail?</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        open graph
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        og image
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>We finally added an open graph image on last week's <a href="https://www.youtube.com/watch?v=tBY3OjlRe2M">unauthorized and rum-fueled treasure hunt</a>, so the URL looks nice when shared on social media.</p>
+
+<p><a href="https://www.youtube.com/watch?v=tBY3OjlRe2M"><img src="./screengrab.jpg" alt="Screengrab from stream" /></a></p>
+
+<p>We ended up being super confused by the size requirements, but 1200 x 630px seems to be the holy grail of these images. The size works across Twitter, LinkedIn and Facebook.</p>
+
+<p>Let me know if I am wrong, please!</p>
+
+<p>Both LinkedIn and Facebook require a meta tag with <code>property</code> set to <code>og-image</code>:</p>
+
+<pre><code class="language-jsx">&lt;meta property="og:image" content={imageUrl} /&gt;
+</code></pre>
+
+<p>While Twitter requires a meta tag with <code>name</code> set to <code>twitter:image</code> in addition to information about the style of the "sharing card":</p>
+
+<pre><code class="language-jsx">&lt;meta name="twitter:card" content="summary_large_image" /&gt;
+&lt;meta name="twitter:image" content={imageUrl} /&gt;
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>All the best,\
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

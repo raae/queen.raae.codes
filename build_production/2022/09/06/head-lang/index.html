@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/09/06/head-lang">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>The Gatsby Head API cannot set the language attribute on the html tag</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">The Gatsby Head API cannot set the language attribute on the html tag</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Gatsby Head API
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        html lang
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        seo
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <aside class="notice">
+
+Outdated as of Gatsby v5.5 (January 2023 #2)!\
+➡️ Read [How to set HTML lang with Gatsby in 2023](/2023-02-13-gatsby-head-lang/) instead.
+
+</aside>
+
+<p>Last week we migrated from React Helmet to the new Gatsby Head API on our <a href="/2022-09-02-head-api/">unauthorized and rum-fueled treasure hunt</a>.</p>
+
+<p>It was surprisingly straightforward as my existing use of React Helmet used their newest style,</p>
+
+<pre><code class="language-js">// File: src/components/page-head.js
+
+import React from "react";
+import { Helmet } from "react-helmet";
+
+export default function PageHead(props) {
+  const { location, title } = props;
+  const canonical = `${siteUrl}${location.pathname}`;
+  return (
+    &lt;Helmet&gt;
+      &lt;html lang="en" /&gt;
+      &lt;title&gt;{title}&lt;/title&gt;
+      &lt;link rel="canonical" href={canonical} /&gt;
+    &lt;/Helmet&gt;
+  );
+}
+</code></pre>
+
+<p>and that is the same structure expected by the Gatsby Head API as well, just without the <code>Helmet</code> wrapper.</p>
+
+<pre><code class="language-js">// File: src/components/page-head.js
+
+import React from "react";
+
+export default function PageHead(props) {
+  const { location, title } = props;
+  const canonical = `${siteUrl}${location.pathname}`;
+  return (
+    &lt;&gt;
+      &lt;html lang="en" /&gt; // Read below before copying this line!!!
+      &lt;title&gt;{title}&lt;/title&gt;
+      &lt;link rel="canonical" href={canonical} /&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre>
+
+<pre><code class="language-js">// File: src/pages/example.js
+
+import React from "react";
+import PageHead from "../components/
+
+export function Head(props) {
+  return &lt;PageHead {...props} /&gt;;
+}
+
+export default function ExamplePage() {
+  return &lt;div&gt;Hello World&lt;/div&gt;;
+}
+</code></pre>
+
+<p>But with some tiny differences that I did not pick up on until I actually read the documentation a little more closely after the stream 🤦‍♀️</p>
+
+<p>The Gatsby Head API only messes with the <code>head</code> element, while ReactHelmet also lets you mess with the <code>html</code> and <code>body</code> attributes.</p>
+
+<p>Meaning my use of <code>&lt;html lang="en"&gt;</code> above was silently ignored 😱</p>
+
+<p>To add the language attribute back in, I had to reach for the <code>onRenderBody</code> lifecycle hook:</p>
+
+<pre><code class="language-js">// File: gatsby-ssr.js
+
+import React from "react";
+
+export const onRenderBody = (gatsbyUtils) =&gt; {
+  const { setHtmlAttributes } = gatsbyUtils;
+
+  setHtmlAttributes({ lang: "en" });
+};
+</code></pre>
+
+<p>There is also a <code>setBodyAttributes</code> utils to use if your original use of React Helmet sets body attributes you would like to keep around.</p>
+
+<p>&nbsp;</p>
+
+<p>All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

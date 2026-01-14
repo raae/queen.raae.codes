@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/05/19/stripe-verification">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Stripe Event validation in a Gatsby Serverless Function</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Stripe Event validation in a Gatsby Serverless Function</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        serverless
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        lamda
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        raw body
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        webhook
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>If you are new to serverless, you might have thought nothing of <a href="/2022-05-18-dynamic-serverless/">yesterday's "Using Http Request Body" example</a>.</p>
+
+<pre><code class="language-js">export default function handler(req, res) {
+  const { city, year } = req.body;
+  res.send(`You time-travelled to ${city}, in year ${year}`);
+}
+</code></pre>
+
+<p>But having the body served to you automagically as json, when it makes sense, is something I really like about Gatsby Functions. In most other serverless implementations, you have to parse it yourself.</p>
+
+<p>However, when it comes to verifying the signature of a webhook using a third-party SDK, not so much! Most signature checks require access to the raw body.</p>
+
+<p>And for the longest time, we could not access the raw body in a Gatsby Function, but with the release of Gatbsy v4.14, we can 🎉</p>
+
+<p>To control the <code>body-parser</code> middleware export an <a href="https://www.gatsbyjs.com/docs/reference/functions/middleware-and-helpers/#accessing-body-as-a-buffer">object named <code>config</code></a>.</p>
+
+<pre><code class="language-js">const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const endpointSecret = process.env.STRIPE_ENDPOINT_SECRET;
+
+// Export a config object
+// to configure the bodyParser
+export const config = {
+  bodyParser: {
+    raw: {
+      type: `*/*`,
+    },
+  },
+};
+
+export default function handler(req, res) {
+  try {
+    const sig = req.headers["stripe-signature"];
+    const event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+
+    // Handle the verified event,
+    // event data can be trusted
+    switch (event.type) {
+      case "checkout.session.completed":
+        console.log("CheckoutSession completed, fulfill the order!");
+        // Handle the event
+        break;
+      // ... handle other event types
+      default:
+        console.log(`Unhandled event type ${event.type}`);
+    }
+
+    res.status(200);
+  } catch (err) {
+    console.warn(err.message);
+    res.status(400);
+  }
+}
+</code></pre>
+
+<p>~~Unfortunately, I cannot seem to make this work locally, but I have verified that it works on Gatsby Cloud. I will, of course, follow up with Gatsby to figure out what's up. Is it a feature? Or a bug? I know my opinion on the matter 😬~~</p>
+
+<p>Update: <a href="/2022-06-01-raw-body-fix/">Raw body works in develop from v4.16</a></p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

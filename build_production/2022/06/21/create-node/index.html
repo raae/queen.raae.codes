@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/06/21/create-node">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>createNode does NOT return anything useful</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">createNode does NOT return anything useful</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        createNode
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        createParentChildLink
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        onCreateNode
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        sourceNodes
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p><code>createNode</code> does not return anything useful:</p>
+
+<pre><code class="language-js">// gatsby-node.js
+
+// Should be sourced or derived, only for example purposes
+const DATA = { id: "unique", hello: "world" };
+
+exports.sourceNodes = async (gatsbyUtils) =&gt; {
+  const { actions, createNodeId, createContentDigest } = gatsbyUtils;
+  const { createNode } = actions;
+
+  const awaitedNode = await createNode({
+    ...DATA,
+    id: createNodeId(`example-node-${DATA.id}`),
+    internal: {
+      type: `BadExample`,
+      contentDigest: createContentDigest(DATA),
+    },
+  });
+  console.log("&gt;&gt;&gt;&gt; awaitedNode:", awaitedNode); // 👈
+  // Console:
+  // &gt;&gt;&gt; awaitedNode: []
+};
+</code></pre>
+
+<p>Therefore to create a child-parent link in <code>onCreateNode</code> for instance, you need to keep a reference to the id yourself:</p>
+
+<pre><code class="language-js">// gatsby-node.js
+
+// Should be sourced or derived, only for example purposes
+const DATA = { id: "unique", hello: "world" };
+
+exports.onCreateNode = (gatsbyUtils) =&gt; {
+  const { node, actions, createNodeId, createContentDigest } = gatsbyUtils;
+  const { createNode, createParentChildLink } = actions;
+
+  if (node.internal.type !== "Parent") return;
+
+  const nodeId = createNodeId(`example-node-${DATA.id}`); // 👈
+
+  createNode({
+    ...DATA,
+    id: nodeId, // 👈
+    internal: {
+      type: `Child`,
+      contentDigest: createContentDigest(DATA),
+    },
+  });
+
+  // 👇👇👇
+  createParentChildLink({ parent: node, child: { id: nodeId } });
+};
+</code></pre>
+
+<p>A more common version of the code above that you see in examples are:</p>
+
+<pre><code class="language-js">// gatsby-node.js
+
+// Should be sourced or derived, only for example purposes
+const DATA = { id: "unique", hello: "world" };
+
+exports.onCreateNode = (gatsbyUtils) =&gt; {
+  const { node, actions, createNodeId, createContentDigest } = gatsbyUtils;
+  const { createNode, createParentChildLink } = actions;
+
+  if (node.internal.type !== "Parent") return;
+
+  const childNode = {
+    ...DATA,
+    id: createNodeId(`example-node-${DATA.id}`),
+    internal: {
+      type: `Child`,
+      contentDigest: createContentDigest(DATA),
+    },
+  };
+
+  // 👇👇👇
+  createNode(childNode);
+  createParentChildLink({ parent: node, child: childNode });
+};
+</code></pre>
+
+<p>However, I'm not too fond of indicating that the data object describing the node is already an <em>actual</em> node in the data layer, so I prefer my initial solution as only the id is needed to create the link.</p>
+
+<p>&nbsp;</p>
+
+<p>All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

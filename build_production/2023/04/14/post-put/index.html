@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2023/04/14/post-put">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Sometimes you POST to update, sometimes you PUT</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Sometimes you POST to update, sometimes you PUT</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        api
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        PUT
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        POST
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>I once spent what felt like an eternity not understanding why updating a ConvertKit subscriber resulted in a 404. Luckily <em>half moon</em> was watching and let me know I needed to use PUT, not POST for this.</p>
+
+<p><a href="https://www.youtube.com/live/ZNhD4pXZOhI?feature=share&amp;t=2506"><img src="./screenshot-put-post.png" alt="It need to be PUT, not POST" /></a></p>
+
+<p>Using PUT is technically the correct use of the HTTP methods:</p>
+
+<blockquote>
+  <p>The difference between POST and PUT is that PUT requests are idempotent. That is, calling the same PUT request multiple times will always produce the same result. In contrast, calling a POST request repeatedly have side effects of creating the same resource multiple times.</p>
+  
+  <p><cite><a href="https://www.w3schools.com/tags/ref_httpmethods.asp">W3Schools</a></cite></p>
+</blockquote>
+
+<p>But not what my favorite API in the whole wide world, the Stripe API and many others, does. Stripe use POST for both creation and updating.</p>
+
+<blockquote>
+  <p>POST /v1/customers
+  POST /v1/customers/:id
+  <cite><a href="https://www.w3schools.com/tags/ref_httpmethods.asp">Stripe API Docs</a></cite></p>
+</blockquote>
+
+<p>But once burned, I always double-check, which saved us when using the <a href="http://www.outseta.com?via=queen">Outseta</a> API on yesterday's rum-fueled treasure hunt. The Outseta API also uses PUT for updates.</p>
+
+<p>So this is your reminder to double-check that HTTP Method before pursuing other explanations for failing updates.</p>
+
+<p>&nbsp;</p>
+
+<p>All the best,\
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

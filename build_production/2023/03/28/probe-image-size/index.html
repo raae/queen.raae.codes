@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2023/03/28/probe-image-size">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Little helper to check on images &gt; probe-image-size</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Little helper to check on images &gt; probe-image-size</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        images
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>I needed to weed out accounts with broken images for the search demo I've been working on. It doesn't look so good with random broken images when demoing.</p>
+
+<p>The reason for the broken images is that it's been a while since I imported these accounts. So folks have changed their profile image, and some have left the platform. Instead of reimporting the roughly 5000 accounts I follow, I removed the ones with a broken image.</p>
+
+<p>To do so, I used probe-image-size because it throws an error when the image probed is unavailable. Meaning my code would be super tidy without me writing a helper function. I've used it before to probe for an image's size, the actual use case, when doing Gatsby Image CDN stuff, as it needs to know the size of the original image, and sometimes all you have is an URL.</p>
+
+<p>But back to the task at hand:</p>
+
+<p>1️⃣ Get all account records\
+2️⃣ Probe each account profile image\
+3️⃣ Delete the account record if the image is unavailable</p>
+
+<pre><code class="language-js">// 1️⃣ Get account records
+let page = await xata.db.accounts
+  .select(["id", "username", "meta.profile_image_url"])
+  .getPaginated({
+    pagination: {
+      size: 20,
+    },
+  });
+
+const deleteBrokenImage = async (record) =&gt; {
+  try {
+    // 2️⃣ Probe each account profile image
+    await probe(record.meta.profile_image_url);
+    console.log("Do not delete ", record.username);
+  } catch (error) {
+    // 3️⃣ Delete the account record if the image is unavailable
+    await xata.db.accounts.delete(record.id);
+    console.log("Deleted ", record.username);
+  }
+};
+
+await Promise.all(page.records.map(deleteBrokenImage));
+</code></pre>
+
+<p>I've skipped pagination, so the example code will only go through the first 20 records. For the following 20 records and so forth, you'd need to do <code>await page.nextPage()</code>.</p>
+
+<p>For the complete code, look at the <a href="https://github.com/queen-raae/xata-search-three-ways-demo/blob/main/src/api/clean.js">demo code on Github</a>.</p>
+
+<p>&nbsp;</p>
+
+<p>All the best,\
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

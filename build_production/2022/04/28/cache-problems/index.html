@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/04/28/cache-problems">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>The cache solution that keeps on NOT giving...</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">The cache solution that keeps on NOT giving...</h1>
+
+        
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>As mentioned in Tuesday's email:</p>
+
+<blockquote>
+  <p>For each MarkdownRemark-node Gatsby Remark oEmbed finds the standalone links, checks the oEmbed provider list for a match, and swaps the link out for the result coming back from the matching provider's oEmbed endpoint.</p>
+</blockquote>
+
+<p>I decided early on to download the provider list on each build. oEmbed providers come and go with no effect on how the plugin should work.</p>
+
+<p>The provider list is downloaded and saved in the Gatsby Cache using the <code>onPreBootstrap</code> lifecycle hook.</p>
+
+<p>Back in October 2018, this did not work. I could not understand why, but it turned out to be a bug with the sub-plugin cache implementation.</p>
+
+<p>It <a href="https://github.com/gatsbyjs/gatsby/issues/8788">got fixed by Gatsby</a> in January 2019, and all was good in the world of Gatsby Remark oEmbed 🎉</p>
+
+<p>But that did not last long. MDX took the world by storm. Gatsby Remark oEmbed, however, does not play nice.</p>
+
+<p><a href="https://github.com/queen-raae/gatsby-remark-oembed/pull/88">Swizec figured out why</a>:</p>
+
+<blockquote>
+  <p>The issue was that gatsby-plugin-mdx implements onPreBootstrap, overriding oEmbed's onPreBootstrap implementation.</p>
+</blockquote>
+
+<p>He changed the implementation:</p>
+
+<blockquote>
+  <p>When we try to use the list of providers, we now re-fetch it and update the cache if it isn't yet available in cache. This makes the plugin work with MDX.</p>
+</blockquote>
+
+<p>It works 🎉🎉🎉</p>
+
+<p>Life gets in the way, and I never release a new version.</p>
+
+<p>Fast forward to a couple of weeks ago, and the fix no longer works 🤯</p>
+
+<p>In the node transformation step, saving to the Gatsby Cache never sticks for sub-plugins. <a href="https://github.com/gatsbyjs/gatsby/issues/35415">Check the bug report for more details</a>, and feel free to make some noise with emojis and comments.</p>
+
+<p>It could be solved by shipping the providers list with the plugin. It just feels wrong though...</p>
+
+<p>&nbsp;<br />
+All the best,
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

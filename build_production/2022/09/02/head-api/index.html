@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/09/02/head-api">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Migration from React Helmet to the new Head API</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Migration from React Helmet to the new Head API</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        React Helmet
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Gatsby Head API
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        meta tags
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        SEO
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>We had so much fun on yesterday's <a href="https://youtu.be/Zyeuj7I7A50">unauthorized and rum-fueled treasure hunt</a> in the sharky waters around the Gatsby islands 🎉</p>
+
+<p><a href="https://youtu.be/Zyeuj7I7A50"><img src="./screendump.jpg" alt="Stream Screendump" /></a></p>
+
+<h2>The What?</h2>
+
+<p>We migrated from React Helmet to the new <a href="https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/">React Head API</a>.</p>
+
+<h2>The Why?</h2>
+
+<p>It's always nice to get rid of dependencies, and I have seen some very intermitted issues with missing meta tags on a few pages, as reported by <a href="https://ahrefs.com/">ahrefs</a>. Hopefully, that will be a thing of the past after the migration.</p>
+
+<h2>The How</h2>
+
+<p>We made sure to enable migrating one page at a time instead of migrating it all at once. Experience has taught me the perils of the latter approach.</p>
+
+<p>So we cloned the existing <code>SEO</code> component, named it <code>PageHead,</code> and replaced the <code>Helmet</code> wrapper with a fragment <code>&lt;&gt;...&lt;/&gt;</code>.</p>
+
+<p>We then returned the new <code>PageHead</code> component from the named export <code>Head</code> in the page template.</p>
+
+<p>The new Head API asks you to export a named component called <code>Head.</code> Similar to how Gatsby picks up the default export as the content to inject into the <code>body</code> element, the named export <code>query</code> as the page query, it now also picks up the named export <code>Head</code> as content to inject into the <code>head</code> element.</p>
+
+<h2>The Code</h2>
+
+<pre><code class="language-js">// File: src/pages/{Email.slug}.js
+import React from "react";
+import { graphql, Link } from "gatsby";
+import PageHead from "../components/page-head";
+import EmailTemplate from "../components/email-template";
+
+export function Head({ data, ...props }) {
+  const { title, description } = data.email || {};
+  return (
+    &lt;PageHead
+      {...props}
+      meta={{
+        title: title,
+        description: description,
+      }}
+    /&gt;
+  );
+}
+
+export default function EmailPage({ data, ...props }) {
+  return &lt;EmailTemplate {...data.email} {...props} /&gt;;
+}
+
+export const query = graphql`
+  query EmailById($id: String!) {
+    email(id: { eq: $id }) {
+      // ... the query
+    }
+  }
+`;
+</code></pre>
+
+<p>Check out the <a href="https://github.com/raae/queen.raae.codes/pull/126">Pull Request on Github</a> to view the full refactor we did on stream.</p>
+
+<p>&nbsp;</p>
+
+<p>All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

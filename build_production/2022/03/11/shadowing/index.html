@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/03/11/shadowing">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>How to hijack Gatsby Plugins/Themes with shadowing</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">How to hijack Gatsby Plugins/Themes with shadowing</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        theme shadowing
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        gatsby theme
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        mui
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>As I mentioned in yesterday's email, we are <a href="/2022-03-10-mui/">standardizing on MUI</a> as our React UI Library across the board. So, of course, I created a reusable plugin taking care of all the nitty-gritty work of setting MUI up correctly after getting it all to work on queen.raae.codes.</p>
+
+<p>On this week's unauthorized and rum-fueled <a href="https://youtu.be/kzUUoglO63k">treasure hunt</a> in the sharky waters around the Gatsby islands, the time had come to add MUI to the new POW! marketing site.</p>
+
+<p><a href="https://youtu.be/kzUUoglO63k"><img src="./youtube-screengrab.jpg" alt="Screengrab of stream" /></a></p>
+
+<p>Since configuring MUI is a little more complex than what your average plugin options should handle, we are utilizing <a href="https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/">Shadowing in Gatsby Themes</a>.</p>
+
+<p>There is no real technical difference between a Gatsby Theme and a Gatsby Plugin, but Gatsby would like us to call plugins that have their own gatsby-config file or are set up for shadowing for themes.</p>
+
+<p>I might just rebel and call them all plugins, but for now, I have stuck to their recommendation and used the theme naming convention: @raae/gatsby-theme-mui.</p>
+
+<p>Back to shadowing...</p>
+
+<p>You may replace any file located in the <code>src</code>-folder of a plugin or theme with a file in your root Gatsby project.</p>
+
+<p>Best explained with an example.</p>
+
+<p>For the new POW! marketing site, we added @raae/gatsby-theme-mui to our project.</p>
+
+<p>Then we found the plugin's file structure by taking a peek in our node_modules folder.</p>
+
+<pre><code>@raae/
+├─ gatsby-theme-mui/
+│  ├─ src/
+│  │  ├─ ThemeRoot.js
+│  │  ├─ config.js
+│  │  ├─ getEmotionCache.js
+│  │  ├─ theme.js
+│  ├─ gatsby-browser.js
+│  ├─ gatsby-node.js
+│  ├─ gatsby-ssr.js
+│  ├─ index.js
+│  ├─ package.json
+</code></pre>
+
+<p>We decided to shadow the config.js file. By doing so, we replace the code that gets imported by the @raae/gatsby-theme-mui theme.js file:</p>
+
+<pre><code class="language-js">// File: @raae/gatsby-theme-mui/src/theme.js
+
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import config from "./config";
+
+let theme = createTheme(config);
+responsiveFontSizes(theme);
+
+export default theme;
+</code></pre>
+
+<p>Shadowing is achieved by adding a new config.js file to our Gatsby project at a particular location:</p>
+
+<pre><code>pow-site/
+├─ src/
+│  ├─ @raae/
+│  │  ├─ gatsby-theme-mui/
+│  │  │  ├─ config.js
+│  ├─ pages/
+│  ├─ templates/
+│  ├─ ...more
+├─ gatsby-node.js
+├─ package.json
+</code></pre>
+
+<pre><code class="language-js">// File: pow-site/src/@raae/gatsby-theme-mui/config.js
+
+import { red } from "@mui/material/colors";
+
+const config = {
+  palette: {
+    primary: {
+      main: red.A700,
+    },
+  },
+};
+
+export default config;
+</code></pre>
+
+<p>And voila, we have changed the primary color to a POW! red.</p>
+
+<p>Check out the <a href="https://github.com/olavea/pow-site/blob/main/src/%40raae/gatsby-theme-mui/config.js">pow-site repository</a> on GitHub for more detail, and take a look at Gatsby's official <a href="https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/">Shadowing in Gatsby Themes</a> article.</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

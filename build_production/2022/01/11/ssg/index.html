@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/01/11/ssg">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Static Site Generation (SSG) with Gatsby</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Static Site Generation (SSG) with Gatsby</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        SSG
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        screencast
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>Static Site Generation (SSG) is Gatsby's default rendering mode.</p>
+
+<p><em>SSG is the default rendering mode in Gatsby. While the name has the word “static” in it, it doesn’t at all mean boring or lifeless. It simply means the entire site is pre-rendered into HTML, CSS, and JavaScript at build time, which then get served as static assets to the browser. Because all of that HTML, CSS, and JS is preprocessed and rendered at build time, Static Site Generation serves websites to users in the fastest possible way—your content is ready to go before the visitor even visits the site. (<a href="https://www.gatsbyjs.com/docs/conceptual/rendering-options/#static-site-generation-ssg">Gatsby Docs about Rendering Options</a>).</em></p>
+
+<p><a href="https://www.gatsbyjs.com/docs/conceptual/rendering-options/#static-site-generation-ssg"><img src="./ssg-diagram.jpg" alt="SSG Diagram" /></a></p>
+
+<p><strong>But how do we SSG?</strong></p>
+
+<ul>
+<li><a href="https://youtu.be/D_03KW4AkSk">Watch the Live Screeencast</a></li>
+</ul>
+
+<h2>SSG with Gatsby three ways</h2>
+
+<p>Read more in the <a href="https://www.gatsbyjs.com/docs/reference/routing/creating-routes/">Gatsby Docs about Routing</a>.</p>
+
+<h3>1. React component in <code>src/pages</code></h3>
+
+<p>The file generates a single page with the file's name as the path.</p>
+
+<pre><code>// src/pages/demo.js
+
+import React from "react";
+
+const DemoPage = () =&gt; {
+  return (
+    &lt;main&gt;
+      &lt;h1&gt;Static Site Generation (SSG)&lt;/h1&gt;
+    &lt;/main&gt;
+  );
+};
+
+export default DemoPage;
+</code></pre>
+
+<ul>
+<li>Generates a page at the path <code>/demo/</code>.</li>
+</ul>
+
+<h3>2. File System Route API</h3>
+
+<p>The file generates a page for each YouTube node in the data layer with the node's id as the path.</p>
+
+<pre><code>// src/pages/{YouTube.id}.js
+
+import React from "react";
+
+const YouTubeFileSystemApiPage = () =&gt; {
+  return (
+    &lt;main&gt;
+      &lt;h1&gt;File System Route API Page&lt;/h1&gt;
+    &lt;/main&gt;
+  );
+};
+
+export default YouTubeFileSystemApiPage;
+</code></pre>
+
+<ul>
+<li>Generates a page at the path <code>/u-gq8cn-n-tbw-i/</code> for the YouTube node with id: <code>UGq8cnNTbwI</code>, and similarly for all the other YouTube nodes.</li>
+</ul>
+
+<h3>3. <code>createPages</code> in <code>gatsby-node.js</code></h3>
+
+<p>The code generates a page for each YouTube node in the data layer with the node's id as the path using the supplied template. The template will be a file very similar to the file examples above.</p>
+
+<pre><code>// gatsby-node.js
+
+const path = require(`path`);
+
+exports.createPages = async ({graphql, actions}) =&gt; {
+  const {createPage} = actions;
+
+  const result = await graphql(`
+    {
+      allYouTube {
+        nodes {
+          id
+        }
+      }
+    }
+  `);
+  const templatePath = path.resolve(`./src/templates/youtube-template.js`);
+
+  result.data.allYouTube.nodes.forEach((node) =&gt; {
+    createPage({
+      path: node.id,
+      component: templatePath,
+      context: {
+        id: node.id,
+      },
+    });
+  });
+};
+</code></pre>
+
+<ul>
+<li>Generates a page at the path <code>/UGq8cnNTbwI/</code> for the YouTube node with id: <code>UGq8cnNTbwI</code>, and similarly for all the other YouTube nodes.</li>
+</ul>
+
+<p>Notice how the path here is a little different; <code>/UGq8cnNTbwI/</code> vs <code>/u-gq8cn-n-tbw-i/</code>.</p>
+
+<p>The File System Route API will run the id through the @sindresorhus/slugify package before using it as a path. While with <code>createPage</code> we are responsible for making unique and valid paths ourselves.</p>
+
+<h2>Content from the Gatsby Data Layer</h2>
+
+<p>You can, and probably want to, sprinkle in content from the Gatsby Data Layer for all three ways of creating SSG pages. The Gatsby Data Layer holds all the data sourced at build time, making the content available when the site is statically generated.</p>
+
+<p>The typical example would be to query for the YouTube Content Node corresponding to the page created:</p>
+
+<pre><code>// src/{YouTube.id}.js
+// src/templates/youtube-template.js
+
+import React from "react";
+import {graphql} from "gatsby";
+
+const YouTubePage = ({data}) =&gt; {
+  const {title} = data.youTube;
+  return (
+    &lt;main&gt;
+      &lt;h1&gt;{title}&lt;/h1&gt;
+    &lt;/main&gt;
+  );
+};
+
+export const query = graphql`
+  query ($eq: String) {
+    youTube(id: {eq: $eq}) {
+      title
+    }
+  }
+`;
+
+export default YouTubePage;
+</code></pre>
+
+<p>But you can also query for content for pages created as Rect Components in <code>src/pages</code>:</p>
+
+<pre><code>// src/pages/demo.js
+
+import React from "react";
+import {graphql, Link} from "gatsby";
+
+const DemoPage = ({data}) =&gt; {
+  return (
+    &lt;main&gt;
+      &lt;h1&gt;Static Site Generation (SSG)&lt;/h1&gt;
+
+      {data.allYouTube.nodes.map((node) =&gt; {
+        return (
+          &lt;Link to={node.id} key={node.id}&gt;
+            &lt;img alt={node.title} src={node.thumbnail_url} /&gt;
+          &lt;/Link&gt;
+        );
+      })}
+    &lt;/main&gt;
+  );
+};
+
+export const query = graphql`
+  {
+    allYouTube {
+      nodes {
+        id
+        title
+        thumbnail_url
+      }
+    }
+  }
+`;
+
+export default DemoPage;
+</code></pre>
+
+<p>Oh boy, this was longer and more difficult to demo than I imagined. If you have any questions, reply or add them as a comment <a href="https://youtu.be/D_03KW4AkSk">on the video</a>.</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+
+<p>&nbsp;<br />
+<strong>PS:</strong> In the sharky waters around the Gatsby islands we call the File System Route API pages for parrot pages 🦜 More on that later!</p>
+    </div>
+</article>
+    </body>
+</html>

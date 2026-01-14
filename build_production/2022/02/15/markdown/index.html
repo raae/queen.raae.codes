@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/02/15/markdown">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>I created a Link with markdown on our POW!-website</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">I created a Link with markdown on our POW!-website</h1>
+
+        
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <h2>My Sunday Skill Builder Session:</h2>
+
+<p>This Sunday, I created a <code>Link</code> with markdown on our POW!-website.</p>
+
+<h2>What did I do?</h2>
+
+<p>I created a <code>Link</code> with markdown.</p>
+
+<h2>Why did I do it?</h2>
+
+<p>I want to use markdown as my Content Management System (CMS) because it's my favorite CMS and Queen Raae told me to use markdown.</p>
+
+<h2>How did I do it?</h2>
+
+<p>I started out on my L.O.V.E. acronym.</p>
+
+<p><code>L.</code> Link and path and label<br />
+<code>O.</code> Open up in GraphiQL<br />
+<code>V.</code> Variable<br />
+<code>E.</code> Evol is love backward, no just kidding. I will do «E. Empty» on this Sunday's Skill Builder Session.</p>
+
+<h3>L.</h3>
+
+<p>Link and path and label</p>
+
+<pre><code class="language-js">// POW!-website / pages / {MarkdownRemark.fields__slug}.js
+&lt;Link to={}&gt;{}&lt;/Link&gt;
+
+// POW!-website / content / index / index.md
+
+---
+....
+    cta:
+      path: /signup
+      label: Yes to privacy
+---
+....
+</code></pre>
+
+<h3>O.</h3>
+
+<p>Open up in GraphiQL</p>
+
+<pre><code class="language-js">// POW!-website / pages / {MarkdownRemark.fields__slug}.js
+export const query = graphql`
+  query ($id: String) {
+    markdownRemark(id: { eq: $id }) {
+      frontmatter {
+        sections {
+          cta {
+            path
+            label
+          }
+        }
+      }
+    }
+  }
+`;
+</code></pre>
+
+<h3>V.</h3>
+
+<p>First I make the variable:</p>
+
+<pre><code class="language-js">// POW!-website / pages / {MarkdownRemark.fields__slug}.js
+const { path, label } = section.cta;
+</code></pre>
+
+<p>Then I use the variable:</p>
+
+<pre><code class="language-js">&lt;Link to={path}&gt;{label}&lt;/Link&gt;
+</code></pre>
+
+<pre><code class="language-js">// POW!-website / pages / {MarkdownRemark.fields__slug}.js
+import React from "react";
+import { graphql, Link } from "gatsby";
+
+const ComponentName = ({ data }) =&gt; {
+  const { frontmatter, html } = data.markdownRemark;
+  const { title, sections } = frontmatter;
+
+  return (
+    &lt;&gt;
+      &lt;div className="container"&gt;
+        &lt;h1&gt;{title}&lt;/h1&gt;
+        &lt;div dangerouslySetInnerHTML={{ __html: html }} /&gt;
+        {(sections || []).map((section) =&gt; {
+          const { title } = section;
+          const { html } = section.body.childMarkdownRemark || {};
+          const { path, label } = section.cta || {};
+          return (
+            &lt;section&gt;
+              &lt;h2&gt;{title}&lt;/h2&gt;
+              {html &amp;&amp; &lt;div dangerouslySetInnerHTML={{ __html: html }} /&gt;}
+              {path &amp;&amp; &lt;Link to={path}&gt;{label}&lt;/Link&gt;}
+            &lt;/section&gt;
+          );
+        })}
+      &lt;/div&gt;
+    &lt;/&gt;
+  );
+};
+
+export const query = graphql`
+  query ($id: String) {
+    markdownRemark(id: { eq: $id }) {
+      html
+      frontmatter {
+        title
+        sections {
+          cta {
+            path
+            label
+          }
+          title
+          body {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export default ComponentName;
+</code></pre>
+
+<p>&nbsp;<br />
+For the long version, watch <a href="https://youtu.be/rPiQi_bOk8s">Sunday's OlaCast</a> on YouTube.</p>
+
+<p>&nbsp;<br />
+💪😺👍<br />
+Keep your skill-builder-ship afloat this week!<br />
+⛵🔧🏴‍☠️</p>
+
+<p>Ola Vea<br />
+Cap'n of his own skill-builder-ship</p>
+    </div>
+</article>
+    </body>
+</html>

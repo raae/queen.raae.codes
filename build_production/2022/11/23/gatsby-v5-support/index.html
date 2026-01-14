@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/11/23/gatsby-v5-support">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>How to add v5 support to your Gatsby plugin</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">How to add v5 support to your Gatsby plugin</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        gatsby plugin
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        gatsby-plugin-let-it-snow
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        gatsby v5
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>For many plugins all you need to do is add "^5.0.0" to you <code>peerDependencies</code> string and "18.x" to your <code>node.engines</code> string in the plugin's package.json.</p>
+
+<p>But some plugins will need changes to handle Gatsby v5's breaking changes. They are <a href="https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v4-to-v5/#handling-breaking-changes">all listed</a> in the migration v4 to v5 migration docs. The ones most probable to break your plugin are probably:</p>
+
+<ul>
+<li><a href="https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v4-to-v5/#graphql-schema-changes-to-sort-and-aggregation-fields">GraphQL schema: Changes to sort and aggregation fields</a></li>
+<li><a href="https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v4-to-v5/#removal-of-nodemodelrunquery-and-nodemodelgetallnodes">Removal of nodeModel.runQuery and nodeModel.getAllNodes</a></li>
+</ul>
+
+<p>Luckily <a href="https://github.com/queen-raae/gatsby-plugin-let-it-snow">@raae/gatsby-plugin-let-it-snow</a> required no changes, but I made su❄️re to upgrade the demo to v5 and add v5 as a possible peer dependency.</p>
+
+<p>So no reason not to add some snow to your Gatsby v5 experiments this season!</p>
+
+<p>All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

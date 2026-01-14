@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/09/14/json-ld">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Add structured data (JSON-LD) with the Gatsby Head API</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Add structured data (JSON-LD) with the Gatsby Head API</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        seo
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        JSON-LD
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Gatsby Head API
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>How do you add structured data to your Gatsby site? With a little help from good old <code>JSON.stringify()</code> and the <a href="/gatsby-head-api/">Gatsby Head API</a>!</p>
+
+<ol>
+<li>Create the schema as an object</li>
+<li>Stringify the schema object</li>
+<li>Add to the <code>head</code></li>
+</ol>
+
+<pre><code class="language-js">// File: src/pages/{Email.slug}.js
+import React from "react";
+import { graphql, Link } from "gatsby";
+
+export function Head({ data }) {
+  const { ogImagePath, title, dateISO } = data.email || {};
+  const { siteMetadata } = data.site || {};
+
+  // 1️⃣ Create the schema as an object
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    image: [`${siteMetadata.siteUrl}${ogImagePath}`],
+    datePublished: dateISO,
+    author: [
+      {
+        "@type": "Person",
+        name: "Benedicte Raae",
+        sameAs: "https://twitter.com/raae",
+      },
+    ],
+  };
+
+  // 2️⃣ Stringify the schema object (adding the "null, 2" gives you readable json)
+  const schemaAsString = JSON.stringify(schema, null, 2);
+
+  return (
+    &lt;&gt;
+      &lt;title&gt;{title}&lt;/title&gt;
+      {/* ... meta tags */}
+      {/* 3️⃣ Add to the head */}
+      &lt;script type="application/ld+json"&gt;{schemaAsString}&lt;/script&gt;
+    &lt;/&gt;
+  );
+}
+
+export default function EmailPage({ data }) {
+  const { title, date, dateISO, html } = data.email || {};
+  return (
+    &lt;main&gt;
+      &lt;h1&gt;{title}&lt;/h1&gt;
+      &lt;time datetime={dateISO}&gt;{date}&lt;/time&gt;
+      &lt;div dangerouslySetInnerHTML={{ __html: html }} /&gt;
+    &lt;/main&gt;
+  );
+}
+
+export const query = graphql`
+  query BlogById($id: String!) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+    email(id: { eq: $id }) {
+      title
+      date(formatString: "MMMM Do, YYYY")
+      dateISO: date
+      html
+      ogImagePath: ogImage
+    }
+  }
+`;
+</code></pre>
+
+<p>If you are not familiar with structured data or JSON for Linking Data (JSON-LD) I recommend reading through <a href="https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data">Understand how structured data works</a> by Google.</p>
+
+<p>&nbsp;</p>
+
+<p>All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

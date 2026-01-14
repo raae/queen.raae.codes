@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/03/18/cache">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>How to use the Gatsby Cache to skip subsequent external API calls</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">How to use the Gatsby Cache to skip subsequent external API calls</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        cache
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        gatsby-node.js
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        build time
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Gatsby Source Plugin
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        gatsby-source-youtube-oembed
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>We are getting advanced today!</p>
+
+<p>On yesterday's unauthorized and rum-fueled <a href="https://youtu.be/rURKTRPvSos">treasure hunt</a> in the sharky waters around the Gatsby islands, we utilized the Gatsby Cache to skip fetching the YouTube oEmbed data again until the refresh interval is up!</p>
+
+<p><a href="https://youtu.be/rURKTRPvSos"><img src="./youtube-screengrab.jpg" alt="Screengrab of stream" /></a></p>
+
+<p>This is an improvement on the ever-evolving @raae/gatsby-source-youtube-oembed. Next week Ward Peters from Gatsby will be on the stream to show us how to support Gatsby Image CDN 🤩</p>
+
+<h2>Why would we do this?</h2>
+
+<p>Gatsby has excellent caching built-in. If the YouTube oEmbed API response for a video has not changed, Gatsby will reuse the Gatsby YouTube Node that already exists, and the code in, for instance, <code>exports.onCreateNode</code> will not rerun. Pretty sweet, as there we source an external image into the Gatsby Content Layer, which is heavy-duty stuff.</p>
+
+<p>However, Gatsy will call the YouTube oEmbed API for each video we are sourcing every time it runs through the <code>exports.sourceNodes</code> code.</p>
+
+<p>Calls to external APIs can be time-consuming and sometimes even limited. I find this incredibly frustrating while developing, as I often rerun <code>gatsby develop</code> multiple times, and I know the data has not changed.</p>
+
+<p>Gatsby Cache to the rescue!</p>
+
+<h2>How did we do it?</h2>
+
+<p>After successfully fetching data from the YouTube oEmbed API and asking Gatsy to create a node with the data, we save the current timestamp and the id for the Gatsy YouTube Node created to cache:</p>
+
+<pre><code class="language-js">await cache.set(youTubeId, `${youTubeNodeId}&gt;&gt;&gt;${Date.now()}`);
+</code></pre>
+
+<p>Then we can get that information from cache:</p>
+
+<pre><code class="language-js">const youTubeCache = await cache.get(youTubeId);
+const [existingNodeId, timestamp] = youTubeCache?.split("&gt;&gt;&gt;") || [];
+</code></pre>
+
+<p>To calculate if its time to fetch again from the YouTube oEmbed API or not.</p>
+
+<p>If there is no need to fetch the data again, we have no data, and we cannot Gatsby to create a Gatsby YouTube Node for us. However, if we do nothing, Gatsby will throw away the existing Gatsby YouTube Node from its cache as it's not "touched."</p>
+
+<p>We let Gatsby know we would like to keep the Gatsby YouTube Node around by touching it:</p>
+
+<pre><code class="language-js">const existingNode = getNode(existingNodeId);
+touchNode(existingNode);
+</code></pre>
+
+<h2>Complete code</h2>
+
+<p>Below is the complete code; you can also see this in the <a href="https://github.com/queen-raae/gatsby-source-youtube-oembed/pull/4">@raae/gatsby-source-youtube-oembed Pull Request</a> with minor improvements fitting for a plugin.</p>
+
+<pre><code class="language-js">const createYouTubeNode = async (gatsbyUtils, youTubeId) =&gt; {
+  const {
+    actions: { createNode, touchNode },
+    createNodeId,
+    createContentDigest,
+    reporter,
+    cache,
+    getNode,
+  } = gatsbyUtils;
+
+  const youTubeCache = await cache.get(youTubeId);
+  const [existingNodeId, timestamp] = youTubeCache?.split("&gt;&gt;&gt;") || [];
+  const existingNode = getNode(existingNodeId);
+  const existingNodeAge = Date.now() - timestamp;
+  const refreshInterval = 60000 * 5; // 5 min
+
+  if (existingNode &amp;&amp; existingNodeAge &lt;= refreshInterval) {
+    // Skip fetching embed data,
+    // but touch node to keep it arround
+    touchNode(existingNode);
+    reporter.info(`Touch YouTube Node for ${youTubeId}`);
+  } else {
+    const youTubeNodeId = createNodeId(`you-tube-${youTubeId}`);
+    const embedData = await fetchEmbed(youTubeId);
+
+    createNode({
+      id: youTubeNodeId,
+      youTubeId: youTubeId,
+      oEmbed: embedData,
+      internal: {
+        type: `YouTube`,
+        contentDigest: createContentDigest(embedData),
+      },
+    });
+
+    await cache.set(youTubeId, `${youTubeNodeId}&gt;&gt;&gt;${Date.now()}`);
+    reporter.info(`Create YouTube Node for ${youTubeId}`);
+  }
+};
+
+exports.sourceNodes = async (gatsbyUtils, pluginOptions) =&gt; {
+  const { youTubeIds } = pluginOptions;
+  await Promise.all(youTubeIds.map((id) =&gt; createYouTubeNode(gatsbyUtils, id)));
+};
+</code></pre>
+
+<h2>Questions?</h2>
+
+<p>Please let me know at queen@raae.codes or reply to this email! I want to improve my writing and better understand where folks get stuck when it comes to Gatsby.</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

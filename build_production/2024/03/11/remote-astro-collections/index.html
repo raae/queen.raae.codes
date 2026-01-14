@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2024/03/11/remote-astro-collections">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Remote Astro Collections (sort of)</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Remote Astro Collections (sort of)</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Astro
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Transistor
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Data Fetching
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Build Time
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <aside class="notice">
+
+You may also watch us figure this approach out [live on YouTube](https://youtube.com/live/yTNr3Y1xGbU).
+
+</aside>
+
+<p>After adding the "most popular" episodes section to <a href="https://github.com/olavea/Our-podcast-websites">our Astro podcast website</a> the local DX took a nose dive!</p>
+
+<p>Building the home page took 3789ms, that's almost 4 seconds 🤦‍♀️</p>
+
+<p>Fetching all the analytics data from the Transistor API, looping through and calculating the total download numbers for each episode, and then sorting the episodes by popularity takes time.</p>
+
+<ul>
+<li>We could probably optimize the code, but it would still slow down the build.</li>
+<li>We could skip picking out the most popular episodes in development, but then it be hard to design that section.</li>
+</ul>
+
+<p>And neither would solve the issue that fetching the data from the Transistor API also needs to happen in the single episode page template (<code>/src/pages/episodes/[slug].astro</code>) and the paginated archive pages (<code>/src/pages/episodes/[...page].astro</code>).</p>
+
+<p>At this point, I really missed the Gatsby Data Layer 😢 I deep-dived into the Astro Collection docs hoping I'd missed the option to source remote data as an Astro Collection. I had not, but I did notice Astro collection can be of type <code>data</code>, meaning .json or .yml files in addition to type <code>content</code> meaning .md, .mdx and .markdoc files.</p>
+
+<p>So I decided to explore fetching all the data, and calculating the total download numbers, ahead of time! Writing the response from the Transistor API as .json files to disk; one for each episode.</p>
+
+<pre><code class="language-js">import { join } from "node:path";
+import { writeFile } from "node:fs/promises";
+import { fetchAllEpisodes, fetchAllEpisodeAnalytics } from "./transistor.js";
+
+try {
+  const DIR = join(process.cwd() + "/src/content/episodes/");
+
+  const episodeData = await fetchAllEpisodes();
+  const episodeAnalytics = await fetchAllEpisodeAnalytics();
+
+  const episodeFilePromises = episodeData.map((episode) =&gt; {
+    const analytics = episodeAnalytics.attributes.episodes.find((a) =&gt; {
+      return parseInt(a.id) === parseInt(episode.id);
+    });
+
+    const totalDownloads = analytics.downloads.reduce(
+      (acc, day) =&gt; acc + day.downloads,
+      0
+    );
+
+    return writeFile(
+      join(DIR + `/${episode.id}.json`),
+      JSON.stringify(
+        {
+          ...episode.attributes,
+          totalDownloads,
+        },
+        null,
+        2
+      )
+    );
+  });
+
+  const files = await Promise.all(episodeFilePromises);
+  console.log(`Episode entries written ${files.length} to ${DIR}.`);
+} catch (error) {
+  console.error(error);
+}
+</code></pre>
+
+<p><strong>And holy moly, it worked!</strong>\
+Build time for the home page went from 3789ms to 148ms 🎉🎉🎉</p>
+
+<p>In addition to the build time improvement, I also got the added benefit of Astro's built-in collection validation. I decided to skip typescript for the data fetching code above, and rather rely on the collection schema to catch any errors.</p>
+
+<pre><code class="language-js">import { defineCollection, z } from "astro:content";
+
+const episodeCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    title: z.string(),
+    slug: z.string(),
+    totalDownloads: z.number(),
+    description: z.string(),
+    embed_html: z.string(),
+    // and more as we build out the site
+  }),
+});
+
+export const collections = {
+  episodes: episodeCollection,
+};
+</code></pre>
+
+<p>My gut feeling is that we'll see support for remote collection in Astro pretty soon, but for now, I'm happy with the solution I've come up with.</p>
+
+<p>Let me know if you have any questions or suggestions for improvements. I'm <a href="https://twitter.com/raae">@raae</a> on Twitter.</p>
+    </div>
+</article>
+    </body>
+</html>

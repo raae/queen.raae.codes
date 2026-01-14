@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2025/12/09/framer-render-modes">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Three render modes your Framer components should handle</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Three render modes your Framer components should handle</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Framer
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Code Components
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Code Overrides
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        RenderTarget
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>If you're building code components or code overrides for <a href="https://framer.link/queen-raae">Framer</a>, you'll want to handle three different render modes: canvas, preview, and live.</p>
+
+<p><strong>Canvas</strong> — The Framer editor. Your component is rendered as a static preview while designing.</p>
+
+<p><strong>Preview</strong> — Preview mode. Interactive, but still in the Framer environment.</p>
+
+<p><strong>Live</strong> — The published site where custom code such as the Outseta script executes.</p>
+
+<p>Unexpectedly (at least to me 😆), Framer's <code>RenderTarget</code> returns "preview" for both preview and live as I've defined them. This makes sense for design, but not for more app-like functionality as I've found out while building <a href="https://outseta.com/?via=queen">Outseta</a> code overrides and components that depend on the execution of custom code.</p>
+
+<h2>The Solution</h2>
+
+<p>After some trial and error, I found the most robust way to distinguish between preview and live is to check the hostname. If it includes "framercanvas.com", it's preview, otherwise it's live.</p>
+
+<p>Live is intentionally the fallback mode, so if Framer changes the preview hostname the component will still work as expected in the more crucial live mode.</p>
+
+<pre><code class="language-tsx">import { RenderTarget } from "framer";
+
+type RenderMode = "canvas" | "preview" | "live";
+
+function getRenderMode(): RenderMode {
+  const renderTarget = RenderTarget.current();
+
+  if (renderTarget === RenderTarget.canvas) {
+    return "canvas";
+  } else if (renderTarget === RenderTarget.preview &amp;&amp; window?.location.host.includes("framercanvas.com")) {
+    return "preview";
+  } else {
+    return "live";
+  }
+}
+</code></pre>
+
+<h2>Why not do feature checks instead?</h2>
+
+<p>This is a valid approach — we could check for the presence of the Outseta script and only continue with Outseta logic if present:</p>
+
+<pre><code class="language-tsx">if (typeof Outseta !== "undefined") {
+  // Outseta is available, do the thing
+}
+</code></pre>
+
+<p>This handles the error, but it doesn't give you control over the designer experience. With feature checks alone we're not asking "what experience should I provide for this mode?"</p>
+
+<p>With explicit mode handling you can, for example:</p>
+
+<ul>
+<li>Add props like <code>showOnPreview</code> to force a specific state, letting designers preview logged-in views without having to publish</li>
+<li>Write to the console in live mode when the Outseta script is missing and remove the component — but in preview mode a missing script is expected, so no need to clutter the console with warnings</li>
+<li>Skip analytics events in canvas and preview — only fire them in live mode</li>
+<li>And so on...</li>
+</ul>
+
+<h2>Key Takeaways</h2>
+
+<ul>
+<li><strong>Framer code runs in three modes:</strong> canvas, preview, and live — each needs different behavior</li>
+<li><strong>External scripts only run in live mode</strong> — your code needs fallbacks for canvas and preview</li>
+<li><strong>Live as fallback is intentional</strong> — if Framer changes their preview hostname, your published site still works</li>
+<li><strong>Mode checks > feature checks</strong> — they give you control over the designer experience, not just error avoidance</li>
+</ul>
+
+<p>What is your approach to handling render modes in Framer? Are there edge cases I haven't covered? I'd love to hear about it.</p>
+
+<p>Happy building! 🛠️</p>
+    </div>
+</article>
+    </body>
+</html>

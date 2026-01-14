@@ -22,9 +22,9 @@ return [
         'posts_queen' => [
             'extends' => '_layouts.post',
             'path' => function ($page) {
-                // Extract date from source path: YYYY/MM/DD-slug
-                $sourcePath = $page->getPath();
-                if (preg_match('#(\d{4})/(\d{2})/(\d{2})-([^/]+)#', $sourcePath, $matches)) {
+                // Extract date from filename: YYYY-MM-DD-slug.md
+                $filename = $page->getFilename();
+                if (preg_match('#^(\d{4})-(\d{2})-(\d{2})-(.+)$#', $filename, $matches)) {
                     $year = $matches[1];
                     $month = $matches[2];
                     $day = $matches[3];
@@ -33,19 +33,20 @@ return [
                     // Set date for later use
                     $page->date = "$year-$month-$day";
                     $page->slug = $slug;
+                    $page->author = 'Queen Raae';
 
                     return "$year/$month/$day/$slug";
                 }
-                return $sourcePath;
+                return $page->getPath();
             },
             'sort' => '-date',
         ],
         'posts_olavea' => [
             'extends' => '_layouts.post',
             'path' => function ($page) {
-                // Extract date from source path: YYYY/MM/DD-slug
-                $sourcePath = $page->getPath();
-                if (preg_match('#(\d{4})/(\d{2})/(\d{2})-([^/]+)#', $sourcePath, $matches)) {
+                // Extract date from filename: YYYY-MM-DD-slug.md
+                $filename = $page->getFilename();
+                if (preg_match('#^(\d{4})-(\d{2})-(\d{2})-(.+)$#', $filename, $matches)) {
                     $year = $matches[1];
                     $month = $matches[2];
                     $day = $matches[3];
@@ -54,10 +55,11 @@ return [
                     // Set date for later use
                     $page->date = "$year-$month-$day";
                     $page->slug = $slug;
+                    $page->author = 'Cap\'n Ola';
 
                     return "$year/$month/$day/$slug";
                 }
-                return $sourcePath;
+                return $page->getPath();
             },
             'sort' => '-date',
         ],

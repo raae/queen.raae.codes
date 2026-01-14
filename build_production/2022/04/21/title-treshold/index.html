@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/04/21/title-treshold">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>My titles are too similar - added a title similarity threshold</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">My titles are too similar - added a title similarity threshold</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        graphql
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        resolver
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>In <a href="/2022-04-20-related-content-article/">yesterday</a>'s email I recommended reading the article <a href="https://reckoning.dev/blog/related-posts-gatsbyjs/">How to Create List of Related Content in Gatsby.JS</a>.</p>
+
+<p>I liked the approach of using both titles and tags to find similar content, especially since I can be a little sloppy with my tags and have not retroactively added it all emails yet.</p>
+
+<p>However, my titles are a little too similar... Loads of "How to" and "Gatsby" give us some false positives.</p>
+
+<p>The similarity is calculated using: # of matching tags + 3.0 &#42; title string similarity in the article.</p>
+
+<p>I decided to remove "Gatsby" from the titles when comparing and set a threshold for when title similarity is activated to combat my issue.</p>
+
+<p>I wanted to play around with the threshold, so I made it an argument so I would not have to run develop again and again to test threshold changes.</p>
+
+<pre><code class="language-js">exports.createResolvers = ({ createResolvers }) =&gt;
+  createResolvers({
+    QueenEmail: {
+      relatedEmails: {
+        type: "[QueenEmail!]",
+        args: { limit: "Int", titleTreshold: "Float" },
+        async resolve(source, args, context, info) {
+          const limit = args.limit || 3;
+          const titleTreshold = args.titleTreshold || 0.7;
+
+          let otherEmails = await context.nodeModel.runQuery({
+            firstOnly: false,
+            type: `QueenEmail`,
+            query: {
+              filter: {
+                slug: {
+                  ne: source.slug,
+                }, // not current email
+              },
+            },
+          });
+
+          return otherEmails
+            .map((email) =&gt; {
+              const intersectingTags = intersectionBy(
+                source.tags,
+                email.tags,
+                "slug"
+              );
+
+              const titleScore = stringSimilarity.compareTwoStrings(
+                source.title.replace("Gatsby", ""),
+                email.title
+              );
+
+              // titleSimilarity = 0 if treshold is not met
+              const titleSimilarity =
+                titleScore &gt; titleTreshold ? titleScore : 0;
+
+              return {
+                ...email,
+                similarity: intersectingTags.length + 3.0 * titleSimilarity,
+              };
+            })
+            .filter(({ similarity }) =&gt; similarity !== 0)
+            .sort((a, b) =&gt; {
+              return b.similarity - a.similarity;
+            })
+            .slice(0, limit);
+        },
+      },
+    },
+  });
+</code></pre>
+
+<p>What would you compare?</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

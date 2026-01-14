@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/01/28/local-plugin">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Modularize your Gatsby project with local plugins</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Modularize your Gatsby project with local plugins</h1>
+
+        
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>In yesterday's unauthorized and rum-fueled treasure hunts in the sharky waters around the Gatsby islands we looked at how to <a href="https://youtu.be/26CDRdhXozo">modularize your project</a> with local plugins.</p>
+
+<p><a href="https://youtu.be/26CDRdhXozo"><img src="./yt-photo.jpg" alt="YouTube Photo" /></a></p>
+
+<p>I've added timestamps to the description, so you can jump straight to <a href="https://youtu.be/26CDRdhXozo?t=261">the why</a> or <a href="https://youtu.be/26CDRdhXozo?t=520">the how</a> if you'd like.</p>
+
+<p>The TLDR version of <em>why</em>: <a href="https://youtu.be/26CDRdhXozo?t=1446">I like a tidy ship</a></p>
+
+<p>To create a local plugin, add a <code>plugins</code>-folder to your project. Inside create a folder for your plugin with an empty package.json file. The name of your plugin will be the same as the name of this folder.</p>
+
+<p>To use your local plugin, add it to your plugins array the same way you would external plugins.</p>
+
+<p>I recommend using the Gatsby pattern for naming plugins but replace <code>gatsby-</code> with <code>local-</code> to make it super clear when looking at your gatsby-config that it's a local plugin. Otherwise, it's an easy mistake to go look for it on the npm registry.</p>
+
+<h2>Local Plugin Example</h2>
+
+<p>With the folder structure:</p>
+
+<pre><code>gatsby-project/
+├─ src/
+│  ├─ &lt;all your regular stuff&gt;
+├─ plugins/
+│  ├─ local-source-youtube/
+│  │  ├─ package.json
+│  │  ├─ gatsby-node.js
+├─ gatsby-config.js
+├─ package.json
+</code></pre>
+
+<p>you may configure the local plugin like so:</p>
+
+<pre><code class="language-js">module.exports = {
+  plugins: [
+    {
+      resolve: "local-source-youtube",
+      options: {
+        youTubeIds: ["Bk1jonYPFD4", "TzJfepDjpzM"],
+      },
+    },
+  ],
+};
+</code></pre>
+
+<p>You may also check out the code in the <a href="https://github.com/olavea/pow-site/commits/stream-work">stream work</a> branch of the new pow-site repo.</p>
+
+<p>&nbsp;<br />
+I hope you found this helpful!<br />
+Let me know either way 🙏</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+
+<p>&nbsp;<br />
+<strong>PS:</strong> We got done super fast but kept on YOLO streaming. Check the <a href="https://youtu.be/26CDRdhXozo">YouTube description</a> for timestamps to all the things.</p>
+    </div>
+</article>
+    </body>
+</html>

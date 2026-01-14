@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/03/25/image-cdn-plugin">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>How to add support for Gatsby ImageCDN in your source plugin</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">How to add support for Gatsby ImageCDN in your source plugin</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        image cdn
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        source plugins
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        gatsby-node.js
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        gatsby-source-youtube-oembed
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        images
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        createRemoteFileNode
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>On yesterday's unauthorized and rum-fueled <a href="https://youtu.be/IDW2IfaHGIs">treasure hunt</a> in the sharky waters around the Gatsby islands, the great and powerful Ward Peeters helped us add Gatsby ImageCDN support to the YouTube oEmbed plugin.</p>
+
+<p><a href="https://youtu.be/IDW2IfaHGIs"><img src="./youtube-screengrab.jpg" alt="Screengrab of stream" /></a></p>
+
+<p>It was his third time on the show; if you missed the other two, have fun catching up:</p>
+
+<ul>
+<li><a href="https://youtu.be/TX5XPuHhz9o">File System Route API to create a page per YouTube video</a></li>
+<li><a href="https://youtu.be/UsSJ_QNp6uo">Deferred Static Generation (DSG) for older videos</a></li>
+</ul>
+
+<h2>Why add Gatsby ImageCDN support?</h2>
+
+<p>Ward <a href="https://youtu.be/IDW2IfaHGIs?t=4345">said it best</a>:</p>
+
+<ul>
+<li>Faster builds (both local and in the cloud)</li>
+<li>Better performance in the browser compared to a CDN on a different domain</li>
+</ul>
+
+<p>Adding support for Gatsby ImageCDN still lets you deploy to other services like Netlify. Build time there will be faster, in the same way, it's faster locally, by only downloading the images in use by the site. The "old way" <code>createRemoteFileNode</code> would eagerly download all images.</p>
+
+<h2>How to add Gatsby ImageCDN support?</h2>
+
+<p>We'll need to replace the use of <code>createRemoteFileNode</code> with creating our own <code>RemoteFile</code> nodes.</p>
+
+<p>Many CMSs already have their own asset node type they can extend with <code>RemoteFile</code>, but for our plugin, we first need to create a new node type that extends <code>RemoteFile</code>:</p>
+
+<pre><code class="language-js">// gatsby-node.js
+const {
+  addRemoteFilePolyfillInterface,
+} = require("gatsby-plugin-utils/polyfill-remote-file");
+
+exports.createSchemaCustomization = ({ actions, schema }) =&gt; {
+  actions.createTypes([
+    addRemoteFilePolyfillInterface(
+      schema.buildObjectType({
+        name: `YouTubeThumbnail`,
+        fields: {
+          youTubeId: "String!",
+        },
+        interfaces: [`Node`, `RemoteFile`],
+      }),
+      {
+        schema,
+        actions,
+      }
+    ),
+  ]);
+};
+</code></pre>
+
+<p><code>addRemoteFilePolyfillInterface</code> makes sure the plugin works even if the Gatsby site is on a lower version than 4. To make sure it works on older versions even in develop, you want to add <code>polyfillImageServiceDevRoutes</code>:</p>
+
+<pre><code class="language-js">// gatsby-node.js
+const {
+  polyfillImageServiceDevRoutes,
+} = require("gatsby-plugin-utils/polyfill-remote-file");
+
+exports.onCreateDevServer = ({ app }) =&gt; {
+  polyfillImageServiceDevRoutes(app);
+};
+</code></pre>
+
+<p>Then we are ready to replace our usage of <code>createRemoteFileNode</code> in <code>onCreateNode</code> 🎉</p>
+
+<pre><code class="language-js">exports.onCreateNode = async (gatsbyUtils) =&gt; {
+  const { node, actions, reporter, createNodeId } = gatsbyUtils;
+  const { createNodeField, createNode } = actions;
+
+  if (node.internal.type === `YouTube`) {
+    const youTubeThumbnailNodeId = createNodeId(
+      `you-tube-thumbnail-${node.youTubeId}`
+    );
+
+    createNode({
+      id: youTubeThumbnailNodeId,
+      parent: node.id,
+      youTubeId: node.youTubeId,
+      url: node.oEmbed.thumbnail_url,
+      mimeType: "image/jpeg",
+      filename: node.youTubeId + ".jpg",
+      height: node.oEmbed.thumbnail_height,
+      width: node.oEmbed.thumbnail_width,
+      internal: {
+        type: `YouTubeThumbnail`,
+        contentDigest: node.internal.contentDigest,
+      },
+    });
+
+    createNodeField({
+      node,
+      name: `thumbnailFileId`,
+      value: youTubeThumbnailNodeId,
+    });
+
+    reporter.info(
+      `Created YouTubeThumbnail Node for ${node.youTubeId} thumbnail`
+    );
+  }
+};
+</code></pre>
+
+<p>The last step for us is to update the YouTube Node's schema customization to use the new node type <code>YouTubeThumbnail</code> instead of <code>File</code>:</p>
+
+<pre><code class="language-js">// gatsby-node.js
+actions.createTypes([
+  `
+    type YouTube implements Node {
+      thumbnail: YouTubeThumbnail @link(from: "youTubeId" by: "youTubeId")
+    }
+  `,
+]);
+</code></pre>
+
+<p>Check out the <a href="https://github.com/queen-raae/gatsby-source-youtube-oembed/pull/7/files">Pull Request on GitHub</a> for the complete diff!</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/02/17/source-remote-images">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Source remote images the right way with Gatsby v4</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Source remote images the right way with Gatsby v4</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        images
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Gatsby Source Plugin
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        createRemoteFileNode
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        gatsby-source-youtube-oembed
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>Gatsby v4 has been out for a while, and with v4 came a much stricter approach to creating and modifying nodes.</p>
+
+<p>However there seems to be quite a bit of outdated documentation, as I experienced when looking into <code>createResolvers</code>.</p>
+
+<p>An examples shows <a href="https://www.gatsbyjs.com/docs/reference/graphql-data-layer/schema-customization/#feeding-remote-images-into-gatsby-image">creating remote file nodes</a> as part of a custom resolver. It worked for me locally but failed on Gatsby Cloud, and I found out it is no longer supported.</p>
+
+<p>There are also examples using the <a href="https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v3-to-v4/#___node-convention"><code>___NODE Convention</code> for linking nodes</a> that will be deprecated in v5.</p>
+
+<p>In Gatsby Version 4:</p>
+
+<ul>
+<li><a href="https://www.gatsbyjs.com/docs/reference/release-notes/migrating-source-plugin-from-v3-to-v4/#2-data-mutations-need-to-happen-during-sourcenodes-or-oncreatenode">All node creation and mutation need to happen during <code>sourceNodes</code> or <code>onCreateNode</code></a></li>
+<li><a href="https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v3-to-v4/#dont-mutate-nodes-outside-of-expected-apis">Mutation is only allowed using the action <code>createNodeField</code></a></li>
+</ul>
+
+<p>Combined, we get the following recommended way of sourcing remote images:</p>
+
+<pre><code class="language-js">exports.onCreateNode = async (gatsbyUtils) =&gt; {
+  const { node, actions, reporter, createNodeId, getCache } = gatsbyUtils;
+  const { createNodeField, createNode } = actions;
+
+  if (node.internal.type === `YouTube`) {
+    const imageFile = await createRemoteFileNode({
+      // The url of the remote file
+      url: node.oEmbed.thumbnail_url,
+      parentNodeId: node.id,
+      getCache,
+      createNode,
+      createNodeId,
+    });
+
+    createNodeField({
+      node,
+      name: `thumbnailFileId`,
+      value: imageFile.id,
+    });
+
+    reporter.info(`Created YouTube File Node for ${node.youTubeId} thumbnail`);
+  }
+};
+
+exports.createSchemaCustomization = ({ actions }) =&gt; {
+  actions.createTypes(`
+    type YouTube implements Node {
+      thumbnail: File @link(from: "fields.thumbnailFileId")
+    }
+  `);
+};
+</code></pre>
+
+<p>Example lifted from <a href="https://github.com/queen-raae/gatsby-source-youtube-oembed/pull/3">@raae/gatsby-source-youtube-oembed</a>.</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

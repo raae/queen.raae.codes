@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/03/10/mui">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>How to make the MUI Component Library your own</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">How to make the MUI Component Library your own</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        mui
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        styling
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        ui
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>For the app side of POW! (<a href="https://my.usepow.app/login/">my.usepow.app</a>) I choose the <a href="https://mui.com/">MUI Component Library</a>.</p>
+
+<p>I am not ecstatic about the choice, but it gets the job done! And MUI really shines for more utilitarian use cases.</p>
+
+<p>My focus this spring is split between:</p>
+
+<ul>
+<li>Improving POW! for our users</li>
+<li>Helping you get the most out of Gatsby</li>
+</ul>
+
+<p>So to free up a lot of head-space, we are standardizing on MUI across the board.</p>
+
+<p>This week queen.raae.codes got the MUI treatment, and as you can see, it does not look very Material UI-y...</p>
+
+<p><a href="https://queen.raae.codes"><img src="./queen-shot.jpg" alt="Screenshot of queen.raae.codes" /></a></p>
+
+<p>A big player in that is disabling "elevation" almost everywhere!</p>
+
+<p>You can do it on a one-off basis:</p>
+
+<pre><code class="language-js">// On a per use basis
+&lt;Button disableElevation /&gt;
+</code></pre>
+
+<p>But that gets annoying fast, and I like to make it a global thing:</p>
+
+<pre><code class="language-js">// Globally
+
+createTheme({
+  components: {
+    MuiButton: {
+      defaultProps: {
+        disableElevation: true,
+      },
+    },
+  },
+});
+</code></pre>
+
+<p>The last approach is also suitable for making more considerable stylistic changes to the default components.</p>
+
+<p>Let's see how I changed the list component for queen.raae.codes:</p>
+
+<pre><code class="language-js">createTheme({
+  MuiListItemText: {
+    defaultProps: {
+      // Change both the primary and secondary text
+      secondaryTypographyProps: {
+        variant: "overline",
+        gutterBottom: true,
+      },
+      primaryTypographyProps: {
+        variant: "h5",
+        gutterBottom: true,
+      },
+    },
+    styleOverrides: {
+      // Move the secondary text to the top
+      root: {
+        display: "flex",
+        flexDirection: "column-reverse",
+      },
+    },
+  },
+  MuiListItemButton: {
+    styleOverrides: {
+      // Add underline to emphasis it's a link
+      root: {
+        ".MuiListItemText-primary": {
+          textDecoration: "underline",
+          "&amp;:hover": {
+            textDecoration: "none",
+          },
+        },
+      },
+    },
+  },
+});
+</code></pre>
+
+<p><a href="https://queen.raae.codes/emails"><img src="./list.jpg" alt="Before and after screenshot of the list component" /></a></p>
+
+<p>To see all the global changes I made for queen.raae.codes check out <a href="https://github.com/raae/queen.raae.codes/tree/main/src/%40raae/gatsby-theme-mui">the theme folder</a> in its repo on GitHub.</p>
+
+<p>To read more about customizing MUI, check out the <a href="https://mui.com/customization/how-to-customize/#main-content">How to customize</a> article.</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+
+<p>&nbsp;<br />
+<strong>PS:</strong> In <a href="https://youtu.be/kzUUoglO63k">today's treasure hunt</a> we'll get friendly with theme shadowing 👻 and start customizing the MUI Theme for the new work-in-progress POW! marketing @GatsbyJS site ✨</p>
+    </div>
+</article>
+    </body>
+</html>

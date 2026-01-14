@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/04/26/gatsby-remark-oembed">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>What is Gatsby Remark oEmbed, and how does it work?</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">What is Gatsby Remark oEmbed, and how does it work?</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        gatsby-remark-oembed
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        markdown
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        oembed
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        gatsby plugin
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>As mentioned <a href="/2022-04-25-this-week/">yesterday</a> I plan to get a good chunk of work done on the next version of the <a href="https://github.com/queen-raae/gatsby-remark-oembed">gatsby-remark-oembed</a> plugin this week.</p>
+
+<p>But you might wonder what even is that and how does it work?</p>
+
+<h2>What is Gatsby Remark oEmbed?</h2>
+
+<p>The goal of Gatsby Remark oEmbed is to let you drop in a link to embeddable content:</p>
+
+<pre><code class="language-md">Embed anything that supports the oEmbed protocol!
+
+https://youtu.be/VhrOe0X_oA8
+
+By adding a link on its own line!
+</code></pre>
+
+<p>And have it show up like so on your Gatsby site:</p>
+
+<p><img src="./oEmbed-example.png" alt="YouTube embedded in the html" /></p>
+
+<h2>How does it work?</h2>
+
+<p>The plugin is a <a href="https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-remark">gatsby-transformer-remark</a> sub-plugin. Meaning it will only do work on MarkdownRemark-nodes.</p>
+
+<p>For each MarkdownRemark-node Gatsby Remark oEmbed finds the standalone links, checks the oEmbed provider list for a match, and swaps the link out for the result coming back from the matching provider's oEmbed endpoint.</p>
+
+<p>In the example above, that means swapping:</p>
+
+<pre><code>https://youtu.be/VhrOe0X_oA8
+</code></pre>
+
+<p>with the <code>html</code>-value of the oEmbed response from YouTube:</p>
+
+<pre><code class="language-json">{
+  "title": "\ud83d\udd34 \ud83c\udff4\u200d\u2620\ufe0f Source YouTube information using oEmbed, no YouTube API Key needed \u00b7 #GatsbyJS Deep Dive",
+  "author_name": "Queen Raae",
+  "author_url": "https://www.youtube.com/c/QueenRaae",
+  "type": "video",
+  "height": 113,
+  "width": 200,
+  "version": "1.0",
+  "provider_name": "YouTube",
+  "provider_url": "https://www.youtube.com/",
+  "thumbnail_height": 360,
+  "thumbnail_width": 480,
+  "thumbnail_url": "https://i.ytimg.com/vi/VhrOe0X_oA8/hqdefault.jpg",
+  "html": "\u003ciframe width=\u0022200\u0022 height=\u0022113\u0022 src=\u0022https://www.youtube.com/embed/VhrOe0X_oA8?feature=oembed\u0022 frameborder=\u00220\u0022 allow=\u0022accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\u0022 allowfullscreen\u003e\u003c/iframe\u003e"
+}
+</code></pre>
+
+<p>that we got by calling YouTube's oEmbed endpoint with the original standalone link: https://www.youtube.com/oembed?url=https://youtu.be/VhrOe0X_oA8.</p>
+
+<p>&nbsp;</p>
+
+<ul>
+<li>If this sounds interesting to you and you would like to contribute, shoot me a reply, and I'll loop you in!</li>
+</ul>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

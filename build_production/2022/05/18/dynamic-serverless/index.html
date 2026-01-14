@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/05/18/dynamic-serverless">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Dynamic data in your Gatsby Serverless Functions</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Dynamic data in your Gatsby Serverless Functions</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        serverless
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        lamda
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>How do you get data into a serverless function?</p>
+
+<p>There are three common approaches:</p>
+
+<h2>1. Using URL Queries</h2>
+
+<h3>Demo</h3>
+
+<ul>
+<li><a href="https://demodatafunctions.gatsbyjs.io/api/time-travel-query?city=oslo&amp;year=1624">/api/time-travel-query?city=oslo&amp;year=1624</a></li>
+</ul>
+
+<h3>Documentation</h3>
+
+<ul>
+<li>Gatsby Documentation on <a href="https://www.gatsbyjs.com/docs/reference/functions/middleware-and-helpers#data-formats">Data formats (including URL Queries)</a></li>
+<li>Wikipedia article on <a href="https://en.wikipedia.org/wiki/Query_string">Query Strings</a></li>
+</ul>
+
+<h3>Serverless Function Code</h3>
+
+<pre><code class="language-js">// File: /api/time-travel-query
+// Usage: /api/time-travel-query?city=oslo&amp;year=1624
+export default function handler(req, res) {
+  const { city, year } = req.query;
+  res.send(`You time-travelled to ${city}, in year ${year}`);
+}
+</code></pre>
+
+<h2>2. Using Param Routes</h2>
+
+<h3>Demo</h3>
+
+<ul>
+<li><a href="https://demodatafunctions.gatsbyjs.io/api/time-travel-params/oslo/1624">/api/time-travel-params/oslo/1624</a></li>
+</ul>
+
+<h3>Documentation</h3>
+
+<ul>
+<li>Gatsby Documentation on <a href="https://www.gatsbyjs.com/docs/reference/functions/routing/#dynamic-routing">Dynamic routing (including Param Routes)</a></li>
+</ul>
+
+<h3>Serverless Function Code</h3>
+
+<pre><code class="language-js">// File: /api/time-travel-params/[city]/[year].js
+// Usage: /api/time-travel-params/oslo/1624
+export default function handler(req, res) {
+  const { city, year } = req.params;
+  res.send(`You time-travelled to ${city}, in year ${year}`);
+}
+</code></pre>
+
+<h2>3. Using Http Request Body</h2>
+
+<h3>Demo</h3>
+
+<form action="https://demodatafunctions.gatsbyjs.io/api/time-travel-body" method="post">
+  <p>
+    <label htmlFor="year">Year: </label>
+    <br/>
+    <input
+      required
+      type="number"
+      id="year"
+      name="year"
+      value="1624"
+    />
+  </p>
+  <p>
+    <label htmlFor="city">City: </label>
+    <br/>
+    <input
+      required
+      type="text"
+      id="city"
+      name="city"
+      value="Oslo"
+    />
+  </p>
+  <button>Travel</button>
+</form>
+
+<h3>Documentation</h3>
+
+<ul>
+<li>Gatsby Documentation on <a href="https://www.gatsbyjs.com/docs/reference/functions/middleware-and-helpers#data-formats">Data formats (including body params)</a></li>
+</ul>
+
+<h3>Serverless Function Code</h3>
+
+<pre><code class="language-js">// File: /api/time-travel-body.js
+// Usage: {city: "Oslo", year: "2026"} added to request body
+export default function handler(req, res) {
+  const { city, year } = req.body;
+  res.send(`You time-travelled to ${city}, in year ${year}`);
+}
+</code></pre>
+
+<p>Check out the full demo code on <a href="https://github.com/queen-raae/demo-data-functions">GitHub</a> or take it for a spin using <a href="https://codesandbox.io/s/demo-data-functions-e9gtq">CodeSandbox</a>.</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+
+<p><strong>PS:</strong> Yesterday was May 17th, a special day in Norway. <a href="https://twitter.com/raae/status/1526811316349984768">Check out the reason and the fam in our finest on Twitter</a>.</p>
+    </div>
+</article>
+    </body>
+</html>

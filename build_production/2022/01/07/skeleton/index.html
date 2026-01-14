@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/01/07/skeleton">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>SSG even for authenticated routes in Gatsby</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">SSG even for authenticated routes in Gatsby</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        skeleton ui
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        SSG
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        authentication
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        client-side only routes
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>In <a href="/2022-01-06-client-only-routes/">yesterday's email</a>, I alluded to a different approach for authenticated routes.</p>
+
+<p>Instead of reaching for <a href="https://www.gatsbyjs.com/docs/how-to/routing/client-only-routes-and-user-authentication/#adjusting-routes-to-account-for-authenticated-users">client-side only routes</a> I more often utilize statically generated pages even for the authenticated routes these days.</p>
+
+<p>You can protect these routes the same way Gatsby documents for client-side only routes. However, this does not consider a visitor refreshing a page while on an authenticated route. The code will kick the visitor off the page before the authentication status is determined.</p>
+
+<p>Instead, I recommend assuming the visitor is supposed to be there if they hit an authenticated route. While waiting for the data to load, I will show a skeleton version of the page. If it turns out the visitor is not supposed to be there, I kick them off.</p>
+
+<p>A skeleton version of a page is as much of the user interface as is possible without the data only available client-side. There is often a lot to show, menus, headers, icons, etc.</p>
+
+<p><a href="https://my.usepow.app/profile/"><img src="./skeleton.jpg" alt="Skeleton Profile page" /></a></p>
+
+<p>You can see the skeleton version of a profile page in action for <a href="https://my.usepow.app/profile/">POW!</a>. If you get kicked off too soon, disable javascript to see it.</p>
+
+<p>This approach gives a better experience for visitors using your app correctly; they will get a smooth transition from skeleton to the page filled with data. Visitors testing out routes they should not be on will get a flash of skeleton page before being kicked off, a slightly subpar experience.</p>
+
+<p>Incidentally, the same topic of discussion, and pair programming, as on yesterday's <a href="https://youtu.be/WzrjHVy134M">unauthorized and rum-fueled treasure hunt</a> in the sharky waters around the Gatsby islands, helping Mirjam with Conference Buddy v2.</p>
+
+<p><a href="https://youtu.be/WzrjHVy134M"><img src="./yt-screenshot.jpg" alt="Screengrab of the intro" /></a></p>
+
+<p>&nbsp;<br />
+Did any of this make sense?
+Reply to let me know either way...</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

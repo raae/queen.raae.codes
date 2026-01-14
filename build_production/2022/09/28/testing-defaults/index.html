@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/09/28/testing-defaults">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>How to test schema defaults for a Gatsby Plugins</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">How to test schema defaults for a Gatsby Plugins</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        testing
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        gatsby plugin
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        jest
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>The recommended way to test your <code>pluginSchemaOption</code> function is to use <code>testPluginOptionsSchema</code> from the <code>gatsby-plugin-utils</code> package.</p>
+
+<p>For information on how to get started with plugin testing and how to use the <code>testPluginOptionsSchema</code>, read <a href="/2022-02-11-plugins-tests/">Add tests to your Gatsby Plugin project ✅ 🧪</a>.</p>
+
+<p>However, when writing tests for the <a href="https://github.com/cloudinary-devs/gatsby-source-cloudinary/blob/main/plugin/gatsby-node.test.js">gatsby-plugin-cloudinary</a> plugin this week, I realized it does not help with testing the default configuration or any other modifiers.</p>
+
+<p>Luckily testing the <code>pluginSchemaOption</code> without the help of <code>testPluginOptionsSchema</code> was possible:</p>
+
+<pre><code class="language-js">import Joi from "joi";
+import { pluginOptionsSchema } from "./gatsby-node";
+
+describe("pluginOptionsSchema", () =&gt; {
+  test("should add defaults", async () =&gt; {
+    const schema = pluginOptionsSchema({ Joi });
+    const options = {
+      cloudName: "cloudName",
+      apiKey: "apiKey",
+      apiSecret: "apiSecret",
+      maxResults: 50,
+    };
+    const { value } = schema.validate(options);
+
+    expect(value).toEqual({
+      ...options,
+      resourceType: "image",
+      maxResults: 50,
+      resultsPerPage: 50,
+      tags: false,
+    });
+  });
+});
+</code></pre>
+
+<p>It was extra important for this plugin as <code>resultsPerPage</code>is actually dependent on <code>maxResults</code> using <a href="https://joi.dev/api/?v=17.6.1#refkey-options"><code>Joi.ref('maxResults')</code></a>.</p>
+
+<p>Let me know if this was of use to you!</p>
+
+<p>&nbsp;</p>
+
+<p>All the best,<br />
+Queen Raae</p>
+
+<p>&nbsp;</p>
+
+<p><strong>PS:</strong> Tomorrow, we'll get a <a href="https://youtu.be/F0Qs4NrSmBo">sneak peek at the almost fully cooked Gatsby Slices API</a> 🍕</p>
+    </div>
+</article>
+    </body>
+</html>

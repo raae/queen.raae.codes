@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2025/04/18/testing-galleon-attributes-with-carrd">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Testing Galleon attributes with Carrd</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Testing Galleon attributes with Carrd</h1>
+
+                    <time datetime="1744934400" class="text-brown-700">
+                January 1, 1970
+            </time>
+        
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>I tested our own docs for Galleon attributes on our <a href="https://github.com/queen-raae/galleon-attributes">Queen Raae's github</a></p>
+
+<h2>I Added the Script to the <code>&lt;head&gt;</code> in my Carrd website</h2>
+
+<ol>
+<li>I clicked "+ Add Element"</li>
+<li>I clicked "&lt;/> Embed" to create a new Embed element</li>
+<li>I Set Type to Code</li>
+<li>I Copy / Pasted in <code>&lt;script async src="https://cdn.jsdelivr.net/npm/@raae/galleon-attributes@1/dist/script.js"&gt;&lt;/script&gt;</code></li>
+<li>I Set the Style to "Hidden" and then "Head" for my website's <code>&lt;head&gt;</code> element</li>
+</ol>
+
+<p>I used these Excellent <a href="https://carrd.co/docs/building/embedding-custom-code">Carrd docs</a></p>
+
+<p><img src="./carrd-1.2-in-the-head-yeah.png" alt="in the head" /></p>
+
+<h1><a href="https://github.com/queen-raae/galleon-attributes#test-galleon-attributes">I Tested Galleon Attributes</a></h1>
+
+<h2>Step 1. I added a container element to hold the data</h2>
+
+<ul>
+<li>I clicked "+ Add Element"</li>
+<li>I clicked "Container" to create a new Container element</li>
+<li>I Added the attribute <code>gl-get=https://galleon.tools/v1/queen</code></li>
+</ul>
+
+<h2>Step 2. I added a text element inside my container element</h2>
+
+<ul>
+<li>I clicked "+ Add Element"</li>
+<li>I clicked "Text" to create a new Text element</li>
+<li>I Added the attribute <code>gl-bind=name</code></li>
+</ul>
+
+<h2>Step 3. I added an Image element inside my container element</h2>
+
+<ul>
+<li>I clicked "+ Add Element"</li>
+<li>I clicked "Image" to create a new Image element</li>
+<li>I Added the attribute <code>gl-bind-src=avatar.url</code></li>
+<li>I Added the attribute <code>gl-bind-alt=avatar.alt</code></li>
+</ul>
+
+<h2>Image with No Upload Blocks me from Publishing my Changes</h2>
+
+<p>This is where I hit my first rock right under the surface of the sea. I tried to publish my changes, but Carrd said no.</p>
+
+<p>The error message looked like this:</p>
+
+<p><img src="./carrd-3-unfinished-element.png" alt="unfinished element" /></p>
+
+<p>I had to upload an image to make my element finished so I could publish the changes to my website.</p>
+
+<h2>Image with placeholder shows the placeholder, not our test image</h2>
+
+<p>I looked at my site, an wouldn't you guess it, I'd hit another rock in the sea. I could see the image I had uploaded and NOT the image I was supposed to see, the image from our test api. Onward!</p>
+
+<h2>Step 4. I added a Link element inside my container element</h2>
+
+<ul>
+<li>I clicked "+ Add Element"</li>
+<li>I clicked "Link" to create a new Link element</li>
+<li>I Added the attribute <code>gl-iterate=socials</code></li>
+<li>I Added the attribute <code>gl-bind-href=url</code></li>
+<li>I Added the attribute <code>gl-bind=label</code></li>
+</ul>
+
+<h2>My Link doesn't work</h2>
+
+<p>Here I hit my third rock. I can see the link, but nothing happens when I try to cllick it. When I "Inspect" my website I see the href with the right link, see below:
+<img src="./carrd-4-doesnt-link.png" alt="My Link doesn't work" /></p>
+
+<p>Testing Galleon attributes with Carrd</p>
+    </div>
+</article>
+    </body>
+</html>

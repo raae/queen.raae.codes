@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2024/03/18/variant-framer">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Select post variant with a Code Override in Framer</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Select post variant with a Code Override in Framer</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Framer
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Outseta
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>This week I'm building a <a href="https://www.youtube.com/@outseta/streams">Framer x Outseta Patreon</a> clone live on stream together with Damien, a designer I know from the Interwebz.</p>
+
+<p>We'll design the site in <a href="https://framer.link/queen-raae">Framer</a>, use <a href="https://outseta.com/?via=queen">Outseta</a> for authentication and protection of members-only content, and stitch it all together with Framer's Code Overrides.</p>
+
+<p>The feature we tackled today was to show a different post-item variant based on the link to the post. We'll configure <a href="https://go.outseta.com/support/kb/categories/rQVZLeQ6/protected-content">Outseta to protect</a> all pages starting with "/posts/locked-" from unauthenticated visitors, so it makes sense to use the same mechanism for selecting the "locked" design of the post.</p>
+
+<p><img src="./primary-locked.png" alt="Primary and Locked variants" /></p>
+
+<h2>The Code Override</h2>
+
+<p>The Code Override checks if the link of the post starts with "/posts/locked-". If the link does, it selects the "locked" variant, and if not it selects the "primary" variant:</p>
+
+<pre><code class="language-js">export function withCorrectVariant(Component): ComponentType {
+  return (props) =&gt; {
+    const { link } = props;
+    const variant = link.startsWith("/posts/locked-") ? "Locked" : "Primary";
+    return &lt;Component {...props} variant={variant} /&gt;;
+  };
+}
+</code></pre>
+
+<p>That Code Override name is not my best work, please help me out by <a href="https://twitter.com/intent/tweet?text=%40raae%20a%20better%20name%20would%20be">suggesting a better name</a>!</p>
+
+<p>Gotcha: the <code>link</code> property is the pathname sans domain to the, and it starts with a "/".</p>
+
+<h2>The Result</h2>
+
+<p>The items linking to pages starting with "/posts/locked-" now show the "locked" variant and the rest show the "primary" variant.</p>
+
+<p><img src="./the-result.png" alt="Primary and Locked post items with demo content" /></p>
+
+<hr />
+
+<p>Extending Framer functionality with Code Overrides is such a superpower, especially if you are someone who can spell variant right on the first try...I cannot as becomes evident if you watch the full stream on <a href="https://www.youtube.com/live/s0eXaQr26Xs?si=_ToBcXuhKtfP72G2">YouTube</a>.</p>
+    </div>
+</article>
+    </body>
+</html>

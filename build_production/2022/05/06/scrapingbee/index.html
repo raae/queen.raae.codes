@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/05/06/scrapingbee">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Source content from anywhere with ScrapingBee</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Source content from anywhere with ScrapingBee</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        web scraping
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        data layer
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        api
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        axios
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        gatsby-node.js
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        createNode
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        sourceNodes
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        createNodeId
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        createContentDigest
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p><a href="https://twitter.com/PierreDeWulf">Pierre de Wulf</a>, co-founder of <a href="https://www.scrapingbee.com/">ScrapingBee</a> joined us on yesterday's <a href="https://youtu.be/MjcYzjYIFuI">unauthorized and rum-fueled treasure hunt</a> in the sharky waters around the Gatsby islands.</p>
+
+<p><a href="https://youtu.be/MjcYzjYIFuI"><img src="./youtube-screengrab.jpg" alt="YouTube Screengrab" /></a></p>
+
+<h2>The What?</h2>
+
+<p>Source Crowdcast webinars into the Gatsby Data Layer using ScrapingBee — an API that simplifies web scraping.</p>
+
+<h2>The Why?</h2>
+
+<p>There is no official Crowdcast API and keeping the data in sync using copy/past is a pain (or at least boring 🤪). To scrape from Crowdcast, we need to load the page in a headless browser such as Puppeteer. Doing so is not possible as part of the Gatsby build process, so we outsource it to ScrapingBee.</p>
+
+<h2>The How</h2>
+
+<p>We used the <a href="https://www.scrapingbee.com/features/data-extraction/">Data Extraction</a>-feature from ScrapingBee. It lets us select data on a page using CSS-selector. It felt kinda similar to <a href="https://cheerio.js.org/">cheerio</a> if you have ever used that.</p>
+
+<p>As always, I started with copy/pasting the <a href="https://www.scrapingbee.com/documentation/data-extraction/">example snippets</a>. It worked almost out of the box, but we had to make use of the <code>wait_for</code> option as the Crowdcast page takes a while to load:</p>
+
+<blockquote>
+  <p>It's sometimes necessary to wait for a particular element to appear in the DOM before ScrapingBee returns the HTML content.
+  <cite><a href="https://www.scrapingbee.com/documentation/#wait_for">ScrapingBee Docs</a></cite></p>
+</blockquote>
+
+<h2>The Code</h2>
+
+<pre><code class="language-js">const axios = require("axios");
+
+const scrapeCrowdcast = async () =&gt; {
+  const { data } = await axios.get("https://app.scrapingbee.com/api/v1", {
+    params: {
+      api_key: process.env.SCRAPING_BEE_API_KEY,
+      url: "https://www.crowdcast.io/raae",
+      // Wait for there to be at least one
+      // non-empty .event-tile element
+      wait_for: ".event-tile",
+      extract_rules: {
+        webinars: {
+          // Lets create a list with data
+          // extracted from the .event-tile element
+          selector: ".event-tile",
+          type: "list",
+          // Each object in the list should
+          output: {
+            // have a title lifted from
+            // the .event-tile__title element
+            title: ".event-tile__title",
+            // and a path lifted from
+            // the href attribute of the first link element
+            path: {
+              selector: "a",
+              output: "@href",
+            },
+          },
+        },
+      },
+    },
+  });
+
+  return data;
+};
+</code></pre>
+
+<p>The resulting data object:</p>
+
+<pre><code class="language-js">{
+  webinars: [
+    {
+      title: "5 Gatsby Gotchas to look out for as a React developer",
+      path: "/e/gatsby-gotchas-react?utm_source=profile&amp;utm_medium=profile_web&amp;utm_campaign=profile",
+    },
+    {
+      title: "Testing your Gatsby Serverless Functions",
+      path: "/e/testing-your-functions?utm_source=profile&amp;utm_medium=profile_web&amp;utm_campaign=profile",
+    },
+    // and more
+  ];
+}
+</code></pre>
+
+<p>We then loop through the webinars on the data object creating content nodes:</p>
+
+<pre><code class="language-js">// gatsby-node.js
+exports.sourceNodes = async (gatsbyUtils) =&gt; {
+  const { actions, createNodeId, createContentDigest } = gatsbyUtils;
+  const { createNode } = actions;
+
+  const data = await scrapeCrowdcast();
+
+  for (const webinar of data.webinars) {
+    createNode({
+      id: createNodeId(webinar.path),
+      title: webinar.title,
+      url: "https://www.crowdcast.io" + webinar.path,
+      rawScrape: webinar,
+      internal: {
+        type: `CrowdcastWebinar`,
+        mediaType: `text/json`,
+        content: JSON.stringify(webinar),
+        contentDigest: createContentDigest(webinar),
+      },
+    });
+  }
+};
+</code></pre>
+
+<p>And voila, we have webinar nodes in our data layer:</p>
+
+<pre><code class="language-graphql">query MyQuery {
+  allCrowdcastWebinar {
+    nodes {
+      title
+      url
+    }
+  }
+}
+</code></pre>
+
+<p>To see the entire demo, check out its <a href="https://github.com/queen-raae/gatsby-demo-web-scraping/blob/main/gatsby-node.js">GitHub repository</a>.</p>
+
+<p>&nbsp;<br />
+Should we make this a full-featured plugin? Extracting the cover art and descriptions from the individual webinar pages? Let me know!</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+
+<p>&nbsp;<br />
+<strong>PS:</strong> ScrapingBee is a paid service, but we are as always neither sponsored nor an affiliate.<br />
+<strong>PPS:</strong> If you want to learn more about web-scraping without ScrapingBee check out their article <a href="https://www.scrapingbee.com/blog/web-scraping-javascript/">Web Scraping with Javascript and NodeJS</a>.</p>
+    </div>
+</article>
+    </body>
+</html>

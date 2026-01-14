@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2025/12/18/framer-overries-not-showing-up">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Framer Code Override Not Showing? Add ComponentType</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Framer Code Override Not Showing? Add ComponentType</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Code Overrides
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        React
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        HOC
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        ComponentType
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>I've seen this question pop up in the <a href="https://framer.link/queen-raae">Framer</a> community more than a <a href="https://www.framer.community/c/developers/need-help-override-not-showing-in-dropdown-menu">few times</a>: "I wrote a code override, but it's not showing up in the dropdown!" 😤</p>
+
+<p>It's frustrating because the code looks right, it's in the right place, but Framer just... ignores it. Something I also personally experienced when creating my first <a href="https://outseta.com/?via=queen">Outseta</a> code overrides.</p>
+
+<h2>The Problem</h2>
+
+<p>Here's what usually happens. You write what feels like a perfectly reasonable code override:</p>
+
+<pre><code class="language-typescript">// ❌ This won't show up in the override panel
+import { forwardRef } from "react";
+
+export const WithClick = (Component) =&gt; {
+  return forwardRef((props, ref) =&gt; {
+    const handleClick = () =&gt; {
+      console.log("Clicked!");
+    };
+
+    return &lt;Component {...props} ref={ref} onClick={handleClick} /&gt;;
+  });
+};
+</code></pre>
+
+<p>You save the file, go back to the Framer canvas, and... nothing. The override doesn't appear in the dropdown. No error message, no explanation. It's like your code doesn't even exist.</p>
+
+<h2>The Solution</h2>
+
+<p>Framer has specific requirements for code overrides to show up in the panel. It's not just about writing a function - the function needs to follow a particular <strong>signature</strong> that Framer recognizes.</p>
+
+<p>Specifically, code overrides must be properly typed with React's <code>ComponentType</code> as the return type.</p>
+
+<pre><code class="language-typescript">// ✅ This will show up in the override panel
+import { forwardRef, ComponentType } from "react";
+
+export const WithClick = (Component): ComponentType =&gt; {
+  return forwardRef((props, ref) =&gt; {
+    const handleClick = () =&gt; {
+      console.log("Clicked!");
+    };
+
+    return &lt;Component {...props} ref={ref} onClick={handleClick} /&gt;;
+  });
+};
+</code></pre>
+
+<p>That's it. The <code>ComponentType</code> return type annotation is what tells Framer "hey, this is a valid override!" Without it, Framer has no way to know your function is meant to be an override.</p>
+
+<p>This isn't really explained in the error messages (because there are no error messages 🤦‍♀️), and it's not super obvious from the docs either. But once you know it, it makes sense and now you know 🥳</p>
+    </div>
+</article>
+    </body>
+</html>

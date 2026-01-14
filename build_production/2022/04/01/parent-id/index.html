@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/04/01/parent-id">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Always define a parent when creating nodes in onCreateNode</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Always define a parent when creating nodes in onCreateNode</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        onCreateNode
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        data layer
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        createNode
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        treasure hunt
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p><strong>TLDR:</strong> When using the action <code>createNode</code> inside <code>onCreateNode</code> it is super duper important to give the node a parent!</p>
+
+<p>On yesterday's unauthorized and rum-fueled <a href="https://youtu.be/SWumzHLEpYA">treasure hunt</a> in the sharky waters around the Gatsby islands, we worked through the code from the last two emails:</p>
+
+<ul>
+<li><a href="/2022-03-30-deterministic/">Gatsby's createNodeId is deterministic 📥 💡</a></li>
+<li><a href="/2022-03-31-skip-cache/">Should we skip the Gatsby Cache altogether? 🛑 🔄</a></li>
+</ul>
+
+<p><a href="https://youtu.be/SWumzHLEpYA"><img src="./youtube-screengrab.jpg" alt="Screengrab of stream" /></a></p>
+
+<p>But we also briefly touched on a bug I had to fix from last week's ImageCDN stream. The YouTubeThumbnail nodes were "lost" between builds... 😱</p>
+
+<p>Gatsby caches nodes between builds. If you call <code>createNode</code> with the same nodeId and content digest as a cached node, Gatsby will not go through the node creation process again. It will use the cached node, skipping <code>onCreateNode</code> for that node.</p>
+
+<p>Since caches can get out of hand, Gatsby throws out all nodes that are not "touched" during the node sourcing phase. And this is where our problem arises.</p>
+
+<p>A node is considered touched either by the use of <code>createNode</code> or <code>touchNode</code>. However, the code "touching" our YouTubeThumbnail nodes is skipped when its YouTube node is cached.</p>
+
+<p>Luckily a node is also considered "touched" if its parent is "touched": problem solved 👩‍👧</p>
+
+<pre><code class="language-js">createNode({
+  id: youTubeThumbnailNodeId,
+  parent: node.id, // 👈 👈 👈
+  youTubeId: node.youTubeId,
+  url: node.oEmbed.thumbnail_url,
+  mimeType: "image/jpeg",
+  filename: node.youTubeId + ".jpg",
+  height: node.oEmbed.thumbnail_height,
+  width: node.oEmbed.thumbnail_width,
+  internal: {
+    type: YOUTUBE_THUMBNAIL_TYPE,
+    contentDigest: node.internal.contentDigest,
+  },
+});
+</code></pre>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

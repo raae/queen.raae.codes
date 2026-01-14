@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/06/03/stripe-cli">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>How to trigger a Stripe (checkout.session.completed) Event with metadata</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">How to trigger a Stripe (checkout.session.completed) Event with metadata</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Stripe CLI
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        webhook
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        serverless
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>We had fun with the <a href="https://stripe.com/docs/cli">Stripe CLI</a> in yesterday's <a href="https://youtu.be/Wqilgl_V7FA">unauthorized and rum-fueled treasure hunt</a> in the sharky waters around the Gatsby islands while refactoring the Stripe Webhook of our price-winning <a href="https://github.com/queen-raae/gatsby-funcjam-21/pull/4">Gatsby FuncJam entry</a> to use the raw body for Stripe verification.</p>
+
+<p><a href="https://youtu.be/Wqilgl_V7FA"><img src="./youtube-screengrab_lol.jpg" alt="YouTube Screengrab of crazy looking queen" title="Caption this 🤪" /></a></p>
+
+<h2>The What?</h2>
+
+<p>Trigger Stripe Checkout Session with metadata</p>
+
+<h2>The Why?</h2>
+
+<p>Sometimes your Stripe Webhook expects there to be metadata attached to the Checkout Session. In our case, we want to grant access to a private Github repository and therefore add the Github username to the Checkout Session.</p>
+
+<h2>The How</h2>
+
+<p>You can add or override the data on resources when triggering events using <a href="https://stripe.com/docs/cli/trigger#trigger-add">the add flag</a>.</p>
+
+<p>The documentation lets us know:</p>
+
+<pre><code class="language-sh">--add [resource]:[path1].[path2]=[value]
+</code></pre>
+
+<p>To add metadata to a Stripe Checkout Session, <code>resource</code> should be swapped for "checkout_session <code>path1</code> for "metadata" and <code>path2</code> for your custom metadata key. In our case, "github":</p>
+
+<pre><code class="language-sh">--add checkout_session:metadata.github=olavea
+</code></pre>
+
+<p>Then we use the above when triggering events, such as "checkout.session.completed":</p>
+
+<pre><code class="language-sh">stripe trigger checkout.session.completed --add checkout_session:metadata.github=olavea
+</code></pre>
+
+<p>&nbsp;
+I had to upgrade my Stripe CLI to get this functionality, so I believe this is a new addition in the last year or so.</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

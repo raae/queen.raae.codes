@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/01/19/images-in-markdown">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Images in Markdown front matter with Gatsby</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Images in Markdown front matter with Gatsby</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        markdown
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        graphql
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>I showed you a neat little trick in Friday's email: referencing a markdown file from the front matter of another markdown file.</p>
+
+<p>While live coding it on last week's <a href="https://youtu.be/Wipi2lw6Mvc?t=3412">unauthorized and rum-fueled treasure hunt</a>, John asked an (as always) excellent question:</p>
+
+<blockquote>
+  <p>Would there be a use case for images in the markdown?</p>
+</blockquote>
+
+<p><a href="https://youtu.be/Wipi2lw6Mvc?t=3412" title="Screengrab of John's question overlayed on the screen and Mirjam and I searching for an image on Unsplash"><img src="./yt-screengrab.jpg" alt="Link directly to the answer" /></a></p>
+
+<p><strong>Yes absolutely.</strong></p>
+
+<p>Common use-cases would be page-specific open graph images, feature images for an article, or as in our case, an image per page section.</p>
+
+<pre><code class="language-md">---
+sections:
+  - title: About us
+    md: ./about.md
+    img:
+      file: ./founder.jpg
+      alt: Image of the founder holding a laptop
+---
+</code></pre>
+
+<p>To get "magical" access to the image referenced, make sure to add both <code>gatsby-plugin-sharp</code> and <code>gatsby-transformer-sharp</code>. These plugins will transform all image files sourced by the <code>gatsby-source-filesystem</code> into <code>ImageSharp</code> content nodes.</p>
+
+<p>You'll find the referenced image under <code>childImageSharp</code>. The same way referenced markdown files are available as <code>childMarkdownRemark</code>.</p>
+
+<pre><code>query ExampleQuery {
+  markdownRemark {
+    frontmatter {
+      sections {
+        title
+        img {
+          file {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+          alt
+        }
+        md {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+
+<p>&nbsp;<br />
+Do you know if references to other types of files work the same way?<br />
+Please let me know if you do!</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+
+<p>&nbsp;<br />
+<strong>PS:</strong> Today's Live Screencast got postponed. I had forgotten my mother's Alzheimer's appointment; luckily, she had not. There's a joke in there somewhere 🤪</p>
+    </div>
+</article>
+    </body>
+</html>

@@ -14,10 +14,12 @@ $events->afterCollections(function (Jigsaw $jigsaw) {
 
     foreach ($collections as $collectionName) {
         $collection = $jigsaw->getCollection($collectionName);
+        echo "Collection '$collectionName' has " . count($collection) . " items\n";
 
         foreach ($collection as $item) {
             // Extract date from path: YYYY/MM/DD-slug
             $path = $item->getPath();
+            echo "Processing: $path\n";
 
             // Match pattern: YYYY/MM/DD-slug
             if (preg_match('#(\d{4})/(\d{2})/(\d{2})-([^/]+)#', $path, $matches)) {
@@ -32,6 +34,7 @@ $events->afterCollections(function (Jigsaw $jigsaw) {
                 $item->month = $month;
                 $item->day = $day;
                 $item->slug = $slug;
+                echo "  -> Extracted date: $year-$month-$day, slug: $slug\n";
             }
         }
     }

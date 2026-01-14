@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/04/06/trailing-slash">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>How to fix inconsistent trailing slashes in Gatsby</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">How to fix inconsistent trailing slashes in Gatsby</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        trailing slash
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        seo
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        analytics
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>I first learned about the problem of inconsistent trailing slashes from Monica Lent in her article <a href="https://bloggingfordevs.com/gatsby-seo/">How to Uncover Non-obvious SEO Mistakes on Gatsby Websites</a>.</p>
+
+<p>Then I experienced it when seeing "double" entries like "/timeline/" and "/timeline" in my POW! Analytics reports.</p>
+
+<p><img src="./screengrab-fathom.png" alt="&quot;/timeline/&quot; and &quot;/timeline&quot; rows in the analytics report" /></p>
+
+<p>This will happen if your internal links are inconsistent, but also if your internal links are consistently non-trailing slash while your hosting provider redirects from non-trailing to trailing URLs etc.</p>
+
+<p>However, we no longer have to worry about getting it right; instead, you can configure Gatsby to make it consistent.</p>
+
+<p>To do so, add <code>trailingSlash</code> to your gatsby-config.js and choose between:</p>
+
+<ul>
+<li><code>always</code>: Always add trailing slashes to each URL, e.g. /x to /x/.</li>
+<li><code>never</code>: Remove all trailing slashes on each URL, e.g. /x/ to /x.</li>
+<li><code>ignore</code>: Don't automatically modify the URL</li>
+</ul>
+
+<p>I go for <code>always</code>!</p>
+
+<pre><code class="language-js">module.exports = {
+  plugins: [
+    // ...
+  ],
+  trailingSlash: "always",
+};
+</code></pre>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

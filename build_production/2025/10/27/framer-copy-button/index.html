@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2025/10/27/framer-copy-button">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Copy current URL with a Framer Code Override</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Copy current URL with a Framer Code Override</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        framer
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        code override
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        react
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        clipboard api
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>I've been browsing the <a href="https://framer.link/queen-raae">Framer</a> community forum lately as I'm working on an updated <a href="https://outseta.com/?via=queen">Outseta</a> <a href="https://framer.link/outseta-plugin">Framer Plugin</a>.</p>
+
+<p>There I found a <a href="https://www.framer.community/c/developers/copy-current-page-link-button-cms-supported">question about how to add a "copy link" code override</a> and threw together a code override.</p>
+
+<h2>What are Code Overrides?</h2>
+
+<p>Code overrides are Higher Order React Components that wrap around "stuff" on the Framer canvas. So if you are a React developer, you can use code overrides to add all sorts of functionality to a Framer site.</p>
+
+<p>Framer is really onto something here with seperating design from functionality 🤩</p>
+
+<h2>The Ask</h2>
+
+<p>Copy the current page URL to the clipboard with a Code Override.</p>
+
+<h2>The Solution</h2>
+
+<p>A lightweight Code Override that adds copy-to-clipboard functionality to any element.</p>
+
+<h2>The Code</h2>
+
+<pre><code class="language-typescript">import { forwardRef, type ComponentType } from "react";
+
+export function withCopyURL(Component): ComponentType {
+  return forwardRef((props, ref) =&gt; {
+    const handleClick = async () =&gt; {
+      try {
+        const currentURL = window.location.href;
+        await navigator.clipboard.writeText(currentURL);
+        console.log("URL copied to clipboard:", currentURL);
+      } catch (err) {
+        console.error("Failed to copy URL:", err);
+      }
+    };
+
+    return &lt;Component ref={ref} {...props} onClick={handleClick} style={{ cursor: "pointer" }} /&gt;;
+  });
+}
+</code></pre>
+
+<h2>How to Use It</h2>
+
+<ol>
+<li>In Framer, open the <strong>Assets</strong> panel and go to the <strong>Code</strong> tab</li>
+<li>Click the <strong>+</strong> button to create a new Code Override file and name it</li>
+<li>Paste the code above into the file</li>
+<li>Select any element on your canvas (a button, icon, or text layer)</li>
+<li>In the properties panel, find <strong>Code Override</strong> and select <code>withCopyURL</code></li>
+</ol>
+
+<p>That's it! Now when someone clicks that element, the current page URL gets copied to their clipboard.</p>
+
+<p>You can add visual feedback like hover states or tap animation in the Framer canvas.</p>
+
+<h2>Going Further</h2>
+
+<p>You could extend this Code Override to:</p>
+
+<ul>
+<li>Show a toast notification after copying ("Link copied!")</li>
+<li>Copy a custom URL instead of the current one (great for referral links)</li>
+<li>Track copy events in your analytics</li>
+</ul>
+
+<p>&nbsp;
+<strong>PS:</strong> The Clipboard API works in all modern browsers, but it requires a secure context (HTTPS). It'll work fine on your published Framer site, but might act up on localhost without HTTPS.</p>
+    </div>
+</article>
+    </body>
+</html>

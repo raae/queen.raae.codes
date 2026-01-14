@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/05/26/direct-mutation">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Direct mutation of a node is a big no-no</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Direct mutation of a node is a big no-no</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        source plugins
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        onCreateNode
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        createNodeField
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        lifecycle
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>Before Gatsby v4, you could mutate a node directly, and it would work. <a href="https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v3-to-v4/#dont-mutate-nodes-outside-of-expected-apis">According to Gatsby</a>, it was never an intended feature. The persisted storage for nodes in v4 breaks this unintended pattern.</p>
+
+<p>What do we mean by direct manipulation of a node? Direct manipulation assigns properties to the node like it was a regular JavaScript Object.</p>
+
+<p>For instance, before v4 we could have done:</p>
+
+<pre><code class="language-js">exports.onCreateNode = async (gatsbyUtils, pluginOptions) =&gt; {
+  // Code lifted from gatsby-source-youtube-oembed
+  // Downloads the thumbnail as a file for YouTube nodes
+  // and connects the created file node to the YouTube node
+  // via the property thumbnailFileId
+  const { node, reporter, createNodeId, getCache } = gatsbyUtils;
+  const { createNode } = gatsbyUtils.actions;
+
+  if (node.internal.type === "YouTube") {
+    const imageFile = await createRemoteFileNode({
+      // The url of the remote file
+      url: node.oEmbed.thumbnail_url,
+      parentNodeId: node.id,
+      getCache,
+      createNode,
+      createNodeId,
+    });
+
+    node.thumbnailFileId = imageFile.id; // 👈👈👈
+  }
+};
+</code></pre>
+
+<p>However, that will no longer work. <code>thumbnailFileId</code> will not be added to the node. If you need to add data after a node is created, you must use <code>createNodeField</code> instead.</p>
+
+<p>Exchange</p>
+
+<pre><code class="language-js">node.thumbnailFileId = imageFile.id;
+</code></pre>
+
+<p>for</p>
+
+<pre><code class="language-js">createNodeField({
+  node,
+  name: `thumbnailFileId`,
+  value: imageFile.id,
+});
+</code></pre>
+
+<p>and you are good to go!</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

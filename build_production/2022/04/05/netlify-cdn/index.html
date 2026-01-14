@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/04/05/netlify-cdn">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Gatsby ImageCDN on Netlify</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Gatsby ImageCDN on Netlify</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        image cdn
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        pow
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        images
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>The POW! web app is hosted on Netlify, and so is the <a href="https://pow-site.netlify.com/">soon to be released</a> version of the marketing site.</p>
+
+<p>However, after upgrading to the latest version of <a href="https://github.com/queen-raae/gatsby-source-youtube-oembed">@raae/gatsby-source-youtube-oembed</a>, with support for Gatsby ImageCDN, my sourced YouTube Thumbnails went blank...</p>
+
+<p>Turns out support for Gatsby ImageCDN is not on by default; you need to set the environment variable <code>GATSBY_CLOUD_IMAGE_CDN</code> set to <code>true</code>.</p>
+
+<p><img src="./env-var.png" alt="GATSBY_CLOUD_IMAGE_CDN=true" /></p>
+
+<p>After doing so and triggering a "Clear cache and deploy site," the YouTube Thumbnails came back, and all was good!</p>
+
+<p><a href="https://youtu.be/nS36D2zUkvA"><img src="./video-screengrab.png" alt="YouTube Thumbnail via Gatsby ImageCDN on Netlify" /></a>.</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+
+<p>&nbsp;<br />
+<strong>PS:</strong> Interested in learning how to add Gatsby ImageCDN support to your plugin? Check out <a href="/2022-03-25-image-cdn-plugin/">How to add support for Gatsby ImageCDN in your source plugin 🖼 ☁️</a></p>
+    </div>
+</article>
+    </body>
+</html>

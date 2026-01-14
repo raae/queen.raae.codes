@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/10/10/semantic-react">
+        <meta name="description" content="Make the semantic HTML element configurable through the component&#039;s props.">
+        <title>A little semantic HTML trick for React components</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">A little semantic HTML trick for React components</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        semantic HTML
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        react
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        SEO
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <aside class="notice">
+
+Learn more about 24 Semantic HTML Elements this advent by signing up for [Semantic Advent](https://advent.raae.codes) that will run again in 2024.
+
+</aside>
+
+<p>Semantic HTML is the foundation of a web project. It helps assistive technologies and Google make sense of your site.</p>
+
+<p>What is semantic HTML? <code>article</code>, <code>heading</code>, <code>h2</code>, <code>aside</code>, <code>ul</code>, <code>section</code> etc. all have semantic meaning. It says something about the content inside them. If the content is a stand-alone piece of content, use <code>article</code>; if it's a list, use <code>ul</code>, and so on. In comparison, <code>div</code> and <code>span</code> have no semantic meaning.</p>
+
+<p>To lean more about check out <a href="https://web.dev/learn/html/semantic-html/">web.dev's article on Semantic HTML</a>.</p>
+
+<p>Unfortunately, adherence to semantic HTML often gets lost when creating reusable React UI components.</p>
+
+<p>Let's say we make a reusable card component.</p>
+
+<p>It could look something like this:</p>
+
+<pre><code class="language-jsx">// File: card.js
+import React from "react";
+
+export function Card(props) {
+  const { children } = props;
+  return &lt;div&gt;{children}&lt;/div&gt;;
+}
+</code></pre>
+
+<p>It makes sense not to give the design of the content (a card) any semantic meaning by using a <code>div</code>. However, such a component is very often used semantically.</p>
+
+<ul>
+<li>As a list of blog posts => <code>article</code></li>
+<li>As a call out in an article => <code>aside</code></li>
+<li>To spice up the design of a paragraph => <code>p</code></li>
+</ul>
+
+<p>We can solve the issue by surrounding the card with the correct semantic element:</p>
+
+<pre><code class="language-jsx">// File: exmaple.js
+import React from "react";
+import { Card } from "./card";
+
+export function Example() {
+  return (
+    &lt;article&gt;
+      &lt;p&gt;An introduction&lt;/p&gt;
+      &lt;aside&gt;
+        &lt;Card&gt;
+          Something related to the article but a little outside of the normal
+          flow.
+        &lt;/Card&gt;
+      &lt;/aside&gt;
+      &lt;p&gt;More content...&lt;/p&gt;
+      &lt;p&gt;
+        &lt;Card&gt;A paragraph with different styling...&lt;/Card&gt;
+      &lt;/p&gt;
+      &lt;p&gt;More content...&lt;/p&gt;
+    &lt;/article&gt;
+  );
+}
+</code></pre>
+
+<p>But we'll be notified that a <code>div</code> is not a valid child of <code>p</code>, and the approach feels iffy. At least to me 🤪</p>
+
+<h2>The semantic HTML trick for React components!</h2>
+
+<aside class="notice">
+
+- There was an error earlier in the example code caught by [GasimGasimzada on Reddit](https://www.reddit.com/r/reactjs/comments/y19t4k/comment/irx1z7z/?utm_source=reddit&utm_medium=web2x&context=3) Thank you!
+- `as` is a better prop name than `element`, as suggested by several [commentators on Reddit](https://www.reddit.com/r/reactjs/comments/y19t4k/comment/irzwyr5/?context=3).
+
+</aside>
+
+<p>Make the semantic HTML element configurable:</p>
+
+<pre><code class="language-jsx">// File: card.js
+import React from "react";
+
+export function Card(props) {
+  // 1️⃣ Destructure element and children from props
+  const { element, children } = props;
+
+  // 2️⃣ Capitalise element to make it valid jsx
+  let Element = element;
+
+  // 3️⃣ Make "div" the default choice
+  if (!element) {
+    Element = "div";
+  }
+
+  return &lt;Element&gt;{children}&lt;/Element&gt;;
+}
+</code></pre>
+
+<p>Or in shorthand form:</p>
+
+<pre><code class="language-jsx">import React from "react";
+
+export function Card(props) {
+  // Do 1️⃣, 2️⃣, 3️⃣ in one line
+  const { element: Element = "div", children } = props;
+
+  return &lt;Element&gt;{children}&lt;/Element&gt;;
+}
+</code></pre>
+
+<p>You may then use the Card component like so:</p>
+
+<pre><code class="language-jsx">// File: exmaple.js
+import React from "react";
+import { Card } from "./card";
+
+export function Example() {
+  return (
+    &lt;article&gt;
+      &lt;p&gt;An introduction&lt;/p&gt;
+
+      &lt;Card element="aside"&gt;
+        Something related to the article but a little outside of the normal
+        flow.
+      &lt;/Card&gt;
+
+      &lt;p&gt;More content...&lt;/p&gt;
+
+      &lt;Card element="p"&gt;A paragraph with different styling...&lt;/Card&gt;
+
+      &lt;p&gt;More content...&lt;/p&gt;
+    &lt;/article&gt;
+  );
+}
+</code></pre>
+
+<p>Credit where credit is due. I learned how to do this by looking at <a href="https://github.com/mui/material-ui">MUI's source code</a>!</p>
+
+<p>&nbsp;</p>
+
+<p>All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>

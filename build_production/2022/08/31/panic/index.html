@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://queen.raae.codes/2022/08/31/panic">
+        <meta name="description" content="Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!">
+        <title>Stop the build with `reporter.panic`</title>
+                <link rel="stylesheet" href="/assets/build/assets/main-BZO06M8j.css">
+        <script defer type="module" src="/assets/build/assets/main-l0sNRNKZ.js"></script>
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-brown-900 mb-4">Stop the build with `reporter.panic`</h1>
+
+        
+                    <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Gatsby Reporter
+                    </span>
+                                    <span class="px-3 py-1 bg-brown-100 text-brown-800 rounded-full text-sm">
+                        Gatsby
+                    </span>
+                            </div>
+            </header>
+
+    <div class="prose prose-lg prose-brown max-w-none">
+        <p>On last week's show, we <a href="/2022-08-26-source-supabase/">sourced data from Supabase</a> in the form of little avatars.</p>
+
+<p>If the sourcing fails though, we'll get problems down the road with the <code>Avatars</code> component:</p>
+
+<pre><code>Cannot query field "allUserAvatar" on type "Query"
+</code></pre>
+
+<p>It would be better to fail as fast as possible, and you may do so with <code>reporter.panic</code>.</p>
+
+<pre><code class="language-js">// File: gatsby-node.js
+
+const { createClient } = require("@supabase/supabase-js");
+
+const supabaseUrl = process.env.GATSBY_PUBLIC_SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+
+const serviceSupabase = createClient(supabaseUrl, supabaseServiceKey);
+
+exports.sourceNodes = async (gatsbyUtils) =&gt; {
+  const { actions, createNodeId, createContentDigest, reporter } = gatsbyUtils;
+  const { createNode } = actions;
+
+  const { data, error } = await serviceSupabase
+    .from("avatars")
+    .select("username, avatar_url")
+    .limit(20);
+
+  if (error) {
+    // 👇👇👇 Stops the build
+    reporter.panic("No avatars sourced", error);
+  }
+
+  data.forEach((item) =&gt; {
+    createNode({
+      id: createNodeId(item.username),
+      avatarUrl: item.avatar_url,
+      username: item.username,
+      internal: {
+        type: "UserAvatar",
+        contentDigest: createContentDigest(item),
+      },
+    });
+  });
+};
+</code></pre>
+
+<p>Read more about the <code>reporter</code> helper <a href="https://www.gatsbyjs.com/docs/reference/config-files/node-api-helpers/#reporter">in the Gatsby Docs</a>.</p>
+
+<p>&nbsp;<br />
+All the best,<br />
+Queen Raae</p>
+    </div>
+</article>
+    </body>
+</html>
