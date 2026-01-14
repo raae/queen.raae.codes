@@ -1,66 +1,16 @@
 {
-  "name": "queen.raae.codes",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Gatsby Summer Functions",
-  "author": "@raae",
-  "keywords": [
-    "gatsby"
-  ],
-  "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "prettier": "prettier --config ./.prettierrc.js --ignore-path ./.prettierignore --write \"**/*.{json,js,ts,tsx,mdx}\""
-  },
-  "dependencies": {
-    "@heroicons/react": "2.0.12",
-    "@raae/gatsby-plugin-fathom": "0.1.0",
-    "@raae/gatsby-plugin-let-it-snow": "1.1.0",
-    "@raae/gatsby-remark-oembed": "0.3.3",
-    "@tailwindcss/forms": "0.5.3",
-    "@tailwindcss/typography": "0.5.8",
-    "autoprefixer": "10.4.12",
-    "axios": "1.1.2",
-    "canvas": "2.11.0",
-    "clsx": "1.2.1",
-    "date-fns": "2.29.3",
-    "dotenv": "16.0.3",
-    "fuse.js": "6.6.2",
-    "gatsby": "5.13.3",
-    "gatsby-adapter-netlify": "^1.1.3",
-    "gatsby-mdx": "1.0.0",
-    "gatsby-plugin-feed": "5.13.1",
-    "gatsby-plugin-image": "3.13.1",
-    "gatsby-plugin-postcss": "6.13.1",
-    "gatsby-plugin-react-svg": "3.3.0",
-    "gatsby-plugin-sharp": "5.13.1",
-    "gatsby-plugin-sitemap": "6.13.1",
-    "gatsby-remark-copy-linked-files": "6.13.1",
-    "gatsby-remark-images": "7.13.1",
-    "gatsby-remark-prismjs": "7.13.1",
-    "gatsby-remark-responsive-iframe": "6.13.1",
-    "gatsby-source-filesystem": "5.13.1",
-    "gatsby-transformer-remark": "6.13.1",
-    "gatsby-transformer-sharp": "5.13.1",
-    "gatsby-transformer-yaml": "5.13.1",
-    "html-react-parser": "3.0.4",
-    "lodash": "4.17.21",
-    "postcss": "8.4.18",
-    "prismjs": "1.29.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-query": "3.39.2",
-    "string-similarity": "4.0.4",
-    "stripe": "10.14.0",
-    "tailwindcss": "3.1.8"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0",
-    "husky": "^8.0.1",
-    "prettier": "^2.7.1"
-  }
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@tighten/jigsaw-vite-plugin": "^1.0.1",
+        "tailwindcss": "^4.1.0",
+        "vite": "^6.4.1"
+    },
+    "dependencies": {
+        "@tailwindcss/vite": "^4.1.8"
+    }
 }

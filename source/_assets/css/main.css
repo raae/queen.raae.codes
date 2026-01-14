@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  /* Custom brown color palette for Queen theme */
+  --color-brown-50: #fbf6f5;
+  --color-brown-100: #f6ecea;
+  --color-brown-200: #f0dcd8;
+  --color-brown-300: #e4c3bd;
+  --color-brown-400: #d2a097;
+  --color-brown-500: #bf7f74;
+  --color-brown-600: #a96559;
+  --color-brown-700: #8d5248;
+  --color-brown-800: #76463e;
+  --color-brown-900: #3e2723;
+}
+
+/* Custom list styling for pirate theme */
+ul {
+  list-style: none;
+}
+
+ul li::before {
+  content: '➽';
+  color: theme('colors.amber.500');
+  display: inline-block;
+  margin-right: 0.5rem;
+}

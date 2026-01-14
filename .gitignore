@@ -1,9 +1,13 @@
-node_modules/
-.cache/
-public
-.env.*
-!.env.example
-.DS_Store
-package-lock.json
-content-dev/
-.obsidian/
+/build_local/
+/cache/
+/node_modules/
+/vendor/
+/.idea/
+/.vscode/
+npm-debug.log
+hot
+
+# Optional ignores
+# /build_staging/
+# /build_production/
+# /source/assets/build/
