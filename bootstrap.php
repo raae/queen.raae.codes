@@ -104,3 +104,27 @@ $events->afterCollections(function (Jigsaw $jigsaw) {
         );
     }
 });
+
+/*
+ * Fix hard line breaks after build
+ * Convert backslash-newline pattern to <br/> tags
+ */
+$events->afterBuild(function (Jigsaw $jigsaw) {
+    $outputPath = $jigsaw->getDestinationPath();
+
+    // Find all index.html files in post directories (YYYY/MM/DD/slug/index.html)
+    $pattern = $outputPath . '/[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]/*/index.html';
+
+    foreach (glob($pattern) as $file) {
+        $content = file_get_contents($file);
+
+        // Replace backslash-newline with <br/>
+        // Matches: ,\ followed by newline and capital letter (like "Queen")
+        $content = preg_replace('/,\\\\\n(?=[A-Z])/', ",<br />\n", $content);
+
+        // More general: any backslash-newline inside paragraph tags
+        $content = preg_replace('/\\\\\n/', "<br />\n", $content);
+
+        file_put_contents($file, $content);
+    }
+});

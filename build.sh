@@ -6,6 +6,9 @@
 
 set -e  # Exit on error
 
+echo "Clearing Jigsaw cache..."
+rm -rf cache/
+
 echo "Copying and flattening content to source directory..."
 
 # Remove existing directories
