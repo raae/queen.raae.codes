@@ -2,6 +2,7 @@
 
 use TightenCo\Jigsaw\Jigsaw;
 use Mni\FrontYAML\Markdown\MarkdownParser as FrontYAMLMarkdownParser;
+use Highlight\Highlighter;
 
 /** @var \Illuminate\Container\Container $container */
 /** @var \TightenCo\Jigsaw\Events\EventBus $events */
@@ -16,6 +17,47 @@ use Mni\FrontYAML\Markdown\MarkdownParser as FrontYAMLMarkdownParser;
  * (@raae, @GatsbyJS) work correctly. Users can use two spaces at end of line for breaks.
  */
 $container['config']->put('commonmark', false);
+
+/*
+ * Apply server-side syntax highlighting to code blocks
+ */
+$events->afterBuild(function (Jigsaw $jigsaw) {
+    $highlighter = new Highlighter();
+
+    // Get all HTML files in the build directory
+    $files = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($jigsaw->getDestinationPath()),
+        RecursiveIteratorIterator::SELF_FIRST
+    );
+
+    foreach ($files as $file) {
+        if ($file->isFile() && $file->getExtension() === 'html') {
+            $html = file_get_contents($file->getPathname());
+
+            // Find all code blocks with language classes
+            $html = preg_replace_callback(
+                '/<pre><code class="language-(\w+)">(.*?)<\/code><\/pre>/s',
+                function ($matches) use ($highlighter) {
+                    $language = $matches[1];
+                    $code = html_entity_decode($matches[2], ENT_QUOTES | ENT_HTML5);
+
+                    try {
+                        $highlighted = $highlighter->highlight($language, $code);
+                        return '<pre><code class="hljs language-' . $language . '">' .
+                               $highlighted->value .
+                               '</code></pre>';
+                    } catch (\Exception $e) {
+                        // If highlighting fails, return original
+                        return $matches[0];
+                    }
+                },
+                $html
+            );
+
+            file_put_contents($file->getPathname(), $html);
+        }
+    }
+});
 
 /*
  * Extract date from directory path and add to page metadata

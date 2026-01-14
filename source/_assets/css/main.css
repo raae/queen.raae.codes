@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "prismjs/themes/prism-tomorrow.css";
 
 @theme {
   /* Custom brown color palette for Queen theme */
@@ -27,17 +26,6 @@ ul li::before {
   margin-right: 0.5rem;
 }
 
-/* Code block styling */
-pre[class*="language-"] {
-  border-radius: 0.5rem;
-  margin: 1.5rem 0;
-  border: 1px solid theme('colors.brown.200');
-}
-
-code[class*="language-"] {
-  font-size: 0.9rem;
-}
-
 /* Inline code styling */
 :not(pre) > code {
   background-color: theme('colors.brown.100');
@@ -47,64 +35,75 @@ code[class*="language-"] {
   font-size: 0.875em;
 }
 
-/* Override Prism theme for better contrast - use higher specificity for prose */
-.prose pre[class*="language-"],
-.prose pre:has(code[class*="language-"]),
-pre[class*="language-"],
-pre:has(code[class*="language-"]) {
-  background: #2d2d2d !important;
+/* Server-side syntax highlighting with highlight.php */
+.prose pre code.hljs,
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1rem;
+  background: #2d2d2d;
+  color: #ccc;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-.prose code[class*="language-"],
-code[class*="language-"] {
-  color: #ccc !important;
-  text-shadow: none !important;
+/* Highlight.js Monokai-inspired theme */
+.hljs-comment {
+  color: #75715e;
 }
 
-/* Ensure comments are visible */
-.prose .token.comment,
-.prose .token.prolog,
-.prose .token.doctype,
-.prose .token.cdata,
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #999 !important;
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  color: #f92672;
 }
 
-/* Keywords and control flow */
-.prose .token.keyword,
-.prose .token.operator,
-.prose .token.boolean,
-.prose .token.number,
-.token.keyword,
-.token.operator,
-.token.boolean,
-.token.number {
-  color: #f92672 !important;
+.hljs-function .hljs-keyword {
+  color: #66d9ef;
 }
 
-/* Strings */
-.prose .token.string,
-.prose .token.char,
-.prose .token.attr-value,
-.token.string,
-.token.char,
-.token.attr-value {
-  color: #a6e22e !important;
+.hljs-string,
+.hljs-title,
+.hljs-name,
+.hljs-type,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #a6e22e;
 }
 
-/* Functions */
-.prose .token.function,
-.prose .token.class-name,
-.token.function,
-.token.class-name {
-  color: #66d9ef !important;
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-quote,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #ae81ff;
 }
 
-/* Punctuation */
-.prose .token.punctuation,
-.token.punctuation {
-  color: #ccc !important;
+.hljs-meta,
+.hljs-meta-string,
+.hljs-function,
+.hljs-class .hljs-title {
+  color: #66d9ef;
+}
+
+.hljs-deletion {
+  color: #f92672;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }
