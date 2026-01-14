@@ -46,3 +46,47 @@ code[class*="language-"] {
   border-radius: 0.25rem;
   font-size: 0.875em;
 }
+
+/* Override Prism theme for better contrast */
+pre[class*="language-"] {
+  background: #2d2d2d !important;
+}
+
+code[class*="language-"] {
+  color: #ccc !important;
+  text-shadow: none !important;
+}
+
+/* Ensure comments are visible */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #999 !important;
+}
+
+/* Keywords and control flow */
+.token.keyword,
+.token.operator,
+.token.boolean,
+.token.number {
+  color: #f92672 !important;
+}
+
+/* Strings */
+.token.string,
+.token.char,
+.token.attr-value {
+  color: #a6e22e !important;
+}
+
+/* Functions */
+.token.function,
+.token.class-name {
+  color: #66d9ef !important;
+}
+
+/* Punctuation */
+.token.punctuation {
+  color: #ccc !important;
+}
