@@ -82,3 +82,26 @@ $events->afterCollections(function (Jigsaw $jigsaw) {
         );
     }
 });
+
+/*
+ * Fix relative image paths after build
+ * Convert ./image.png to image.png so they work without trailing slashes
+ */
+$events->afterBuild(function (Jigsaw $jigsaw) {
+    $outputPath = $jigsaw->getDestinationPath();
+
+    // Find all index.html files in post directories (YYYY/MM/DD/slug/index.html)
+    $pattern = $outputPath . '/[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]/*/index.html';
+
+    foreach (glob($pattern) as $file) {
+        $content = file_get_contents($file);
+
+        // Replace src="./image" with src="image" (remove ./ prefix)
+        $content = preg_replace('/(<img[^>]+src=")\.\/([^"]+)/', '$1$2', $content);
+
+        // Also fix href="./file" for links
+        $content = preg_replace('/(<a[^>]+href=")\.\/([^"]+)/', '$1$2', $content);
+
+        file_put_contents($file, $content);
+    }
+});
