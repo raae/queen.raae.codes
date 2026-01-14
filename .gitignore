@@ -14,3 +14,12 @@ hot
 /source/_posts_queen/
 /source/_posts_olavea/
 /source/_talks/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Old Gatsby artifacts
+/.cache/
+/public/
