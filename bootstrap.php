@@ -1,9 +1,31 @@
 <?php
 
 use TightenCo\Jigsaw\Jigsaw;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
+use League\CommonMark\MarkdownConverter;
 
 /** @var \Illuminate\Container\Container $container */
 /** @var \TightenCo\Jigsaw\Events\EventBus $events */
+
+/*
+ * Configure CommonMark to support hard line breaks (backslash at end of line)
+ */
+$container->bind('markdown', function () {
+    $config = [
+        'commonmark' => [
+            'enable_em' => true,
+            'enable_strong' => true,
+            'use_asterisk' => true,
+            'use_underscore' => true,
+        ],
+    ];
+
+    $environment = new Environment($config);
+    $environment->addExtension(new CommonMarkCoreExtension());
+
+    return new MarkdownConverter($environment);
+});
 
 /*
  * Extract date from directory path and add to page metadata
