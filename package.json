@@ -6,7 +6,9 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@playwright/mcp": "^0.0.55",
         "@tighten/jigsaw-vite-plugin": "^1.0.1",
+        "playwright": "^1.58.0-alpha-2026-01-07",
         "tailwindcss": "^4.1.0",
         "vite": "^6.4.1"
     },
