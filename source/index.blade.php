@@ -11,9 +11,9 @@
             <h1 class="text-[2.75rem] font-black leading-none my-9 text-brown-900">
                 Sailing the high seas of the World Wide Web
             </h1>
-            <div class="prose prose-lg max-w-none">
-                <p>Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!</p>
-            </div>
+            <p class="text-xl leading-relaxed my-4 text-brown-900">
+                Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!
+            </p>
         </div>
     </header>
 
@@ -43,7 +43,7 @@
                                 {{ date('F jS, Y', strtotime($post->date)) }}
                             @endif
                         </p>
-                        <h3 class="text-base my-0 font-bold">
+                        <h3 class="text-lg my-0 font-bold text-brown-900">
                             <a href="{{ $post->getPath() }}" class="text-inherit no-underline focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 {{ $post->title }}
