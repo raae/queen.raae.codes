@@ -37,7 +37,7 @@
 
             @if($allPosts->count() > 0)
                 @foreach($allPosts as $post)
-                <article class="border-b border-brown-200 pb-6 hover:border-brown-400 transition-colors">
+                <article class="border-l-4 border-amber-500 border-b border-brown-200 pb-6 pl-4 hover:border-brown-400 transition-colors">
                     <div class="flex items-start justify-between gap-4">
                         <div class="flex-1">
                             <a href="{{ $post->getPath() }}" class="group">
