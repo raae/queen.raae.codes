@@ -20,12 +20,6 @@
     {{-- Latest Posts Section --}}
     <section class="py-12 px-6 bg-[#fcedd8]">
         <div class="container mx-auto max-w-2xl [&>*]:max-w-xl">
-            <h2 class="text-3xl font-black leading-none my-8 text-brown-900">
-                <a href="/posts" class="text-inherit underline decoration-transparent transition hover:decoration-amber-600">
-                    Latest Posts
-                </a>
-            </h2>
-
             @php
                 $postsQueen = isset($posts_queen) ? $posts_queen : collect([]);
                 $postsOlavea = isset($posts_olavea) ? $posts_olavea : collect([]);
@@ -35,9 +29,9 @@
             @endphp
 
             @if($allPosts->count() > 0)
-                <ul class="list-none px-0 my-0 -ml-1 space-y-4 mt-12">
+                <ul class="list-none px-0 my-0 -ml-1 space-y-4">
                     @foreach($allPosts as $post)
-                    <li class="mx-2 px-5 py-3 pb-4 relative border-0 border-l-4 border-solid border-amber-500 flex flex-col transition hover:bg-amber-400/30 focus-within:border-l-transparent focus-within:ring-4 focus-within:ring-offset-4 focus-within:ring-amber-500">
+                    <li class="mx-2 px-5 py-3 pb-4 relative flex flex-col transition hover:bg-amber-400/30">
                         <p class="text-xs my-0 order-first leading-8 font-medium text-teal-800 uppercase tracking-tight">
                             @if($post->date)
                                 {{ date('F jS, Y', strtotime($post->date)) }}
