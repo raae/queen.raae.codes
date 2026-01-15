@@ -14,12 +14,24 @@
   --color-brown-900: #3e2723;
 }
 
-/* Custom list styling for pirate theme */
-ul {
+/* Original Gatsby design: Orange body, cream content */
+body {
+  @apply bg-orange-300;
+  @apply selection:bg-amber-300;
+  @apply text-brown-900;
+}
+
+#app {
+  @apply bg-[#fcedd8];
+  min-height: 100vh;
+}
+
+/* Custom list styling for pirate theme - scoped to prose */
+.prose ul {
   list-style: none;
 }
 
-ul li::before {
+.prose ul li::before {
   content: '➽';
   color: theme('colors.amber.500');
   display: inline-block;
