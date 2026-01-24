@@ -1,0 +1,49 @@
+---
+import { siteConfig } from '../config';
+import GitHubIcon from '../icons/icons8-github-50.svg?raw';
+import TwitterIcon from '../icons/icons8-twitter-circled-50.svg?raw';
+import YouTubeIcon from '../icons/icons8-youtube-50.svg?raw';
+import SearchIcon from '../icons/icons8-search-50.svg?raw';
+
+function getSocialIcon(url: string) {
+  if (url.includes('github')) return GitHubIcon;
+  if (url.includes('twitter')) return TwitterIcon;
+  if (url.includes('youtube')) return YouTubeIcon;
+  return null;
+}
+---
+
+<header class="sticky top-0 backdrop-blur-lg z-50 bg-[#fffaf0b3] border-solid border-0 border-t-4 border-[#ff5722]">
+  <div class="mx-auto max-w-4xl">
+    <nav class="py-3 px-4 flex items-center gap-3">
+      <a
+        href="/"
+        class="text-xl mr-auto hover:scale-110 transition-transform no-underline"
+      >
+        👑
+        <span class="sr-only">Queen Raae</span>
+      </a>
+
+      <a
+        href="/search/"
+        class="[&>*]:h-5 [&>*]:w-5 translate-y-px hover:scale-110 transition-transform mr-4"
+      >
+        <Fragment set:html={SearchIcon} />
+      </a>
+
+      {siteConfig.socialMedia.map((url) => {
+        const icon = getSocialIcon(url);
+        return icon && (
+          <a
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            class="[&>*]:h-6 [&>*]:w-6 hover:scale-110 transition-transform"
+          >
+            <Fragment set:html={icon} />
+          </a>
+        );
+      })}
+    </nav>
+  </div>
+</header>

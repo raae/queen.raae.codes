@@ -1,32 +1,70 @@
 ---
 import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import { siteConfig } from '../config';
 
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  imageAlt?: string;
+  type?: string;
+  creator?: string;
 }
 
-const { title, description } = Astro.props;
-const siteTitle = title ? `${title} | Queen Raae` : 'Queen Raae - Pirate of the Web';
-const siteDescription = description || 'Queen Raae - Pirate of the Web';
+const { title, description, image, imageAlt, type = 'website', creator } = Astro.props;
+
+const pageTitle = title ? `${title}  —  ${siteConfig.name}` : `${siteConfig.name} — ${siteConfig.tagline}`;
+const pageDescription = description || siteConfig.description;
+const pageImage = image || siteConfig.socialImage;
+const pageImageAlt = imageAlt || siteConfig.socialImageAlt;
+const canonical = new URL(Astro.url.pathname, siteConfig.url).toString();
+const socialImage = `${siteConfig.url}${pageImage}`;
+const twitterCreator = creator || siteConfig.twitterCreator;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={siteConfig.lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>"
+    />
     <meta name="generator" content={Astro.generator} />
-    <title>{siteTitle}</title>
-    <meta name="description" content={siteDescription} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+
+    <!-- Open Graph -->
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={`${siteConfig.name} — ${siteConfig.tagline}`} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={socialImage} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={siteConfig.twitterCreator} />
+    <meta name="twitter:creator" content={twitterCreator} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image:src" content={socialImage} />
+    <meta name="twitter:image:alt" content={pageImageAlt} />
+
     <style>
       html {
         font-size: clamp(16px, 18px + .15vw, 19px)
       }
     </style>
+
+    <slot name="head" />
   </head>
   <body>
+    <SiteHeader />
     <slot />
   </body>
 </html>
