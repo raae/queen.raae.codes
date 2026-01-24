@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-orange-300;
+    @apply selection:bg-amber-300;
+    @apply text-brown-900;
+  }
+}
+
+.notice {
+  @apply border-4 border-dashed border-amber-500 px-4 my-8 text-sm;
+}
+
+cite {
+  @apply before:content-['—'] before:mr-2;
+}

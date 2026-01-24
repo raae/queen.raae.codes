@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const queenPosts = await getCollection('posts-queen');
+const sortedPosts = queenPosts.sort((a, b) => {
+  const dateA = a.id.match(/(\d{4})\/(\d{2})\/(\d{2})/);
+  const dateB = b.id.match(/(\d{4})\/(\d{2})\/(\d{2})/);
+  if (dateA && dateB) {
+    return new Date(`${dateB[1]}-${dateB[2]}-${dateB[3]}`).getTime() - new Date(`${dateA[1]}-${dateA[2]}-${dateA[3]}`).getTime();
+  }
+  return 0;
+}).slice(0, 5);
+---
+
+<BaseLayout title="Sailing the high seas of the World Wide Web">
+  <div class="min-h-screen px-4 py-8 max-w-4xl mx-auto">
+    <header class="mb-12 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Queen Raae</h1>
+      <p class="text-xl md:text-2xl mb-6">Pirate of the Web 🏴‍☠️</p>
+      <p class="text-lg prose prose-brown mx-auto">
+        Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!
+      </p>
+    </header>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Latest Posts</h2>
+      <div class="space-y-4">
+        {sortedPosts.map((post) => (
+          <article class="border-2 border-brown-700 p-4 hover:bg-brown-50 transition">
+            <a href={`/${post.slug}/`} class="block">
+              <h3 class="text-xl font-bold mb-2">{post.data.title}</h3>
+              {post.data.description && (
+                <p class="text-brown-700">{post.data.description}</p>
+              )}
+            </a>
+          </article>
+        ))}
+      </div>
+      <div class="mt-6 text-center">
+        <a href="/posts/" class="inline-block bg-brown-700 text-brown-50 px-6 py-3 rounded hover:bg-brown-800 transition">
+          View all posts →
+        </a>
+      </div>
+    </section>
+
+    <section class="mb-12 p-6 border-4 border-dashed border-amber-500">
+      <h2 class="text-2xl font-bold mb-4">Newsletter</h2>
+      <p class="mb-4">Subscribe to get emails about web development, AI-assisted coding, and pirate adventures!</p>
+      <div class="text-center">
+        <a href="/subs/" class="inline-block bg-amber-500 text-brown-900 px-6 py-3 rounded font-bold hover:bg-amber-600 transition">
+          Sign up for the newsletter
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
