@@ -5,5 +5,5 @@
 [build.environment]
   NODE_VERSION = "18"
 
-[[plugins]]
-  package = "@astrojs/netlify"
+# Note: @astrojs/netlify is an Astro adapter configured in astro.config.mjs,
+# not a Netlify Build plugin. No plugins needed here.
