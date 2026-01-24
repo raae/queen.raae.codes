@@ -15,7 +15,7 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
-    // sitemap(), // TODO: Enable after fixing routes
+    // sitemap(), // NOTE: Sitemap causes build error - needs investigation
   ],
   output: 'static',
   adapter: netlify(),
