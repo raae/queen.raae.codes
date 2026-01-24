@@ -9,11 +9,11 @@ export async function getStaticPaths() {
 
   return allPosts.map((post) => ({
     params: { slug: post.slug },
-    props: { post },
+    props: { post, allPosts },
   }));
 }
 
-const { post } = Astro.props;
+const { post, allPosts } = Astro.props;
 const { Content } = await post.render();
 
 // Extract date from slug (format: YYYY/MM/DD-title)
@@ -25,6 +25,27 @@ const formattedDate = dateObj?.toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric'
 }) || '';
+
+// Find related posts based on tags
+const currentTags = post.data.tags ? post.data.tags.split(',').map(t => t.trim().toLowerCase()) : [];
+const relatedPosts = allPosts
+  .filter(p => p.slug !== post.slug && p.data.tags)
+  .map(p => {
+    const pTags = (p.data.tags || '').split(',').map(t => t.trim().toLowerCase());
+    const commonTags = currentTags.filter(tag => pTags.includes(tag));
+    return { post: p, score: commonTags.length };
+  })
+  .filter(p => p.score > 0)
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 3)
+  .map(p => {
+    const dateMatch = p.post.id.match(/(\d{4})\/(\d{2})\/(\d{2})/);
+    const dateStr = dateMatch ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}` : '';
+    return {
+      ...p.post,
+      dateStr,
+    };
+  });
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
@@ -71,5 +92,24 @@ const formattedDate = dateObj?.toLocaleDateString('en-US', {
         </a>
       </div>
     </footer>
+
+    {relatedPosts.length > 0 && (
+      <section class="mt-12">
+        <h2 class="text-3xl font-bold mb-6">You might also be interested in...</h2>
+        <div class="space-y-6">
+          {relatedPosts.map((relatedPost) => (
+            <article class="border-l-4 border-amber-500 pl-4 py-2">
+              <a href={`/${relatedPost.slug}/`} class="block group">
+                <div class="text-sm text-brown-700 mb-1">{relatedPost.dateStr}</div>
+                <h3 class="text-2xl font-bold mb-2 group-hover:text-teal-900 transition">{relatedPost.data.title}</h3>
+                {relatedPost.data.description && (
+                  <p class="text-brown-700">{relatedPost.data.description}</p>
+                )}
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
   </div>
 </BaseLayout>
