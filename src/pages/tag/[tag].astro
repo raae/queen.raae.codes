@@ -58,20 +58,22 @@ const sortedPosts = taggedPosts.sort((a, b) => {
 });
 
 const displayTag = tag.charAt(0).toUpperCase() + tag.slice(1);
+const title = `Posts tagged: "${displayTag}"`;
+const description = `Learn more about "${displayTag}" by browsing the posts for the tag.`;
 ---
 
 <BaseLayout
-  title={`Posts tagged with ${displayTag}`}
-  description={`All posts tagged with ${displayTag}`}
+  title={title}
+  description={description}
 >
   <div class="min-h-screen px-4 py-8 max-w-4xl mx-auto">
     <header class="mb-12">
       <nav class="mb-6 text-sm">
-        <a href="/posts/" class="text-brown-700 hover:text-teal-900">← All posts</a>
+        <a href="/posts/" class="text-brown-700 hover:text-teal-900">← Posts</a>
+        <span class="mx-2 text-brown-700">•</span>
+        <span class="text-brown-700">{displayTag}</span>
       </nav>
-      <div class="text-sm text-brown-700 uppercase tracking-wide mb-2">Tag</div>
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">{displayTag}</h1>
-      <p class="text-lg text-brown-700">{sortedPosts.length} {sortedPosts.length === 1 ? 'post' : 'posts'}</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
     </header>
 
     <section class="mb-12">
