@@ -1,6 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageSection from '../../components/PageSection.astro';
+import PageSectionHeader from '../../components/PageSectionHeader.astro';
+import PageSectionBreadcrumbs from '../../components/PageSectionBreadcrumbs.astro';
+import Newsletter from '../../components/Newsletter.astro';
 
 export async function getStaticPaths() {
   const talks = await getCollection('talks');
@@ -18,74 +22,82 @@ const { Content } = await talk.render();
 // Extract date from slug (format: YYYY-MM-DD-name)
 const dateMatch = talk.id.match(/(\d{4})-(\d{2})-(\d{2})/);
 const dateStr = dateMatch ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}` : '';
-const formattedDate = dateMatch ? new Date(`${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`).toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
-}) : '';
+
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr);
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formatted = date.toLocaleDateString('en-US', options);
+  const day = date.getDate();
+  const suffix = day === 1 || day === 21 || day === 31 ? 'st'
+               : day === 2 || day === 22 ? 'nd'
+               : day === 3 || day === 23 ? 'rd'
+               : 'th';
+  return formatted.replace(/(\d+),/, `$1${suffix},`);
+}
+
+const formattedDate = dateStr ? formatDate(dateStr) : '';
 ---
 
 <BaseLayout title={talk.data.title}>
-  <div class="min-h-screen px-4 py-8 max-w-4xl mx-auto">
-    <nav class="mb-6 text-sm">
-      <a href="/speaker/" class="text-brown-700 hover:text-teal-900">← Speaker</a>
-      {formattedDate && <span class="mx-2 text-brown-700">•</span>}
-      {formattedDate && <time datetime={dateStr} class="text-brown-700">{formattedDate}</time>}
-    </nav>
+  <main>
+    <PageSection component="article">
+      <PageSectionBreadcrumbs
+        class="mt-4"
+        items={[
+          { label: 'Speaker', to: '/speaker/' },
+          { label: talk.data.title }
+        ]}
+      />
 
-    <article>
-      <header class="mb-8">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">{talk.data.title}</h1>
+      <PageSectionHeader hLevel={1} title={talk.data.title} />
 
-        {talk.data.event && (
-          <div class="text-lg text-brown-700 mb-4">
-            {talk.data.eventUrl ? (
-              <a href={talk.data.eventUrl} target="_blank" rel="noreferrer" class="hover:text-teal-900 hover:underline">
-                {talk.data.event} ↗
-              </a>
-            ) : (
-              talk.data.event
-            )}
-          </div>
-        )}
+      {formattedDate && (
+        <p class="text-xs my-0 order-first leading-8 font-medium text-teal-800 uppercase tracking-tight">
+          {formattedDate}
+          {talk.data.event && (
+            <>
+              <span class="px-1">·</span>
+              {talk.data.eventUrl ? (
+                <a href={talk.data.eventUrl} target="_blank" rel="noreferrer" class="hover:text-teal-700 hover:underline">
+                  {talk.data.event}
+                </a>
+              ) : talk.data.event}
+            </>
+          )}
+        </p>
+      )}
 
-        {talk.data.recording && (
+      {talk.data.recording && (
+        <div class="my-6">
           <a
             href={talk.data.recording}
             target="_blank"
             rel="noreferrer"
-            class="inline-block bg-amber-500 text-brown-900 px-6 py-3 rounded font-bold hover:bg-amber-600 transition"
+            class="inline-flex items-center text-teal-900 underline underline-offset-2 hover:decoration-amber-600 transition"
           >
-            Watch recording ↗
+            Watch the recording on YouTube
           </a>
-        )}
-      </header>
-
-      <div class="prose prose-brown prose-lg max-w-none">
-        <Content />
-      </div>
-
-      {talk.data.form && (
-        <div class="mt-12 p-6 border-4 border-dashed border-amber-500">
-          <h2 class="text-2xl font-bold mb-4">{talk.data.form.title}</h2>
-          {talk.data.form.message && <p class="mb-4">{talk.data.form.message}</p>}
-          <div class="text-center">
-            <a href={`/subs/?key=${talk.data.form.key}`} class="inline-block bg-amber-500 text-brown-900 px-6 py-3 rounded font-bold hover:bg-amber-600 transition">
-              {talk.data.form.cta || 'Sign up'}
-            </a>
-          </div>
         </div>
       )}
-    </article>
 
-    <footer class="mt-12 p-6 border-4 border-dashed border-amber-500">
-      <h2 class="text-2xl font-bold mb-4">Interested in more?</h2>
-      <p class="mb-4">Subscribe to get emails about web development and pirate adventures!</p>
-      <div class="text-center">
-        <a href="/subs/" class="inline-block bg-amber-500 text-brown-900 px-6 py-3 rounded font-bold hover:bg-amber-600 transition">
-          Sign up for the newsletter
-        </a>
+      <div class="prose prose-brown prose-lg max-w-none my-6 text-brown-900">
+        <Content />
       </div>
-    </footer>
-  </div>
+    </PageSection>
+
+    {talk.data.form && (
+      <PageSection>
+        <Newsletter
+          formKey={talk.data.form.key}
+          cta={talk.data.form.cta || 'Sign up'}
+          tagline={talk.data.form.title}
+          message={talk.data.form.message}
+        />
+      </PageSection>
+    )}
+
+    <PageSection component="footer">
+      <Newsletter />
+    </PageSection>
+  </main>
 </BaseLayout>

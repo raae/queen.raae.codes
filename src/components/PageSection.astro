@@ -1,0 +1,40 @@
+---
+interface Props {
+  component?: 'section' | 'header' | 'footer' | 'article' | 'aside' | 'main' | 'div';
+  class?: string;
+}
+
+const { component = 'section', class: className } = Astro.props;
+---
+
+{component === 'header' ? (
+  <header class:list={["py-12 px-6 bg-[#fffaf0] even:bg-[#fcedd8]", className]}>
+    <div class="container mx-auto max-w-2xl [&>*]:max-w-xl">
+      <slot />
+    </div>
+  </header>
+) : component === 'footer' ? (
+  <footer class:list={["py-12 px-6 bg-[#fffaf0] even:bg-[#fcedd8]", className]}>
+    <div class="container mx-auto max-w-2xl [&>*]:max-w-xl">
+      <slot />
+    </div>
+  </footer>
+) : component === 'main' ? (
+  <main class:list={["py-12 px-6 bg-[#fffaf0] even:bg-[#fcedd8]", className]}>
+    <div class="container mx-auto max-w-2xl [&>*]:max-w-xl">
+      <slot />
+    </div>
+  </main>
+) : component === 'article' ? (
+  <article class:list={["py-12 px-6 bg-[#fffaf0] even:bg-[#fcedd8]", className]}>
+    <div class="container mx-auto max-w-2xl [&>*]:max-w-xl">
+      <slot />
+    </div>
+  </article>
+) : (
+  <section class:list={["py-12 px-6 bg-[#fffaf0] even:bg-[#fcedd8]", className]}>
+    <div class="container mx-auto max-w-2xl [&>*]:max-w-xl">
+      <slot />
+    </div>
+  </section>
+)}

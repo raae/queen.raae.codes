@@ -1,6 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageSection from '../components/PageSection.astro';
+import PageSectionHeader from '../components/PageSectionHeader.astro';
+import Newsletter from '../components/Newsletter.astro';
 import { getCollection } from 'astro:content';
+
+// Helper to format date like "January 25th, 2025"
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr);
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formatted = date.toLocaleDateString('en-US', options);
+  // Add ordinal suffix (1st, 2nd, 3rd, etc.)
+  const day = date.getDate();
+  const suffix = day === 1 || day === 21 || day === 31 ? 'st'
+               : day === 2 || day === 22 ? 'nd'
+               : day === 3 || day === 23 ? 'rd'
+               : 'th';
+  return formatted.replace(/(\d+),/, `$1${suffix},`);
+}
 
 const queenPosts = await getCollection('posts-queen');
 const sortedPosts = queenPosts.sort((a, b) => {
@@ -13,60 +30,53 @@ const sortedPosts = queenPosts.sort((a, b) => {
 }).map((post) => {
   const dateMatch = post.id.match(/(\d{4})\/(\d{2})\/(\d{2})/);
   const dateStr = dateMatch ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}` : '';
-  const tags = post.data.tags ? post.data.tags.split(',').map(t => t.trim()) : [];
 
   return {
     ...post,
     dateStr,
-    tags,
+    formattedDate: formatDate(dateStr),
   };
 });
+
+const BADGE = "Posts";
+const TITLE = "All the posts";
+const DESCRIPTION = "Posts from sailing the high seas of the World Wide Web.";
 ---
 
-<BaseLayout
-  title="All the posts"
-  description="Posts from sailing the high seas of the World Wide Web."
->
-  <div class="min-h-screen px-4 py-8 max-w-4xl mx-auto">
-    <header class="mb-12">
-      <div class="text-sm text-brown-700 uppercase tracking-wide mb-2">Posts</div>
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">All the posts</h1>
-      <p class="text-lg text-brown-700">Posts from sailing the high seas of the World Wide Web.</p>
-    </header>
+<BaseLayout title={TITLE} description={DESCRIPTION}>
+  <main>
+    <PageSection component="header">
+      <PageSectionHeader
+        badge={BADGE}
+        title={TITLE}
+        lead={DESCRIPTION}
+        hLevel={1}
+      />
+    </PageSection>
 
-    <section class="mb-12">
-      <div class="space-y-6">
+    <PageSection component="section">
+      <ul class="list-none px-0 my-0 -ml-1 space-y-4">
         {sortedPosts.map((post) => (
-          <article class="border-l-4 border-amber-500 pl-4 py-2">
-            <a href={`/${post.slug}/`} class="block group">
-              <div class="text-sm text-brown-700 mb-1">{post.dateStr}</div>
-              <h2 class="text-2xl font-bold mb-2 group-hover:text-teal-900 transition">{post.data.title}</h2>
-              {post.data.description && (
-                <p class="text-brown-700">{post.data.description}</p>
-              )}
-              {post.tags.length > 0 && (
-                <div class="mt-2 flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
-                    <span class="text-xs bg-brown-200 text-brown-900 px-2 py-1 rounded">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </a>
-          </article>
+          <li class="mx-2 px-5 py-3 pb-4 relative border-0 border-l-4 border-solid border-amber-500 flex flex-col transition hover:bg-amber-400/30 focus-within:border-l-transparent focus-within:ring-4 focus-within:ring-offset-4 focus-within:ring-amber-500">
+            <h3 class="text-base my-0 font-bold">
+              <a
+                href={`/${post.slug}/`}
+                class="text-inherit no-underline focus:outline-none"
+              >
+                <span class="absolute inset-0" aria-hidden="true"></span>
+                {post.data.title}
+              </a>
+            </h3>
+            <p class="text-xs my-0 order-first leading-8 font-medium text-teal-800 uppercase tracking-tight">
+              {post.formattedDate}
+            </p>
+          </li>
         ))}
-      </div>
-    </section>
+      </ul>
+    </PageSection>
 
-    <section class="p-6 border-4 border-dashed border-amber-500">
-      <h2 class="text-2xl font-bold mb-4">Newsletter</h2>
-      <p class="mb-4">Subscribe to get emails about web development and pirate adventures!</p>
-      <div class="text-center">
-        <a href="/subs/" class="inline-block bg-amber-500 text-brown-900 px-6 py-3 rounded font-bold hover:bg-amber-600 transition">
-          Sign up for the newsletter
-        </a>
-      </div>
-    </section>
-  </div>
+    <PageSection component="footer">
+      <Newsletter />
+    </PageSection>
+  </main>
 </BaseLayout>

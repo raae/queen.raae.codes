@@ -30,12 +30,37 @@ const talks = defineCollection({
     event: z.string().optional(),
     eventUrl: z.string().optional(),
     recording: z.string().optional(),
+    lead: z.string().optional(),
+    badge: z.string().optional(),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
+    archive: z.object({
+      title: z.string().optional(),
+      more: z.string().optional(),
+      moreHref: z.string().optional(),
+    }).optional(),
+    teaser: z.object({
+      badge: z.string().optional(),
+      title: z.string().optional(),
+      recording: z.string().optional(),
+      note: z.string().optional(),
+    }).optional(),
+    cta: z.object({
+      label: z.string().optional(),
+      href: z.string().optional(),
+      noteTitle: z.string().optional(),
+      note: z.string().optional(),
+    }).optional(),
     form: z.object({
       title: z.string().optional(),
       key: z.string().optional(),
       cta: z.string().optional(),
       message: z.string().optional(),
     }).optional(),
+    links: z.array(z.object({
+      label: z.string(),
+      url: z.string(),
+    })).optional(),
   }),
 });
 

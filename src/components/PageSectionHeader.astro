@@ -1,0 +1,48 @@
+---
+interface Props {
+  badge?: string;
+  title: string;
+  titlePath?: string;
+  lead?: string;
+  tagline?: string;
+  hLevel?: 1 | 2;
+}
+
+const { badge, title, titlePath, lead, tagline, hLevel = 2 } = Astro.props;
+---
+
+{badge && (
+  hLevel === 1 ? (
+    <h1 class="text-xs uppercase leading-none text-teal-900 my-7">{badge}</h1>
+  ) : (
+    <h2 class="text-xs uppercase leading-none text-teal-900 my-7">{badge}</h2>
+  )
+)}
+
+{title && (
+  hLevel === 1 ? (
+    <h2 class="text-[2.75rem] font-black leading-none my-9 text-brown-900">
+      {titlePath ? (
+        <a href={titlePath} class="text-inherit underline decoration-transparent transition hover:decoration-amber-600">
+          {title}
+        </a>
+      ) : title}
+    </h2>
+  ) : (
+    <h3 class="text-3xl font-black leading-none my-8 text-brown-900">
+      {titlePath ? (
+        <a href={titlePath} class="text-inherit underline decoration-transparent transition hover:decoration-amber-600">
+          {title}
+        </a>
+      ) : title}
+    </h3>
+  )
+)}
+
+{lead && (
+  <p class="text-lg font-medium leading-snug my-4 text-brown-900">{lead}</p>
+)}
+
+{tagline && (
+  <p class="my-2 text-brown-900">{tagline}</p>
+)}

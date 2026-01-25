@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageSection from '../../components/PageSection.astro';
+import PageSectionHeader from '../../components/PageSectionHeader.astro';
+import Newsletter from '../../components/Newsletter.astro';
 
 const BADGE = "Ship's log";
 const TITLE = "Join the crew!";
@@ -7,43 +10,18 @@ const DESCRIPTION = "Stay up to date on all things Queen Raae & Family as a Ship
 ---
 
 <BaseLayout title={`${BADGE} - ${TITLE}`} description={DESCRIPTION}>
-  <div class="min-h-screen px-4 py-8 max-w-4xl mx-auto">
-    <header class="mb-12">
-      <div class="text-sm text-brown-700 uppercase tracking-wide mb-2">{BADGE}</div>
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">{TITLE}</h1>
-      <p class="text-lg text-brown-700 mb-8">{DESCRIPTION}</p>
+  <main>
+    <PageSection component="header">
+      <PageSectionHeader
+        badge={BADGE}
+        title={TITLE}
+        lead={DESCRIPTION}
+        hLevel={1}
+      />
+    </PageSection>
 
-      <div class="border-4 border-dashed border-amber-500 p-6">
-        <h2 class="text-2xl font-bold mb-4">Subscribe to the Ship's Log</h2>
-        <p class="mb-6">
-          <strong>Join the crew? </strong>
-          Join the crew and stay up to date by signing up for our Weekly Ship's Log.
-        </p>
-
-        <form
-          action="https://lillylabs.ck.page/forms/lillylabs.json"
-          method="POST"
-          class="space-y-4"
-        >
-          <input
-            type="email"
-            name="email_address"
-            placeholder="your@email.com"
-            required
-            class="w-full px-4 py-3 border-2 border-brown-300 rounded focus:border-amber-500 focus:outline-none"
-          />
-          <button
-            type="submit"
-            class="w-full bg-amber-500 text-brown-900 px-6 py-3 rounded font-bold hover:bg-amber-600 transition"
-          >
-            Yes, please!
-          </button>
-        </form>
-
-        <p class="mt-4 text-sm text-brown-700">
-          We respect your privacy. Unsubscribe at any time.
-        </p>
-      </div>
-    </header>
-  </div>
+    <PageSection>
+      <Newsletter />
+    </PageSection>
+  </main>
 </BaseLayout>

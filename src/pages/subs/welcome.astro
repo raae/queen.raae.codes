@@ -1,58 +1,79 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageSection from '../../components/PageSection.astro';
+import PageSectionHeader from '../../components/PageSectionHeader.astro';
+import PageSectionBreadcrumbs from '../../components/PageSectionBreadcrumbs.astro';
+import ContentList from '../../components/ContentList.astro';
 import { getCollection } from 'astro:content';
 
 const BADGE = "Emails";
 const TITLE = "Welcome";
-const DESCRIPTION = "You'll hear from us shortly 📬";
+const LEAD = "You'll hear from us shortly";
+
+// Helper to format date
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr);
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formatted = date.toLocaleDateString('en-US', options);
+  const day = date.getDate();
+  const suffix = day === 1 || day === 21 || day === 31 ? 'st'
+               : day === 2 || day === 22 ? 'nd'
+               : day === 3 || day === 23 ? 'rd'
+               : 'th';
+  return formatted.replace(/(\d+),/, `$1${suffix},`);
+}
+
+// Helper to extract date from id
+function extractDate(id: string): string | null {
+  const match = id.match(/(\d{4})\/(\d{2})\/(\d{2})/);
+  return match ? `${match[1]}-${match[2]}-${match[3]}` : null;
+}
 
 const queenPosts = await getCollection('posts-queen');
-const sortedPosts = queenPosts.sort((a, b) => {
-  const dateA = a.id.match(/(\d{4})\/(\d{2})\/(\d{2})/);
-  const dateB = b.id.match(/(\d{4})\/(\d{2})\/(\d{2})/);
-  if (dateA && dateB) {
-    return new Date(`${dateB[1]}-${dateB[2]}-${dateB[3]}`).getTime() - new Date(`${dateA[1]}-${dateA[2]}-${dateA[3]}`).getTime();
-  }
-  return 0;
-}).slice(0, 10).map((post) => {
-  const dateMatch = post.id.match(/(\d{4})\/(\d{2})\/(\d{2})/);
-  const dateStr = dateMatch ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}` : '';
-  return {
-    ...post,
-    dateStr,
-  };
-});
+const sortedPosts = queenPosts
+  .map(post => {
+    const dateStr = extractDate(post.id);
+    return {
+      ...post,
+      dateStr,
+      formattedDate: dateStr ? formatDate(dateStr) : '',
+    };
+  })
+  .sort((a, b) => {
+    if (a.dateStr && b.dateStr) {
+      return new Date(b.dateStr).getTime() - new Date(a.dateStr).getTime();
+    }
+    return 0;
+  })
+  .slice(0, 10);
 ---
 
-<BaseLayout title={`${BADGE} - ${TITLE}`} description={DESCRIPTION}>
-  <div class="min-h-screen px-4 py-8 max-w-4xl mx-auto">
-    <header class="mb-12">
-      <nav class="mb-6 text-sm">
-        <a href="/subs/" class="text-brown-700 hover:text-teal-900">← {BADGE}</a>
-        <span class="mx-2 text-brown-700">•</span>
-        <span class="text-brown-700">{TITLE}</span>
-      </nav>
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">{DESCRIPTION}</h1>
-    </header>
+<BaseLayout title={`${BADGE} - ${TITLE}`} description={LEAD}>
+  <main>
+    <PageSection component="header">
+      <PageSectionBreadcrumbs
+        class="mt-4"
+        items={[
+          { label: BADGE, to: '/subs/' },
+          { label: TITLE }
+        ]}
+      />
+      <PageSectionHeader
+        title={LEAD}
+        hLevel={1}
+      />
+    </PageSection>
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-2">Latest Posts</h2>
-      <div class="text-right mb-6">
-        <a href="/posts/" class="text-brown-700 hover:text-teal-900 font-bold">View all →</a>
-      </div>
-      <div class="space-y-6">
-        {sortedPosts.map((post) => (
-          <article class="border-l-4 border-amber-500 pl-4 py-2">
-            <a href={`/${post.slug}/`} class="block group">
-              <div class="text-sm text-brown-700 mb-1">{post.dateStr}</div>
-              <h3 class="text-2xl font-bold mb-2 group-hover:text-teal-900 transition">{post.data.title}</h3>
-              {post.data.description && (
-                <p class="text-brown-700">{post.data.description}</p>
-              )}
-            </a>
-          </article>
-        ))}
-      </div>
-    </section>
-  </div>
+    <PageSection>
+      <PageSectionHeader
+        title="Latest Posts"
+        titlePath="/posts/"
+      />
+      <ContentList items={sortedPosts.map(post => ({
+        to: `/${post.slug}/`,
+        primary: post.data.title,
+        secondary: post.formattedDate
+      }))} />
+    </PageSection>
+  </main>
 </BaseLayout>

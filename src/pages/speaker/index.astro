@@ -1,114 +1,162 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
+import PageSection from '../../components/PageSection.astro';
+import PageSectionHeader from '../../components/PageSectionHeader.astro';
+import Newsletter from '../../components/Newsletter.astro';
+import { getCollection, getEntry } from 'astro:content';
 
+// Get the index content with all the metadata
+const indexEntry = await getEntry('talks', 'index');
+const { Content } = await indexEntry.render();
+const { badge, title, lead, image, imageAlt, archive, teaser, cta } = indexEntry.data as any;
+
+// Get all talks except the index
 const allTalks = await getCollection('talks');
 const talks = allTalks.filter(talk => talk.id !== 'index.md');
 
-// Sort talks by date (newest first)
-const sortedTalks = talks.sort((a, b) => {
-  const dateA = a.id.match(/(\d{4})-(\d{2})-(\d{2})/);
-  const dateB = b.id.match(/(\d{4})-(\d{2})-(\d{2})/);
-  if (dateA && dateB) {
-    return new Date(`${dateB[1]}-${dateB[2]}-${dateB[3]}`).getTime() - new Date(`${dateA[1]}-${dateA[2]}-${dateA[3]}`).getTime();
-  }
-  return 0;
-});
+// Helper to extract date from id
+function extractDate(id: string): string | null {
+  const match = id.match(/(\d{4})-(\d{2})-(\d{2})/);
+  return match ? `${match[1]}-${match[2]}-${match[3]}` : null;
+}
+
+// Helper to format date
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr);
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formatted = date.toLocaleDateString('en-US', options);
+  const day = date.getDate();
+  const suffix = day === 1 || day === 21 || day === 31 ? 'st'
+               : day === 2 || day === 22 ? 'nd'
+               : day === 3 || day === 23 ? 'rd'
+               : 'th';
+  return formatted.replace(/(\d+),/, `$1${suffix},`);
+}
+
+// Sort talks by date (newest first) and add formatted dates
+const sortedTalks = talks
+  .map(talk => {
+    const dateStr = extractDate(talk.id);
+    return {
+      ...talk,
+      dateStr,
+      formattedDate: dateStr ? formatDate(dateStr) : '',
+    };
+  })
+  .sort((a, b) => {
+    if (a.dateStr && b.dateStr) {
+      return new Date(b.dateStr).getTime() - new Date(a.dateStr).getTime();
+    }
+    return 0;
+  });
 ---
 
-<BaseLayout
-  title="Bring joy and knowledge to your next event"
-  description="Are you planning a brown bag lunch? Internal or external conference? On the topic of web development, the Jamstack or Gatsby specifically?"
->
-  <div class="min-h-screen px-4 py-8 max-w-4xl mx-auto">
-    <header class="mb-12">
-      <div class="text-sm text-brown-700 uppercase tracking-wide mb-2">Speaker</div>
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Bring joy and knowledge to your next event</h1>
-      <p class="text-lg text-brown-700 mb-6">
-        Are you planning a brown bag lunch? Internal or external conference? On the topic of web development, the Jamstack or Gatsby specifically?
-      </p>
-      <div class="prose prose-brown max-w-none mb-8">
-        <p>
-          Imagine having an energetic person speaking at your next event. One who brings almost 20 years of web development joy into her talks. Who can live code if that's your audience's jam!
-        </p>
+<BaseLayout title={title} description={lead}>
+  <main>
+    <PageSection component="header">
+      <PageSectionHeader
+        badge={badge}
+        title={title}
+        lead={lead}
+        hLevel={1}
+      />
+      <div class="prose prose-brown max-w-none my-4 text-brown-900">
+        <Content />
       </div>
-      <div class="border-4 border-dashed border-amber-500 p-6">
-        <h2 class="text-2xl font-bold mb-4">Book a talk</h2>
-        <p class="mb-4">From 1.750 USD (+ travel expenses) for a 20-40 min standard talk</p>
-        <p class="text-sm text-brown-700 mb-4">Other prices apply to custom talks and workshops.</p>
-        <a
-          href="https://forms.reform.app/iXD8KR/book-talk/f9wr7p"
-          class="inline-block bg-amber-500 text-brown-900 px-6 py-3 rounded font-bold hover:bg-amber-600 transition"
-        >
-          Book a talk →
-        </a>
-      </div>
-    </header>
+    </PageSection>
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-6">Some of my past and future speaking engagements</h2>
-      <div class="space-y-8">
-        {sortedTalks.map((talk) => {
-          const dateMatch = talk.id.match(/(\d{4})-(\d{2})-(\d{2})/);
-          const dateStr = dateMatch ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}` : '';
-          const formattedDate = dateMatch ? new Date(`${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          }) : '';
+    {teaser && (
+      <PageSection>
+        <PageSectionHeader
+          badge={teaser.badge}
+          title={teaser.title}
+          tagline={teaser.note}
+        />
+        {teaser.recording && (
+          <div class="my-6">
+            <a
+              href={teaser.recording}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center text-teal-900 underline underline-offset-2 hover:decoration-amber-600 transition"
+            >
+              Watch the recording on YouTube
+            </a>
+          </div>
+        )}
+      </PageSection>
+    )}
 
-          return (
-            <article class="border-l-4 border-amber-500 pl-4 py-2">
-              <a href={`/speaker/${talk.slug}/`} class="block group">
-                <div class="text-sm text-brown-700 mb-1">{formattedDate}</div>
-                <h3 class="text-2xl font-bold mb-2 group-hover:text-teal-900 transition">{talk.data.title}</h3>
+    {cta && (
+      <PageSection>
+        <div class="border-4 border-dashed border-amber-500 p-6">
+          <h2 class="text-2xl font-bold mb-4 text-brown-900">{cta.label}</h2>
+          <p class="mb-2 text-brown-900">{cta.noteTitle}</p>
+          <p class="text-sm text-brown-700 mb-4">{cta.note}</p>
+          <a
+            href={cta.href}
+            class="inline-block bg-amber-500 text-brown-900 px-6 py-3 font-bold hover:bg-amber-600 transition"
+          >
+            {cta.label}
+          </a>
+        </div>
+      </PageSection>
+    )}
+
+    {archive && (
+      <PageSection>
+        <PageSectionHeader title={archive.title} />
+        <ul class="list-none px-0 my-0 -ml-1 space-y-4">
+          {sortedTalks.map((talk) => (
+            <li class="mx-2 px-5 py-3 pb-4 relative border-0 border-l-4 border-solid border-amber-500 flex flex-col transition hover:bg-amber-400/30 focus-within:border-l-transparent focus-within:ring-4 focus-within:ring-offset-4 focus-within:ring-amber-500">
+              <h3 class="text-base my-0 font-bold">
+                <a
+                  href={`/speaker/${talk.slug}/`}
+                  class="text-inherit no-underline focus:outline-none"
+                >
+                  <span class="absolute inset-0" aria-hidden="true"></span>
+                  {talk.data.title}
+                </a>
+              </h3>
+              <p class="text-xs my-0 order-first leading-8 font-medium text-teal-800 uppercase tracking-tight">
+                {talk.formattedDate}
                 {talk.data.event && (
-                  <p class="text-brown-700">
-                    {talk.data.eventUrl ? (
-                      <a href={talk.data.eventUrl} target="_blank" rel="noreferrer" class="hover:text-teal-900">
-                        {talk.data.event} ↗
-                      </a>
-                    ) : (
-                      talk.data.event
-                    )}
-                  </p>
+                  <>
+                    <span class="px-1">·</span>
+                    {talk.data.event}
+                  </>
                 )}
-                {talk.data.recording && (
-                  <a
-                    href={talk.data.recording}
-                    target="_blank"
-                    rel="noreferrer"
-                    class="inline-block mt-2 text-sm bg-brown-200 text-brown-900 px-3 py-1 rounded hover:bg-brown-300 transition"
-                  >
-                    Watch recording ↗
-                  </a>
-                )}
-              </a>
-            </article>
-          );
-        })}
-      </div>
-      <div class="mt-8">
-        <a
-          href="https://youtube.com/playlist?list=PL9W-8hhRoLoOPHYk1gtkvTSVNV1qleLWy"
-          target="_blank"
-          rel="noreferrer"
-          class="inline-block bg-brown-700 text-brown-50 px-6 py-3 rounded hover:bg-brown-800 transition"
-        >
-          and more on YouTube ↗
-        </a>
-      </div>
-    </section>
+              </p>
+              {talk.data.recording && (
+                <a
+                  href={talk.data.recording}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="relative z-10 mt-2 text-sm text-teal-900 underline underline-offset-2 hover:decoration-amber-600 transition"
+                >
+                  Watch the recording on YouTube
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+        {archive.moreHref && (
+          <div class="mt-8">
+            <a
+              href={archive.moreHref}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-block bg-brown-700 text-brown-50 px-6 py-3 hover:bg-brown-800 transition"
+            >
+              {archive.more}
+            </a>
+          </div>
+        )}
+      </PageSection>
+    )}
 
-    <section class="p-6 border-4 border-dashed border-amber-500">
-      <h2 class="text-2xl font-bold mb-4">Newsletter</h2>
-      <p class="mb-4">Subscribe to get emails about web development and pirate adventures!</p>
-      <div class="text-center">
-        <a href="/subs/" class="inline-block bg-amber-500 text-brown-900 px-6 py-3 rounded font-bold hover:bg-amber-600 transition">
-          Sign up for the newsletter
-        </a>
-      </div>
-    </section>
-  </div>
+    <PageSection component="footer">
+      <Newsletter />
+    </PageSection>
+  </main>
 </BaseLayout>

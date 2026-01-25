@@ -1,6 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import PageSection from '../components/PageSection.astro';
+import PageSectionHeader from '../components/PageSectionHeader.astro';
+import PageSectionBreadcrumbs from '../components/PageSectionBreadcrumbs.astro';
+import Newsletter from '../components/Newsletter.astro';
+import Badge from '../components/Badge.astro';
+import ContentList from '../components/ContentList.astro';
 
 export async function getStaticPaths() {
   const queenPosts = await getCollection('posts-queen');
@@ -20,19 +27,37 @@ const { Content } = await post.render();
 const dateMatch = post.id.match(/(\d{4})\/(\d{2})\/(\d{2})/);
 const dateStr = dateMatch ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}` : '';
 const dateObj = dateMatch ? new Date(`${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`) : null;
-const formattedDate = dateObj?.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
-}) || '';
+
+// Format date like "January 25th, 2025"
+function formatDate(date: Date): string {
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formatted = date.toLocaleDateString('en-US', options);
+  const day = date.getDate();
+  const suffix = day === 1 || day === 21 || day === 31 ? 'st'
+               : day === 2 || day === 22 ? 'nd'
+               : day === 3 || day === 23 ? 'rd'
+               : 'th';
+  return formatted.replace(/(\d+),/, `$1${suffix},`);
+}
+
+const formattedDate = dateObj ? formatDate(dateObj) : '';
+
+// Parse tags
+const tags = post.data.tags ? post.data.tags.split(',').map((t: string) => {
+  const trimmed = t.trim();
+  return {
+    label: trimmed.toLowerCase(),
+    slug: `/tag/${trimmed.toLowerCase().replace(/\s+/g, '-')}/`
+  };
+}) : [];
 
 // Find related posts based on tags
-const currentTags = post.data.tags ? post.data.tags.split(',').map(t => t.trim().toLowerCase()) : [];
+const currentTags = post.data.tags ? post.data.tags.split(',').map((t: string) => t.trim().toLowerCase()) : [];
 const relatedPosts = allPosts
   .filter(p => p.slug !== post.slug && p.data.tags)
   .map(p => {
-    const pTags = (p.data.tags || '').split(',').map(t => t.trim().toLowerCase());
-    const commonTags = currentTags.filter(tag => pTags.includes(tag));
+    const pTags = (p.data.tags || '').split(',').map((t: string) => t.trim().toLowerCase());
+    const commonTags = currentTags.filter((tag: string) => pTags.includes(tag));
     return { post: p, score: commonTags.length };
   })
   .filter(p => p.score > 0)
@@ -41,75 +66,57 @@ const relatedPosts = allPosts
   .map(p => {
     const dateMatch = p.post.id.match(/(\d{4})\/(\d{2})\/(\d{2})/);
     const dateStr = dateMatch ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}` : '';
+    const dateObj = dateMatch ? new Date(`${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`) : null;
     return {
       ...p.post,
       dateStr,
+      formattedDate: dateObj ? formatDate(dateObj) : '',
     };
   });
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-  <div class="min-h-screen px-4 py-8 max-w-4xl mx-auto">
-    <nav class="mb-6 text-sm">
-      <a href="/posts/" class="text-brown-700 hover:text-teal-900">← Posts</a>
-      {formattedDate && <span class="mx-2 text-brown-700">•</span>}
-      {formattedDate && <time datetime={dateStr} class="text-brown-700">{formattedDate}</time>}
-    </nav>
+  <main>
+    <PageSection component="article">
+      <PageSectionBreadcrumbs
+        class="mt-4"
+        items={[
+          { label: 'Posts', to: '/posts/' },
+          { label: formattedDate }
+        ]}
+      />
 
-    <article>
-      <header class="mb-8">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">{post.data.title}</h1>
+      <PageSectionHeader hLevel={1} title={post.data.title} />
 
-        {post.data.tags && (
-          <div class="flex flex-wrap gap-2 mb-4">
-            {post.data.tags.split(',').map((tag: string) => {
-              const trimmedTag = tag.trim();
-              const tagSlug = trimmedTag.toLowerCase().replace(/\s+/g, '-');
-              return (
-                <a
-                  href={`/tag/${tagSlug}/`}
-                  class="text-xs bg-brown-200 text-brown-900 px-3 py-1 rounded-full hover:bg-brown-300 transition"
-                >
-                  {trimmedTag}
-                </a>
-              );
-            })}
-          </div>
-        )}
-      </header>
+      {tags.length > 0 && (
+        <aside class="space-x-2">
+          {tags.map((tag: {label: string, slug: string}) => (
+            <Badge href={tag.slug}>{tag.label}</Badge>
+          ))}
+        </aside>
+      )}
 
-      <div class="prose prose-brown prose-lg max-w-none">
+      <div class="prose prose-brown prose-lg max-w-none mt-12">
         <Content />
       </div>
-    </article>
+    </PageSection>
 
-    <footer class="mt-12 p-6 border-4 border-dashed border-amber-500">
-      <h2 class="text-2xl font-bold mb-4">Interested in more daily treasures like this one?</h2>
-      <p class="mb-4">Sent directly to your inbox?</p>
-      <div class="text-center">
-        <a href="/subs/" class="inline-block bg-amber-500 text-brown-900 px-6 py-3 rounded font-bold hover:bg-amber-600 transition">
-          Sign up for the newsletter
-        </a>
-      </div>
-    </footer>
+    <PageSection component="footer">
+      <Newsletter
+        tagline="Interested in more daily treasures like this one?"
+        message="Sent directly to your inbox?"
+      />
+    </PageSection>
 
     {relatedPosts.length > 0 && (
-      <section class="mt-12">
-        <h2 class="text-3xl font-bold mb-6">You might also be interested in...</h2>
-        <div class="space-y-6">
-          {relatedPosts.map((relatedPost) => (
-            <article class="border-l-4 border-amber-500 pl-4 py-2">
-              <a href={`/${relatedPost.slug}/`} class="block group">
-                <div class="text-sm text-brown-700 mb-1">{relatedPost.dateStr}</div>
-                <h3 class="text-2xl font-bold mb-2 group-hover:text-teal-900 transition">{relatedPost.data.title}</h3>
-                {relatedPost.data.description && (
-                  <p class="text-brown-700">{relatedPost.data.description}</p>
-                )}
-              </a>
-            </article>
-          ))}
-        </div>
-      </section>
+      <PageSection>
+        <PageSectionHeader hLevel={2} lead="You might also be interested in..." />
+        <ContentList items={relatedPosts.map(p => ({
+          to: `/${p.slug}/`,
+          primary: p.data.title,
+          secondary: p.formattedDate
+        }))} />
+      </PageSection>
     )}
-  </div>
+  </main>
 </BaseLayout>

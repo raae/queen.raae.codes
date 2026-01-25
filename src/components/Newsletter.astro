@@ -1,0 +1,139 @@
+---
+import PostalIcon from '../icons/icons8-postal-50.svg?raw';
+
+interface Props {
+  formKey?: string;
+  cta?: string;
+  tagline?: string;
+  message?: string;
+  tags?: string[];
+  anchor?: string;
+}
+
+const {
+  formKey = 'lillylabs',
+  cta = 'Yes, please!',
+  tagline = 'Join the crew?',
+  message = "Join the crew and stay up to date by signing up for our Weekly Ship's Log.",
+  tags = [],
+  anchor = ''
+} = Astro.props;
+---
+
+<form
+  id={anchor || undefined}
+  class="relative newsletter-form"
+  data-form-key={formKey}
+  data-tags={JSON.stringify(tags)}
+>
+  <div class="max-w-[48ch]">
+    {tagline && <strong>{tagline} </strong>}{message}
+  </div>
+
+  <div class="flex relative mt-5 max-w-[50ch]">
+    <label
+      for="email"
+      class="[&>*]:w-6 [&>*]:self-center absolute flex left-3 top-1/2 -translate-y-1/2"
+    >
+      <Fragment set:html={PostalIcon} />
+      <span class="sr-only">Email:</span>
+    </label>
+
+    <input
+      id="email"
+      name="email"
+      type="email"
+      class="pl-11 py-2 font-medium w-full flex-grow border-solid transition border-2 border-teal-900 focus:border-teal-900 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-amber-500"
+      placeholder="Your best email"
+      required
+    />
+
+    <button
+      class="ml-3 transition flex-shrink-0 text-sm font-semibold px-3 justify-center border border-transparent bg-teal-900 text-white hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+      type="submit"
+    >
+      {cta}
+    </button>
+  </div>
+
+  <div class="newsletter-alert hidden absolute inset-0 flex flex-col justify-center text-center border-solid border-2 p-4">
+    <button type="button" class="newsletter-dismiss h-5 w-5 absolute top-2 right-2 cursor-pointer bg-transparent border-none">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+      </svg>
+    </button>
+    <h3 class="newsletter-alert-title m-0 mb-0.5 text-sm font-semibold hidden"></h3>
+    <p class="newsletter-alert-message m-0 text-sm"></p>
+  </div>
+</form>
+
+<script>
+  document.querySelectorAll('.newsletter-form').forEach((form) => {
+    const alertEl = form.querySelector('.newsletter-alert') as HTMLElement;
+    const alertTitle = form.querySelector('.newsletter-alert-title') as HTMLElement;
+    const alertMessage = form.querySelector('.newsletter-alert-message') as HTMLElement;
+    const dismissBtn = form.querySelector('.newsletter-dismiss') as HTMLElement;
+
+    function showAlert(variant: string, title: string | null, message: string) {
+      alertEl.classList.remove('hidden', 'bg-sky-50', 'border-sky-800', 'bg-emerald-50', 'border-emerald-800', 'bg-red-50', 'border-red-800');
+
+      if (variant === 'info') {
+        alertEl.classList.add('bg-sky-50', 'border-sky-800');
+        dismissBtn.classList.add('opacity-0');
+      } else if (variant === 'success') {
+        alertEl.classList.add('bg-emerald-50', 'border-emerald-800');
+        dismissBtn.classList.remove('opacity-0');
+        dismissBtn.classList.add('text-emerald-900', 'hover:text-emerald-700');
+      } else if (variant === 'error') {
+        alertEl.classList.add('bg-red-50', 'border-red-800');
+        dismissBtn.classList.remove('opacity-0');
+        dismissBtn.classList.add('text-red-900', 'hover:text-red-700');
+      }
+
+      if (title) {
+        alertTitle.textContent = title;
+        alertTitle.classList.remove('hidden');
+      } else {
+        alertTitle.classList.add('hidden');
+      }
+
+      alertMessage.textContent = message;
+    }
+
+    function hideAlert() {
+      alertEl.classList.add('hidden');
+    }
+
+    dismissBtn?.addEventListener('click', hideAlert);
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formEl = e.target as HTMLFormElement;
+      const formKey = formEl.dataset.formKey;
+      const tags = JSON.parse(formEl.dataset.tags || '[]');
+      const emailInput = formEl.querySelector('input[name="email"]') as HTMLInputElement;
+
+      showAlert('info', null, 'Hold on...');
+
+      try {
+        const response = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: emailInput.value,
+            formKey,
+            tags,
+          }),
+        });
+
+        if (!response.ok) throw new Error('Subscription failed');
+
+        emailInput.value = '';
+        showAlert('success', 'Almost there!', 'Check your inbox to confirm...');
+      } catch (error) {
+        console.warn(error);
+        showAlert('error', null, 'Oh no...something went wrong...');
+      }
+    });
+  });
+</script>
