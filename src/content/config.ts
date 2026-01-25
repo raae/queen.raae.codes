@@ -48,9 +48,34 @@ const landing = defineCollection({
   }),
 });
 
+const tags = defineCollection({
+  type: 'data',
+  schema: z.array(
+    z.object({
+      label: z.string(),
+      disclaimer: z.string().optional(),
+    })
+  ),
+});
+
+const testimonials = defineCollection({
+  type: 'data',
+  schema: z.array(
+    z.object({
+      url: z.string().optional(),
+      post: z.string(),
+      image: z.string().optional(),
+      product: z.string().optional(),
+      date: z.coerce.date().optional(),
+    })
+  ),
+});
+
 export const collections = {
   'posts-queen': postsQueen,
   'posts-olavea': postsOlavea,
   talks: talks,
   landing: landing,
+  tags: tags,
+  testimonials: testimonials,
 };
