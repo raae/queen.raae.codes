@@ -4,6 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "18"
+  NETLIFY_SKIP_GATSBY_BUILD_PLUGIN = "true"
 
 # Note: @astrojs/netlify is an Astro adapter configured in astro.config.mjs,
 # not a Netlify Build plugin. No plugins needed here.
