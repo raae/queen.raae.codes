@@ -1,33 +1,58 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const BADGE = "Emails";
+const TITLE = "Welcome";
+const DESCRIPTION = "You'll hear from us shortly 📬";
+
+const queenPosts = await getCollection('posts-queen');
+const sortedPosts = queenPosts.sort((a, b) => {
+  const dateA = a.id.match(/(\d{4})\/(\d{2})\/(\d{2})/);
+  const dateB = b.id.match(/(\d{4})\/(\d{2})\/(\d{2})/);
+  if (dateA && dateB) {
+    return new Date(`${dateB[1]}-${dateB[2]}-${dateB[3]}`).getTime() - new Date(`${dateA[1]}-${dateA[2]}-${dateA[3]}`).getTime();
+  }
+  return 0;
+}).slice(0, 10).map((post) => {
+  const dateMatch = post.id.match(/(\d{4})\/(\d{2})\/(\d{2})/);
+  const dateStr = dateMatch ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}` : '';
+  return {
+    ...post,
+    dateStr,
+  };
+});
 ---
 
-<BaseLayout title="Welcome to the crew!" description="Thank you for subscribing to Queen Raae's Ship's Log">
+<BaseLayout title={`${BADGE} - ${TITLE}`} description={DESCRIPTION}>
   <div class="min-h-screen px-4 py-8 max-w-4xl mx-auto">
-    <header class="mb-12 text-center">
-      <div class="text-6xl mb-4">🏴‍☠️</div>
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome aboard, matey!</h1>
-      <p class="text-lg text-brown-700 mb-8">
-        Thank you for joining the crew! You'll receive your first Ship's Log soon.
-      </p>
-
-      <div class="border-4 border-dashed border-amber-500 p-6 max-w-2xl mx-auto">
-        <h2 class="text-2xl font-bold mb-4">What to expect</h2>
-        <div class="prose prose-brown mx-auto text-left">
-          <ul>
-            <li>Weekly updates on web development treasures</li>
-            <li>Tips and tricks for sailing the high seas of the web</li>
-            <li>Behind-the-scenes pirate adventures</li>
-            <li>Exclusive content just for crew members</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="mt-12">
-        <a href="/" class="inline-block bg-brown-700 text-brown-50 px-6 py-3 rounded hover:bg-brown-800 transition">
-          ← Back to home
-        </a>
-      </div>
+    <header class="mb-12">
+      <nav class="mb-6 text-sm">
+        <a href="/subs/" class="text-brown-700 hover:text-teal-900">← {BADGE}</a>
+        <span class="mx-2 text-brown-700">•</span>
+        <span class="text-brown-700">{TITLE}</span>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">{DESCRIPTION}</h1>
     </header>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-2">Latest Posts</h2>
+      <div class="text-right mb-6">
+        <a href="/posts/" class="text-brown-700 hover:text-teal-900 font-bold">View all →</a>
+      </div>
+      <div class="space-y-6">
+        {sortedPosts.map((post) => (
+          <article class="border-l-4 border-amber-500 pl-4 py-2">
+            <a href={`/${post.slug}/`} class="block group">
+              <div class="text-sm text-brown-700 mb-1">{post.dateStr}</div>
+              <h3 class="text-2xl font-bold mb-2 group-hover:text-teal-900 transition">{post.data.title}</h3>
+              {post.data.description && (
+                <p class="text-brown-700">{post.data.description}</p>
+              )}
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
   </div>
 </BaseLayout>

@@ -1,29 +1,20 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const BADGE = "Emails";
+const TITLE = "Preferences";
+const DESCRIPTION = "Your preferences have been saved 📩";
 ---
 
-<BaseLayout title="Email preferences" description="Manage your newsletter preferences">
+<BaseLayout title={`${BADGE} - ${TITLE}`} description={DESCRIPTION}>
   <div class="min-h-screen px-4 py-8 max-w-4xl mx-auto">
     <header class="mb-12">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Email preferences</h1>
-      <p class="text-lg text-brown-700 mb-8">
-        Manage your subscription and email preferences here.
-      </p>
-
-      <div class="border-4 border-dashed border-amber-500 p-6">
-        <p class="mb-4">
-          To manage your email preferences, please use the link in any of the emails you've received from us.
-        </p>
-        <p class="text-brown-700">
-          Each email contains a unique link to update your preferences or unsubscribe.
-        </p>
-      </div>
-
-      <div class="mt-8">
-        <a href="/subs/" class="inline-block bg-brown-700 text-brown-50 px-6 py-3 rounded hover:bg-brown-800 transition">
-          ← Back to newsletter
-        </a>
-      </div>
+      <nav class="mb-6 text-sm">
+        <a href="/subs/" class="text-brown-700 hover:text-teal-900">← {BADGE}</a>
+        <span class="mx-2 text-brown-700">•</span>
+        <span class="text-brown-700">{TITLE}</span>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">{DESCRIPTION}</h1>
     </header>
   </div>
 </BaseLayout>
