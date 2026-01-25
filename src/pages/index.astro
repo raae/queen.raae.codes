@@ -11,6 +11,16 @@ const sortedPosts = queenPosts.sort((a, b) => {
   }
   return 0;
 }).slice(0, 5);
+
+const talks = await getCollection('talks');
+const sortedTalks = talks.sort((a, b) => {
+  const dateA = a.id.match(/(\d{4})-(\d{2})-(\d{2})/);
+  const dateB = b.id.match(/(\d{4})-(\d{2})-(\d{2})/);
+  if (dateA && dateB) {
+    return new Date(`${dateB[1]}-${dateB[2]}-${dateB[3]}`).getTime() - new Date(`${dateA[1]}-${dateA[2]}-${dateA[3]}`).getTime();
+  }
+  return 0;
+}).slice(0, 3);
 ---
 
 <BaseLayout title="Sailing the high seas of the World Wide Web">
@@ -18,18 +28,39 @@ const sortedPosts = queenPosts.sort((a, b) => {
     <header class="mb-12 text-center">
       <h1 class="text-4xl md:text-6xl font-bold mb-4">Queen Raae</h1>
       <p class="text-xl md:text-2xl mb-6">Pirate of the Web 🏴‍☠️</p>
-      <p class="text-lg prose prose-brown mx-auto">
-        Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!
-      </p>
+      <div class="prose prose-brown prose-lg mx-auto">
+        <p>
+          Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!
+        </p>
+        <p>
+          🏴‍☠️ Set sail with us every other <a href="https://www.youtube.com/QueenRaae/live" target="_blank" rel="noopener">Saturday on YouTube at 11:00 CET</a>
+        </p>
+        <p>
+          <img src="/youtube.png" alt="YouTube Cover" class="rounded-lg" />
+        </p>
+      </div>
     </header>
 
     <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-6">Latest Posts</h2>
+      <div class="text-center mb-8">
+        <span class="inline-block bg-amber-500 text-brown-900 px-4 py-2 rounded-full font-bold text-sm uppercase tracking-wide">Products & Services</span>
+      </div>
+      <div class="prose prose-brown prose-lg mx-auto">
+        <h3>Are you stuck on a reef in the sharky waters around the World Wide Web?</h3>
+        <p>Get Unstuck • Gain confidence • Take Action • Book an <a href="/emergency/">Emergency Call</a>.</p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-2">Latest Posts</h2>
+      <div class="text-right mb-6">
+        <a href="/posts/" class="text-brown-700 hover:text-teal-900 font-bold">View all →</a>
+      </div>
       <div class="space-y-4">
         {sortedPosts.map((post) => (
-          <article class="border-2 border-brown-700 p-4 hover:bg-brown-50 transition">
-            <a href={`/${post.slug}/`} class="block">
-              <h3 class="text-xl font-bold mb-2">{post.data.title}</h3>
+          <article class="border-l-4 border-amber-500 pl-4 py-2">
+            <a href={`/${post.slug}/`} class="block group">
+              <h3 class="text-2xl font-bold mb-2 group-hover:text-teal-900 transition">{post.data.title}</h3>
               {post.data.description && (
                 <p class="text-brown-700">{post.data.description}</p>
               )}
@@ -37,16 +68,54 @@ const sortedPosts = queenPosts.sort((a, b) => {
           </article>
         ))}
       </div>
-      <div class="mt-6 text-center">
-        <a href="/posts/" class="inline-block bg-brown-700 text-brown-50 px-6 py-3 rounded hover:bg-brown-800 transition">
-          View all posts →
-        </a>
+    </section>
+
+    <section class="mb-12">
+      <div class="text-center mb-4">
+        <span class="inline-block bg-amber-500 text-brown-900 px-4 py-2 rounded-full font-bold text-sm uppercase tracking-wide">noteworthy</span>
+      </div>
+      <h2 class="text-3xl font-bold mb-6">Talks, Webinars and Streams</h2>
+      <div class="space-y-4">
+        {sortedTalks.map((talk) => (
+          <article class="border-l-4 border-amber-500 pl-4 py-2">
+            <a href={`/speaker/${talk.slug}/`} class="block group">
+              <h3 class="text-2xl font-bold mb-2 group-hover:text-teal-900 transition">{talk.data.title}</h3>
+              {talk.data.event && (
+                <p class="text-brown-700">{talk.data.event}</p>
+              )}
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Who are we?</h2>
+      <div class="prose prose-brown prose-lg mx-auto">
+        <p>
+          Queen Raae is a seasoned web developer who loves duct-taping together side projects in addition to making apps trusted by the Swedish Armed Forces, The Norwegian Water Resources and Energy Directorate, and others.
+        </p>
+        <p>
+          <img src="/raae.jpg" alt="Queen Raae holding a laptop and looking into the camera in her signature green dress" class="rounded-lg" />
+        </p>
+        <p>
+          <img src="/family.jpg" alt="The family holding hands and looking happy" class="rounded-lg" />
+        </p>
+        <p>
+          Cap'n Ola is the junior developer with a business background who asks all the right questions!
+        </p>
+        <p>
+          Together with Pirate Princess Lillian, we spend our days sailing the sharky waters around the web.
+        </p>
+        <p>
+          Join us for our <a href="https://www.youtube.com/QueenRaae" target="_blank" rel="noopener">weekly treasure hunts</a> over on YouTube to get to know us better&nbsp;🏴‍☠️
+        </p>
       </div>
     </section>
 
     <section class="mb-12 p-6 border-4 border-dashed border-amber-500">
-      <h2 class="text-2xl font-bold mb-4">Newsletter</h2>
-      <p class="mb-4">Subscribe to get emails about web development, AI-assisted coding, and pirate adventures!</p>
+      <h2 class="text-2xl font-bold mb-4">Interested in more daily treasures like this one?</h2>
+      <p class="mb-4">Sent directly to your inbox?</p>
       <div class="text-center">
         <a href="/subs/" class="inline-block bg-amber-500 text-brown-900 px-6 py-3 rounded font-bold hover:bg-amber-600 transition">
           Sign up for the newsletter
