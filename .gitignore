@@ -8,3 +8,5 @@ package-lock.json
 content-dev/
 .obsidian/
 .astro/
+# Local Netlify folder
+.netlify
