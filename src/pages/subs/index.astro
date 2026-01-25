@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import PageSection from '../../components/PageSection.astro';
+import PageSectionHeader from '../../components/PageSectionHeader.astro';
+import Newsletter from '../../components/Newsletter.astro';
+
+const BADGE = "Ship's log";
+const TITLE = 'Join the crew!';
+const DESCRIPTION = 'Stay up to date on all things Queen Raae & Family as a Ship\'s Log subscriber.';
+---
+
+<BaseLayout title={`${BADGE} - ${TITLE}`} description={DESCRIPTION}>
+  <SiteHeader />
+  <main>
+    <PageSection component="header">
+      <PageSectionHeader
+        badge={BADGE}
+        title={TITLE}
+        lead={DESCRIPTION}
+        hLevel={1}
+      />
+      <Newsletter class="mt-8" cta="Yes, please!" message="" tagline="" />
+    </PageSection>
+  </main>
+</BaseLayout>

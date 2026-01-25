@@ -1,0 +1,179 @@
+---
+interface Props {
+  formKey?: string;
+  cta?: string;
+  tagline?: string;
+  message?: string;
+  tags?: string[];
+  anchor?: string;
+  class?: string;
+}
+
+const LILLY_LABS_DEFAULTS = {
+  formKey: 'lillylabs',
+  cta: 'Yes, please!',
+  tagline: 'Join the crew?',
+  message: "Join the crew and stay up to date by signing up for our Weekly Ship's Log.",
+};
+
+const {
+  formKey = LILLY_LABS_DEFAULTS.formKey,
+  cta = LILLY_LABS_DEFAULTS.cta,
+  tagline = LILLY_LABS_DEFAULTS.tagline,
+  message = LILLY_LABS_DEFAULTS.message,
+  tags = [],
+  anchor = '',
+  class: className,
+} = Astro.props;
+
+// Form IDs for ConvertKit
+const FORM_ID: Record<string, string> = {
+  QUEEN: '2454187',
+  TIMESHIP: '2604593',
+  VERSION4: '2608546',
+  REMINDERS: '2816322',
+  OLAVEA: '2604593',
+  MPYA: '2846086',
+  REACTNORWAY: '3380548',
+  DEVTASKCHEATSHEET: '3634549',
+  JAMSTACK: '3762408',
+  LILLYLABS: '1358375',
+};
+
+const formId = FORM_ID[formKey.toUpperCase()] || FORM_ID.LILLYLABS;
+---
+
+<form
+  id={anchor || undefined}
+  class:list={["relative newsletter-form", className]}
+  data-form-id={formId}
+  data-tags={JSON.stringify(tags)}
+>
+  {(tagline || message) && (
+    <div class="max-w-[48ch]">
+      {tagline && <strong>{tagline} </strong>}
+      {message}
+    </div>
+  )}
+
+  <div class="flex relative mt-5 max-w-[50ch]">
+    <label
+      for="email"
+      class="[&>*]:w-6 [&>*]:self-center absolute flex left-3"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="24px" height="24px" class="w-6">
+        <path fill="#ced8ed" d="M47,11H17C9.268,11,3,17.268,3,25v22h58V25C61,17.268,54.732,11,47,11z"/>
+        <path fill="#b5c4e0" d="M17.38,11L17.38,11C24.902,11,31,17.098,31,24.62c0,0,0,0,0,0V47l0,0H3l0,0V25.38 C3,17.438,9.438,11,17.38,11z"/>
+        <path fill="#faefde" d="M31,47H11c-1.105,0-2-0.895-2-2V25c0-1.105,0.895-2,2-2h19.65"/>
+        <path fill="#fff7f0" d="M31,32.6l-4.83,3.5c-0.701,0.509-1.649,0.509-2.35,0L9,25.36l1-2.2L31,23V32.6z"/>
+        <path fill="#f9dd8f" d="M61,47H3c-1.105,0-2,0.895-2,2l0,0c0,1.105,0.895,2,2,2h58c1.105,0,2-0.895,2-2l0,0 C63,47.895,62.105,47,61,47z"/>
+        <path fill="#ed7899" d="M47,2c0-0.552-0.448-1-1-1h-8c-0.552,0-1,0.448-1,1v25c0,1.105,0.895,2,2,2l0,0c1.105,0,2-0.895,2-2 V7c-0.01-0.483,0.327-0.904,0.8-1l4.39-0.88c0.473-0.096,0.81-0.517,0.8-1L47,2z"/>
+      </svg>
+      <span class="sr-only">Email:</span>
+    </label>
+
+    <input
+      id="email"
+      name="email"
+      type="email"
+      class="pl-11 font-medium w-full flex-grow border-solid transition border-2 border-teal-900 focus:border-teal-900 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-amber-500"
+      placeholder="Your best email"
+      required
+    />
+
+    <button
+      class="ml-3 transition flex-shrink-0 text-sm font-semibold px-3 justify-center border border-transparent bg-teal-900 text-white hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+      type="submit"
+    >
+      {cta}
+    </button>
+  </div>
+
+  <div class="newsletter-alert hidden absolute inset-0 flex flex-col justify-center text-center border-solid border-2 p-4" data-alert-type="pending">
+    <p class="m-0 text-sm">Hold on...</p>
+  </div>
+
+  <div class="newsletter-alert hidden absolute inset-0 flex flex-col justify-center text-center border-solid border-2 p-4 bg-emerald-50 border-emerald-800" data-alert-type="success">
+    <button type="button" class="newsletter-dismiss h-5 absolute top-2 right-2 transition text-emerald-900 hover:text-emerald-700">
+      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+      </svg>
+    </button>
+    <h3 class="m-0 mb-0.5 text-sm font-semibold">Almost there!</h3>
+    <p class="m-0 text-sm">Check your inbox to confirm...</p>
+  </div>
+
+  <div class="newsletter-alert hidden absolute inset-0 flex flex-col justify-center text-center border-solid border-2 p-4 bg-red-50 border-red-800" data-alert-type="error">
+    <button type="button" class="newsletter-dismiss h-5 absolute top-2 right-2 transition text-red-900 hover:text-red-700">
+      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+      </svg>
+    </button>
+    <p class="m-0 text-sm">Oh no...something went wrong...</p>
+  </div>
+</form>
+
+<script>
+  document.querySelectorAll('.newsletter-form').forEach((form) => {
+    const formEl = form as HTMLFormElement;
+    const formId = formEl.dataset.formId;
+    const tags = JSON.parse(formEl.dataset.tags || '[]');
+
+    const showAlert = (type: 'pending' | 'success' | 'error') => {
+      formEl.querySelectorAll('.newsletter-alert').forEach((alert) => {
+        const alertEl = alert as HTMLElement;
+        if (alertEl.dataset.alertType === type) {
+          alertEl.classList.remove('hidden');
+        } else {
+          alertEl.classList.add('hidden');
+        }
+      });
+    };
+
+    const hideAlerts = () => {
+      formEl.querySelectorAll('.newsletter-alert').forEach((alert) => {
+        (alert as HTMLElement).classList.add('hidden');
+      });
+    };
+
+    formEl.querySelectorAll('.newsletter-dismiss').forEach((btn) => {
+      btn.addEventListener('click', hideAlerts);
+    });
+
+    formEl.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const emailInput = formEl.querySelector('input[name="email"]') as HTMLInputElement;
+      const email = emailInput.value;
+
+      showAlert('pending');
+
+      try {
+        const endpoint = `https://api.convertkit.com/v3/forms/${formId}/subscribe`;
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            api_key: import.meta.env.PUBLIC_CK_API_KEY,
+            email: email,
+            tags: tags,
+          }),
+        });
+
+        if (response.ok) {
+          emailInput.value = '';
+          showAlert('success');
+
+          // Track with Fathom if available
+          if ((window as any).fathom) {
+            (window as any).fathom.trackGoal('LPC2JAXX', 0);
+          }
+        } else {
+          throw new Error('Subscription failed');
+        }
+      } catch (error) {
+        console.warn(error);
+        showAlert('error');
+      }
+    });
+  });
+</script>

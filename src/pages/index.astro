@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import PageSection from '../components/PageSection.astro';
+import PageSectionHeader from '../components/PageSectionHeader.astro';
+import Prose from '../components/Prose.astro';
+import Posts from '../components/Posts.astro';
+import Newsletter from '../components/Newsletter.astro';
+import Noteworthy from '../components/Noteworthy.astro';
+import { getAllPosts } from '../lib/posts';
+import { getEntry } from 'astro:content';
+
+// Get landing page content
+const landing = await getEntry('landing', 'index');
+const { Content } = await landing.render();
+
+// Get latest posts
+const allPosts = await getAllPosts();
+const latestPosts = allPosts.slice(0, 7);
+
+const { badge, title } = landing.data;
+---
+
+<BaseLayout>
+  <SiteHeader />
+  <main class="pb-12">
+    <!-- Header Section -->
+    <PageSection component="header">
+      <PageSectionHeader
+        badge={badge}
+        title={title}
+        hLevel={1}
+      />
+      <Prose>
+        <Content />
+      </Prose>
+      <Newsletter class="mt-8" />
+    </PageSection>
+
+    <!-- Products & Services Section -->
+    <PageSection>
+      <PageSectionHeader badge="Products & Services" />
+      <Prose class="mt-4">
+        <h3>Are you stuck on a reef in the sharky waters around the World Wide Web?</h3>
+        <p>Get Unstuck - Gain confidence - Take Action - Book an <a href="/emergency/">Emergency Call</a>.</p>
+        <h3>Has your Gatsby project turned into a sea monster?</h3>
+        <p>Are unexpected bugs popping up in your Gatsby project? Are you unsure if your Gatsby project is following Gatsby best practices? Get another pair of eyes with our <a href="/gatsby-code-review/">Gatsby Code Review</a>.</p>
+      </Prose>
+    </PageSection>
+
+    <!-- Latest Posts Section -->
+    <PageSection>
+      <PageSectionHeader title="Latest Posts" titlePath="/posts/" />
+      <Posts posts={latestPosts} more class="mt-8" />
+    </PageSection>
+
+    <!-- Noteworthy Section -->
+    <PageSection>
+      <PageSectionHeader
+        badge="noteworthy"
+        title="Talks, Webinars and Streams"
+      />
+      <Noteworthy more class="mt-8" />
+    </PageSection>
+
+    <!-- About Section -->
+    <PageSection>
+      <PageSectionHeader title="Who are we?" />
+      <Prose class="mt-4">
+        <p>Queen Raae is a seasoned web developer who loves duct-taping together side projects in addition to making apps trusted by the Swedish Armed Forces, The Norwegian Water Resources and Energy Directorate, and others.</p>
+        <p><img src="/content/landing/raae.jpg" alt="Queen Raae holding a laptop and looking into the camera in her signature green dress" /></p>
+        <p><img src="/content/landing/family.jpg" alt="The family holding hands and looking happy" /></p>
+        <p>Cap'n Ola is the junior developer with a business background who asks all the right questions!</p>
+        <p>Together with Pirate Princess Lillian, we spend our days sailing the sharky waters around the Gatsby islands.</p>
+        <p>Join us for our <a href="https://www.youtube.com/QueenRaae">weekly treasure hunts</a> over on YouTube to get to know us better!</p>
+      </Prose>
+    </PageSection>
+
+    <!-- Newsletter Section -->
+    <PageSection>
+      <Newsletter />
+    </PageSection>
+  </main>
+</BaseLayout>

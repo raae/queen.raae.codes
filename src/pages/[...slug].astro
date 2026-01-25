@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import PageSection from '../components/PageSection.astro';
+import PageSectionHeader from '../components/PageSectionHeader.astro';
+import PageSectionBreadcrumbs from '../components/PageSectionBreadcrumbs.astro';
+import Prose from '../components/Prose.astro';
+import Badge from '../components/Badge.astro';
+import Newsletter from '../components/Newsletter.astro';
+import Posts from '../components/Posts.astro';
+import { getAllPosts, getRelatedPosts } from '../lib/posts';
+import siteMetadata from '../data/siteMetadata';
+
+export async function getStaticPaths() {
+  const allPosts = await getAllPosts();
+
+  return allPosts.map((post) => {
+    // Remove leading and trailing slashes for the slug param
+    const slugParam = post.slug.replace(/^\/|\/$/g, '');
+    return {
+      params: { slug: slugParam },
+      props: { post, allPosts },
+    };
+  });
+}
+
+const { post, allPosts } = Astro.props;
+const { Content } = await post.render();
+
+const relatedPosts = getRelatedPosts(post, allPosts, 3, 0.7);
+
+const isOla = post.author === 'OlaVea';
+const authorName = isOla ? 'Ola Vea' : 'Benedicte Raae';
+const authorTwitter = isOla ? 'https://twitter.com/olaholstvea' : 'https://twitter.com/raae';
+
+// Schema.org structured data
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  image: [`${siteMetadata.siteUrl}/raae.jpg`],
+  datePublished: post.dateISO,
+  author: [
+    {
+      '@type': 'Person',
+      name: authorName,
+      sameAs: authorTwitter,
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={post.title}
+  description={post.description}
+  creator={isOla ? '@OlaHolstVea' : undefined}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema, null, 2)} slot="head" />
+
+  <SiteHeader />
+  <main>
+    <PageSection component="article">
+      <PageSectionBreadcrumbs
+        class="mt-4"
+        items={[
+          { label: 'Posts', to: '/posts/' },
+          { label: post.dateFormatted },
+        ]}
+      />
+
+      <PageSectionHeader hLevel={1} title={post.title} />
+
+      {post.tags && post.tags.length > 0 && (
+        <aside class="space-x-2">
+          {post.tags.map(({ label, slug }) => (
+            <Badge href={slug}>{label}</Badge>
+          ))}
+        </aside>
+      )}
+
+      <Prose class="mt-12">
+        <Content />
+      </Prose>
+    </PageSection>
+
+    <PageSection component="footer">
+      <Newsletter
+        tagline="Interested in more daily treasures like this one?"
+        message="Sent directly to your inbox?"
+      />
+    </PageSection>
+
+    {relatedPosts.length > 0 && (
+      <PageSection>
+        <PageSectionHeader
+          hLevel={2}
+          lead="You might also be interested in..."
+        />
+        <Posts posts={relatedPosts} />
+      </PageSection>
+    )}
+  </main>
+</BaseLayout>

@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import PageSection from '../../components/PageSection.astro';
+import PageSectionHeader from '../../components/PageSectionHeader.astro';
+import PageSectionBreadcrumbs from '../../components/PageSectionBreadcrumbs.astro';
+import Prose from '../../components/Prose.astro';
+import Newsletter from '../../components/Newsletter.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allTalks = await getCollection('talks', (entry) => entry.id !== 'index.md');
+
+  return allTalks.map((talk) => {
+    // Extract slug from the folder name
+    const slug = talk.id.replace('/index', '').replace('.md', '');
+    return {
+      params: { slug },
+      props: { talk },
+    };
+  });
+}
+
+const { talk } = Astro.props;
+const { Content } = await talk.render();
+const data = talk.data;
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.lead}
+>
+  <SiteHeader />
+  <main>
+    <PageSection component="article">
+      <PageSectionBreadcrumbs
+        class="mt-4"
+        items={[
+          { label: 'Speaker', to: '/speaker/' },
+          { label: data.event || 'Talk' },
+        ]}
+      />
+
+      <PageSectionHeader
+        title={data.title}
+        lead={data.lead}
+        hLevel={1}
+      />
+
+      {data.event && (
+        <p class="text-sm text-teal-800 my-4">
+          {data.eventUrl ? (
+            <a href={data.eventUrl} target="_blank" rel="noreferrer" class="underline hover:decoration-amber-600">
+              {data.event}
+            </a>
+          ) : data.event}
+        </p>
+      )}
+
+      {data.recording && (
+        <p class="my-4">
+          <a
+            href={data.recording}
+            target="_blank"
+            rel="noreferrer"
+            class="text-sm text-teal-900 underline hover:decoration-amber-600"
+          >
+            Watch the recording
+          </a>
+        </p>
+      )}
+
+      <Prose class="mt-8">
+        <Content />
+      </Prose>
+    </PageSection>
+
+    <PageSection component="footer">
+      <Newsletter />
+    </PageSection>
+  </main>
+</BaseLayout>

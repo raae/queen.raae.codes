@@ -7,3 +7,7 @@ public
 package-lock.json
 content-dev/
 .obsidian/
+
+# Astro
+.astro/
+dist/

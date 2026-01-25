@@ -1,0 +1,96 @@
+---
+import siteMetadata from '../data/siteMetadata.js';
+import '../global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  type?: string;
+  creator?: string;
+  canonical?: string;
+  children?: any;
+}
+
+const {
+  title,
+  description,
+  image,
+  imageAlt,
+  type = 'website',
+  creator,
+  canonical: canonicalProp,
+} = Astro.props;
+
+const {
+  siteName,
+  siteTagline,
+  siteDescription,
+  siteUrl,
+  siteSocialImage,
+  siteSocialImageAlt,
+  siteTwitterCreator,
+} = siteMetadata;
+
+const siteTitle = `${siteName} - ${siteTagline}`;
+const pageTitle = title ? `${title}  -  ${siteName}` : siteTitle;
+const pageImage = image || siteSocialImage;
+const pageDescription = description || siteDescription;
+const canonical = canonicalProp || `${siteUrl}${Astro.url.pathname}`;
+const socialType = type;
+const socialTitle = pageTitle;
+const socialImage = pageImage && `${siteUrl}${pageImage}`;
+const socialImageAlt = image ? imageAlt : siteSocialImageAlt;
+const socialDescription = pageDescription;
+const twitterSite = siteTwitterCreator;
+const twitterCreator = creator || siteTwitterCreator;
+const twitterCard = 'summary_large_image';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{pageTitle}</title>
+    <link rel="canonical" href={canonical} />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#128081;</text></svg>"
+    />
+
+    <meta name="description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={siteTitle} />
+    <meta property="og:type" content={socialType} />
+    <meta property="og:title" content={socialTitle} />
+    <meta property="og:description" content={socialDescription} />
+    {socialImage && <meta property="og:image" content={socialImage} />}
+
+    <meta name="twitter:card" content={twitterCard} />
+    <meta name="twitter:site" content={twitterSite} />
+    <meta name="twitter:creator" content={twitterCreator} />
+    <meta name="twitter:title" content={socialTitle} />
+    <meta name="twitter:description" content={socialDescription} />
+    {socialImage && <meta name="twitter:image:src" content={socialImage} />}
+    {socialImageAlt && <meta name="twitter:image:alt" content={socialImageAlt} />}
+
+    <style>
+      html {
+        font-size: clamp(16px, 18px + .15vw, 19px)
+      }
+    </style>
+
+    <!-- Fathom Analytics -->
+    <script src="https://cdn.usefathom.com/script.js" data-site="DIFBAEOT" data-included-domains="queen.raae.codes" defer></script>
+
+    <slot name="head" />
+  </head>
+  <body class="bg-orange-300 selection:bg-amber-300 text-brown-900">
+    <div class="bg-[#fcedd8]">
+      <slot />
+    </div>
+  </body>
+</html>

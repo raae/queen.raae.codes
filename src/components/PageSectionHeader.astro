@@ -1,0 +1,79 @@
+---
+interface Props {
+  badge?: string;
+  title?: string;
+  titlePath?: string;
+  lead?: string;
+  tagline?: string;
+  hLevel?: number;
+}
+
+const { badge, title, titlePath, lead, tagline, hLevel = 2 } = Astro.props;
+
+const blocks = [
+  { type: 'badge', children: badge },
+  { type: 'title', children: title, path: titlePath },
+  { type: 'lead', children: lead },
+  { type: 'tagline', children: tagline },
+].filter((block) => Boolean(block.children));
+
+function getTag(type: string, index: number, baseLevel: number): string {
+  if (type === 'title') return `h${baseLevel}`;
+  if (baseLevel + index <= 2) return `h${baseLevel + index}`;
+  return 'p';
+}
+
+function getTitleClass(level: number): string {
+  if (level === 1) {
+    return 'text-[2.75rem] font-black leading-none my-9 text-brown-900';
+  }
+  return 'text-3xl font-black leading-none my-8 text-brown-900';
+}
+---
+
+{blocks.map((block, index) => {
+  const Tag = getTag(block.type, index, hLevel) as any;
+
+  if (block.type === 'badge') {
+    return (
+      <Tag class="text-xs uppercase leading-none text-teal-900 my-7">
+        {block.children}
+      </Tag>
+    );
+  }
+
+  if (block.type === 'title') {
+    return (
+      <Tag class={getTitleClass(hLevel)}>
+        {block.path ? (
+          <a
+            href={block.path}
+            class="text-inherit underline decoration-transparent transition hover:decoration-amber-600"
+          >
+            <Fragment set:html={block.children} />
+          </a>
+        ) : (
+          <Fragment set:html={block.children} />
+        )}
+      </Tag>
+    );
+  }
+
+  if (block.type === 'lead') {
+    return (
+      <Tag class="text-lg font-medium leading-snug my-4 text-brown-900">
+        {block.children}
+      </Tag>
+    );
+  }
+
+  if (block.type === 'tagline') {
+    return (
+      <Tag class="my-2 text-brown-900">
+        {block.children}
+      </Tag>
+    );
+  }
+
+  return null;
+})}
