@@ -1,0 +1,15 @@
+{
+  "model": "opusplan",
+  "permissions": {
+    "allow": [
+      "Bash(npx @astrojs/upgrade:*)",
+      "Bash(npm run build:*)",
+      "Bash(git pull:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(gh pr view:*)",
+      "Bash(npm run dev)"
+    ]
+  }
+}
