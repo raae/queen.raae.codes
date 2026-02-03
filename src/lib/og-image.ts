@@ -75,16 +75,26 @@ export async function generateOgImage(options: {
   const title = truncateText(options.title, 120);
   const description = truncateText(options.description, 220);
 
-  // Build a plain VDOM object for Satori (avoids satori-html wrapping issues)
+  // Gatsby-matching avatar geometry
+  const AVATAR_DIAMETER = HEIGHT; // 628px — same as canvas height
+  const AVATAR_RADIUS = AVATAR_DIAMETER / 2; // 314px
+  const AVATAR_BORDER = Math.round(HEIGHT * 0.03); // ~19px
+  const AVATAR_CX = WIDTH - AVATAR_RADIUS * 0.5; // 1043
+  const AVATAR_CY = AVATAR_RADIUS * 1.2; // 376.8
+  const COPY_WIDTH = Math.round(AVATAR_CX - AVATAR_RADIUS - (WIDTH * 0.05) * 2); // 609
+
+  // Build a plain VDOM object for Satori
   const markup = {
     type: 'div',
     props: {
       style: {
         display: 'flex',
         flexDirection: 'column',
+        position: 'relative',
         width: `${WIDTH}px`,
         height: `${HEIGHT}px`,
         backgroundColor: BG_COLOR,
+        overflow: 'hidden',
       },
       children: [
         // Red top border
@@ -108,16 +118,16 @@ export async function generateOgImage(options: {
               padding: '48px 60px 0 60px',
             },
             children: [
-              // Left: text
+              // Text column — constrained to Gatsby's copyWidth
               {
                 type: 'div',
                 props: {
                   style: {
                     display: 'flex',
                     flexDirection: 'column',
-                    flex: 1,
+                    maxWidth: `${COPY_WIDTH}px`,
                     justifyContent: 'center',
-                    paddingRight: '40px',
+                    overflow: 'hidden',
                   },
                   children: [
                     {
@@ -151,31 +161,6 @@ export async function generateOgImage(options: {
                   ],
                 },
               },
-              // Right: avatar
-              {
-                type: 'div',
-                props: {
-                  style: {
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                  },
-                  children: {
-                    type: 'img',
-                    props: {
-                      src: avatarUri,
-                      style: {
-                        width: '280px',
-                        height: '280px',
-                        borderRadius: '140px',
-                        border: `8px solid ${config.secondaryColor}`,
-                        objectFit: 'cover',
-                      },
-                    },
-                  },
-                },
-              },
             ],
           },
         },
@@ -191,6 +176,23 @@ export async function generateOgImage(options: {
               color: PRIMARY_COLOR,
             },
             children: config.signature,
+          },
+        },
+        // Avatar — absolutely positioned, overflows right & bottom edges
+        {
+          type: 'img',
+          props: {
+            src: avatarUri,
+            style: {
+              position: 'absolute',
+              top: `${Math.round(AVATAR_CY - AVATAR_RADIUS)}px`,
+              left: `${Math.round(AVATAR_CX - AVATAR_RADIUS)}px`,
+              width: `${AVATAR_DIAMETER}px`,
+              height: `${AVATAR_DIAMETER}px`,
+              borderRadius: `${AVATAR_RADIUS}px`,
+              border: `${AVATAR_BORDER}px solid ${config.secondaryColor}`,
+              objectFit: 'cover',
+            },
           },
         },
       ],
