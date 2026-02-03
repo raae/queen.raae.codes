@@ -7,7 +7,7 @@
   to = "/sitemap-index.xml"
   status = 200
 
-# Redirects from redirects.json (ex-emails, speaker shortcuts)
+# Redirects (ex-emails, speaker shortcuts)
 [[redirects]]
   from = "/emails/2021-12-02-conference-buddy-2.0/"
   to = "/posts/2021-12-02-conference-buddy-v2/"
