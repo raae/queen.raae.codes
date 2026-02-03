@@ -33,6 +33,7 @@ const {
   siteTwitterCreator,
 } = siteMetadata;
 
+const deployUrl = import.meta.env.DEPLOY_PRIME_URL || siteUrl;
 const siteTitle = `${siteName} — ${siteTagline}`;
 const pageTitle = title ? `${title}  —  ${siteName}` : siteTitle;
 const pageImage = image || siteSocialImage;
@@ -40,7 +41,7 @@ const pageDescription = description || siteDescription;
 const canonical = canonicalProp || `${siteUrl}${Astro.url.pathname}`;
 const socialType = type;
 const socialTitle = pageTitle;
-const socialImage = pageImage && `${siteUrl}${pageImage}`;
+const socialImage = pageImage && `${deployUrl}${pageImage}`;
 const socialImageAlt = image ? imageAlt : siteSocialImageAlt;
 const socialDescription = pageDescription;
 const twitterSite = siteTwitterCreator;

@@ -48,7 +48,7 @@ const schema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
   headline: post.title,
-  image: [`${siteMetadata.siteUrl}${ogImagePath}`],
+  image: [`${import.meta.env.DEPLOY_PRIME_URL || siteMetadata.siteUrl}${ogImagePath}`],
   datePublished: post.dateISO,
   author: [
     {

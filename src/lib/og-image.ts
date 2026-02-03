@@ -178,7 +178,7 @@ export async function generateOgImage(options: {
                   style: {
                     display: "flex",
                     flexDirection: "column",
-                    maxWidth: `${COPY_WIDTH + 120}px`,
+                    maxWidth: `${COPY_WIDTH + 270}px`,
                     justifyContent: "center",
                     overflow: "hidden",
                   },
@@ -196,7 +196,7 @@ export async function generateOgImage(options: {
                           overflow: "hidden",
                           backgroundColor: BG_COLOR,
                           borderRadius: "20px",
-                          padding: "0 12px 18px 0",
+                          padding: "18px 18px 18px 0",
                         },
                         children: title,
                       },
