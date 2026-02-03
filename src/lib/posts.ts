@@ -52,6 +52,7 @@ export interface ProcessedPost {
   id: string;
   slug: string;
   title: string;
+  emojii: string;
   description: string;
   date: string;
   dateFormatted: string;
@@ -116,6 +117,7 @@ export async function getAllPosts(): Promise<ProcessedPost[]> {
       id: entry.id,
       slug,
       title,
+      emojii: entry.data.emojii || '',
       description,
       date,
       dateFormatted,
