@@ -14,7 +14,7 @@ export async function GET(context: APIContext) {
     title: 'Posts from Queen Raae',
     description:
       'Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!',
-    site: siteUrl + 'posts',
+    site: siteUrl.replace(/\/$/, '') + '/posts',
     items: queenPosts.map((post) => postToFeedItem(post, disclaimers, siteUrl)),
   });
 }

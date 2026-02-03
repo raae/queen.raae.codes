@@ -14,7 +14,7 @@ export async function GET(context: APIContext) {
     title: "Posts from Cap'n Ola",
     description:
       'Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!',
-    site: siteUrl + 'posts/olavea',
+    site: siteUrl.replace(/\/$/, '') + '/posts/olavea',
     items: olaveaPosts.map((post) => postToFeedItem(post, disclaimers, siteUrl)),
   });
 }
