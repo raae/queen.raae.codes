@@ -97,7 +97,7 @@ const formId = FORM_ID[formKey.toUpperCase()] || FORM_ID.LILLYLABS;
     </button>
   </div>
 
-  <div class="newsletter-alert hidden absolute inset-0 flex flex-col justify-center text-center border-solid border-2 p-4" data-alert-type="pending">
+  <div class="newsletter-alert hidden absolute inset-0 flex flex-col justify-center text-center border-solid border-2 p-4 bg-sky-50 border-sky-800" data-alert-type="pending">
     <p class="m-0 text-sm">Hold on...</p>
   </div>
 
@@ -138,10 +138,18 @@ const formId = FORM_ID[formKey.toUpperCase()] || FORM_ID.LILLYLABS;
       });
     };
 
+    const setFormDisabled = (disabled: boolean) => {
+      const emailInput = formEl.querySelector('input[name="email"]') as HTMLInputElement;
+      const submitBtn = formEl.querySelector('button[type="submit"]') as HTMLButtonElement;
+      if (emailInput) emailInput.disabled = disabled;
+      if (submitBtn) submitBtn.disabled = disabled;
+    };
+
     const hideAlerts = () => {
       formEl.querySelectorAll('.newsletter-alert').forEach((alert) => {
         (alert as HTMLElement).classList.add('hidden');
       });
+      setFormDisabled(false);
     };
 
     formEl.querySelectorAll('.newsletter-dismiss').forEach((btn) => {
@@ -150,9 +158,12 @@ const formId = FORM_ID[formKey.toUpperCase()] || FORM_ID.LILLYLABS;
 
     formEl.addEventListener('submit', async (e) => {
       e.preventDefault();
+      const submitBtn = formEl.querySelector('button[type="submit"]') as HTMLButtonElement;
+      if (submitBtn) submitBtn.blur();
       const emailInput = formEl.querySelector('input[name="email"]') as HTMLInputElement;
       const email = emailInput.value;
 
+      setFormDisabled(true);
       showAlert('pending');
 
       try {
