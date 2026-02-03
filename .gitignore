@@ -5,6 +5,7 @@ public
 .env.*
 !.env.example
 .DS_Store
+package-lock.json
 content-dev/
 .obsidian/
 .netlify/
