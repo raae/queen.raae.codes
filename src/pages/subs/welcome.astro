@@ -9,8 +9,8 @@ import { getAllPosts } from '../../lib/posts';
 
 const BADGE = 'Emails';
 const TITLE = 'Welcome';
-const DESCRIPTION = "You'll hear from us shortly";
-const META_DESCRIPTION = "You'll hear from us shortly";
+const DESCRIPTION = "You'll hear from us shortly\u00a0📬";
+const META_DESCRIPTION = "You'll hear from us shortly 📬";
 
 const allPosts = await getAllPosts();
 const latestPosts = allPosts.slice(0, 7);

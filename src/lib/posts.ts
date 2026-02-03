@@ -80,8 +80,24 @@ export async function getAllPosts(): Promise<ProcessedPost[]> {
     const title = entry.data.title || '';
     const isRelatable = !title.includes('week around the Gatsby islands');
 
-    // Generate description from title (first 160 chars)
-    const description = title.length > 160 ? title.substring(0, 157) + '...' : title;
+    // Generate description from body content (excerpt), matching Gatsby's behavior
+    const body = entry.body || '';
+    const plainText = body
+      .replace(/^---[\s\S]*?---\s*/m, '') // Remove frontmatter if present
+      .replace(/!\[.*?\]\(.*?\)/g, '') // Remove images
+      .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') // Replace links with text
+      .replace(/#{1,6}\s+/g, '') // Remove headings
+      .replace(/[*_~`>]/g, '') // Remove emphasis markers
+      .replace(/\n+/g, ' ') // Replace newlines with spaces
+      .replace(/\s+/g, ' ') // Collapse whitespace
+      .trim();
+    // Gatsby's pruneLength is 160 and truncates at word boundary
+    let description = plainText;
+    if (plainText.length > 160) {
+      const truncated = plainText.substring(0, 160);
+      const lastSpace = truncated.lastIndexOf(' ');
+      description = (lastSpace > 0 ? truncated.substring(0, lastSpace) : truncated) + '\u2026';
+    }
 
     let dateFormatted = '';
     let dateISO = date;

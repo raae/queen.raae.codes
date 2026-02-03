@@ -2,6 +2,7 @@
 interface BreadcrumbItem {
   label: string;
   to?: string;
+  datetime?: string;
 }
 
 interface Props {
@@ -13,7 +14,7 @@ const { items = [], class: className } = Astro.props;
 ---
 
 <nav aria-label="breadcrumb" class={className}>
-  {items.map(({ label, to }, index) => {
+  {items.map(({ label, to, datetime }, index) => {
     const isLast = index + 1 === items.length;
 
     if (to) {
@@ -40,7 +41,11 @@ const { items = [], class: className } = Astro.props;
           isLast ? "text-brown-900 font-light" : "text-teal-900 font-base"
         ]}
       >
-        <span>{label}</span>
+        {datetime ? (
+          <time timedate={datetime}>{label}</time>
+        ) : (
+          <span>{label}</span>
+        )}
         {!isLast && (
           <span aria-hidden="true" class="px-2">·</span>
         )}
