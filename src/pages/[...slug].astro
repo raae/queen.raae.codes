@@ -10,6 +10,7 @@ import Newsletter from '../components/Newsletter.astro';
 import Posts from '../components/Posts.astro';
 import { getAllPosts, getRelatedPosts } from '../lib/posts';
 import { getDisclaimers } from '../lib/disclaimers';
+import { getOgImagePath } from '../lib/og-image';
 import siteMetadata from '../data/siteMetadata';
 
 export async function getStaticPaths() {
@@ -40,12 +41,14 @@ const isOla = post.author === 'OlaVea';
 const authorName = isOla ? 'Ola Vea' : 'Benedicte Raae';
 const authorTwitter = isOla ? 'https://twitter.com/olaholstvea' : 'https://twitter.com/raae';
 
+const ogImagePath = getOgImagePath(post.slug);
+
 // Schema.org structured data
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
   headline: post.title,
-  image: [`${siteMetadata.siteUrl}/raae.jpg`],
+  image: [`${siteMetadata.siteUrl}${ogImagePath}`],
   datePublished: post.dateISO,
   author: [
     {
@@ -60,6 +63,7 @@ const schema = {
 <BaseLayout
   title={post.title}
   description={post.description}
+  image={ogImagePath}
   creator={isOla ? '@OlaHolstVea' : undefined}
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema, null, 2)} slot="head" />
