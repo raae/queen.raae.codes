@@ -6,3 +6,65 @@
   from = "/sitemap.xml"
   to = "/sitemap-index.xml"
   status = 200
+
+# Redirects from redirects.json (ex-emails, speaker shortcuts)
+[[redirects]]
+  from = "/emails/2021-12-02-conference-buddy-2.0/"
+  to = "/posts/2021-12-02-conference-buddy-v2/"
+  status = 301
+[[redirects]]
+  from = "/emails/2022-03-30-determenistic/"
+  to = "/posts/2022-03-30-deterministic/"
+  status = 301
+[[redirects]]
+  from = "/emails/2022-05-18-this-week/"
+  to = "/posts/2022-05-18-dynamic-serverless/"
+  status = 301
+[[redirects]]
+  from = "/emails/2022-09-06-this-week/"
+  to = "/posts/2022-09-05-this-week/"
+  status = 301
+[[redirects]]
+  from = "/emails/2022-09-29-croco-clock/"
+  to = "/posts/2022-10-13-croco-clock/"
+  status = 301
+[[redirects]]
+  from = "/emails/2023-02-01-netlify+gatsby/"
+  to = "/posts/2023-02-01-netlify-gatsby/"
+  status = 301
+[[redirects]]
+  from = "/emails/welcome/"
+  to = "/subs/welcome/"
+  status = 301
+[[redirects]]
+  from = "/emails/reminders/"
+  to = "/subs/reminders/"
+  status = 301
+[[redirects]]
+  from = "/emails/preferences/"
+  to = "/subs/preferences/"
+  status = 301
+[[redirects]]
+  from = "/emails/*"
+  to = "/:splat"
+  status = 301
+[[redirects]]
+  from = "/react-norway/"
+  to = "/speaker/2022-06-24-react-norway/"
+  status = 301
+[[redirects]]
+  from = "/gatsby-fall-camp-2021/"
+  to = "/speaker/2021-09-16-gatsby-fall-camp/"
+  status = 301
+[[redirects]]
+  from = "/mpya/"
+  to = "/speaker/2021-12-15-mpya/"
+  status = 301
+[[redirects]]
+  from = "/jam/"
+  to = "/speaker/2022-11-08-jamstackconf/"
+  status = 301
+[[redirects]]
+  from = "/modern/"
+  to = "/speaker/2022-12-17-modern-frontends/"
+  status = 301
