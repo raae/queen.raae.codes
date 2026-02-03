@@ -7,6 +7,7 @@ import PageSectionBreadcrumbs from '../../components/PageSectionBreadcrumbs.astr
 import Prose from '../../components/Prose.astro';
 import Newsletter from '../../components/Newsletter.astro';
 import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
 import { format } from 'date-fns';
 
 export async function getStaticPaths() {
@@ -38,12 +39,13 @@ function getRecordingText(url: string): string {
 }
 
 const date = parseDateFromId(talk.id);
+const ogImage = data.image ? await getImage({ src: data.image, format: 'jpeg' }) : null;
 ---
 
 <BaseLayout
   title={data.title}
   description={data.lead}
-  image={data.image?.src}
+  image={ogImage?.src}
 >
   <SiteHeader />
   <main>
