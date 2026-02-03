@@ -9,19 +9,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const slugParam = post.slug.replace(/^\/|\/$/g, '');
     return {
       params: { slug: slugParam },
-      props: { post },
+      props: {
+        title: post.title,
+        description: post.description,
+        author: post.author,
+      },
     };
   });
 };
 
 export const GET: APIRoute = async ({ props }) => {
-  const { post } = props as any;
+  const { title, description, author } = props as any;
 
-  const png = await generateOgImage({
-    title: post.title,
-    description: post.description,
-    author: post.author,
-  });
+  const png = await generateOgImage({ title, description, author });
 
   return new Response(png, {
     headers: { 'Content-Type': 'image/png' },
