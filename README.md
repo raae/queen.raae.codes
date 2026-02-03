@@ -1,54 +1,90 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# Queen Raae
 
-## 🚀 Quick start
+> Sailing the high seas of the World Wide Web
 
-1.  **Create a Gatsby site.**
+Personal blog and product showcase for [queen.raae.codes](https://queen.raae.codes) — built with Astro and deployed on Netlify.
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+## Tech stack
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+- **Framework**: [Astro](https://astro.build/) with MDX
+- **Styling**: Tailwind CSS with Typography and Forms plugins
+- **Deployment**: Netlify
+- **Newsletter**: ConvertKit
+- **Analytics**: Fathom
+- **OG Images**: Satori + Sharp (generated at build time)
+- **Code Quality**: Prettier, Husky, CommitLint, Playwright
 
-2.  **Start developing.**
+## Getting started
 
-    Navigate into your new site’s directory and start it up.
+```shell
+npm install
+```
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+Copy `.env.example` to `.env` and add your ConvertKit API key:
 
-3.  **Open the code and start customizing!**
+```shell
+cp .env.example .env
+```
 
-    Your site is now running at http://localhost:8000!
+Start the dev server:
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+```shell
+npm run dev
+```
 
-4.  **Learn more**
+The site runs at `http://localhost:4321`.
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## Scripts
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+| Command           | Description                                  |
+| ----------------- | -------------------------------------------- |
+| `npm run dev`     | Start the Astro dev server                   |
+| `npm run build`   | Build the production site to `dist/`         |
+| `npm run preview` | Preview the production build locally         |
+| `npm run prettier`| Format code (JS, TS, JSON, MDX, Astro files) |
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## Project structure
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+```
+src/
+├── assets/            # Fonts for OG image generation
+├── components/        # Reusable Astro components
+├── content/           # Astro Content Collections
+│   ├── posts-queen/   # Queen Raae's blog posts (~227)
+│   ├── posts-olavea/  # Cap'n Ola's blog posts (~20)
+│   ├── landing/       # Landing page data
+│   ├── talks/         # Speaking engagements
+│   ├── tags/          # Tag metadata (YAML)
+│   └── testimonials/  # Testimonial data (YAML)
+├── data/              # Site metadata
+├── layouts/           # Base HTML layout
+├── lib/               # Utilities (feeds, OG images, post helpers)
+├── pages/             # File-based routes
+└── global.css         # Tailwind directives and global styles
+```
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## Content
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+Blog posts live in `src/content/posts-queen/` organized by date: `YYYY/MM/DD-slug/index.md`. Content schemas are defined with Zod in `src/content/config.ts`.
 
-## 🚀 Quick start (Gatsby Cloud)
+### Content collections
 
-Deploy this starter SvgWith one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+- **posts-queen** / **posts-olavea** — Blog posts with frontmatter: title, emojii, tags, brands, peeps, projects
+- **landing** — Multi-section landing pages with CTAs, forms, and images
+- **talks** — Speaking engagements with event info and recordings
+- **tags** — Tag labels and disclaimers (YAML)
+- **testimonials** — Customer testimonials (YAML)
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+## Deployment
+
+The site deploys to Netlify automatically. Configuration is in `netlify.toml`:
+
+- **Build command**: `npm run build`
+- **Publish directory**: `dist/`
+- **Redirects**: Legacy `/emails/*` URLs, speaker shortcuts, sitemap rewrite
+
+## Environment variables
+
+| Variable            | Description          |
+| ------------------- | -------------------- |
+| `PUBLIC_CK_API_KEY` | ConvertKit API key   |
