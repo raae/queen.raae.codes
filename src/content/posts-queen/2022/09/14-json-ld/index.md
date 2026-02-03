@@ -4,7 +4,7 @@ emojii: 🗂 👤
 tags: seo, JSON-LD, Gatsby Head API
 ---
 
-How do you add structured data to your Gatsby site? With a little help from good old `JSON.stringify()` and the [Gatsby Head API](/gatsby-head-api/)!
+How do you add structured data to your Gatsby site? With a little help from good old `JSON.stringify()` and the [Gatsby Head API](/2022-09-02-head-api/)!
 
 1. Create the schema as an object
 2. Stringify the schema object

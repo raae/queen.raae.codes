@@ -86,7 +86,7 @@ createTheme({
 });
 ```
 
-[![Before and after screenshot of the list component](./list.jpg)](https://queen.raae.codes/emails)
+[![Before and after screenshot of the list component](./list.jpg)](/subs/)
 
 To see all the global changes I made for queen.raae.codes check out [the theme folder](https://github.com/raae/queen.raae.codes/tree/main/src/%40raae/gatsby-theme-mui) in its repo on GitHub.
 

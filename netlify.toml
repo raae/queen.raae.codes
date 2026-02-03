@@ -45,6 +45,18 @@
   to = "/subs/preferences/"
   status = 301
 [[redirects]]
+  from = "/emails"
+  to = "/subs/"
+  status = 301
+[[redirects]]
+  from = "/emails/"
+  to = "/subs/"
+  status = 301
+[[redirects]]
+  from = "/gatsby-head-api/"
+  to = "/2022-09-02-head-api/"
+  status = 301
+[[redirects]]
   from = "/emails/*"
   to = "/:splat"
   status = 301
