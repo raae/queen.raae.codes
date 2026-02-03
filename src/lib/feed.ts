@@ -38,7 +38,7 @@ export function postToFeedItem(
   const postDisclaimers = getPostDisclaimers(post, disclaimers);
   const emojii = getEmojii(post);
 
-  // Render markdown to HTML, then make relative URLs absolute
+  // Render markdown to HTML via markdown-it, then make relative URLs absolute
   let content = makeAbsolute(md.render(post.content), siteUrl);
 
   if (postDisclaimers.length > 0) {
