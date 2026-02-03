@@ -9,6 +9,7 @@ import Badge from '../components/Badge.astro';
 import Newsletter from '../components/Newsletter.astro';
 import Posts from '../components/Posts.astro';
 import { getAllPosts, getRelatedPosts } from '../lib/posts';
+import { getDisclaimers } from '../lib/disclaimers';
 import siteMetadata from '../data/siteMetadata';
 
 export async function getStaticPaths() {
@@ -28,6 +29,12 @@ const { post, allPosts } = Astro.props;
 const { Content } = await post.render();
 
 const relatedPosts = getRelatedPosts(post, allPosts, 3, 0.7);
+
+// Look up brand disclaimers for this post's tags
+const disclaimerMap = await getDisclaimers();
+const disclaimers = post.tags
+  .map((tag) => disclaimerMap.get(tag.label))
+  .filter((d): d is string => !!d);
 
 const isOla = post.author === 'OlaVea';
 const authorName = isOla ? 'Ola Vea' : 'Benedicte Raae';
@@ -81,6 +88,18 @@ const schema = {
       <Prose class="mt-12">
         <Content />
       </Prose>
+
+      {disclaimers.length > 0 && (
+        <aside class="notice space-y-1 py-4">
+          <ul class="space-y-1">
+            {disclaimers.map((disclaimer) => (
+              <li class="before:content-['➽'] before:pr-2 before:pl-1 before:text-amber-500">
+                {disclaimer}
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
     </PageSection>
 
     <PageSection component="footer">
