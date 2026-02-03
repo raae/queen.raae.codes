@@ -48,6 +48,42 @@ function getAvatarDataUri(filename: string): string {
   return uri;
 }
 
+// ── Emoji support (Twemoji SVGs via Satori's loadAdditionalAsset) ─
+const U200D = String.fromCharCode(8205);
+const UFE0Fg = /\uFE0F/g;
+
+function toCodePoint(unicodeSurrogates: string): string {
+  const r: string[] = [];
+  let c = 0, p = 0, i = 0;
+  while (i < unicodeSurrogates.length) {
+    c = unicodeSurrogates.charCodeAt(i++);
+    if (p) {
+      r.push((65536 + ((p - 55296) << 10) + (c - 56320)).toString(16));
+      p = 0;
+    } else if (55296 <= c && c <= 56319) {
+      p = c;
+    } else {
+      r.push(c.toString(16));
+    }
+  }
+  return r.join('-');
+}
+
+function getIconCode(char: string): string {
+  return toCodePoint(char.indexOf(U200D) < 0 ? char.replace(UFE0Fg, '') : char);
+}
+
+const emojiCache = new Map<string, string>();
+
+async function loadEmoji(code: string): Promise<string> {
+  if (emojiCache.has(code)) return emojiCache.get(code)!;
+  const url = `https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/${code.toLowerCase()}.svg`;
+  const res = await fetch(url);
+  const svg = await res.text();
+  emojiCache.set(code, svg);
+  return svg;
+}
+
 // ── Text truncation (Satori has no line-clamp) ────────────────────
 function truncateText(text: string, maxChars: number): string {
   if (text.length <= maxChars) return text;
@@ -139,6 +175,7 @@ export async function generateOgImage(options: {
                           fontSize: '48px',
                           color: PRIMARY_TEXT,
                           lineHeight: 1.2,
+                          textWrap: 'balance',
                           overflow: 'hidden',
                         },
                         children: title,
@@ -206,6 +243,12 @@ export async function generateOgImage(options: {
       { name: 'Roboto', data: fontRegular!, weight: 400, style: 'normal' },
       { name: 'Roboto', data: fontBold!, weight: 700, style: 'normal' },
     ],
+    loadAdditionalAsset: async (code: string, segment: string) => {
+      if (code === 'emoji') {
+        return `data:image/svg+xml;base64,${Buffer.from(await loadEmoji(getIconCode(segment))).toString('base64')}`;
+      }
+      return code;
+    },
   });
 
   return await sharp(Buffer.from(svg)).png().toBuffer();
