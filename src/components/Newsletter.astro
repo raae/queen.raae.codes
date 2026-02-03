@@ -41,6 +41,7 @@ const FORM_ID: Record<string, string> = {
 };
 
 const formId = FORM_ID[formKey.toUpperCase()] || FORM_ID.LILLYLABS;
+const emailId = `email-${crypto.randomUUID().slice(0, 8)}`;
 ---
 
 <form
@@ -58,7 +59,7 @@ const formId = FORM_ID[formKey.toUpperCase()] || FORM_ID.LILLYLABS;
 
   <div class="flex relative mt-5 max-w-[50ch]">
     <label
-      for="email"
+      for={emailId}
       class="absolute flex items-center left-3 top-1/2 -translate-y-1/2"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="24px" height="24px" class="w-6 h-6">
@@ -81,7 +82,7 @@ const formId = FORM_ID[formKey.toUpperCase()] || FORM_ID.LILLYLABS;
     </label>
 
     <input
-      id="email"
+      id={emailId}
       name="email"
       type="email"
       class="pl-11 font-medium w-full flex-grow border-solid transition border-2 border-teal-900 focus:border-teal-900 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-amber-500"
