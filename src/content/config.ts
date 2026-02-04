@@ -95,7 +95,7 @@ const landing = defineCollection({
           z.object({
             to: z.string().optional(),
             label: z.string().optional(),
-          })
+          }),
         )
         .optional(),
       webinar: z
@@ -136,7 +136,7 @@ const landing = defineCollection({
             image: image().optional(),
             body: z.string().optional(), // Path to body markdown file
             testimonials: z.array(z.string()).optional(), // Paths to testimonial files
-          })
+          }),
         )
         .optional(),
     }),
@@ -188,7 +188,7 @@ const tags = defineCollection({
     z.object({
       label: z.string(),
       disclaimer: z.string().optional(),
-    })
+    }),
   ),
 });
 
@@ -202,7 +202,7 @@ const testimonials = defineCollection({
       image: z.string().optional(),
       product: z.string().optional(),
       date: z.union([z.string(), z.date()]).optional(),
-    })
+    }),
   ),
 });
 

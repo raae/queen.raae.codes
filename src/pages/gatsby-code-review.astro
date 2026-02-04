@@ -1,14 +1,15 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SiteHeader from '../components/SiteHeader.astro';
-import PageSection from '../components/PageSection.astro';
-import PageSectionHeader from '../components/PageSectionHeader.astro';
-import Prose from '../components/Prose.astro';
-import CtaSection from '../components/CtaSection.astro';
-import Newsletter from '../components/Newsletter.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import PageSection from "../components/PageSection.astro";
+import PageSectionHeader from "../components/PageSectionHeader.astro";
+import Prose from "../components/Prose.astro";
+import CtaSection from "../components/CtaSection.astro";
+import Newsletter from "../components/Newsletter.astro";
 
 const title = "Get feedback on your Gatsby project";
-const description = "Book a Gatsby Code review with Queen Raae. Friendly advice you can put into action immediately, guaranteed!";
+const description =
+  "Book a Gatsby Code review with Queen Raae. Friendly advice you can put into action immediately, guaranteed!";
 ---
 
 <BaseLayout title={title} description={description}>
@@ -24,13 +25,23 @@ const description = "Book a Gatsby Code review with Queen Raae. Friendly advice 
       />
       <Prose class="mt-4">
         <h2>Need a pair of Gatsby-expert eyes?</h2>
-        <p><strong>Imagine this –</strong> Imagine understanding the current state of your Gatsby project. Imagine knowing how to steer away from common Gatsby pitfalls in the future. Imagine having a plan to ensure a stable Gatsby project.</p>
+        <p>
+          <strong>Imagine this –</strong> Imagine understanding the current state of your Gatsby project. Imagine knowing
+          how to steer away from common Gatsby pitfalls in the future. Imagine having a plan to ensure a stable Gatsby project.
+        </p>
         <p><strong>Imagine having a Gatsby expert review your code</strong> and help you get there!</p>
 
         <h2>Here's How It Works</h2>
-        <p>In a virtual 30-minute meeting, you present your Gatsby project and the underlying challenges you are having. If you are not the lead developer, bring the lead developer!</p>
+        <p>
+          In a virtual 30-minute meeting, you present your Gatsby project and the underlying challenges you are having.
+          If you are not the lead developer, bring the lead developer!
+        </p>
         <p>After that, you give me access to your code, and I thoroughly review the whole code base.</p>
-        <p>After I finish the review, we schedule a one-hour review session where I present feedback on your Gatsby project and share tips for improvements and further development. You are free to record this session for future reference.</p>
+        <p>
+          After I finish the review, we schedule a one-hour review session where I present feedback on your Gatsby
+          project and share tips for improvements and further development. You are free to record this session for
+          future reference.
+        </p>
       </Prose>
       <CtaSection
         label="Book your intro session"
@@ -45,8 +56,15 @@ const description = "Book a Gatsby Code review with Queen Raae. Friendly advice 
     <PageSection>
       <Prose>
         <h2>Who am I and why choose me to review your code?</h2>
-        <p>Hi! I am Queen Raae, a seasoned web developer who loves duct-taping together side projects in addition to making apps trusted by the Swedish Armed Forces, The Norwegian Water Resources and Energy Directorate, and others.</p>
-        <p>I have followed Gatsby closely since 2018 and here are some hopefully compelling reasons as to why you should choose me to review your code:</p>
+        <p>
+          Hi! I am Queen Raae, a seasoned web developer who loves duct-taping together side projects in addition to
+          making apps trusted by the Swedish Armed Forces, The Norwegian Water Resources and Energy Directorate, and
+          others.
+        </p>
+        <p>
+          I have followed Gatsby closely since 2018 and here are some hopefully compelling reasons as to why you should
+          choose me to review your code:
+        </p>
         <ul>
           <li>Experience publishing Gatsby Plugins to the npm Registry.</li>
           <li>A solid presence in the Gatsby community.</li>
@@ -64,9 +82,7 @@ const description = "Book a Gatsby Code review with Queen Raae. Friendly advice 
 
     <!-- CTA Footer Section -->
     <PageSection>
-      <PageSectionHeader
-        title="Get another pair of eyes on your Gatsby project"
-      />
+      <PageSectionHeader title="Get another pair of eyes on your Gatsby project" />
       <CtaSection
         label="Book your intro session"
         href="https://savvycal.com/raae/code-review"

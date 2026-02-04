@@ -1,14 +1,15 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SiteHeader from '../components/SiteHeader.astro';
-import PageSection from '../components/PageSection.astro';
-import PageSectionHeader from '../components/PageSectionHeader.astro';
-import Prose from '../components/Prose.astro';
-import CtaSection from '../components/CtaSection.astro';
-import Newsletter from '../components/Newsletter.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import PageSection from "../components/PageSection.astro";
+import PageSectionHeader from "../components/PageSectionHeader.astro";
+import Prose from "../components/Prose.astro";
+import CtaSection from "../components/CtaSection.astro";
+import Newsletter from "../components/Newsletter.astro";
 
 const title = "Do you get customer requests for how to integrate your SaaS with Gatsby?";
-const description = "No time to keep up-to-date with yet another fast-moving framework? Imagine having a fully working integration demo done for you, created by Gatsby experts.";
+const description =
+  "No time to keep up-to-date with yet another fast-moving framework? Imagine having a fully working integration demo done for you, created by Gatsby experts.";
 ---
 
 <BaseLayout title={title} description={description}>
@@ -40,14 +41,17 @@ const description = "No time to keep up-to-date with yet another fast-moving fra
 
     <!-- Testimonial Section -->
     <PageSection>
-      <PageSectionHeader
-        title="But don't take our word for it..."
-      />
+      <PageSectionHeader title="But don't take our word for it..." />
 
       <div class="mt-8 space-y-8">
         <blockquote class="m-0 px-6 pt-3 pb-5 border-solid border-4 border-yellow-400">
           <Prose>
-            <p>We hired Queen Raae and Cap'n Ola to build a React integration project for us and couldn't have been happier with the results. They understood the technical requirements immediately, executed with little oversight needed on our end, and delivered a finished project that will benefit our customers for a long time to come. We'd absolutely hire them again!</p>
+            <p>
+              We hired Queen Raae and Cap'n Ola to build a React integration project for us and couldn't have been
+              happier with the results. They understood the technical requirements immediately, executed with little
+              oversight needed on our end, and delivered a finished project that will benefit our customers for a long
+              time to come. We'd absolutely hire them again!
+            </p>
           </Prose>
           <div class="flex items-center gap-4 mt-6">
             <cite class="text-sm leading-tight">
@@ -103,13 +107,18 @@ const description = "No time to keep up-to-date with yet another fast-moving fra
 
     <!-- About Section -->
     <PageSection>
-      <PageSectionHeader
-        title="Who are we?"
-      />
+      <PageSectionHeader title="Who are we?" />
 
       <Prose class="mt-4">
-        <p>Queen Raae is a seasoned web developer who has sailed the seas of the World Wide Web since 1995. She holds a Master of Computer Science from the Norwegian University of Science and Technology and has created apps trusted by the Swedish Armed Forces, The Norwegian Water Resources and Energy Directorate, and others.</p>
-        <p>Cap'n Ola is the junior developer of the crew, bringing fresh energy and a keen eye for detail to every project.</p>
+        <p>
+          Queen Raae is a seasoned web developer who has sailed the seas of the World Wide Web since 1995. She holds a
+          Master of Computer Science from the Norwegian University of Science and Technology and has created apps
+          trusted by the Swedish Armed Forces, The Norwegian Water Resources and Energy Directorate, and others.
+        </p>
+        <p>
+          Cap'n Ola is the junior developer of the crew, bringing fresh energy and a keen eye for detail to every
+          project.
+        </p>
         <p>Together with Pirate Princess Lillian, we make up the crew of this pirate ship!</p>
         <p>Join us for weekly treasure hunts on YouTube.</p>
       </Prose>
@@ -117,9 +126,7 @@ const description = "No time to keep up-to-date with yet another fast-moving fra
 
     <!-- Final CTA Section -->
     <PageSection component="footer">
-      <PageSectionHeader
-        title="Let us take a plate off your SaaS founder hands"
-      />
+      <PageSectionHeader title="Let us take a plate off your SaaS founder hands" />
 
       <Prose class="mt-4">
         <p>Imagine having a fully working <strong>integration demo done for you</strong>, created by Gatsby experts.</p>

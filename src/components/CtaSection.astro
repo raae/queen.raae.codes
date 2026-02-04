@@ -1,5 +1,5 @@
 ---
-import CtaButton from './CtaButton.astro';
+import CtaButton from "./CtaButton.astro";
 
 interface Props {
   href?: string;
@@ -17,15 +17,15 @@ if (!label || (!href && !to)) {
 }
 ---
 
-{label && (href || to) && (
-  <div class={className}>
-    <CtaButton href={href} to={to}>
-      {label}
-    </CtaButton>
+{
+  label && (href || to) && (
+    <div class={className}>
+      <CtaButton href={href} to={to}>
+        {label}
+      </CtaButton>
 
-    {noteTitle && (
-      <p class="text-xs pl-0.5 font-semibold my-2">{noteTitle}</p>
-    )}
-    {note && <p class="text-xs pl-0.5 my-2">{note}</p>}
-  </div>
-)}
+      {noteTitle && <p class="text-xs pl-0.5 font-semibold my-2">{noteTitle}</p>}
+      {note && <p class="text-xs pl-0.5 my-2">{note}</p>}
+    </div>
+  )
+}

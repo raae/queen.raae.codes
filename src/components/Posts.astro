@@ -1,25 +1,46 @@
 ---
-import ContentList from './ContentList.astro';
-import type { ProcessedPost } from '../lib/posts';
+import ContentList from "./ContentList.astro";
+import Badge from "./Badge.astro";
+import type { ProcessedPost } from "../lib/posts";
 
 interface Props {
   posts?: ProcessedPost[];
   more?: boolean;
+  variant?: "default" | "detailed";
   limit?: number;
   class?: string;
 }
 
-const { posts = [], more = false, limit, class: className } = Astro.props;
+const { posts = [], more = false, variant = "default", limit, class: className } = Astro.props;
 
 const displayPosts = limit ? posts.slice(0, limit) : posts;
 
-const items = displayPosts.map(({ title, slug, dateFormatted }) => ({
-  to: slug,
-  primary: title,
-  secondary: dateFormatted,
-}));
+const items = displayPosts.map(({ title, description, slug, dateFormatted, tags }) => {
+  let body = "";
 
-const ctas = more ? [{ to: '/posts/', label: 'More...' }] : [];
+  if (variant === "detailed") {
+    const tagBadges = tags
+      .map(
+        ({ label }) =>
+          `<span class="inline-flex items-center rounded-md px-2.5 py-0.5 border-style bg-amber-100 text-xs font-medium text-brown-900">${label}</span>`,
+      )
+      .join(" ");
+
+    body = `
+      <p class="my-2 text-sm">${description}</p>
+      <aside class="my-0 space-x-2">${tagBadges}</aside>
+    `;
+  }
+
+  return {
+    to: slug,
+    primary: title,
+    body: variant === "detailed" ? body : undefined,
+    secondary: dateFormatted,
+  };
+});
+
+const ctas = more ? [{ to: "/posts/", label: "More..." }] : [];
 ---
 
 <ContentList items={items} ctas={ctas} class={className} />
