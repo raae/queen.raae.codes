@@ -12,8 +12,8 @@ interface Props {
 const LILLY_LABS_DEFAULTS = {
   formKey: "lillylabs",
   cta: "Yes, please!",
-  tagline: "Join the crew?",
-  message: "Join the crew and stay up to date by signing up for our Weekly Ship's Log.",
+  tagline: "Stay updated!",
+  message: "Sign up for the newsletter.",
 };
 
 const {
@@ -52,9 +52,9 @@ const emailId = `email-${crypto.randomUUID().slice(0, 8)}`;
 >
   {
     (tagline || message) && (
-      <div class="max-w-[48ch]">
+      <div class="max-w-[48ch] text-pretty">
         {tagline && <strong>{tagline} </strong>}
-        {message}
+        <span>{message}</span>
       </div>
     )
   }
