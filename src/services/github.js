@@ -31,16 +31,13 @@ export default (repoAccessToken = process.env.GITHUB_PERSONAL_ACCESS_TOKEN) => {
     log("getRepoAccess", owner, repo, username);
 
     // https://docs.github.com/en/rest/reference/repos#check-if-a-user-is-a-repository-collaborator
-    const { status } = await githubApi.get(
-      `repos/${owner}/${repo}/collaborators/${username}`,
-      {
-        validateStatus: (status) => {
-          // 204 means the user is a collaborator
-          // 404 means the user is not a collaborator
-          return [204, 404].includes(status);
-        },
-      }
-    );
+    const { status } = await githubApi.get(`repos/${owner}/${repo}/collaborators/${username}`, {
+      validateStatus: (status) => {
+        // 204 means the user is a collaborator
+        // 404 means the user is not a collaborator
+        return [204, 404].includes(status);
+      },
+    });
 
     // TODO: Also check if invited!!
 
@@ -53,9 +50,7 @@ export default (repoAccessToken = process.env.GITHUB_PERSONAL_ACCESS_TOKEN) => {
     log("addRepoAccess", owner, repo, username);
 
     // https://docs.github.com/en/rest/reference/repos#add-a-repository-collaborator
-    const { status } = await githubApi.put(
-      `repos/${owner}/${repo}/collaborators/${username}`
-    );
+    const { status } = await githubApi.put(`repos/${owner}/${repo}/collaborators/${username}`);
 
     log("status", status);
 

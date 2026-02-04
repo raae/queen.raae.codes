@@ -31,7 +31,7 @@ const searchData = allPosts.map(post => ({
         type="search"
         name="search"
         id="search"
-        class="font-medium w-full flex-grow border-solid transition border-2 border-teal-900 focus:border-amber-500 focus-within:ring-1 focus-within:ring-amber-500"
+        class="font-medium w-full grow border-solid transition border-2 border-teal-900 focus:border-amber-500 focus-within:ring-1 focus-within:ring-amber-500"
         placeholder="Type to search..."
       />
 
@@ -48,7 +48,7 @@ const searchData = allPosts.map(post => ({
         {latestPosts.map((post) => (
           <li class="mx-2 px-5 py-3 pb-4 relative border-0 border-l-4 border-solid border-amber-500 flex flex-col transition hover:bg-amber-400/30">
             <h3 class="text-base my-0 font-bold">
-              <a href={post.slug} class="text-inherit no-underline focus:outline-none">
+              <a href={post.slug} class="text-inherit no-underline focus:outline-hidden">
                 <span class="absolute inset-0" aria-hidden="true" />
                 {post.title}
               </a>
@@ -146,7 +146,7 @@ const searchData = allPosts.map(post => ({
             return `
               <li class="mx-2 px-5 py-3 pb-4 relative border-0 border-l-4 border-solid border-amber-500 flex flex-col transition hover:bg-amber-400/30">
                 <h3 class="text-base my-0 font-bold">
-                  <a href="${item.slug}" class="text-inherit no-underline focus:outline-none">
+                  <a href="${item.slug}" class="text-inherit no-underline focus:outline-hidden">
                     <span class="absolute inset-0" aria-hidden="true"></span>
                     ${title}
                   </a>

@@ -1,9 +1,43 @@
 /* PrismJS theme for code highlighting */
-@import 'prismjs/themes/prism-solarizedlight.css';
+@import 'prismjs/themes/prism-solarizedlight.css' layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+
+@config '../tailwind.config.js';
+
+@theme {
+  --color-brown-50: #fbf6f5;
+  --color-brown-100: #f6ecea;
+  --color-brown-200: #f0dcd8;
+  --color-brown-300: #e4c3bd;
+  --color-brown-400: #d2a097;
+  --color-brown-500: #bf7f74;
+  --color-brown-600: #a96559;
+  --color-brown-700: #8d5248;
+  --color-brown-800: #76463e;
+  --color-brown-900: #3e2723;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 .notice {
   @apply border-4 border-dashed border-amber-500 px-4 my-8 text-sm;

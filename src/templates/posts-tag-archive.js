@@ -2,10 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import SiteHeader from "../components/site-header";
-import PageSection, {
-  PageSectionBreadcrumbs,
-  PageSectionHeader,
-} from "../components/page-section";
+import PageSection, { PageSectionBreadcrumbs, PageSectionHeader } from "../components/page-section";
 import PageHead from "../components/page-head";
 
 import { Posts } from "../components/posts";
@@ -36,10 +33,7 @@ export default function PostsPage(props) {
         <PageSection component="article">
           <PageSectionBreadcrumbs
             className="mt-4"
-            items={[
-              { label: "Posts", to: "/posts/" },
-              { label: pageContext.tagLabel },
-            ]}
+            items={[{ label: "Posts", to: "/posts/" }, { label: pageContext.tagLabel }]}
           />
           <PageSectionHeader title={title} hLevel={1} />
 
@@ -56,10 +50,7 @@ export default function PostsPage(props) {
 
 export const query = graphql`
   query TagById($tagLabel: String!) {
-    allPost(
-      sort: { slug: DESC }
-      filter: { tags: { elemMatch: { label: { eq: $tagLabel } } } }
-    ) {
+    allPost(sort: { slug: DESC }, filter: { tags: { elemMatch: { label: { eq: $tagLabel } } } }) {
       nodes {
         ...PostItemFragment
       }
