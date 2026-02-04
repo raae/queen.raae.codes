@@ -185,14 +185,14 @@ The site is well-structured for an Astro 5 static site with content collections.
 
 ## Critical Issues
 
-### 1. XSS Vulnerability in Search Page
+### ~~1. XSS Vulnerability in Search Page~~
 **File:** `src/pages/search/index.astro:128-161`
 
 The search results are rendered using `innerHTML` with data that includes user-searchable content (post titles, descriptions). The `highlightMatches` function wraps matched text in `<mark>` tags, but the surrounding text is inserted raw into the DOM via `innerHTML`. If any post title or description contains HTML characters, they will be rendered as HTML.
 
 While the data source is author-controlled markdown (low risk in practice), this is a pattern violation. Using `textContent` for non-highlighted portions or escaping HTML entities before insertion would be the proper fix.
 
-### 2. XSS Risk in Posts Component
+### ~~2. XSS Risk in Posts Component~~
 **File:** `src/components/Posts.astro:22-29`
 
 Tag labels are interpolated directly into HTML strings without escaping:
@@ -207,12 +207,12 @@ These strings are then rendered via `set:html` in `ContentList.astro:55`. If a t
 
 ## High Priority — Dead Code and Gatsby Leftovers
 
-### 3. Legacy Gatsby Template Still Present
+### ~~3. Legacy Gatsby Template Still Present~~
 **File:** `src/templates/posts-tag-archive.js`
 
 This is a complete React/Gatsby page template with `graphql` imports, `PageHead`, `gatsby` components. It serves no purpose in the Astro build and should be deleted.
 
-### 4. Unused Service Modules
+### ~~4. Unused Service Modules~~
 **Files:**
 - `src/services/github.js` — GitHub API client using `axios` (not in dependencies)
 - `src/services/stripe.js` — Stripe checkout session helper using `stripe` (not in dependencies)
@@ -220,7 +220,7 @@ This is a complete React/Gatsby page template with `graphql` imports, `PageHead`
 
 None of these are imported anywhere in the Astro codebase. They appear to be leftover from the Gatsby-era serverless functions. They import packages (`axios`, `stripe`) that are not in `package.json`. They should all be deleted.
 
-### 5. Duplicate Root `content/` Directory
+### ~~5. Duplicate Root `content/` Directory~~
 **Path:** `/content/` (root level)
 
 The root `content/` directory mirrors `src/content/`. The CLAUDE.md even notes that "the canonical source is `src/content/`." This duplicate is confusing and should be removed or symlinked to avoid content drift.
@@ -234,12 +234,12 @@ The root `content/` directory mirrors `src/content/`. The CLAUDE.md even notes t
 
 The prettier script references `--config ./.prettierrc.js` but the actual config file is `.prettierrc` (JSON format, no `.js` extension). This means prettier may not pick up the configured `printWidth: 120` and would fall back to defaults.
 
-### 7. Outdated Tailwind CSS Version
+### ~~7. Outdated Tailwind CSS Version~~
 **File:** `package.json:30`
 
 Tailwind CSS is pinned to `3.1.8` (July 2022). The latest Tailwind 3.x is 3.4.x with significant improvements (dynamic viewport units, `has()` variants, `size-*` utilities, etc.). This is a safe upgrade within the 3.x line.
 
-### 8. Several Pinned Dependencies Are Very Old
+### ~~8. Several Pinned Dependencies Are Very Old~~
 **File:** `package.json`
 
 | Package | Current | Latest
@@ -257,14 +257,14 @@ Tailwind CSS is pinned to `3.1.8` (July 2022). The latest Tailwind 3.x is 3.4.x 
 
 These are exact-pinned (no `^`), so they won't update even with `npm update`. Consider updating to latest patch/minor versions and using `^` for safer auto-updates.
 
-### 9. No ESLint Configuration
+### ~~9. No ESLint Configuration~~
 There is no `.eslintrc` or equivalent. While Prettier handles formatting, ESLint catches logical errors, unused variables, and accessibility issues. Consider adding `eslint` with `eslint-plugin-astro` for Astro-specific linting.
 
 ---
 
 ## Low Priority — Code Quality
 
-### 10. `getAllPosts()` Called Multiple Times Per Build
+### ~~10. `getAllPosts()` Called Multiple Times Per Build~~
 **Files:** Multiple pages call `getAllPosts()` independently:
 - `src/pages/index.astro`
 - `src/pages/[...slug].astro` (via `getStaticPaths`)
@@ -276,12 +276,12 @@ There is no `.eslintrc` or equivalent. While Prettier handles formatting, ESLint
 
 Each call re-fetches and re-processes all posts from both collections. For ~450 posts, this means parsing markdown excerpts, date formatting, and tag parsing is done 9+ times during a build. Consider caching with a module-level variable or Astro's built-in content layer caching.
 
-### 11. `getPostBySlug` Is Inefficient
+### ~~11. `getPostBySlug` Is Inefficient~~
 **File:** `src/lib/posts.ts:143-146`
 
 `getPostBySlug` calls `getAllPosts()` (processing all ~450 posts) just to find one. This function isn't currently called in production code, but if used, it would be very wasteful.
 
-### 12. Typo in PageSectionBreadcrumbs
+### ~~12. Typo in PageSectionBreadcrumbs~~
 **File:** `src/components/PageSectionBreadcrumbs.astro:45`
 
 The `<time>` element uses `timedate` instead of the correct HTML attribute `datetime`:
@@ -300,7 +300,7 @@ The body has `class="bg-orange-300"` but the inner div uses `bg-[#fcedd8]`, and 
 
 Talk/webinar listings are hardcoded in the component rather than sourced from the `talks` content collection. This creates a maintenance burden and risks data divergence — the talks collection exists but isn't used here.
 
-### 15. `siteMetadata.js` Uses CommonJS-style Default Export
+### ~~15. `siteMetadata.js` Uses CommonJS-style Default Export~~
 **File:** `src/data/siteMetadata.js`
 
 This file uses `export default { ... }` (fine in ESM) but is a `.js` file rather than `.ts`. It lacks type definitions, making it harder to catch errors when properties are added or renamed.
@@ -315,7 +315,7 @@ Social links reference `twitter.com` and use Twitter branding in the header SVG 
 
 The structured data image URL is generated via `getOgImageUrl()` which appends `?v=hash`. Schema.org validators may flag this. Consider using `getOgImagePath()` (without hash) for structured data.
 
-### 18. `Prose` Component Has Unused `html` Prop
+### ~~18. `Prose` Component Has Unused `html` Prop~~
 **File:** `src/components/Prose.astro:7`
 
 The `html` prop with `set:html` is defined but never actually used by any caller — all callers use the `<slot />` pattern instead. Dead prop.
@@ -324,12 +324,12 @@ The `html` prop with `set:html` is defined but never actually used by any caller
 
 ## Accessibility
 
-### 19. External Link Icons Lack Consistent `aria-hidden`
+### ~~19. External Link Icons Lack Consistent `aria-hidden`~~
 **Files:** `ContentList.astro`, `CtaButton.astro`, `SiteHeader.astro`, `speaker/index.astro`
 
 The external link SVG icons (the arrow-out-of-box icon) are decorative but are not consistently marked with `aria-hidden="true"`. Some instances have it, others don't.
 
-### 20. Search Input Missing `aria-describedby` for Results
+### ~~20. Search Input Missing `aria-describedby` for Results~~
 **File:** `src/pages/search/index.astro:29`
 
 The search input could benefit from `aria-live="polite"` on the results container so screen readers announce when results change.
@@ -338,14 +338,14 @@ The search input could benefit from `aria-live="polite"` on the results containe
 
 ## Performance
 
-### 21. Fuse.js Loaded from CDN at Runtime
+### ~~21. Fuse.js Loaded from CDN at Runtime~~
 **File:** `src/pages/search/index.astro:73`
 
 Fuse.js is loaded dynamically by creating a `<script>` element pointing to a CDN. This bypasses Astro's bundling and has no integrity hash (SRI). Consider either:
 - Installing `fuse.js` as a dependency and importing it in a client-side `<script>` with Astro's bundler
 - Adding an SRI hash to the script tag for security
 
-### 22. All Search Data Inlined in HTML
+### ~~22. All Search Data Inlined in HTML~~
 **File:** `src/pages/search/index.astro:70`
 
 `define:vars={{ searchData }}` inlines the entire search index (titles, descriptions, tags for ~450 posts) into the page HTML. For large sites, this significantly increases page weight. Consider loading this data as a separate JSON file.
@@ -368,23 +368,23 @@ Each unique emoji in post content triggers an HTTP fetch to `cdnjs.cloudflare.co
 
 ## Recommendations Summary
 
-| Priority | Action | Files |
-| --- | --- | --- |
-| Critical | Fix innerHTML XSS pattern in search | `search/index.astro` |
-| High | Delete Gatsby template | `src/templates/posts-tag-archive.js` |
-| High | Delete unused services | `src/services/` |
-| High | Remove duplicate `content/` dir | `/content/` |
-| Medium | Fix prettier config path | `package.json` |
-| Medium | Update pinned dependencies | `package.json` |
-| Medium | Add ESLint with astro plugin | New config file |
-| Medium | Fix `timedate` typo | `PageSectionBreadcrumbs.astro` |
-| Low | Cache `getAllPosts()` result | `src/lib/posts.ts` |
-| Low | Extract hardcoded colors to config | `tailwind.config.js`, layouts |
-| Low | Source Noteworthy from talks collection | `Noteworthy.astro` |
-| Low | Bundle Fuse.js properly or add SRI | `search/index.astro` |
-| Low | Convert siteMetadata to TypeScript | `siteMetadata.js` → `.ts` |
-| Low | Fix `datetime` attribute typo | `PageSectionBreadcrumbs.astro` |
-| Low | Remove unused `html` prop from Prose | `Prose.astro` |
+| Priority | Action | Files | Status |
+| --- | --- | --- | --- |
+| ~~Critical~~ | ~~Fix innerHTML XSS pattern in search~~ | ~~`search/index.astro`~~ | Fixed |
+| ~~High~~ | ~~Delete Gatsby template~~ | ~~`src/templates/posts-tag-archive.js`~~ | Fixed |
+| ~~High~~ | ~~Delete unused services~~ | ~~`src/services/`~~ | Fixed |
+| ~~High~~ | ~~Remove duplicate `content/` dir~~ | ~~`/content/`~~ | Fixed |
+| Medium | Fix prettier config path | `package.json` | Open |
+| ~~Medium~~ | ~~Update pinned dependencies~~ | ~~`package.json`~~ | Fixed |
+| ~~Medium~~ | ~~Add ESLint with astro plugin~~ | ~~New config file~~ | Fixed |
+| ~~Medium~~ | ~~Fix `timedate` typo~~ | ~~`PageSectionBreadcrumbs.astro`~~ | Fixed |
+| ~~Low~~ | ~~Cache `getAllPosts()` result~~ | ~~`src/lib/posts.ts`~~ | Fixed |
+| Low | Extract hardcoded colors to config | `tailwind.config.js`, layouts | Open |
+| Low | Source Noteworthy from talks collection | `Noteworthy.astro` | Open |
+| ~~Low~~ | ~~Bundle Fuse.js properly or add SRI~~ | ~~`search/index.astro`~~ | Fixed |
+| ~~Low~~ | ~~Convert siteMetadata to TypeScript~~ | ~~`siteMetadata.js` → `.ts`~~ | Fixed |
+| ~~Low~~ | ~~Fix `datetime` attribute typo~~ | ~~`PageSectionBreadcrumbs.astro`~~ | Fixed |
+| ~~Low~~ | ~~Remove unused `html` prop from Prose~~ | ~~`Prose.astro`~~ | Fixed |
 
 ---
 
