@@ -42,7 +42,7 @@ const { items = [], class: className } = Astro.props;
         ]}
       >
         {datetime ? (
-          <time timedate={datetime}>{label}</time>
+          <time datetime={datetime}>{label}</time>
         ) : (
           <span>{label}</span>
         )}
