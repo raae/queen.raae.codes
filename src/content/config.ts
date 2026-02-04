@@ -1,34 +1,66 @@
 import { defineCollection, z } from "astro:content";
 
-// Schema for tags - extracted from comma-separated string
-const tagSchema = z.object({
-  label: z.string(),
-  slug: z.string(),
-});
+// Slugify function for tag URLs
+function slugify(str: string): string {
+  return str
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
 
-// Posts collection (combines posts-queen and posts-olavea)
-const postsQueen = defineCollection({
-  type: "content",
-  schema: z.object({
+// Parse comma-separated tags string into array of tag objects
+function parseTags(
+  tagsStr?: string,
+  brandsStr?: string,
+  peepsStr?: string,
+  projectsStr?: string
+): { label: string; slug: string }[] {
+  const allTags = [tagsStr, brandsStr, peepsStr, projectsStr].filter(Boolean).join(",");
+
+  if (!allTags) return [];
+
+  const tags = allTags
+    .split(",")
+    .map((tag) => tag.trim().toLowerCase())
+    .filter((tag) => tag.length > 0);
+
+  const uniqueTags = [...new Set(tags)];
+
+  return uniqueTags.map((tag) => ({
+    label: tag,
+    slug: `/tag/${slugify(tag)}/`,
+  }));
+}
+
+// Post schema with transform: pre-processes tags and computes isRelatable
+// so the content layer caches these derived fields
+const postSchema = z
+  .object({
     title: z.string(),
     emojii: z.string().optional(),
     tags: z.string().optional(), // Comma-separated string in frontmatter
     brands: z.string().optional(),
     peeps: z.string().optional(),
     projects: z.string().optional(),
-  }),
+  })
+  .transform((data) => ({
+    title: data.title,
+    emojii: data.emojii,
+    tags: parseTags(data.tags, data.brands, data.peeps, data.projects),
+    isRelatable: !data.title.includes("week around the Gatsby islands"),
+  }));
+
+// Posts collections (queen and olavea share the same schema)
+const postsQueen = defineCollection({
+  type: "content",
+  schema: postSchema,
 });
 
 const postsOlavea = defineCollection({
   type: "content",
-  schema: z.object({
-    title: z.string(),
-    emojii: z.string().optional(),
-    tags: z.string().optional(),
-    brands: z.string().optional(),
-    peeps: z.string().optional(),
-    projects: z.string().optional(),
-  }),
+  schema: postSchema,
 });
 
 // Landing pages collection
