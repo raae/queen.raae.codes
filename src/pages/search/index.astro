@@ -26,11 +26,11 @@ const latestPosts = allPosts.slice(0, 3);
         placeholder="Type to search..."
       />
 
-      <div id="no-results" class="hidden mt-12 pl-1 text-lg font-bold">
+      <div id="no-results" class="hidden mt-12 pl-1 text-lg font-bold" aria-live="polite">
         No results for <em id="search-term"></em>
       </div>
 
-      <ul id="search-results" class="list-none px-0 my-0 -ml-1 space-y-4 mt-8"></ul>
+      <ul id="search-results" class="list-none px-0 my-0 -ml-1 space-y-4 mt-8" aria-live="polite"></ul>
     </PageSection>
 
     <PageSection>
