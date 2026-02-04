@@ -1,40 +1,6 @@
 import { getCollection } from "astro:content";
 import { format } from "date-fns";
 
-// Slugify function similar to @sindresorhus/slugify
-function slugify(str: string): string {
-  return str
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
-// Parse comma-separated tags string into array of tag objects
-function parseTags(
-  tagsStr: string | undefined,
-  brandsStr?: string,
-  peepsStr?: string,
-  projectsStr?: string,
-): { label: string; slug: string }[] {
-  const allTags = [tagsStr, brandsStr, peepsStr, projectsStr].filter(Boolean).join(",");
-
-  if (!allTags) return [];
-
-  const tags = allTags
-    .split(",")
-    .map((tag) => tag.trim().toLowerCase())
-    .filter((tag) => tag.length > 0);
-
-  const uniqueTags = [...new Set(tags)];
-
-  return uniqueTags.map((tag) => ({
-    label: tag,
-    slug: `/tag/${slugify(tag)}/`,
-  }));
-}
-
 // Parse date and slug from post path
 // Pattern: /2022/03/17-demo/index.md -> date: 2022-03-17, slug: /2022-03-17-demo/
 function parsePostPath(id: string): { date: string; slug: string } {
@@ -74,7 +40,7 @@ export async function getAllPosts(): Promise<ProcessedPost[]> {
 
   const processPost = (entry: any, author: string): ProcessedPost => {
     const { date, slug } = parsePostPath(entry.id);
-    const tags = parseTags(entry.data.tags, entry.data.brands, entry.data.peeps, entry.data.projects);
+    const tags = entry.data.tags;
 
     const title = entry.data.title || "";
     const isRelatable = !title.includes("week around the Gatsby islands");
