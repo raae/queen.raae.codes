@@ -1,6 +1,6 @@
 ---
-import siteMetadata from '../data/siteMetadata';
-import '../global.css';
+import siteMetadata from "../data/siteMetadata.js";
+import "../global.css";
 
 interface Props {
   title?: string;
@@ -13,25 +13,10 @@ interface Props {
   children?: any;
 }
 
-const {
-  title,
-  description,
-  image,
-  imageAlt,
-  type = 'website',
-  creator,
-  canonical: canonicalProp,
-} = Astro.props;
+const { title, description, image, imageAlt, type = "website", creator, canonical: canonicalProp } = Astro.props;
 
-const {
-  siteName,
-  siteTagline,
-  siteDescription,
-  siteUrl,
-  siteSocialImage,
-  siteSocialImageAlt,
-  siteTwitterCreator,
-} = siteMetadata;
+const { siteName, siteTagline, siteDescription, siteUrl, siteSocialImage, siteSocialImageAlt, siteTwitterCreator } =
+  siteMetadata;
 
 const deployUrl = import.meta.env.DEPLOY_PRIME_URL || siteUrl;
 const siteTitle = `${siteName} — ${siteTagline}`;
@@ -46,10 +31,10 @@ const socialImageAlt = image ? imageAlt : siteSocialImageAlt;
 const socialDescription = pageDescription;
 const twitterSite = siteTwitterCreator;
 const twitterCreator = creator || siteTwitterCreator;
-const twitterCard = 'summary_large_image';
+const twitterCard = "summary_large_image";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -59,7 +44,7 @@ const twitterCard = 'summary_large_image';
     <link rel="canonical" href={canonical} />
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#128081;</text></svg>"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>"
     />
 
     <meta name="description" content={pageDescription} />
@@ -80,12 +65,16 @@ const twitterCard = 'summary_large_image';
 
     <style>
       html {
-        font-size: clamp(16px, 18px + .15vw, 19px)
+        font-size: clamp(16px, 18px + 0.15vw, 19px);
       }
     </style>
 
     <!-- Fathom Analytics -->
-    <script src="https://cdn.usefathom.com/script.js" data-site="DIFBAEOT" data-included-domains="queen.raae.codes" defer></script>
+    <script
+      src="https://cdn.usefathom.com/script.js"
+      data-site="DIFBAEOT"
+      data-included-domains="queen.raae.codes"
+      defer></script>
 
     <slot name="head" />
   </head>

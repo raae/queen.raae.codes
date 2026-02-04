@@ -1,12 +1,12 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import SiteHeader from '../../components/SiteHeader.astro';
-import PageSection from '../../components/PageSection.astro';
-import PageSectionHeader from '../../components/PageSectionHeader.astro';
-import Newsletter from '../../components/Newsletter.astro';
-import { getAllPosts } from '../../lib/posts';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import PageSection from "../../components/PageSection.astro";
+import PageSectionHeader from "../../components/PageSectionHeader.astro";
+import Newsletter from "../../components/Newsletter.astro";
+import { getAllPosts } from "../../lib/posts";
 
-const TITLE = 'Search all posts';
+const TITLE = "Search all posts";
 
 const allPosts = await getAllPosts();
 const latestPosts = allPosts.slice(0, 3);
@@ -36,19 +36,21 @@ const latestPosts = allPosts.slice(0, 3);
     <PageSection>
       <PageSectionHeader badge="Latest posts" />
       <ul id="latest-posts" class="list-none px-0 my-0 -ml-1 space-y-4 mt-8">
-        {latestPosts.map((post) => (
-          <li class="mx-2 px-5 py-3 pb-4 relative border-0 border-l-4 border-solid border-amber-500 flex flex-col transition hover:bg-amber-400/30">
-            <h3 class="text-base my-0 font-bold">
-              <a href={post.slug} class="text-inherit no-underline focus:outline-hidden">
-                <span class="absolute inset-0" aria-hidden="true" />
-                {post.title}
-              </a>
-            </h3>
-            <p class="text-xs my-0 order-first leading-8 font-medium text-teal-800 uppercase tracking-tight">
-              {post.dateFormatted}
-            </p>
-          </li>
-        ))}
+        {
+          latestPosts.map((post) => (
+            <li class="mx-2 px-5 py-3 pb-4 relative border-0 border-l-4 border-solid border-amber-500 flex flex-col transition hover:bg-amber-400/30">
+              <h3 class="text-base my-0 font-bold">
+                <a href={post.slug} class="text-inherit no-underline focus:outline-hidden">
+                  <span class="absolute inset-0" aria-hidden="true" />
+                  {post.title}
+                </a>
+              </h3>
+              <p class="text-xs my-0 order-first leading-8 font-medium text-teal-800 uppercase tracking-tight">
+                {post.dateFormatted}
+              </p>
+            </li>
+          ))
+        }
       </ul>
     </PageSection>
 
@@ -59,26 +61,26 @@ const latestPosts = allPosts.slice(0, 3);
 </BaseLayout>
 
 <script>
-  import Fuse from 'fuse.js';
+  import Fuse from "fuse.js";
 
   function escapeHtml(str: string): string {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
   }
 
   function highlightMatches(text: string, indices: readonly [number, number][]): string {
     if (!indices || indices.length === 0) return escapeHtml(text);
 
-    let result = '';
+    let result = "";
     let lastIndex = 0;
 
     indices.forEach(([start, end]) => {
       result += escapeHtml(text.slice(lastIndex, start));
-      result += '<mark>' + escapeHtml(text.slice(start, end + 1)) + '</mark>';
+      result += "<mark>" + escapeHtml(text.slice(start, end + 1)) + "</mark>";
       lastIndex = end + 1;
     });
 
@@ -87,7 +89,7 @@ const latestPosts = allPosts.slice(0, 3);
   }
 
   async function initSearch() {
-    const response = await fetch('/search/data.json');
+    const response = await fetch("/search/data.json");
     const searchData = await response.json();
 
     const FUSE_OPTIONS = {
@@ -99,66 +101,70 @@ const latestPosts = allPosts.slice(0, 3);
       minMatchCharLength: 3,
       threshold: 0.4,
       keys: [
-        'title',
-        'tags.label',
+        "title",
+        "tags.label",
         {
-          name: 'description',
+          name: "description",
           weight: 0.7,
         },
       ],
     };
 
     const fuse = new Fuse(searchData, FUSE_OPTIONS);
-    const searchInput = document.getElementById('search') as HTMLInputElement;
-    const resultsContainer = document.getElementById('search-results')!;
-    const noResults = document.getElementById('no-results')!;
-    const searchTermEl = document.getElementById('search-term')!;
-    const latestPosts = document.getElementById('latest-posts')!;
+    const searchInput = document.getElementById("search") as HTMLInputElement;
+    const resultsContainer = document.getElementById("search-results")!;
+    const noResults = document.getElementById("no-results")!;
+    const searchTermEl = document.getElementById("search-term")!;
+    const latestPosts = document.getElementById("latest-posts")!;
 
     let debounceTimer: ReturnType<typeof setTimeout>;
 
-    searchInput.addEventListener('input', (e) => {
+    searchInput.addEventListener("input", (e) => {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
         const term = (e.target as HTMLInputElement).value.trim();
 
         if (term.length < 2) {
-          resultsContainer.innerHTML = '';
-          noResults.classList.add('hidden');
-          latestPosts.parentElement!.classList.remove('hidden');
+          resultsContainer.innerHTML = "";
+          noResults.classList.add("hidden");
+          latestPosts.parentElement!.classList.remove("hidden");
           return;
         }
 
         const results = fuse.search(term, { limit: 7 });
 
         if (results.length === 0) {
-          resultsContainer.innerHTML = '';
+          resultsContainer.innerHTML = "";
           searchTermEl.textContent = term;
-          noResults.classList.remove('hidden');
-          latestPosts.parentElement!.classList.add('hidden');
+          noResults.classList.remove("hidden");
+          latestPosts.parentElement!.classList.add("hidden");
         } else {
-          noResults.classList.add('hidden');
-          latestPosts.parentElement!.classList.add('hidden');
+          noResults.classList.add("hidden");
+          latestPosts.parentElement!.classList.add("hidden");
 
-          resultsContainer.innerHTML = results.map((result) => {
-            const item = result.item;
-            let title = escapeHtml(item.title);
-            let description = escapeHtml(item.description);
+          resultsContainer.innerHTML = results
+            .map((result) => {
+              const item = result.item;
+              let title = escapeHtml(item.title);
+              let description = escapeHtml(item.description);
 
-            // Highlight matches (replaces the escaped default above)
-            result.matches?.forEach((match) => {
-              if (match.key === 'title') {
-                title = highlightMatches(item.title, match.indices);
-              } else if (match.key === 'description') {
-                description = highlightMatches(item.description, match.indices);
-              }
-            });
+              // Highlight matches (replaces the escaped default above)
+              result.matches?.forEach((match) => {
+                if (match.key === "title") {
+                  title = highlightMatches(item.title, match.indices);
+                } else if (match.key === "description") {
+                  description = highlightMatches(item.description, match.indices);
+                }
+              });
 
-            const tagBadges = item.tags.map((tag) =>
-              `<span class="inline-flex items-center rounded-md px-2.5 py-0.5 bg-amber-100 text-xs font-medium text-brown-900">${escapeHtml(tag.label)}</span>`
-            ).join(' ');
+              const tagBadges = item.tags
+                .map(
+                  (tag) =>
+                    `<span class="inline-flex items-center rounded-md px-2.5 py-0.5 bg-amber-100 text-xs font-medium text-brown-900">${escapeHtml(tag.label)}</span>`,
+                )
+                .join(" ");
 
-            return `
+              return `
               <li class="mx-2 px-5 py-3 pb-4 relative border-0 border-l-4 border-solid border-amber-500 flex flex-col transition hover:bg-amber-400/30">
                 <h3 class="text-base my-0 font-bold">
                   <a href="${escapeHtml(item.slug)}" class="text-inherit no-underline focus:outline-hidden">
@@ -173,7 +179,8 @@ const latestPosts = allPosts.slice(0, 3);
                 <aside class="my-0 space-x-2">${tagBadges}</aside>
               </li>
             `;
-          }).join('');
+            })
+            .join("");
         }
       }, 400);
     });

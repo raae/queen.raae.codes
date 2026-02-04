@@ -1,15 +1,15 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import SiteHeader from '../../components/SiteHeader.astro';
-import PageSection from '../../components/PageSection.astro';
-import PageSectionHeader from '../../components/PageSectionHeader.astro';
-import Posts from '../../components/Posts.astro';
-import Newsletter from '../../components/Newsletter.astro';
-import { getAllPosts } from '../../lib/posts';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import PageSection from "../../components/PageSection.astro";
+import PageSectionHeader from "../../components/PageSectionHeader.astro";
+import Posts from "../../components/Posts.astro";
+import Newsletter from "../../components/Newsletter.astro";
+import { getAllPosts } from "../../lib/posts";
 
-const BADGE = 'Posts';
-const TITLE = 'All the posts';
-const DESCRIPTION = 'Posts from sailing the high seas of the World Wide Web.';
+const BADGE = "Posts";
+const TITLE = "All the posts";
+const DESCRIPTION = "Posts from sailing the high seas of the World Wide Web.";
 
 const allPosts = await getAllPosts();
 ---
@@ -18,12 +18,7 @@ const allPosts = await getAllPosts();
   <SiteHeader />
   <main>
     <PageSection component="header">
-      <PageSectionHeader
-        badge={BADGE}
-        title={TITLE}
-        lead={DESCRIPTION}
-        hLevel={1}
-      />
+      <PageSectionHeader badge={BADGE} title={TITLE} lead={DESCRIPTION} hLevel={1} />
     </PageSection>
 
     <PageSection component="section">

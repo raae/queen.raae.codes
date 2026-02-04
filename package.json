@@ -9,7 +9,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "prettier": "prettier --config ./.prettierrc.js --ignore-path ./.prettierignore --write \"**/*.{json,js,ts,tsx,mdx,astro}\""
+    "lint": "eslint .",
+    "prettier": "prettier --config ./.prettierrc --ignore-path ./.prettierignore --write \"**/*.{json,js,ts,tsx,mdx,astro}\"",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
@@ -19,8 +21,8 @@
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.15",
-    "clsx": "1.2.1",
-    "date-fns": "2.29.3",
+    "clsx": "2.1.1",
+    "date-fns": "4.1.0",
     "fuse.js": "^7.1.0",
     "markdown-it": "^14.1.0",
     "prismjs": "1.29.0",
@@ -29,10 +31,14 @@
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0",
+    "@commitlint/cli": "20.4.1",
+    "@commitlint/config-conventional": "20.4.1",
     "@playwright/test": "^1.58.1",
-    "husky": "^8.0.1",
-    "prettier": "^2.7.1"
+    "@typescript-eslint/parser": "8.54.0",
+    "eslint": "9.39.2",
+    "eslint-plugin-astro": "1.5.0",
+    "husky": "9.1.7",
+    "prettier": "3.8.1",
+    "prettier-plugin-astro": "0.14.1"
   }
 }

@@ -14,42 +14,44 @@ const { items = [], class: className } = Astro.props;
 ---
 
 <nav aria-label="breadcrumb" class={className}>
-  {items.map(({ label, to, datetime }, index) => {
-    const isLast = index + 1 === items.length;
+  {
+    items.map(({ label, to, datetime }, index) => {
+      const isLast = index + 1 === items.length;
 
-    if (to) {
+      if (to) {
+        return (
+          <a
+            href={to}
+            class:list={[
+              "text-xs uppercase leading-none inline-block group",
+              isLast ? "text-brown-900 font-light" : "text-teal-900 font-base",
+            ]}
+          >
+            <span class="group-hover:underline">{label}</span>
+            {!isLast && (
+              <span aria-hidden="true" class="px-2">
+                ·
+              </span>
+            )}
+          </a>
+        );
+      }
+
       return (
-        <a
-          href={to}
+        <span
           class:list={[
-            "text-xs uppercase leading-none inline-block group",
-            isLast ? "text-brown-900 font-light" : "text-teal-900 font-base"
+            "text-xs uppercase leading-none inline-block",
+            isLast ? "text-brown-900 font-light" : "text-teal-900 font-base",
           ]}
         >
-          <span class="group-hover:underline">{label}</span>
+          {datetime ? <time timedate={datetime}>{label}</time> : <span>{label}</span>}
           {!isLast && (
-            <span aria-hidden="true" class="px-2">·</span>
+            <span aria-hidden="true" class="px-2">
+              ·
+            </span>
           )}
-        </a>
+        </span>
       );
-    }
-
-    return (
-      <span
-        class:list={[
-          "text-xs uppercase leading-none inline-block",
-          isLast ? "text-brown-900 font-light" : "text-teal-900 font-base"
-        ]}
-      >
-        {datetime ? (
-          <time datetime={datetime}>{label}</time>
-        ) : (
-          <span>{label}</span>
-        )}
-        {!isLast && (
-          <span aria-hidden="true" class="px-2">·</span>
-        )}
-      </span>
-    );
-  })}
+    })
+  }
 </nav>
