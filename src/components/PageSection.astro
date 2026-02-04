@@ -9,8 +9,17 @@ const { component = "section", class: className, id } = Astro.props;
 const Tag = component as any;
 ---
 
-<Tag class:list={["py-12 px-6 bg-[#fffaf0] even:bg-[#fcedd8]", className]} id={id}>
+<Tag class:list={["page-section py-12 px-6", className]} id={id}>
   <div class="container mx-auto max-w-2xl *:max-w-xl">
     <slot />
   </div>
 </Tag>
+
+<style>
+  .page-section {
+    background-color: #fffaf0;
+  }
+  .page-section:nth-child(even of section, header) {
+    background-color: #fcedd8;
+  }
+</style>
