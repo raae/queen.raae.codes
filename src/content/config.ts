@@ -15,7 +15,7 @@ function parseTags(
   tagsStr?: string,
   brandsStr?: string,
   peepsStr?: string,
-  projectsStr?: string
+  projectsStr?: string,
 ): { label: string; slug: string }[] {
   const allTags = [tagsStr, brandsStr, peepsStr, projectsStr].filter(Boolean).join(",");
 
