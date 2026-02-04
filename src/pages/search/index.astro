@@ -10,15 +10,6 @@ const TITLE = 'Search all posts';
 
 const allPosts = await getAllPosts();
 const latestPosts = allPosts.slice(0, 3);
-
-// Prepare search data for client-side Fuse.js
-const searchData = allPosts.map(post => ({
-  title: post.title,
-  description: post.description,
-  slug: post.slug,
-  date: post.dateFormatted,
-  tags: post.tags,
-}));
 ---
 
 <BaseLayout title={TITLE}>
@@ -67,14 +58,38 @@ const searchData = allPosts.map(post => ({
   </main>
 </BaseLayout>
 
-<script define:vars={{ searchData }}>
-  // Import Fuse.js from CDN
-  const script = document.createElement('script');
-  script.src = 'https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js';
-  script.onload = initSearch;
-  document.head.appendChild(script);
+<script>
+  import Fuse from 'fuse.js';
 
-  function initSearch() {
+  function escapeHtml(str: string): string {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function highlightMatches(text: string, indices: readonly [number, number][]): string {
+    if (!indices || indices.length === 0) return escapeHtml(text);
+
+    let result = '';
+    let lastIndex = 0;
+
+    indices.forEach(([start, end]) => {
+      result += escapeHtml(text.slice(lastIndex, start));
+      result += '<mark>' + escapeHtml(text.slice(start, end + 1)) + '</mark>';
+      lastIndex = end + 1;
+    });
+
+    result += escapeHtml(text.slice(lastIndex));
+    return result;
+  }
+
+  async function initSearch() {
+    const response = await fetch('/search/data.json');
+    const searchData = await response.json();
+
     const FUSE_OPTIONS = {
       includeScore: true,
       ignoreLocation: true,
@@ -94,23 +109,23 @@ const searchData = allPosts.map(post => ({
     };
 
     const fuse = new Fuse(searchData, FUSE_OPTIONS);
-    const searchInput = document.getElementById('search');
-    const resultsContainer = document.getElementById('search-results');
-    const noResults = document.getElementById('no-results');
-    const searchTermEl = document.getElementById('search-term');
-    const latestPosts = document.getElementById('latest-posts');
+    const searchInput = document.getElementById('search') as HTMLInputElement;
+    const resultsContainer = document.getElementById('search-results')!;
+    const noResults = document.getElementById('no-results')!;
+    const searchTermEl = document.getElementById('search-term')!;
+    const latestPosts = document.getElementById('latest-posts')!;
 
-    let debounceTimer;
+    let debounceTimer: ReturnType<typeof setTimeout>;
 
     searchInput.addEventListener('input', (e) => {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
-        const term = e.target.value.trim();
+        const term = (e.target as HTMLInputElement).value.trim();
 
         if (term.length < 2) {
           resultsContainer.innerHTML = '';
           noResults.classList.add('hidden');
-          latestPosts.parentElement.classList.remove('hidden');
+          latestPosts.parentElement!.classList.remove('hidden');
           return;
         }
 
@@ -120,17 +135,17 @@ const searchData = allPosts.map(post => ({
           resultsContainer.innerHTML = '';
           searchTermEl.textContent = term;
           noResults.classList.remove('hidden');
-          latestPosts.parentElement.classList.add('hidden');
+          latestPosts.parentElement!.classList.add('hidden');
         } else {
           noResults.classList.add('hidden');
-          latestPosts.parentElement.classList.add('hidden');
+          latestPosts.parentElement!.classList.add('hidden');
 
           resultsContainer.innerHTML = results.map((result) => {
             const item = result.item;
-            let title = item.title;
-            let description = item.description;
+            let title = escapeHtml(item.title);
+            let description = escapeHtml(item.description);
 
-            // Highlight matches
+            // Highlight matches (replaces the escaped default above)
             result.matches?.forEach((match) => {
               if (match.key === 'title') {
                 title = highlightMatches(item.title, match.indices);
@@ -139,20 +154,20 @@ const searchData = allPosts.map(post => ({
               }
             });
 
-            const tagBadges = item.tags.map(tag =>
-              `<span class="inline-flex items-center rounded-md px-2.5 py-0.5 bg-amber-100 text-xs font-medium text-brown-900">${tag.label}</span>`
+            const tagBadges = item.tags.map((tag) =>
+              `<span class="inline-flex items-center rounded-md px-2.5 py-0.5 bg-amber-100 text-xs font-medium text-brown-900">${escapeHtml(tag.label)}</span>`
             ).join(' ');
 
             return `
               <li class="mx-2 px-5 py-3 pb-4 relative border-0 border-l-4 border-solid border-amber-500 flex flex-col transition hover:bg-amber-400/30">
                 <h3 class="text-base my-0 font-bold">
-                  <a href="${item.slug}" class="text-inherit no-underline focus:outline-hidden">
+                  <a href="${escapeHtml(item.slug)}" class="text-inherit no-underline focus:outline-hidden">
                     <span class="absolute inset-0" aria-hidden="true"></span>
                     ${title}
                   </a>
                 </h3>
                 <p class="text-xs my-0 order-first leading-8 font-medium text-teal-800 uppercase tracking-tight">
-                  ${item.date}
+                  ${escapeHtml(item.date)}
                 </p>
                 <p class="my-2 text-sm">${description}</p>
                 <aside class="my-0 space-x-2">${tagBadges}</aside>
@@ -162,21 +177,7 @@ const searchData = allPosts.map(post => ({
         }
       }, 400);
     });
-
-    function highlightMatches(text, indices) {
-      if (!indices || indices.length === 0) return text;
-
-      let result = '';
-      let lastIndex = 0;
-
-      indices.forEach(([start, end]) => {
-        result += text.slice(lastIndex, start);
-        result += '<mark>' + text.slice(start, end + 1) + '</mark>';
-        lastIndex = end + 1;
-      });
-
-      result += text.slice(lastIndex);
-      return result;
-    }
   }
+
+  initSearch();
 </script>
