@@ -8,7 +8,7 @@ module.exports = {
             "--tw-prose-body": theme("colors.brown[900]"),
             "--tw-prose-headings": theme("colors.brown[900]"),
             "--tw-prose-lead": theme("colors.brown[800]"),
-            "--tw-prose-links": theme("colors.teal[900]"),
+            "--tw-prose-links": theme("colors.teal[950]"),
             "--tw-prose-bold": theme("colors.brown[900]"),
             "--tw-prose-counters": theme("colors.amber[500]"),
             "--tw-prose-bullets": theme("colors.amber[500]"),
