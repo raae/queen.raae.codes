@@ -78,10 +78,19 @@ const emojiCache = new Map<string, string>();
 async function loadEmoji(code: string): Promise<string> {
   if (emojiCache.has(code)) return emojiCache.get(code)!;
   const url = `https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/${code.toLowerCase()}.svg`;
-  const res = await fetch(url);
-  const svg = await res.text();
-  emojiCache.set(code, svg);
-  return svg;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      console.warn(`Failed to fetch emoji SVG for ${code}: HTTP ${res.status}`);
+      return "";
+    }
+    const svg = await res.text();
+    emojiCache.set(code, svg);
+    return svg;
+  } catch (err) {
+    console.warn(`Failed to fetch emoji SVG for ${code}:`, err);
+    return "";
+  }
 }
 
 // ── Text truncation (Satori has no line-clamp) ────────────────────
