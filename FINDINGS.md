@@ -229,7 +229,7 @@ The root `content/` directory mirrors `src/content/`. The CLAUDE.md even notes t
 
 ## Medium Priority — Configuration Issues
 
-### 6. Prettier Config Path Mismatch
+### ~~6. Prettier Config Path Mismatch~~
 **File:** `package.json:12`
 
 The prettier script references `--config ./.prettierrc.js` but the actual config file is `.prettierrc` (JSON format, no `.js` extension). This means prettier may not pick up the configured `printWidth: 120` and would fall back to defaults.
@@ -295,7 +295,7 @@ This means the machine-readable datetime is not actually being set on the elemen
 
 The body has `class="bg-orange-300"` but the inner div uses `bg-[#fcedd8]`, and `PageSection.astro` alternates between `bg-[#fffaf0]` and `bg-[#fcedd8]`. These hardcoded hex values bypass the Tailwind color system. Consider defining them as custom colors in `tailwind.config.js` for consistency.
 
-### 14. Hardcoded Noteworthy Data
+### ~~14. Hardcoded Noteworthy Data~~
 **File:** `src/components/Noteworthy.astro:11-37`
 
 Talk/webinar listings are hardcoded in the component rather than sourced from the `talks` content collection. This creates a maintenance burden and risks data divergence — the talks collection exists but isn't used here.
@@ -305,7 +305,7 @@ Talk/webinar listings are hardcoded in the component rather than sourced from th
 
 This file uses `export default { ... }` (fine in ESM) but is a `.js` file rather than `.ts`. It lacks type definitions, making it harder to catch errors when properties are added or renamed.
 
-### 16. Twitter Branding Is Outdated
+### ~~16. Twitter Branding Is Outdated~~
 **File:** `src/data/siteMetadata.js:12`
 
 Social links reference `twitter.com` and use Twitter branding in the header SVG icons. The platform rebranded to X in 2023. The `SiteHeader.astro` also labels the link as "twitter" in the sr-only text.
@@ -350,7 +350,7 @@ Fuse.js is loaded dynamically by creating a `<script>` element pointing to a CDN
 
 `define:vars={{ searchData }}` inlines the entire search index (titles, descriptions, tags for ~450 posts) into the page HTML. For large sites, this significantly increases page weight. Consider loading this data as a separate JSON file.
 
-### 23. OG Images Fetches Emoji SVGs from CDN During Build
+### ~~23. OG Images Fetches Emoji SVGs from CDN During Build~~
 **File:** `src/lib/og-image.ts:80`
 
 Each unique emoji in post content triggers an HTTP fetch to `cdnjs.cloudflare.com` during build. If the CDN is slow or down, the build will fail or hang. Consider vendoring the needed emoji SVGs locally.
@@ -359,7 +359,7 @@ Each unique emoji in post content triggers an HTTP fetch to `cdnjs.cloudflare.co
 
 ## Security
 
-### 24. ConvertKit API Key Exposed in Client Bundle
+### ~~24. ConvertKit API Key Exposed in Client Bundle~~
 **File:** `src/components/Newsletter.astro:176`
 
 `import.meta.env.PUBLIC_CK_API_KEY` is used in client-side JavaScript. The `PUBLIC_` prefix makes this intentional (it's a public API key), but be aware this key is visible to anyone viewing the page source. This is acceptable for ConvertKit's subscribe API which is designed for client-side use, but worth noting.
@@ -374,13 +374,13 @@ Each unique emoji in post content triggers an HTTP fetch to `cdnjs.cloudflare.co
 | ~~High~~ | ~~Delete Gatsby template~~ | ~~`src/templates/posts-tag-archive.js`~~ | Fixed |
 | ~~High~~ | ~~Delete unused services~~ | ~~`src/services/`~~ | Fixed |
 | ~~High~~ | ~~Remove duplicate `content/` dir~~ | ~~`/content/`~~ | Fixed |
-| Medium | Fix prettier config path | `package.json` | Open |
+| ~~Medium~~ | ~~Fix prettier config path~~ | ~~`package.json`~~ | Fixed |
 | ~~Medium~~ | ~~Update pinned dependencies~~ | ~~`package.json`~~ | Fixed |
 | ~~Medium~~ | ~~Add ESLint with astro plugin~~ | ~~New config file~~ | Fixed |
 | ~~Medium~~ | ~~Fix `timedate` typo~~ | ~~`PageSectionBreadcrumbs.astro`~~ | Fixed |
 | ~~Low~~ | ~~Cache `getAllPosts()` result~~ | ~~`src/lib/posts.ts`~~ | Fixed |
 | Low | Extract hardcoded colors to config | `tailwind.config.js`, layouts | Open |
-| Low | Source Noteworthy from talks collection | `Noteworthy.astro` | Open |
+| ~~Low~~ | ~~Source Noteworthy from talks collection~~ | ~~`Noteworthy.astro`~~ | Accepted |
 | ~~Low~~ | ~~Bundle Fuse.js properly or add SRI~~ | ~~`search/index.astro`~~ | Fixed |
 | ~~Low~~ | ~~Convert siteMetadata to TypeScript~~ | ~~`siteMetadata.js` → `.ts`~~ | Fixed |
 | ~~Low~~ | ~~Fix `datetime` attribute typo~~ | ~~`PageSectionBreadcrumbs.astro`~~ | Fixed |
