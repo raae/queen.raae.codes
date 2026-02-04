@@ -1,27 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/pages/**/*.{js,jsx,ts,tsx,astro}",
-    "./src/components/**/*.{js,jsx,ts,tsx,astro}",
-    "./src/templates/**/*.{js,jsx,ts,tsx,astro}",
-    "./src/layouts/**/*.{js,jsx,ts,tsx,astro}",
-  ],
   theme: {
     extend: {
-      colors: {
-        brown: {
-          50: "#fbf6f5",
-          100: "#f6ecea",
-          200: "#f0dcd8",
-          300: "#e4c3bd",
-          400: "#d2a097",
-          500: "#bf7f74",
-          600: "#a96559",
-          700: "#8d5248",
-          800: "#76463e",
-          900: "#3e2723",
-        },
-      },
       typography: (theme) => ({
         brown: {
           css: {
@@ -100,5 +80,4 @@ module.exports = {
       }),
     },
   },
-  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };

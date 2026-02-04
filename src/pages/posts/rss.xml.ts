@@ -1,8 +1,8 @@
-import rss from '@astrojs/rss';
-import type { APIContext } from 'astro';
-import { getAllPosts } from '../../lib/posts';
-import { getDisclaimers } from '../../lib/disclaimers';
-import { postToFeedItem } from '../../lib/feed';
+import rss from "@astrojs/rss";
+import type { APIContext } from "astro";
+import { getAllPosts } from "../../lib/posts";
+import { getDisclaimers } from "../../lib/disclaimers";
+import { postToFeedItem } from "../../lib/feed";
 
 export async function GET(context: APIContext) {
   const allPosts = await getAllPosts();
@@ -10,10 +10,10 @@ export async function GET(context: APIContext) {
   const siteUrl = context.site!.toString();
 
   return rss({
-    title: 'Posts from Queen Raae & Family',
+    title: "Posts from Queen Raae & Family",
     description:
-      'Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!',
-    site: siteUrl.replace(/\/$/, '') + '/posts',
+      "Ahoy, seasoned JavaScript developers and daring dev pirates! Join our swashbuckling crew as we embark on thrilling treasure hunts unraveling the secrets of HTML, CSS, and JavaScript, all while having a blast!",
+    site: siteUrl.replace(/\/$/, "") + "/posts",
     items: allPosts.map((post) => postToFeedItem(post, disclaimers, siteUrl)),
   });
 }

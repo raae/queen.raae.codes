@@ -7,12 +7,7 @@ export default (stripeKey = process.env.STRIPE_SECRET_KEY) => {
     console.log("Stripe:", ...args);
   };
 
-  const createSession = async ({
-    username,
-    successUrl,
-    cancelUrl,
-    priceId,
-  }) => {
+  const createSession = async ({ username, successUrl, cancelUrl, priceId }) => {
     log("createSession", username);
 
     // Stripe docs: https://stripe.com/docs/api/checkout/sessions/create

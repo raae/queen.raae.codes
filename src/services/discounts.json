@@ -521,10 +521,7 @@
     "percentageOfUSA": 49,
     "discount": 51
   },
-  { "country": "Nigeria",
-    "countryCode": "NGA",
-    "discount": 80
-  },
+  { "country": "Nigeria", "countryCode": "NGA", "discount": 80 },
   {
     "country": "Ethiopia",
     "countryCode": "ETH",

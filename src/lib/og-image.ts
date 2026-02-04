@@ -100,10 +100,7 @@ export function getOgImagePath(slug: string): string {
 
 // ── Cache-busting URL (hash changes when title/description change) ─
 export function getOgImageUrl(slug: string, title: string, description: string): string {
-  const hash = createHash("md5")
-    .update(`${title}|${description}`)
-    .digest("hex")
-    .slice(0, 8);
+  const hash = createHash("md5").update(`${title}|${description}`).digest("hex").slice(0, 8);
   return `${getOgImagePath(slug)}?v=${hash}`;
 }
 

@@ -1,12 +1,12 @@
-import type { APIRoute, GetStaticPaths } from 'astro';
-import { getAllPosts } from '../../lib/posts';
-import { generateOgImage } from '../../lib/og-image';
+import type { APIRoute, GetStaticPaths } from "astro";
+import { getAllPosts } from "../../lib/posts";
+import { generateOgImage } from "../../lib/og-image";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const allPosts = await getAllPosts();
 
   return allPosts.map((post) => {
-    const slugParam = post.slug.replace(/^\/|\/$/g, '');
+    const slugParam = post.slug.replace(/^\/|\/$/g, "");
     return {
       params: { slug: slugParam },
       props: {
@@ -24,6 +24,6 @@ export const GET: APIRoute = async ({ props }) => {
   const png = await generateOgImage({ title, description, author });
 
   return new Response(png, {
-    headers: { 'Content-Type': 'image/png' },
+    headers: { "Content-Type": "image/png" },
   });
 };
