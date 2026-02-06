@@ -13,7 +13,7 @@ But this time: **Boom.**
 
 I looked through the code and the Outseta integration was there, the exact way I would have done it.
 
-Hear me talk about it on [Slow & Steady ep. 235](https://slowandsteadypodcast.com/235?#t=16:19) ↓
+Hear me talk about it on [Slow & Steady ep. 235 (at the 16:19 mark)](https://slowandsteadypodcast.com/235?#t=16:19) ↓
 
 <iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/29d2248f?#t=16:19"></iframe>
 
