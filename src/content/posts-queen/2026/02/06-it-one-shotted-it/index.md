@@ -3,7 +3,7 @@ title: It Actually One-Shotted It 🥳
 tags: AI, Outseta, Cursor
 ---
 
-I copy-pasted my new [Outseta + Next.js gated content article](https://go.outseta.com/support/kb/articles/B9lEKnW8/integrate-outseta-with-nextjs?via=queen) into Cursor and said "Let's create a simple Next demo using Outseta." Hit enter. And it one-shotted it. Completely correct.
+I copy-pasted my new [Outseta + Next.js article](https://go.outseta.com/support/kb/articles/B9lEKnW8/integrate-outseta-with-nextjs?via=queen) into Cursor and said "Let's create a simple Next demo using Outseta." Hit enter. And it one-shotted it. Completely correct.
 
 ![Cursor one-shotting the Outseta + Next.js gated content article](./cursor-one-shot.png)
 
