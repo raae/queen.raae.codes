@@ -11,7 +11,7 @@ Back in March I ended up comparing AI prompting to eating potato chips on the po
 
 That was almost a year ago and it still holds true.
 
-After a productive day extracting [my voice, ideas and themes from Slow & Steady transcripts](https://x.com/raae/status/2019747239787118814?s=20), I've been going back and forth with Jean Claude on this very post. Every prompt feels like the one that'll nail it. But I've been saying that for way too long and I'm noticing tension in my neck and it's like I'm trying to kill the keyboard with every prompt 😬
+After a productive day extracting [my voice, ideas and themes from Slow & Steady transcripts](https://x.com/raae/status/2019747239787118814?s=20), I've been going back and forth with Jean-Claude on this very post. Every prompt feels like the one that'll nail it. But I've been saying that for way too long and I'm noticing tension in my neck and it's like I'm trying to kill the keyboard with every prompt 😬
 
 I should have stepped back earlier. Think about what I actually want, write a proper prompt 🤦‍♀️ Not another quick "no, not like that, more like this" — an actual, thought-through prompt with real context and a clear outcome.
 
