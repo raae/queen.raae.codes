@@ -1,6 +1,7 @@
 ---
 title: It Actually One-Shotted It 🥳
-tags: AI, Outseta, Cursor
+tags: AI, vibe coding, prompting, AX
+brands: Outseta, Slow&Steady, Cursor
 ---
 
 I copy-pasted my new [Outseta + Next.js article](https://go.outseta.com/support/kb/articles/B9lEKnW8/integrate-outseta-with-nextjs?via=queen) into Cursor and said "Let's create a simple Next demo using Outseta." Hit enter. And it one-shotted it. Completely correct.

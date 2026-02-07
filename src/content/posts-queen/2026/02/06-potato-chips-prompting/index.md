@@ -1,6 +1,7 @@
 ---
 title: What eating potato chips and prompting have in common
-tags: AI, productivity, vibe coding
+tags: AI, productivity, vibe coding, prompting
+brands: Slow&Steady
 ---
 
 Back in March I ended up comparing AI prompting to eating potato chips on the podcast.
