@@ -75,6 +75,18 @@ module.exports = {
             "div > ul ul li:first-child": {
               marginTop: 0,
             },
+            "blockquote p:first-of-type::before": {
+              content: "none",
+            },
+            "blockquote p:last-of-type::after": {
+              content: "none",
+            },
+            "blockquote cite": {
+              display: "block",
+              marginTop: "0.5rem",
+              fontSize: "0.8125rem",
+              fontStyle: "normal",
+            },
           },
         },
       }),

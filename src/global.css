@@ -43,6 +43,7 @@
   @apply border-4 border-dashed border-amber-500 px-4 my-8 text-sm;
 }
 
-cite {
+.prose cite {
+  @apply block text-sm mt-2 not-italic;
   @apply before:content-['—'] before:mr-2;
 }
