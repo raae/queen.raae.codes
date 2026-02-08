@@ -339,6 +339,17 @@
         border-color: var(--gold-600);
       }
 
+      .btn--amber {
+        background: var(--amber-500);
+        border-color: var(--amber-500);
+        color: white;
+      }
+
+      .btn--amber:hover {
+        background: var(--amber-600);
+        border-color: var(--amber-600);
+      }
+
       .btn--signature {
         background: var(--signature);
         border-color: var(--signature);
@@ -388,6 +399,15 @@
 
       .badge--gold:hover {
         background: var(--gold-300);
+      }
+
+      .badge--amber {
+        background: var(--amber-200);
+        color: var(--amber-700);
+      }
+
+      .badge--amber:hover {
+        background: var(--amber-300);
       }
 
       .badge--plum {
@@ -469,6 +489,11 @@
         border-color: var(--gold-500);
       }
 
+      .callout--amber {
+        background: var(--amber-100);
+        border-color: var(--amber-500);
+      }
+
       .callout--plum {
         background: var(--plum-50);
         border-color: var(--plum-500);
@@ -546,6 +571,40 @@
 
       .section--plum blockquote cite {
         color: var(--gold-400);
+      }
+
+      /* ── Amber-themed variants ── */
+      .amber-theme .content-item {
+        border-left-color: var(--amber-400);
+      }
+
+      .amber-theme .content-item:hover {
+        background: var(--amber-100);
+        border-left-color: var(--signature);
+      }
+
+      .amber-theme blockquote {
+        border-left-color: var(--amber-400);
+      }
+
+      .amber-theme blockquote::before {
+        color: var(--amber-300);
+      }
+
+      .amber-theme .fleur-list li::before {
+        color: var(--amber-500);
+      }
+
+      .amber-theme hr {
+        color: var(--amber-400);
+      }
+
+      .amber-theme figure img {
+        box-shadow: 8px 8px 0 var(--amber-400);
+      }
+
+      .amber-theme figure.fig--gold img {
+        border-color: var(--amber-500);
       }
 
       /* ── Figure / Image Treatment ── */
@@ -1041,7 +1100,7 @@
           <p class="label">Components</p>
           <h2>The Royal Collection</h2>
 
-          <h3>Buttons</h3>
+          <h3>Buttons — Gold Accent</h3>
           <div class="btn-group">
             <a href="#" class="btn btn--plum">Subscribe</a>
             <a href="#" class="btn btn--outline">Read More</a>
@@ -1049,13 +1108,23 @@
             <a href="#" class="btn btn--signature">Watch Now 🔥</a>
           </div>
 
-          <h3>Badges / Tags</h3>
+          <h3>Buttons — Amber Accent</h3>
+          <div class="btn-group">
+            <a href="#" class="btn btn--plum">Subscribe</a>
+            <a href="#" class="btn btn--outline">Read More</a>
+            <a href="#" class="btn btn--amber">Book a Talk</a>
+            <a href="#" class="btn btn--signature">Watch Now 🔥</a>
+          </div>
+
+          <h3>Badges — Gold vs Amber</h3>
           <div class="badge-group">
             <a href="#" class="badge badge--rose">Gatsby</a>
-            <a href="#" class="badge badge--gold">Astro</a>
+            <a href="#" class="badge badge--gold">Astro (gold)</a>
+            <a href="#" class="badge badge--amber">Astro (amber)</a>
             <a href="#" class="badge badge--plum">CSS</a>
             <a href="#" class="badge badge--rose">JavaScript</a>
-            <a href="#" class="badge badge--gold">Netlify</a>
+            <a href="#" class="badge badge--gold">Netlify (gold)</a>
+            <a href="#" class="badge badge--amber">Netlify (amber)</a>
             <a href="#" class="badge badge--plum">Tutorial</a>
           </div>
 
@@ -1142,6 +1211,13 @@
             <p class="text-sm text-muted">Gold commands attention without shouting.</p>
           </div>
 
+          <div class="callout callout--amber">
+            <p>
+              <strong>🔶 Amber Callout</strong> — Same role as gold, but warmer and more orange. Compare side by side.
+            </p>
+            <p class="text-sm text-muted">Amber has more energy, gold has more restraint.</p>
+          </div>
+
           <div class="callout callout--plum">
             <p><strong>⚜ Plum Callout</strong> — For technical notes, code context, or deeper dives.</p>
             <p class="text-sm text-muted">The deeper color signals depth.</p>
@@ -1226,10 +1302,13 @@
       <!-- ════════════════════════════════════════════
          FULL BLOG POST MOCKUP
          ════════════════════════════════════════════ -->
-      <section class="section section--cream">
+      <section class="section section--cream amber-theme">
         <div class="container">
-          <p class="label">Putting It Together</p>
-          <h2>Full Blog Post Feel</h2>
+          <p class="label">Putting It Together — Amber Edition</p>
+          <h2>Full Blog Post with Amber</h2>
+          <p class="text-sm text-muted">
+            This whole section uses the amber scale instead of gold — compare with the gold-accented sections above.
+          </p>
 
           <p class="label" style="color: var(--rose-500); margin-bottom: 0;">January 15, 2026</p>
           <h1 style="margin-top: 0.25rem;">How I Bridgerton'd My Website</h1>
@@ -1237,7 +1316,7 @@
 
           <div class="badge-group">
             <a href="#" class="badge badge--rose">CSS</a>
-            <a href="#" class="badge badge--gold">Design</a>
+            <a href="#" class="badge badge--amber">Design</a>
             <a href="#" class="badge badge--plum">Astro</a>
           </div>
 
@@ -1278,7 +1357,7 @@
             <li><strong>Orangered</strong> stays as the signature pop — every queen needs her crown jewel 🔥</li>
           </ul>
 
-          <div class="callout callout--gold">
+          <div class="callout callout--amber">
             <p>
               <strong>👑 Key takeaway:</strong> Your color palette should feel like a wardrobe, not a spreadsheet. Each color
               has a role, a personality, a reason to exist.
