@@ -96,7 +96,7 @@
       }
 
       ::selection {
-        background: var(--gold-200);
+        background: var(--amber-200);
         color: var(--plum-900);
       }
 
@@ -185,7 +185,7 @@
 
       .section--plum h2,
       .section--plum h3 {
-        color: var(--gold-200);
+        color: var(--amber-200);
       }
 
       .section--rose {
@@ -240,7 +240,7 @@
         color: var(--plum-600);
         text-decoration: underline;
         text-underline-offset: 3px;
-        text-decoration-color: var(--gold-400);
+        text-decoration-color: var(--amber-400);
         transition: all 0.2s;
       }
 
@@ -430,7 +430,7 @@
       .content-item {
         display: block;
         padding: 0.75rem 1.25rem 1rem;
-        border-left: 4px solid var(--gold-400);
+        border-left: 4px solid var(--amber-400);
         margin: 0.75rem 0;
         text-decoration: none;
         transition: all 0.2s;
@@ -438,7 +438,7 @@
       }
 
       .content-item:hover {
-        background: var(--gold-100);
+        background: var(--amber-100);
         border-left-color: var(--signature);
         color: inherit;
         text-decoration: none;
@@ -508,7 +508,7 @@
       blockquote {
         position: relative;
         border: none;
-        border-left: 6px solid var(--gold-400);
+        border-left: 6px solid var(--amber-400);
         background: var(--golden-cream);
         padding: 1.75rem 1.75rem 1.5rem 2rem;
         margin: 2rem 0;
@@ -520,7 +520,7 @@
         font-family: var(--font-display);
         font-size: 4.5rem;
         font-weight: 900;
-        color: var(--gold-300);
+        color: var(--amber-300);
         position: absolute;
         top: -0.15rem;
         left: 0.75rem;
@@ -558,11 +558,11 @@
       /* ── Blockquote on dark backgrounds ── */
       .section--plum blockquote {
         background: var(--plum-800);
-        border-left-color: var(--gold-500);
+        border-left-color: var(--amber-500);
       }
 
       .section--plum blockquote::before {
-        color: var(--gold-600);
+        color: var(--amber-600);
       }
 
       .section--plum blockquote p {
@@ -570,7 +570,7 @@
       }
 
       .section--plum blockquote cite {
-        color: var(--gold-400);
+        color: var(--amber-400);
       }
 
       /* ── Amber-themed variants ── */
@@ -618,7 +618,7 @@
         width: 100%;
         height: auto;
         border: 5px solid var(--plum-900);
-        box-shadow: 8px 8px 0 var(--gold-400);
+        box-shadow: 8px 8px 0 var(--amber-400);
       }
 
       figure figcaption {
@@ -631,9 +631,9 @@
         margin-top: 0.75rem;
       }
 
-      /* Alternate image style — gold border */
-      figure.fig--gold img {
-        border-color: var(--gold-500);
+      /* Alternate image style — amber border */
+      figure.fig--amber img {
+        border-color: var(--amber-500);
         box-shadow: 8px 8px 0 var(--plum-800);
       }
 
@@ -656,7 +656,7 @@
 
       .fleur-list li::before {
         content: "⚜";
-        color: var(--gold-500);
+        color: var(--amber-500);
         display: inline-block;
         margin-right: 0.6rem;
         font-size: 0.85em;
@@ -667,7 +667,7 @@
         border: none;
         text-align: center;
         margin: 2.5rem 0;
-        color: var(--gold-400);
+        color: var(--amber-400);
         font-size: 1.25rem;
         letter-spacing: 0.75rem;
       }
@@ -686,7 +686,7 @@
       }
 
       .newsletter-box h3 {
-        color: var(--gold-200);
+        color: var(--amber-200);
         margin-top: 0;
       }
 
@@ -718,7 +718,7 @@
       }
 
       .newsletter-input:focus {
-        border-color: var(--gold-400);
+        border-color: var(--amber-400);
       }
 
       .newsletter-btn {
@@ -770,6 +770,69 @@
       }
       .full-width {
         max-width: 100% !important;
+      }
+
+      /* ── Pop Variants ── */
+      .pop-demo {
+        max-width: 100% !important;
+        margin: 1.5rem 0;
+      }
+
+      .pop-card {
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 1.25rem;
+        border-top: 5px solid;
+        background: var(--royal-cream);
+        max-width: 100% !important;
+      }
+
+      .pop-card-label {
+        font-family: var(--font-display);
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.35rem;
+      }
+
+      .pop-card-name {
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 1.35rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .pop-card-hex {
+        font-family: monospace;
+        font-size: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .pop-card-btns {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .pop-btn {
+        display: inline-block;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 0.45rem 1rem;
+        color: white;
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .pop-link {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-underline-offset: 3px;
       }
 
       .notice-old {
@@ -1100,15 +1163,7 @@
           <p class="label">Components</p>
           <h2>The Royal Collection</h2>
 
-          <h3>Buttons — Gold Accent</h3>
-          <div class="btn-group">
-            <a href="#" class="btn btn--plum">Subscribe</a>
-            <a href="#" class="btn btn--outline">Read More</a>
-            <a href="#" class="btn btn--gold">Book a Talk</a>
-            <a href="#" class="btn btn--signature">Watch Now 🔥</a>
-          </div>
-
-          <h3>Buttons — Amber Accent</h3>
+          <h3>Buttons</h3>
           <div class="btn-group">
             <a href="#" class="btn btn--plum">Subscribe</a>
             <a href="#" class="btn btn--outline">Read More</a>
@@ -1116,15 +1171,13 @@
             <a href="#" class="btn btn--signature">Watch Now 🔥</a>
           </div>
 
-          <h3>Badges — Gold vs Amber</h3>
+          <h3>Badges / Tags</h3>
           <div class="badge-group">
             <a href="#" class="badge badge--rose">Gatsby</a>
-            <a href="#" class="badge badge--gold">Astro (gold)</a>
-            <a href="#" class="badge badge--amber">Astro (amber)</a>
+            <a href="#" class="badge badge--amber">Astro</a>
             <a href="#" class="badge badge--plum">CSS</a>
             <a href="#" class="badge badge--rose">JavaScript</a>
-            <a href="#" class="badge badge--gold">Netlify (gold)</a>
-            <a href="#" class="badge badge--amber">Netlify (amber)</a>
+            <a href="#" class="badge badge--amber">Netlify</a>
             <a href="#" class="badge badge--plum">Tutorial</a>
           </div>
 
@@ -1167,14 +1220,14 @@
             to choose from.
           </p>
 
-          <h3>Primary — Plum Border &amp; Gold Shadow</h3>
+          <h3>Primary — Plum Border &amp; Amber Shadow</h3>
           <figure>
             <img src="/content/landing/raae.jpg" alt="Queen Raae holding a laptop in front of her gallery wall" />
             <figcaption>⚜ Queen Raae — Sailing the High Seas of the Web</figcaption>
           </figure>
 
-          <h3>Alternate — Gold Border &amp; Plum Shadow</h3>
-          <figure class="fig--gold">
+          <h3>Alternate — Amber Border &amp; Plum Shadow</h3>
+          <figure class="fig--amber">
             <img src="/content/landing/raae.jpg" alt="Queen Raae holding a laptop in front of her gallery wall" />
             <figcaption>⚜ Same image, inverted border treatment</figcaption>
           </figure>
@@ -1206,16 +1259,9 @@
             </p>
           </div>
 
-          <div class="callout callout--gold">
-            <p><strong>👑 Gold Callout</strong> — For important highlights, key takeaways, or featured content.</p>
-            <p class="text-sm text-muted">Gold commands attention without shouting.</p>
-          </div>
-
           <div class="callout callout--amber">
-            <p>
-              <strong>🔶 Amber Callout</strong> — Same role as gold, but warmer and more orange. Compare side by side.
-            </p>
-            <p class="text-sm text-muted">Amber has more energy, gold has more restraint.</p>
+            <p><strong>👑 Amber Callout</strong> — For important highlights, key takeaways, or featured content.</p>
+            <p class="text-sm text-muted">Warm and present without shouting.</p>
           </div>
 
           <div class="callout callout--plum">
@@ -1261,7 +1307,7 @@
          ════════════════════════════════════════════ -->
       <section class="section section--plum">
         <div class="container">
-          <p class="label" style="color: var(--gold-400);">Dark Section</p>
+          <p class="label" style="color: var(--amber-400);">Dark Section</p>
           <h2>The Queen's Chamber</h2>
           <p>
             Deep plum backgrounds for newsletter signups, featured content, or footers. Gold headings and cream text for
@@ -1302,13 +1348,10 @@
       <!-- ════════════════════════════════════════════
          FULL BLOG POST MOCKUP
          ════════════════════════════════════════════ -->
-      <section class="section section--cream amber-theme">
+      <section class="section section--cream">
         <div class="container">
-          <p class="label">Putting It Together — Amber Edition</p>
-          <h2>Full Blog Post with Amber</h2>
-          <p class="text-sm text-muted">
-            This whole section uses the amber scale instead of gold — compare with the gold-accented sections above.
-          </p>
+          <p class="label">Putting It Together</p>
+          <h2>Full Blog Post Feel</h2>
 
           <p class="label" style="color: var(--rose-500); margin-bottom: 0;">January 15, 2026</p>
           <h1 style="margin-top: 0.25rem;">How I Bridgerton'd My Website</h1>
@@ -1372,6 +1415,112 @@
           <hr />
 
           <p>That's the direction. What do you think — shall we proceed with the coronation? 👑</p>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════
+         POP VARIANTS
+         ════════════════════════════════════════════ -->
+      <section class="section section--golden">
+        <div class="container">
+          <p class="label">Signature Pop Variants</p>
+          <h2>Pick Your Crown Jewel 🔥</h2>
+          <p>
+            The pop color is what makes everything sing — header border, hover states, call-to-action buttons. Here are
+            some options beyond the current orangered.
+          </p>
+
+          <div class="pop-demo">
+            <div class="pop-card" style="border-color: #FF5722;">
+              <div class="pop-card-label" style="color: #FF5722;">Current</div>
+              <div class="pop-card-name" style="color: #FF5722;">Orangered</div>
+              <div class="pop-card-hex" style="color: var(--plum-500);">
+                #FF5722 — Your signature. Warm, bold, high energy.
+              </div>
+              <div class="pop-card-btns">
+                <span class="pop-btn" style="background: #FF5722;">Subscribe 👑</span>
+                <span class="pop-btn" style="background: var(--plum-700);">Read More</span>
+                <a href="#" class="pop-link" style="color: var(--plum-600); text-decoration-color: #FF5722;"
+                  >A link on hover →</a
+                >
+              </div>
+            </div>
+
+            <div class="pop-card" style="border-color: #E53935;">
+              <div class="pop-card-label" style="color: #E53935;">Variant A</div>
+              <div class="pop-card-name" style="color: #E53935;">Cardinal Red</div>
+              <div class="pop-card-hex" style="color: var(--plum-500);">
+                #E53935 — Deeper, more crimson. Royal and commanding.
+              </div>
+              <div class="pop-card-btns">
+                <span class="pop-btn" style="background: #E53935;">Subscribe 👑</span>
+                <span class="pop-btn" style="background: var(--plum-700);">Read More</span>
+                <a href="#" class="pop-link" style="color: var(--plum-600); text-decoration-color: #E53935;"
+                  >A link on hover →</a
+                >
+              </div>
+            </div>
+
+            <div class="pop-card" style="border-color: #F4511E;">
+              <div class="pop-card-label" style="color: #F4511E;">Variant B</div>
+              <div class="pop-card-name" style="color: #F4511E;">Deep Orange</div>
+              <div class="pop-card-hex" style="color: var(--plum-500);">
+                #F4511E — Slightly warmer than orangered, more fire than tomato.
+              </div>
+              <div class="pop-card-btns">
+                <span class="pop-btn" style="background: #F4511E;">Subscribe 👑</span>
+                <span class="pop-btn" style="background: var(--plum-700);">Read More</span>
+                <a href="#" class="pop-link" style="color: var(--plum-600); text-decoration-color: #F4511E;"
+                  >A link on hover →</a
+                >
+              </div>
+            </div>
+
+            <div class="pop-card" style="border-color: #D84315;">
+              <div class="pop-card-label" style="color: #D84315;">Variant C</div>
+              <div class="pop-card-name" style="color: #D84315;">Burnt Sienna</div>
+              <div class="pop-card-hex" style="color: var(--plum-500);">
+                #D84315 — Earthier, warmer. Ties into the amber family. More heritage.
+              </div>
+              <div class="pop-card-btns">
+                <span class="pop-btn" style="background: #D84315;">Subscribe 👑</span>
+                <span class="pop-btn" style="background: var(--plum-700);">Read More</span>
+                <a href="#" class="pop-link" style="color: var(--plum-600); text-decoration-color: #D84315;"
+                  >A link on hover →</a
+                >
+              </div>
+            </div>
+
+            <div class="pop-card" style="border-color: #C62828;">
+              <div class="pop-card-label" style="color: #C62828;">Variant D</div>
+              <div class="pop-card-name" style="color: #C62828;">Ruby</div>
+              <div class="pop-card-hex" style="color: var(--plum-500);">
+                #C62828 — Dark red. Maximum drama. Jewel-toned royalty.
+              </div>
+              <div class="pop-card-btns">
+                <span class="pop-btn" style="background: #C62828;">Subscribe 👑</span>
+                <span class="pop-btn" style="background: var(--plum-700);">Read More</span>
+                <a href="#" class="pop-link" style="color: var(--plum-600); text-decoration-color: #C62828;"
+                  >A link on hover →</a
+                >
+              </div>
+            </div>
+
+            <div class="pop-card" style="border-color: #AD1457;">
+              <div class="pop-card-label" style="color: #AD1457;">Variant E</div>
+              <div class="pop-card-name" style="color: #AD1457;">Magenta Rose</div>
+              <div class="pop-card-hex" style="color: var(--plum-500);">
+                #AD1457 — Bridges the plum and the pop. Rich, unexpected, distinctly Queen.
+              </div>
+              <div class="pop-card-btns">
+                <span class="pop-btn" style="background: #AD1457;">Subscribe 👑</span>
+                <span class="pop-btn" style="background: var(--plum-700);">Read More</span>
+                <a href="#" class="pop-link" style="color: var(--plum-600); text-decoration-color: #AD1457;"
+                  >A link on hover →</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
