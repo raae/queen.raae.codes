@@ -746,6 +746,11 @@
         color: var(--plum);
       }
 
+      .list-v.font-display .list-title {
+        font-family: var(--font-display);
+        font-weight: 800;
+      }
+
       .list-v .list-date {
         font-family: var(--font-label);
         font-size: 0.6rem;
@@ -891,6 +896,43 @@
         color: var(--signature);
       }
 
+      /* Variant F — Flowing text (title + date as one line of prose) */
+      .list-flow a {
+        display: block;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(61, 18, 48, 0.08);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        line-height: 1.5;
+        color: var(--plum);
+      }
+
+      .list-flow a:hover {
+        padding-left: 0.35rem;
+      }
+
+      .list-flow .list-title {
+        font-weight: 600;
+      }
+
+      .list-flow.font-display .list-title {
+        font-family: var(--font-display);
+        font-weight: 800;
+      }
+
+      .list-flow .list-date {
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: 400;
+        text-transform: none;
+        letter-spacing: normal;
+        color: var(--plum-muted);
+      }
+
+      .list-flow a:hover .list-title {
+        color: var(--signature);
+      }
+
       /* ════════════════════════════════════════════
          BLOCKQUOTE — Fleur system
          Short quotes: centered + fleur
@@ -958,11 +1000,11 @@
       }
 
       .quote--long p {
-        font-family: var(--font-display);
+        font-family: var(--font-body);
         font-style: italic;
-        font-weight: 500;
-        font-size: 1.1rem;
-        line-height: 1.5;
+        font-weight: 400;
+        font-size: 1.05rem;
+        line-height: 1.6;
         color: var(--plum-deep);
         margin: 0;
       }
@@ -1336,9 +1378,12 @@
         <div class="container">
           <p class="label">Content List Variants</p>
           <h2>Pick Your List</h2>
-          <p>All title-first, date in smaller focus. Five takes on the same idea.</p>
+          <p>
+            Each variant shown twice — body font (Lora) then display font (Playfair). Plus a new flowing-text option.
+          </p>
 
-          <h3>A — Title · Date <span class="text-sm text-muted">(single line, date trails)</span></h3>
+          <!-- ── A — Title · Date ── -->
+          <h3>A — Title · Date <span class="text-sm text-muted">(Lora)</span></h3>
           <div class="list-v list-dotted full-width">
             <a href="#">
               <div class="list-title">How I Migrated 200 Blog Posts from Gatsby to Astro</div>
@@ -1354,7 +1399,24 @@
             </a>
           </div>
 
-          <h3>B — Title with Description, Date Trailing</h3>
+          <h3>A — Title · Date <span class="text-sm text-muted">(Playfair)</span></h3>
+          <div class="list-v list-dotted font-display full-width">
+            <a href="#">
+              <div class="list-title">How I Migrated 200 Blog Posts from Gatsby to Astro</div>
+              <div class="list-date">Jan 2026</div>
+            </a>
+            <a href="#">
+              <div class="list-title">Content Collections: The Astro Feature That Changed Everything</div>
+              <div class="list-date">Dec 2025</div>
+            </a>
+            <a href="#">
+              <div class="list-title">Live Streaming: Why I Code in Public</div>
+              <div class="list-date">Nov 2025</div>
+            </a>
+          </div>
+
+          <!-- ── B — Title with Description ── -->
+          <h3>B — Title + Description <span class="text-sm text-muted">(Lora)</span></h3>
           <div class="list-v list-trailing full-width">
             <a href="#">
               <div class="list-row">
@@ -1378,7 +1440,32 @@
             </a>
           </div>
 
-          <h3>C — Title Arrow, Date Underneath</h3>
+          <h3>B — Title + Description <span class="text-sm text-muted">(Playfair)</span></h3>
+          <div class="list-v list-trailing font-display full-width">
+            <a href="#">
+              <div class="list-row">
+                <div class="list-title">How I Migrated 200 Blog Posts from Gatsby to Astro</div>
+                <div class="list-date">Jan 2026</div>
+              </div>
+              <div class="list-desc">A tale of courage, regex, and questionable life choices.</div>
+            </a>
+            <a href="#">
+              <div class="list-row">
+                <div class="list-title">Content Collections: The Astro Feature That Changed Everything</div>
+                <div class="list-date">Dec 2025</div>
+              </div>
+              <div class="list-desc">Zod schemas for your markdown, because we deserve nice things.</div>
+            </a>
+            <a href="#">
+              <div class="list-row">
+                <div class="list-title">Live Streaming: Why I Code in Public</div>
+                <div class="list-date">Nov 2025</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- ── C — Title Arrow ── -->
+          <h3>C — Title Arrow <span class="text-sm text-muted">(Lora)</span></h3>
           <div class="list-v list-arrow full-width">
             <a href="#">
               <div class="list-title">How I Migrated 200 Blog Posts from Gatsby to Astro</div>
@@ -1394,7 +1481,24 @@
             </a>
           </div>
 
-          <h3>D — Fleur Bullet, Date Trailing</h3>
+          <h3>C — Title Arrow <span class="text-sm text-muted">(Playfair)</span></h3>
+          <div class="list-v list-arrow font-display full-width">
+            <a href="#">
+              <div class="list-title">How I Migrated 200 Blog Posts from Gatsby to Astro</div>
+              <div class="list-date">January 15, 2026</div>
+            </a>
+            <a href="#">
+              <div class="list-title">Content Collections: The Astro Feature That Changed Everything</div>
+              <div class="list-date">December 3, 2025</div>
+            </a>
+            <a href="#">
+              <div class="list-title">Live Streaming: Why I Code in Public</div>
+              <div class="list-date">November 18, 2025</div>
+            </a>
+          </div>
+
+          <!-- ── D — Fleur Bullet ── -->
+          <h3>D — Fleur Bullet <span class="text-sm text-muted">(Lora)</span></h3>
           <div class="list-v list-fleur full-width">
             <a href="#">
               <div class="list-row">
@@ -1416,7 +1520,30 @@
             </a>
           </div>
 
-          <h3>E — Date Left, Title Right</h3>
+          <h3>D — Fleur Bullet <span class="text-sm text-muted">(Playfair)</span></h3>
+          <div class="list-v list-fleur font-display full-width">
+            <a href="#">
+              <div class="list-row">
+                <div class="list-title">How I Migrated 200 Blog Posts from Gatsby to Astro</div>
+                <div class="list-date">Jan 2026</div>
+              </div>
+            </a>
+            <a href="#">
+              <div class="list-row">
+                <div class="list-title">Content Collections: The Astro Feature That Changed Everything</div>
+                <div class="list-date">Dec 2025</div>
+              </div>
+            </a>
+            <a href="#">
+              <div class="list-row">
+                <div class="list-title">Live Streaming: Why I Code in Public</div>
+                <div class="list-date">Nov 2025</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- ── E — Date Left ── -->
+          <h3>E — Date Left <span class="text-sm text-muted">(Lora)</span></h3>
           <div class="list-v list-split full-width">
             <a href="#">
               <div class="list-date">Jan 2026</div>
@@ -1429,6 +1556,55 @@
             <a href="#">
               <div class="list-date">Nov 2025</div>
               <div class="list-title">Live Streaming: Why I Code in Public</div>
+            </a>
+          </div>
+
+          <h3>E — Date Left <span class="text-sm text-muted">(Playfair)</span></h3>
+          <div class="list-v list-split font-display full-width">
+            <a href="#">
+              <div class="list-date">Jan 2026</div>
+              <div class="list-title">How I Migrated 200 Blog Posts from Gatsby to Astro</div>
+            </a>
+            <a href="#">
+              <div class="list-date">Dec 2025</div>
+              <div class="list-title">Content Collections: The Astro Feature That Changed Everything</div>
+            </a>
+            <a href="#">
+              <div class="list-date">Nov 2025</div>
+              <div class="list-title">Live Streaming: Why I Code in Public</div>
+            </a>
+          </div>
+
+          <!-- ── F — Flowing Text ── -->
+          <h3>F — Flowing Text <span class="text-sm text-muted">(title and date read as one, Lora)</span></h3>
+          <div class="list-v list-flow full-width">
+            <a href="#">
+              <span class="list-title">How I Migrated 200 Blog Posts from Gatsby to Astro</span>
+              <span class="list-date"> (January 2026)</span>
+            </a>
+            <a href="#">
+              <span class="list-title">Content Collections: The Astro Feature That Changed Everything</span>
+              <span class="list-date"> (December 2025)</span>
+            </a>
+            <a href="#">
+              <span class="list-title">Live Streaming: Why I Code in Public</span>
+              <span class="list-date"> (November 2025)</span>
+            </a>
+          </div>
+
+          <h3>F — Flowing Text <span class="text-sm text-muted">(Playfair)</span></h3>
+          <div class="list-v list-flow font-display full-width">
+            <a href="#">
+              <span class="list-title">How I Migrated 200 Blog Posts from Gatsby to Astro</span>
+              <span class="list-date"> (January 2026)</span>
+            </a>
+            <a href="#">
+              <span class="list-title">Content Collections: The Astro Feature That Changed Everything</span>
+              <span class="list-date"> (December 2025)</span>
+            </a>
+            <a href="#">
+              <span class="list-title">Live Streaming: Why I Code in Public</span>
+              <span class="list-date"> (November 2025)</span>
             </a>
           </div>
         </div>
