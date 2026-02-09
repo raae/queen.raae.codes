@@ -698,6 +698,468 @@
         border-color: var(--signature-hover);
       }
 
+      /* ════════════════════════════════════════════
+         TAG VARIANTS
+         ════════════════════════════════════════════ */
+
+      /* Variant A — Fleur-separated inline */
+      .tags-fleur {
+        font-family: var(--font-label);
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--plum-mid);
+        margin: 1rem 0;
+      }
+
+      .tags-fleur a {
+        color: var(--plum-mid);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .tags-fleur a:hover {
+        color: var(--signature);
+      }
+
+      .tags-fleur .sep {
+        color: var(--amber);
+        margin: 0 0.4rem;
+        font-size: 0.65em;
+      }
+
+      /* Variant B — Underline-only (no background) */
+      .tags-underline {
+        display: flex;
+        gap: 0.85rem;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+      }
+
+      .tags-underline a {
+        font-family: var(--font-label);
+        font-size: 0.65rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--plum-mid);
+        text-decoration: none;
+        border-bottom: 2px solid var(--amber);
+        padding-bottom: 2px;
+        transition: all 0.2s;
+      }
+
+      .tags-underline a:hover {
+        color: var(--signature);
+        border-bottom-color: var(--signature);
+      }
+
+      /* Variant C — Hashtag plain text */
+      .tags-hash {
+        font-family: var(--font-label);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: var(--plum-muted);
+        margin: 1rem 0;
+      }
+
+      .tags-hash a {
+        color: var(--plum-mid);
+        text-decoration: none;
+        transition: color 0.2s;
+        margin-right: 0.65rem;
+      }
+
+      .tags-hash a::before {
+        content: "#";
+        color: var(--amber);
+      }
+
+      .tags-hash a:hover {
+        color: var(--signature);
+      }
+
+      /* Variant D — Outlined / ghost pills */
+      .tags-outline {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+      }
+
+      .tags-outline a {
+        font-family: var(--font-label);
+        font-size: 0.6rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 0.2rem 0.6rem;
+        border: 1.5px solid var(--rose);
+        color: var(--plum-mid);
+        border-radius: 2rem;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+
+      .tags-outline a:hover {
+        background: var(--rose);
+        color: white;
+        border-color: var(--rose);
+      }
+
+      /* ════════════════════════════════════════════
+         CONTENT LIST VARIANTS
+         ════════════════════════════════════════════ */
+
+      /* Variant A — Minimal (title + arrow, date below) */
+      .list-minimal a {
+        display: block;
+        text-decoration: none;
+        padding: 0.65rem 0;
+        border-bottom: 1px solid rgba(61, 18, 48, 0.08);
+        color: inherit;
+        transition: all 0.2s;
+      }
+
+      .list-minimal a:hover {
+        padding-left: 0.5rem;
+      }
+
+      .list-minimal .list-title {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--plum);
+      }
+
+      .list-minimal .list-title::after {
+        content: " →";
+        color: var(--amber);
+        transition: color 0.2s;
+      }
+
+      .list-minimal a:hover .list-title::after {
+        color: var(--signature);
+      }
+
+      .list-minimal .list-date {
+        font-family: var(--font-label);
+        font-size: 0.6rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--plum-muted);
+        margin-top: 0.15rem;
+      }
+
+      /* Variant B — Date-left two-column */
+      .list-dated a {
+        display: grid;
+        grid-template-columns: 5.5rem 1fr;
+        gap: 0.75rem;
+        align-items: baseline;
+        text-decoration: none;
+        padding: 0.6rem 0;
+        border-bottom: 1px solid rgba(61, 18, 48, 0.08);
+        color: inherit;
+        transition: all 0.2s;
+      }
+
+      .list-dated a:hover {
+        background: var(--blush);
+      }
+
+      .list-dated .list-date {
+        font-family: var(--font-label);
+        font-size: 0.6rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--rose);
+        text-align: right;
+      }
+
+      .list-dated .list-title {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--plum);
+      }
+
+      /* Variant C — Card style */
+      .list-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+      }
+
+      .list-cards a {
+        display: block;
+        text-decoration: none;
+        padding: 1rem 1.25rem;
+        background: var(--blush);
+        border: 1px solid rgba(61, 18, 48, 0.06);
+        border-radius: 4px;
+        color: inherit;
+        transition: all 0.2s;
+      }
+
+      .list-cards a:hover {
+        border-color: var(--amber);
+        box-shadow: 0 2px 8px rgba(245, 166, 35, 0.12);
+      }
+
+      .list-cards .list-date {
+        font-family: var(--font-label);
+        font-size: 0.6rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--rose);
+      }
+
+      .list-cards .list-title {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--plum);
+        margin-top: 0.15rem;
+      }
+
+      .list-cards .list-desc {
+        font-size: 0.85rem;
+        color: var(--plum-mid);
+        margin-top: 0.2rem;
+      }
+
+      /* Variant D — Numbered */
+      .list-numbered {
+        counter-reset: post;
+      }
+
+      .list-numbered a {
+        display: flex;
+        gap: 0.85rem;
+        align-items: baseline;
+        text-decoration: none;
+        padding: 0.6rem 0;
+        border-bottom: 1px solid rgba(61, 18, 48, 0.08);
+        color: inherit;
+        transition: all 0.2s;
+        counter-increment: post;
+      }
+
+      .list-numbered a::before {
+        content: counter(post, decimal-leading-zero);
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: var(--amber);
+        flex-shrink: 0;
+        min-width: 2rem;
+      }
+
+      .list-numbered a:hover {
+        padding-left: 0.35rem;
+      }
+
+      .list-numbered a:hover::before {
+        color: var(--signature);
+      }
+
+      .list-numbered .list-title {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--plum);
+      }
+
+      .list-numbered .list-date {
+        font-family: var(--font-label);
+        font-size: 0.6rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--plum-muted);
+        margin-top: 0.1rem;
+      }
+
+      /* ════════════════════════════════════════════
+         BLOCKQUOTE VARIANTS
+         ════════════════════════════════════════════ */
+
+      /* Variant B — Centered, large quotes above/below */
+      .quote-centered {
+        text-align: center;
+        margin: 2.5rem 0;
+        padding: 0 1rem;
+        max-width: 100% !important;
+      }
+
+      .quote-centered::before,
+      .quote-centered::after {
+        display: block;
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 2.5rem;
+        color: var(--amber);
+        line-height: 1;
+      }
+
+      .quote-centered::before {
+        content: "\201C";
+        margin-bottom: 0.25rem;
+      }
+
+      .quote-centered::after {
+        content: "\201D";
+        margin-top: 0.15rem;
+      }
+
+      .quote-centered p {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 500;
+        font-size: 1.2rem;
+        line-height: 1.45;
+        color: var(--plum-deep);
+        margin: 0;
+      }
+
+      .quote-centered cite {
+        display: block;
+        font-family: var(--font-label);
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--plum-muted);
+        margin-top: 0.75rem;
+      }
+
+      .quote-centered cite::before {
+        content: "— ";
+      }
+
+      /* Variant C — Top/bottom border, no left bar */
+      .quote-ruled {
+        border-top: 2px solid var(--amber);
+        border-bottom: 2px solid var(--amber);
+        padding: 1.5rem 0;
+        margin: 2rem 0;
+        max-width: 100% !important;
+      }
+
+      .quote-ruled p {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 500;
+        font-size: 1.15rem;
+        line-height: 1.45;
+        color: var(--plum-deep);
+        margin: 0;
+      }
+
+      .quote-ruled cite {
+        display: block;
+        font-family: var(--font-label);
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--plum-muted);
+        margin-top: 0.75rem;
+      }
+
+      .quote-ruled cite::before {
+        content: "— ";
+      }
+
+      /* Variant D — Full-width golden band */
+      .quote-band {
+        background: var(--golden);
+        padding: 1.75rem 1.5rem;
+        margin: 2rem -1.5rem;
+        max-width: none !important;
+        text-align: center;
+      }
+
+      .quote-band p {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 600;
+        font-size: 1.25rem;
+        line-height: 1.4;
+        color: var(--plum-deep);
+        margin: 0;
+        max-width: 32rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .quote-band cite {
+        display: block;
+        font-family: var(--font-label);
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--plum-muted);
+        margin-top: 0.65rem;
+      }
+
+      .quote-band cite::before {
+        content: "— ";
+      }
+
+      /* Variant E — Fleur accent, indented */
+      .quote-fleur {
+        margin: 2rem 0;
+        padding-left: 2rem;
+        position: relative;
+        max-width: 100% !important;
+      }
+
+      .quote-fleur::before {
+        content: "⚜";
+        position: absolute;
+        left: 0;
+        top: 0.15rem;
+        font-size: 1.1rem;
+        color: var(--amber);
+      }
+
+      .quote-fleur p {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 500;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        color: var(--plum-deep);
+        margin: 0;
+      }
+
+      .quote-fleur cite {
+        display: block;
+        font-family: var(--font-label);
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--plum-muted);
+        margin-top: 0.5rem;
+      }
+
+      .quote-fleur cite::before {
+        content: "— ";
+      }
+
       /* ── Utility ── */
       .mt-0 {
         margin-top: 0;
@@ -1057,6 +1519,189 @@
             <p>Amber on plum. Deep Orange as the spark. Not subtle, not sorry.</p>
             <cite>The Mood</cite>
           </blockquote>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════
+         TAG VARIANTS
+         ════════════════════════════════════════════ -->
+      <section class="section section--cream">
+        <div class="container">
+          <p class="label">Tag Variants</p>
+          <h2>Pick Your Tags</h2>
+          <p>Same tags, different personalities. The pills from before, plus four alternatives.</p>
+
+          <h3>A — Pills <span class="text-sm text-muted">(current)</span></h3>
+          <div class="badge-group">
+            <a href="#" class="badge badge--rose">CSS</a>
+            <a href="#" class="badge badge--amber">Design</a>
+            <a href="#" class="badge badge--rose">Astro</a>
+            <a href="#" class="badge badge--amber">JavaScript</a>
+          </div>
+
+          <h3>B — Fleur-Separated</h3>
+          <div class="tags-fleur">
+            <a href="#">CSS</a><span class="sep">⚜</span><a href="#">Design</a><span class="sep">⚜</span><a href="#"
+              >Astro</a
+            ><span class="sep">⚜</span><a href="#">JavaScript</a>
+          </div>
+
+          <h3>C — Underline</h3>
+          <div class="tags-underline">
+            <a href="#">CSS</a>
+            <a href="#">Design</a>
+            <a href="#">Astro</a>
+            <a href="#">JavaScript</a>
+          </div>
+
+          <h3>D — Hashtag</h3>
+          <div class="tags-hash">
+            <a href="#">CSS</a>
+            <a href="#">Design</a>
+            <a href="#">Astro</a>
+            <a href="#">JavaScript</a>
+          </div>
+
+          <h3>E — Ghost Pills</h3>
+          <div class="tags-outline">
+            <a href="#">CSS</a>
+            <a href="#">Design</a>
+            <a href="#">Astro</a>
+            <a href="#">JavaScript</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════
+         CONTENT LIST VARIANTS
+         ════════════════════════════════════════════ -->
+      <section class="section section--golden">
+        <div class="container">
+          <p class="label">Content List Variants</p>
+          <h2>Pick Your List</h2>
+          <p>The current left-border style, plus four alternatives.</p>
+
+          <h3>A — Left Border <span class="text-sm text-muted">(current)</span></h3>
+          <div class="full-width">
+            <a href="#" class="content-item">
+              <div class="content-item-date">January 15, 2026</div>
+              <div class="content-item-title">How I Migrated 200 Blog Posts from Gatsby to Astro</div>
+              <div class="content-item-desc">A tale of courage, regex, and questionable life choices.</div>
+            </a>
+            <a href="#" class="content-item">
+              <div class="content-item-date">December 3, 2025</div>
+              <div class="content-item-title">Content Collections: The Astro Feature That Changed Everything</div>
+            </a>
+          </div>
+
+          <h3>B — Minimal Arrow</h3>
+          <div class="list-minimal full-width">
+            <a href="#">
+              <div class="list-title">How I Migrated 200 Blog Posts from Gatsby to Astro</div>
+              <div class="list-date">January 15, 2026</div>
+            </a>
+            <a href="#">
+              <div class="list-title">Content Collections: The Astro Feature That Changed Everything</div>
+              <div class="list-date">December 3, 2025</div>
+            </a>
+            <a href="#">
+              <div class="list-title">Live Streaming: Why I Code in Public</div>
+              <div class="list-date">November 18, 2025</div>
+            </a>
+          </div>
+
+          <h3>C — Date Left</h3>
+          <div class="list-dated full-width">
+            <a href="#">
+              <div class="list-date">Jan 15, 2026</div>
+              <div class="list-title">How I Migrated 200 Blog Posts from Gatsby to Astro</div>
+            </a>
+            <a href="#">
+              <div class="list-date">Dec 3, 2025</div>
+              <div class="list-title">Content Collections: The Astro Feature That Changed Everything</div>
+            </a>
+            <a href="#">
+              <div class="list-date">Nov 18, 2025</div>
+              <div class="list-title">Live Streaming: Why I Code in Public</div>
+            </a>
+          </div>
+
+          <h3>D — Cards</h3>
+          <div class="list-cards full-width">
+            <a href="#">
+              <div class="list-date">January 15, 2026</div>
+              <div class="list-title">How I Migrated 200 Blog Posts from Gatsby to Astro</div>
+              <div class="list-desc">A tale of courage, regex, and questionable life choices.</div>
+            </a>
+            <a href="#">
+              <div class="list-date">December 3, 2025</div>
+              <div class="list-title">Content Collections: The Astro Feature That Changed Everything</div>
+              <div class="list-desc">Zod schemas for your markdown, because we deserve nice things.</div>
+            </a>
+          </div>
+
+          <h3>E — Numbered</h3>
+          <div class="list-numbered full-width">
+            <a href="#">
+              <div>
+                <div class="list-title">How I Migrated 200 Blog Posts from Gatsby to Astro</div>
+                <div class="list-date">January 15, 2026</div>
+              </div>
+            </a>
+            <a href="#">
+              <div>
+                <div class="list-title">Content Collections: The Astro Feature That Changed Everything</div>
+                <div class="list-date">December 3, 2025</div>
+              </div>
+            </a>
+            <a href="#">
+              <div>
+                <div class="list-title">Live Streaming: Why I Code in Public</div>
+                <div class="list-date">November 18, 2025</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════
+         BLOCKQUOTE VARIANTS
+         ════════════════════════════════════════════ -->
+      <section class="section section--blush">
+        <div class="container">
+          <p class="label" style="color: var(--rose);">Blockquote Variants</p>
+          <h2>Pick Your Quote</h2>
+          <p>The current thick-border style, plus four alternatives. Same quote, different energy.</p>
+
+          <h3>A — Bold Border <span class="text-sm text-muted">(current)</span></h3>
+          <blockquote>
+            <p>You were not a fool. You merely believed yourself in love.</p>
+            <cite>Lady Danbury</cite>
+          </blockquote>
+
+          <h3>B — Centered Quotes</h3>
+          <div class="quote-centered">
+            <p>You were not a fool. You merely believed yourself in love.</p>
+            <cite>Lady Danbury</cite>
+          </div>
+
+          <h3>C — Top &amp; Bottom Rule</h3>
+          <div class="quote-ruled">
+            <p>You were not a fool. You merely believed yourself in love.</p>
+            <cite>Lady Danbury</cite>
+          </div>
+
+          <h3>D — Golden Band</h3>
+          <div class="quote-band">
+            <p>You were not a fool. You merely believed yourself in love.</p>
+            <cite>Lady Danbury</cite>
+          </div>
+
+          <h3>E — Fleur Accent</h3>
+          <div class="quote-fleur">
+            <p>You were not a fool. You merely believed yourself in love.</p>
+            <cite>Lady Danbury</cite>
+          </div>
         </div>
       </section>
 
