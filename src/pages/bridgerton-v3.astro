@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
 
@@ -54,6 +54,7 @@
         /* ── Typography ── */
         --font-display: "Playfair Display", Georgia, serif;
         --font-body: "Lora", Georgia, serif;
+        --font-label: "Montserrat", system-ui, sans-serif;
       }
 
       * {
@@ -126,8 +127,8 @@
       }
 
       .site-header a:not(.logo) {
-        font-family: var(--font-display);
-        font-size: 0.85rem;
+        font-family: var(--font-label);
+        font-size: 0.8rem;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.1em;
@@ -210,9 +211,9 @@
       }
 
       .label {
-        font-family: var(--font-display);
-        font-size: 0.75rem;
-        font-weight: 700;
+        font-family: var(--font-label);
+        font-size: 0.7rem;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.15em;
         color: var(--plum-muted);
@@ -251,9 +252,9 @@
       }
 
       .palette-group-label {
-        font-family: var(--font-display);
-        font-size: 0.65rem;
-        font-weight: 700;
+        font-family: var(--font-label);
+        font-size: 0.6rem;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.1em;
         color: var(--plum-muted);
@@ -287,9 +288,9 @@
       }
 
       .chip-name {
-        font-family: var(--font-display);
-        font-size: 0.65rem;
-        font-weight: 700;
+        font-family: var(--font-label);
+        font-size: 0.6rem;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.04em;
         color: var(--plum);
@@ -311,9 +312,9 @@
       /* ── Buttons ── */
       .btn {
         display: inline-block;
-        font-family: var(--font-display);
-        font-weight: 700;
-        font-size: 0.85rem;
+        font-family: var(--font-label);
+        font-weight: 600;
+        font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 0.1em;
         padding: 0.65rem 1.5rem;
@@ -379,9 +380,9 @@
       .badge {
         display: inline-flex;
         align-items: center;
-        font-family: var(--font-display);
-        font-size: 0.7rem;
-        font-weight: 700;
+        font-family: var(--font-label);
+        font-size: 0.65rem;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.08em;
         padding: 0.25rem 0.65rem;
@@ -436,9 +437,9 @@
       }
 
       .content-item-date {
-        font-family: var(--font-display);
-        font-size: 0.7rem;
-        font-weight: 700;
+        font-family: var(--font-label);
+        font-size: 0.65rem;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.08em;
         color: var(--rose);
@@ -521,10 +522,10 @@
 
       blockquote cite {
         display: block;
-        font-family: var(--font-display);
+        font-family: var(--font-label);
         font-style: normal;
-        font-weight: 700;
-        font-size: 0.75rem;
+        font-weight: 600;
+        font-size: 0.7rem;
         text-transform: uppercase;
         letter-spacing: 0.1em;
         margin-top: 0.75rem;
@@ -564,9 +565,9 @@
       }
 
       figure figcaption {
-        font-family: var(--font-display);
-        font-size: 0.75rem;
-        font-weight: 600;
+        font-family: var(--font-label);
+        font-size: 0.7rem;
+        font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.08em;
         color: var(--plum-muted);
@@ -679,9 +680,9 @@
       }
 
       .newsletter-btn {
-        font-family: var(--font-display);
-        font-weight: 700;
-        font-size: 0.8rem;
+        font-family: var(--font-label);
+        font-weight: 600;
+        font-size: 0.75rem;
         text-transform: uppercase;
         letter-spacing: 0.1em;
         padding: 0.6rem 1.25rem;
@@ -922,9 +923,10 @@
           <hr />
 
           <h3>Labels &amp; Caps</h3>
-          <p class="label">Playfair Display · All Caps · Wide Tracking</p>
+          <p class="label">Montserrat · All Caps · Wide Tracking</p>
           <p class="text-sm text-muted">
-            The ampersand is particularly lovely in Playfair — look for it throughout the page.
+            A clean sans-serif for labels, nav, badges, and buttons — contrasts with the serif headings and body. Keeps
+            the small text crisp and functional while the serifs do the decorating.
           </p>
         </div>
       </section>
