@@ -837,6 +837,37 @@
         margin-top: 0.1rem;
       }
 
+      .list-arrow .list-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.25rem 0.5rem;
+        margin-top: 0.1rem;
+      }
+
+      .list-arrow .list-desc {
+        font-size: 0.85rem;
+        color: var(--plum-mid);
+        margin-top: 0.15rem;
+      }
+
+      .list-arrow .list-tags {
+        font-family: var(--font-label);
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+
+      .list-arrow .list-tags span {
+        color: var(--plum-muted);
+        margin-right: 0.4rem;
+      }
+
+      .list-arrow .list-tags span::before {
+        content: "#";
+        color: var(--amber);
+      }
+
       /* Variant D — Fleur bullet with trailing date */
       .list-fleur a {
         padding: 0.5rem 0 0.5rem 1.6rem;
@@ -974,8 +1005,8 @@
 
       .quote--short p {
         font-family: var(--font-display);
-        font-style: italic;
-        font-weight: 600;
+        font-style: normal;
+        font-weight: 700;
         font-size: 1.3rem;
         line-height: 1.4;
         color: var(--plum-deep);
@@ -1464,36 +1495,58 @@
             </a>
           </div>
 
-          <!-- ── C — Title Arrow ── -->
-          <h3>C — Title Arrow <span class="text-sm text-muted">(Lora)</span></h3>
+          <!-- ── C — Title Arrow + Tags ── -->
+          <h3>C — Title Arrow + Tags <span class="text-sm text-muted">(Lora)</span></h3>
           <div class="list-v list-arrow full-width">
             <a href="#">
               <div class="list-title">How I Migrated 200 Blog Posts from Gatsby to Astro</div>
-              <div class="list-date">January 15, 2026</div>
+              <div class="list-desc">A tale of courage, regex, and questionable life choices.</div>
+              <div class="list-meta">
+                <div class="list-date">January 15, 2026</div>
+                <div class="list-tags"><span>Astro</span> <span>Migration</span> <span>Gatsby</span></div>
+              </div>
             </a>
             <a href="#">
               <div class="list-title">Content Collections: The Astro Feature That Changed Everything</div>
-              <div class="list-date">December 3, 2025</div>
+              <div class="list-meta">
+                <div class="list-date">December 3, 2025</div>
+                <div class="list-tags"><span>Astro</span> <span>Zod</span></div>
+              </div>
             </a>
             <a href="#">
               <div class="list-title">Live Streaming: Why I Code in Public</div>
-              <div class="list-date">November 18, 2025</div>
+              <div class="list-desc">Building in the open, one stream at a time.</div>
+              <div class="list-meta">
+                <div class="list-date">November 18, 2025</div>
+                <div class="list-tags"><span>Streaming</span> <span>Community</span></div>
+              </div>
             </a>
           </div>
 
-          <h3>C — Title Arrow <span class="text-sm text-muted">(Playfair)</span></h3>
+          <h3>C — Title Arrow + Tags <span class="text-sm text-muted">(Playfair)</span></h3>
           <div class="list-v list-arrow font-display full-width">
             <a href="#">
               <div class="list-title">How I Migrated 200 Blog Posts from Gatsby to Astro</div>
-              <div class="list-date">January 15, 2026</div>
+              <div class="list-desc">A tale of courage, regex, and questionable life choices.</div>
+              <div class="list-meta">
+                <div class="list-date">January 15, 2026</div>
+                <div class="list-tags"><span>Astro</span> <span>Migration</span> <span>Gatsby</span></div>
+              </div>
             </a>
             <a href="#">
               <div class="list-title">Content Collections: The Astro Feature That Changed Everything</div>
-              <div class="list-date">December 3, 2025</div>
+              <div class="list-meta">
+                <div class="list-date">December 3, 2025</div>
+                <div class="list-tags"><span>Astro</span> <span>Zod</span></div>
+              </div>
             </a>
             <a href="#">
               <div class="list-title">Live Streaming: Why I Code in Public</div>
-              <div class="list-date">November 18, 2025</div>
+              <div class="list-desc">Building in the open, one stream at a time.</div>
+              <div class="list-meta">
+                <div class="list-date">November 18, 2025</div>
+                <div class="list-tags"><span>Streaming</span> <span>Community</span></div>
+              </div>
             </a>
           </div>
 
