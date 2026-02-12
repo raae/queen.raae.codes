@@ -24,7 +24,7 @@ const { items = [], class: className } = Astro.props;
             href={to}
             class:list={[
               "text-xs uppercase leading-none inline-block group",
-              isLast ? "text-brown-900 font-light" : "text-teal-900 font-base",
+              isLast ? "text-plum-900 font-light" : "text-plum-500 font-base",
             ]}
           >
             <span class="group-hover:underline">{label}</span>
@@ -41,7 +41,7 @@ const { items = [], class: className } = Astro.props;
         <span
           class:list={[
             "text-xs uppercase leading-none inline-block",
-            isLast ? "text-brown-900 font-light" : "text-teal-900 font-base",
+            isLast ? "text-plum-900 font-light" : "text-plum-500 font-base",
           ]}
         >
           {datetime ? <time timedate={datetime}>{label}</time> : <span>{label}</span>}

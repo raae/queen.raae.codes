@@ -62,7 +62,10 @@ const { items = [], ctas = [], class: className } = Astro.props;
             </a>
           </h3>
           {secondary && (
-            <p class="text-xs my-0 order-first leading-8 font-medium text-teal-800 uppercase tracking-tight">
+            <p
+              class="text-xs my-0 order-first leading-8 font-medium text-plum-400 uppercase tracking-tight"
+              style="font-family: var(--font-label); letter-spacing: 0.08em;"
+            >
               {secondary}
             </p>
           )}
@@ -84,7 +87,7 @@ const { items = [], ctas = [], class: className } = Astro.props;
             href={linkHref}
             target={isExternal ? "_blank" : undefined}
             rel={isExternal ? "noreferrer" : undefined}
-            class="w-full no-underline inline-flex items-center justify-between border-2 border-solid border-teal-800 px-4 py-2 text-sm text-teal-900 font-bold shadow-xs hover:bg-amber-400/40 focus:outline-hidden focus:ring-4 focus:ring-teal-500"
+            class="w-full no-underline inline-flex items-center justify-between border-2 border-solid border-plum-500 px-4 py-2 text-sm text-plum-900 font-bold shadow-xs hover:bg-amber-400/40 focus:outline-hidden focus:ring-4 focus:ring-plum-500"
           >
             {label}
             {isExternal && (

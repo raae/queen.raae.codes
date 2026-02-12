@@ -19,6 +19,23 @@
   --color-brown-700: #8d5248;
   --color-brown-800: #76463e;
   --color-brown-900: #3e2723;
+
+  /* Plum palette — Bridgerton royal design */
+  --color-plum-50: #fdf6f9;
+  --color-plum-100: #f8e8f0;
+  --color-plum-200: #f0c4d8;
+  --color-plum-300: #dba0bd;
+  --color-plum-400: #9b4d7e;
+  --color-plum-500: #7b2d5e;
+  --color-plum-600: #6b2450;
+  --color-plum-700: #5a1c43;
+  --color-plum-800: #4a1638;
+  --color-plum-900: #3d1230;
+
+  /* Font families */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Lora", Georgia, serif;
+  --font-label: "Montserrat", system-ui, sans-serif;
 }
 
 /*
