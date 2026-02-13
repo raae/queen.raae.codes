@@ -22,7 +22,7 @@ export const AUTHOR_CONFIG: Record<string, { secondaryColor: string; avatar: str
 const WIDTH = 1200;
 const HEIGHT = 628;
 const BG_COLOR = "#fdf6ec";
-const PRIMARY_COLOR = "#d4a017";
+const PRIMARY_COLOR = "#f59e0b";
 const PRIMARY_TEXT = "#4a1638";
 const SECONDARY_TEXT = "#4a163899";
 
@@ -36,7 +36,7 @@ const avatarCache = new Map<string, string>();
 
 function loadFonts() {
   if (!fontRegular) fontRegular = fs.readFileSync(path.join(assetsDir, "Lora-Regular.woff"));
-  if (!fontBold) fontBold = fs.readFileSync(path.join(assetsDir, "PlayfairDisplay-Bold.woff"));
+  if (!fontBold) fontBold = fs.readFileSync(path.join(assetsDir, "PlayfairDisplay-Black.woff"));
   if (!fontLabel) fontLabel = fs.readFileSync(path.join(assetsDir, "Montserrat-SemiBold.woff"));
 }
 
@@ -206,7 +206,7 @@ export async function generateOgImage(options: {
                       props: {
                         style: {
                           fontFamily: "Playfair Display",
-                          fontWeight: 700,
+                          fontWeight: 900,
                           fontSize: "48px",
                           color: PRIMARY_TEXT,
                           lineHeight: 1.2,
@@ -247,12 +247,10 @@ export async function generateOgImage(options: {
             style: {
               display: "flex",
               padding: "0 60px 28px 60px",
-              fontFamily: "Montserrat",
-              fontWeight: 600,
-              fontSize: "18px",
+              fontFamily: "Playfair Display",
+              fontWeight: 900,
+              fontSize: "22px",
               color: PRIMARY_COLOR,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase" as const,
             },
             children: config.signature,
           },
@@ -266,7 +264,7 @@ export async function generateOgImage(options: {
     height: HEIGHT,
     fonts: [
       { name: "Lora", data: fontRegular!, weight: 400, style: "normal" },
-      { name: "Playfair Display", data: fontBold!, weight: 700, style: "normal" },
+      { name: "Playfair Display", data: fontBold!, weight: 900, style: "normal" },
       { name: "Montserrat", data: fontLabel!, weight: 600, style: "normal" },
     ],
     loadAdditionalAsset: async (code: string, segment: string) => {
