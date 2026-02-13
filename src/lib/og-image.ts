@@ -21,21 +21,23 @@ export const AUTHOR_CONFIG: Record<string, { secondaryColor: string; avatar: str
 // ── Design constants (matching Gatsby canvas) ─────────────────────
 const WIDTH = 1200;
 const HEIGHT = 628;
-const BG_COLOR = "#fffaf0";
-const PRIMARY_COLOR = "#ec4326";
-const PRIMARY_TEXT = "#412f20";
-const SECONDARY_TEXT = "#412f20bb";
+const BG_COLOR = "#fdf6ec";
+const PRIMARY_COLOR = "#d4a017";
+const PRIMARY_TEXT = "#4a1638";
+const SECONDARY_TEXT = "#4a163899";
 
 // ── Cached assets (loaded once per build) ─────────────────────────
 const assetsDir = path.resolve(process.cwd(), "src/assets/og");
 
 let fontRegular: Buffer | null = null;
 let fontBold: Buffer | null = null;
+let fontLabel: Buffer | null = null;
 const avatarCache = new Map<string, string>();
 
 function loadFonts() {
-  if (!fontRegular) fontRegular = fs.readFileSync(path.join(assetsDir, "Roboto-Regular.ttf"));
-  if (!fontBold) fontBold = fs.readFileSync(path.join(assetsDir, "Roboto-Bold.ttf"));
+  if (!fontRegular) fontRegular = fs.readFileSync(path.join(assetsDir, "Lora-Regular.woff"));
+  if (!fontBold) fontBold = fs.readFileSync(path.join(assetsDir, "PlayfairDisplay-Bold.woff"));
+  if (!fontLabel) fontLabel = fs.readFileSync(path.join(assetsDir, "Montserrat-SemiBold.woff"));
 }
 
 function getAvatarDataUri(filename: string): string {
@@ -166,7 +168,7 @@ export async function generateOgImage(options: {
             },
           },
         },
-        // Red top border
+        // Gold top border
         {
           type: "div",
           props: {
@@ -203,7 +205,7 @@ export async function generateOgImage(options: {
                       type: "div",
                       props: {
                         style: {
-                          fontFamily: "Roboto",
+                          fontFamily: "Playfair Display",
                           fontWeight: 700,
                           fontSize: "48px",
                           color: PRIMARY_TEXT,
@@ -221,7 +223,7 @@ export async function generateOgImage(options: {
                       type: "div",
                       props: {
                         style: {
-                          fontFamily: "Roboto",
+                          fontFamily: "Lora",
                           fontSize: "24px",
                           color: SECONDARY_TEXT,
                           marginTop: "20px",
@@ -245,9 +247,12 @@ export async function generateOgImage(options: {
             style: {
               display: "flex",
               padding: "0 60px 28px 60px",
-              fontFamily: "Roboto",
-              fontSize: "22px",
+              fontFamily: "Montserrat",
+              fontWeight: 600,
+              fontSize: "18px",
               color: PRIMARY_COLOR,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase" as const,
             },
             children: config.signature,
           },
@@ -260,8 +265,9 @@ export async function generateOgImage(options: {
     width: WIDTH,
     height: HEIGHT,
     fonts: [
-      { name: "Roboto", data: fontRegular!, weight: 400, style: "normal" },
-      { name: "Roboto", data: fontBold!, weight: 700, style: "normal" },
+      { name: "Lora", data: fontRegular!, weight: 400, style: "normal" },
+      { name: "Playfair Display", data: fontBold!, weight: 700, style: "normal" },
+      { name: "Montserrat", data: fontLabel!, weight: 600, style: "normal" },
     ],
     loadAdditionalAsset: async (code: string, segment: string) => {
       if (code === "emoji") {
