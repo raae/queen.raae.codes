@@ -8,7 +8,7 @@ const { href, class: className } = Astro.props;
 
 const baseClasses = [
   "inline-flex items-center no-underline transition",
-  "text-xs font-semibold text-plum-500 uppercase",
+  "font-semibold text-plum-500 uppercase",
   "hover:text-[#f4511e]",
 ];
 ---
@@ -18,7 +18,7 @@ const baseClasses = [
     <a
       href={href}
       class:list={[...baseClasses, className]}
-      style="font-family: var(--font-label); letter-spacing: 0.04em;"
+      style="font-family: var(--font-label); letter-spacing: 0.1em; font-size: 0.65rem;"
     >
       <>
         <span class="text-amber-500">#</span>
@@ -26,7 +26,7 @@ const baseClasses = [
       </>
     </a>
   ) : (
-    <span class:list={[...baseClasses, className]} style="font-family: var(--font-label); letter-spacing: 0.04em;">
+    <span class:list={[...baseClasses, className]} style="font-family: var(--font-label); letter-spacing: 0.1em; font-size: 0.65rem;">
       <>
         <span class="text-amber-500">#</span>
         <slot />

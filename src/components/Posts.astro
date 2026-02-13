@@ -22,7 +22,7 @@ const items = displayPosts.map(({ title, description, slug, dateFormatted, tags 
     const tagBadges = tags
       .map(
         ({ label }) =>
-          `<span class="inline-flex items-center text-xs font-semibold text-plum-500 uppercase" style="font-family: var(--font-label); letter-spacing: 0.04em;"><span class="text-amber-500">#</span>${label}</span>`,
+          `<span class="inline-flex items-center font-semibold text-plum-500 uppercase" style="font-family: var(--font-label); letter-spacing: 0.1em; font-size: 0.65rem;"><span class="text-amber-500">#</span>${label}</span>`,
       )
       .join(" ");
 

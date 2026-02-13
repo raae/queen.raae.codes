@@ -169,7 +169,7 @@ const latestPosts = allPosts.slice(0, 3);
               const tagBadges = item.tags
                 .map(
                   (tag) =>
-                    `<span class="inline-flex items-center text-xs font-semibold text-plum-500 uppercase" style="font-family: var(--font-label); letter-spacing: 0.04em;"><span class="text-amber-500">#</span>${escapeHtml(tag.label)}</span>`,
+                    `<span class="inline-flex items-center font-semibold text-plum-500 uppercase" style="font-family: var(--font-label); letter-spacing: 0.1em; font-size: 0.65rem;"><span class="text-amber-500">#</span>${escapeHtml(tag.label)}</span>`,
                 )
                 .join(" ");
 
@@ -182,7 +182,7 @@ const latestPosts = allPosts.slice(0, 3);
                   </h3>
                   <p class="my-2 text-sm">${description}</p>
                   <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mt-1">
-                    <p class="text-xs my-0 font-semibold uppercase" style="font-family: var(--font-label); letter-spacing: 0.08em; color: var(--color-plum-400);">
+                    <p class="my-0 font-semibold uppercase" style="font-family: var(--font-label); letter-spacing: 0.1em; font-size: 0.65rem; color: var(--color-plum-400);">
                       ${escapeHtml(item.date)}
                     </p>
                     <aside class="my-0 space-x-3">${tagBadges}</aside>
