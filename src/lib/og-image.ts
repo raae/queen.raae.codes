@@ -22,9 +22,9 @@ export const AUTHOR_CONFIG: Record<string, { secondaryColor: string; avatar: str
 const WIDTH = 1200;
 const HEIGHT = 628;
 const BG_COLOR = "#fdf6ec";
-const PRIMARY_COLOR = "#f59e0b";
+const PRIMARY_COLOR = "#f4511e";
 const PRIMARY_TEXT = "#4a1638";
-const SECONDARY_TEXT = "#4a163899";
+const SECONDARY_TEXT = "#3d1230";
 
 // ── Cached assets (loaded once per build) ─────────────────────────
 const assetsDir = path.resolve(process.cwd(), "src/assets/og");
