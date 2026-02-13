@@ -26,7 +26,10 @@ const baseClasses = [
       </>
     </a>
   ) : (
-    <span class:list={[...baseClasses, className]} style="font-family: var(--font-label); letter-spacing: 0.1em; font-size: 0.65rem;">
+    <span
+      class:list={[...baseClasses, className]}
+      style="font-family: var(--font-label); letter-spacing: 0.1em; font-size: 0.65rem;"
+    >
       <>
         <span class="text-amber-500">#</span>
         <slot />
