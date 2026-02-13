@@ -106,6 +106,7 @@
   font-size: 1rem;
   color: var(--color-amber-500);
   margin-bottom: 0.65rem;
+  font-style: normal;
 }
 
 .prose blockquote.quote--short p {
@@ -138,6 +139,7 @@
   top: 0.15rem;
   font-size: 1.1rem;
   color: var(--color-amber-500);
+  font-style: normal;
 }
 
 .prose blockquote.quote--long p {
