@@ -13,7 +13,7 @@ interface Props {
 const { items = [], class: className } = Astro.props;
 ---
 
-<nav aria-label="breadcrumb" class={className}>
+<nav aria-label="breadcrumb" class={className} style="font-family: var(--font-label); letter-spacing: 0.08em;">
   {
     items.map(({ label, to, datetime }, index) => {
       const isLast = index + 1 === items.length;

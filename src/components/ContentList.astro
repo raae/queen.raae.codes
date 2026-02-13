@@ -22,7 +22,7 @@ interface Props {
 const { items = [], ctas = [], class: className } = Astro.props;
 ---
 
-<ul class:list={["list-none px-0 my-0 -ml-1 space-y-4", className]}>
+<ul class:list={["content-list list-none px-0 my-0 space-y-0", className]}>
   {
     items.map((item) => {
       const { primary, secondary, body, to, href } = item;
@@ -30,19 +30,21 @@ const { items = [], ctas = [], class: className } = Astro.props;
       const isExternal = Boolean(href);
 
       return (
-        <li class="mx-2 px-5 py-3 pb-4 relative border-0 border-l-4 border-solid border-amber-500 flex flex-col transition hover:bg-amber-400/30 focus-within:border-l-transparent focus-within:ring-4 focus-within:ring-offset-4 focus-within:ring-amber-500">
-          <h3 class="text-base my-0 font-bold">
-            <a
-              href={linkHref}
-              target={isExternal ? "_blank" : undefined}
-              rel={isExternal ? "noreferrer" : undefined}
-              class="text-inherit no-underline focus:outline-hidden"
+        <li class="content-list-item relative border-0 border-b border-solid border-plum-900/10">
+          <a
+            href={linkHref}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noreferrer" : undefined}
+            class="content-list-link block py-3 no-underline text-inherit transition-colors focus:outline-hidden"
+          >
+            <h3
+              class="content-list-title text-base my-0 font-extrabold text-plum-900"
+              style="font-family: var(--font-display);"
             >
-              <span class="absolute inset-0" aria-hidden="true" />
               <Fragment set:html={primary} />
-              {isExternal && (
+              {isExternal ? (
                 <svg
-                  class="h-4 ml-1.5 fill-amber-600 opacity-30 inline-block translate-y-1"
+                  class="h-4 ml-1.5 fill-amber-600 opacity-30 inline-block translate-y-0.5"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -58,18 +60,20 @@ const { items = [], ctas = [], class: className } = Astro.props;
                     clip-rule="evenodd"
                   />
                 </svg>
+              ) : (
+                <span class="content-list-arrow text-amber-500 transition-transform inline-block ml-1"> →</span>
               )}
-            </a>
-          </h3>
-          {secondary && (
-            <p
-              class="text-xs my-0 order-first leading-8 font-medium text-plum-400 uppercase tracking-tight"
-              style="font-family: var(--font-label); letter-spacing: 0.08em;"
-            >
-              {secondary}
-            </p>
-          )}
-          {body && <Fragment set:html={body} />}
+            </h3>
+            {body && <Fragment set:html={body} />}
+            {secondary && (
+              <p
+                class="text-xs my-0 mt-1 font-semibold text-plum-400 uppercase"
+                style="font-family: var(--font-label); letter-spacing: 0.08em;"
+              >
+                {secondary}
+              </p>
+            )}
+          </a>
         </li>
       );
     })
@@ -82,12 +86,13 @@ const { items = [], ctas = [], class: className } = Astro.props;
       const isExternal = Boolean(href);
 
       return (
-        <li class:list={["mx-2", index === 0 && "pt-4"]}>
+        <li class:list={[index === 0 && "pt-4"]}>
           <a
             href={linkHref}
             target={isExternal ? "_blank" : undefined}
             rel={isExternal ? "noreferrer" : undefined}
             class="w-full no-underline inline-flex items-center justify-between border-2 border-solid border-plum-500 px-4 py-2 text-sm text-plum-900 font-bold shadow-xs hover:bg-amber-400/40 focus:outline-hidden focus:ring-4 focus:ring-plum-500"
+            style="font-family: var(--font-label);"
           >
             {label}
             {isExternal && (
@@ -119,3 +124,15 @@ const { items = [], ctas = [], class: className } = Astro.props;
     })
   }
 </ul>
+
+<style>
+  .content-list-link:hover .content-list-title {
+    text-decoration: underline;
+    text-decoration-color: var(--color-amber-500);
+    text-underline-offset: 3px;
+  }
+  .content-list-link:hover .content-list-arrow {
+    color: var(--color-plum-500);
+    transform: translateX(4px);
+  }
+</style>

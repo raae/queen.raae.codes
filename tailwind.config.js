@@ -68,7 +68,7 @@ module.exports = {
             },
             "div > ul > li::before": {
               color: "var(--tw-prose-bullets)",
-              content: "'➽'",
+              content: "'⚜'",
               display: "inline-block",
               marginRight: "0.5rem",
             },

@@ -24,6 +24,7 @@
     "clsx": "2.1.1",
     "date-fns": "4.1.0",
     "fuse.js": "^7.1.0",
+    "hast-util-to-string": "^3.0.1",
     "markdown-it": "^14.1.0",
     "prismjs": "1.29.0",
     "satori": "^0.19.1",

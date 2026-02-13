@@ -2,10 +2,14 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
+import rehypeBlockquoteClass from "./src/lib/rehype-blockquote-class.mjs";
 
 export default defineConfig({
   site: "https://queen.raae.codes",
   trailingSlash: "always",
+  markdown: {
+    rehypePlugins: [rehypeBlockquoteClass],
+  },
   image: {
     // Skip processing for GIF files which can be too large
     service: {
