@@ -22,7 +22,7 @@ const latestPosts = allPosts.slice(0, 3);
         type="search"
         name="search"
         id="search"
-        class="font-medium w-full grow border-solid transition border-2 border-teal-900 focus:border-amber-500 focus-within:ring-1 focus-within:ring-amber-500"
+        class="font-medium w-full grow border-solid transition border-2 border-plum-500 focus:border-amber-500 focus-within:ring-1 focus-within:ring-amber-500"
         placeholder="Type to search..."
       />
 
@@ -30,24 +30,33 @@ const latestPosts = allPosts.slice(0, 3);
         No results for <em id="search-term"></em>
       </div>
 
-      <ul id="search-results" class="list-none px-0 my-0 -ml-1 space-y-4 mt-8" aria-live="polite"></ul>
+      <ul id="search-results" class="list-none px-0 my-0 space-y-0 mt-8" aria-live="polite"></ul>
     </PageSection>
 
     <PageSection>
       <PageSectionHeader badge="Latest posts" />
-      <ul id="latest-posts" class="list-none px-0 my-0 -ml-1 space-y-4 mt-8">
+      <ul id="latest-posts" class="list-none px-0 my-0 space-y-0 mt-8">
         {
           latestPosts.map((post) => (
-            <li class="mx-2 px-5 py-3 pb-4 relative border-0 border-l-4 border-solid border-amber-500 flex flex-col transition hover:bg-amber-400/30">
-              <h3 class="text-base my-0 font-bold">
-                <a href={post.slug} class="text-inherit no-underline focus:outline-hidden">
-                  <span class="absolute inset-0" aria-hidden="true" />
+            <li class="relative border-0 border-b border-solid border-plum-900/10">
+              <a
+                href={post.slug}
+                class="search-list-link block py-3 no-underline text-inherit transition-colors focus:outline-hidden"
+              >
+                <h3
+                  class="search-list-title text-base my-0 font-extrabold text-plum-900"
+                  style="font-family: var(--font-display);"
+                >
                   {post.title}
-                </a>
-              </h3>
-              <p class="text-xs my-0 order-first leading-8 font-medium text-teal-800 uppercase tracking-tight">
-                {post.dateFormatted}
-              </p>
+                  <span class="search-list-arrow text-amber-500 inline-block ml-1 transition-transform"> →</span>
+                </h3>
+                <p
+                  class="text-xs my-0 mt-1 font-semibold text-plum-400 uppercase"
+                  style="font-family: var(--font-label); letter-spacing: 0.08em;"
+                >
+                  {post.dateFormatted}
+                </p>
+              </a>
             </li>
           ))
         }
@@ -160,23 +169,25 @@ const latestPosts = allPosts.slice(0, 3);
               const tagBadges = item.tags
                 .map(
                   (tag) =>
-                    `<span class="inline-flex items-center rounded-md px-2.5 py-0.5 bg-amber-100 text-xs font-medium text-brown-900">${escapeHtml(tag.label)}</span>`,
+                    `<span class="inline-flex items-center font-semibold text-plum-500 uppercase" style="font-family: var(--font-label); letter-spacing: 0.1em; font-size: 0.65rem;"><span class="text-amber-500">#</span>${escapeHtml(tag.label)}</span>`,
                 )
                 .join(" ");
 
               return `
-              <li class="mx-2 px-5 py-3 pb-4 relative border-0 border-l-4 border-solid border-amber-500 flex flex-col transition hover:bg-amber-400/30">
-                <h3 class="text-base my-0 font-bold">
-                  <a href="${escapeHtml(item.slug)}" class="text-inherit no-underline focus:outline-hidden">
-                    <span class="absolute inset-0" aria-hidden="true"></span>
+              <li class="relative border-0 border-b border-solid" style="border-color: rgba(61,18,48,0.1);">
+                <a href="${escapeHtml(item.slug)}" class="search-list-link block py-3 no-underline text-inherit transition-colors" style="color: inherit;">
+                  <h3 class="search-list-title text-base my-0 font-extrabold" style="font-family: var(--font-body); color: var(--color-plum-900);">
                     ${title}
-                  </a>
-                </h3>
-                <p class="text-xs my-0 order-first leading-8 font-medium text-teal-800 uppercase tracking-tight">
-                  ${escapeHtml(item.date)}
-                </p>
-                <p class="my-2 text-sm">${description}</p>
-                <aside class="my-0 space-x-2">${tagBadges}</aside>
+                    <span class="search-list-arrow" style="color: var(--color-amber-500); display: inline-block; margin-left: 0.25rem; transition: transform 0.2s;"> →</span>
+                  </h3>
+                  <p class="my-2 text-sm">${description}</p>
+                  <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mt-1">
+                    <p class="my-0 font-semibold uppercase" style="font-family: var(--font-label); letter-spacing: 0.1em; font-size: 0.65rem; color: var(--color-plum-400);">
+                      ${escapeHtml(item.date)}
+                    </p>
+                    <aside class="my-0 space-x-3">${tagBadges}</aside>
+                  </div>
+                </a>
               </li>
             `;
             })
@@ -188,3 +199,15 @@ const latestPosts = allPosts.slice(0, 3);
 
   initSearch();
 </script>
+
+<style>
+  .search-list-link:hover .search-list-title {
+    text-decoration: underline;
+    text-decoration-color: var(--color-amber-500);
+    text-underline-offset: 3px;
+  }
+  .search-list-link:hover .search-list-arrow {
+    color: var(--color-plum-500);
+    transform: translateX(4px);
+  }
+</style>

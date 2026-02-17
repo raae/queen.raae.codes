@@ -46,7 +46,7 @@ const emailId = `email-${crypto.randomUUID().slice(0, 8)}`;
 
 <form
   id={anchor || undefined}
-  class:list={["relative newsletter-form", className]}
+  class:list={["relative newsletter-form bg-plum-100 p-6 py-5 rounded", className]}
   data-form-id={formId}
   data-tags={JSON.stringify(tags)}
 >
@@ -106,13 +106,14 @@ const emailId = `email-${crypto.randomUUID().slice(0, 8)}`;
       id={emailId}
       name="email"
       type="email"
-      class="pl-11 font-medium w-full grow border-solid transition border-2 border-teal-950 focus:border-teal-950 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-amber-500"
+      class="pl-11 font-medium w-full grow border-solid transition border-2 border-plum-500 focus:border-plum-500 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-amber-500"
       placeholder="Your best email"
       required
     />
 
     <button
-      class="ml-3 transition shrink-0 text-sm font-semibold px-3 justify-center border border-teal-950 bg-teal-950 text-white hover:bg-teal-900 hover:border-teal-900 focus:outline-hidden focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+      class="ml-3 transition shrink-0 text-sm font-semibold px-3 justify-center border border-plum-500 bg-plum-500 text-white hover:bg-plum-800 hover:border-plum-800 focus:outline-hidden focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+      style="font-family: var(--font-label);"
       type="submit"
     >
       {cta}

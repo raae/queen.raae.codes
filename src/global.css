@@ -19,6 +19,23 @@
   --color-brown-700: #8d5248;
   --color-brown-800: #76463e;
   --color-brown-900: #3e2723;
+
+  /* Plum palette — Bridgerton royal design */
+  --color-plum-50: #fdf6f9;
+  --color-plum-100: #f8e8f0;
+  --color-plum-200: #f0c4d8;
+  --color-plum-300: #dba0bd;
+  --color-plum-400: #9b4d7e;
+  --color-plum-500: #7b2d5e;
+  --color-plum-600: #6b2450;
+  --color-plum-700: #5a1c43;
+  --color-plum-800: #4a1638;
+  --color-plum-900: #3d1230;
+
+  /* Font families */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Lora", Georgia, serif;
+  --font-label: "Montserrat", system-ui, sans-serif;
 }
 
 /*
@@ -37,13 +54,111 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
+
+  body {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
 }
 
 .notice {
   @apply border-4 border-dashed border-amber-500 px-4 my-8 text-sm;
 }
 
+/* ── Ornamental HR ── */
+.prose hr {
+  border: none;
+  text-align: center;
+  margin: 2.5rem 0;
+  color: var(--color-amber-500);
+  font-size: 1.25rem;
+  letter-spacing: 0.75rem;
+  overflow: visible;
+  height: auto;
+}
+
+.prose hr::after {
+  content: "⚜  👑  ⚜";
+}
+
+/* ── Blockquote: Short Centered ── */
+.prose blockquote.quote--short {
+  border: none;
+  text-align: center;
+  margin: 2.5rem 0;
+  padding: 0 1rem;
+  position: relative;
+  background: none;
+}
+
+.prose blockquote.quote--short::before {
+  content: "⚜";
+  display: block;
+  font-size: 1rem;
+  color: var(--color-amber-500);
+  margin-bottom: 0.65rem;
+  font-style: normal;
+}
+
+.prose blockquote.quote--short p {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  color: var(--color-plum-800);
+  margin: 0;
+}
+
+.prose blockquote.quote--short cite {
+  text-align: center;
+}
+
+/* ── Blockquote: Long Left-aligned ── */
+.prose blockquote.quote--long {
+  border: none;
+  margin: 2rem 0;
+  padding-left: 2rem;
+  position: relative;
+  background: none;
+}
+
+.prose blockquote.quote--long::before {
+  content: "⚜";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  font-size: 1.1rem;
+  color: var(--color-amber-500);
+  font-style: normal;
+}
+
+.prose blockquote.quote--long p {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-plum-800);
+  margin: 0;
+}
+
 .prose cite {
   @apply block text-sm mt-2 not-italic;
   @apply before:content-['—'] before:mr-2;
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-plum-400);
 }

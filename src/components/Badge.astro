@@ -7,21 +7,33 @@ interface Props {
 const { href, class: className } = Astro.props;
 
 const baseClasses = [
-  "inline-flex items-center rounded-md px-2.5 py-0.5",
-  "border-style bg-amber-100 hover:bg-amber-200",
-  "underline underline-offset-2 hover:decoration-amber-600 transition",
-  "text-xs font-medium text-brown-900",
+  "inline-flex items-center no-underline transition",
+  "font-semibold text-plum-500 uppercase",
+  "hover:text-[#f4511e]",
 ];
 ---
 
 {
   href ? (
-    <a href={href} class:list={[...baseClasses, className]}>
-      <slot />
+    <a
+      href={href}
+      class:list={[...baseClasses, className]}
+      style="font-family: var(--font-label); letter-spacing: 0.1em; font-size: 0.65rem;"
+    >
+      <>
+        <span class="text-amber-500">#</span>
+        <slot />
+      </>
     </a>
   ) : (
-    <span class:list={[...baseClasses, className]}>
-      <slot />
+    <span
+      class:list={[...baseClasses, className]}
+      style="font-family: var(--font-label); letter-spacing: 0.1em; font-size: 0.65rem;"
+    >
+      <>
+        <span class="text-amber-500">#</span>
+        <slot />
+      </>
     </span>
   )
 }
