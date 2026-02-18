@@ -9,6 +9,7 @@ Last summer a [research paper](https://metr.org/blog/2025-07-10-early-2025-ai-ex
 Fortune ran it as "[AI hampered productivity of software developers](https://fortune.com/article/does-ai-increase-workplace-productivity-experiment-software-developers-task-took-longer/)." It got so much publicity I had friends quoting it to me and my dad sent it on the family WhatsApp asking my take. Looking up the chat I see my answer was:
 
 > I have a lot to say about that study. But gotta pack!
+> <cite>Me to my dad on WhatsApp</cite>
 
 ![WhatsApp conversation with my dad about the study](./whatsapp-conversation.png)
 
