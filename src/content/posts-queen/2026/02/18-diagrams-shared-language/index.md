@@ -35,7 +35,7 @@ Together we polished the diagram. Renamed states, added edge cases. Polished mor
 As always, the coding was not the hard part. Getting the concept correct. There was a lot to capture in that flow, and it's just easier to see in a diagram than a long description.
 
 > "I created a mermaid diagram of the flow and like going through all the states. And then I took some notes that he (Ola) had made in TLDraw. I screenshotted that... and I put that into Cursor."
-> — [Slow & Steady ep. 235 (at 17:50)](https://slowandsteadypodcast.com/235?#t=17:50)
+> <cite>🎧 Me on [Slow & Steady ep. 235 (at 17:50)](https://slowandsteadypodcast.com/235?#t=17:50)</cite>
 
 ## After coding: review what the AI built
 
