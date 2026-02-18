@@ -84,6 +84,21 @@ const twitterCard = "summary_large_image";
       defer></script>
 
     <slot name="head" />
+
+    <script type="module" is:inline>
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: false, theme: "default" });
+
+      document.querySelectorAll("pre[data-language='mermaid']").forEach((pre) => {
+        const content = pre.querySelector("code").textContent;
+        const div = document.createElement("div");
+        div.className = "mermaid";
+        div.textContent = content;
+        pre.replaceWith(div);
+      });
+
+      mermaid.run();
+    </script>
   </head>
   <body class="bg-plum-800 selection:bg-amber-300 text-plum-900">
     <div class="bg-[#fdf6ec]">

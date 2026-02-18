@@ -1,7 +1,7 @@
 /* PrismJS theme for code highlighting */
-@import 'prismjs/themes/prism-solarizedlight.css' layer(base);
+@import "prismjs/themes/prism-solarizedlight.css" layer(base);
 
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
@@ -68,6 +68,14 @@
   h6 {
     font-family: var(--font-display);
   }
+}
+
+.mermaid {
+  @apply flex justify-center my-8;
+}
+
+.mermaid svg {
+  @apply max-w-full;
 }
 
 .notice {
@@ -161,4 +169,24 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-plum-400);
+}
+
+blockquote {
+  position: relative;
+  overflow: visible;
+}
+
+blockquote::before {
+  content: "";
+  position: absolute;
+  height: 6rem;
+  width: 6rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%233e2723' d='M6 17h3l2-4V7H5v6h3l-2 4zm8 0h3l2-4V7h-6v6h3l-2 4z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top left;
+  transform: scaleX(-1) translate(-50%, -30%);
+  transform-origin: top left;
+  opacity: 0.25;
+  pointer-events: none;
 }
