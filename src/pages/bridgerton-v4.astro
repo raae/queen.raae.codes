@@ -246,18 +246,21 @@
       /* Long blockquote — left-aligned, more text */
       .quote--long {
         margin: 2rem 0;
-        padding: 1.25rem 0 1.25rem 2rem;
+        padding-left: 2rem;
         border: none;
         position: relative;
+        background: none;
       }
 
+      /* Fleur sits slightly below container top,
+         aligned with first line of italic text (not flush to top) */
       .quote--long::before {
         content: "⚜";
-        font-size: 0.85rem;
+        font-size: 1.1rem;
         color: var(--amber);
         position: absolute;
         left: 0;
-        top: 1.25rem;
+        top: 0.15rem;
         font-style: normal;
       }
 
@@ -612,7 +615,7 @@
 
           <!-- Long Blockquote -->
           <div class="specimen">
-            <div class="specimen-label">Long Blockquote — Italic Lora, body size (1rem)</div>
+            <div class="specimen-label">Long Blockquote — Italic Lora, body size (1rem), fleur aligned with first line (top: 0.15rem)</div>
             <blockquote class="quote--long">
               <p>
                 The thing about web design is that it rarely feels personal. We reach for the same
