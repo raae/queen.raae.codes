@@ -32,10 +32,10 @@
   --color-plum-800: #4a1638;
   --color-plum-900: #3d1230;
 
-  /* Font families */
-  --font-display: "Playfair Display", Georgia, serif;
-  --font-body: "Lora", Georgia, serif;
+  /* Font families — two-font system */
+  --font-heading: "Montserrat", system-ui, sans-serif;
   --font-label: "Montserrat", system-ui, sans-serif;
+  --font-body: "Lora", Georgia, serif;
 }
 
 /*
@@ -66,7 +66,7 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-display);
+    font-family: var(--font-heading);
   }
 }
 
@@ -118,10 +118,10 @@
 }
 
 .prose blockquote.quote--short p {
-  font-family: var(--font-display);
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.3rem;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.4rem;
   line-height: 1.4;
   color: var(--color-plum-800);
   margin: 0;
@@ -163,7 +163,7 @@
 .prose cite {
   @apply block text-sm mt-2 not-italic;
   @apply before:content-['—'] before:mr-2;
-  font-family: var(--font-label);
+  font-family: var(--font-heading);
   font-size: 0.65rem;
   font-weight: 600;
   text-transform: uppercase;
