@@ -246,16 +246,19 @@
       /* Long blockquote — left-aligned, more text */
       .quote--long {
         margin: 2rem 0;
-        padding: 1.25rem 0 1.25rem 1.5rem;
-        border-left: 3px solid var(--amber);
+        padding: 1.25rem 0 1.25rem 2rem;
+        border: none;
+        position: relative;
       }
 
       .quote--long::before {
         content: "⚜";
         font-size: 0.85rem;
         color: var(--amber);
-        display: block;
-        margin-bottom: 0.5rem;
+        position: absolute;
+        left: 0;
+        top: 1.25rem;
+        font-style: normal;
       }
 
       .quote--long p {
@@ -745,7 +748,7 @@
             <div class="choice-card">
               <h4>Blockquotes <span class="status">Confirmed</span></h4>
               <p class="value">Short (centered, italic Lora 1.4rem) / Long (left-aligned, italic Lora 1rem)</p>
-              <p class="note">Short: fleur above, punchy · Long: amber left border, flowing</p>
+              <p class="note">Short: fleur above, punchy · Long: fleur beside, flowing</p>
             </div>
 
             <div class="choice-card">
