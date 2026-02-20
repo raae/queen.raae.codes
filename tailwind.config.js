@@ -78,6 +78,26 @@ module.exports = {
             "div > ul ul li:first-child": {
               marginTop: 0,
             },
+            /* Tighten heading spacing for Montserrat (geometrically taller than Playfair) */
+            h2: {
+              fontSize: "1.65em",
+              marginTop: "1.8em",
+              marginBottom: "0.6em",
+              fontWeight: "800",
+              lineHeight: "1.15",
+            },
+            h3: {
+              fontSize: "1.25em",
+              marginTop: "1.5em",
+              marginBottom: "0.4em",
+              fontWeight: "700",
+              lineHeight: "1.2",
+            },
+            h4: {
+              marginTop: "1.3em",
+              marginBottom: "0.3em",
+              fontWeight: "700",
+            },
             "blockquote p:first-of-type::before": {
               content: "none",
             },
