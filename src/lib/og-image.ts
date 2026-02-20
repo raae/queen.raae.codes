@@ -36,7 +36,7 @@ const avatarCache = new Map<string, string>();
 
 function loadFonts() {
   if (!fontRegular) fontRegular = fs.readFileSync(path.join(assetsDir, "Lora-Regular.woff"));
-  if (!fontBold) fontBold = fs.readFileSync(path.join(assetsDir, "PlayfairDisplay-Black.woff"));
+  if (!fontBold) fontBold = fs.readFileSync(path.join(assetsDir, "Montserrat-Black.ttf"));
   if (!fontLabel) fontLabel = fs.readFileSync(path.join(assetsDir, "Montserrat-SemiBold.woff"));
 }
 
@@ -205,7 +205,7 @@ export async function generateOgImage(options: {
                       type: "div",
                       props: {
                         style: {
-                          fontFamily: "Playfair Display",
+                          fontFamily: "Montserrat",
                           fontWeight: 900,
                           fontSize: "48px",
                           color: PRIMARY_TEXT,
@@ -247,7 +247,7 @@ export async function generateOgImage(options: {
             style: {
               display: "flex",
               padding: "0 60px 28px 60px",
-              fontFamily: "Playfair Display",
+              fontFamily: "Montserrat",
               fontWeight: 900,
               fontSize: "22px",
               color: PRIMARY_COLOR,
@@ -264,7 +264,7 @@ export async function generateOgImage(options: {
     height: HEIGHT,
     fonts: [
       { name: "Lora", data: fontRegular!, weight: 400, style: "normal" },
-      { name: "Playfair Display", data: fontBold!, weight: 900, style: "normal" },
+      { name: "Montserrat", data: fontBold!, weight: 900, style: "normal" },
       { name: "Montserrat", data: fontLabel!, weight: 600, style: "normal" },
     ],
     loadAdditionalAsset: async (code: string, segment: string) => {
