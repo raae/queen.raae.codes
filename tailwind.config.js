@@ -78,6 +78,10 @@ module.exports = {
             "div > ul ul li:first-child": {
               marginTop: 0,
             },
+            p: {
+              marginTop: "0.85em",
+              marginBottom: "0.85em",
+            },
             /* Tighten heading spacing for Montserrat (geometrically taller than Playfair) */
             h2: {
               fontSize: "1.65em",
