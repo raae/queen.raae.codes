@@ -36,7 +36,7 @@ const avatarCache = new Map<string, string>();
 
 function loadFonts() {
   if (!fontRegular) fontRegular = fs.readFileSync(path.join(assetsDir, "Lora-Regular.woff"));
-  if (!fontBold) fontBold = fs.readFileSync(path.join(assetsDir, "PlayfairDisplay-Black.woff"));
+  if (!fontBold) fontBold = fs.readFileSync(path.join(assetsDir, "Montserrat-Black.ttf"));
   if (!fontLabel) fontLabel = fs.readFileSync(path.join(assetsDir, "Montserrat-SemiBold.woff"));
 }
 
@@ -205,16 +205,16 @@ export async function generateOgImage(options: {
                       type: "div",
                       props: {
                         style: {
-                          fontFamily: "Playfair Display",
+                          fontFamily: "Montserrat",
                           fontWeight: 900,
-                          fontSize: "48px",
+                          fontSize: "54px",
                           color: PRIMARY_TEXT,
-                          lineHeight: 1.2,
+                          lineHeight: 1.1,
                           textWrap: "balance",
                           overflow: "hidden",
                           backgroundColor: BG_COLOR,
                           borderRadius: "20px",
-                          padding: "18px 18px 18px 0",
+                          padding: "12px 18px 8px 0",
                         },
                         children: title,
                       },
@@ -226,7 +226,7 @@ export async function generateOgImage(options: {
                           fontFamily: "Lora",
                           fontSize: "24px",
                           color: SECONDARY_TEXT,
-                          marginTop: "20px",
+                          marginTop: "12px",
                           lineHeight: 1.35,
                           overflow: "hidden",
                           maxWidth: `${COPY_WIDTH}px`,
@@ -247,7 +247,7 @@ export async function generateOgImage(options: {
             style: {
               display: "flex",
               padding: "0 60px 28px 60px",
-              fontFamily: "Playfair Display",
+              fontFamily: "Montserrat",
               fontWeight: 900,
               fontSize: "22px",
               color: PRIMARY_COLOR,
@@ -264,7 +264,7 @@ export async function generateOgImage(options: {
     height: HEIGHT,
     fonts: [
       { name: "Lora", data: fontRegular!, weight: 400, style: "normal" },
-      { name: "Playfair Display", data: fontBold!, weight: 900, style: "normal" },
+      { name: "Montserrat", data: fontBold!, weight: 900, style: "normal" },
       { name: "Montserrat", data: fontLabel!, weight: 600, style: "normal" },
     ],
     loadAdditionalAsset: async (code: string, segment: string) => {
