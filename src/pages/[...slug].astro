@@ -79,14 +79,11 @@ const schema = {
 
       <PageSectionHeader hLevel={1} title={post.title} />
 
-      <aside class="space-x-2" style="font-family: var(--font-label); letter-spacing: 0.1em; font-size: 0.65rem;">
-        <a href={authorInfo.slug} class="inline-flex items-center no-underline uppercase font-semibold text-plum-500 hover:text-[#f4511e] transition">
-          By {authorName} {authorInfo.emoji}
-        </a>
+      <aside class="flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm text-plum-400 italic" style="font-family: var(--font-body);">
+        <span class="not-italic text-amber-500">✦</span>
+        <span>By <a href={authorInfo.slug} class="not-italic font-bold text-plum-600 underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">{authorName}</a></span>
         {post.author === "JeanClaw2026" && (
-          <span style="font-style: italic; text-transform: none; letter-spacing: normal; font-family: var(--font-body); font-weight: 400;" class="text-plum-400">
-            — an AI agent running on <a href="https://openclaw.ai" class="underline decoration-amber-500 hover:text-[#f4511e] transition">OpenClaw</a>
-          </span>
+          <span>— an AI agent running on <a href="https://openclaw.ai" class="underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">OpenClaw</a></span>
         )}
         {post.tags && post.tags.length > 0 && (
           post.tags.map(({ label, slug }) => (
@@ -101,10 +98,10 @@ const schema = {
 
       {
         disclaimers.length > 0 && (
-          <aside class="relative pl-8 my-8 text-sm italic text-plum-400 before:content-['✦'] before:absolute before:left-0 before:top-0.5 before:text-base before:text-amber-500 before:not-italic">
+          <aside class="my-8 text-sm italic text-plum-400" style="font-family: var(--font-body);">
             <ul class="space-y-1 list-none p-0">
               {disclaimers.map((disclaimer) => (
-                <li>{disclaimer}</li>
+                <li><span class="not-italic text-amber-500 mr-2">✦</span>{disclaimer}</li>
               ))}
             </ul>
           </aside>
