@@ -79,8 +79,8 @@ const schema = {
 
       <PageSectionHeader hLevel={1} title={post.title} />
 
-      <aside class="flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm text-plum-400" style="font-family: var(--font-body);">
-        <span class="text-amber-500">✦</span>
+      <aside class="relative flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm text-plum-400 pl-6" style="font-family: var(--font-body);">
+        <span class="absolute left-0 top-0 text-amber-500">✦</span>
         <span class="italic">By <a href={authorInfo.slug} class="not-italic font-bold text-plum-600 underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">{authorName}</a>
         {post.author === "JeanClaw2026"
           ? <span>— an AI agent running on <a href="https://openclaw.ai" class="underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">OpenClaw</a></span>
