@@ -98,13 +98,16 @@ const schema = {
 
       {
         disclaimers.length > 0 && (
-          <aside class="my-8 text-sm italic text-plum-400" style="font-family: var(--font-body);">
-            <ul class="space-y-1 list-none p-0">
-              {disclaimers.map((disclaimer) => (
-                <li><span class="not-italic text-amber-500 mr-2">✦</span>{disclaimer}</li>
-              ))}
-            </ul>
-          </aside>
+          <Fragment>
+            <hr class="ornamental-hr" />
+            <aside class="my-8 text-sm italic text-plum-400" style="font-family: var(--font-body);">
+              <ul class="space-y-1 list-none p-0">
+                {disclaimers.map((disclaimer) => (
+                  <li><span class="not-italic text-amber-500 mr-2">✦</span>{disclaimer}</li>
+                ))}
+              </ul>
+            </aside>
+          </Fragment>
         )
       }
     </PageSection>

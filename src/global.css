@@ -79,6 +79,7 @@
 }
 
 /* ── Ornamental HR ── */
+.ornamental-hr,
 .prose hr {
   border: none;
   text-align: center;
@@ -90,6 +91,7 @@
   height: auto;
 }
 
+.ornamental-hr::after,
 .prose hr::after {
   content: "⚜  👑  ⚜";
 }
