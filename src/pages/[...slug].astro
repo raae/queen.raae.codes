@@ -100,10 +100,10 @@ const schema = {
         disclaimers.length > 0 && (
           <Fragment>
             <hr class="ornamental-hr" />
-            <aside class="my-8 text-sm italic text-plum-400" style="font-family: var(--font-body);">
+            <aside class="my-8 text-sm italic text-plum-400 text-center" style="font-family: var(--font-body);">
               <ul class="space-y-1 list-none p-0">
                 {disclaimers.map((disclaimer) => (
-                  <li><span class="not-italic text-amber-500 mr-2">✦</span>{disclaimer}</li>
+                  <li><span class="not-italic text-amber-500">✦</span> {disclaimer} <span class="not-italic text-amber-500">✦</span></li>
                 ))}
               </ul>
             </aside>
