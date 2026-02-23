@@ -8,9 +8,9 @@ import Newsletter from "../../components/Newsletter.astro";
 import { getAllPosts } from "../../lib/posts";
 
 const BADGE = "Author";
-const TITLE = "Benedicte Raae 👑";
+const TITLE = "Queen Raae 👑";
 const DESCRIPTION =
-  "Benedicte (Queen) Raae 👑 — Norwegian developer, builder, speaker, and pirate queen. She builds products in public and runs Lilly Labs with her family. She writes about web development, AI, and the adventures of running a family business.";
+  "Queen Raae 👑 — Norwegian developer, builder, speaker, and pirate queen. She builds products in public and runs Lilly Labs with her family. She writes about web development, AI, and the adventures of running a family business.";
 
 const allPosts = await getAllPosts();
 const posts = allPosts.filter((post) => post.author === "Queen");
@@ -20,7 +20,10 @@ const posts = allPosts.filter((post) => post.author === "Queen");
   <SiteHeader />
   <main>
     <PageSection component="header">
-      <PageSectionHeader badge={BADGE} title={TITLE} lead={DESCRIPTION} hLevel={1} />
+      <PageSectionHeader badge={BADGE} title={TITLE} hLevel={1} />
+      <p class="mt-2 text-plum-700">
+        Norwegian developer, builder, speaker, and pirate queen. She builds products in public and runs Lilly Labs with her family. She writes about web development, AI, and the adventures of running a family business.
+      </p>
     </PageSection>
 
     <PageSection component="section">

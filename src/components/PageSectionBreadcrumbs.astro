@@ -27,7 +27,7 @@ const { items = [], class: className } = Astro.props;
               isLast ? "text-plum-900 font-light" : "text-plum-500 font-base",
             ]}
           >
-            <span class="group-hover:underline">{label}</span>
+            <span class="underline decoration-amber-400 group-hover:decoration-amber-600">{label}</span>
             {!isLast && (
               <span aria-hidden="true" class="px-2">
                 ·

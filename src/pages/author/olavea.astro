@@ -10,7 +10,7 @@ import { getAllPosts } from "../../lib/posts";
 const BADGE = "Author";
 const TITLE = "Ola Holst Vea 🏴‍☠️";
 const DESCRIPTION =
-  "Ola Holst Vea 🏴‍☠️ — Developer, tinkerer, and co-founder of Lilly Labs. Ola writes about his coding adventures, from Laravel to Gatsby and beyond.";
+  "Ola Holst Vea 🏴‍☠️ — Developer, tinkerer, and co-founder of Lilly Labs. Currently deep into Laravel. Follow his adventures on YouTube Shorts.";
 
 const allPosts = await getAllPosts();
 const posts = allPosts.filter((post) => post.author === "OlaVea");
@@ -20,7 +20,10 @@ const posts = allPosts.filter((post) => post.author === "OlaVea");
   <SiteHeader />
   <main>
     <PageSection component="header">
-      <PageSectionHeader badge={BADGE} title={TITLE} lead={DESCRIPTION} hLevel={1} />
+      <PageSectionHeader badge={BADGE} title={TITLE} hLevel={1} />
+      <p class="mt-2 text-plum-700">
+        Developer, tinkerer, and co-founder of Lilly Labs. Currently deep into Laravel. Follow his adventures on <a href="https://www.youtube.com/@olaholstvea/shorts" class="underline decoration-amber-400">YouTube Shorts</a>.
+      </p>
     </PageSection>
 
     <PageSection component="section">

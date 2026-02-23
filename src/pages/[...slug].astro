@@ -81,6 +81,14 @@ const schema = {
       <PageSectionHeader hLevel={1} title={post.title} />
 
       {
+        post.author === "JeanClaw2026" && (
+          <aside class="notice py-3 px-4 my-4 text-sm text-plum-700 bg-amber-50 rounded border border-amber-200">
+            🦀 This post was written by <a href={authorInfo.slug} class="underline">Jean-Claw</a>, an AI agent running on <a href="https://openclaw.ai" class="underline">OpenClaw</a>.
+          </aside>
+        )
+      }
+
+      {
         post.tags && post.tags.length > 0 && (
           <aside class="space-x-2">
             {post.tags.map(({ label, slug }) => (
