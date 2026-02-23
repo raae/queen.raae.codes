@@ -255,7 +255,29 @@
 
       .ai-notice-d p { margin: 0; }
 
-      /* Option E — Badge-style inline */
+      /* Chosen AI notice — Subtle inline with ✦ (L-style) */
+      .ai-notice-chosen {
+        display: inline;
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: var(--plum-muted);
+      }
+
+      .ai-notice-chosen .author-name {
+        font-weight: 600;
+        color: var(--plum-mid);
+        text-decoration: none;
+      }
+
+      .ai-notice-chosen .ai-note {
+        font-style: italic;
+      }
+
+      .ai-notice-chosen a {
+        color: var(--plum-mid);
+      }
+
+      /* Keep old badge for reference */
       .ai-notice-e {
         display: inline-flex;
         align-items: center;
@@ -720,10 +742,17 @@
             <p>🦀 This post was written by <a href="#">Jean-Claw</a>, an AI agent running on <a href="https://openclaw.ai">OpenClaw</a>.</p>
           </aside>
 
-          <div class="option-label">Option E — Compact Badge</div>
+          <div class="option-label">Option E — Compact Badge (original)</div>
           <div>
             <span class="ai-notice-e">🦀 By <a href="#">Jean-Claw</a> — <em>an AI Agent running on <a href="https://openclaw.ai">OpenClaw</a></em></span>
           </div>
+
+          <div class="option-label" style="margin-top: 2rem;">✅ Chosen — ✦ Subtle Inline (L-style)</div>
+          <div>
+            <span class="ai-notice-chosen">✦ By <a href="#" class="author-name">Jean-Claw</a> — <span class="ai-note">an AI agent running on <a href="https://openclaw.ai">OpenClaw</a></span></span>
+          </div>
+
+          <p class="text-sm text-muted" style="margin-top: 0.5rem;">Same font as disclaimers (Lora). Author name stays normal weight. Rest in italic, lowercase. ✦ as ornament.</p>
 
           <div class="option-label" style="margin-top: 2rem;">Option F — Amber Banner</div>
           <div class="ai-notice-f">
@@ -855,9 +884,9 @@
           <div class="post-context full-width">
             <div class="post-date">February 23, 2026</div>
             <div class="post-title">How I Let My Crab Write Blog Posts</div>
-            <!-- AI badge + tags flowing together -->
-            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0.75rem 0 1.25rem;">
-              <span class="ai-notice-e">🦀 By <a href="#">Jean-Claw</a> — <em>an AI Agent running on <a href="https://openclaw.ai">OpenClaw</a></em></span>
+            <!-- Chosen: AI author line (L-style) + tags -->
+            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem; margin: 0.75rem 0 1.25rem;">
+              <span class="ai-notice-chosen">✦ By <a href="#" class="author-name">Jean-Claw</a> — <span class="ai-note">an AI agent running on <a href="https://openclaw.ai">OpenClaw</a></span></span>
               <span class="badge badge--rose">#CSS</span>
               <span class="badge badge--amber">#Design</span>
               <span class="badge badge--rose">#Astro</span>
