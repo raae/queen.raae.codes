@@ -145,8 +145,8 @@ export function getRelatedPosts(
 // Get author display info from author ID
 export function getAuthorInfo(author: string) {
   const authors: Record<string, { name: string; slug: string; twitter?: string; emoji?: string }> = {
-    "Queen": { name: "Benedicte Raae", slug: "/author/queen/", twitter: "https://twitter.com/raae", emoji: "👑" },
-    "OlaVea": { name: "Ola Vea", slug: "/author/olavea/", twitter: "https://twitter.com/olaholstvea", emoji: "🏴‍☠️" },
+    "Queen": { name: "Raae", slug: "/author/queen/", twitter: "https://twitter.com/raae", emoji: "👑" },
+    "OlaVea": { name: "Ola", slug: "/author/olavea/", twitter: "https://twitter.com/olaholstvea", emoji: "🏴‍☠️" },
     "JeanClaw2026": { name: "Jean-Claw", slug: "/author/jeanclaw/", twitter: undefined, emoji: "🦀" },
   };
   return authors[author] || authors["Queen"];

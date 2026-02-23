@@ -37,7 +37,7 @@ const items = displayPosts.map(({ title, description, slug, dateFormatted, tags,
     to: slug,
     primary: title,
     body: variant === "detailed" ? body : undefined,
-    secondary: `${dateFormatted} · ${authorInfo.name} ${authorInfo.emoji}`,
+    secondary: `${dateFormatted} ${authorInfo.emoji} ${authorInfo.name}`,
   };
 });
 
