@@ -467,6 +467,129 @@
         padding: 0.15rem 0;
       }
 
+      /* ── ✦ FOUR-POINTED STAR VARIANTS ── */
+
+      /* Option G — ✦ Amber border, golden bg */
+      .disclaimer-g {
+        border-left: 4px solid var(--amber);
+        background: var(--golden);
+        padding: 1rem 1.25rem;
+        margin: 1.5rem 0;
+        font-size: 0.85rem;
+        max-width: 100% !important;
+      }
+
+      .disclaimer-g ul { list-style: none; padding: 0; margin: 0; }
+      .disclaimer-g li { padding: 0.25rem 0; }
+      .disclaimer-g li::before {
+        content: "✦";
+        color: var(--amber-dark);
+        margin-right: 0.6rem;
+        font-size: 0.75em;
+      }
+
+      /* Option H — ✦ Rose border, blush bg */
+      .disclaimer-h {
+        border-left: 4px solid var(--rose);
+        background: var(--blush);
+        padding: 1rem 1.25rem;
+        margin: 1.5rem 0;
+        font-size: 0.85rem;
+        max-width: 100% !important;
+      }
+
+      .disclaimer-h ul { list-style: none; padding: 0; margin: 0; }
+      .disclaimer-h li { padding: 0.25rem 0; }
+      .disclaimer-h li::before {
+        content: "✦";
+        color: var(--rose);
+        margin-right: 0.6rem;
+        font-size: 0.75em;
+      }
+
+      /* Option I — ✦ Horizontal lines, no bg */
+      .disclaimer-i {
+        border-top: 2px solid var(--amber);
+        border-bottom: 2px solid var(--amber);
+        padding: 1rem 0;
+        margin: 1.5rem 0;
+        font-size: 0.85rem;
+        max-width: 100% !important;
+      }
+
+      .disclaimer-i ul { list-style: none; padding: 0; margin: 0; }
+      .disclaimer-i li { padding: 0.25rem 0; }
+      .disclaimer-i li::before {
+        content: "✦";
+        color: var(--amber);
+        margin-right: 0.6rem;
+        font-size: 0.75em;
+      }
+
+      /* Option J — ✦ Dark plum with amber stars */
+      .disclaimer-j {
+        background: var(--plum-deep);
+        color: var(--blush);
+        padding: 1rem 1.25rem;
+        margin: 1.5rem 0;
+        font-size: 0.85rem;
+        border-left: 4px solid var(--amber);
+        max-width: 100% !important;
+      }
+
+      .disclaimer-j a { color: var(--amber-light); }
+      .disclaimer-j ul { list-style: none; padding: 0; margin: 0; }
+      .disclaimer-j li { padding: 0.25rem 0; }
+      .disclaimer-j li::before {
+        content: "✦";
+        color: var(--amber);
+        margin-right: 0.6rem;
+        font-size: 0.75em;
+      }
+
+      /* Option K — ✦ Signature pop border */
+      .disclaimer-k {
+        border-left: 4px solid var(--signature);
+        background: #fff3e0;
+        padding: 1rem 1.25rem;
+        margin: 1.5rem 0;
+        font-size: 0.85rem;
+        max-width: 100% !important;
+      }
+
+      .disclaimer-k ul { list-style: none; padding: 0; margin: 0; }
+      .disclaimer-k li { padding: 0.25rem 0; }
+      .disclaimer-k li::before {
+        content: "✦";
+        color: var(--signature);
+        margin-right: 0.6rem;
+        font-size: 0.75em;
+      }
+
+      /* Option L — ✦ Subtle italic, single star accent */
+      .disclaimer-l {
+        margin: 1.5rem 0;
+        padding-left: 2rem;
+        position: relative;
+        font-size: 0.85rem;
+        font-style: italic;
+        color: var(--plum-muted);
+        max-width: 100% !important;
+      }
+
+      .disclaimer-l::before {
+        content: "✦";
+        position: absolute;
+        left: 0;
+        top: 0.15rem;
+        font-size: 1rem;
+        color: var(--amber);
+        font-style: normal;
+      }
+
+      .disclaimer-l ul { list-style: none; padding: 0; margin: 0; }
+      .disclaimer-l li { padding: 0.15rem 0; }
+
       /* ── Context mockup ── */
       .post-context {
         padding: 2rem;
@@ -660,6 +783,58 @@
 
           <div class="option-label">Option F — Subtle Italic with Fleur</div>
           <aside class="disclaimer-f">
+            <ul>
+              <li>This post was originally published on queen.raae.codes</li>
+              <li>Updated with fresh examples for Astro v5</li>
+            </ul>
+          </aside>
+
+          <hr />
+          <h3>✦ Four-Pointed Star Variants</h3>
+          <p class="text-sm text-muted" style="margin-bottom: 1.5rem;">Extra love for the ✦ ornament — same star, different vibes.</p>
+
+          <div class="option-label">Option G — ✦ Amber Border + Golden</div>
+          <aside class="disclaimer-g">
+            <ul>
+              <li>This post was originally published on queen.raae.codes</li>
+              <li>Updated with fresh examples for Astro v5</li>
+            </ul>
+          </aside>
+
+          <div class="option-label">Option H — ✦ Rose Border + Blush</div>
+          <aside class="disclaimer-h">
+            <ul>
+              <li>This post was originally published on queen.raae.codes</li>
+              <li>Updated with fresh examples for Astro v5</li>
+            </ul>
+          </aside>
+
+          <div class="option-label">Option I — ✦ Horizontal Lines</div>
+          <aside class="disclaimer-i">
+            <ul>
+              <li>This post was originally published on queen.raae.codes</li>
+              <li>Updated with fresh examples for Astro v5</li>
+            </ul>
+          </aside>
+
+          <div class="option-label">Option J — ✦ Dark Plum</div>
+          <aside class="disclaimer-j">
+            <ul>
+              <li>This post was originally published on queen.raae.codes</li>
+              <li>Updated with fresh examples for Astro v5</li>
+            </ul>
+          </aside>
+
+          <div class="option-label">Option K — ✦ Signature Pop</div>
+          <aside class="disclaimer-k">
+            <ul>
+              <li>This post was originally published on queen.raae.codes</li>
+              <li>Updated with fresh examples for Astro v5</li>
+            </ul>
+          </aside>
+
+          <div class="option-label">Option L — ✦ Subtle Italic</div>
+          <aside class="disclaimer-l">
             <ul>
               <li>This post was originally published on queen.raae.codes</li>
               <li>Updated with fresh examples for Astro v5</li>
