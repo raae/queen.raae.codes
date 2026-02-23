@@ -74,12 +74,9 @@ const schema = {
         items={[
           { label: "Posts", to: "/posts/" },
           { label: post.dateFormatted, datetime: post.date },
+          { label: `${authorInfo.emoji} ${authorName}`, to: authorInfo.slug },
         ]}
       />
-
-      <p class="mt-2 text-sm text-plum-500">
-        {post.dateFormatted} {authorInfo.emoji} <a href={authorInfo.slug} class="underline">{authorName}</a>
-      </p>
 
       <PageSectionHeader hLevel={1} title={post.title} />
 
