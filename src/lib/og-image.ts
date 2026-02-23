@@ -9,12 +9,17 @@ export const AUTHOR_CONFIG: Record<string, { secondaryColor: string; avatar: str
   Queen: {
     secondaryColor: "#ffde59",
     avatar: "queen-avatar.jpg",
-    signature: "queen.raae.codes",
+    signature: "queen.raae.codes 👑 Raae",
   },
   OlaVea: {
     secondaryColor: "#5DADE2",
     avatar: "olavea-avatar.jpg",
-    signature: "Cap'n Ola (queen.raae.codes)",
+    signature: "Cap'n Ola 🏴‍☠️ queen.raae.codes",
+  },
+  JeanClaw2026: {
+    secondaryColor: "#f4511e",
+    avatar: "jeanclaw-avatar.jpg",
+    signature: "Jean-Claw 🦀 queen.raae.codes",
   },
 };
 
@@ -120,8 +125,6 @@ export async function generateOgImage(options: {
   title: string;
   description: string;
   author: string;
-  authorEmoji?: string;
-  authorName?: string;
 }): Promise<Buffer> {
   loadFonts();
 
@@ -129,11 +132,6 @@ export async function generateOgImage(options: {
   const avatarUri = getAvatarDataUri(config.avatar);
   const title = truncateText(options.title, 60);
   const description = truncateText(options.description, 220);
-
-  // Build signature with optional author label: "queen.raae.codes 👑 Name"
-  const signatureText = options.authorEmoji && options.authorName
-    ? `${config.signature} ${options.authorEmoji} ${options.authorName}`
-    : config.signature;
 
   // Gatsby-matching avatar geometry
   const AVATAR_DIAMETER = HEIGHT; // 628px — same as canvas height
@@ -259,7 +257,7 @@ export async function generateOgImage(options: {
               fontSize: "22px",
               color: PRIMARY_COLOR,
             },
-            children: signatureText,
+            children: config.signature,
           },
         },
       ],
