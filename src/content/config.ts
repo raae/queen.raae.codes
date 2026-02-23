@@ -192,7 +192,12 @@ const tags = defineCollection({
   schema: z.array(
     z.object({
       label: z.string(),
+      displayName: z.string().optional(),
+      description: z.string().optional(),
+      relationship: z.string().optional(),
+      url: z.string().optional(),
       disclaimer: z.string().optional(),
+      showOnPosts: z.boolean().optional(),
     }),
   ),
 });
