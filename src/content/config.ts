@@ -63,6 +63,11 @@ const postsOlavea = defineCollection({
   schema: postSchema,
 });
 
+const postsJeanclaw = defineCollection({
+  type: "content",
+  schema: postSchema,
+});
+
 // Landing pages collection
 const landing = defineCollection({
   type: "content",
@@ -209,6 +214,7 @@ const testimonials = defineCollection({
 export const collections = {
   "posts-queen": postsQueen,
   "posts-olavea": postsOlavea,
+  "posts-jeanclaw": postsJeanclaw,
   landing: landing,
   talks: talks,
   tags: tags,

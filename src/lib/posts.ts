@@ -37,6 +37,7 @@ export interface ProcessedPost {
 export async function getAllPosts(): Promise<ProcessedPost[]> {
   const queenPosts = await getCollection("posts-queen");
   const olaveaPosts = await getCollection("posts-olavea");
+  const jeanclawPosts = await getCollection("posts-jeanclaw");
 
   const processPost = (entry: any, author: string): ProcessedPost => {
     const { date, slug } = parsePostPath(entry.id);
@@ -97,6 +98,7 @@ export async function getAllPosts(): Promise<ProcessedPost[]> {
   const allPosts = [
     ...queenPosts.map((p) => processPost(p, "Queen")),
     ...olaveaPosts.map((p) => processPost(p, "OlaVea")),
+    ...jeanclawPosts.map((p) => processPost(p, "JeanClaw2026")),
   ];
 
   // Sort by slug descending (which is date-based)
@@ -138,6 +140,16 @@ export function getRelatedPosts(
     .slice(0, limit);
 
   return relatedPosts;
+}
+
+// Get author display info from author ID
+export function getAuthorInfo(author: string) {
+  const authors: Record<string, { name: string; slug: string; twitter?: string; emoji?: string }> = {
+    "Queen": { name: "Benedicte Raae", slug: "/author/queen/", twitter: "https://twitter.com/raae", emoji: "👑" },
+    "OlaVea": { name: "Ola Vea", slug: "/author/olavea/", twitter: "https://twitter.com/olaholstvea", emoji: "🏴‍☠️" },
+    "JeanClaw2026": { name: "Jean-Claw", slug: "/author/jeanclaw/", twitter: undefined, emoji: "🦀" },
+  };
+  return authors[author] || authors["Queen"];
 }
 
 // Get all unique tags with their posts
