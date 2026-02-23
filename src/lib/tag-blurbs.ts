@@ -1,6 +1,7 @@
 import { getEntry } from "astro:content";
 
 export interface TagBlurb {
+  displayName?: string;
   description?: string;
   relationship?: string;
   url?: string;
@@ -17,6 +18,7 @@ export async function getTagBlurbs(): Promise<Map<string, TagBlurb>> {
     if (brands?.data) {
       for (const brand of brands.data) {
         blurbs.set(brand.label, {
+          displayName: brand.displayName,
           description: brand.description,
           relationship: brand.relationship,
           url: brand.url,

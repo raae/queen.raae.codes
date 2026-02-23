@@ -43,7 +43,7 @@ const description = blurb?.description || `Learn more about "${label}" by browsi
         <aside class="my-6 text-sm italic text-plum-400" style="font-family: var(--font-body);">
           <p>
             <span class="not-italic text-amber-500">✦</span>{" "}
-            <strong class="not-italic text-plum-600">{label}</strong>
+            <strong class="not-italic text-plum-600">{blurb.displayName || label}</strong>
             {blurb.description && <span> — {blurb.description}</span>}
             {blurb.disclaimer && <span> {blurb.disclaimer}</span>}
             {blurb.url && (

@@ -115,7 +115,7 @@ const schema = {
                 {tagBlurbs.map((blurb) => (
                   <li>
                     <span class="not-italic text-amber-500">✦</span>{" "}
-                    <strong class="not-italic text-plum-600">{blurb.label}</strong>
+                    <strong class="not-italic text-plum-600">{blurb.displayName || blurb.label}</strong>
                     {blurb.description && <span> — {blurb.description}</span>}
                     {blurb.disclaimer && <span> {blurb.disclaimer}</span>}
                     {blurb.url && <span> <a href={blurb.url} class="underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition" target="_blank" rel="noopener noreferrer">{blurb.url.replace(/^https?:\/\//, "")}</a></span>}
