@@ -8,13 +8,13 @@
   description: "A serverless database platform."
   relationship: "Client projects"
   url: "https://xata.io"
-  disclaimer: "Queen Raae and family works on several projects for Xata."
+  disclaimer: "Queen Raae and family worked on several projects for Xata."
   showOnPosts: true
 - label: cloudinary
   description: "Cloud-based image and video management."
   relationship: "Plugin maintainer"
   url: "https://cloudinary.com"
-  disclaimer: "Queen Raae and family is responsible for the Cloudinary Gatsby Plugins."
+  disclaimer: "Queen Raae and family was responsible for the Cloudinary Gatsby Plugins."
   showOnPosts: true
 - label: affilimate
   description: "Affiliate marketing analytics platform."
@@ -41,7 +41,7 @@
   disclaimer: "Contrary to popular belief, Queen Raae and family have never worked for Gatsby."
   showOnPosts: true
 - label: whee!
-  description: "A playful product studio."
+  description: "Electric cargo bike subscription service."
   relationship: "CTO"
   url: "https://whee.no"
   disclaimer: "Queen Raae is CTO at Whee!"
@@ -49,6 +49,5 @@
 - label: galleon
   description: "MCP product for Ghost."
   relationship: "Co-founder"
-  url: "https://usegalleon.com"
   disclaimer: "Galleon is a semi-stealth side project Queen Raae is building with Ola."
   showOnPosts: true
