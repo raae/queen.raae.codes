@@ -144,10 +144,10 @@ export function getRelatedPosts(
 
 // Get author display info from author ID
 export function getAuthorInfo(author: string) {
-  const authors: Record<string, { name: string; slug: string; twitter?: string; emoji?: string }> = {
-    "Queen": { name: "Raae", slug: "/author/queen/", twitter: "https://twitter.com/raae", emoji: "👑" },
-    "OlaVea": { name: "Ola", slug: "/author/olavea/", twitter: "https://twitter.com/olaholstvea", emoji: "🏴‍☠️" },
-    "JeanClaw2026": { name: "Jean-Claw", slug: "/author/jeanclaw/", twitter: undefined, emoji: "🦀" },
+  const authors: Record<string, { name: string; slug: string; twitter?: string; emoji?: string; tagline?: string }> = {
+    "Queen": { name: "Raae", slug: "/author/queen/", twitter: "https://twitter.com/raae", emoji: "👑", tagline: "pirate queen of the web" },
+    "OlaVea": { name: "Ola", slug: "/author/olavea/", twitter: "https://twitter.com/olaholstvea", emoji: "🏴‍☠️", tagline: "first mate & code pirate" },
+    "JeanClaw2026": { name: "Jean-Claw", slug: "/author/jeanclaw/", twitter: undefined, emoji: "🦀", tagline: "an AI agent running on OpenClaw" },
   };
   return authors[author] || authors["Queen"];
 }
