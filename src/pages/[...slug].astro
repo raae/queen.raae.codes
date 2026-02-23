@@ -74,7 +74,6 @@ const schema = {
         items={[
           { label: "Posts", to: "/posts/" },
           { label: post.dateFormatted, datetime: post.date },
-          { label: `${authorInfo.emoji} ${authorName}`, to: authorInfo.slug },
         ]}
       />
 
@@ -88,15 +87,16 @@ const schema = {
         )
       }
 
-      {
-        post.tags && post.tags.length > 0 && (
-          <aside class="space-x-2">
-            {post.tags.map(({ label, slug }) => (
-              <Badge href={slug}>{label}</Badge>
-            ))}
-          </aside>
-        )
-      }
+      <aside class="space-x-2" style="font-family: var(--font-label); letter-spacing: 0.1em; font-size: 0.65rem;">
+        <a href={authorInfo.slug} class="inline-flex items-center no-underline uppercase font-semibold text-plum-500 hover:text-[#f4511e] transition">
+          By {authorName} {authorInfo.emoji}
+        </a>
+        {post.tags && post.tags.length > 0 && (
+          post.tags.map(({ label, slug }) => (
+            <Badge href={slug}>{label}</Badge>
+          ))
+        )}
+      </aside>
 
       <Prose class="mt-12">
         <Content />
