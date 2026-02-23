@@ -9,7 +9,7 @@ import Badge from "../components/Badge.astro";
 import Newsletter from "../components/Newsletter.astro";
 import Posts from "../components/Posts.astro";
 import { getAllPosts, getRelatedPosts, getAuthorInfo } from "../lib/posts";
-import { getDisclaimers } from "../lib/disclaimers";
+import { getTagBlurbs } from "../lib/tag-blurbs";
 import { getOgImagePath, getOgImageUrl } from "../lib/og-image";
 import siteMetadata from "../data/siteMetadata";
 
@@ -31,9 +31,15 @@ const { Content } = await post.render();
 
 const relatedPosts = getRelatedPosts(post, allPosts, 3, 0.7);
 
-// Look up brand disclaimers for this post's tags
-const disclaimerMap = await getDisclaimers();
-const disclaimers = post.tags.map((tag) => disclaimerMap.get(tag.label)).filter((d): d is string => !!d);
+// Look up brand tag blurbs for this post's tags
+const blurbMap = await getTagBlurbs();
+const tagBlurbs = post.tags
+  .map((tag) => {
+    const blurb = blurbMap.get(tag.label);
+    if (!blurb || blurb.showOnPosts === false) return null;
+    return { label: tag.label, ...blurb };
+  })
+  .filter((b): b is NonNullable<typeof b> => !!b);
 
 const authorInfo = getAuthorInfo(post.author);
 const authorName = authorInfo.name;
@@ -101,13 +107,20 @@ const schema = {
       </Prose>
 
       {
-        disclaimers.length > 0 && (
+        tagBlurbs.length > 0 && (
           <Fragment>
             <hr class="ornamental-hr" />
             <aside class="my-8 text-sm italic text-plum-400 text-center" style="font-family: var(--font-body);">
               <ul class="space-y-1 list-none p-0">
-                {disclaimers.map((disclaimer) => (
-                  <li><span class="not-italic text-amber-500">✦</span> {disclaimer} <span class="not-italic text-amber-500">✦</span></li>
+                {tagBlurbs.map((blurb) => (
+                  <li>
+                    <span class="not-italic text-amber-500">✦</span>{" "}
+                    <strong class="not-italic text-plum-600">{blurb.label}</strong>
+                    {blurb.description && <span> — {blurb.description}</span>}
+                    {blurb.disclaimer && <span> {blurb.disclaimer}</span>}
+                    {blurb.url && <span> <a href={blurb.url} class="underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition" target="_blank" rel="noopener noreferrer">{blurb.url.replace(/^https?:\/\//, "")}</a></span>}
+                    {" "}<span class="not-italic text-amber-500">✦</span>
+                  </li>
                 ))}
               </ul>
             </aside>
