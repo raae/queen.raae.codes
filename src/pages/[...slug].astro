@@ -8,7 +8,7 @@ import Prose from "../components/Prose.astro";
 import Badge from "../components/Badge.astro";
 import Newsletter from "../components/Newsletter.astro";
 import Posts from "../components/Posts.astro";
-import { getAllPosts, getRelatedPosts } from "../lib/posts";
+import { getAllPosts, getRelatedPosts, getAuthorInfo } from "../lib/posts";
 import { getDisclaimers } from "../lib/disclaimers";
 import { getOgImagePath, getOgImageUrl } from "../lib/og-image";
 import siteMetadata from "../data/siteMetadata";
@@ -35,9 +35,9 @@ const relatedPosts = getRelatedPosts(post, allPosts, 3, 0.7);
 const disclaimerMap = await getDisclaimers();
 const disclaimers = post.tags.map((tag) => disclaimerMap.get(tag.label)).filter((d): d is string => !!d);
 
-const isOla = post.author === "OlaVea";
-const authorName = isOla ? "Ola Vea" : "Benedicte Raae";
-const authorTwitter = isOla ? "https://twitter.com/olaholstvea" : "https://twitter.com/raae";
+const authorInfo = getAuthorInfo(post.author);
+const authorName = authorInfo.name;
+const authorTwitter = authorInfo.twitter;
 
 const ogImagePath = getOgImageUrl(post.slug, post.title, post.description);
 
@@ -51,8 +51,8 @@ const schema = {
   author: [
     {
       "@type": "Person",
-      name: authorName,
-      sameAs: authorTwitter,
+      name: post.author === "JeanClaw2026" ? "Jean-Claw (AI)" : authorName,
+      ...(authorTwitter ? { sameAs: authorTwitter } : {}),
     },
   ],
 };
@@ -62,7 +62,7 @@ const schema = {
   title={post.title}
   description={post.description}
   image={ogImagePath}
-  creator={isOla ? "@OlaHolstVea" : undefined}
+  creator={post.author === "OlaVea" ? "@OlaHolstVea" : undefined}
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema, null, 2)} slot="head" />
 
@@ -80,14 +80,23 @@ const schema = {
       <PageSectionHeader hLevel={1} title={post.title} />
 
       {
-        post.tags && post.tags.length > 0 && (
-          <aside class="space-x-2">
-            {post.tags.map(({ label, slug }) => (
-              <Badge href={slug}>{label}</Badge>
-            ))}
+        post.author === "JeanClaw2026" && (
+          <aside class="notice py-3 px-4 my-4 text-sm text-plum-700 bg-amber-50 rounded border border-amber-200">
+            🦀 This post was written by <a href={authorInfo.slug} class="underline">Jean-Claw</a>, an AI agent running on <a href="https://openclaw.ai" class="underline">OpenClaw</a>.
           </aside>
         )
       }
+
+      <aside class="space-x-2" style="font-family: var(--font-label); letter-spacing: 0.1em; font-size: 0.65rem;">
+        <a href={authorInfo.slug} class="inline-flex items-center no-underline uppercase font-semibold text-plum-500 hover:text-[#f4511e] transition">
+          By {authorName} {authorInfo.emoji}
+        </a>
+        {post.tags && post.tags.length > 0 && (
+          post.tags.map(({ label, slug }) => (
+            <Badge href={slug}>{label}</Badge>
+          ))
+        )}
+      </aside>
 
       <Prose class="mt-12">
         <Content />

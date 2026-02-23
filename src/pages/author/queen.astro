@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import PageSection from "../../components/PageSection.astro";
+import PageSectionHeader from "../../components/PageSectionHeader.astro";
+import Posts from "../../components/Posts.astro";
+import Newsletter from "../../components/Newsletter.astro";
+import { getAllPosts } from "../../lib/posts";
+
+const BADGE = "Author";
+const TITLE = "Queen Raae 👑";
+const DESCRIPTION =
+  "Queen Raae 👑 — Norwegian developer, builder, speaker, and pirate queen. She builds products in public and runs Lilly Labs with her family. She writes about web development, AI, and the adventures of running a family business.";
+
+const allPosts = await getAllPosts();
+const posts = allPosts.filter((post) => post.author === "Queen");
+---
+
+<BaseLayout title={TITLE} description={DESCRIPTION}>
+  <SiteHeader />
+  <main>
+    <PageSection component="header">
+      <PageSectionHeader badge={BADGE} title={TITLE} hLevel={1} />
+      <p class="mt-2 text-plum-700">
+        Norwegian developer, builder, speaker, and pirate queen. She builds products in public and runs Lilly Labs with her family. She writes about web development, AI, and the adventures of running a family business. Follow her on <a href="https://www.youtube.com/@queenraae/shorts" class="underline decoration-amber-400">YouTube Shorts</a>.
+      </p>
+    </PageSection>
+
+    <PageSection component="section">
+      <Posts posts={posts} />
+    </PageSection>
+
+    <PageSection component="footer">
+      <Newsletter />
+    </PageSection>
+  </main>
+</BaseLayout>
