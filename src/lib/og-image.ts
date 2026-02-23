@@ -9,12 +9,17 @@ export const AUTHOR_CONFIG: Record<string, { secondaryColor: string; avatar: str
   Queen: {
     secondaryColor: "#ffde59",
     avatar: "queen-avatar.jpg",
-    signature: "queen.raae.codes",
+    signature: "queen.raae.codes 👑 Raae",
   },
   OlaVea: {
     secondaryColor: "#5DADE2",
     avatar: "olavea-avatar.jpg",
-    signature: "Cap'n Ola (queen.raae.codes)",
+    signature: "Cap'n Ola 🏴‍☠️ queen.raae.codes",
+  },
+  JeanClaw2026: {
+    secondaryColor: "#f4511e",
+    avatar: "jeanclaw-avatar.jpg",
+    signature: "Jean-Claw 🦀 queen.raae.codes",
   },
 };
 
