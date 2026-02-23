@@ -39,17 +39,20 @@ const description = blurb?.description || `Learn more about "${label}" by browsi
       <PageSectionBreadcrumbs class="mt-4" items={[{ label: "Posts", to: "/posts/" }, { label: label }]} />
       <PageSectionHeader title={title} hLevel={1} />
 
-      {blurb && (blurb.description || blurb.relationship || blurb.url) && (
-        <aside class="my-6 text-sm text-plum-400" style="font-family: var(--font-body);">
+      {blurb && (blurb.description || blurb.disclaimer || blurb.url) && (
+        <aside class="my-6 text-sm italic text-plum-400" style="font-family: var(--font-body);">
           <p>
-            <span class="text-amber-500">✦</span>{" "}
-            <strong class="text-plum-600">{label}</strong>
+            <span class="not-italic text-amber-500">✦</span>{" "}
+            <strong class="not-italic text-plum-600">{label}</strong>
             {blurb.description && <span> — {blurb.description}</span>}
-            {blurb.relationship && <span> <em>{blurb.relationship}.</em></span>}
+            {blurb.disclaimer && <span> {blurb.disclaimer}</span>}
             {blurb.url && (
-              <span>{" "}<a href={blurb.url} class="underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition" target="_blank" rel="noopener noreferrer">{blurb.url.replace(/^https?:\/\//, "")}</a></span>
+              <Fragment>
+                {" "}<span class="not-italic text-amber-500">✦</span>{" "}
+                <a href={blurb.url} class="underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition" target="_blank" rel="noopener noreferrer">{blurb.url.replace(/^https?:\/\//, "")}</a>
+              </Fragment>
             )}
-            {" "}<span class="text-amber-500">✦</span>
+            {" "}<span class="not-italic text-amber-500">✦</span>
           </p>
         </aside>
       )}
