@@ -50,7 +50,7 @@
 - label: whee!
   displayName: Whee!
   description: "Electric cargo bike subscription service."
-  relationship: "CTO"
+  relationship: "fCTO"
   url: "https://whee.no"
   disclaimer: "Queen Raae is the fCTO of Whee!"
   showOnPosts: true
