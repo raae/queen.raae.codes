@@ -79,23 +79,22 @@ const schema = {
 
       <PageSectionHeader hLevel={1} title={post.title} />
 
-      <div class="space-y-2">
-        <aside class="flex items-baseline gap-x-2 text-sm text-plum-400 italic" style="font-family: var(--font-body);">
-          <span class="not-italic text-amber-500">✦</span>
-          <span>By <a href={authorInfo.slug} class="not-italic font-bold text-plum-600 underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">{authorName}</a>
-          {post.author === "JeanClaw2026"
-            ? <span>— an AI agent running on <a href="https://openclaw.ai" class="underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">OpenClaw</a></span>
-            : authorInfo.tagline && <span>— {authorInfo.tagline}</span>
-          }</span>
-        </aside>
+      <aside class="flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm text-plum-400" style="font-family: var(--font-body);">
+        <span class="text-amber-500">✦</span>
+        <span class="italic">By <a href={authorInfo.slug} class="not-italic font-bold text-plum-600 underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">{authorName}</a>
+        {post.author === "JeanClaw2026"
+          ? <span>— an AI agent running on <a href="https://openclaw.ai" class="underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">OpenClaw</a></span>
+          : authorInfo.tagline && <span>— {authorInfo.tagline}</span>
+        }</span>
         {post.tags && post.tags.length > 0 && (
-          <div class="flex flex-wrap gap-2">
+          <Fragment>
+            <span class="text-plum-300">·</span>
             {post.tags.map(({ label, slug }) => (
               <Badge href={slug}>{label}</Badge>
             ))}
-          </div>
+          </Fragment>
         )}
-      </div>
+      </aside>
 
       <Prose class="mt-12">
         <Content />
