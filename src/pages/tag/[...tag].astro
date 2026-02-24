@@ -40,9 +40,9 @@ const description = blurb?.description || `Learn more about "${label}" by browsi
       <PageSectionHeader title={title} hLevel={1} />
 
       {blurb && (blurb.description || blurb.disclaimer || blurb.url) && (
-        <aside class="my-6 text-sm italic text-plum-400" style="font-family: var(--font-body); text-wrap: balance;">
+        <aside class="my-6 text-sm italic text-plum-400 relative pl-6" style="font-family: var(--font-body); text-wrap: balance;">
           <p>
-            <span class="not-italic text-amber-500">✦</span>{" "}
+            <span class="absolute left-0 top-0 not-italic text-amber-500">✦</span>{" "}
             <strong class="not-italic text-plum-600">{blurb.displayName || label}</strong>
             {blurb.description && <span> — {blurb.description}</span>}
             {blurb.disclaimer && <span> {blurb.disclaimer}</span>}
