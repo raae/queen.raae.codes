@@ -17,32 +17,27 @@ const { Content } = await landing.render();
 const allPosts = await getAllPosts();
 const latestPosts = allPosts.slice(0, 10);
 
-// Treasures — shown between first 3 posts and the rest
+// Treasures — interleaved every other with posts after first 3
 const treasures = [
+  {
+    primary: "Book Queen Raae as a Speaker",
+    to: "/speaker/",
+    secondary: 'Speaking <em class="font-body">by</em> Queen Raae 👑',
+  },
   {
     primary: "Is it Queen or AI?",
     to: "/is-it-queen-or-ai",
-    secondary: "🎮 Quiz Game · Jean-Claw 🦀",
-  },
-  {
-    primary: "Jean-Claw — AI Chief of Operations",
-    to: "/author/jeanclaw/",
-    secondary: "🤖 AI Agent · Queen Raae 👑",
+    secondary: 'Quiz Game <em class="font-body">by</em> Jean-Claw 🦀',
   },
   {
     primary: "POW! — A Menstrual Journal",
     href: "https://pow.no",
-    secondary: "💪 Side Project · Queen Raae 👑",
+    secondary: 'Side Project <em class="font-body">by</em> Queen Raae 👑',
   },
   {
     primary: "Slow & Steady Podcast",
     href: "https://slowandsteadypodcast.com/",
-    secondary: "🎙️ Podcast · with Benedikt Deicke",
-  },
-  {
-    primary: "Book Queen Raae as a Speaker",
-    to: "/speaker/",
-    secondary: "🎤 Speaking · Queen Raae 👑",
+    secondary: 'Podcast <em class="font-body">by</em> Benedikt Deicke 🎙️',
   },
 ];
 
@@ -52,16 +47,19 @@ const postItems = latestPosts.map((post) => {
   return {
     primary: post.title,
     to: post.slug,
-    secondary: `📝 Blog Post · ${post.dateFormatted} · ${authorInfo.name} ${authorInfo.emoji}`,
+    secondary: `Blog Post · ${post.dateFormatted} <em class="font-body">by</em> ${authorInfo.name} ${authorInfo.emoji}`,
   };
 });
 
-// 3 latest posts, then treasures, then remaining posts
-const feedItems = [
-  ...postItems.slice(0, 3),
-  ...treasures,
-  ...postItems.slice(3),
-];
+// 3 latest posts, then alternate: treasure, post, treasure, post...
+const feedItems = [...postItems.slice(0, 3)];
+const remainingPosts = postItems.slice(3);
+let tIdx = 0;
+let pIdx = 0;
+while (tIdx < treasures.length || pIdx < remainingPosts.length) {
+  if (tIdx < treasures.length) feedItems.push(treasures[tIdx++]);
+  if (pIdx < remainingPosts.length) feedItems.push(remainingPosts[pIdx++]);
+}
 
 const { badge, title } = landing.data;
 ---

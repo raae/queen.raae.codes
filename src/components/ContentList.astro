@@ -69,9 +69,8 @@ const { items = [], ctas = [], class: className } = Astro.props;
               <p
                 class="my-0 mt-1 font-semibold text-plum-400 uppercase"
                 style="font-family: var(--font-label); letter-spacing: 0.1em; font-size: 0.65rem;"
-              >
-                {secondary}
-              </p>
+                set:html={secondary}
+              />
             )}
           </a>
         </li>
