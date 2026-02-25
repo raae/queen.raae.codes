@@ -17,59 +17,51 @@ const { Content } = await landing.render();
 const allPosts = await getAllPosts();
 const latestPosts = allPosts.slice(0, 10);
 
-// Treasures — injected between posts at fixed positions
+// Treasures — shown between first 3 posts and the rest
 const treasures = [
   {
     primary: "Is it Queen or AI?",
     to: "/is-it-queen-or-ai",
-    secondary: "Quiz Game by Jean-Claw 🦀",
+    secondary: "🎮 Quiz Game · Jean-Claw 🦀",
   },
   {
     primary: "Jean-Claw — AI Chief of Operations",
     to: "/author/jeanclaw/",
-    secondary: "AI Agent by Queen Raae 👑",
+    secondary: "🤖 AI Agent · Queen Raae 👑",
   },
   {
     primary: "POW! — A Menstrual Journal",
     href: "https://pow.no",
-    secondary: "Side Project by Queen Raae 👑",
+    secondary: "💪 Side Project · Queen Raae 👑",
   },
   {
     primary: "Slow & Steady Podcast",
     href: "https://slowandsteadypodcast.com/",
-    secondary: "Podcast with Benedikt Deicke 🎙️",
+    secondary: "🎙️ Podcast · with Benedikt Deicke",
   },
   {
     primary: "Book Queen Raae as a Speaker",
     to: "/speaker/",
-    secondary: "Speaking · AI, Web Dev & More 👑",
+    secondary: "🎤 Speaking · Queen Raae 👑",
   },
 ];
 
-// Convert posts to feed items with author emoji
+// Convert posts to feed items with uniform format
 const postItems = latestPosts.map((post) => {
   const authorInfo = getAuthorInfo(post.author);
   return {
     primary: post.title,
     to: post.slug,
-    secondary: `${authorInfo.emoji} ${post.dateFormatted} · ${authorInfo.name}`,
+    secondary: `📝 Blog Post · ${post.dateFormatted} · ${authorInfo.name} ${authorInfo.emoji}`,
   };
 });
 
-// Inject treasures between posts at positions 2, 5, 8, 11
-const feedItems: typeof postItems = [];
-const insertAt = [2, 5, 8, 11, 14];
-let treasureIdx = 0;
-for (let i = 0; i < postItems.length; i++) {
-  if (insertAt.includes(feedItems.length) && treasureIdx < treasures.length) {
-    feedItems.push(treasures[treasureIdx++]);
-  }
-  feedItems.push(postItems[i]);
-}
-// Add remaining treasures at the end
-while (treasureIdx < treasures.length) {
-  feedItems.push(treasures[treasureIdx++]);
-}
+// 3 latest posts, then treasures, then remaining posts
+const feedItems = [
+  ...postItems.slice(0, 3),
+  ...treasures,
+  ...postItems.slice(3),
+];
 
 const { badge, title } = landing.data;
 ---
@@ -92,8 +84,7 @@ const { badge, title } = landing.data;
 
     <!-- Mixed Feed Section -->
     <PageSection>
-      <PageSectionHeader title="Explore the Cargo" />
-      <ContentList items={feedItems} ctas={[{ to: "/posts/", label: "All posts..." }]} class="mt-8" />
+      <ContentList items={feedItems} ctas={[{ to: "/posts/", label: "All posts..." }]} />
     </PageSection>
   </main>
 </BaseLayout>
