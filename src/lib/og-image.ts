@@ -17,7 +17,7 @@ export const AUTHOR_CONFIG: Record<string, { secondaryColor: string; avatar: str
     signature: "Cap'n Ola 🏴‍☠️ queen.raae.codes",
   },
   JeanClaw2026: {
-    secondaryColor: "#16a34a",
+    secondaryColor: "#F5A623",
     avatar: "jeanclaw-avatar.jpg",
     signature: "Jean-Claw 🦀 queen.raae.codes",
   },
@@ -374,7 +374,7 @@ export async function generateAuthorOgImage(options: {
                           fontFamily: "Montserrat",
                           fontWeight: 600,
                           fontSize: "18px",
-                          color: PRIMARY_COLOR,
+                          color: PRIMARY_TEXT,
                           textTransform: "uppercase" as const,
                           letterSpacing: "2px",
                           marginBottom: "8px",
