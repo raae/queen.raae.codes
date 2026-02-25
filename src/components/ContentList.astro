@@ -22,7 +22,7 @@ interface Props {
 const { items = [], ctas = [], class: className } = Astro.props;
 ---
 
-<ul class:list={["content-list list-none px-0 my-0 space-y-0", className]}>
+<ul class:list={["content-list list-none px-0 my-0 space-y-0 [&>.content-list-item:last-of-type]:border-b-0", className]}>
   {
     items.map((item) => {
       const { primary, secondary, body, to, href } = item;
@@ -30,7 +30,7 @@ const { items = [], ctas = [], class: className } = Astro.props;
       const isExternal = Boolean(href);
 
       return (
-        <li class="content-list-item relative border-0 border-b border-solid border-plum-900/10 last:border-b-0">
+        <li class="content-list-item relative border-0 border-b border-solid border-plum-900/10 ">
           <a
             href={linkHref}
             target={isExternal ? "_blank" : undefined}
