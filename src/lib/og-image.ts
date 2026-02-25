@@ -7,17 +7,17 @@ import { createHash } from "node:crypto";
 // ── Author config matching Gatsby plugin ──────────────────────────
 export const AUTHOR_CONFIG: Record<string, { secondaryColor: string; avatar: string; signature: string }> = {
   Queen: {
-    secondaryColor: "#F5A623",
+    secondaryColor: "#c9a87c",
     avatar: "queen-avatar.jpg",
     signature: "queen.raae.codes 👑 Raae",
   },
   OlaVea: {
-    secondaryColor: "#5DADE2",
+    secondaryColor: "#a8b5c4",
     avatar: "olavea-avatar.jpg",
     signature: "Cap'n Ola 🏴‍☠️ queen.raae.codes",
   },
   JeanClaw2026: {
-    secondaryColor: "#F5A623",
+    secondaryColor: "#b5a89a",
     avatar: "jeanclaw-avatar.jpg",
     signature: "Jean-Claw 🦀 queen.raae.codes",
   },
@@ -170,7 +170,7 @@ export async function generateOgImage(options: {
               width: `${AVATAR_DIAMETER}px`,
               height: `${AVATAR_DIAMETER}px`,
               borderRadius: `${AVATAR_RADIUS}px`,
-              border: "none",
+              border: `${AVATAR_BORDER}px solid ${config.secondaryColor}`,
               objectFit: "cover",
             },
           },
@@ -332,7 +332,7 @@ export async function generateAuthorOgImage(options: {
               width: `${AVATAR_DIAMETER}px`,
               height: `${AVATAR_DIAMETER}px`,
               borderRadius: `${AVATAR_RADIUS}px`,
-              border: "none",
+              border: `${AVATAR_BORDER}px solid ${config.secondaryColor}`,
               objectFit: "cover" as const,
             },
           },
