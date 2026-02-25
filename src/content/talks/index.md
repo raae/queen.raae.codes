@@ -1,7 +1,7 @@
 ---
 badge: Speaker
 title: Bring joy and knowledge to your next event
-lead: Are you planning a brown bag lunch, meetup, or conference? On the topic of web development, AI, or building a sustainable indie business?
+lead: Are you planning a brown bag lunch, meetup, or conference? On the topic of web development or AI?
 image: ./2021-12-15-mpya/mpya-speaking.jpeg
 imageAlt: Queen Raae on a large screen, the host of the event at a stool by a table
 archive:
