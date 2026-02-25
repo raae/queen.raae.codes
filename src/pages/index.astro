@@ -39,6 +39,11 @@ const treasures = [
     href: "https://slowandsteadypodcast.com/",
     secondary: "Podcast with Benedikt Deicke 🎙️",
   },
+  {
+    primary: "Book Queen Raae as a Speaker",
+    to: "/speaker/",
+    secondary: "Speaking · AI, Web Dev & More 👑",
+  },
 ];
 
 // Convert posts to feed items with author emoji
@@ -53,7 +58,7 @@ const postItems = latestPosts.map((post) => {
 
 // Inject treasures between posts at positions 2, 5, 8, 11
 const feedItems: typeof postItems = [];
-const insertAt = [2, 5, 8, 11];
+const insertAt = [2, 5, 8, 11, 14];
 let treasureIdx = 0;
 for (let i = 0; i < postItems.length; i++) {
   if (insertAt.includes(feedItems.length) && treasureIdx < treasures.length) {
