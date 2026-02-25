@@ -282,3 +282,173 @@ export async function generateOgImage(options: {
 
   return await sharp(Buffer.from(svg)).png().toBuffer();
 }
+
+// ── Author OG image (profile-card style) ──────────────────────────
+export async function generateAuthorOgImage(options: {
+  title: string;
+  description: string;
+  authorKey: string;
+}): Promise<Buffer> {
+  loadFonts();
+
+  const config = AUTHOR_CONFIG[options.authorKey] || AUTHOR_CONFIG.Queen;
+  const avatarUri = getAvatarDataUri(config.avatar);
+  const title = options.title;
+  const description = truncateText(options.description, 160);
+
+  const AVATAR_SIZE = 280;
+  const AVATAR_R = AVATAR_SIZE / 2;
+  const AVATAR_BORDER = 8;
+
+  const markup = {
+    type: "div",
+    props: {
+      style: {
+        display: "flex",
+        flexDirection: "row" as const,
+        position: "relative" as const,
+        width: `${WIDTH}px`,
+        height: `${HEIGHT}px`,
+        backgroundColor: BG_COLOR,
+        overflow: "hidden",
+      },
+      children: [
+        // Top accent bar
+        {
+          type: "div",
+          props: {
+            style: {
+              position: "absolute" as const,
+              top: "0",
+              left: "0",
+              width: "100%",
+              height: "12px",
+              backgroundColor: config.secondaryColor,
+            },
+          },
+        },
+        // Left side — avatar centered
+        {
+          type: "div",
+          props: {
+            style: {
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "420px",
+              height: "100%",
+              paddingLeft: "60px",
+            },
+            children: [
+              {
+                type: "img",
+                props: {
+                  src: avatarUri,
+                  style: {
+                    width: `${AVATAR_SIZE}px`,
+                    height: `${AVATAR_SIZE}px`,
+                    borderRadius: `${AVATAR_R}px`,
+                    border: `${AVATAR_BORDER}px solid ${config.secondaryColor}`,
+                    objectFit: "cover" as const,
+                  },
+                },
+              },
+            ],
+          },
+        },
+        // Right side — name + description
+        {
+          type: "div",
+          props: {
+            style: {
+              display: "flex",
+              flexDirection: "column" as const,
+              justifyContent: "center",
+              flex: 1,
+              padding: "60px 60px 60px 20px",
+              overflow: "hidden",
+            },
+            children: [
+              // Badge
+              {
+                type: "div",
+                props: {
+                  style: {
+                    fontFamily: "Montserrat",
+                    fontWeight: 600,
+                    fontSize: "18px",
+                    color: config.secondaryColor,
+                    textTransform: "uppercase" as const,
+                    letterSpacing: "2px",
+                    marginBottom: "12px",
+                  },
+                  children: "Author",
+                },
+              },
+              // Name
+              {
+                type: "div",
+                props: {
+                  style: {
+                    fontFamily: "Montserrat",
+                    fontWeight: 900,
+                    fontSize: "48px",
+                    color: PRIMARY_TEXT,
+                    lineHeight: 1.1,
+                  },
+                  children: title,
+                },
+              },
+              // Description
+              {
+                type: "div",
+                props: {
+                  style: {
+                    fontFamily: "Lora",
+                    fontSize: "22px",
+                    color: SECONDARY_TEXT,
+                    marginTop: "16px",
+                    lineHeight: 1.4,
+                  },
+                  children: description,
+                },
+              },
+              // Site signature
+              {
+                type: "div",
+                props: {
+                  style: {
+                    fontFamily: "Montserrat",
+                    fontWeight: 600,
+                    fontSize: "18px",
+                    color: PRIMARY_COLOR,
+                    marginTop: "24px",
+                  },
+                  children: "queen.raae.codes",
+                },
+              },
+            ],
+          },
+        },
+      ],
+    },
+  };
+
+  const svg = await satori(markup as any, {
+    width: WIDTH,
+    height: HEIGHT,
+    fonts: [
+      { name: "Lora", data: fontRegular!, weight: 400, style: "normal" },
+      { name: "Montserrat", data: fontBold!, weight: 900, style: "normal" },
+      { name: "Montserrat", data: fontLabel!, weight: 600, style: "normal" },
+    ],
+    loadAdditionalAsset: async (code: string, segment: string) => {
+      if (code === "emoji") {
+        return `data:image/svg+xml;base64,${Buffer.from(await loadEmoji(getIconCode(segment))).toString("base64")}`;
+      }
+      return code;
+    },
+  });
+
+  return await sharp(Buffer.from(svg)).png().toBuffer();
+}
