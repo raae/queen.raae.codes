@@ -8,7 +8,8 @@ interface Props {
 const { href, to, class: className } = Astro.props;
 
 const linkHref = to || href;
-const isExternal = Boolean(href);
+const isMailto = href?.startsWith("mailto:");
+const isExternal = Boolean(href) && !isMailto;
 ---
 
 <a
