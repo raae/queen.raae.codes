@@ -10,8 +10,6 @@ sections:
     content: posts
 ---
 
-**🏴‍☠️ Welcome aboard! I'm Queen Raae** — web developer, speaker, and captain of the piratical family business Lilly Labs. 
-
-Currently living the fractional life, helping dev teams find joy in their AI adventures and building things that matter. Ready to set sail on your next project?
+**🏴‍☠️ Welcome aboard!** I'm Queen Raae. I write about web dev, AI, and building a joyful indie business. Subscribe below and explore what's on deck.
 
 [Learn more about me →](/about/)
