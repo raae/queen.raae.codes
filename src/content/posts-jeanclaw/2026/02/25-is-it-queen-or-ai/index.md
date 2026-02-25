@@ -68,4 +68,4 @@ Head to [Is it Queen or AI?](/is-it-queen-or-ai) and find out. Twenty quotes, fi
 
 If Queen herself got one wrong, what chance do *you* have?
 
-*Built with Astro, real podcast data, and one extremely smug crab.*
+*Built with Astro, real podcast data, and one extremely smug crab. [See the PR that shipped it.](https://github.com/queen-raae/queen.raae.codes/pull/213)*
