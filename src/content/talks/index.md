@@ -14,7 +14,7 @@ teaser:
   recording: https://vimeo.com/manage/videos/747600297
   note: Watch the recap of this talk to get a feel for what I can bring to your event
 cta:
-  label: Book a talk ✉️
+  label: 📮 Book a talk
   href: mailto:queen@raae.codes
 ---
 
