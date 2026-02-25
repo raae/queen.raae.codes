@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import PageSection from "../components/PageSection.astro";
+import PageSectionHeader from "../components/PageSectionHeader.astro";
+import Prose from "../components/Prose.astro";
+import { getEntry } from "astro:content";
+
+// Get about page content
+const about = await getEntry("landing", "about");
+const { Content } = await about.render();
+
+const { badge, title } = about.data;
+---
+
+<BaseLayout title={title}>
+  <SiteHeader />
+  <main class="pb-12">
+    <!-- About Section -->
+    <PageSection component="header">
+      <PageSectionHeader badge={badge} title="About" hLevel={1} class="opacity-0" />
+      <Prose>
+        <Content />
+      </Prose>
+    </PageSection>
+  </main>
+</BaseLayout>

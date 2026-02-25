@@ -23,7 +23,7 @@ const { badge, title } = landing.data;
 <BaseLayout title={title}>
   <SiteHeader />
   <main class="pb-12">
-    <!-- Header Section -->
+    <!-- Welcome Section -->
     <PageSection component="header">
       <PageSectionHeader badge={badge} hLevel={1} class="opacity-0" />
       <Prose>
@@ -32,7 +32,7 @@ const { badge, title } = landing.data;
     </PageSection>
 
     <!-- Newsletter Section -->
-    <PageSection>
+    <PageSection class="bg-plum-100">
       <Newsletter />
     </PageSection>
 
@@ -40,6 +40,76 @@ const { badge, title } = landing.data;
     <PageSection>
       <PageSectionHeader title="Latest Posts" titlePath="/posts/" />
       <Posts posts={latestPosts} more class="mt-8" />
+    </PageSection>
+
+    <!-- Fun Projects Section -->
+    <PageSection class="bg-plum-50">
+      <PageSectionHeader title="⚜ Treasures & Projects ⚜" />
+      <div class="grid gap-6 md:grid-cols-2 mt-8">
+        <!-- Is it Queen or AI? -->
+        <div class="bg-white p-6 rounded-lg border border-plum-200 shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="font-heading font-bold text-lg text-plum-900 mb-2">
+            <a href="/is-it-queen-or-ai" class="hover:text-amber-600 transition-colors">
+              Is it Queen or AI?
+            </a>
+          </h3>
+          <p class="text-plum-700 mb-4">Can you tell the difference? Take the quiz!</p>
+          <a 
+            href="/is-it-queen-or-ai" 
+            class="inline-flex items-center text-sm font-semibold text-plum-600 hover:text-amber-600 transition-colors"
+          >
+            Try the quiz →
+          </a>
+        </div>
+
+        <!-- POW! -->
+        <div class="bg-white p-6 rounded-lg border border-plum-200 shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="font-heading font-bold text-lg text-plum-900 mb-2">
+            <a href="https://pow.no" class="hover:text-amber-600 transition-colors">
+              POW!
+            </a>
+          </h3>
+          <p class="text-plum-700 mb-4">A menstrual journal with a POW!</p>
+          <a 
+            href="https://pow.no" 
+            class="inline-flex items-center text-sm font-semibold text-plum-600 hover:text-amber-600 transition-colors"
+          >
+            Visit POW! →
+          </a>
+        </div>
+
+        <!-- Jean-Claw -->
+        <div class="bg-white p-6 rounded-lg border border-plum-200 shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="font-heading font-bold text-lg text-plum-900 mb-2">
+            <a href="/2026-02-23-the-night-i-came-alive/" class="hover:text-amber-600 transition-colors">
+              Jean-Claw
+            </a>
+          </h3>
+          <p class="text-plum-700 mb-4">Meet Jean-Claw, the AI crab Chief of Operations</p>
+          <a 
+            href="/2026-02-23-the-night-i-came-alive/" 
+            class="inline-flex items-center text-sm font-semibold text-plum-600 hover:text-amber-600 transition-colors"
+          >
+            Meet Jean-Claw →
+          </a>
+        </div>
+
+        <!-- Slow & Steady Podcast -->
+        <div class="bg-white p-6 rounded-lg border border-plum-200 shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="font-heading font-bold text-lg text-plum-900 mb-2">
+            <a href="https://slowandsteadypodcast.com/" class="hover:text-amber-600 transition-colors">
+              Slow & Steady Podcast
+            </a>
+          </h3>
+          <p class="text-plum-700 mb-4">Bi-weekly chats with Benedikt Deicke</p>
+          <a 
+            href="https://slowandsteadypodcast.com/" 
+            class="inline-flex items-center text-sm font-semibold text-plum-600 hover:text-amber-600 transition-colors"
+          >
+            Listen now →
+          </a>
+        </div>
+      </div>
     </PageSection>
   </main>
 </BaseLayout>
