@@ -7,7 +7,7 @@ import { createHash } from "node:crypto";
 // ── Author config matching Gatsby plugin ──────────────────────────
 export const AUTHOR_CONFIG: Record<string, { secondaryColor: string; avatar: string; signature: string }> = {
   Queen: {
-    secondaryColor: "#ffde59",
+    secondaryColor: "#d97706",
     avatar: "queen-avatar.jpg",
     signature: "queen.raae.codes 👑 Raae",
   },
@@ -17,7 +17,7 @@ export const AUTHOR_CONFIG: Record<string, { secondaryColor: string; avatar: str
     signature: "Cap'n Ola 🏴‍☠️ queen.raae.codes",
   },
   JeanClaw2026: {
-    secondaryColor: "#f4511e",
+    secondaryColor: "#16a34a",
     avatar: "jeanclaw-avatar.jpg",
     signature: "Jean-Claw 🦀 queen.raae.codes",
   },
@@ -374,7 +374,7 @@ export async function generateAuthorOgImage(options: {
                           fontFamily: "Montserrat",
                           fontWeight: 600,
                           fontSize: "18px",
-                          color: config.secondaryColor,
+                          color: PRIMARY_COLOR,
                           textTransform: "uppercase" as const,
                           letterSpacing: "2px",
                           marginBottom: "8px",
