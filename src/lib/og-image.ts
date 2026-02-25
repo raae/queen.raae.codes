@@ -17,7 +17,7 @@ export const AUTHOR_CONFIG: Record<string, { secondaryColor: string; avatar: str
     signature: "Cap'n Ola 🏴‍☠️ queen.raae.codes",
   },
   JeanClaw2026: {
-    secondaryColor: "#f4511e",
+    secondaryColor: "#16a34a",
     avatar: "jeanclaw-avatar.jpg",
     signature: "Jean-Claw 🦀 queen.raae.codes",
   },
@@ -37,12 +37,14 @@ const assetsDir = path.resolve(process.cwd(), "src/assets/og");
 let fontRegular: Buffer | null = null;
 let fontBold: Buffer | null = null;
 let fontLabel: Buffer | null = null;
+let fontMontRegular: Buffer | null = null;
 const avatarCache = new Map<string, string>();
 
 function loadFonts() {
   if (!fontRegular) fontRegular = fs.readFileSync(path.join(assetsDir, "Lora-Regular.woff"));
   if (!fontBold) fontBold = fs.readFileSync(path.join(assetsDir, "Montserrat-Black.ttf"));
   if (!fontLabel) fontLabel = fs.readFileSync(path.join(assetsDir, "Montserrat-SemiBold.woff"));
+  if (!fontMontRegular) fontMontRegular = fs.readFileSync(path.join(assetsDir, "Montserrat-Regular.ttf"));
 }
 
 function getAvatarDataUri(filename: string): string {
@@ -271,6 +273,186 @@ export async function generateOgImage(options: {
       { name: "Lora", data: fontRegular!, weight: 400, style: "normal" },
       { name: "Montserrat", data: fontBold!, weight: 900, style: "normal" },
       { name: "Montserrat", data: fontLabel!, weight: 600, style: "normal" },
+      { name: "Montserrat", data: fontMontRegular!, weight: 400, style: "normal" },
+    ],
+    loadAdditionalAsset: async (code: string, segment: string) => {
+      if (code === "emoji") {
+        return `data:image/svg+xml;base64,${Buffer.from(await loadEmoji(getIconCode(segment))).toString("base64")}`;
+      }
+      return code;
+    },
+  });
+
+  return await sharp(Buffer.from(svg)).png().toBuffer();
+}
+
+// ── Author OG image (same avatar placement as posts) ──────────────
+export async function generateAuthorOgImage(options: {
+  title: string;
+  description: string;
+  authorKey: string;
+}): Promise<Buffer> {
+  loadFonts();
+
+  const config = AUTHOR_CONFIG[options.authorKey] || AUTHOR_CONFIG.Queen;
+  const avatarUri = getAvatarDataUri(config.avatar);
+  const title = options.title;
+  const description = truncateText(options.description, 160);
+
+  // Same avatar geometry as post OG images
+  const AVATAR_DIAMETER = HEIGHT; // 628px
+  const AVATAR_RADIUS = AVATAR_DIAMETER / 2; // 314px
+  const AVATAR_BORDER = Math.round(HEIGHT * 0.03); // ~19px
+  const AVATAR_CX = WIDTH - AVATAR_RADIUS * 0.5; // 1043
+  const AVATAR_CY = AVATAR_RADIUS * 1.2; // 376.8
+  const COPY_WIDTH = Math.round(AVATAR_CX - AVATAR_RADIUS - WIDTH * 0.05 * 2); // 609
+
+  const markup = {
+    type: "div",
+    props: {
+      style: {
+        display: "flex",
+        flexDirection: "column" as const,
+        position: "relative" as const,
+        width: `${WIDTH}px`,
+        height: `${HEIGHT}px`,
+        backgroundColor: BG_COLOR,
+        overflow: "hidden",
+      },
+      children: [
+        // Avatar — same position as post OG images
+        {
+          type: "img",
+          props: {
+            src: avatarUri,
+            style: {
+              position: "absolute" as const,
+              top: `${Math.round(AVATAR_CY - AVATAR_RADIUS)}px`,
+              left: `${Math.round(AVATAR_CX - AVATAR_RADIUS)}px`,
+              width: `${AVATAR_DIAMETER}px`,
+              height: `${AVATAR_DIAMETER}px`,
+              borderRadius: `${AVATAR_RADIUS}px`,
+              border: `${AVATAR_BORDER}px solid ${config.secondaryColor}`,
+              objectFit: "cover" as const,
+            },
+          },
+        },
+        // Top accent bar
+        {
+          type: "div",
+          props: {
+            style: {
+              width: "100%",
+              height: "12px",
+              backgroundColor: PRIMARY_COLOR,
+            },
+          },
+        },
+        // Main content area
+        {
+          type: "div",
+          props: {
+            style: {
+              display: "flex",
+              flex: 1,
+              padding: "48px 60px 0 60px",
+            },
+            children: [
+              {
+                type: "div",
+                props: {
+                  style: {
+                    display: "flex",
+                    flexDirection: "column" as const,
+                    maxWidth: `${COPY_WIDTH + 270}px`,
+                    justifyContent: "center",
+                    overflow: "hidden",
+                  },
+                  children: [
+                    // Author badge
+                    {
+                      type: "div",
+                      props: {
+                        style: {
+                          fontFamily: "Montserrat",
+                          fontWeight: 400,
+                          fontSize: "18px",
+                          color: PRIMARY_TEXT,
+                          textTransform: "uppercase" as const,
+                          letterSpacing: "2px",
+                          marginBottom: "8px",
+                        },
+                        children: "Author",
+                      },
+                    },
+                    // Name
+                    {
+                      type: "div",
+                      props: {
+                        style: {
+                          fontFamily: "Montserrat",
+                          fontWeight: 900,
+                          fontSize: "54px",
+                          color: PRIMARY_TEXT,
+                          lineHeight: 1.1,
+                          textWrap: "balance",
+                          overflow: "hidden",
+                          backgroundColor: BG_COLOR,
+                          borderRadius: "20px",
+                          padding: "12px 18px 8px 0",
+                        },
+                        children: title,
+                      },
+                    },
+                    // Description
+                    {
+                      type: "div",
+                      props: {
+                        style: {
+                          fontFamily: "Lora",
+                          fontSize: "24px",
+                          color: SECONDARY_TEXT,
+                          marginTop: "12px",
+                          lineHeight: 1.35,
+                          overflow: "hidden",
+                          maxWidth: `${COPY_WIDTH}px`,
+                        },
+                        children: description,
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+        // Footer
+        {
+          type: "div",
+          props: {
+            style: {
+              display: "flex",
+              padding: "0 60px 28px 60px",
+              fontFamily: "Montserrat",
+              fontWeight: 900,
+              fontSize: "22px",
+              color: PRIMARY_COLOR,
+            },
+            children: config.signature,
+          },
+        },
+      ],
+    },
+  };
+
+  const svg = await satori(markup as any, {
+    width: WIDTH,
+    height: HEIGHT,
+    fonts: [
+      { name: "Lora", data: fontRegular!, weight: 400, style: "normal" },
+      { name: "Montserrat", data: fontBold!, weight: 900, style: "normal" },
+      { name: "Montserrat", data: fontLabel!, weight: 600, style: "normal" },
+      { name: "Montserrat", data: fontMontRegular!, weight: 400, style: "normal" },
     ],
     loadAdditionalAsset: async (code: string, segment: string) => {
       if (code === "emoji") {

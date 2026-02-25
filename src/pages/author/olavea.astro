@@ -16,7 +16,7 @@ const allPosts = await getAllPosts();
 const posts = allPosts.filter((post) => post.author === "OlaVea");
 ---
 
-<BaseLayout title={TITLE} description={DESCRIPTION}>
+<BaseLayout title={TITLE} description={DESCRIPTION} image="/og/author/olavea.png">
   <SiteHeader />
   <main>
     <PageSection component="header">
