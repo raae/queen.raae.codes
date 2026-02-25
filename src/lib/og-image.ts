@@ -283,7 +283,7 @@ export async function generateOgImage(options: {
   return await sharp(Buffer.from(svg)).png().toBuffer();
 }
 
-// ── Author OG image (profile-card style) ──────────────────────────
+// ── Author OG image (same avatar placement as posts) ──────────────
 export async function generateAuthorOgImage(options: {
   title: string;
   description: string;
@@ -296,16 +296,20 @@ export async function generateAuthorOgImage(options: {
   const title = options.title;
   const description = truncateText(options.description, 160);
 
-  const AVATAR_SIZE = 280;
-  const AVATAR_R = AVATAR_SIZE / 2;
-  const AVATAR_BORDER = 8;
+  // Same avatar geometry as post OG images
+  const AVATAR_DIAMETER = HEIGHT; // 628px
+  const AVATAR_RADIUS = AVATAR_DIAMETER / 2; // 314px
+  const AVATAR_BORDER = Math.round(HEIGHT * 0.03); // ~19px
+  const AVATAR_CX = WIDTH - AVATAR_RADIUS * 0.5; // 1043
+  const AVATAR_CY = AVATAR_RADIUS * 1.2; // 376.8
+  const COPY_WIDTH = Math.round(AVATAR_CX - AVATAR_RADIUS - WIDTH * 0.05 * 2); // 609
 
   const markup = {
     type: "div",
     props: {
       style: {
         display: "flex",
-        flexDirection: "row" as const,
+        flexDirection: "column" as const,
         position: "relative" as const,
         width: `${WIDTH}px`,
         height: `${HEIGHT}px`,
@@ -313,121 +317,125 @@ export async function generateAuthorOgImage(options: {
         overflow: "hidden",
       },
       children: [
+        // Avatar — same position as post OG images
+        {
+          type: "img",
+          props: {
+            src: avatarUri,
+            style: {
+              position: "absolute" as const,
+              top: `${Math.round(AVATAR_CY - AVATAR_RADIUS)}px`,
+              left: `${Math.round(AVATAR_CX - AVATAR_RADIUS)}px`,
+              width: `${AVATAR_DIAMETER}px`,
+              height: `${AVATAR_DIAMETER}px`,
+              borderRadius: `${AVATAR_RADIUS}px`,
+              border: `${AVATAR_BORDER}px solid ${config.secondaryColor}`,
+              objectFit: "cover" as const,
+            },
+          },
+        },
         // Top accent bar
         {
           type: "div",
           props: {
             style: {
-              position: "absolute" as const,
-              top: "0",
-              left: "0",
               width: "100%",
               height: "12px",
-              backgroundColor: config.secondaryColor,
+              backgroundColor: PRIMARY_COLOR,
             },
           },
         },
-        // Left side — avatar centered
+        // Main content area
         {
           type: "div",
           props: {
             style: {
               display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "420px",
-              height: "100%",
-              paddingLeft: "60px",
-            },
-            children: [
-              {
-                type: "img",
-                props: {
-                  src: avatarUri,
-                  style: {
-                    width: `${AVATAR_SIZE}px`,
-                    height: `${AVATAR_SIZE}px`,
-                    borderRadius: `${AVATAR_R}px`,
-                    border: `${AVATAR_BORDER}px solid ${config.secondaryColor}`,
-                    objectFit: "cover" as const,
-                  },
-                },
-              },
-            ],
-          },
-        },
-        // Right side — name + description
-        {
-          type: "div",
-          props: {
-            style: {
-              display: "flex",
-              flexDirection: "column" as const,
-              justifyContent: "center",
               flex: 1,
-              padding: "60px 60px 60px 20px",
-              overflow: "hidden",
+              padding: "48px 60px 0 60px",
             },
             children: [
-              // Badge
               {
                 type: "div",
                 props: {
                   style: {
-                    fontFamily: "Montserrat",
-                    fontWeight: 600,
-                    fontSize: "18px",
-                    color: config.secondaryColor,
-                    textTransform: "uppercase" as const,
-                    letterSpacing: "2px",
-                    marginBottom: "12px",
+                    display: "flex",
+                    flexDirection: "column" as const,
+                    maxWidth: `${COPY_WIDTH + 270}px`,
+                    justifyContent: "center",
+                    overflow: "hidden",
                   },
-                  children: "Author",
-                },
-              },
-              // Name
-              {
-                type: "div",
-                props: {
-                  style: {
-                    fontFamily: "Montserrat",
-                    fontWeight: 900,
-                    fontSize: "48px",
-                    color: PRIMARY_TEXT,
-                    lineHeight: 1.1,
-                  },
-                  children: title,
-                },
-              },
-              // Description
-              {
-                type: "div",
-                props: {
-                  style: {
-                    fontFamily: "Lora",
-                    fontSize: "22px",
-                    color: SECONDARY_TEXT,
-                    marginTop: "16px",
-                    lineHeight: 1.4,
-                  },
-                  children: description,
-                },
-              },
-              // Site signature
-              {
-                type: "div",
-                props: {
-                  style: {
-                    fontFamily: "Montserrat",
-                    fontWeight: 600,
-                    fontSize: "18px",
-                    color: PRIMARY_COLOR,
-                    marginTop: "24px",
-                  },
-                  children: "queen.raae.codes",
+                  children: [
+                    // Author badge
+                    {
+                      type: "div",
+                      props: {
+                        style: {
+                          fontFamily: "Montserrat",
+                          fontWeight: 600,
+                          fontSize: "18px",
+                          color: config.secondaryColor,
+                          textTransform: "uppercase" as const,
+                          letterSpacing: "2px",
+                          marginBottom: "8px",
+                        },
+                        children: "Author",
+                      },
+                    },
+                    // Name
+                    {
+                      type: "div",
+                      props: {
+                        style: {
+                          fontFamily: "Montserrat",
+                          fontWeight: 900,
+                          fontSize: "54px",
+                          color: PRIMARY_TEXT,
+                          lineHeight: 1.1,
+                          textWrap: "balance",
+                          overflow: "hidden",
+                          backgroundColor: BG_COLOR,
+                          borderRadius: "20px",
+                          padding: "12px 18px 8px 0",
+                        },
+                        children: title,
+                      },
+                    },
+                    // Description
+                    {
+                      type: "div",
+                      props: {
+                        style: {
+                          fontFamily: "Lora",
+                          fontSize: "24px",
+                          color: SECONDARY_TEXT,
+                          marginTop: "12px",
+                          lineHeight: 1.35,
+                          overflow: "hidden",
+                          maxWidth: `${COPY_WIDTH}px`,
+                        },
+                        children: description,
+                      },
+                    },
+                  ],
                 },
               },
             ],
+          },
+        },
+        // Footer
+        {
+          type: "div",
+          props: {
+            style: {
+              display: "flex",
+              padding: "0 60px 28px 60px",
+              fontFamily: "Montserrat",
+              fontWeight: 900,
+              fontSize: "22px",
+              color: PRIMARY_COLOR,
+            },
+            children: config.signature,
           },
         },
       ],
