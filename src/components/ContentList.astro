@@ -30,7 +30,7 @@ const { items = [], ctas = [], class: className } = Astro.props;
       const isExternal = Boolean(href);
 
       return (
-        <li class="content-list-item relative border-0 border-b border-solid border-plum-900/10">
+        <li class="content-list-item relative border-0 border-b border-solid border-plum-900/10 last:border-b-0">
           <a
             href={linkHref}
             target={isExternal ? "_blank" : undefined}
@@ -85,7 +85,7 @@ const { items = [], ctas = [], class: className } = Astro.props;
       const isExternal = Boolean(href);
 
       return (
-        <li class:list={[index === 0 && "pt-4"]}>
+        <li class:list={[index === 0 ? "pt-4" : "pt-2"]}>
           <a
             href={linkHref}
             target={isExternal ? "_blank" : undefined}

@@ -13,16 +13,16 @@ import { getEntry } from "astro:content";
 const landing = await getEntry("landing", "index");
 const { Content } = await landing.render();
 
-// Get latest posts
+// Get latest posts (5 only)
 const allPosts = await getAllPosts();
-const latestPosts = allPosts.slice(0, 10);
+const latestPosts = allPosts.slice(0, 5);
 
-// Treasures — interleaved every other with posts after first 3
+// Treasures — interleaved with posts
 const treasures = [
   {
     primary: "Book Me as a Speaker",
     to: "/speaker/",
-    secondary: 'Speaking <em class="font-body normal-case">by</em> Queen Raae 👑',
+    secondary: 'Joyful AI Talks for Devs & Non-Techies <em class="font-body normal-case">with</em> Queen Raae 👑',
   },
   {
     primary: "Is it Queen or AI?",
@@ -41,7 +41,7 @@ const treasures = [
   },
 ];
 
-// Convert posts to feed items with uniform format
+// Convert posts to feed items
 const postItems = latestPosts.map((post) => {
   const authorInfo = getAuthorInfo(post.author);
   return {
@@ -51,11 +51,10 @@ const postItems = latestPosts.map((post) => {
   };
 });
 
-// Alternate: post, treasure, post, treasure... (speaker first)
+// Alternate: speaker first, then post/treasure/post/treasure...
 const feedItems: typeof postItems = [];
 let tIdx = 0;
 let pIdx = 0;
-// Speaker goes first
 feedItems.push(treasures[tIdx++]);
 while (pIdx < postItems.length || tIdx < treasures.length) {
   if (pIdx < postItems.length) feedItems.push(postItems[pIdx++]);
@@ -83,7 +82,13 @@ const { badge, title } = landing.data;
 
     <!-- Mixed Feed Section -->
     <PageSection>
-      <ContentList items={feedItems} ctas={[{ to: "/posts/", label: "All posts..." }]} />
+      <ContentList
+        items={feedItems}
+        ctas={[
+          { to: "/posts/", label: "All posts..." },
+          { to: "/speaker/", label: "All talks..." },
+        ]}
+      />
     </PageSection>
   </main>
 </BaseLayout>
