@@ -4,9 +4,9 @@ import SiteHeader from "../components/SiteHeader.astro";
 import PageSection from "../components/PageSection.astro";
 import PageSectionHeader from "../components/PageSectionHeader.astro";
 import Prose from "../components/Prose.astro";
-import Posts from "../components/Posts.astro";
+import ContentList from "../components/ContentList.astro";
 import Newsletter from "../components/Newsletter.astro";
-import { getAllPosts } from "../lib/posts";
+import { getAllPosts, getAuthorInfo } from "../lib/posts";
 import { getEntry } from "astro:content";
 
 // Get landing page content
@@ -15,7 +15,53 @@ const { Content } = await landing.render();
 
 // Get latest posts
 const allPosts = await getAllPosts();
-const latestPosts = allPosts.slice(0, 7);
+const latestPosts = allPosts.slice(0, 12);
+
+// Treasures — projects, silliness, side projects, jobs
+// These get mixed into the feed by date
+const treasures = [
+  {
+    primary: "Is it Queen or AI?",
+    to: "/is-it-queen-or-ai",
+    secondary: "silliness",
+    date: new Date("2026-02-25"),
+  },
+  {
+    primary: "Jean-Claw — The AI Crab Chief of Operations",
+    to: "/2026-02-23-the-night-i-came-alive/",
+    secondary: "silliness",
+    date: new Date("2026-02-23"),
+  },
+  {
+    primary: "POW! — A Menstrual Journal",
+    href: "https://pow.no",
+    secondary: "side project",
+    date: new Date("2024-01-01"),
+  },
+  {
+    primary: "Slow & Steady Podcast",
+    href: "https://slowandsteadypodcast.com/",
+    secondary: "side project",
+    date: new Date("2023-01-01"),
+  },
+];
+
+// Convert posts to feed items
+const postItems = latestPosts.map((post) => {
+  const authorInfo = getAuthorInfo(post.author);
+  return {
+    primary: post.title,
+    to: post.slug,
+    secondary: `blog post · ${authorInfo.name}`,
+    date: new Date(post.date),
+  };
+});
+
+// Merge and sort by date (newest first)
+const feedItems = [...postItems, ...treasures]
+  .sort((a, b) => b.date.getTime() - a.date.getTime())
+  .slice(0, 12)
+  .map(({ date, ...item }) => item);
 
 const { badge, title } = landing.data;
 ---
@@ -32,84 +78,14 @@ const { badge, title } = landing.data;
     </PageSection>
 
     <!-- Newsletter Section -->
-    <PageSection class="bg-plum-100">
+    <PageSection>
       <Newsletter />
     </PageSection>
 
-    <!-- Latest Posts Section -->
+    <!-- Mixed Feed Section -->
     <PageSection>
-      <PageSectionHeader title="Latest Posts" titlePath="/posts/" />
-      <Posts posts={latestPosts} more class="mt-8" />
-    </PageSection>
-
-    <!-- Fun Projects Section -->
-    <PageSection class="bg-plum-50">
-      <PageSectionHeader title="⚜ Treasures & Projects ⚜" />
-      <div class="grid gap-6 md:grid-cols-2 mt-8">
-        <!-- Is it Queen or AI? -->
-        <div class="bg-white p-6 rounded-lg border border-plum-200 shadow-sm hover:shadow-md transition-shadow">
-          <h3 class="font-heading font-bold text-lg text-plum-900 mb-2">
-            <a href="/is-it-queen-or-ai" class="hover:text-amber-600 transition-colors">
-              Is it Queen or AI?
-            </a>
-          </h3>
-          <p class="text-plum-700 mb-4">Can you tell the difference? Take the quiz!</p>
-          <a 
-            href="/is-it-queen-or-ai" 
-            class="inline-flex items-center text-sm font-semibold text-plum-600 hover:text-amber-600 transition-colors"
-          >
-            Try the quiz →
-          </a>
-        </div>
-
-        <!-- POW! -->
-        <div class="bg-white p-6 rounded-lg border border-plum-200 shadow-sm hover:shadow-md transition-shadow">
-          <h3 class="font-heading font-bold text-lg text-plum-900 mb-2">
-            <a href="https://pow.no" class="hover:text-amber-600 transition-colors">
-              POW!
-            </a>
-          </h3>
-          <p class="text-plum-700 mb-4">A menstrual journal with a POW!</p>
-          <a 
-            href="https://pow.no" 
-            class="inline-flex items-center text-sm font-semibold text-plum-600 hover:text-amber-600 transition-colors"
-          >
-            Visit POW! →
-          </a>
-        </div>
-
-        <!-- Jean-Claw -->
-        <div class="bg-white p-6 rounded-lg border border-plum-200 shadow-sm hover:shadow-md transition-shadow">
-          <h3 class="font-heading font-bold text-lg text-plum-900 mb-2">
-            <a href="/2026-02-23-the-night-i-came-alive/" class="hover:text-amber-600 transition-colors">
-              Jean-Claw
-            </a>
-          </h3>
-          <p class="text-plum-700 mb-4">Meet Jean-Claw, the AI crab Chief of Operations</p>
-          <a 
-            href="/2026-02-23-the-night-i-came-alive/" 
-            class="inline-flex items-center text-sm font-semibold text-plum-600 hover:text-amber-600 transition-colors"
-          >
-            Meet Jean-Claw →
-          </a>
-        </div>
-
-        <!-- Slow & Steady Podcast -->
-        <div class="bg-white p-6 rounded-lg border border-plum-200 shadow-sm hover:shadow-md transition-shadow">
-          <h3 class="font-heading font-bold text-lg text-plum-900 mb-2">
-            <a href="https://slowandsteadypodcast.com/" class="hover:text-amber-600 transition-colors">
-              Slow & Steady Podcast
-            </a>
-          </h3>
-          <p class="text-plum-700 mb-4">Bi-weekly chats with Benedikt Deicke</p>
-          <a 
-            href="https://slowandsteadypodcast.com/" 
-            class="inline-flex items-center text-sm font-semibold text-plum-600 hover:text-amber-600 transition-colors"
-          >
-            Listen now →
-          </a>
-        </div>
-      </div>
+      <PageSectionHeader title="Latest from the Ship" />
+      <ContentList items={feedItems} ctas={[{ to: "/posts/", label: "All posts..." }]} class="mt-8" />
     </PageSection>
   </main>
 </BaseLayout>
