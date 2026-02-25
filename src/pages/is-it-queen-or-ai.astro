@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 import QueenAiQuiz from '../components/QueenAiQuiz.astro';
 import PageSectionHeader from '../components/PageSectionHeader.astro';
 
@@ -8,8 +9,9 @@ const description = 'Test your ability to distinguish between authentic Queen Ra
 ---
 
 <BaseLayout title={title} description={description}>
+  <SiteHeader />
   <PageSectionHeader 
-    title="Interactive Challenge" 
+    title="Is it Queen or AI?" 
     breadcrumbs={[
       { href: '/', title: 'Home' },
       { href: '/is-it-queen-or-ai', title: 'Queen vs AI Quiz' }
