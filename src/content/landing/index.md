@@ -1,6 +1,6 @@
 ---
 badge: queen.raae.codes
-title: queen.raae.codes
+title: 🏴‍☠️ Welcome aboard!
 sections:
   - element: header
     content: main
@@ -10,6 +10,6 @@ sections:
     content: posts
 ---
 
-**🏴‍☠️ Welcome aboard!** I'm Queen Raae. I write about web dev, AI, and building a joyful indie business. Subscribe below and explore what's on deck.
+I'm Queen Raae. I write about web dev, AI, and building a joyful indie business. Subscribe below and explore what's on deck.
 
 [Learn more about me →](/about/)
