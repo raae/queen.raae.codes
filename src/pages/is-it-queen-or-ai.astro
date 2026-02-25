@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QueenAiQuiz from '../components/QueenAiQuiz.astro';
+import PageSectionHeader from '../components/PageSectionHeader.astro';
+
+const title = 'Is it Queen or AI? Quiz';
+const description = 'Test your ability to distinguish between authentic Queen Raae quotes from her podcasts and AI-generated quotes that sound like her.';
+---
+
+<BaseLayout title={title} description={description}>
+  <PageSectionHeader 
+    title="Interactive Challenge" 
+    breadcrumbs={[
+      { href: '/', title: 'Home' },
+      { href: '/is-it-queen-or-ai', title: 'Queen vs AI Quiz' }
+    ]} 
+  />
+  
+  <section class="py-12 px-4">
+    <div class="container mx-auto">
+      <QueenAiQuiz />
+    </div>
+  </section>
+  
+  <!-- Meta Info Section -->
+  <section class="py-8 px-4 bg-brown-50">
+    <div class="container mx-auto max-w-4xl">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-heading font-bold text-plum-900 mb-4">About the Quiz</h3>
+          <p class="text-plum-700 mb-4">
+            This interactive quiz tests your ability to distinguish between authentic quotes 
+            from Queen Raae's "Slow & Steady" podcast and AI-generated quotes that mimic her voice.
+          </p>
+          <p class="text-plum-700">
+            Real quotes are extracted from actual podcast transcripts, while AI quotes are 
+            generated to match Queen's perspective on topics like bootstrapping, family integration, 
+            and developer experience.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-heading font-bold text-plum-900 mb-4">Data Sources</h3>
+          <ul class="text-plum-700 space-y-2">
+            <li>• <strong>Podcast extracts</strong> from 40+ Slow & Steady episodes</li>
+            <li>• <strong>AI generation</strong> trained on Queen's authentic voice</li>
+            <li>• <strong>Thematic categories</strong> including AI, bootstrapping, family life</li>
+            <li>• <strong>Open source</strong> - check the code on GitHub!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
