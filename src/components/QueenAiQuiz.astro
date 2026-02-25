@@ -139,7 +139,10 @@ import Badge from './Badge.astro';
         // Load quiz data
         const response = await fetch('/queen-ai-quiz.json');
         const data = await response.json();
-        this.quotes = this.shuffleArray(data.quotes).slice(0, 20); // Use 20 random quotes
+        // Balanced selection: 10 real + 10 AI for fair 50/50 distribution
+        const realQuotes = this.shuffleArray(data.quotes.filter(q => q.isReal)).slice(0, 10);
+        const aiQuotes = this.shuffleArray(data.quotes.filter(q => !q.isReal)).slice(0, 10);
+        this.quotes = this.shuffleArray([...realQuotes, ...aiQuotes]);
         
         // Hide loading and show quiz
         this.elements.loadingState.classList.add('hidden');
