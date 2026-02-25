@@ -1,7 +1,7 @@
 ---
 badge: Speaker
 title: Bring joy and knowledge to your next event
-lead: Are you planning a brown bag lunch? Internal or external conference? On the topic of web development, the Jamstack or Gatsby specifically?
+lead: Are you planning a brown bag lunch, meetup, or conference? On the topic of web development, AI, or building a sustainable indie business?
 image: ./2021-12-15-mpya/mpya-speaking.jpeg
 imageAlt: Queen Raae on a large screen, the host of the event at a stool by a table
 archive:
@@ -16,8 +16,6 @@ teaser:
 cta:
   label: Book a talk
   href: https://forms.reform.app/iXD8KR/book-talk/f9wr7p
-  noteTitle: From 1.750 USD (+ travel expenses) for a 20-40 min standard talk
-  note: Other prices apply to custom talks and workshops.
 ---
 
 Imagine having an energetic person speaking at your next event. One who brings almost 20 years of web development joy into her talks. Who can live code if that's your audience's jam!
