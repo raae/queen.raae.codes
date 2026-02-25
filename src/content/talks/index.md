@@ -14,8 +14,8 @@ teaser:
   recording: https://vimeo.com/manage/videos/747600297
   note: Watch the recap of this talk to get a feel for what I can bring to your event
 cta:
-  label: Book a talk
-  href: https://forms.reform.app/iXD8KR/book-talk/f9wr7p
+  label: Email queen@raae.codes
+  href: mailto:queen@raae.codes
 ---
 
 Imagine having an energetic person speaking at your next event. One who brings almost 20 years of web development joy into her talks. Who can live code if that's your audience's jam!
