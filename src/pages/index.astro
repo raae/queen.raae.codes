@@ -4,18 +4,62 @@ import SiteHeader from "../components/SiteHeader.astro";
 import PageSection from "../components/PageSection.astro";
 import PageSectionHeader from "../components/PageSectionHeader.astro";
 import Prose from "../components/Prose.astro";
-import Posts from "../components/Posts.astro";
+import ContentList from "../components/ContentList.astro";
 import Newsletter from "../components/Newsletter.astro";
-import { getAllPosts } from "../lib/posts";
+import { getAllPosts, getAuthorInfo } from "../lib/posts";
 import { getEntry } from "astro:content";
 
 // Get landing page content
 const landing = await getEntry("landing", "index");
 const { Content } = await landing.render();
 
-// Get latest posts
+// Get latest posts (5 only)
 const allPosts = await getAllPosts();
-const latestPosts = allPosts.slice(0, 7);
+const latestPosts = allPosts.slice(0, 5);
+
+// Treasures — interleaved with posts
+const treasures = [
+  {
+    primary: "Book Me as a Speaker",
+    to: "/speaker/",
+    secondary: 'Joyful AI Talks for Devs & Non-Techies <em class="font-body normal-case">with</em> Queen Raae 👑',
+  },
+  {
+    primary: "Is it Queen or AI?",
+    to: "/is-it-queen-or-ai",
+    secondary: 'Quiz Game <em class="font-body normal-case">by</em> Jean-Claw 🦀',
+  },
+  {
+    primary: "POW! — The Privacy-First Menstrual Cycle Journal",
+    href: "https://pow.no",
+    secondary: 'Side Project <em class="font-body normal-case">by</em> Queen Raae 👑',
+  },
+  {
+    primary: "Slow & Steady Podcast",
+    href: "https://slowandsteadypodcast.com/",
+    secondary: 'Podcast <em class="font-body normal-case">by</em> Benedikt Deicke 🎙️',
+  },
+];
+
+// Convert posts to feed items
+const postItems = latestPosts.map((post) => {
+  const authorInfo = getAuthorInfo(post.author);
+  return {
+    primary: post.title,
+    to: post.slug,
+    secondary: `Blog Post · ${post.dateFormatted} <em class="font-body normal-case">by</em> ${authorInfo.name} ${authorInfo.emoji}`,
+  };
+});
+
+// Alternate: speaker first, then post/treasure/post/treasure...
+const feedItems: typeof postItems = [];
+let tIdx = 0;
+let pIdx = 0;
+feedItems.push(treasures[tIdx++]);
+while (pIdx < postItems.length || tIdx < treasures.length) {
+  if (pIdx < postItems.length) feedItems.push(postItems[pIdx++]);
+  if (tIdx < treasures.length) feedItems.push(treasures[tIdx++]);
+}
 
 const { badge, title } = landing.data;
 ---
@@ -23,9 +67,9 @@ const { badge, title } = landing.data;
 <BaseLayout title={title}>
   <SiteHeader />
   <main class="pb-12">
-    <!-- Header Section -->
+    <!-- Welcome Section -->
     <PageSection component="header">
-      <PageSectionHeader badge={badge} hLevel={1} class="opacity-0" />
+      <PageSectionHeader badge={badge} title={title} hLevel={1} />
       <Prose>
         <Content />
       </Prose>
@@ -36,10 +80,15 @@ const { badge, title } = landing.data;
       <Newsletter />
     </PageSection>
 
-    <!-- Latest Posts Section -->
+    <!-- Mixed Feed Section -->
     <PageSection>
-      <PageSectionHeader title="Latest Posts" titlePath="/posts/" />
-      <Posts posts={latestPosts} more class="mt-8" />
+      <ContentList
+        items={feedItems}
+        ctas={[
+          { to: "/posts/", label: "Read all posts" },
+          { to: "/speaker/", label: "See all talks" },
+        ]}
+      />
     </PageSection>
   </main>
 </BaseLayout>
