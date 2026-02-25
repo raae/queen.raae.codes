@@ -15,53 +15,56 @@ const { Content } = await landing.render();
 
 // Get latest posts
 const allPosts = await getAllPosts();
-const latestPosts = allPosts.slice(0, 12);
+const latestPosts = allPosts.slice(0, 10);
 
-// Treasures — projects, silliness, side projects, jobs
-// These get mixed into the feed by date
+// Treasures — injected between posts at fixed positions
 const treasures = [
   {
     primary: "Is it Queen or AI?",
     to: "/is-it-queen-or-ai",
-    secondary: "silliness",
-    date: new Date("2026-02-25"),
+    secondary: "🦀 silliness",
   },
   {
     primary: "Jean-Claw — The AI Crab Chief of Operations",
-    to: "/2026-02-23-the-night-i-came-alive/",
-    secondary: "silliness",
-    date: new Date("2026-02-23"),
+    to: "/author/jeanclaw/",
+    secondary: "🦀 silliness",
   },
   {
     primary: "POW! — A Menstrual Journal",
     href: "https://pow.no",
-    secondary: "side project",
-    date: new Date("2024-01-01"),
+    secondary: "👑 side project",
   },
   {
     primary: "Slow & Steady Podcast",
     href: "https://slowandsteadypodcast.com/",
-    secondary: "side project",
-    date: new Date("2023-01-01"),
+    secondary: "👑 side project",
   },
 ];
 
-// Convert posts to feed items
+// Convert posts to feed items with author emoji
 const postItems = latestPosts.map((post) => {
   const authorInfo = getAuthorInfo(post.author);
   return {
     primary: post.title,
     to: post.slug,
-    secondary: `blog post · ${authorInfo.name}`,
-    date: new Date(post.date),
+    secondary: `${authorInfo.emoji} ${post.dateFormatted} · ${authorInfo.name}`,
   };
 });
 
-// Merge and sort by date (newest first)
-const feedItems = [...postItems, ...treasures]
-  .sort((a, b) => b.date.getTime() - a.date.getTime())
-  .slice(0, 12)
-  .map(({ date, ...item }) => item);
+// Inject treasures between posts at positions 2, 5, 8, 11
+const feedItems: typeof postItems = [];
+const insertAt = [2, 5, 8, 11];
+let treasureIdx = 0;
+for (let i = 0; i < postItems.length; i++) {
+  if (insertAt.includes(feedItems.length) && treasureIdx < treasures.length) {
+    feedItems.push(treasures[treasureIdx++]);
+  }
+  feedItems.push(postItems[i]);
+}
+// Add remaining treasures at the end
+while (treasureIdx < treasures.length) {
+  feedItems.push(treasures[treasureIdx++]);
+}
 
 const { badge, title } = landing.data;
 ---
