@@ -37,12 +37,14 @@ const assetsDir = path.resolve(process.cwd(), "src/assets/og");
 let fontRegular: Buffer | null = null;
 let fontBold: Buffer | null = null;
 let fontLabel: Buffer | null = null;
+let fontMontRegular: Buffer | null = null;
 const avatarCache = new Map<string, string>();
 
 function loadFonts() {
   if (!fontRegular) fontRegular = fs.readFileSync(path.join(assetsDir, "Lora-Regular.woff"));
   if (!fontBold) fontBold = fs.readFileSync(path.join(assetsDir, "Montserrat-Black.ttf"));
   if (!fontLabel) fontLabel = fs.readFileSync(path.join(assetsDir, "Montserrat-SemiBold.woff"));
+  if (!fontMontRegular) fontMontRegular = fs.readFileSync(path.join(assetsDir, "Montserrat-Regular.ttf"));
 }
 
 function getAvatarDataUri(filename: string): string {
@@ -168,7 +170,7 @@ export async function generateOgImage(options: {
               width: `${AVATAR_DIAMETER}px`,
               height: `${AVATAR_DIAMETER}px`,
               borderRadius: `${AVATAR_RADIUS}px`,
-              border: `${AVATAR_BORDER}px solid ${config.secondaryColor}`,
+              border: "none",
               objectFit: "cover",
             },
           },
@@ -271,6 +273,7 @@ export async function generateOgImage(options: {
       { name: "Lora", data: fontRegular!, weight: 400, style: "normal" },
       { name: "Montserrat", data: fontBold!, weight: 900, style: "normal" },
       { name: "Montserrat", data: fontLabel!, weight: 600, style: "normal" },
+      { name: "Montserrat", data: fontMontRegular!, weight: 400, style: "normal" },
     ],
     loadAdditionalAsset: async (code: string, segment: string) => {
       if (code === "emoji") {
@@ -329,7 +332,7 @@ export async function generateAuthorOgImage(options: {
               width: `${AVATAR_DIAMETER}px`,
               height: `${AVATAR_DIAMETER}px`,
               borderRadius: `${AVATAR_RADIUS}px`,
-              border: `${AVATAR_BORDER}px solid ${config.secondaryColor}`,
+              border: "none",
               objectFit: "cover" as const,
             },
           },
@@ -372,7 +375,7 @@ export async function generateAuthorOgImage(options: {
                       props: {
                         style: {
                           fontFamily: "Montserrat",
-                          fontWeight: 600,
+                          fontWeight: 400,
                           fontSize: "18px",
                           color: PRIMARY_TEXT,
                           textTransform: "uppercase" as const,
@@ -449,6 +452,7 @@ export async function generateAuthorOgImage(options: {
       { name: "Lora", data: fontRegular!, weight: 400, style: "normal" },
       { name: "Montserrat", data: fontBold!, weight: 900, style: "normal" },
       { name: "Montserrat", data: fontLabel!, weight: 600, style: "normal" },
+      { name: "Montserrat", data: fontMontRegular!, weight: 400, style: "normal" },
     ],
     loadAdditionalAsset: async (code: string, segment: string) => {
       if (code === "emoji") {
