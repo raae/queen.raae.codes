@@ -12,7 +12,7 @@ import Badge from './Badge.astro';
   </div>
 
   <!-- Quiz Card -->
-  <div id="quiz-card" class="bg-white rounded-lg shadow-lg border-2 border-plum-200 p-8 mb-6">
+  <div id="quiz-card" class="bg-white rounded-lg shadow-lg border-2 border-plum-200 p-4 md:p-8 mb-6">
     <!-- Loading State -->
     <div id="loading-state" class="text-center py-12">
       <div class="animate-pulse">
@@ -25,8 +25,8 @@ import Badge from './Badge.astro';
     <!-- Quiz Content (hidden initially) -->
     <div id="quiz-content" class="hidden">
       <!-- Quote Display -->
-      <div class="mb-8">
-        <blockquote class="text-2xl font-body leading-relaxed text-plum-900 italic text-center px-6 mb-4">
+      <div class="mb-4 md:mb-8">
+        <blockquote class="text-lg md:text-2xl font-body leading-relaxed text-plum-900 italic text-center px-2 md:px-6 mb-4">
           "<span id="quote-text"></span>"
         </blockquote>
         
@@ -61,8 +61,8 @@ import Badge from './Badge.astro';
 
       <!-- Result Display (hidden initially) -->
       <div id="result-display" class="hidden text-center">
-        <div id="result-icon" class="text-6xl mb-4"></div>
-        <div id="result-text" class="text-xl font-heading font-bold mb-4"></div>
+        <div id="result-icon" class="text-4xl md:text-6xl mb-3"></div>
+        <div id="result-text" class="text-lg md:text-xl font-heading font-bold mb-3"></div>
         <button 
           id="next-btn"
           class="px-6 py-3 bg-plum-500 text-white font-heading font-bold rounded-lg hover:bg-plum-600 transition-colors"
@@ -90,14 +90,13 @@ import Badge from './Badge.astro';
     <ul class="text-plum-700 space-y-2">
       <li>• <strong>Real quotes</strong> are extracted from actual Slow & Steady podcast episodes</li>
       <li>• <strong>AI quotes</strong> are generated to match Queen Raae's authentic voice and perspective</li>
-      <li>• Each quote includes themes and context for learning</li>
-      <li>• The source code is public, so yes, you can cheat! 😉 <a href="https://github.com/queen-raae/queen.raae.codes/pull/213" class="text-plum-500 underline hover:text-plum-700">See the PR</a></li>
+      <li>• Each quote includes themes and context after you answer</li>
     </ul>
     <p class="text-sm text-plum-500 mt-4">
-      <strong>Note:</strong> All quotes and answers are currently loaded client-side — 
-      so a peek at the network tab will spoil the fun. A cheat-proof server-side version is 
-      <a href="https://github.com/queen-raae/queen.raae.codes/issues/215" class="text-plum-500 underline hover:text-plum-700">on the roadmap</a>. 
-      For now, we trust you. 🦀
+      Answers are loaded client-side, so yes — you <em>could</em> cheat. 
+      A <a href="https://github.com/queen-raae/queen.raae.codes/issues/215" class="underline hover:text-plum-700">cheat-proof version</a> is on the roadmap. 
+      For now, we trust you. 🦀 
+      <a href="https://github.com/queen-raae/queen.raae.codes/pull/213" class="underline hover:text-plum-700">See the PR</a>
     </p>
   </div>
 </div>
