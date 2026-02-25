@@ -37,7 +37,7 @@ const tagBlurbs = post.tags
   .map((tag) => {
     const blurb = blurbMap.get(tag.label);
     if (!blurb || blurb.showOnPosts === false) return null;
-    return { label: tag.label, ...blurb };
+    return { label: tag.label, tagSlug: tag.slug, ...blurb };
   })
   .filter((b): b is NonNullable<typeof b> => !!b);
 
@@ -115,7 +115,7 @@ const schema = {
                 {tagBlurbs.map((blurb) => (
                   <li>
                     <span class="not-italic text-amber-500">✦</span>{" "}
-                    <strong class="not-italic text-plum-600">{blurb.displayName || blurb.label}</strong>
+                    <a href={blurb.tagSlug} class="not-italic font-bold text-plum-600 underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">{blurb.displayName || blurb.label}</a>
                     {blurb.description && <span> — {blurb.description}</span>}
                     {blurb.disclaimer && <span> {blurb.disclaimer}</span>}
                     {blurb.url && <span> <a href={blurb.url} class="underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition" target="_blank" rel="noopener noreferrer">{blurb.url.replace(/^https?:\/\//, "")}</a></span>}
