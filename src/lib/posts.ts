@@ -23,6 +23,7 @@ export interface ProcessedPost {
   title: string;
   emojii: string;
   description: string;
+  audio?: string;
   date: string;
   dateFormatted: string;
   dateISO: string;
@@ -84,6 +85,7 @@ export async function getAllPosts(): Promise<ProcessedPost[]> {
       title,
       emojii: entry.data.emojii || "",
       description,
+      audio: entry.data.audio,
       date,
       dateFormatted,
       dateISO,

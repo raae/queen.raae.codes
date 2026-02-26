@@ -40,6 +40,7 @@ const postSchema = z
   .object({
     title: z.string(),
     emojii: z.string().optional(),
+    audio: z.string().optional(), // Path to audio narration file
     tags: z.string().optional(), // Comma-separated string in frontmatter
     brands: z.string().optional(),
     peeps: z.string().optional(),
@@ -48,6 +49,7 @@ const postSchema = z
   .transform((data) => ({
     title: data.title,
     emojii: data.emojii,
+    audio: data.audio,
     tags: parseTags(data.tags, data.brands, data.peeps, data.projects),
     isRelatable: !data.title.includes("week around the Gatsby islands"),
   }));
