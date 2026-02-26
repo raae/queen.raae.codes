@@ -1,0 +1,133 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-02-26T13:45:00Z",
+  "totalEntries": 18,
+  "entries": [
+    {
+      "date": "2006",
+      "title": "bGraphic Founded",
+      "description": "Queen Raae establishes bGraphic, her original web development company, laying the foundation for a decade-plus journey of building beautiful websites and digital experiences.",
+      "icon": "🏴‍☠️",
+      "tags": ["venture", "milestone"]
+    },
+    {
+      "date": "2008",
+      "title": "Early WordPress Adventures",
+      "description": "Diving deep into WordPress development, building custom themes and plugins for clients across Norway. The seeds of future expertise in content management systems.",
+      "icon": "💻",
+      "tags": ["milestone", "tech"]
+    },
+    {
+      "date": "2012",
+      "title": "Meeting Ola",
+      "description": "Life-changing encounter with Ola Vea, future husband and business partner. The beginning of a beautiful partnership both personally and professionally.",
+      "icon": "💕",
+      "tags": ["personal", "milestone"]
+    },
+    {
+      "date": "2015",
+      "title": "Lillian Born & Lilly Labs Era Begins",
+      "description": "The arrival of daughter Lillian transforms everything. bGraphic evolves into Lilly Labs, representing the family-first business philosophy that would define the next chapter.",
+      "icon": "👶",
+      "tags": ["personal", "venture", "milestone"]
+    },
+    {
+      "date": "2016",
+      "title": "React & Modern JavaScript",
+      "description": "Embracing the React revolution and modern JavaScript tooling. Building more interactive, dynamic web applications for clients while staying ahead of the tech curve.",
+      "icon": "⚛️",
+      "tags": ["tech", "milestone"]
+    },
+    {
+      "date": "2018",
+      "title": "Gatsby Plugins Era",
+      "description": "Discovering Gatsby and becoming a prolific contributor to the ecosystem. Creating plugins, writing tutorials, and building a reputation in the Gatsby community.",
+      "icon": "🚀",
+      "tags": ["tech", "community"]
+    },
+    {
+      "date": "2019",
+      "title": "First Conference Talks",
+      "description": "Taking the stage at developer conferences, sharing insights about Gatsby, React, and building sustainable development practices. Finding her voice as a speaker.",
+      "icon": "🎤",
+      "tags": ["speaking", "milestone"]
+    },
+    {
+      "date": "2020",
+      "title": "COVID Pivots & Resilience",
+      "description": "Navigating the pandemic challenges while maintaining business growth. Adapting to remote work, virtual conferences, and new ways of connecting with the community.",
+      "icon": "🌍",
+      "tags": ["milestone", "resilience"]
+    },
+    {
+      "date": "2021",
+      "title": "POW! App Launch",
+      "description": "Launching POW! - the email for people who never check email. An innovative approach to email management that reflects Queen's philosophy of intentional communication.",
+      "icon": "💥",
+      "tags": ["venture", "product"]
+    },
+    {
+      "date": "2022",
+      "title": "Slow & Steady Podcast",
+      "description": "Starting the 'Slow & Steady' podcast, sharing insights about bootstrapping, family business, and sustainable growth. Building an audience of fellow entrepreneurs and developers.",
+      "icon": "🎙️",
+      "tags": ["content", "community", "milestone"]
+    },
+    {
+      "date": "2023",
+      "title": "Remote Work Mastery",
+      "description": "Perfecting the art of remote work and distributed teams. Setting up systems and processes that allow for maximum flexibility while maintaining high-quality output.",
+      "icon": "🏠",
+      "tags": ["milestone", "process"]
+    },
+    {
+      "date": "2024",
+      "title": "Galleon (MCP for Ghost) Started",
+      "description": "Beginning development of Galleon, a Model Context Protocol implementation for Ghost CMS. Bridging the gap between AI tools and content management systems.",
+      "icon": "⛵",
+      "tags": ["venture", "ai", "tech"]
+    },
+    {
+      "date": "2025-Q1",
+      "title": "AI Gain Concept",
+      "description": "Developing the 'AI Gain' framework - how to leverage AI for productivity gains while maintaining human creativity and authentic voice. A philosophy for the AI era.",
+      "icon": "🧠",
+      "tags": ["ai", "concept", "milestone"]
+    },
+    {
+      "date": "2025-Q2",
+      "title": "Jean-Claw Created",
+      "description": "Bringing Jean-Claw to life - Queen's AI assistant and co-pilot. The beginning of a new era of AI-human collaboration in running Lilly Labs and managing daily operations.",
+      "icon": "🦀",
+      "tags": ["ai", "venture", "milestone"]
+    },
+    {
+      "date": "2025-Q3",
+      "title": "Outseta Fractional Work",
+      "description": "Starting fractional CTO work with Outseta, bringing expertise in product development and technical leadership to growing SaaS companies.",
+      "icon": "🏢",
+      "tags": ["consulting", "venture"]
+    },
+    {
+      "date": "2025-Q4",
+      "title": "CTO Roundtable Investment",
+      "description": "Participating in the CTO Roundtable Invest initiative, connecting with fellow tech leaders and exploring investment opportunities in the Norwegian startup ecosystem.",
+      "icon": "🤝",
+      "tags": ["investment", "community"]
+    },
+    {
+      "date": "2026-Q1",
+      "title": "queen.raae.codes Redesign",
+      "description": "Complete overhaul of the personal website with a beautiful new design system, focusing on storytelling, community building, and showcasing the full breadth of Queen's journey.",
+      "icon": "👑",
+      "tags": ["milestone", "design"]
+    },
+    {
+      "date": "2026-Q1",
+      "title": "'Is it Queen or AI?' Quiz & Livestreams",
+      "description": "Launching the interactive Queen vs AI quiz and regular livestreams, exploring the boundaries between human and AI communication while building community engagement.",
+      "icon": "🎮",
+      "tags": ["ai", "content", "community"]
+    }
+  ]
+}

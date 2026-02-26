@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import ShipsLog from '../components/ShipsLog.astro';
+import PageSectionHeader from '../components/PageSectionHeader.astro';
+
+const title = "Ship's Log — Queen Raae's Journey";
+const description = "A radical transparency timeline of Queen Raae and Lilly Labs' journey from 2006 to 2026. Key milestones, ventures, and events that shaped the family business and royal brand.";
+---
+
+<BaseLayout title={title} description={description}>
+  <SiteHeader />
+  <PageSectionHeader 
+    title="Ship's Log" 
+    lead="A radical transparency timeline of Queen&nbsp;Raae and Lilly&nbsp;Labs' journey from 2006&nbsp;to&nbsp;2026"
+    class="text-center"
+    breadcrumbs={[
+      { href: '/', title: 'Home' },
+      { href: '/ships-log', title: "Ship's Log" }
+    ]} 
+  />
+  
+  <section class="py-6 md:py-12 px-4">
+    <div class="container mx-auto">
+      <ShipsLog />
+    </div>
+  </section>
+  
+  <!-- Ornamental Divider -->
+  <div class="text-center py-8">
+    <div class="text-amber-400 text-2xl">⚜ 🏴‍☠️ ⚜</div>
+  </div>
+  
+  <!-- Meta Info Section -->
+  <section class="py-8 px-4 bg-brown-50">
+    <div class="container mx-auto max-w-4xl">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-heading font-bold text-plum-900 mb-4">About the Timeline</h3>
+          <p class="text-plum-700 mb-4">
+            This Ship's Log represents Queen Raae's commitment to radical transparency. 
+            Every milestone, venture, pivot, and personal moment that shaped the journey 
+            from bGraphic founder to AI-powered family business leader.
+          </p>
+          <p class="text-plum-700">
+            The timeline spans two decades of building, learning, and growing — 
+            from early WordPress days to the latest AI innovations. Each entry 
+            captures not just what happened, but the spirit behind the decisions.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-heading font-bold text-plum-900 mb-4">Journey Highlights</h3>
+          <ul class="text-plum-700 space-y-2">
+            <li>⚜ <strong>20+ years</strong> of web development and entrepreneurship</li>
+            <li>⚜ <strong>Family-first</strong> business philosophy since Lillian's birth</li>
+            <li>⚜ <strong>Community building</strong> through conferences, podcasts, and open source</li>
+            <li>⚜ <strong>AI integration</strong> leading to Jean-Claw and the AI Gain concept</li>
+            <li>⚜ <strong>Radical transparency</strong> in sharing both successes and struggles</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Royal Quote -->
+      <div class="mt-8 text-center">
+        <blockquote class="text-lg italic text-plum-600 font-body max-w-2xl mx-auto">
+          "Every venture, every pivot, every late-night coding session has been a step 
+          toward building something sustainable, meaningful, and authentically ours."
+        </blockquote>
+        <cite class="text-plum-500 text-sm mt-2 block">— Queen Raae, reflecting on the journey</cite>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

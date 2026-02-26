@@ -1,0 +1,185 @@
+---
+import shipsLogData from '../data/ships-log-entries.json';
+
+const entries = shipsLogData.entries;
+const allTags = [...new Set(entries.flatMap(entry => entry.tags))].sort();
+---
+
+<div class="ships-log-container">
+  <!-- Filter Buttons -->
+  <div class="mb-8 flex flex-wrap gap-2 justify-center">
+    <button class="filter-btn active" data-tag="all">
+      All Entries
+    </button>
+    {allTags.map(tag => (
+      <button class="filter-btn" data-tag={tag}>
+        {tag.charAt(0).toUpperCase() + tag.slice(1)}
+      </button>
+    ))}
+  </div>
+
+  <!-- Timeline -->
+  <div class="timeline-container relative max-w-6xl mx-auto">
+    <!-- Central timeline line -->
+    <div class="timeline-line absolute left-1/2 transform -translate-x-1/2 w-1 bg-plum-300 hidden md:block" style="top: 2rem; bottom: 2rem;"></div>
+    
+    <!-- Mobile timeline line -->
+    <div class="timeline-line-mobile absolute left-8 w-1 bg-plum-300 md:hidden" style="top: 1rem; bottom: 1rem;"></div>
+
+    {entries.map((entry, index) => {
+      const isLeft = index % 2 === 0;
+      return (
+        <div class={`timeline-entry opacity-0 translate-y-8 transition-all duration-700 ease-out relative mb-12 md:mb-16 ${isLeft ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'}`} data-tags={entry.tags.join(' ')}>
+          
+          <!-- Desktop Layout -->
+          <div class="hidden md:block">
+            <div class={`timeline-card bg-white rounded-lg shadow-lg p-6 relative ${isLeft ? 'md:mr-8' : 'md:ml-8'} border-l-4 border-amber-400`}>
+              <!-- Timeline dot -->
+              <div class={`absolute top-8 w-6 h-6 bg-amber-400 rounded-full border-4 border-plum-300 ${isLeft ? '-right-11' : '-left-11'} z-10`}></div>
+              
+              <!-- Icon and Date -->
+              <div class={`flex items-center gap-3 mb-4 ${isLeft ? 'justify-end' : 'justify-start'}`}>
+                <span class="text-3xl" role="img" aria-label="Timeline icon">{entry.icon}</span>
+                <span class="text-lg font-bold text-amber-600 font-heading">{entry.date}</span>
+              </div>
+              
+              <!-- Content -->
+              <h3 class="text-xl font-bold font-heading text-plum-900 mb-3">{entry.title}</h3>
+              <p class="text-plum-700 mb-4 leading-relaxed">{entry.description}</p>
+              
+              <!-- Tags -->
+              <div class={`flex flex-wrap gap-2 ${isLeft ? 'justify-end' : 'justify-start'}`}>
+                {entry.tags.map(tag => (
+                  <span class="px-2 py-1 bg-plum-100 text-plum-700 text-xs rounded-full font-medium">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Layout -->
+          <div class="md:hidden ml-16 relative">
+            <!-- Timeline dot -->
+            <div class="absolute -left-[2.125rem] top-2 w-4 h-4 bg-amber-400 rounded-full border-4 border-plum-300 z-10"></div>
+            
+            <div class="timeline-card bg-white rounded-lg shadow-lg p-6 border-l-4 border-amber-400">
+              <!-- Icon and Date -->
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl" role="img" aria-label="Timeline icon">{entry.icon}</span>
+                <span class="text-lg font-bold text-amber-600 font-heading">{entry.date}</span>
+              </div>
+              
+              <!-- Content -->
+              <h3 class="text-xl font-bold font-heading text-plum-900 mb-3">{entry.title}</h3>
+              <p class="text-plum-700 mb-4 leading-relaxed">{entry.description}</p>
+              
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2">
+                {entry.tags.map(tag => (
+                  <span class="px-2 py-1 bg-plum-100 text-plum-700 text-xs rounded-full font-medium">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>
+
+<style>
+  .filter-btn {
+    @apply px-4 py-2 rounded-full border-2 border-plum-300 text-plum-700 font-medium transition-all duration-300;
+    font-family: var(--font-heading);
+  }
+  
+  .filter-btn:hover {
+    @apply border-amber-400 text-plum-900;
+  }
+  
+  .filter-btn.active {
+    @apply bg-amber-400 border-amber-400 text-plum-900;
+  }
+  
+  .timeline-entry.hidden {
+    @apply opacity-0 scale-95;
+  }
+  
+  .timeline-entry.visible {
+    @apply opacity-100 translate-y-0 scale-100;
+  }
+</style>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -100px 0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  // Observe all timeline entries
+  document.querySelectorAll('.timeline-entry').forEach((entry) => {
+    observer.observe(entry);
+  });
+
+  // Filter functionality
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const timelineEntries = document.querySelectorAll('.timeline-entry');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const selectedTag = button.dataset.tag;
+      
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      // Filter entries
+      timelineEntries.forEach(entry => {
+        const entryTags = entry.dataset.tags;
+        
+        if (selectedTag === 'all' || entryTags.includes(selectedTag)) {
+          entry.style.display = 'block';
+          // Re-trigger animation if entry is in view
+          setTimeout(() => {
+            if (entry.getBoundingClientRect().top < window.innerHeight) {
+              entry.classList.add('visible');
+              entry.style.opacity = '1';
+              entry.style.transform = 'translateY(0)';
+            }
+          }, 100);
+        } else {
+          entry.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Smooth scroll from filters to timeline
+  filterButtons.forEach(button => {
+    if (button.dataset.tag !== 'all') {
+      button.addEventListener('click', () => {
+        setTimeout(() => {
+          const firstVisibleEntry = document.querySelector('.timeline-entry[style*="display: block"], .timeline-entry:not([style*="display: none"])');
+          if (firstVisibleEntry) {
+            firstVisibleEntry.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 150);
+      });
+    }
+  });
+</script>
