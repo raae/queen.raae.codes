@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import AiGainCalculator from '../components/AiGainCalculator.astro';
+import PageSectionHeader from '../components/PageSectionHeader.astro';
+
+const title = 'AI Gain Calculator';
+const description = 'Discover how much time AI tools could save you as a freelancer or solopreneur. Calculate your potential weekly, monthly, and yearly time savings across different tasks.';
+---
+
+<BaseLayout title={title} description={description}>
+  <SiteHeader />
+  <PageSectionHeader 
+    title="AI Gain Calculator 🧮" 
+    lead="Discover how much time AI tools could save&nbsp;you as a freelancer or solopreneur"
+    class="text-center"
+    breadcrumbs={[
+      { href: '/', title: 'Home' },
+      { href: '/ai-gain-calculator', title: 'AI Gain Calculator' }
+    ]} 
+  />
+  
+  <section class="py-6 md:py-12 px-4">
+    <div class="container mx-auto">
+      <AiGainCalculator />
+    </div>
+  </section>
+  
+  <!-- Info Section -->
+  <section class="py-8 px-4 bg-brown-50">
+    <div class="container mx-auto max-w-4xl">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-heading font-bold text-plum-900 mb-4">How it works</h3>
+          <p class="text-plum-700 mb-4">
+            Use the sliders to set how many hours per week you currently spend on common freelancer tasks. 
+            Our calculator applies research-based AI efficiency multipliers to estimate your potential time savings.
+          </p>
+          <p class="text-plum-700">
+            See how AI tools could reclaim hours in your week, giving you more time for high-value work, 
+            family, or that side project you've been dreaming about!
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-heading font-bold text-plum-900 mb-4">Time Categories</h3>
+          <ul class="text-plum-700 space-y-2">
+            <li>• <strong>Email & proposals</strong> - AI can draft and refine communications</li>
+            <li>• <strong>Coding & debugging</strong> - Code generation and error solving assistance</li>
+            <li>• <strong>Content creation</strong> - Blog posts, social media, and copy</li>
+            <li>• <strong>Research & learning</strong> - Information gathering and summarization</li>
+            <li>• <strong>Admin tasks</strong> - Bookkeeping, scheduling, and organization</li>
+            <li>• <strong>Meeting prep & notes</strong> - Agenda creation and transcription</li>
+            <li>• <strong>Customer support</strong> - Response templates and FAQ assistance</li>
+            <li>• <strong>Design & mockups</strong> - Asset generation and layout assistance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

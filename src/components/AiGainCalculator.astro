@@ -1,0 +1,542 @@
+---
+import Badge from './Badge.astro';
+---
+
+<div class="max-w-4xl mx-auto">
+  <!-- Instructions -->
+  <div class="bg-plum-50 rounded-lg p-6 mb-8">
+    <h3 class="text-lg font-heading font-bold text-plum-900 mb-3">Set your weekly hours:</h3>
+    <p class="text-plum-700">
+      Use the sliders below to indicate how many hours per week you currently spend on each task. 
+      The calculator will show you how much time AI tools could potentially save.
+    </p>
+  </div>
+
+  <!-- Task Sliders -->
+  <div class="grid md:grid-cols-2 gap-6 mb-8">
+    <!-- Email & Proposals -->
+    <div class="bg-white rounded-lg p-6 border-2 border-plum-200 shadow-sm">
+      <div class="flex justify-between items-center mb-3">
+        <label class="text-base font-heading font-bold text-plum-900">📧 Writing emails/proposals</label>
+        <span id="email-hours-display" class="text-xl font-heading font-bold text-plum-600">0h</span>
+      </div>
+      <input 
+        type="range" 
+        id="email-hours" 
+        min="0" 
+        max="10" 
+        value="0" 
+        class="w-full h-3 bg-plum-200 rounded-lg appearance-none cursor-pointer slider"
+        data-task="email"
+        data-multiplier="0.6"
+      >
+      <div class="flex justify-between text-xs text-plum-500 mt-1">
+        <span>0h</span>
+        <span>5h</span>
+        <span>10h</span>
+      </div>
+    </div>
+
+    <!-- Coding & Debugging -->
+    <div class="bg-white rounded-lg p-6 border-2 border-plum-200 shadow-sm">
+      <div class="flex justify-between items-center mb-3">
+        <label class="text-base font-heading font-bold text-plum-900">💻 Coding/debugging</label>
+        <span id="coding-hours-display" class="text-xl font-heading font-bold text-plum-600">0h</span>
+      </div>
+      <input 
+        type="range" 
+        id="coding-hours" 
+        min="0" 
+        max="20" 
+        value="0" 
+        class="w-full h-3 bg-plum-200 rounded-lg appearance-none cursor-pointer slider"
+        data-task="coding"
+        data-multiplier="0.3"
+      >
+      <div class="flex justify-between text-xs text-plum-500 mt-1">
+        <span>0h</span>
+        <span>10h</span>
+        <span>20h</span>
+      </div>
+    </div>
+
+    <!-- Content Creation -->
+    <div class="bg-white rounded-lg p-6 border-2 border-plum-200 shadow-sm">
+      <div class="flex justify-between items-center mb-3">
+        <label class="text-base font-heading font-bold text-plum-900">✍️ Content creation</label>
+        <span id="content-hours-display" class="text-xl font-heading font-bold text-plum-600">0h</span>
+      </div>
+      <input 
+        type="range" 
+        id="content-hours" 
+        min="0" 
+        max="10" 
+        value="0" 
+        class="w-full h-3 bg-plum-200 rounded-lg appearance-none cursor-pointer slider"
+        data-task="content"
+        data-multiplier="0.5"
+      >
+      <div class="flex justify-between text-xs text-plum-500 mt-1">
+        <span>0h</span>
+        <span>5h</span>
+        <span>10h</span>
+      </div>
+    </div>
+
+    <!-- Research & Learning -->
+    <div class="bg-white rounded-lg p-6 border-2 border-plum-200 shadow-sm">
+      <div class="flex justify-between items-center mb-3">
+        <label class="text-base font-heading font-bold text-plum-900">🔍 Research & learning</label>
+        <span id="research-hours-display" class="text-xl font-heading font-bold text-plum-600">0h</span>
+      </div>
+      <input 
+        type="range" 
+        id="research-hours" 
+        min="0" 
+        max="10" 
+        value="0" 
+        class="w-full h-3 bg-plum-200 rounded-lg appearance-none cursor-pointer slider"
+        data-task="research"
+        data-multiplier="0.4"
+      >
+      <div class="flex justify-between text-xs text-plum-500 mt-1">
+        <span>0h</span>
+        <span>5h</span>
+        <span>10h</span>
+      </div>
+    </div>
+
+    <!-- Admin & Bookkeeping -->
+    <div class="bg-white rounded-lg p-6 border-2 border-plum-200 shadow-sm">
+      <div class="flex justify-between items-center mb-3">
+        <label class="text-base font-heading font-bold text-plum-900">📊 Admin/bookkeeping</label>
+        <span id="admin-hours-display" class="text-xl font-heading font-bold text-plum-600">0h</span>
+      </div>
+      <input 
+        type="range" 
+        id="admin-hours" 
+        min="0" 
+        max="10" 
+        value="0" 
+        class="w-full h-3 bg-plum-200 rounded-lg appearance-none cursor-pointer slider"
+        data-task="admin"
+        data-multiplier="0.45"
+      >
+      <div class="flex justify-between text-xs text-plum-500 mt-1">
+        <span>0h</span>
+        <span>5h</span>
+        <span>10h</span>
+      </div>
+    </div>
+
+    <!-- Meeting Prep & Notes -->
+    <div class="bg-white rounded-lg p-6 border-2 border-plum-200 shadow-sm">
+      <div class="flex justify-between items-center mb-3">
+        <label class="text-base font-heading font-bold text-plum-900">🗣️ Meeting prep & notes</label>
+        <span id="meetings-hours-display" class="text-xl font-heading font-bold text-plum-600">0h</span>
+      </div>
+      <input 
+        type="range" 
+        id="meetings-hours" 
+        min="0" 
+        max="5" 
+        value="0" 
+        class="w-full h-3 bg-plum-200 rounded-lg appearance-none cursor-pointer slider"
+        data-task="meetings"
+        data-multiplier="0.35"
+      >
+      <div class="flex justify-between text-xs text-plum-500 mt-1">
+        <span>0h</span>
+        <span>2.5h</span>
+        <span>5h</span>
+      </div>
+    </div>
+
+    <!-- Customer Support -->
+    <div class="bg-white rounded-lg p-6 border-2 border-plum-200 shadow-sm">
+      <div class="flex justify-between items-center mb-3">
+        <label class="text-base font-heading font-bold text-plum-900">🎧 Customer support</label>
+        <span id="support-hours-display" class="text-xl font-heading font-bold text-plum-600">0h</span>
+      </div>
+      <input 
+        type="range" 
+        id="support-hours" 
+        min="0" 
+        max="10" 
+        value="0" 
+        class="w-full h-3 bg-plum-200 rounded-lg appearance-none cursor-pointer slider"
+        data-task="support"
+        data-multiplier="0.5"
+      >
+      <div class="flex justify-between text-xs text-plum-500 mt-1">
+        <span>0h</span>
+        <span>5h</span>
+        <span>10h</span>
+      </div>
+    </div>
+
+    <!-- Design & Mockups -->
+    <div class="bg-white rounded-lg p-6 border-2 border-plum-200 shadow-sm">
+      <div class="flex justify-between items-center mb-3">
+        <label class="text-base font-heading font-bold text-plum-900">🎨 Design/mockups</label>
+        <span id="design-hours-display" class="text-xl font-heading font-bold text-plum-600">0h</span>
+      </div>
+      <input 
+        type="range" 
+        id="design-hours" 
+        min="0" 
+        max="10" 
+        value="0" 
+        class="w-full h-3 bg-plum-200 rounded-lg appearance-none cursor-pointer slider"
+        data-task="design"
+        data-multiplier="0.25"
+      >
+      <div class="flex justify-between text-xs text-plum-500 mt-1">
+        <span>0h</span>
+        <span>5h</span>
+        <span>10h</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Dashboard -->
+  <div id="results-dashboard" class="bg-white rounded-lg shadow-lg border-2 border-amber-300 p-6 md:p-8 hidden">
+    <h3 class="text-2xl font-heading font-bold text-plum-900 mb-6 text-center">⚜ Your AI Gain Forecast ⚜</h3>
+    
+    <!-- Main Stats -->
+    <div class="grid md:grid-cols-3 gap-6 mb-8">
+      <div class="text-center p-4 bg-plum-50 rounded-lg">
+        <div class="text-3xl font-heading font-bold text-plum-900 mb-2" id="current-hours-stat">0</div>
+        <div class="text-sm font-heading text-plum-600">Current Weekly Hours</div>
+      </div>
+      <div class="text-center p-4 bg-amber-50 rounded-lg">
+        <div class="text-3xl font-heading font-bold text-amber-700 mb-2" id="saved-hours-stat">0</div>
+        <div class="text-sm font-heading text-amber-600">Hours Saved/Week</div>
+      </div>
+      <div class="text-center p-4 bg-plum-50 rounded-lg">
+        <div class="text-3xl font-heading font-bold text-plum-900 mb-2" id="new-hours-stat">0</div>
+        <div class="text-sm font-heading text-plum-600">New Weekly Hours</div>
+      </div>
+    </div>
+
+    <!-- Time Projections -->
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="bg-amber-50 rounded-lg p-4">
+        <h4 class="font-heading font-bold text-amber-800 mb-3">Time Reclaimed</h4>
+        <div class="space-y-2 text-amber-700">
+          <div class="flex justify-between">
+            <span>Per Month:</span>
+            <span class="font-bold" id="monthly-saved">0 hours</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Per Year:</span>
+            <span class="font-bold" id="yearly-saved">0 hours</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Work Days:</span>
+            <span class="font-bold" id="workdays-saved">0 days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress Gauge -->
+      <div class="text-center">
+        <h4 class="font-heading font-bold text-plum-800 mb-3">Efficiency Gain</h4>
+        <div class="relative inline-block">
+          <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" stroke="#f0c4d8" stroke-width="8" fill="none"/>
+            <circle 
+              id="progress-circle" 
+              cx="50" 
+              cy="50" 
+              r="40" 
+              stroke="#f59e0b" 
+              stroke-width="8" 
+              fill="none"
+              stroke-dasharray="251.2"
+              stroke-dashoffset="251.2"
+              class="transition-all duration-1000 ease-out"
+            />
+          </svg>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="text-2xl font-heading font-bold text-plum-900" id="efficiency-percentage">0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pirate Verdict -->
+    <div id="pirate-verdict" class="bg-plum-900 text-amber-100 rounded-lg p-6 mb-6 text-center">
+      <div class="text-4xl mb-3" id="pirate-emoji">🏴‍☠️</div>
+      <div class="text-xl font-heading font-bold mb-2" id="pirate-title">Chart Your Course!</div>
+      <div class="text-base" id="pirate-message">Set your hours above to discover what AI treasure awaits ye!</div>
+    </div>
+
+    <!-- What Could You Do -->
+    <div id="suggestions-section" class="hidden">
+      <h4 class="text-lg font-heading font-bold text-plum-900 mb-4">What could you do with <span id="suggestion-hours" class="text-amber-600">X</span> extra hours per week?</h4>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-plum-50 rounded-lg p-4">
+          <h5 class="font-heading font-bold text-plum-800 mb-2">Professional Growth</h5>
+          <ul class="text-plum-700 text-sm space-y-1">
+            <li>• Learn a new skill or technology</li>
+            <li>• Work on passion projects</li>
+            <li>• Build your personal brand</li>
+            <li>• Take on higher-value clients</li>
+          </ul>
+        </div>
+        <div class="bg-plum-50 rounded-lg p-4">
+          <h5 class="font-heading font-bold text-plum-800 mb-2">Life Balance</h5>
+          <ul class="text-plum-700 text-sm space-y-1">
+            <li>• Spend more time with family</li>
+            <li>• Pursue hobbies and interests</li>
+            <li>• Exercise and self-care</li>
+            <li>• Travel and explore</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share Button -->
+    <div class="text-center mt-8">
+      <button 
+        id="share-btn"
+        class="px-8 py-3 bg-amber-400 text-plum-900 font-heading font-bold rounded-lg hover:bg-amber-500 transition-colors border-2 border-amber-400 shadow-lg"
+      >
+        🚀 Share My AI Gain
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Custom slider styling */
+  .slider::-webkit-slider-thumb {
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    background: #f59e0b;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #d97706;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .slider::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+    background: #f59e0b;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #d97706;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .slider::-webkit-slider-track {
+    background: #f0c4d8;
+    border-radius: 8px;
+    height: 12px;
+  }
+
+  .slider::-moz-range-track {
+    background: #f0c4d8;
+    border-radius: 8px;
+    height: 12px;
+  }
+</style>
+
+<script>
+  class AiGainCalculator {
+    constructor() {
+      this.tasks = [
+        { id: 'email', multiplier: 0.6 },
+        { id: 'coding', multiplier: 0.3 },
+        { id: 'content', multiplier: 0.5 },
+        { id: 'research', multiplier: 0.4 },
+        { id: 'admin', multiplier: 0.45 },
+        { id: 'meetings', multiplier: 0.35 },
+        { id: 'support', multiplier: 0.5 },
+        { id: 'design', multiplier: 0.25 }
+      ];
+      
+      this.elements = {
+        dashboard: document.getElementById('results-dashboard'),
+        currentHoursStat: document.getElementById('current-hours-stat'),
+        savedHoursStat: document.getElementById('saved-hours-stat'),
+        newHoursStat: document.getElementById('new-hours-stat'),
+        monthlySaved: document.getElementById('monthly-saved'),
+        yearlySaved: document.getElementById('yearly-saved'),
+        workdaysSaved: document.getElementById('workdays-saved'),
+        progressCircle: document.getElementById('progress-circle'),
+        efficiencyPercentage: document.getElementById('efficiency-percentage'),
+        pirateEmoji: document.getElementById('pirate-emoji'),
+        pirateTitle: document.getElementById('pirate-title'),
+        pirateMessage: document.getElementById('pirate-message'),
+        suggestionsSection: document.getElementById('suggestions-section'),
+        suggestionHours: document.getElementById('suggestion-hours'),
+        shareBtn: document.getElementById('share-btn')
+      };
+      
+      this.init();
+    }
+    
+    init() {
+      // Add event listeners to all sliders
+      this.tasks.forEach(task => {
+        const slider = document.getElementById(`${task.id}-hours`);
+        const display = document.getElementById(`${task.id}-hours-display`);
+        
+        slider.addEventListener('input', (e) => {
+          const hours = parseInt(e.target.value);
+          display.textContent = `${hours}h`;
+          this.calculateResults();
+        });
+      });
+      
+      // Share button
+      this.elements.shareBtn.addEventListener('click', () => this.shareResults());
+    }
+    
+    calculateResults() {
+      let totalCurrentHours = 0;
+      let totalSavedHours = 0;
+      
+      // Calculate totals
+      this.tasks.forEach(task => {
+        const slider = document.getElementById(`${task.id}-hours`);
+        const hours = parseInt(slider.value);
+        const savedForTask = hours * task.multiplier;
+        
+        totalCurrentHours += hours;
+        totalSavedHours += savedForTask;
+      });
+      
+      const newTotalHours = totalCurrentHours - totalSavedHours;
+      const efficiencyGain = totalCurrentHours > 0 ? (totalSavedHours / totalCurrentHours) * 100 : 0;
+      
+      // Update stats
+      this.updateStats(totalCurrentHours, totalSavedHours, newTotalHours, efficiencyGain);
+      
+      // Show results if any hours are set
+      if (totalCurrentHours > 0) {
+        this.elements.dashboard.classList.remove('hidden');
+        this.updatePirateVerdict(totalSavedHours, efficiencyGain);
+        this.updateSuggestions(totalSavedHours);
+      } else {
+        this.elements.dashboard.classList.add('hidden');
+      }
+    }
+    
+    updateStats(current, saved, newTotal, efficiency) {
+      // Animate counter updates
+      this.animateCounter(this.elements.currentHoursStat, Math.round(current));
+      this.animateCounter(this.elements.savedHoursStat, Math.round(saved * 10) / 10);
+      this.animateCounter(this.elements.newHoursStat, Math.round(newTotal));
+      
+      // Monthly and yearly projections
+      const monthlySaved = saved * 4.33; // Average weeks per month
+      const yearlySaved = saved * 52;
+      const workdaysSaved = Math.round(yearlySaved / 8); // 8-hour work days
+      
+      this.elements.monthlySaved.textContent = `${Math.round(monthlySaved)} hours`;
+      this.elements.yearlySaved.textContent = `${Math.round(yearlySaved)} hours`;
+      this.elements.workdaysSaved.textContent = `${workdaysSaved} days`;
+      
+      // Update progress circle
+      this.updateProgressCircle(efficiency);
+      this.elements.efficiencyPercentage.textContent = `${Math.round(efficiency)}%`;
+    }
+    
+    animateCounter(element, targetValue) {
+      const currentValue = parseFloat(element.textContent) || 0;
+      const increment = (targetValue - currentValue) / 20;
+      let current = currentValue;
+      
+      const timer = setInterval(() => {
+        current += increment;
+        if ((increment > 0 && current >= targetValue) || (increment < 0 && current <= targetValue)) {
+          element.textContent = targetValue % 1 === 0 ? targetValue : targetValue.toFixed(1);
+          clearInterval(timer);
+        } else {
+          element.textContent = current % 1 === 0 ? Math.round(current) : current.toFixed(1);
+        }
+      }, 50);
+    }
+    
+    updateProgressCircle(percentage) {
+      const circumference = 2 * Math.PI * 40; // radius is 40
+      const offset = circumference - (percentage / 100) * circumference;
+      this.elements.progressCircle.style.strokeDashoffset = offset;
+    }
+    
+    updatePirateVerdict(savedHours, efficiency) {
+      let emoji, title, message;
+      
+      if (savedHours < 2) {
+        emoji = "🐙";
+        title = "Batten Down the Hatches!";
+        message = "Ye be barely scratching the surface! Even small AI gains can chart a course to calmer seas.";
+      } else if (savedHours < 5) {
+        emoji = "🦜";
+        title = "Fair Winds Ahead!";
+        message = "Arrr! A decent treasure of time awaits. AI be ready to lighten yer load, savvy?";
+      } else if (savedHours < 10) {
+        emoji = "⚓";
+        title = "Steady as She Goes!";
+        message = "Blimey! Ye could be reclaiming serious treasure! AI tools be yer trusty first mate.";
+      } else if (savedHours < 15) {
+        emoji = "🏴‍☠️";
+        title = "Yo Ho Ho!";
+        message = "Shiver me timbers! Ye be leaving a king's ransom on the table! AI could free up yer whole afternoon!";
+      } else {
+        emoji = "👑";
+        title = "Captain of the Seven Seas!";
+        message = "By Blackbeard's ghost! Ye could reclaim enough time to rule an empire! AI be yer secret weapon, Captain!";
+      }
+      
+      this.elements.pirateEmoji.textContent = emoji;
+      this.elements.pirateTitle.textContent = title;
+      this.elements.pirateMessage.textContent = message;
+    }
+    
+    updateSuggestions(savedHours) {
+      if (savedHours >= 2) {
+        this.elements.suggestionsSection.classList.remove('hidden');
+        this.elements.suggestionHours.textContent = Math.round(savedHours * 10) / 10;
+      } else {
+        this.elements.suggestionsSection.classList.add('hidden');
+      }
+    }
+    
+    shareResults() {
+      const totalSaved = parseFloat(this.elements.savedHoursStat.textContent) || 0;
+      const yearlyHours = totalSaved * 52;
+      const workdays = Math.round(yearlyHours / 8);
+      
+      const shareText = `🏴‍☠️ Ahoy! I could save ${totalSaved} hours per week with AI tools - that's ${workdays} work days per year! Calculate your AI treasure at queen.raae.codes/ai-gain-calculator ⚜️`;
+      
+      if (navigator.share) {
+        navigator.share({
+          title: 'My AI Gain Calculator Results',
+          text: shareText,
+          url: window.location.href
+        });
+      } else {
+        // Fallback: copy to clipboard
+        navigator.clipboard.writeText(shareText + ' ' + window.location.href).then(() => {
+          // Show temporary feedback
+          const originalText = this.elements.shareBtn.textContent;
+          this.elements.shareBtn.textContent = '✅ Copied to clipboard!';
+          setTimeout(() => {
+            this.elements.shareBtn.textContent = originalText;
+          }, 2000);
+        });
+      }
+    }
+  }
+  
+  // Initialize calculator when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new AiGainCalculator();
+  });
+</script>
