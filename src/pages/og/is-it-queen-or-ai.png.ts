@@ -61,10 +61,12 @@ export const GET: APIRoute = async () => {
   const queenAvatar = getAvatarDataUri("queen-avatar.jpg");
   const jeanclawAvatar = getAvatarDataUri("jeanclaw-avatar.jpg");
 
-  // Large avatars that bleed off edges (like the standard OG template)
-  const AVATAR_SIZE = HEIGHT; // 628px — full height, same as standard OG
+  // Avatars bleed off left/right edges, centered vertically
+  const AVATAR_SIZE = 520;
   const AVATAR_RADIUS = AVATAR_SIZE / 2;
-  const AVATAR_BORDER = Math.round(HEIGHT * 0.03); // ~19px
+  const AVATAR_BORDER = 16;
+  const AVATAR_TOP = Math.round((HEIGHT - AVATAR_SIZE) / 2); // vertically centered
+  const BLEED = Math.round(AVATAR_RADIUS * 0.35); // how much hangs off the edge
 
   const markup = {
     type: "div",
@@ -79,15 +81,15 @@ export const GET: APIRoute = async () => {
         position: "relative",
       },
       children: [
-        // Queen avatar — bleeds off left edge and bottom
+        // Queen avatar — bleeds off left
         {
           type: "img",
           props: {
             src: queenAvatar,
             style: {
               position: "absolute",
-              top: `${Math.round(AVATAR_RADIUS * 0.4)}px`,
-              left: `${-Math.round(AVATAR_RADIUS * 0.5)}px`,
+              top: `${AVATAR_TOP}px`,
+              left: `${-BLEED}px`,
               width: `${AVATAR_SIZE}px`,
               height: `${AVATAR_SIZE}px`,
               borderRadius: `${AVATAR_RADIUS}px`,
@@ -96,15 +98,15 @@ export const GET: APIRoute = async () => {
             },
           },
         },
-        // Jean-Claw avatar — bleeds off right edge and bottom
+        // Jean-Claw avatar — bleeds off right
         {
           type: "img",
           props: {
             src: jeanclawAvatar,
             style: {
               position: "absolute",
-              top: `${Math.round(AVATAR_RADIUS * 0.4)}px`,
-              right: `${-Math.round(AVATAR_RADIUS * 0.5)}px`,
+              top: `${AVATAR_TOP}px`,
+              right: `${-BLEED}px`,
               width: `${AVATAR_SIZE}px`,
               height: `${AVATAR_SIZE}px`,
               borderRadius: `${AVATAR_RADIUS}px`,
@@ -124,7 +126,7 @@ export const GET: APIRoute = async () => {
             },
           },
         },
-        // Center content (text over everything)
+        // Center content
         {
           type: "div",
           props: {
@@ -137,66 +139,38 @@ export const GET: APIRoute = async () => {
               position: "relative",
             },
             children: [
-              // Labels row
-              {
-                type: "div",
-                props: {
-                  style: {
-                    display: "flex",
-                    width: "100%",
-                    justifyContent: "space-between",
-                    padding: "0 80px",
-                    marginBottom: "8px",
-                  },
-                  children: [
-                    {
-                      type: "div",
-                      props: {
-                        style: {
-                          fontFamily: "Montserrat",
-                          fontWeight: 900,
-                          fontSize: "28px",
-                          color: PRIMARY_TEXT,
-                          backgroundColor: BG_COLOR,
-                          padding: "4px 14px",
-                          borderRadius: "12px",
-                        },
-                        children: "Queen 👑",
-                      },
-                    },
-                    {
-                      type: "div",
-                      props: {
-                        style: {
-                          fontFamily: "Montserrat",
-                          fontWeight: 900,
-                          fontSize: "28px",
-                          color: PRIMARY_TEXT,
-                          backgroundColor: BG_COLOR,
-                          padding: "4px 14px",
-                          borderRadius: "12px",
-                        },
-                        children: "AI 🦀",
-                      },
-                    },
-                  ],
-                },
-              },
-              // VS
+              // "Queen" label
               {
                 type: "div",
                 props: {
                   style: {
                     fontFamily: "Montserrat",
                     fontWeight: 900,
-                    fontSize: "80px",
+                    fontSize: "26px",
+                    color: PRIMARY_TEXT,
+                    backgroundColor: BG_COLOR,
+                    padding: "6px 16px",
+                    borderRadius: "12px",
+                    marginBottom: "12px",
+                  },
+                  children: "Queen 👑  vs  AI 🦀",
+                },
+              },
+              // Big title
+              {
+                type: "div",
+                props: {
+                  style: {
+                    fontFamily: "Montserrat",
+                    fontWeight: 900,
+                    fontSize: "72px",
                     color: PRIMARY_COLOR,
                     lineHeight: 1,
                     backgroundColor: BG_COLOR,
-                    padding: "8px 28px",
+                    padding: "10px 32px",
                     borderRadius: "20px",
                   },
-                  children: "VS",
+                  children: "WHO SAID IT?",
                 },
               },
               // Subtitle
@@ -207,9 +181,9 @@ export const GET: APIRoute = async () => {
                     fontFamily: "Lora",
                     fontSize: "24px",
                     color: PRIMARY_TEXT,
-                    marginTop: "12px",
+                    marginTop: "14px",
                     backgroundColor: BG_COLOR,
-                    padding: "4px 18px",
+                    padding: "6px 20px",
                     borderRadius: "12px",
                   },
                   children: "Can you tell the difference?",
@@ -225,10 +199,6 @@ export const GET: APIRoute = async () => {
             style: {
               display: "flex",
               padding: "0 0 20px 0",
-              fontFamily: "Montserrat",
-              fontWeight: 900,
-              fontSize: "20px",
-              color: PRIMARY_COLOR,
               justifyContent: "center",
               position: "relative",
             },
@@ -236,6 +206,10 @@ export const GET: APIRoute = async () => {
               type: "div",
               props: {
                 style: {
+                  fontFamily: "Montserrat",
+                  fontWeight: 900,
+                  fontSize: "20px",
+                  color: PRIMARY_COLOR,
                   backgroundColor: BG_COLOR,
                   padding: "4px 18px",
                   borderRadius: "12px",
