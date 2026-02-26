@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import RateMyStack from '../components/RateMyStack.astro';
+import PageSectionHeader from '../components/PageSectionHeader.astro';
+
+const title = 'Rate My Stack ⚡';
+const description = 'Get a pirate-themed rating of your tech stack! Select your tools and receive a Captain\'s Grade with humor and useful suggestions.';
+---
+
+<BaseLayout title={title} description={description}>
+  <SiteHeader />
+  <PageSectionHeader 
+    title="Rate My Stack ⚡" 
+    lead="Avast! Let the captain judge yer tech choices and grade yer&nbsp;stack!"
+    class="text-center"
+    breadcrumbs={[
+      { href: '/', title: 'Home' },
+      { href: '/rate-my-stack', title: 'Rate My Stack' }
+    ]} 
+  />
+  
+  <section class="py-6 md:py-12 px-4">
+    <div class="container mx-auto">
+      <RateMyStack />
+    </div>
+  </section>
+  
+  <!-- Meta Info Section -->
+  <section class="py-8 px-4 bg-brown-50">
+    <div class="container mx-auto max-w-4xl">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-heading font-bold text-plum-900 mb-4">About the Rater</h3>
+          <p class="text-plum-700 mb-4">
+            This interactive tool evaluates your technology choices through the seasoned eyes 
+            of a pirate captain who's sailed the digital seas. Get honest ratings from S-tier 
+            (Captain's Choice) down to D-tier (Ye be taking on water!).
+          </p>
+          <p class="text-plum-700">
+            Each rating comes with pirate humor mixed with genuine insights about your 
+            stack's strengths, potential weaknesses, and suggestions for improvement.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-heading font-bold text-plum-900 mb-4">Rating Categories</h3>
+          <ul class="text-plum-700 space-y-2">
+            <li>• <strong>🏴‍☠️ S-Tier:</strong> Captain's Choice - A legendary setup</li>
+            <li>• <strong>⚓ A-Tier:</strong> A fine vessel - Seaworthy and solid</li>
+            <li>• <strong>🌊 B-Tier:</strong> Good winds - Room for improvement</li>
+            <li>• <strong>⛵ C-Tier:</strong> Rough seas - Consider some changes</li>
+            <li>• <strong>🚢 D-Tier:</strong> Taking on water - Time for repairs!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

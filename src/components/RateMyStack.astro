@@ -1,0 +1,538 @@
+---
+// No server-side logic needed - all runs client-side
+---
+
+<div class="max-w-4xl mx-auto">
+  <!-- Selection Form -->
+  <div id="stack-form" class="bg-white rounded-lg shadow-lg border-2 border-plum-200 p-4 md:p-8 mb-6">
+    <div class="text-center mb-8">
+      <div class="text-4xl mb-3">🏴‍☠️</div>
+      <h2 class="text-2xl font-heading font-bold text-plum-900 mb-2">Choose Yer Tools, Matey!</h2>
+      <p class="text-plum-700">Select the technologies that make up your stack. The cap'n will judge them accordingly!</p>
+    </div>
+
+    <!-- Technology Categories -->
+    <div class="space-y-6">
+      <!-- Frameworks -->
+      <div class="category">
+        <h3 class="text-lg font-heading font-bold text-plum-900 mb-3 flex items-center gap-2">
+          ⚡ Frameworks & Libraries
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" data-category="frameworks">
+          <label class="tech-option"><input type="checkbox" value="react"> React</label>
+          <label class="tech-option"><input type="checkbox" value="nextjs"> Next.js</label>
+          <label class="tech-option"><input type="checkbox" value="astro"> Astro</label>
+          <label class="tech-option"><input type="checkbox" value="gatsby"> Gatsby</label>
+          <label class="tech-option"><input type="checkbox" value="vue"> Vue</label>
+          <label class="tech-option"><input type="checkbox" value="svelte"> Svelte</label>
+          <label class="tech-option"><input type="checkbox" value="angular"> Angular</label>
+          <label class="tech-option"><input type="checkbox" value="wordpress"> WordPress</label>
+          <label class="tech-option"><input type="checkbox" value="remix"> Remix</label>
+        </div>
+      </div>
+
+      <!-- Hosting -->
+      <div class="category">
+        <h3 class="text-lg font-heading font-bold text-plum-900 mb-3 flex items-center gap-2">
+          🌊 Hosting & Deployment
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" data-category="hosting">
+          <label class="tech-option"><input type="checkbox" value="netlify"> Netlify</label>
+          <label class="tech-option"><input type="checkbox" value="vercel"> Vercel</label>
+          <label class="tech-option"><input type="checkbox" value="aws"> AWS</label>
+          <label class="tech-option"><input type="checkbox" value="heroku"> Heroku</label>
+          <label class="tech-option"><input type="checkbox" value="railway"> Railway</label>
+          <label class="tech-option"><input type="checkbox" value="cloudflare"> Cloudflare</label>
+          <label class="tech-option"><input type="checkbox" value="digitalocean"> DigitalOcean</label>
+        </div>
+      </div>
+
+      <!-- CMS -->
+      <div class="category">
+        <h3 class="text-lg font-heading font-bold text-plum-900 mb-3 flex items-center gap-2">
+          📝 Content Management
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" data-category="cms">
+          <label class="tech-option"><input type="checkbox" value="ghost"> Ghost</label>
+          <label class="tech-option"><input type="checkbox" value="sanity"> Sanity</label>
+          <label class="tech-option"><input type="checkbox" value="contentful"> Contentful</label>
+          <label class="tech-option"><input type="checkbox" value="strapi"> Strapi</label>
+          <label class="tech-option"><input type="checkbox" value="wordpress-cms"> WordPress</label>
+          <label class="tech-option"><input type="checkbox" value="markdown"> Markdown</label>
+        </div>
+      </div>
+
+      <!-- Auth -->
+      <div class="category">
+        <h3 class="text-lg font-heading font-bold text-plum-900 mb-3 flex items-center gap-2">
+          🔐 Authentication
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" data-category="auth">
+          <label class="tech-option"><input type="checkbox" value="outseta"> Outseta</label>
+          <label class="tech-option"><input type="checkbox" value="auth0"> Auth0</label>
+          <label class="tech-option"><input type="checkbox" value="clerk"> Clerk</label>
+          <label class="tech-option"><input type="checkbox" value="firebase-auth"> Firebase Auth</label>
+          <label class="tech-option"><input type="checkbox" value="supabase"> Supabase</label>
+        </div>
+      </div>
+
+      <!-- Payments -->
+      <div class="category">
+        <h3 class="text-lg font-heading font-bold text-plum-900 mb-3 flex items-center gap-2">
+          💰 Payments
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" data-category="payments">
+          <label class="tech-option"><input type="checkbox" value="stripe"> Stripe</label>
+          <label class="tech-option"><input type="checkbox" value="outseta-payments"> Outseta</label>
+          <label class="tech-option"><input type="checkbox" value="lemonsqueezy"> Lemon Squeezy</label>
+          <label class="tech-option"><input type="checkbox" value="paddle"> Paddle</label>
+        </div>
+      </div>
+
+      <!-- AI -->
+      <div class="category">
+        <h3 class="text-lg font-heading font-bold text-plum-900 mb-3 flex items-center gap-2">
+          🤖 AI & Tools
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" data-category="ai">
+          <label class="tech-option"><input type="checkbox" value="openai"> OpenAI</label>
+          <label class="tech-option"><input type="checkbox" value="claude"> Claude</label>
+          <label class="tech-option"><input type="checkbox" value="copilot"> GitHub Copilot</label>
+          <label class="tech-option"><input type="checkbox" value="cursor"> Cursor</label>
+          <label class="tech-option"><input type="checkbox" value="no-ai"> None yet</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rate Button -->
+    <div class="text-center mt-8">
+      <button 
+        id="rate-btn"
+        class="px-8 py-4 bg-plum-500 text-white font-heading font-bold text-lg rounded-lg hover:bg-plum-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled
+      >
+        ⚡ Rate My Stack!
+      </button>
+      <p class="text-sm text-plum-600 mt-2" id="selection-hint">
+        Select at least one technology to get your rating!
+      </p>
+    </div>
+  </div>
+
+  <!-- Results Display (hidden initially) -->
+  <div id="results" class="hidden bg-white rounded-lg shadow-lg border-2 border-plum-200 p-4 md:p-8 mb-6">
+    <div class="text-center mb-6">
+      <div id="rating-icon" class="text-6xl mb-3"></div>
+      <div id="rating-grade" class="text-3xl font-heading font-bold text-plum-900 mb-2"></div>
+      <div id="rating-title" class="text-xl text-plum-700 mb-4"></div>
+    </div>
+    
+    <!-- Rating Commentary -->
+    <div class="bg-plum-50 rounded-lg p-6 mb-6">
+      <h3 class="text-lg font-heading font-bold text-plum-900 mb-3">Cap'n's Commentary:</h3>
+      <div id="rating-commentary" class="text-plum-700 space-y-3"></div>
+    </div>
+
+    <!-- Stack Analysis -->
+    <div class="grid md:grid-cols-2 gap-6 mb-6">
+      <div class="bg-green-50 rounded-lg p-4">
+        <h4 class="font-heading font-bold text-green-800 mb-2 flex items-center gap-2">
+          ⚓ Strengths
+        </h4>
+        <ul id="stack-strengths" class="text-green-700 text-sm space-y-1"></ul>
+      </div>
+      
+      <div class="bg-amber-50 rounded-lg p-4">
+        <h4 class="font-heading font-bold text-amber-800 mb-2 flex items-center gap-2">
+          🌊 Suggestions
+        </h4>
+        <ul id="stack-suggestions" class="text-amber-700 text-sm space-y-1"></ul>
+      </div>
+    </div>
+
+    <!-- Share & Reset -->
+    <div class="text-center space-y-4">
+      <button 
+        id="share-btn"
+        class="px-6 py-3 bg-amber-400 text-plum-900 font-heading font-bold rounded-lg hover:bg-amber-500 transition-colors mr-4"
+      >
+        🏴‍☠️ Share My Rating
+      </button>
+      <button 
+        id="reset-btn"
+        class="px-6 py-3 bg-plum-500 text-white font-heading font-bold rounded-lg hover:bg-plum-600 transition-colors"
+      >
+        Rate Another Stack
+      </button>
+    </div>
+  </div>
+
+  <!-- Instructions -->
+  <div class="bg-plum-50 rounded-lg p-6">
+    <h3 class="text-lg font-heading font-bold text-plum-900 mb-3">How the Rating Works:</h3>
+    <ul class="text-plum-700 space-y-2">
+      <li>• <strong>Technology choices:</strong> Modern, well-supported tools score higher</li>
+      <li>• <strong>Stack coherence:</strong> Complementary technologies work together better</li>
+      <li>• <strong>Complexity balance:</strong> Neither too simple nor overly complex</li>
+      <li>• <strong>Community support:</strong> Popular tools with good ecosystems are favored</li>
+    </ul>
+    <p class="text-sm text-plum-500 mt-4">
+      Remember: Every stack serves different needs! This rating is for fun and general guidance. 
+      The best stack is the one that works for <em>your</em> project and team. 🦀
+    </p>
+  </div>
+</div>
+
+<style>
+  .tech-option {
+    @apply flex items-center gap-2 p-3 border-2 border-plum-200 rounded-lg cursor-pointer transition-colors hover:border-plum-300 hover:bg-plum-50;
+  }
+  
+  .tech-option input {
+    @apply sr-only;
+  }
+  
+  .tech-option input:checked + span,
+  .tech-option:has(input:checked) {
+    @apply bg-plum-500 text-white border-plum-500;
+  }
+  
+  .tech-option span {
+    @apply text-sm font-medium transition-colors;
+  }
+  
+  /* Fix for older browsers that don't support :has() */
+  .tech-option.selected {
+    @apply bg-plum-500 text-white border-plum-500;
+  }
+</style>
+
+<script>
+  class StackRater {
+    constructor() {
+      this.selectedTech = new Set();
+      this.ratings = this.initializeRatings();
+      
+      this.elements = {
+        form: document.getElementById('stack-form'),
+        results: document.getElementById('results'),
+        rateBtn: document.getElementById('rate-btn'),
+        shareBtn: document.getElementById('share-btn'),
+        resetBtn: document.getElementById('reset-btn'),
+        selectionHint: document.getElementById('selection-hint'),
+        ratingIcon: document.getElementById('rating-icon'),
+        ratingGrade: document.getElementById('rating-grade'),
+        ratingTitle: document.getElementById('rating-title'),
+        ratingCommentary: document.getElementById('rating-commentary'),
+        stackStrengths: document.getElementById('stack-strengths'),
+        stackSuggestions: document.getElementById('stack-suggestions')
+      };
+      
+      this.init();
+    }
+    
+    init() {
+      this.setupEventListeners();
+      this.updateUI();
+    }
+    
+    setupEventListeners() {
+      // Tech selection
+      document.querySelectorAll('.tech-option input').forEach(input => {
+        input.addEventListener('change', (e) => this.handleTechSelection(e));
+      });
+      
+      // Rate button
+      this.elements.rateBtn.addEventListener('click', () => this.generateRating());
+      
+      // Share button  
+      this.elements.shareBtn.addEventListener('click', () => this.shareRating());
+      
+      // Reset button
+      this.elements.resetBtn.addEventListener('click', () => this.resetForm());
+      
+      // Fix for browsers without :has() support
+      document.querySelectorAll('.tech-option input').forEach(input => {
+        input.addEventListener('change', function() {
+          this.parentElement.classList.toggle('selected', this.checked);
+        });
+      });
+    }
+    
+    handleTechSelection(event) {
+      const tech = event.target.value;
+      
+      if (event.target.checked) {
+        this.selectedTech.add(tech);
+      } else {
+        this.selectedTech.delete(tech);
+      }
+      
+      this.updateUI();
+    }
+    
+    updateUI() {
+      const hasSelections = this.selectedTech.size > 0;
+      this.elements.rateBtn.disabled = !hasSelections;
+      
+      if (hasSelections) {
+        this.elements.selectionHint.textContent = `${this.selectedTech.size} technologies selected`;
+        this.elements.selectionHint.classList.remove('text-plum-600');
+        this.elements.selectionHint.classList.add('text-green-600');
+      } else {
+        this.elements.selectionHint.textContent = 'Select at least one technology to get your rating!';
+        this.elements.selectionHint.classList.remove('text-green-600');
+        this.elements.selectionHint.classList.add('text-plum-600');
+      }
+    }
+    
+    generateRating() {
+      const techArray = Array.from(this.selectedTech);
+      const rating = this.calculateRating(techArray);
+      
+      this.displayRating(rating);
+      this.scrollToResults();
+    }
+    
+    calculateRating(stack) {
+      let score = 50; // Base score
+      const analysis = {
+        strengths: [],
+        suggestions: [],
+        commentary: []
+      };
+      
+      // Technology scoring
+      stack.forEach(tech => {
+        const techData = this.ratings.technologies[tech];
+        if (techData) {
+          score += techData.score;
+          if (techData.strength) analysis.strengths.push(techData.strength);
+        }
+      });
+      
+      // Stack combinations and patterns
+      this.evaluateStackPatterns(stack, analysis, score);
+      
+      // Determine grade
+      const grade = this.getGrade(Math.max(0, Math.min(100, score)));
+      
+      return {
+        grade: grade.tier,
+        title: grade.title,
+        icon: grade.icon,
+        score,
+        commentary: analysis.commentary,
+        strengths: analysis.strengths,
+        suggestions: analysis.suggestions,
+        stack: stack
+      };
+    }
+    
+    evaluateStackPatterns(stack, analysis, score) {
+      // Modern frameworks bonus
+      const modernFrameworks = ['astro', 'svelte', 'remix'];
+      if (stack.some(tech => modernFrameworks.includes(tech))) {
+        analysis.commentary.push("Ahoy! Ye be sailing with the winds of modern development!");
+        analysis.strengths.push("Using cutting-edge technologies");
+      }
+      
+      // JAMstack bonus
+      const jamStack = stack.includes('astro') || stack.includes('gatsby');
+      const goodHosting = stack.includes('netlify') || stack.includes('vercel');
+      if (jamStack && goodHosting) {
+        analysis.commentary.push("A fine JAMstack vessel! Fast as the Caribbean winds!");
+        analysis.strengths.push("Excellent performance with JAMstack architecture");
+      }
+      
+      // React ecosystem
+      if (stack.includes('react') && stack.includes('nextjs')) {
+        analysis.commentary.push("React and Next.js together? A battle-tested crew!");
+        analysis.strengths.push("Mature React ecosystem with excellent tooling");
+      }
+      
+      // WordPress warnings
+      if (stack.includes('wordpress') && stack.length > 4) {
+        analysis.commentary.push("WordPress with many tools? Careful ye don't sink the ship with complexity!");
+        analysis.suggestions.push("Consider if all these tools are necessary with WordPress");
+      }
+      
+      // No framework selected
+      const hasFramework = stack.some(tech => 
+        ['react', 'nextjs', 'astro', 'gatsby', 'vue', 'svelte', 'angular', 'wordpress', 'remix'].includes(tech)
+      );
+      if (!hasFramework) {
+        analysis.commentary.push("No framework? Ye be coding like it's 1995! Brave but... why?");
+        analysis.suggestions.push("Consider adopting a modern framework for better developer experience");
+      }
+      
+      // Good hosting choices
+      const excellentHosting = ['netlify', 'vercel', 'cloudflare'];
+      if (stack.some(tech => excellentHosting.includes(tech))) {
+        analysis.strengths.push("Modern hosting with excellent developer experience");
+      }
+      
+      // AI tools
+      if (stack.includes('cursor') && stack.includes('claude')) {
+        analysis.commentary.push("Claude AND Cursor? Ye be living in the future, matey!");
+        analysis.strengths.push("Cutting-edge AI development workflow");
+      }
+      
+      // Too many selections
+      if (stack.length > 8) {
+        analysis.commentary.push("Blimey! That's a lot of tools. Sometimes less is more, savvy?");
+        analysis.suggestions.push("Consider simplifying - focus on tools that work well together");
+      }
+      
+      // Minimal but functional
+      if (stack.length <= 3 && hasFramework) {
+        analysis.commentary.push("Minimal and focused? Respect! Sometimes the simplest ship sails fastest.");
+        analysis.strengths.push("Focused, minimal complexity");
+      }
+    }
+    
+    getGrade(score) {
+      if (score >= 85) return { tier: 'S', title: "Captain's Choice", icon: '🏴‍☠️' };
+      if (score >= 75) return { tier: 'A', title: 'A Fine Vessel', icon: '⚓' };
+      if (score >= 65) return { tier: 'B', title: 'Good Winds', icon: '🌊' };
+      if (score >= 50) return { tier: 'C', title: 'Rough Seas', icon: '⛵' };
+      return { tier: 'D', title: 'Taking on Water', icon: '🚢' };
+    }
+    
+    displayRating(rating) {
+      this.elements.ratingIcon.textContent = rating.icon;
+      this.elements.ratingGrade.textContent = `${rating.tier}-Tier: ${rating.title}`;
+      this.elements.ratingTitle.textContent = `Score: ${rating.score}/100`;
+      
+      // Commentary
+      if (rating.commentary.length === 0) {
+        rating.commentary.push("Yer stack be... adequate. Nothing special, but it'll get the job done.");
+      }
+      this.elements.ratingCommentary.innerHTML = rating.commentary
+        .map(comment => `<p>${comment}</p>`)
+        .join('');
+      
+      // Strengths
+      this.elements.stackStrengths.innerHTML = rating.strengths.length > 0
+        ? rating.strengths.map(strength => `<li>${strength}</li>`).join('')
+        : '<li>Every stack has potential - keep building!</li>';
+      
+      // Suggestions
+      if (rating.suggestions.length === 0) {
+        rating.suggestions.push("Keep experimenting and learning new tools");
+        rating.suggestions.push("Focus on mastering your chosen technologies");
+      }
+      this.elements.stackSuggestions.innerHTML = rating.suggestions
+        .map(suggestion => `<li>${suggestion}</li>`)
+        .join('');
+      
+      // Show results
+      this.elements.results.classList.remove('hidden');
+    }
+    
+    scrollToResults() {
+      this.elements.results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    
+    shareRating() {
+      const grade = this.elements.ratingGrade.textContent;
+      const techList = Array.from(this.selectedTech).join(', ');
+      
+      const shareText = `⚡ My tech stack got a ${grade} from the pirate captain! 🏴‍☠️\n\nStack: ${techList}\n\nRate your own at: ${window.location.href}`;
+      
+      if (navigator.share) {
+        navigator.share({
+          title: 'Rate My Stack ⚡',
+          text: shareText
+        });
+      } else {
+        navigator.clipboard.writeText(shareText).then(() => {
+          const originalText = this.elements.shareBtn.textContent;
+          this.elements.shareBtn.textContent = '✅ Copied to clipboard!';
+          setTimeout(() => {
+            this.elements.shareBtn.textContent = originalText;
+          }, 2000);
+        });
+      }
+    }
+    
+    resetForm() {
+      // Clear selections
+      this.selectedTech.clear();
+      
+      // Uncheck all inputs
+      document.querySelectorAll('.tech-option input').forEach(input => {
+        input.checked = false;
+        input.parentElement.classList.remove('selected');
+      });
+      
+      // Hide results
+      this.elements.results.classList.add('hidden');
+      
+      // Update UI
+      this.updateUI();
+      
+      // Scroll to top
+      this.elements.form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    
+    initializeRatings() {
+      return {
+        technologies: {
+          // Frameworks
+          'astro': { score: 15, strength: 'Excellent performance and developer experience' },
+          'react': { score: 12, strength: 'Massive ecosystem and community support' },
+          'nextjs': { score: 14, strength: 'Full-stack capabilities with great optimizations' },
+          'svelte': { score: 13, strength: 'Minimal bundle sizes and great performance' },
+          'vue': { score: 11, strength: 'Gentle learning curve and flexibility' },
+          'remix': { score: 13, strength: 'Web fundamentals with modern DX' },
+          'gatsby': { score: 8, strength: 'Great for static sites with GraphQL' },
+          'angular': { score: 6, strength: 'Enterprise-ready with TypeScript' },
+          'wordpress': { score: 4, strength: 'Huge ecosystem and ease of use' },
+          
+          // Hosting
+          'netlify': { score: 12, strength: 'Excellent JAMstack hosting and DX' },
+          'vercel': { score: 12, strength: 'Outstanding Next.js integration' },
+          'cloudflare': { score: 10, strength: 'Global edge network performance' },
+          'railway': { score: 8, strength: 'Simple deployment for full-stack apps' },
+          'aws': { score: 6, strength: 'Unlimited scalability and features' },
+          'digitalocean': { score: 7, strength: 'Developer-friendly cloud platform' },
+          'heroku': { score: 4, strength: 'Easy deployment but limited features' },
+          
+          // CMS
+          'sanity': { score: 10, strength: 'Excellent developer experience and flexibility' },
+          'contentful': { score: 8, strength: 'Mature headless CMS with good APIs' },
+          'markdown': { score: 12, strength: 'Simple, version-controllable content' },
+          'ghost': { score: 9, strength: 'Great for content-focused sites' },
+          'strapi': { score: 7, strength: 'Open source and customizable' },
+          'wordpress-cms': { score: 5, strength: 'Familiar interface for content creators' },
+          
+          // Auth
+          'clerk': { score: 11, strength: 'Modern auth with great UX' },
+          'supabase': { score: 10, strength: 'Full backend with auth included' },
+          'auth0': { score: 8, strength: 'Enterprise-grade authentication' },
+          'outseta': { score: 7, strength: 'All-in-one business platform' },
+          'firebase-auth': { score: 6, strength: 'Google ecosystem integration' },
+          
+          // Payments
+          'stripe': { score: 12, strength: 'Industry-standard payment processing' },
+          'lemonsqueezy': { score: 9, strength: 'Great for digital products' },
+          'paddle': { score: 8, strength: 'Good for SaaS businesses' },
+          'outseta-payments': { score: 7, strength: 'Integrated business solution' },
+          
+          // AI
+          'claude': { score: 12, strength: 'Excellent reasoning and coding capabilities' },
+          'cursor': { score: 11, strength: 'AI-powered IDE with great UX' },
+          'openai': { score: 10, strength: 'Powerful and versatile AI models' },
+          'copilot': { score: 9, strength: 'Great GitHub integration' },
+          'no-ai': { score: 0, strength: 'Old school coding - respectable!' }
+        }
+      };
+    }
+  }
+  
+  // Initialize when DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    new StackRater();
+  });
+</script>
