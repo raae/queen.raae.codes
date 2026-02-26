@@ -65,7 +65,7 @@ export const GET: APIRoute = async () => {
   const AVATAR_SIZE = 520;
   const AVATAR_RADIUS = AVATAR_SIZE / 2;
   const AVATAR_BORDER = 16;
-  const AVATAR_TOP = Math.round((HEIGHT - AVATAR_SIZE) / 2); // vertically centered
+  const AVATAR_TOP = Math.round((HEIGHT - AVATAR_SIZE) / 2) + 60; // shifted down a smidge
   const BLEED = Math.round(AVATAR_RADIUS * 0.35); // how much hangs off the edge
 
   const markup = {
@@ -153,7 +153,7 @@ export const GET: APIRoute = async () => {
                     borderRadius: "12px",
                     marginBottom: "12px",
                   },
-                  children: "Queen 👑  vs  AI 🦀",
+                  children: "👑 Queen  vs  AI 🦀",
                 },
               },
               // Big title
