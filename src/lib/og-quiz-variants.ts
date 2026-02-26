@@ -68,7 +68,8 @@ function text(children: string, style: Record<string, any>) {
   return { type: "div", props: { children, style } };
 }
 function box(style: Record<string, any>, children: any) {
-  return { type: "div", props: { style, children } };
+  const s = { display: "flex", ...style };
+  return { type: "div", props: { style: s, children } };
 }
 
 const queen = () => avatarUri("queen-avatar.jpg");
