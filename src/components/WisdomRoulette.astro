@@ -1,0 +1,277 @@
+---
+import wisdomQuotes from '../data/wisdom-quotes.json';
+---
+
+<div class="max-w-4xl mx-auto">
+  <!-- Slot Machine Container -->
+  <div class="bg-plum-50 border-2 border-plum-200 rounded-2xl p-8 shadow-lg">
+    <!-- Slot Machine Display -->
+    <div class="relative bg-plum-900 rounded-xl p-6 mb-6 min-h-[200px] flex items-center justify-center overflow-hidden">
+      <!-- Spinning Animation Container -->
+      <div id="quote-reel" class="text-center">
+        <div id="current-quote" class="text-plum-50 font-body text-lg md:text-xl leading-relaxed opacity-0 transition-opacity duration-500">
+          Click "Spin for Wisdom" to get your random Queen Raae quote!
+        </div>
+        <div id="quote-category" class="text-amber-400 font-heading text-sm uppercase tracking-wider mt-3 opacity-0 transition-opacity duration-500"></div>
+      </div>
+      
+      <!-- Spinning quotes (hidden during animation) -->
+      <div id="spinning-quotes" class="absolute inset-0 flex flex-col justify-center items-center opacity-0 pointer-events-none">
+        <!-- These will be populated dynamically -->
+      </div>
+    </div>
+    
+    <!-- Controls -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <button 
+        id="spin-btn"
+        class="bg-amber-500 hover:bg-amber-600 text-amber-900 font-heading font-bold py-3 px-8 rounded-full transition-colors duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        🎰 Spin for Wisdom
+      </button>
+      
+      <button 
+        id="share-btn"
+        class="bg-plum-600 hover:bg-plum-700 text-plum-50 font-heading font-medium py-3 px-6 rounded-full transition-colors duration-200 shadow-md hover:shadow-lg opacity-50 cursor-not-allowed"
+        disabled
+      >
+        📋 Share this Wisdom
+      </button>
+      
+      <button 
+        id="spin-again-btn"
+        class="bg-plum-200 hover:bg-plum-300 text-plum-800 font-heading font-medium py-3 px-6 rounded-full transition-colors duration-200 shadow-md hover:shadow-lg opacity-50 cursor-not-allowed hidden"
+        disabled
+      >
+        🎲 Spin Again
+      </button>
+    </div>
+    
+    <!-- Stats -->
+    <div class="text-center mt-6 text-plum-600">
+      <p class="font-body text-sm">
+        <span id="spin-count">0</span> wisdom spins • <span id="quotes-total">{wisdomQuotes.length}</span> Queen quotes available
+      </p>
+    </div>
+  </div>
+  
+  <!-- Categories Legend -->
+  <div class="mt-8 text-center">
+    <h3 class="font-heading font-bold text-plum-800 mb-4">Wisdom Categories</h3>
+    <div class="flex flex-wrap justify-center gap-2">
+      <span class="bg-plum-100 text-plum-700 px-3 py-1 rounded-full text-sm font-medium">🚢 Bootstrapping</span>
+      <span class="bg-plum-100 text-plum-700 px-3 py-1 rounded-full text-sm font-medium">🤖 AI Tools</span>
+      <span class="bg-plum-100 text-plum-700 px-3 py-1 rounded-full text-sm font-medium">👨‍👩‍👧‍👦 Family Business</span>
+      <span class="bg-plum-100 text-plum-700 px-3 py-1 rounded-full text-sm font-medium">🚀 Shipping</span>
+      <span class="bg-plum-100 text-plum-700 px-3 py-1 rounded-full text-sm font-medium">💻 Dev Life</span>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ quotes: wisdomQuotes }}>
+  let currentQuote = null;
+  let spinCount = 0;
+  let isSpinning = false;
+
+  // DOM elements
+  const spinBtn = document.getElementById('spin-btn');
+  const shareBtn = document.getElementById('share-btn');
+  const spinAgainBtn = document.getElementById('spin-again-btn');
+  const currentQuoteEl = document.getElementById('current-quote');
+  const quoteCategoryEl = document.getElementById('quote-category');
+  const spinCountEl = document.getElementById('spin-count');
+  const spinningQuotesEl = document.getElementById('spinning-quotes');
+  const quoteReel = document.getElementById('quote-reel');
+
+  // Category emojis
+  const categoryEmojis = {
+    'bootstrapping': '🚢',
+    'ai-tools': '🤖',
+    'family-business': '👨‍👩‍👧‍👦',
+    'shipping': '🚀',
+    'dev-life': '💻'
+  };
+
+  function getRandomQuote() {
+    return quotes[Math.floor(Math.random() * quotes.length)];
+  }
+
+  function createSpinningEffect() {
+    // Clear previous spinning quotes
+    spinningQuotesEl.innerHTML = '';
+    
+    // Create multiple quote elements for spinning effect
+    for (let i = 0; i < 5; i++) {
+      const quote = getRandomQuote();
+      const quoteEl = document.createElement('div');
+      quoteEl.className = 'spinning-quote text-plum-50 font-body text-lg opacity-70 mb-4';
+      quoteEl.textContent = quote.quote.length > 100 ? quote.quote.substring(0, 100) + '...' : quote.quote;
+      spinningQuotesEl.appendChild(quoteEl);
+    }
+  }
+
+  function animateSpinning() {
+    return new Promise((resolve) => {
+      // Hide current quote, show spinning container
+      currentQuoteEl.style.opacity = '0';
+      quoteCategoryEl.style.opacity = '0';
+      
+      setTimeout(() => {
+        createSpinningEffect();
+        spinningQuotesEl.style.opacity = '1';
+        
+        // Animate the spinning quotes moving up
+        const quotes = spinningQuotesEl.querySelectorAll('.spinning-quote');
+        let animationIndex = 0;
+        
+        const animateNext = () => {
+          if (animationIndex < quotes.length * 3) { // Spin 3 times through
+            const currentIndex = animationIndex % quotes.length;
+            
+            // Hide all quotes
+            quotes.forEach(q => q.style.opacity = '0.3');
+            
+            // Highlight current quote
+            quotes[currentIndex].style.opacity = '1';
+            quotes[currentIndex].style.transform = 'scale(1.05)';
+            
+            animationIndex++;
+            setTimeout(animateNext, Math.max(50, 200 - animationIndex * 2)); // Speed up over time
+          } else {
+            // Hide spinning container and show final result
+            spinningQuotesEl.style.opacity = '0';
+            setTimeout(resolve, 300);
+          }
+        };
+        
+        animateNext();
+      }, 200);
+    });
+  }
+
+  function displayQuote(quote) {
+    currentQuote = quote;
+    currentQuoteEl.textContent = quote.quote;
+    quoteCategoryEl.textContent = `${categoryEmojis[quote.category]} ${quote.category.replace('-', ' ')}`;
+    
+    // Fade in the quote
+    setTimeout(() => {
+      currentQuoteEl.style.opacity = '1';
+      quoteCategoryEl.style.opacity = '1';
+    }, 100);
+  }
+
+  function updateUI() {
+    spinCountEl.textContent = spinCount;
+    
+    if (currentQuote) {
+      // Enable share button
+      shareBtn.disabled = false;
+      shareBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      
+      // Show and enable spin again button
+      spinAgainBtn.classList.remove('hidden');
+      spinAgainBtn.disabled = false;
+      spinAgainBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      
+      // Change main button text
+      spinBtn.textContent = '🎰 New Wisdom';
+    }
+  }
+
+  async function spinForWisdom() {
+    if (isSpinning) return;
+    
+    isSpinning = true;
+    spinBtn.disabled = true;
+    spinBtn.textContent = '🎰 Spinning...';
+    
+    // Animate spinning
+    await animateSpinning();
+    
+    // Get and display random quote
+    const quote = getRandomQuote();
+    displayQuote(quote);
+    
+    spinCount++;
+    updateUI();
+    
+    // Re-enable button
+    isSpinning = false;
+    spinBtn.disabled = false;
+  }
+
+  function shareWisdom() {
+    if (!currentQuote) return;
+    
+    const shareText = `"${currentQuote.quote}"\n\n— Queen Raae wisdom from the Wisdom Roulette 🎰\n\n${window.location.origin}/wisdom-roulette`;
+    
+    // Try to use the Web Share API first
+    if (navigator.share) {
+      navigator.share({
+        title: 'Queen Raae Wisdom',
+        text: shareText,
+        url: window.location.href
+      }).catch(console.error);
+    } else {
+      // Fallback to clipboard
+      navigator.clipboard.writeText(shareText).then(() => {
+        // Show feedback
+        const originalText = shareBtn.textContent;
+        shareBtn.textContent = '✅ Copied!';
+        shareBtn.style.backgroundColor = '#10b981';
+        
+        setTimeout(() => {
+          shareBtn.textContent = originalText;
+          shareBtn.style.backgroundColor = '';
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy to clipboard:', err);
+        alert('Unable to copy to clipboard. Please copy manually:\n\n' + shareText);
+      });
+    }
+  }
+
+  // Event listeners
+  spinBtn.addEventListener('click', spinForWisdom);
+  shareBtn.addEventListener('click', shareWisdom);
+  spinAgainBtn.addEventListener('click', spinForWisdom);
+
+  // Initialize with welcome state
+  setTimeout(() => {
+    currentQuoteEl.style.opacity = '1';
+  }, 500);
+</script>
+
+<style>
+  .spinning-quote {
+    transition: opacity 0.1s ease, transform 0.1s ease;
+  }
+  
+  /* Add a subtle glow effect to the slot machine display */
+  #quote-reel {
+    position: relative;
+  }
+  
+  #quote-reel::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+      rgba(245, 158, 11, 0.3), 
+      rgba(245, 158, 11, 0.1), 
+      rgba(245, 158, 11, 0.3)
+    );
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .spinning #quote-reel::before {
+    opacity: 1;
+  }
+</style>

@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import WisdomRoulette from '../components/WisdomRoulette.astro';
+import PageSectionHeader from '../components/PageSectionHeader.astro';
+
+const title = 'Wisdom Roulette 🎰';
+const description = 'Spin the wheel to get random Queen Raae quotes about bootstrapping, dev life, family business, shipping, and AI tools. Wisdom from the Slow & Steady podcast universe!';
+---
+
+<BaseLayout title={title} description={description}>
+  <SiteHeader />
+  <PageSectionHeader 
+    title="Wisdom Roulette 🎰" 
+    lead="Spin for random Queen&nbsp;Raae wisdom from the Slow&nbsp;&&nbsp;Steady universe"
+    class="text-center"
+    breadcrumbs={[
+      { href: '/', title: 'Home' },
+      { href: '/wisdom-roulette', title: 'Wisdom Roulette' }
+    ]} 
+  />
+  
+  <section class="py-6 md:py-12 px-4">
+    <div class="container mx-auto">
+      <WisdomRoulette />
+    </div>
+  </section>
+  
+  <!-- About Section -->
+  <section class="py-8 px-4 bg-brown-50">
+    <div class="container mx-auto max-w-4xl">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-heading font-bold text-plum-900 mb-4">About Wisdom Roulette</h3>
+          <p class="text-plum-700 mb-4">
+            Get instant inspiration with Queen Raae's most quotable moments from the "Slow & Steady" 
+            podcast universe. Each spin delivers authentic wisdom about bootstrapping, developer life, 
+            family integration, and building sustainable businesses.
+          </p>
+          <p class="text-plum-700">
+            These quotes capture Queen's direct, opinionated style with her signature pirate-themed 
+            metaphors and practical insights for indie hackers and family business builders.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-heading font-bold text-plum-900 mb-4">What You'll Find</h3>
+          <ul class="text-plum-700 space-y-2">
+            <li>⚜ <strong>25+ curated quotes</strong> in Queen's authentic voice</li>
+            <li>⚜ <strong>5 wisdom categories</strong> covering key business and dev topics</li>
+            <li>⚜ <strong>Slot machine animation</strong> for that extra spin of fun</li>
+            <li>⚜ <strong>Share functionality</strong> to spread the wisdom</li>
+            <li>⚜ <strong>Royal design</strong> matching the Queen's brand aesthetic</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Quote Philosophy -->
+      <div class="mt-12 text-center max-w-2xl mx-auto">
+        <h3 class="text-xl font-heading font-bold text-plum-900 mb-4">The Philosophy</h3>
+        <blockquote class="text-plum-700 font-body text-lg italic border-l-4 border-amber-400 pl-6">
+          "Every piece of advice is a treasure map. Some lead to gold, some to lessons, 
+          but every map teaches you something about the territory you're exploring."
+        </blockquote>
+        <p class="text-plum-600 mt-4 text-sm">— The spirit behind every wisdom spin</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <section class="py-8 px-4 bg-plum-50">
+    <div class="container mx-auto max-w-2xl text-center">
+      <h3 class="text-2xl font-heading font-bold text-plum-900 mb-4">Ready for More Wisdom?</h3>
+      <p class="text-plum-700 mb-6">
+        These quotes are just a taste of the insights shared on the Slow & Steady podcast. 
+        Dive deeper into Queen Raae's thoughts on building sustainable businesses and living the indie life.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href="/podcast" 
+          class="bg-plum-600 hover:bg-plum-700 text-plum-50 font-heading font-medium py-3 px-6 rounded-full transition-colors duration-200 shadow-md hover:shadow-lg"
+        >
+          🎧 Listen to the Podcast
+        </a>
+        <a 
+          href="/newsletter" 
+          class="bg-amber-500 hover:bg-amber-600 text-amber-900 font-heading font-medium py-3 px-6 rounded-full transition-colors duration-200 shadow-md hover:shadow-lg"
+        >
+          📬 Get Weekly Insights
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

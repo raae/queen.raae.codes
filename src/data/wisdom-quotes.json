@@ -1,0 +1,127 @@
+[
+  {
+    "id": 1,
+    "quote": "Don't wait for the perfect storm to set sail – launch your ship and adjust the sails as you go. Every day you delay is a day your competitors get ahead.",
+    "category": "bootstrapping"
+  },
+  {
+    "id": 2,
+    "quote": "AI tools are like having a very enthusiastic intern – they'll do exactly what you ask, but you better be crystal clear about what you actually want.",
+    "category": "ai-tools"
+  },
+  {
+    "id": 3,
+    "quote": "Family business isn't about choosing between family and business – it's about building something so aligned with your values that the two become one treasure map.",
+    "category": "family-business"
+  },
+  {
+    "id": 4,
+    "quote": "Ship early, ship often, ship scared. The market will teach you more in a week than your brain will in a year of planning.",
+    "category": "shipping"
+  },
+  {
+    "id": 5,
+    "quote": "Being a solo developer is like being a one-person pirate crew – you're the captain, the navigator, and the person swabbing the deck. Embrace the chaos.",
+    "category": "dev-life"
+  },
+  {
+    "id": 6,
+    "quote": "Don't build what you think people want. Build what you wish existed, then find the people who've been wishing for the same thing.",
+    "category": "bootstrapping"
+  },
+  {
+    "id": 7,
+    "quote": "Every 'overnight success' is really just someone who got really good at failing fast and learning faster. Master the art of productive failure.",
+    "category": "bootstrapping"
+  },
+  {
+    "id": 8,
+    "quote": "Your first thousand lines of code will be terrible. Your first thousand customers will be confused. That's not failure – that's tuition for your real education.",
+    "category": "dev-life"
+  },
+  {
+    "id": 9,
+    "quote": "AI won't replace developers, but developers who use AI will replace developers who don't. Learn to dance with the robots.",
+    "category": "ai-tools"
+  },
+  {
+    "id": 10,
+    "quote": "Working from home with kids is like coding during a very loud, very unpredictable user acceptance test. Embrace the interruptions – they're feature requests from your most important clients.",
+    "category": "family-business"
+  },
+  {
+    "id": 11,
+    "quote": "Stop optimizing for the perfect launch. Start optimizing for the perfect learning loop. Every iteration should make you smarter, not just prettier.",
+    "category": "shipping"
+  },
+  {
+    "id": 12,
+    "quote": "Your side project is not a hobby – it's your research and development department. Treat it with the respect it deserves.",
+    "category": "bootstrapping"
+  },
+  {
+    "id": 13,
+    "quote": "Debug your assumptions before you debug your code. Most bugs live in the space between what you think you built and what you actually built.",
+    "category": "dev-life"
+  },
+  {
+    "id": 14,
+    "quote": "Building a family business is like raising kids and growing a garden at the same time – everything needs attention, but not everything needs it right now.",
+    "category": "family-business"
+  },
+  {
+    "id": 15,
+    "quote": "The best AI prompt is like the best code comment – it explains not just what you want, but why you want it and what good looks like.",
+    "category": "ai-tools"
+  },
+  {
+    "id": 16,
+    "quote": "Revenue is not the scoreboard – it's the fuel. Keep your tank full, but remember you're racing toward impact, not just income.",
+    "category": "bootstrapping"
+  },
+  {
+    "id": 17,
+    "quote": "Every developer needs three skills: the ability to break things, the patience to fix them, and the wisdom to know which is which.",
+    "category": "dev-life"
+  },
+  {
+    "id": 18,
+    "quote": "Don't ship features, ship solutions. Don't ship solutions, ship understanding. Don't ship understanding, ship transformation.",
+    "category": "shipping"
+  },
+  {
+    "id": 19,
+    "quote": "Working with family means you can't fire your co-founders, but you also can't quit on them. That constraint breeds the kind of commitment that builds empires.",
+    "category": "family-business"
+  },
+  {
+    "id": 20,
+    "quote": "AI is not magic – it's a very powerful pattern recognition engine. Feed it good patterns, get good results. Feed it garbage, get expensive garbage.",
+    "category": "ai-tools"
+  },
+  {
+    "id": 21,
+    "quote": "Your minimum viable product should be embarrassingly small but defiantly useful. If you're not a little ashamed of your first version, you waited too long.",
+    "category": "shipping"
+  },
+  {
+    "id": 22,
+    "quote": "Bootstrap like a pirate: take what you can, give nothing back to venture capital, and always keep your treasure map close to your chest.",
+    "category": "bootstrapping"
+  },
+  {
+    "id": 23,
+    "quote": "The best code is not the cleverest code – it's the code that makes the next developer smile instead of swear. Future you will thank present you.",
+    "category": "dev-life"
+  },
+  {
+    "id": 24,
+    "quote": "Family meetings are just sprint retrospectives with higher emotional stakes and better snacks. Apply the same rules: be honest, be kind, be focused.",
+    "category": "family-business"
+  },
+  {
+    "id": 25,
+    "quote": "Stop asking AI to write your code and start asking it to explain the code you're about to write. The best AI is a really good rubber duck.",
+    "category": "ai-tools"
+  }
+]
