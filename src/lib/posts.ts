@@ -50,6 +50,7 @@ export async function getAllPosts(): Promise<ProcessedPost[]> {
     const body = entry.body || "";
     const plainText = body
       .replace(/^---[\s\S]*?---\s*/m, "") // Remove frontmatter if present
+      .replace(/<[^>]+>/g, "") // Remove HTML tags (audio, source, etc.)
       .replace(/!\[.*?\]\(.*?\)/g, "") // Remove images
       .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1") // Replace links with text
       .replace(/#{1,6}\s+/g, "") // Remove headings
