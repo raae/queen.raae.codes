@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import QueensCourt from '../components/QueensCourt.astro';
+import PageSectionHeader from '../components/PageSectionHeader.astro';
+
+const title = "The Queen's Court";
+const description = 'Submit your petitions, questions, and comments to the Queen. A royal-themed guestbook where visitors can petition the queen with wisdom sought, bug reports, feature requests, and more.';
+---
+
+<BaseLayout title={title} description={description}>
+  <SiteHeader />
+  <PageSectionHeader 
+    title="The Queen's Court" 
+    lead="Submit your petitions, questions, and comments to Her&nbsp;Royal&nbsp;Majesty"
+    class="text-center"
+    breadcrumbs={[
+      { href: '/', title: 'Home' },
+      { href: '/queens-court', title: "The Queen's Court" }
+    ]} 
+  />
+  
+  <section class="py-6 md:py-12 px-4">
+    <div class="container mx-auto">
+      <QueensCourt />
+    </div>
+  </section>
+  
+  <!-- Meta Info Section -->
+  <section class="py-8 px-4 bg-brown-50">
+    <div class="container mx-auto max-w-4xl">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-heading font-bold text-plum-900 mb-4">About The Court</h3>
+          <p class="text-plum-700 mb-4">
+            Welcome to The Queen's Court, where subjects may petition Her Royal Majesty 
+            with questions, wisdom sought, bug reports, feature requests, and royal complaints.
+          </p>
+          <p class="text-plum-700">
+            All petitions are stored locally in your browser as this is a prototype royal system. 
+            Your wisdom and feedback help shape the kingdom's digital realm.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-heading font-bold text-plum-900 mb-4">Petition Categories</h3>
+          <ul class="text-plum-700 space-y-2">
+            <li>• <strong>Wisdom Sought</strong> - Seek the Queen's sage advice</li>
+            <li>• <strong>Bug Report</strong> - Report issues in the digital kingdom</li>
+            <li>• <strong>Feature Request</strong> - Suggest improvements to the realm</li>
+            <li>• <strong>Royal Complaint</strong> - Voice concerns to the crown</li>
+            <li>• <strong>Praise & Glory</strong> - Celebrate achievements and victories</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

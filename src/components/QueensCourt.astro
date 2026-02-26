@@ -1,0 +1,300 @@
+---
+import Badge from './Badge.astro';
+---
+
+<div class="max-w-4xl mx-auto">
+  <!-- Petition Stats -->
+  <div class="text-center mb-6">
+    <div class="flex justify-center items-center gap-4 text-lg text-plum-600">
+      <span>⚜</span>
+      <span>Total Petitions: <span id="petition-count" class="font-bold text-plum-800">0</span></span>
+      <span>👑</span>
+    </div>
+  </div>
+
+  <!-- Petition Form -->
+  <div class="bg-gradient-to-br from-amber-50 to-amber-100 rounded-lg shadow-lg border-2 border-amber-300 p-6 md:p-8 mb-8 relative">
+    <!-- Ornamental corners -->
+    <div class="absolute top-2 left-2 text-amber-600 text-2xl">⚜</div>
+    <div class="absolute top-2 right-2 text-amber-600 text-2xl">👑</div>
+    <div class="absolute bottom-2 left-2 text-amber-600 text-2xl">👑</div>
+    <div class="absolute bottom-2 right-2 text-amber-600 text-2xl">⚜</div>
+    
+    <h2 class="text-2xl font-heading font-bold text-plum-900 text-center mb-6">Submit Your Royal Petition</h2>
+    
+    <form id="petition-form" class="space-y-6">
+      <!-- Name Field -->
+      <div>
+        <label for="petitioner-name" class="block text-sm font-heading font-bold text-plum-900 mb-2">
+          Your Name (or "Anonymous Pirate")
+        </label>
+        <input 
+          type="text" 
+          id="petitioner-name" 
+          name="petitioner-name"
+          class="w-full px-4 py-3 border-2 border-plum-300 rounded-lg focus:border-plum-500 focus:outline-none bg-white/80"
+          placeholder="Enter your name..."
+          required
+        />
+      </div>
+
+      <!-- Category Field -->
+      <div>
+        <label for="petition-category" class="block text-sm font-heading font-bold text-plum-900 mb-2">
+          Petition Category
+        </label>
+        <select 
+          id="petition-category" 
+          name="petition-category"
+          class="w-full px-4 py-3 border-2 border-plum-300 rounded-lg focus:border-plum-500 focus:outline-none bg-white/80"
+          required
+        >
+          <option value="">Choose your petition type...</option>
+          <option value="wisdom-sought">Wisdom Sought</option>
+          <option value="bug-report">Bug Report</option>
+          <option value="feature-request">Feature Request</option>
+          <option value="royal-complaint">Royal Complaint</option>
+          <option value="praise-glory">Praise & Glory</option>
+        </select>
+      </div>
+
+      <!-- Petition Text -->
+      <div>
+        <label for="petition-text" class="block text-sm font-heading font-bold text-plum-900 mb-2">
+          Your Petition
+        </label>
+        <textarea 
+          id="petition-text" 
+          name="petition-text"
+          rows="4"
+          class="w-full px-4 py-3 border-2 border-plum-300 rounded-lg focus:border-plum-500 focus:outline-none bg-white/80 resize-none"
+          placeholder="Write your petition to the Queen..."
+          required
+        ></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button 
+          type="submit"
+          class="px-8 py-3 bg-plum-600 text-white font-heading font-bold rounded-lg hover:bg-plum-700 transition-colors border-2 border-plum-600 shadow-lg"
+        >
+          👑 Submit Petition
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Ornamental Divider -->
+  <div class="text-center text-3xl text-plum-400 mb-8">
+    ⚜ 👑 ⚜
+  </div>
+
+  <!-- Petitions Display -->
+  <div id="petitions-container">
+    <h2 class="text-2xl font-heading font-bold text-plum-900 text-center mb-6">Royal Petition Scroll</h2>
+    
+    <!-- Empty State -->
+    <div id="empty-state" class="text-center py-12 text-plum-500">
+      <div class="text-6xl mb-4">📜</div>
+      <p class="text-lg font-body italic">The royal scroll awaits your first petition...</p>
+    </div>
+
+    <!-- Petitions List -->
+    <div id="petitions-list" class="space-y-6"></div>
+  </div>
+</div>
+
+<!-- JavaScript for functionality -->
+<script>
+  // Category badge styles
+  const categoryStyles = {
+    'wisdom-sought': 'bg-purple-600 text-white',
+    'bug-report': 'bg-red-600 text-white',
+    'feature-request': 'bg-blue-600 text-white', 
+    'royal-complaint': 'bg-orange-600 text-white',
+    'praise-glory': 'bg-green-600 text-white'
+  };
+
+  // Category display names
+  const categoryNames = {
+    'wisdom-sought': 'Wisdom Sought',
+    'bug-report': 'Bug Report',
+    'feature-request': 'Feature Request',
+    'royal-complaint': 'Royal Complaint',
+    'praise-glory': 'Praise & Glory'
+  };
+
+  // Pre-seeded example petitions
+  const seedPetitions = [
+    {
+      id: 'seed-1',
+      name: 'Sir Dev the Debugger',
+      category: 'bug-report',
+      text: 'Your Majesty, the contact form on the royal website seems to have vanished into the digital ether. Might we summon it back from the void?',
+      timestamp: new Date('2024-02-25T10:30:00').getTime()
+    },
+    {
+      id: 'seed-2', 
+      name: 'Lady Bootstrap',
+      category: 'wisdom-sought',
+      text: 'Wise Queen, I seek guidance on balancing the art of slow and steady growth with the pressure to ship features at lightning speed. How does one maintain sanity while building?',
+      timestamp: new Date('2024-02-24T14:15:00').getTime()
+    },
+    {
+      id: 'seed-3',
+      name: 'Captain Feature Request',
+      category: 'feature-request', 
+      text: 'Ahoy! Could we perhaps add a dark mode to the kingdom? These old pirate eyes grow weary of the bright parchment in the depths of night.',
+      timestamp: new Date('2024-02-23T19:45:00').getTime()
+    },
+    {
+      id: 'seed-4',
+      name: 'Anonymous Pirate',
+      category: 'praise-glory',
+      text: 'The "Slow & Steady" podcast has been a beacon of hope in my entrepreneurial journey. Thank you for sharing your wisdom with fellow bootstrappers!',
+      timestamp: new Date('2024-02-22T08:20:00').getTime()
+    },
+    {
+      id: 'seed-5',
+      name: 'Duke of Documentation',
+      category: 'royal-complaint',
+      text: 'Your Highness, while I greatly admire the royal codebase, might we petition for more detailed README scrolls? This humble developer struggles to decipher the ancient installation incantations.',
+      timestamp: new Date('2024-02-21T16:00:00').getTime()
+    },
+    {
+      id: 'seed-6',
+      name: 'Princess Progressive Enhancement',
+      category: 'wisdom-sought',
+      text: 'Royal Queen, how does one convince clients that accessibility and progressive enhancement are not mere suggestions, but royal decrees for a better web?',
+      timestamp: new Date('2024-02-20T11:30:00').getTime()
+    }
+  ];
+
+  // Storage key
+  const STORAGE_KEY = 'queens-court-petitions';
+
+  // DOM elements
+  const form = document.getElementById('petition-form');
+  const petitionsList = document.getElementById('petitions-list');
+  const emptyState = document.getElementById('empty-state');
+  const petitionCount = document.getElementById('petition-count');
+
+  // Initialize the court
+  function initializeQueensCourt() {
+    const storedPetitions = localStorage.getItem(STORAGE_KEY);
+    
+    if (!storedPetitions) {
+      // First time - seed with examples
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(seedPetitions));
+    }
+    
+    displayPetitions();
+    updatePetitionCount();
+  }
+
+  // Create petition HTML
+  function createPetitionHTML(petition) {
+    const date = new Date(petition.timestamp).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long', 
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+
+    const categoryClass = categoryStyles[petition.category] || 'bg-gray-600 text-white';
+    const categoryName = categoryNames[petition.category] || petition.category;
+
+    return `
+      <div class="bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-200 rounded-lg p-6 shadow-md relative">
+        <!-- Ornamental wax seal -->
+        <div class="absolute -top-3 -right-3 w-12 h-12 ${categoryClass} rounded-full flex items-center justify-center text-xs font-bold shadow-lg">
+          ${categoryName.split(' ')[0]}
+        </div>
+        
+        <div class="pr-6">
+          <!-- Petition header -->
+          <div class="flex items-center gap-2 mb-3 text-sm text-plum-600">
+            <span class="font-heading font-bold">${petition.name}</span>
+            <span>•</span>
+            <span class="italic">${date}</span>
+          </div>
+          
+          <!-- Category badge -->
+          <div class="mb-3">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-heading font-bold ${categoryClass}">
+              ${categoryName}
+            </span>
+          </div>
+          
+          <!-- Petition text -->
+          <div class="text-plum-800 font-body leading-relaxed">
+            ${petition.text}
+          </div>
+        </div>
+        
+        <!-- Ornamental bottom -->
+        <div class="text-center text-amber-600 text-lg mt-4 border-t border-amber-300 pt-2">
+          ⚜ ⚜ ⚜
+        </div>
+      </div>
+    `;
+  }
+
+  // Display all petitions
+  function displayPetitions() {
+    const petitions = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    
+    if (petitions.length === 0) {
+      emptyState.style.display = 'block';
+      petitionsList.style.display = 'none';
+    } else {
+      emptyState.style.display = 'none';
+      petitionsList.style.display = 'block';
+      
+      // Sort by timestamp (newest first)
+      petitions.sort((a, b) => b.timestamp - a.timestamp);
+      
+      petitionsList.innerHTML = petitions.map(createPetitionHTML).join('');
+    }
+  }
+
+  // Update petition count
+  function updatePetitionCount() {
+    const petitions = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    petitionCount.textContent = petitions.length;
+  }
+
+  // Handle form submission
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+    const newPetition = {
+      id: 'petition-' + Date.now(),
+      name: formData.get('petitioner-name').trim(),
+      category: formData.get('petition-category'),
+      text: formData.get('petition-text').trim(),
+      timestamp: Date.now()
+    };
+
+    // Get existing petitions and add new one
+    const petitions = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    petitions.push(newPetition);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(petitions));
+
+    // Reset form and update display
+    form.reset();
+    displayPetitions();
+    updatePetitionCount();
+
+    // Scroll to petitions section
+    document.getElementById('petitions-container').scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  });
+
+  // Initialize when page loads
+  initializeQueensCourt();
+</script>
