@@ -153,7 +153,7 @@ export const GET: APIRoute = async () => {
                     borderRadius: "12px",
                     marginBottom: "12px",
                   },
-                  children: "👑 Queen  vs  AI 🦀",
+                  children: "👑 Queen  vs  Jean-Claw (AI) 🦀",
                 },
               },
               // Big title
