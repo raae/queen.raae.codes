@@ -21,7 +21,6 @@ function getAvatarDataUri(filename: string): string {
   return `data:image/jpeg;base64,${buf.toString("base64")}`;
 }
 
-// Emoji support for Satori
 const U200D = String.fromCharCode(8205);
 const UFE0Fg = /\uFE0F/g;
 
@@ -62,9 +61,10 @@ export const GET: APIRoute = async () => {
   const queenAvatar = getAvatarDataUri("queen-avatar.jpg");
   const jeanclawAvatar = getAvatarDataUri("jeanclaw-avatar.jpg");
 
-  const AVATAR_SIZE = 260;
+  // Large avatars that bleed off edges (like the standard OG template)
+  const AVATAR_SIZE = HEIGHT; // 628px — full height, same as standard OG
   const AVATAR_RADIUS = AVATAR_SIZE / 2;
-  const AVATAR_BORDER = 8;
+  const AVATAR_BORDER = Math.round(HEIGHT * 0.03); // ~19px
 
   const markup = {
     type: "div",
@@ -79,6 +79,40 @@ export const GET: APIRoute = async () => {
         position: "relative",
       },
       children: [
+        // Queen avatar — bleeds off left edge and bottom
+        {
+          type: "img",
+          props: {
+            src: queenAvatar,
+            style: {
+              position: "absolute",
+              top: `${Math.round(AVATAR_RADIUS * 0.4)}px`,
+              left: `${-Math.round(AVATAR_RADIUS * 0.5)}px`,
+              width: `${AVATAR_SIZE}px`,
+              height: `${AVATAR_SIZE}px`,
+              borderRadius: `${AVATAR_RADIUS}px`,
+              border: `${AVATAR_BORDER}px solid #ffde59`,
+              objectFit: "cover",
+            },
+          },
+        },
+        // Jean-Claw avatar — bleeds off right edge and bottom
+        {
+          type: "img",
+          props: {
+            src: jeanclawAvatar,
+            style: {
+              position: "absolute",
+              top: `${Math.round(AVATAR_RADIUS * 0.4)}px`,
+              right: `${-Math.round(AVATAR_RADIUS * 0.5)}px`,
+              width: `${AVATAR_SIZE}px`,
+              height: `${AVATAR_SIZE}px`,
+              borderRadius: `${AVATAR_RADIUS}px`,
+              border: `${AVATAR_BORDER}px solid #16a34a`,
+              objectFit: "cover",
+            },
+          },
+        },
         // Top accent bar
         {
           type: "div",
@@ -90,119 +124,57 @@ export const GET: APIRoute = async () => {
             },
           },
         },
-        // Main content
+        // Center content (text over everything)
         {
           type: "div",
           props: {
             style: {
               display: "flex",
               flex: 1,
+              flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              padding: "20px 60px",
+              position: "relative",
             },
             children: [
-              // Queen side
+              // Labels row
               {
                 type: "div",
                 props: {
                   style: {
                     display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    flex: 1,
+                    width: "100%",
+                    justifyContent: "space-between",
+                    padding: "0 80px",
+                    marginBottom: "8px",
                   },
                   children: [
-                    {
-                      type: "img",
-                      props: {
-                        src: queenAvatar,
-                        style: {
-                          width: `${AVATAR_SIZE}px`,
-                          height: `${AVATAR_SIZE}px`,
-                          borderRadius: `${AVATAR_RADIUS}px`,
-                          border: `${AVATAR_BORDER}px solid #ffde59`,
-                          objectFit: "cover",
-                        },
-                      },
-                    },
                     {
                       type: "div",
                       props: {
                         style: {
                           fontFamily: "Montserrat",
                           fontWeight: 900,
-                          fontSize: "32px",
+                          fontSize: "28px",
                           color: PRIMARY_TEXT,
-                          marginTop: "16px",
+                          backgroundColor: BG_COLOR,
+                          padding: "4px 14px",
+                          borderRadius: "12px",
                         },
                         children: "Queen 👑",
                       },
                     },
-                  ],
-                },
-              },
-              // VS in the middle
-              {
-                type: "div",
-                props: {
-                  style: {
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: "0 24px",
-                  },
-                  children: [
                     {
                       type: "div",
                       props: {
                         style: {
                           fontFamily: "Montserrat",
                           fontWeight: 900,
-                          fontSize: "64px",
-                          color: PRIMARY_COLOR,
-                          lineHeight: 1,
-                        },
-                        children: "VS",
-                      },
-                    },
-                  ],
-                },
-              },
-              // AI side
-              {
-                type: "div",
-                props: {
-                  style: {
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    flex: 1,
-                  },
-                  children: [
-                    {
-                      type: "img",
-                      props: {
-                        src: jeanclawAvatar,
-                        style: {
-                          width: `${AVATAR_SIZE}px`,
-                          height: `${AVATAR_SIZE}px`,
-                          borderRadius: `${AVATAR_RADIUS}px`,
-                          border: `${AVATAR_BORDER}px solid #16a34a`,
-                          objectFit: "cover",
-                        },
-                      },
-                    },
-                    {
-                      type: "div",
-                      props: {
-                        style: {
-                          fontFamily: "Montserrat",
-                          fontWeight: 900,
-                          fontSize: "32px",
+                          fontSize: "28px",
                           color: PRIMARY_TEXT,
-                          marginTop: "16px",
+                          backgroundColor: BG_COLOR,
+                          padding: "4px 14px",
+                          borderRadius: "12px",
                         },
                         children: "AI 🦀",
                       },
@@ -210,27 +182,35 @@ export const GET: APIRoute = async () => {
                   ],
                 },
               },
-            ],
-          },
-        },
-        // Subtitle
-        {
-          type: "div",
-          props: {
-            style: {
-              display: "flex",
-              justifyContent: "center",
-              padding: "0 60px 8px 60px",
-            },
-            children: [
+              // VS
+              {
+                type: "div",
+                props: {
+                  style: {
+                    fontFamily: "Montserrat",
+                    fontWeight: 900,
+                    fontSize: "80px",
+                    color: PRIMARY_COLOR,
+                    lineHeight: 1,
+                    backgroundColor: BG_COLOR,
+                    padding: "8px 28px",
+                    borderRadius: "20px",
+                  },
+                  children: "VS",
+                },
+              },
+              // Subtitle
               {
                 type: "div",
                 props: {
                   style: {
                     fontFamily: "Lora",
-                    fontSize: "22px",
+                    fontSize: "24px",
                     color: PRIMARY_TEXT,
-                    textAlign: "center",
+                    marginTop: "12px",
+                    backgroundColor: BG_COLOR,
+                    padding: "4px 18px",
+                    borderRadius: "12px",
                   },
                   children: "Can you tell the difference?",
                 },
@@ -244,14 +224,25 @@ export const GET: APIRoute = async () => {
           props: {
             style: {
               display: "flex",
-              padding: "0 60px 24px 60px",
+              padding: "0 0 20px 0",
               fontFamily: "Montserrat",
               fontWeight: 900,
               fontSize: "20px",
               color: PRIMARY_COLOR,
               justifyContent: "center",
+              position: "relative",
             },
-            children: "queen.raae.codes",
+            children: {
+              type: "div",
+              props: {
+                style: {
+                  backgroundColor: BG_COLOR,
+                  padding: "4px 18px",
+                  borderRadius: "12px",
+                },
+                children: "queen.raae.codes",
+              },
+            },
           },
         },
       ],
