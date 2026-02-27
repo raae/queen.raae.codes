@@ -11,4 +11,4 @@ content-dev/
 
 # Astro
 .astro/
-dist/
+dist/node_modules
