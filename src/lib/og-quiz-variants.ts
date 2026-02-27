@@ -187,9 +187,8 @@ export async function variant6(): Promise<Buffer> {
     img(crab(), { position: "absolute", top: `${Math.round(AVATAR_CY - AVATAR_RADIUS)}px`, left: `${Math.round(AVATAR_CX_RIGHT - AVATAR_RADIUS)}px`, width: `${AVATAR_DIAMETER}px`, height: `${AVATAR_DIAMETER}px`, borderRadius: "50%", border: `${AVATAR_BORDER}px solid ${GREEN}` }),
     box({ width: "100%", height: "12px", backgroundColor: ACCENT }, []),
     box({ display: "flex", flex: 1, flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative" }, [
-      text("👑", { fontSize: "48px", marginBottom: "4px" }),
       text("WHO SAID IT?", { fontFamily: "Montserrat", fontWeight: 900, fontSize: "56px", color: TEXT, backgroundColor: BG, padding: "6px 28px", borderRadius: "16px", lineHeight: 1 }),
-      text("Queen  vs  Jean-Claw", { fontFamily: "Montserrat", fontWeight: 900, fontSize: "30px", color: ACCENT, backgroundColor: BG, padding: "8px 20px", borderRadius: "12px", marginTop: "10px" }),
+      text("Queen  vs  Jean-Claw (AI)", { fontFamily: "Montserrat", fontWeight: 900, fontSize: "30px", color: ACCENT, backgroundColor: BG, padding: "8px 20px", borderRadius: "12px", marginTop: "10px" }),
       text("Can you tell the difference?", { fontFamily: "Lora", fontSize: "22px", color: TEXT, backgroundColor: BG, padding: "4px 16px", borderRadius: "10px", marginTop: "6px" }),
     ]),
     box({ display: "flex", padding: "0 0 18px 0", justifyContent: "center", position: "relative" }, text("queen.raae.codes", { fontFamily: "Montserrat", fontWeight: 900, fontSize: "18px", color: ACCENT, backgroundColor: BG, padding: "4px 14px", borderRadius: "10px" })),
