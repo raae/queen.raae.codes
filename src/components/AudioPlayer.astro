@@ -371,11 +371,21 @@ const { src, label = "Listen to this post", variant = "pill" } = Astro.props;
       return `${m}:${Math.floor(s % 60).toString().padStart(2, '0')}`;
     }
 
+    // Fathom analytics
+    const fathom = () => (window as any).fathom;
+    const slug = window.location.pathname;
+    const milestones = new Set<number>();
+
+    function trackAudio(event: string, value = 0) {
+      if (fathom()) fathom().trackEvent(`audio:${event}`, { _value: value });
+    }
+
     playBtn.addEventListener('click', () => {
       if (audio.paused) {
         audio.play();
         iconPlay.style.display = 'none';
         iconPause.style.display = 'block';
+        trackAudio('play');
       } else {
         audio.pause();
         iconPlay.style.display = 'block';
@@ -385,14 +395,27 @@ const { src, label = "Listen to this post", variant = "pill" } = Astro.props;
 
     audio.addEventListener('timeupdate', () => {
       if (!audio.duration) return;
-      fill.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
+      const pct = (audio.currentTime / audio.duration) * 100;
+      fill.style.width = `${pct}%`;
       time.textContent = `${fmt(audio.currentTime)} / ${fmt(audio.duration)}`;
+
+      // Track retention milestones
+      for (const m of [25, 50, 75]) {
+        if (pct >= m && !milestones.has(m)) {
+          milestones.add(m);
+          trackAudio(`listened:${m}%`, m);
+        }
+      }
     });
 
     audio.addEventListener('ended', () => {
       iconPlay.style.display = 'block';
       iconPause.style.display = 'none';
       fill.style.width = '0%';
+      if (!milestones.has(100)) {
+        milestones.add(100);
+        trackAudio('listened:100%', 100);
+      }
     });
 
     audio.addEventListener('loadedmetadata', () => {
