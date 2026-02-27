@@ -31,6 +31,9 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      allowedHosts: ["under-the-sea.tail3ebde1.ts.net"],
+    },
     ssr: {
       noExternal: ["clsx", "date-fns"],
     },
