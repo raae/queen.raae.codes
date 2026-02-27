@@ -55,7 +55,7 @@ Blog post paths follow the pattern: `posts-queen/YYYY/MM/DD-slug/index.md`
 - Astro components in `src/components/`, pages in `src/pages/`
 - Tailwind utility classes for styling; custom brown color palette defined in `tailwind.config.js`
 - Prettier for formatting (config in `.prettierrc`); run `npm run prettier` before committing
-- Conventional commits enforced via CommitLint + Husky
+- Always run `npm run lint` before pushing
 - Two authors supported: "queen" (Queen Raae) and "olavea" (Cap'n Ola) with separate content collections and RSS feeds
 
 ## Gotchas
