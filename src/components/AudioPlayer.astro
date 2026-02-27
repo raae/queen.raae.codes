@@ -1,0 +1,201 @@
+---
+interface Props {
+  src: string;
+  label?: string;
+}
+
+const { src, label = "Listen to this post" } = Astro.props;
+---
+
+<div class="audio-player" data-audio-src={src}>
+  <button class="audio-play-btn" aria-label="Play" type="button">
+    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><polygon points="6,4 20,12 6,20" /></svg>
+    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" width="22" height="22" style="display:none"><rect x="5" y="4" width="4" height="16" /><rect x="15" y="4" width="4" height="16" /></svg>
+  </button>
+
+  <div class="audio-info">
+    <span class="audio-label">{label}</span>
+    <div class="audio-progress-wrap">
+      <div class="audio-progress-bar">
+        <div class="audio-progress-fill"></div>
+      </div>
+      <span class="audio-time">0:00 / 0:00</span>
+    </div>
+  </div>
+
+  <button class="audio-speed-btn" type="button" aria-label="Playback speed">1×</button>
+</div>
+
+<style>
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--color-plum-50) 0%, var(--color-brown-50, #fbf6f5) 100%);
+    border: 1.5px solid var(--color-plum-200);
+    font-family: var(--font-heading);
+    user-select: none;
+  }
+
+  .audio-play-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-plum-800, #4a1638);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .audio-play-btn:hover {
+    background: var(--color-plum-600, #6b2450);
+  }
+
+  .audio-play-btn:active {
+    transform: scale(0.95);
+  }
+
+  .audio-play-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .audio-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .audio-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-plum-800, #4a1638);
+    letter-spacing: 0.01em;
+  }
+
+  .audio-progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .audio-progress-bar {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--color-plum-200, #f0c4d8);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .audio-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--color-plum-600, #6b2450);
+    border-radius: 3px;
+    transition: width 0.1s linear;
+  }
+
+  .audio-time {
+    font-size: 0.72rem;
+    color: var(--color-plum-400, #9b4d7e);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    min-width: 80px;
+    text-align: right;
+  }
+
+  .audio-speed-btn {
+    flex-shrink: 0;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1.5px solid var(--color-plum-200, #f0c4d8);
+    background: white;
+    color: var(--color-plum-600, #6b2450);
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .audio-speed-btn:hover {
+    background: var(--color-plum-100, #f8e8f0);
+    border-color: var(--color-plum-400, #9b4d7e);
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLDivElement>('.audio-player').forEach(player => {
+    const src = player.dataset.audioSrc!;
+    const audio = new Audio(src);
+    const playBtn = player.querySelector<HTMLButtonElement>('.audio-play-btn')!;
+    const iconPlay = player.querySelector<SVGElement>('.icon-play')!;
+    const iconPause = player.querySelector<SVGElement>('.icon-pause')!;
+    const progressBar = player.querySelector<HTMLDivElement>('.audio-progress-bar')!;
+    const progressFill = player.querySelector<HTMLDivElement>('.audio-progress-fill')!;
+    const timeDisplay = player.querySelector<HTMLSpanElement>('.audio-time')!;
+    const speedBtn = player.querySelector<HTMLButtonElement>('.audio-speed-btn')!;
+
+    const speeds = [1, 1.25, 1.5, 1.75, 2];
+    let speedIndex = 0;
+
+    function fmt(s: number): string {
+      const m = Math.floor(s / 60);
+      const sec = Math.floor(s % 60);
+      return `${m}:${sec.toString().padStart(2, '0')}`;
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        iconPlay.style.display = 'none';
+        iconPause.style.display = 'block';
+      } else {
+        audio.pause();
+        iconPlay.style.display = 'block';
+        iconPause.style.display = 'none';
+      }
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      if (!audio.duration) return;
+      const pct = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = `${pct}%`;
+      timeDisplay.textContent = `${fmt(audio.currentTime)} / ${fmt(audio.duration)}`;
+    });
+
+    audio.addEventListener('ended', () => {
+      iconPlay.style.display = 'block';
+      iconPause.style.display = 'none';
+      progressFill.style.width = '0%';
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+      timeDisplay.textContent = `0:00 / ${fmt(audio.duration)}`;
+    });
+
+    progressBar.addEventListener('click', (e: MouseEvent) => {
+      if (!audio.duration) return;
+      const rect = progressBar.getBoundingClientRect();
+      const pct = (e.clientX - rect.left) / rect.width;
+      audio.currentTime = pct * audio.duration;
+    });
+
+    speedBtn.addEventListener('click', () => {
+      speedIndex = (speedIndex + 1) % speeds.length;
+      audio.playbackRate = speeds[speedIndex];
+      speedBtn.textContent = `${speeds[speedIndex]}×`;
+    });
+  });
+</script>

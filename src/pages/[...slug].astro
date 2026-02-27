@@ -8,6 +8,7 @@ import Prose from "../components/Prose.astro";
 import Badge from "../components/Badge.astro";
 import Newsletter from "../components/Newsletter.astro";
 import Posts from "../components/Posts.astro";
+import AudioPlayer from "../components/AudioPlayer.astro";
 import { getAllPosts, getRelatedPosts, getAuthorInfo } from "../lib/posts";
 import { getTagBlurbs } from "../lib/tag-blurbs";
 import { getOgImagePath, getOgImageUrl } from "../lib/og-image";
@@ -104,9 +105,7 @@ const schema = {
 
       {post.audio && (
         <div class="mt-8">
-          <audio controls style="width:100%;">
-            <source src={post.audio} type="audio/mpeg" />
-          </audio>
+          <AudioPlayer src={post.audio} label="🎧 Listen to this post — narrated by Jean-Claw" />
         </div>
       )}
 
