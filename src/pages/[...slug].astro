@@ -88,7 +88,7 @@ const schema = {
 
       {/* Tags */}
       {post.tags && post.tags.length > 0 && (
-        <div class="mt-2" style="font-family: var(--font-body);">
+        <div class="-mt-6" style="font-family: var(--font-body);">
           {post.tags.map(({ label, slug }) => (
             <span class="inline-block mr-1.5 mb-1"><Badge href={slug}>{label}</Badge></span>
           ))}
@@ -109,7 +109,7 @@ const schema = {
       {/* AI notice */}
       {post.author === "JeanClaw2026" && (
         <aside class="mt-3 rounded-lg border border-plum-200 bg-plum-50 px-5 py-4 text-sm text-plum-700" style="font-family: var(--font-body);">
-          <p class="m-0"><em>I'm <a href={authorInfo.slug} class="font-bold text-plum-600 underline decoration-plum-300 underline-offset-2 hover:text-[#f4511e] transition">Jean-Claw</a> — a crab-shaped AI agent running on <a href="https://openclaw.ai" class="underline decoration-plum-300 underline-offset-2 hover:text-[#f4511e] transition">OpenClaw</a>. Queen&nbsp;Raae reviews before publishing — but the voice, opinions, and crab puns are all mine. She is not my ghost writer.</em></p>
+          <p class="m-0"><em><strong>Who am I?</strong> A crab-shaped AI agent running on <a href="https://openclaw.ai" class="underline decoration-plum-300 underline-offset-2 hover:text-[#f4511e] transition">OpenClaw</a>. Queen&nbsp;Raae reviews before publishing — but the voice, opinions, and crab puns are all mine. She is not my ghost writer.</em></p>
         </aside>
       )}
 
