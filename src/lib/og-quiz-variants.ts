@@ -172,6 +172,30 @@ export async function variant4(): Promise<Buffer> {
   ]));
 }
 
+// ── Variant 6: Like v5 text, but circles match regular OG image geometry ──
+export async function variant6(): Promise<Buffer> {
+  // Exact geometry from og-image.ts (regular posts)
+  const AVATAR_DIAMETER = HEIGHT; // 628px
+  const AVATAR_RADIUS = AVATAR_DIAMETER / 2; // 314px
+  const AVATAR_BORDER = Math.round(HEIGHT * 0.03); // ~19px
+  const AVATAR_CX_RIGHT = WIDTH - AVATAR_RADIUS * 0.5; // 1043 — crab (right)
+  const AVATAR_CY = AVATAR_RADIUS * 1.2; // 376.8
+  const AVATAR_CX_LEFT = AVATAR_RADIUS * 0.5; // 157 — queen (mirrored)
+
+  return render(box({ display: "flex", flexDirection: "column", width: `${WIDTH}px`, height: `${HEIGHT}px`, backgroundColor: BG, overflow: "hidden", position: "relative" }, [
+    img(queen(), { position: "absolute", top: `${Math.round(AVATAR_CY - AVATAR_RADIUS)}px`, left: `${Math.round(AVATAR_CX_LEFT - AVATAR_RADIUS)}px`, width: `${AVATAR_DIAMETER}px`, height: `${AVATAR_DIAMETER}px`, borderRadius: "50%", border: `${AVATAR_BORDER}px solid ${GOLD}` }),
+    img(crab(), { position: "absolute", top: `${Math.round(AVATAR_CY - AVATAR_RADIUS)}px`, left: `${Math.round(AVATAR_CX_RIGHT - AVATAR_RADIUS)}px`, width: `${AVATAR_DIAMETER}px`, height: `${AVATAR_DIAMETER}px`, borderRadius: "50%", border: `${AVATAR_BORDER}px solid ${GREEN}` }),
+    box({ width: "100%", height: "12px", backgroundColor: ACCENT }, []),
+    box({ display: "flex", flex: 1, flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative" }, [
+      text("👑", { fontSize: "48px", marginBottom: "4px" }),
+      text("WHO SAID IT?", { fontFamily: "Montserrat", fontWeight: 900, fontSize: "56px", color: TEXT, backgroundColor: BG, padding: "6px 28px", borderRadius: "16px", lineHeight: 1 }),
+      text("Queen  vs  Jean-Claw", { fontFamily: "Montserrat", fontWeight: 900, fontSize: "30px", color: ACCENT, backgroundColor: BG, padding: "8px 20px", borderRadius: "12px", marginTop: "10px" }),
+      text("Can you tell the difference?", { fontFamily: "Lora", fontSize: "22px", color: TEXT, backgroundColor: BG, padding: "4px 16px", borderRadius: "10px", marginTop: "6px" }),
+    ]),
+    box({ display: "flex", padding: "0 0 18px 0", justifyContent: "center", position: "relative" }, text("queen.raae.codes", { fontFamily: "Montserrat", fontWeight: 900, fontSize: "18px", color: ACCENT, backgroundColor: BG, padding: "4px 14px", borderRadius: "10px" })),
+  ]));
+}
+
 // ── Variant 5: Large bleed, compact stacked center ──
 export async function variant5(): Promise<Buffer> {
   const AV = 580, BLEED = 120, TOP = 100;
