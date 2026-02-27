@@ -96,16 +96,14 @@ const schema = {
       )}
 
       {/* Byline + audio */}
-      <aside class="relative text-sm text-plum-400 pl-6 mt-6" style="font-family: var(--font-body);">
-        <span class="absolute left-0 top-0 text-amber-500">{post.author === "Queen" ? "✦" : authorInfo.emoji || "✦"}</span>
-        <div class="byline-row">
-          <span class="italic">By <a href={authorInfo.slug} class="not-italic font-bold text-plum-600 underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">{authorName}</a></span>
-          {post.audio && (
-            <div class="byline-audio">
-              <AudioPlayer src={post.audio} label="Listen to this post" variant="inline" />
-            </div>
-          )}
-        </div>
+      <aside class="text-sm text-plum-400 mt-6" style="font-family: var(--font-body);">
+        <span class="text-amber-500">{post.author === "Queen" ? "✦" : authorInfo.emoji || "✦"}</span>{" "}
+        <span class="italic">By <a href={authorInfo.slug} class="not-italic font-bold text-plum-600 underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">{authorName}</a></span>
+        {post.audio && (
+          <span class="inline-block ml-3 align-middle" style="min-width: 180px; max-width: 320px; width: 40%;">
+            <AudioPlayer src={post.audio} label="Listen to this post" variant="inline" />
+          </span>
+        )}
       </aside>
 
       {/* AI notice */}
@@ -157,28 +155,3 @@ const schema = {
   </main>
 </BaseLayout>
 
-<style>
-  .byline-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .byline-audio {
-    flex: 1;
-    min-width: 200px;
-  }
-
-  @media (max-width: 640px) {
-    .byline-row {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-    }
-
-    .byline-audio {
-      width: 100%;
-    }
-  }
-</style>
