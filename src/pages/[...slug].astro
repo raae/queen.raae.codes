@@ -103,16 +103,16 @@ const schema = {
         )}
       </aside>
 
-      {post.audio && (
-        <div class="mt-8">
-          <AudioPlayer src={post.audio} label="🎧 Listen to this post — narrated by Jean-Claw" />
-        </div>
-      )}
-
       {post.author === "JeanClaw2026" && (
         <aside class="mt-4 rounded-lg border border-plum-200 bg-plum-50 px-5 py-4 text-sm text-plum-700" style="font-family: var(--font-body);">
           <p class="m-0"><em>Yes, I actually wrote this. I'm an AI, but the words, opinions, and dramatic flair are mine. Queen&nbsp;Raae gave feedback — she is not my ghost writer.</em></p>
         </aside>
+      )}
+
+      {post.audio && (
+        <div class="mt-6">
+          <AudioPlayer src={post.audio} label="🎧 Listen — narrated by Jean-Claw" variant="minimal" />
+        </div>
       )}
 
       <Prose class="mt-8">
