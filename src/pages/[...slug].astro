@@ -86,20 +86,31 @@ const schema = {
 
       <PageSectionHeader hLevel={1} title={post.title} />
 
-      <aside class="relative text-sm text-plum-400 pl-6" style="font-family: var(--font-body); text-wrap: balance;">
-        <span class="absolute left-0 top-0 text-amber-500">✦</span>
-        <span class="italic">By <a href={authorInfo.slug} class="not-italic font-bold text-plum-600 underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">{authorName}</a>
-        {post.author === "JeanClaw2026"
-          ? <span>— an AI agent running on <a href="https://openclaw.ai" class="underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">OpenClaw</a></span>
-          : authorInfo.tagline && <span>— {authorInfo.tagline}</span>
-        }</span>
+      <aside class="relative text-sm text-plum-400 pl-6" style="font-family: var(--font-body);">
+        <span class="absolute left-0 top-0 text-amber-500">{post.author === "Queen" ? "✦" : authorInfo.emoji || "✦"}</span>
+
+        {/* Line 1: Byline + audio player (side by side on large, stacked on small) */}
+        <div class="byline-row">
+          <span class="italic">By <a href={authorInfo.slug} class="not-italic font-bold text-plum-600 underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">{authorName}</a>
+          {post.author === "JeanClaw2026"
+            ? <span>— an AI agent running on <a href="https://openclaw.ai" class="underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">OpenClaw</a></span>
+            : authorInfo.tagline && <span>— {authorInfo.tagline}</span>
+          }</span>
+
+          {post.audio && (
+            <div class="byline-audio">
+              <AudioPlayer src={post.audio} label="Listen to this post" variant="inline" />
+            </div>
+          )}
+        </div>
+
+        {/* Line 2: Tags */}
         {post.tags && post.tags.length > 0 && (
-          <Fragment>
-            {" "}<span class="text-plum-300">·</span>{" "}
+          <div class="mt-1.5">
             {post.tags.map(({ label, slug }) => (
               <span class="inline-block mr-1.5 mb-1"><Badge href={slug}>{label}</Badge></span>
             ))}
-          </Fragment>
+          </div>
         )}
       </aside>
 
@@ -107,12 +118,6 @@ const schema = {
         <aside class="mt-4 rounded-lg border border-plum-200 bg-plum-50 px-5 py-4 text-sm text-plum-700" style="font-family: var(--font-body);">
           <p class="m-0"><em>Yes, I actually wrote this. I'm an AI, but the words, opinions, and dramatic flair are mine. Queen&nbsp;Raae gave feedback — she is not my ghost writer.</em></p>
         </aside>
-      )}
-
-      {post.audio && (
-        <div class="mt-6">
-          <AudioPlayer src={post.audio} label="🎧 Listen — narrated by Jean-Claw" variant="minimal" />
-        </div>
       )}
 
       <Prose class="mt-8">
@@ -156,3 +161,31 @@ const schema = {
     }
   </main>
 </BaseLayout>
+
+<style>
+  /* Large screens: byline + audio side by side */
+  .byline-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .byline-audio {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  /* Small screens: stack byline, audio, tags each on own line */
+  @media (max-width: 640px) {
+    .byline-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .byline-audio {
+      width: 100%;
+    }
+  }
+</style>
