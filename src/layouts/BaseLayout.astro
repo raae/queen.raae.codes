@@ -18,7 +18,10 @@ const { title, description, image, imageAlt, type = "website", creator, canonica
 const { siteName, siteTagline, siteDescription, siteUrl, siteSocialImage, siteSocialImageAlt, siteTwitterCreator } =
   siteMetadata;
 
-const deployUrl = import.meta.env.DEPLOY_PRIME_URL || siteUrl;
+const deployUrl =
+  import.meta.env.CONTEXT === "production"
+    ? (import.meta.env.URL || siteUrl)
+    : (import.meta.env.DEPLOY_PRIME_URL || siteUrl);
 const siteTitle = `${siteName} — ${siteTagline}`;
 const pageTitle = title ? `${title}  —  ${siteName}` : siteTitle;
 const pageImage = image || siteSocialImage;

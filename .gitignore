@@ -10,5 +10,9 @@ content-dev/
 .netlify/
 
 # Astro
+dist/
 .astro/
 dist/node_modules
+
+# Claude
+.claude/worktrees/
