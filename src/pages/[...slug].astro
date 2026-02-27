@@ -96,13 +96,12 @@ const schema = {
       )}
 
       {/* Byline + audio */}
-      <aside class="text-sm text-plum-400 mt-6" style="font-family: var(--font-body);">
-        <span class="text-amber-500">{post.author === "Queen" ? "✦" : authorInfo.emoji || "✦"}</span>{" "}
-        <span class="italic">By <a href={authorInfo.slug} class="not-italic font-bold text-plum-600 underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">{authorName}</a></span>
+      <aside class="flex items-center gap-4 text-sm text-plum-400 mt-6" style="font-family: var(--font-body);">
+        <span class="shrink-0"><span class="text-amber-500">{post.author === "Queen" ? "✦" : authorInfo.emoji || "✦"}</span>{" "}<span class="italic">By <a href={authorInfo.slug} class="not-italic font-bold text-plum-600 underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">{authorName}</a></span></span>
         {post.audio && (
-          <span class="inline-block ml-3 align-middle" style="min-width: 180px; max-width: 320px; width: 40%;">
+          <div class="flex-1 min-w-0">
             <AudioPlayer src={post.audio} label="Listen to this post" variant="inline" />
-          </span>
+          </div>
         )}
       </aside>
 
