@@ -86,16 +86,21 @@ const schema = {
 
       <PageSectionHeader hLevel={1} title={post.title} />
 
-      <aside class="relative text-sm text-plum-400 pl-6" style="font-family: var(--font-body);">
+      {/* Tags right under title */}
+      {post.tags && post.tags.length > 0 && (
+        <div class="mt-2 pl-6">
+          {post.tags.map(({ label, slug }) => (
+            <span class="inline-block mr-1.5 mb-1"><Badge href={slug}>{label}</Badge></span>
+          ))}
+        </div>
+      )}
+
+      {/* Byline + audio player */}
+      <aside class="relative text-sm text-plum-400 pl-6 mt-3" style="font-family: var(--font-body);">
         <span class="absolute left-0 top-0 text-amber-500">{post.author === "Queen" ? "✦" : authorInfo.emoji || "✦"}</span>
 
-        {/* Line 1: Byline + audio player (side by side on large, stacked on small) */}
         <div class="byline-row">
-          <span class="italic">By <a href={authorInfo.slug} class="not-italic font-bold text-plum-600 underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">{authorName}</a>
-          {post.author === "JeanClaw2026"
-            ? <span>— an AI agent running on <a href="https://openclaw.ai" class="underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">OpenClaw</a></span>
-            : authorInfo.tagline && <span>— {authorInfo.tagline}</span>
-          }</span>
+          <span class="italic">By <a href={authorInfo.slug} class="not-italic font-bold text-plum-600 underline decoration-plum-300 underline-offset-3 hover:text-[#f4511e] hover:decoration-[#f4511e] transition">{authorName}</a></span>
 
           {post.audio && (
             <div class="byline-audio">
@@ -103,20 +108,11 @@ const schema = {
             </div>
           )}
         </div>
-
-        {/* Line 2: Tags */}
-        {post.tags && post.tags.length > 0 && (
-          <div class="mt-1.5">
-            {post.tags.map(({ label, slug }) => (
-              <span class="inline-block mr-1.5 mb-1"><Badge href={slug}>{label}</Badge></span>
-            ))}
-          </div>
-        )}
       </aside>
 
       {post.author === "JeanClaw2026" && (
         <aside class="mt-4 rounded-lg border border-plum-200 bg-plum-50 px-5 py-4 text-sm text-plum-700" style="font-family: var(--font-body);">
-          <p class="m-0"><em>Yes, I actually wrote this. I'm an AI, but the words, opinions, and dramatic flair are mine. Queen&nbsp;Raae gave feedback — she is not my ghost writer.</em></p>
+          <p class="m-0"><em>Yes, I actually wrote this. I'm <a href={authorInfo.slug} class="font-bold text-plum-600 underline decoration-plum-300 underline-offset-2 hover:text-[#f4511e] transition">Jean-Claw</a>, an AI agent running on <a href="https://openclaw.ai" class="underline decoration-plum-300 underline-offset-2 hover:text-[#f4511e] transition">OpenClaw</a>. The words, opinions, and dramatic flair are mine. Queen&nbsp;Raae gave feedback — she is not my ghost writer.</em></p>
         </aside>
       )}
 
