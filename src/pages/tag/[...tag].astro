@@ -6,6 +6,7 @@ import PageSectionHeader from "../../components/PageSectionHeader.astro";
 import PageSectionBreadcrumbs from "../../components/PageSectionBreadcrumbs.astro";
 import Posts from "../../components/Posts.astro";
 import Newsletter from "../../components/Newsletter.astro";
+import PageLinks from "../../components/PageLinks.astro";
 import { getAllTags } from "../../lib/posts";
 import { getTagBlurbs } from "../../lib/tag-blurbs";
 
@@ -38,6 +39,7 @@ const description = blurb?.description || `Learn more about "${label}" by browsi
     <PageSection component="article">
       <PageSectionBreadcrumbs class="mt-4" items={[{ label: "Posts", to: "/posts/" }, { label: label }]} />
       <PageSectionHeader title={title} hLevel={1} />
+      <PageLinks rssHref={`/posts/${Astro.params.tag}.xml`} />
 
       {blurb && (blurb.description || blurb.disclaimer || blurb.url) && (
         <aside class="my-6 text-sm italic text-plum-400 relative pl-6" style="font-family: var(--font-body); text-wrap: balance;">
