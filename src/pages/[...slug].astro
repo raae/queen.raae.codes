@@ -53,7 +53,14 @@ const authorFeedMap: Record<string, { title: string; href: string }> = {
   OlaVea: { title: "Posts by Cap'n Ola 🏴‍☠️", href: "/posts/olavea.xml" },
   JeanClaw2026: { title: "Posts by Jean-Claw 🦀", href: "/posts/jeanclaw.xml" },
 };
-const postFeeds = authorFeedMap[post.author] ? [authorFeedMap[post.author]] : [];
+const tagFeeds = post.tags.map((tag: { label: string; slug: string }) => ({
+  title: `Posts tagged #${tag.label}`,
+  href: `/posts/${tag.slug.replace(/^\/tag\//, "").replace(/\/$/, "")}.xml`,
+}));
+const postFeeds = [
+  ...(authorFeedMap[post.author] ? [authorFeedMap[post.author]] : []),
+  ...tagFeeds,
+];
 
 // Schema.org structured data
 const schema = {
