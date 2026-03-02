@@ -2,6 +2,11 @@
 import siteMetadata from "../data/siteMetadata.js";
 import "../global.css";
 
+interface RssFeed {
+  title: string;
+  href: string;
+}
+
 interface Props {
   title?: string;
   description?: string;
@@ -10,10 +15,17 @@ interface Props {
   type?: string;
   creator?: string;
   canonical?: string;
+  feeds?: RssFeed[];
   children?: any;
 }
 
-const { title, description, image, imageAlt, type = "website", creator, canonical: canonicalProp } = Astro.props;
+const { title, description, image, imageAlt, type = "website", creator, canonical: canonicalProp, feeds = [] } = Astro.props;
+
+// Always include the main feed, plus any page-specific feeds
+const allFeeds: RssFeed[] = [
+  { title: "All Posts — Queen Raae & Family", href: "/posts/rss.xml" },
+  ...feeds,
+];
 
 const { siteName, siteTagline, siteDescription, siteUrl, siteSocialImage, siteSocialImageAlt, siteTwitterCreator } =
   siteMetadata;
@@ -65,6 +77,10 @@ const twitterCard = "summary_large_image";
     <meta name="twitter:description" content={socialDescription} />
     {socialImage && <meta name="twitter:image:src" content={socialImage} />}
     {socialImageAlt && <meta name="twitter:image:alt" content={socialImageAlt} />}
+
+    {allFeeds.map(feed => (
+      <link rel="alternate" type="application/rss+xml" title={feed.title} href={feed.href} />
+    ))}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
