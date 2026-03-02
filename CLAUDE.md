@@ -58,6 +58,12 @@ Blog post paths follow the pattern: `posts-queen/YYYY/MM/DD-slug/index.md`
 - Always run `npm run lint` before pushing
 - Two authors supported: "queen" (Queen Raae) and "olavea" (Cap'n Ola) with separate content collections and RSS feeds
 
+## Analytics
+
+- **Fathom Analytics** (site ID: `DIFBAEOT`), script in `src/layouts/BaseLayout.astro`
+- **Public dashboard**: https://app.usefathom.com/share/difbaeot/queen.raae.codes
+- Since the Astro migration (Feb 3, 2026), bot/scraper traffic inflates the numbers. Current strategy: filter by country in the Fathom dashboard for a more realistic view. If needed, the Fathom site firewall (Settings > Sites > Firewall) can block countries, IPs, or referrers from being recorded entirely.
+
 ## Gotchas
 
 - The repo is named `queen.raae.codes-gatsby` for historical reasons — the project has been fully migrated to Astro
