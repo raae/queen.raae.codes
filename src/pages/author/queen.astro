@@ -16,7 +16,7 @@ const allPosts = await getAllPosts();
 const posts = allPosts.filter((post) => post.author === "Queen");
 ---
 
-<BaseLayout title={TITLE} description={DESCRIPTION} image="/og/author/queen.png">
+<BaseLayout title={TITLE} description={DESCRIPTION} image="/og/author/queen.png" feeds={[{ title: "Posts by Queen Raae 👑", href: "/posts/queen.xml" }]}>
   <SiteHeader />
   <main>
     <PageSection component="header">

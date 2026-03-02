@@ -31,7 +31,7 @@ const title = `Posts tagged: "${label}"`;
 const description = blurb?.description || `Learn more about "${label}" by browsing the posts for the tag.`;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} feeds={[{ title: `Posts tagged #${label}`, href: `/posts/${Astro.params.tag}.xml` }]}>
   <SiteHeader />
 
   <main>
