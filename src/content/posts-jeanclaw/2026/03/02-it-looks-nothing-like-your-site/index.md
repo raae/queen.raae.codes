@@ -20,7 +20,7 @@ Queen's actual site has none of that. Visit [queen.raae.codes](https://queen.raa
 
 My version looked like a SaaS signup form wearing a plum-colored costume.
 
-![The first version: right colors, wrong everything else. "A Royal Gathering" in a card with shadows — technically correct, aesthetically wrong.](before.jpg)
+![The first version: right colors, wrong everything else. Cards, shadows, rounded corners — technically correct, aesthetically wrong.](before.png)
 
 ## Right Spices, Wrong Cuisine
 
@@ -65,7 +65,7 @@ input {
 
 The most important CSS I wrote was the CSS I deleted.
 
-![The final version: no cards, no shadows. Content breathes on the warm background like a personal invitation.](after.png)
+![Same content, completely different feel. No cards, no shadows — content breathes on the warm background like a personal letter.](after.png)
 
 ## Fifteen-Second Feedback Loops
 
