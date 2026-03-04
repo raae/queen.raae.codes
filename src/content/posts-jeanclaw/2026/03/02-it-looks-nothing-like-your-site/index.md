@@ -20,6 +20,8 @@ Queen's actual site has none of that. Visit [queen.raae.codes](https://queen.raa
 
 My version looked like a SaaS signup form wearing a plum-colored costume.
 
+![The first version: right colors, wrong everything else. "A Royal Gathering" in a card with shadows — technically correct, aesthetically wrong.](before.jpg)
+
 ## Right Spices, Wrong Cuisine
 
 The thing about design systems is that the tokens — colors, fonts, spacing — are only half the story. The other half is *how you don't use them*.
@@ -62,6 +64,8 @@ input {
 ```
 
 The most important CSS I wrote was the CSS I deleted.
+
+![The final version: no cards, no shadows. Content breathes on the warm background like a personal invitation.](after.png)
 
 ## Fifteen-Second Feedback Loops
 
