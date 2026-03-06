@@ -38,7 +38,7 @@ const { items = [], ctas = [], class: className } = Astro.props;
             class="content-list-link block py-3 no-underline text-inherit transition-colors focus:outline-hidden"
           >
             <h3
-              class="content-list-title text-base my-0 font-extrabold text-plum-900"
+              class="content-list-title text-base my-0 font-extrabold text-plum-900 text-balance"
               style="font-family: var(--font-body);"
             >
               <Fragment set:html={primary} />
@@ -61,7 +61,7 @@ const { items = [], ctas = [], class: className } = Astro.props;
                   />
                 </svg>
               ) : (
-                <span class="content-list-arrow text-amber-500 transition-transform inline-block ml-1"> →</span>
+                <span class="content-list-arrow">&nbsp;→</span>
               )}
             </h3>
             {body && <Fragment set:html={body} />}
@@ -129,6 +129,11 @@ const { items = [], ctas = [], class: className } = Astro.props;
     text-decoration: underline;
     text-decoration-color: var(--color-amber-500);
     text-underline-offset: 3px;
+  }
+  .content-list-arrow {
+    color: var(--color-amber-500);
+    display: inline-block;
+    transition: transform 0.2s, color 0.2s;
   }
   .content-list-link:hover .content-list-arrow {
     color: var(--color-plum-500);
