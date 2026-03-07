@@ -19,12 +19,15 @@ const blocks = [
 ].filter((block) => Boolean(block.children));
 
 function getTag(type: string, index: number, baseLevel: number): string {
+  // Title is the only heading — the actual page/section topic
   if (type === "title") return `h${baseLevel}`;
-  if (baseLevel + index <= 2) return `h${baseLevel + index}`;
+  // Badge is a navigational label (e.g. "Author", "Speaker"), not structural
+  // Lead and tagline are also non-heading content
   return "p";
 }
 
 function getTitleClass(level: number): string {
+  // Visual styling based on the section's hLevel (not the actual tag)
   if (level === 1) {
     return "text-[2.75rem] font-black leading-none my-9 text-plum-900 text-balance";
   }
