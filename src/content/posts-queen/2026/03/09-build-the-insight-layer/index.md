@@ -1,18 +1,16 @@
 ---
-title: "Build the insight layer — not just for agents"
+title: "The insight layer your SaaS is missing"
 tags: AI, SaaS, MCP, AX, agent-operations
 brands: Outseta, Userlist
 peeps: benediktdeicke
 ---
 
-Every SaaS is racing to expose their data to AI. MCP servers, CLIs, better API docs. Good. But raw access isn't the only value.
-
-Think about what happens when an agent wants to answer "what should I write about next?" based on your email history. Right now it has to download everything, read through it all, figure out the patterns. Every time. That's expensive, slow, and wasteful. The same processing, repeated for every user, every session.
+An agent wants to know which onboarding emails aren't landing. Right now it downloads everything, reads through it all, figures out the patterns. Every time. For every user, every session. That's expensive, slow, and wasteful.
 
 What if the SaaS provider did that work once?
 
 > "If we as service providers can provide a layer on top of our content with some vector search and some thematic extraction — we run a little AI on our side that could pull out themes."
-> <cite>Me on [Slow & Steady ep. 236 (February 2026)](https://slowandsteadypodcast.com/236?#t=36:16) ↓</cite>
+> <cite>🎧 Queen Raae on [Slow & Steady ep. 236 (February 2026)](https://slowandsteadypodcast.com/236?#t=36:16) ↓</cite>
 
 <iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/0ec939c2?#t=36:16"></iframe>
 
@@ -24,7 +22,7 @@ And embeddings are cheap. The heavy processing is not.
 
 I've built exactly this for the Slow & Steady podcast. Raw transcripts go in, and out comes a structured knowledge base: ideas extracted, stories tagged, quotable moments indexed by theme. When I ask Jean-Claude "what should I blog about?", it doesn't read through 236 episodes of raw audio transcripts. It searches the processed knowledge base, finds the themes, then pulls the specific quotes it needs to give me ideas.
 
-(Sidenote: if you want this for your podcast, let me know.)
+(Sidenote: if you want this for your podcast, [drop me a line](mailto:queen@raae.codes?subject=Podcast%20pipeline).)
 
 ## Now imagine this for your SaaS
 
@@ -47,3 +45,5 @@ Userlist and Outseta could both pitch ideas for the next broadcast based on what
 Build the smart layer into your product first. Then expose it through the UI, API, MCP, CLI, whatever comes next. The interface changes. The intelligence stays.
 
 At Outseta we have billing, email, support, CRM all in one place. The [system of record](/2026/03/07-outseta-a-system-of-record/). Now the question is: what intelligence do we build on top of it?
+
+The smartest API is the one that already did the thinking.
