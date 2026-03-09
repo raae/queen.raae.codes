@@ -2,49 +2,42 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import PageSection from "../components/PageSection.astro";
+import PageSectionHeader from "../components/PageSectionHeader.astro";
 ---
 
 <BaseLayout title="Page Not Found" description="This page doesn't exist — but the treasure is elsewhere!">
   <SiteHeader />
-  <PageSection>
-    <div class="flex flex-col items-center justify-center py-16 text-center">
-      <p class="text-6xl mb-6">🗺️</p>
-      <h1
-        class="text-4xl md:text-5xl font-bold mb-4"
-        style="font-family: var(--font-label);"
-      >
-        X Marks the Wrong Spot
-      </h1>
-      <p class="text-lg text-brown-700 mb-2 max-w-md" style="font-family: var(--font-body);">
-        This page has sailed off the map. The treasure you're looking for might be elsewhere&hellip;
-      </p>
+  <main>
+    <PageSection component="header">
+      <PageSectionHeader badge="404" title="This page has sailed off the map 🗺️" lead="The treasure you're looking for might be elsewhere&hellip;" hLevel={1} />
 
-      <hr class="ornamental-hr my-8 w-full max-w-xs border-none text-center text-amber-500 text-xl tracking-[0.75rem]"
-        style="height: auto;"
+      <img
+        src="https://media.giphy.com/media/8P8u3gh2OJqog/giphy.gif"
+        alt="Confused pirate looking around"
+        width="480"
+        height="266"
+        class="my-8 max-w-full rounded"
+        loading="eager"
       />
+    </PageSection>
 
-      <div class="flex flex-col sm:flex-row gap-4">
+    <PageSection>
+      <div class="flex flex-col sm:flex-row gap-3 max-w-md">
         <a
           href="/"
-          class="inline-block px-6 py-3 bg-plum-700 text-white rounded font-semibold no-underline hover:bg-plum-800 transition-colors"
+          class="inline-flex items-center justify-center px-4 py-2 border-2 border-solid border-plum-500 bg-plum-500 text-white text-sm font-semibold no-underline hover:bg-plum-800 hover:border-plum-800 transition focus:outline-hidden focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
           style="font-family: var(--font-label);"
         >
-          Back to Shore 👑
+          Back to shore 👑
         </a>
         <a
           href="/search/"
-          class="inline-block px-6 py-3 border border-plum-400 text-plum-600 rounded font-semibold no-underline hover:bg-plum-50 transition-colors"
+          class="inline-flex items-center justify-center px-4 py-2 border-2 border-solid border-plum-500 bg-transparent text-plum-500 text-sm font-semibold no-underline hover:bg-plum-50 transition focus:outline-hidden focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
           style="font-family: var(--font-label);"
         >
-          Search for Treasure 🔍
+          Search for treasure 🔍
         </a>
       </div>
-    </div>
-  </PageSection>
+    </PageSection>
+  </main>
 </BaseLayout>
-
-<style>
-  .ornamental-hr::after {
-    content: "⚜  👑  ⚜";
-  }
-</style>
