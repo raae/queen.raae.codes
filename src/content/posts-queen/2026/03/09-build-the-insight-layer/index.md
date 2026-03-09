@@ -10,7 +10,7 @@ An agent wants to know which onboarding emails aren't landing. Right now it down
 What if the SaaS provider did that work once?
 
 > "If we as service providers can provide a layer on top of our content with some vector search and some thematic extraction — we run a little AI on our side that could pull out themes."
-> <cite>🎧 Queen Raae on [Slow & Steady ep. 236 (February 2026)](https://slowandsteadypodcast.com/236?#t=36:16) ↓</cite>
+> <cite>🎧 Me on [Slow & Steady 236@36:16 (February 2026)](https://slowandsteadypodcast.com/236?#t=36:16) ↓</cite>
 
 <iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/0ec939c2?#t=36:16"></iframe>
 

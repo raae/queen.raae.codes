@@ -7,7 +7,7 @@ brands: Slow&Steady
 Back in March I ended up comparing AI prompting to eating potato chips on the podcast.
 
 > "It's like when you are eating potato chips. Just like one more. It's gonna be fine. One more."
-> — Me on [Slow & Steady ep. 219 (at the 46:57 mark)](https://slowandsteadypodcast.com/219?#t=46:57)
+> <cite>🎧 Me on [Slow & Steady 219@46:57 (March 2025)](https://slowandsteadypodcast.com/219?#t=46:57)</cite>
 
 That was almost a year ago and it still holds true.
 

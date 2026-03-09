@@ -24,8 +24,7 @@ Turns out it's not just me saying this. The [MCP spec](https://modelcontextproto
 And the folks using MCP servers for marketing right now? They're not sitting there watching each API call:
 
 > "They're just YOLOing things and sending them off into subagents. So if it takes four tries to get this broadcast up, they're not even gonna see that. They're just gonna see it when it's done."
-
-Hear it on [Slow & Steady ep. 236 (at 33:07)](https://slowandsteadypodcast.com/236?#t=33:07) ↓
+> <cite>🎧 Me on [Slow & Steady 236@33:07 (February 2026)](https://slowandsteadypodcast.com/236?#t=33:07) ↓</cite>
 
 <iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/0ec939c2?#t=33:07"></iframe>
 

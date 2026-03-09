@@ -10,7 +10,7 @@ At Outseta we have billing, auth, email, support, and CRM under one roof. We use
 Then on a recent episode of Slow&Steady I was exploring how Outseta's all-in-one nature could be a real differentiator when it comes to AI agents:
 
 > "In this era of AI-enabled business operations, it can be a very big differentiator that we actually have your billing data, we have your accounts, we have your email list, and we have your emails and we have your support documentation. We have all of that."
-> <cite>Me on [Slow & Steady ep. 236 (February 2026)](https://slowandsteadypodcast.com/236?#t=21:39) ↓</cite>
+> <cite>🎧 Me on [Slow & Steady 236@21:39 (February 2026)](https://slowandsteadypodcast.com/236?#t=21:39) ↓</cite>
 
 <iframe width="100%" height="180" frameborder="no" scrolling="no" seamless="" src="https://share.transistor.fm/e/0ec939c2?#t=21:39"></iframe>
 
