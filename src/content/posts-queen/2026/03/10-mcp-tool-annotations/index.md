@@ -1,5 +1,5 @@
 ---
-title: "Customer Bastien taught me about MCP permissions"
+title: "Customer Bastien: your MCP server has a permission problem"
 tags: AI, MCP
 brands: Outseta
 ---
@@ -52,6 +52,10 @@ Then categorized all 15 tools:
 - **7 read-only** — `get_accounts`, `get_people`, `get_plans`, `get_plan_families`, `get_email_lists`, `get_email_list_subscribers`, `preview_subscription_change`
 - **7 write** — `register_account`, `create_person`, `add_person_to_account`, `create_plan`, `create_plan_family`, `create_email_list`, `subscribe_to_email_list`
 - **1 destructive** — `change_subscription`
+
+And now Claude Desktop shows them as separate groups with independent permission settings:
+
+![Outseta tools grouped by read-only and write/delete in Claude Desktop](./outseta-tools-after.png)
 
 ## Why `change_subscription` gets the destructive flag
 
