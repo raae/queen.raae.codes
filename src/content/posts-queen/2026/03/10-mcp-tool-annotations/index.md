@@ -4,7 +4,7 @@ tags: AI, MCP
 brands: Outseta
 ---
 
-I built the [Outseta MCP server MVP](https://github.com/outseta/outseta-admin-mcp-server) to showcase how one could enable Jean-Claude et. al to manage stuff in your [Outseta](https://outseta.com?via=queen) account. Stuff like users, billing, email lists etc.
+Back in August I built the [Outseta MCP server MVP](https://github.com/outseta/outseta-admin-mcp-server) to showcase how one could enable Jean-Claude (my Claude Code instance) and other AI tools to manage stuff in your [Outseta](https://outseta.com?via=queen) account. Stuff like users, billing, email lists etc.
 
 No delete tools were included, but it had both write and update tools. After months of very little feedback [Bastien opened an issue](https://github.com/outseta/outseta-admin-mcp-server/issues/2) that made me go "oh, I didn't even know that was possible."
 
@@ -64,13 +64,17 @@ Claude Desktop doesn't actually render a separate group for destructive vs. regu
 The SDK has two ways to register tools. The positional-args version (`server.tool()`) doesn't support annotations cleanly. The config-object version (`server.registerTool()`) does:
 
 ```typescript
-server.registerTool("get_accounts", {
-  description: "Query accounts with filtering and pagination",
-  inputSchema: GetAccountsSchema.shape,
-  annotations: READ_ANNOTATION,
-}, async (params) => {
-  // ...
-});
+server.registerTool(
+  "get_accounts",
+  {
+    description: "Query accounts with filtering and pagination",
+    inputSchema: GetAccountsSchema.shape,
+    annotations: READ_ANNOTATION,
+  },
+  async (params) => {
+    // ...
+  },
+);
 ```
 
 Both are built into `@modelcontextprotocol/sdk`. No custom code needed. I just hadn't used `registerTool` before.
@@ -80,9 +84,7 @@ Both are built into `@modelcontextprotocol/sdk`. No custom code needed. I just h
 Three things I'd steal from this:
 
 1. **Look at the Notion MCP server.** I keep hearing good things about it, and it clearly uses the spec features well. A solid reference if you're figuring out annotations.
-
 2. **Annotate your tools from day one.** The three-constant pattern (`READ`, `WRITE`, `DESTRUCTIVE`) covers most cases. Your users get granular permissions for free.
-
 3. **Think about what "destructive" means in your domain.** For Outseta, it's billing mutations — and deletions too, when we add those. For your tool it might be deleting records, sending emails, or modifying permissions. If the user would want a confirmation dialog, it's probably destructive.
 
 ---
@@ -91,4 +93,4 @@ Customer like Bastien are worth their weight in gold 🙏
 
 ![Bastien confirming it works](./bastien-thanks.png)
 
-What other patterns should I know about? [Hit me up](mailto:queen@raae.codes) — I'd love to hear what's working for you.
+Building an MCP server? I'm curious what what other patterns you've discovered that I should know about. [Hit me up](mailto:queen@raae.codes)!
